@@ -1,4 +1,5 @@
 <template>
+  <h1>{{ $t('welcome') }}</h1>
   <h3 id="purpose">Purpose</h3>
 
   <table class="table table-taxonomy">
