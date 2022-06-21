@@ -1,6 +1,6 @@
 <template>
-  <h1>{{ $t('welcome') }}</h1>
-  <h3 id="purpose">Purpose</h3>
+  <h1></h1>
+  <h3 id="purpose">{{ $t('purpose') }}</h3>
 
   <table class="table table-taxonomy">
     <thead>

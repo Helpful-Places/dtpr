@@ -11,6 +11,9 @@
     "data": "data",
     "data_headline": "Type of data collected",
     "process": "process",
+    "process_test": {
+        "headline": "Test Headline"
+    },
     "process_headline": "Describes how data collected or handled by a technology is processed or manipulated",
     "process_headline__review": "Describes a review process conducted before this technology was implemented",
     "process_headline__regulatory": "A regulatory entity has oversight of this technology or data activity.",
