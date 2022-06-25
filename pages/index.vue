@@ -1,12 +1,12 @@
 <template>
   <LocaleSwitcher />
 
-  <PurposeSection />
-  <TechnologySection />
+  <!-- <PurposeSection /> -->
+  <!-- <TechnologySection /> -->
   <DataTypeSection />
-  <DataProcessSection />
-  <DataAccessSection />
-  <DataStorageSection />
+  <!-- <DataProcessSection /> -->
+  <!-- <DataAccessSection /> -->
+  <!-- <DataStorageSection /> -->
 </template>
 
 <style lang="postcss">
