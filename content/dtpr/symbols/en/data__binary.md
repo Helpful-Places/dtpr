@@ -1,9 +1,10 @@
 ---
-category: "data"
-name: "Binary"
-description: "Compressed data into a binary format. Find out more [here](https://en.wikipedia.org/wiki/Binary_file)"
-id: "binary"
-icon: "https://dtpr.helpfulplaces.com/dtpr_icons/data/binary.svg"
+category: data
+name: Binary
+id: binary
+description: Compressed data into a binary format. Find out more
+  [here](https://en.wikipedia.org/wiki/Binary_file)
+icon: https://dtpr.helpfulplaces.com/dtpr_icons/data/binary.svg
 ---
 data
 

@@ -1,9 +1,9 @@
 ---
-category: "storage"
-name: "No data retained"
-description: "No data is kept or stored"
-id: "no_data_retained"
-icon: "https://dtpr.helpfulplaces.com/dtpr_icons/retention/no.svg"
+category: storage
+name: No data retained
+id: no_data_retained
+description: No data is kept or stored
+icon: https://dtpr.helpfulplaces.com/dtpr_icons/retention/no.svg
 ---
 storage
 

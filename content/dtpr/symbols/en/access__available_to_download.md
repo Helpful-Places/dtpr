@@ -1,9 +1,9 @@
 ---
-category: "access"
-name: "Available to download"
-description: "Data that can be accessed and downloaded online, either for free or for a fee"
-id: "available_to_download"
-icon: "https://dtpr.helpfulplaces.com/dtpr_icons/access/download.svg"
+category: access
+name: Available to download
+id: available_to_download
+description: Data that can be accessed and downloaded online, either for free or for a fee
+icon: https://dtpr.helpfulplaces.com/dtpr_icons/access/download.svg
 ---
 access
 

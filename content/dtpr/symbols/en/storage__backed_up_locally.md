@@ -1,9 +1,10 @@
 ---
-category: "storage"
-name: "Backed up locally"
-description: "Data is backed up with the jurisdiction where it was collected. Find out more [here](https://en.wikipedia.org/wiki/Data_sovereignty)"
-id: "backed_up_locally"
-icon: "https://dtpr.helpfulplaces.com/dtpr_icons/storage/cloud.svg"
+category: storage
+name: Backed up locally
+id: backed_up_locally
+description: Data is backed up with the jurisdiction where it was collected.
+  Find out more [here](https://en.wikipedia.org/wiki/Data_sovereignty)
+icon: https://dtpr.helpfulplaces.com/dtpr_icons/storage/cloud.svg
 ---
 storage
 

@@ -1,0 +1,7 @@
+---
+category: tech
+name: Capteur d'humidité du sol
+description: Les capteurs d'humidité du sol mesurent la teneur en eau du sol. En
+  savoir plus
+  [cliquez-ici](https://fr.wikipedia.org/wiki/Capteur_d%27humidit%C3%A9_du_sol)
+---

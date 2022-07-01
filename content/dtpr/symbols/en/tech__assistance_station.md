@@ -1,9 +1,11 @@
 ---
-category: "tech"
-name: "Assistance Station"
-description: "Provides access to assistive services. Examples include assistive technologies (https://en.wikipedia.org/wiki/Assistive_technology) and virtual assistants (https://en.wikipedia.org/wiki/Virtual_assistant)"
-id: "assistance_station"
-icon: "https://dtpr.helpfulplaces.com/dtpr_icons/tech/voice.svg"
+category: tech
+name: Assistance Station
+id: assistance_station
+description: Provides access to assistive services. Examples include [assistive
+  technologies](https://en.wikipedia.org/wiki/Assistive_technology) and [virtual
+  assistants](https://en.wikipedia.org/wiki/Virtual_assistant)
+icon: https://dtpr.helpfulplaces.com/dtpr_icons/tech/voice.svg
 ---
 tech
 

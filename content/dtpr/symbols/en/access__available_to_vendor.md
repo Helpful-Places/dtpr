@@ -1,9 +1,9 @@
 ---
-category: "access"
-name: "Available to vendor"
-description: "Data is available to the data collection or technology provider"
-id: "available_to_vendor"
-icon: "https://dtpr.helpfulplaces.com/dtpr_icons/access/yes-vendor.svg"
+category: access
+name: Available to vendor
+id: available_to_vendor
+description: Data is available to the data collection or technology provider
+icon: https://dtpr.helpfulplaces.com/dtpr_icons/access/yes-vendor.svg
 ---
 access
 

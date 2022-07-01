@@ -1,0 +1,6 @@
+---
+category: accountable
+name: Organisation
+description: L'entité qui est responsable et redevable de cette activité de
+  collecte de données
+---

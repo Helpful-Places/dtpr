@@ -1,9 +1,10 @@
 ---
-category: "access"
-name: "Not available to me"
-description: "Not available to me or other individuals. As an individual, there isn't a way for you to access this data."
-id: "not_available_to_me"
-icon: "https://dtpr.helpfulplaces.com/dtpr_icons/access/no.svg"
+category: access
+name: Not available to me
+id: not_available_to_me
+description: Not available to me or other individuals. As an individual, there
+  isn't a way for you to access this data.
+icon: https://dtpr.helpfulplaces.com/dtpr_icons/access/no.svg
 ---
 access
 

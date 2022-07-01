@@ -1,9 +1,10 @@
 ---
-category: "storage"
-name: "Stored primarily locally"
-description: "Data is stored mainly in the jurisdiction where it was collected. Find out more [here](https://en.wikipedia.org/wiki/Data_sovereignty)"
-id: "stored_primarily_locally"
-icon: "https://dtpr.helpfulplaces.com/dtpr_icons/storage/cloud.svg"
+category: storage
+name: Stored primarily locally
+id: stored_primarily_locally
+description: Data is stored mainly in the jurisdiction where it was collected.
+  Find out more [here](https://en.wikipedia.org/wiki/Data_sovereignty)
+icon: https://dtpr.helpfulplaces.com/dtpr_icons/storage/cloud.svg
 ---
 storage
 

@@ -1,9 +1,10 @@
 ---
-category: "purpose"
-name: "Inform"
-description: "Supports the provision of information, for example about a location, a service, or to provide assistance"
-id: "inform"
-icon: "https://dtpr.helpfulplaces.com/dtpr_icons/purpose/inform.svg"
+category: purpose
+name: Inform
+id: inform
+description: Supports the provision of information, for example about a
+  location, a service, or to provide assistance
+icon: https://dtpr.helpfulplaces.com/dtpr_icons/purpose/inform.svg
 ---
 purpose
 

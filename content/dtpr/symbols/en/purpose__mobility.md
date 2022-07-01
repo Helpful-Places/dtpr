@@ -1,9 +1,10 @@
 ---
-category: "purpose"
-name: "Mobility"
-description: "Supports how people and materials move around. Find out more here (https://en.wikipedia.org/wiki/Transport)"
-id: "mobility"
-icon: "https://dtpr.helpfulplaces.com/dtpr_icons/purpose/mobility.svg"
+category: purpose
+name: Mobility
+id: mobility
+description: Supports how people and materials move around. Find out more
+  [here](https://en.wikipedia.org/wiki/Transport)
+icon: https://dtpr.helpfulplaces.com/dtpr_icons/purpose/mobility.svg
 ---
 purpose
 

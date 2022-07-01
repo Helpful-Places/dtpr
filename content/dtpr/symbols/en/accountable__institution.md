@@ -1,9 +1,10 @@
 ---
-category: "accountable"
-name: "Institution"
-description: "The entity that is responsible and accountable for this data collection activity"
-id: "institution"
-icon: "https://dtpr.helpfulplaces.com/dtpr_icons/accountable/institution.svg"
+category: accountable
+name: Institution
+id: institution
+description: The entity that is responsible and accountable for this data
+  collection activity
+icon: https://dtpr.helpfulplaces.com/dtpr_icons/accountable/institution.svg
 ---
 accountable
 

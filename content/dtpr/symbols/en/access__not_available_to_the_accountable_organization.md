@@ -1,9 +1,9 @@
 ---
-category: "access"
-name: "Not available to the accountable organization"
-description: "Data is not available to the accountable organization"
-id: "not_available_to_the_accountable_organization"
-icon: "https://dtpr.helpfulplaces.com/dtpr_icons/access/no.svg"
+category: access
+name: Not available to the accountable organization
+id: not_available_to_the_accountable_organization
+description: Data is not available to the accountable organization
+icon: https://dtpr.helpfulplaces.com/dtpr_icons/access/no.svg
 ---
 access
 

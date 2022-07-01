@@ -1,9 +1,10 @@
 ---
-category: "storage"
-name: "Stored primarily internationally"
-description: "Data is stored outside the jurisdiction where it was collected. Find out more [here](https://en.wikipedia.org/wiki/Data_sovereignty)"
-id: "stored_primarily_internationally"
-icon: "https://dtpr.helpfulplaces.com/dtpr_icons/storage/cloud.svg"
+category: storage
+name: Stored primarily internationally
+id: stored_primarily_internationally
+description: Data is stored outside the jurisdiction where it was collected.
+  Find out more [here](https://en.wikipedia.org/wiki/Data_sovereignty)
+icon: https://dtpr.helpfulplaces.com/dtpr_icons/storage/cloud.svg
 ---
 storage
 

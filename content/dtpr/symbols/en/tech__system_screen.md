@@ -1,9 +1,10 @@
 ---
-category: "tech"
-name: "System Screen"
-description: "People can interact with this digital system using the screen that is provided as part of device installation."
-id: "system_screen"
-icon: "https://dtpr.helpfulplaces.com/dtpr_icons/tech/screen.svg"
+category: tech
+name: System Screen
+id: system_screen
+description: People can interact with this digital system using the screen that
+  is provided as part of device installation.
+icon: https://dtpr.helpfulplaces.com/dtpr_icons/tech/screen.svg
 ---
 tech
 

@@ -1,9 +1,10 @@
 ---
-category: "process"
-name: "Regulated"
-description: "Depending on the jurisdiction and type of data, data is regulated in various ways"
-id: "regulated"
-icon: "https://dtpr.helpfulplaces.com/dtpr_icons/process/regulated.svg"
+category: process
+name: Regulated
+id: regulated
+description: Depending on the jurisdiction and type of data, data is regulated
+  in various ways
+icon: https://dtpr.helpfulplaces.com/dtpr_icons/process/regulated.svg
 ---
 process
 

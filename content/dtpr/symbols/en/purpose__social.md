@@ -1,9 +1,9 @@
 ---
-category: "purpose"
-name: "Social"
-description: "For interacting with another person or a group."
-id: "social"
-icon: "https://dtpr.helpfulplaces.com/dtpr_icons/purpose/social.svg"
+category: purpose
+name: Social
+id: social
+description: For interacting with another person or a group.
+icon: https://dtpr.helpfulplaces.com/dtpr_icons/purpose/social.svg
 ---
 purpose
 

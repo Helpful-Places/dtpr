@@ -1,9 +1,10 @@
 ---
-category: "process"
-name: "Bitmap manipulation"
-description: "Bitmap manipulation is the process of altering pixels in a raster-based image, such as retouching a digital photograph."
-id: "bitmap_manipulation"
-icon: "https://dtpr.helpfulplaces.com/dtpr_icons/process/bitmap-manip.svg"
+category: process
+name: Bitmap manipulation
+id: bitmap_manipulation
+description: Bitmap manipulation is the process of altering pixels in a
+  raster-based image, such as retouching a digital photograph.
+icon: https://raw.githubusercontent.com/Helpful-Places/dtpr/master/dtpr_icons/process/bitmap-manip.svg
 ---
 process
 

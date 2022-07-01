@@ -1,9 +1,9 @@
 ---
-category: "access"
-name: "Available for resale"
-description: "The data collected may be resold to other 3rd parties"
-id: "available_for_resale"
-icon: "https://dtpr.helpfulplaces.com/dtpr_icons/access/resale.svg"
+category: access
+name: Available for resale
+id: available_for_resale
+description: The data collected may be resold to other 3rd parties
+icon: https://dtpr.helpfulplaces.com/dtpr_icons/access/resale.svg
 ---
 access
 
