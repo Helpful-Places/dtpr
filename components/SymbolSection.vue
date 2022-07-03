@@ -12,7 +12,7 @@
     </thead>
     <tbody>
       <tr v-for="symbol in symbols" :key="`${locale}-${symbol.id}`">
-        <td><SymbolIcon :iconTitle="symbol.title" :icons="icons" /></td>
+        <td><SymbolIcon :iconTitle="symbol.title" /></td>
         <td>{{symbol.name}}</td>
         <td v-html="$md.render(symbol.description)"></td>
       </tr>
@@ -32,13 +32,6 @@ const symbolCategorySyncId = `symbols-${props.symbolCategory}`;
 
 const { data: symbols } = await useAsyncData(symbolCategorySyncId, () => {
   return queryContent(`/dtpr/symbols/${locale.value}`).where({ category: props.symbolCategory }).find();
-});
-
-const { data: icons } = await useAsyncData('icons', async () => {
-  const res = await queryContent('/dtpr/symbols/en').find();
-  const icons = {};
-  res.forEach((s) => { icons[s.title] = s.icon} );
-  return icons;
 });
 
 watch(locale, async () => {

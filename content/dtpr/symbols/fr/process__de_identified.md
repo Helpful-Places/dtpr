@@ -7,6 +7,5 @@ description: Données qui sont traitées afin de supprimer les valeurs
   données , par exemple avant leur stockage dans une base de données ou avant
   leur publication. Dans le cas présent, nous entendons par là que les données
   ont déjà quitté un dispositif matériel ou ont été stockées dans une base de
-  données. Pour en savoir plus [ici]
-  (https://fr.wikipedia.org/wiki/Désidentification)
+  données. Pour en savoir plus [ici](https://fr.wikipedia.org/wiki/Désidentification)
 ---
