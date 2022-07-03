@@ -5,12 +5,12 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
+import { ref, watch, computed } from 'vue';
 
 const props = defineProps({
   'iconTitle': String
 })
-const icon = ref('');
+const icon = ref();
 
 const { data: icons } = await useAsyncData('icons', async () => {
   const res = await queryContent('/dtpr/symbols/en').find();
@@ -19,8 +19,9 @@ const { data: icons } = await useAsyncData('icons', async () => {
   return icons;
 });
 
-watch(icons, async () => {
-  icon.value = icons[props.iconTitle];
+watch(icons.value, () => {
+  icon.value = icons.value[props.iconTitle]
+}, {
+  deep: true
 });
-
 </script>
