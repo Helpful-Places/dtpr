@@ -2,7 +2,11 @@
 module.exports = {
   content: [],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'dtpr-green': '#0f5153'
+      },
+    },
   },
   plugins: [],
 }

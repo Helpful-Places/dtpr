@@ -1,12 +1,14 @@
 <template>
-  <LocaleSwitcher />
+  <div>
+    <NavHeader />
 
-  <SymbolSection symbol-category="purpose" />
-  <SymbolSection symbol-category="tech" />
-  <SymbolSection symbol-category="data" />
-  <SymbolSection symbol-category="process" />
-  <SymbolSection symbol-category="access" />
-  <SymbolSection symbol-category="storage" />
+    <SymbolSection symbol-category="purpose" symbol-category-name="Purpose" />
+    <SymbolSection symbol-category="tech" symbol-category-name="Technology" />
+    <SymbolSection symbol-category="data" symbol-category-name="Data Type" />
+    <SymbolSection symbol-category="process" symbol-category-name="Data Processing" />
+    <SymbolSection symbol-category="access" symbol-category-name="Data Access" />
+    <SymbolSection symbol-category="storage" symbol-category-name="Data Storage" />
+  </div>
 </template>
 
 <style lang="postcss">
@@ -16,5 +18,9 @@ h1 {
 
 a {
   @apply text-blue-300;
+}
+
+.dtpr-container {
+  @apply container mx-auto;
 }
 </style>
