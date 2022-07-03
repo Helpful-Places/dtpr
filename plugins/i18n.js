@@ -7,7 +7,7 @@ const messages = Object.assign(languages)
 const i18n = createI18n({
   legacy: false,
   globalInjection: true,
-  locale: defaultLocale,
+  locale: 'en',
   fallbackLocale: 'en',
   messages
 })
