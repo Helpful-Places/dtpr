@@ -9,22 +9,15 @@
       </tr>
     </thead>
     <tbody>
-      <!-- <ContentList path="/articles" v-slot="{ list }">
-        <div v-for="article in list" :key="article._path">
-          <h2>{{ article.title }}</h2>
-          <p>{{ article.description }}</p>
-        </div>
-      </ContentList> -->
-
       <tr v-for="symbol in symbols" :key="symbol.id">
         <td>
           <img
             :src=symbol.icon
-            alt=""
+            :alt=symbol.name
           />
         </td>
         <td>{{symbol.name}}</td>
-        <td>{{symbol.description}}</td>
+        <td v-html="$md.render(symbol.description)"></td>
       </tr>
     </tbody>
   </table>
@@ -33,12 +26,17 @@
 <script setup>
 import { watch } from 'vue'
 
+const props = defineProps({
+  'symbolCategory': String
+})
 const locale = useLocale();
-const { data: symbols } = await useAsyncData('symbols', () => {
-  return queryContent( `/dtpr/symbols/${locale.value}`).where({ category: 'data' }).find();
+const symbolCategorySyncId = `symbols-${props.symbolCategory}`;
+
+const { data: symbols } = await useAsyncData(symbolCategorySyncId, () => {
+  return queryContent(`/dtpr/symbols/${locale.value}`).where({ category: props.symbolCategory }).find();
 });
 
 watch(locale, async () => {
-  refreshNuxtData('symbols');
+  refreshNuxtData(symbolCategorySyncId);
 });
 </script>

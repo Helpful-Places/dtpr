@@ -58,7 +58,7 @@ collections:
       - {label: "Description", name: "description", widget: "markdown", i18n: true}
       - label: "Icon"
         name: "icon"
-        i18n: "duplicate"
+        i18n: duplicate
         widget: "image"
         choose_url: true
         allow_multiple: false

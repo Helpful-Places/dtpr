@@ -6,8 +6,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxt/content'
   ],
-  content: {
-    defaultLocale: 'en',
-    locales: ['en', 'fr']
+  nitro: {
+    plugins: ['~/server/plugins/content.ts']
   }
 })

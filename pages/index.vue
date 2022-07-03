@@ -1,12 +1,12 @@
 <template>
   <LocaleSwitcher />
 
-  <!-- <PurposeSection /> -->
-  <!-- <TechnologySection /> -->
-  <DataTypeSection />
-  <!-- <DataProcessSection /> -->
-  <!-- <DataAccessSection /> -->
-  <!-- <DataStorageSection /> -->
+  <SymbolSection symbol-category="purpose" />
+  <SymbolSection symbol-category="tech" />
+  <SymbolSection symbol-category="data" />
+  <SymbolSection symbol-category="process" />
+  <SymbolSection symbol-category="access" />
+  <SymbolSection symbol-category="storage" />
 </template>
 
 <style lang="postcss">
