@@ -1,5 +1,5 @@
 ---
-category: storage
+category: retention
 name: Retained indefinitely
 id: retained_indefinitely
 description: Data is retained indefinitely
