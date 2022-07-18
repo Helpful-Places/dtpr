@@ -1,3 +1,7 @@
+const fileName = (_id) => {
+  return _id.split(":").pop();
+}
+
 export default defineEventHandler(async event => {
   const locale = event.context.params.locale;
   const data = await $fetch('/api/_content/query', {
@@ -22,10 +26,8 @@ export default defineEventHandler(async event => {
     })
   }
 
-
-
   return json[locale].map((s) => {
-    const id = `${s.category}__${s.id || json.en.find(sym => sym._id).id}`;
+    const id = `${s.category}__${s.id || json.en.find(sym => fileName(sym._id) === fileName(s._id)).id}`;
     const icon = s.icon || json.en.find(sym => sym._id).icon;
     const headline = categories[locale].find(cat => cat.id === s.category).headline
     
