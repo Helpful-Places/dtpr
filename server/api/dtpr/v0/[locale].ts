@@ -3,7 +3,7 @@ const fileName = (_id) => {
 }
 
 export default defineEventHandler(async event => {
-  const locale = event.context.params.locale;
+  const locale = event.context.params.locale || 'en';
   const data = await $fetch('/api/_content/query', {
     method: 'GET'
   });
