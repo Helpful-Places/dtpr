@@ -19,7 +19,7 @@ const { data: icons } = await useAsyncData('icons', async () => {
   return icons;
 });
 
-watch(icons.value, () => {
+watch(icons, () => {
   icon.value = icons.value[props.iconTitle]
 }, {
   deep: true
