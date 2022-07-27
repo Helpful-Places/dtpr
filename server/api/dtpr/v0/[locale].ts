@@ -27,9 +27,12 @@ export default defineEventHandler(async event => {
   }
 
   return json[locale].map((s) => {
-    const id = `${s.category}__${s.id || json.en.find(sym => fileName(sym._id) === fileName(s._id)).id}`;
-    const icon = s.icon || json.en.find(sym => sym._id).icon;
-    const headline = categories[locale].find(cat => cat.id === s.category).headline
+    const fallback = json.en.find(sym => fileName(sym._id) === fileName(s._id));
+    
+    let id = `${s.category}__${s.id || fallback.id}`;
+    let icon = s.icon || fallback.icon;
+
+    let headline = categories[locale].find(cat => cat.id === s.category).headline
     
     return {
       id,

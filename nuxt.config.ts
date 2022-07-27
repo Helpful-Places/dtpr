@@ -5,8 +5,5 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxt/content'
-  ],
-  nitro: {
-    plugins: ['~/server/plugins/content.ts']
-  }
+  ]
 })
