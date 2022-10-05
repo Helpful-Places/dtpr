@@ -4,15 +4,5 @@ name: Tabular
 id: tabular
 description: Data that is stored in a table, where values are stored in rows and
   columns. More [here](https://en.wikipedia.org/wiki/Table_(information))
-icon: https://dtpr.helpfulplaces.com/dtpr_icons/data/table.svg
+icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832750/dtpr-icons/data/table_s7swhg.svg
 ---
-data
-
-Tabular
-
-Data that is stored in a table, where values are stored in rows and 
-columns. More here (https://en.wikipedia.org/wiki/Table_(information))
-
-tabular
-
-https://dtpr.helpfulplaces.com/dtpr_icons/data/table.svg

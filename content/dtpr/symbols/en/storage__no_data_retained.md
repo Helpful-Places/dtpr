@@ -3,14 +3,5 @@ category: storage
 name: No data retained
 id: no_data_retained
 description: No data is kept or stored
-icon: https://dtpr.helpfulplaces.com/dtpr_icons/retention/no.svg
+icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832796/dtpr-icons/retention/no_vl4qi9.svg
 ---
-storage
-
-No data retained
-
-No data is kept or stored
-
-no_data_retained
-
-https://dtpr.helpfulplaces.com/dtpr_icons/retention/no.svg

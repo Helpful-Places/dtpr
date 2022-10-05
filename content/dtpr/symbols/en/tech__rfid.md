@@ -6,14 +6,5 @@ description: Enables the identification of items using electromagnetic fields,
   commonly used to track inventory in stores, but not for identifying individual
   items. Find out more
   [here](https://en.wikipedia.org/wiki/Radio-frequency_identification)
-icon: https://dtpr.helpfulplaces.com/dtpr_icons/tech/wave.svg
+icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832813/dtpr-icons/tech/wave_bmvtme.svg
 ---
-tech
-
-RFID
-
-Enables the identification of items using electromagnetic fields, commonly used to track inventory in stores, but not for identifying individual items. Find out more here (https://en.wikipedia.org/wiki/Radio-frequency_identification)
-
-rfid
-
-https://dtpr.helpfulplaces.com/dtpr_icons/tech/wave.svg

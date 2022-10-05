@@ -7,4 +7,5 @@ description: Un TEE est un environnement isolé créé à l'aide de matériel et
   s'exécuter tout en étant invisible pour tout autre processus sur le
   processeur, pour le système d'exploitation ou tout autre type d'accès
   privilégié.
+icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832754/dtpr-icons/process/encrypted_oedzbb.svg
 ---

@@ -4,15 +4,5 @@ name: Available to 3rd parties
 id: available_to_3rd_parties
 description: Data is available to 3rd parties not involved in the data activity.
   This does not always mean that data is being resold.
-icon: https://dtpr.helpfulplaces.com/dtpr_icons/access/3rdparty.svg
+icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832731/dtpr-icons/access/3rdparty_ry5dxb.svg
 ---
-access
-
-Available to 3rd parties
-
-Data is available to 3rd parties not involved in the data activity. This 
-does not always mean that data is being resold.
-
-available_to_3rd_parties
-
-https://dtpr.helpfulplaces.com/dtpr_icons/access/3rdparty.svg

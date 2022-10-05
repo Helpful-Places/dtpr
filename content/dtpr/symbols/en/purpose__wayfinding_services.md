@@ -3,14 +3,5 @@ category: purpose
 name: Wayfinding & Services
 id: wayfinding_services
 description: Enables navigation of a location and its amenities and services.
-icon: https://dtpr.helpfulplaces.com/dtpr_icons/purpose/inform.svg
+icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832794/dtpr-icons/purpose/inform_bxnt6n.svg
 ---
-purpose
-
-Wayfinding & Services
-
-Enables navigation of a location and its amenities and services. 
-
-wayfinding_services
-
-https://dtpr.helpfulplaces.com/dtpr_icons/purpose/inform.svg

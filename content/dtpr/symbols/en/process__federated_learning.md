@@ -6,14 +6,5 @@ description: Federated Learning involves both Edge Computing and a Cloud based
   process which allows machine learning to take place on a large body of
   decentralized de-identified data. Find out more
   [here](https://en.wikipedia.org/wiki/Federated_learning).
-icon: https://dtpr.helpfulplaces.com/dtpr_icons/process/deidentified.svg
+icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832751/dtpr-icons/process/deidentified_sfq92y.svg
 ---
-process
-
-Federated learning
-
-Federated Learning involves both Edge Computing and a Cloud based process which allows machine learning to take place on a large body of decentralized de-identified data. Find out more here (https://en.wikipedia.org/wiki/Federated_learning).
-
-federated_learning
-
-https://dtpr.helpfulplaces.com/dtpr_icons/process/deidentified.svg

@@ -4,14 +4,5 @@ name: Arts & Culture
 id: arts_culture
 description: Enables artistic and/or cultural expression. Find out more
   [here](https://en.wikipedia.org/wiki/Interactive_art)
-icon: https://dtpr.helpfulplaces.com/dtpr_icons/purpose/arts.svg
+icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832781/dtpr-icons/purpose/arts_mtiqjq.svg
 ---
-purpose
-
-Arts & Culture
-
-Enables artistic and/or cultural expression. Find out more here (https://en.wikipedia.org/wiki/Interactive_art)
-
-arts_culture
-
-https://dtpr.helpfulplaces.com/dtpr_icons/purpose/arts.svg

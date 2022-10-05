@@ -5,14 +5,5 @@ id: reviewed_internally
 description: Many organizations have internal review processes that consider the
   potential benefits, risks and implications for privacy for new technologies or
   data collection activities.
-icon: https://dtpr.helpfulplaces.com/dtpr_icons/process/rdua.svg
+icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832753/dtpr-icons/process/rdua_vubhkl.svg
 ---
-process
-
-Reviewed Internally
-
-Many organizations have internal review processes that consider the potential benefits, risks and implications for privacy for new technologies or data collection activities.
-
-reviewed_internally
-
-https://dtpr.helpfulplaces.com/dtpr_icons/process/rdua.svg

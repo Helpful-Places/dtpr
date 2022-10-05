@@ -10,4 +10,5 @@ description: "Collecte des [séquences
   ordinateur](https://fr.wikipedia.org/wiki/Vision_par_ordinateur) qui
   produisent des informations sous forme de données à partir de vidéos ou
   d'images. "
+icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832811/dtpr-icons/tech/yellow/video_xcdv6g.svg
 ---

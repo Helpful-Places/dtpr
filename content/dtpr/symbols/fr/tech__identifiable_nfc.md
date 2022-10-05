@@ -9,4 +9,5 @@ description: Protocole de communication sans fil pour les appareils
   personnelles](https://fr.wikipedia.org/wiki/Données_personnelles) d'un
   individu. Pour en savoir plus
   [cliquez-ici](https://fr.wikipedia.org/wiki/Near-field_communication)
+icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832811/dtpr-icons/tech/yellow/wave_fy4pn8.svg
 ---

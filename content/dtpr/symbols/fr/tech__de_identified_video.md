@@ -9,5 +9,5 @@ description: Collecte des séquences vidéo d'une résolution suffisante pour
   (on parle de *désidentification avant la première utilisation* ou
   *désidentifiée sur le dispositif*), par exemple en estompant les visages à
   l'aide de la vision par ordinateur.
-icon: https://raw.githubusercontent.com/Helpful-Places/dtpr/master/dtpr_icons/tech/blue/deid-video.svg
+icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832799/dtpr-icons/tech/blue/video_rd4ydo.svg
 ---

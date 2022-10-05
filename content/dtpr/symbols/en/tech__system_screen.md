@@ -4,14 +4,5 @@ name: System Screen
 id: system_screen
 description: People can interact with this digital system using the screen that
   is provided as part of device installation.
-icon: https://dtpr.helpfulplaces.com/dtpr_icons/tech/screen.svg
+icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832813/dtpr-icons/tech/screen_neqwyi.svg
 ---
-tech
-
-System Screen
-
-People can interact with this digital system using the screen that is provided as part of device installation.
-
-system_screen
-
-https://dtpr.helpfulplaces.com/dtpr_icons/tech/screen.svg

@@ -4,14 +4,5 @@ name: Enforcement
 id: enforcement
 description: Used for enforcement of rules or regulations. Find out more
   [here](https://en.wikipedia.org/wiki/Law_enforcement)
-icon: https://dtpr.helpfulplaces.com/dtpr_icons/purpose/enforcement.svg
+icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832755/dtpr-icons/purpose/enforcement_dz3fxo.svg
 ---
-purpose
-
-Enforcement
-
-Used for enforcement of rules or regulations. Find out more here(https://en.wikipedia.org/wiki/Law_enforcement)
-
-enforcement
-
-https://dtpr.helpfulplaces.com/dtpr_icons/purpose/enforcement.svg

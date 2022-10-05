@@ -3,14 +3,5 @@ category: storage
 name: Retained 24 hours
 id: retained_24_hours
 description: Data is stored for 24 hours, and after this time period is deleted
-icon: https://dtpr.helpfulplaces.com/dtpr_icons/retention/yes.svg
+icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832795/dtpr-icons/retention/yes_nudvht.svg
 ---
-storage
-
-Retained 24 hours
-
-Data is stored for 24 hours, and after this time period is deleted
-
-retained_24_hours
-
-https://dtpr.helpfulplaces.com/dtpr_icons/retention/yes.svg

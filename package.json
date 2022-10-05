@@ -13,7 +13,7 @@
   "devDependencies": {
     "@nuxt/content": "^2.0.1",
     "@nuxtjs/tailwindcss": "^5.1.2",
-    "nuxt": "3.0.0-rc.6"
+    "nuxt": "3.0.0-rc.11"
   },
   "dependencies": {
     "cors": "^2.8.5",
