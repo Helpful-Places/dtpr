@@ -1,0 +1,71 @@
+backend:
+  name: git-gateway
+  branch: cms-pushes # Branch to update (optional; defaults to master)
+local_backend: true
+
+media_folder: "images/dtpr-icons"
+public_folder: "/public"
+
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: helpful-places
+    api_key: 665599687557175
+
+i18n:
+  # Required and can be one of multiple_folders, multiple_files or single_file
+  # multiple_folders - persists files in `<folder>/<locale>/<slug>.<extension>`
+  # multiple_files - persists files in `<folder>/<slug>.<locale>.<extension>`
+  # single_file - persists a single file in `<folder>/<slug>.<extension>`
+  structure: multiple_folders
+
+  # Required - a list of locales to show in the editor UI
+  locales: [en, fr]
+
+  # Optional, defaults to the first item in locales.
+  # The locale to be used for fields validation and as a baseline for the entry.
+  default_locale: en
+
+collections:
+  - name: "categories" # Used in routes, e.g., /admin/collections/blog
+    i18n: true
+    label: "Category" # Used in the UI
+    slug: '{{category}}__{{id}}'
+    folder: "content/dtpr/categories" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    identifier_field: name
+    fields: # The fields for each document, usually in front matter
+      - {label: "Name", name: "name", widget: "string", i18n: true}
+      - {label: "Headline", name: "headline", widget: "string", i18n: true}
+      - {label: "ID", name: "id", widget: "string", i18n: "duplicate"}
+  - name: "symbols" # Used in routes, e.g., /admin/collections/blog
+    i18n: true
+    label: "Symbol" # Used in the UI
+    folder: "content/dtpr/symbols" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    identifier_field: name
+    slug: '{{category}}__{{id}}'
+    media_folder: 'public/images/dtpr-icons'
+    summary: "{{category}} – {{name}}"
+    view_groups:
+      - label: "Category"
+        field: category
+    fields: # The fields for each document, usually in front matter
+      - label: "Category"
+        name: "category"
+        widget: "relation"
+        collection: "categories"
+        value_field: "id"
+        search_fields: ["name", "id"]
+        display_fields: ["name"]
+        i18n: "duplicate"
+      - {label: "Name", name: "name", widget: "string", i18n: true}
+      - {label: "ID", name: "id", widget: "string", i18n: "duplicate"}
+      - {label: "Description", name: "description", widget: "markdown", i18n: true}
+      - label: "Icon"
+        name: "icon"
+        i18n: duplicate
+        widget: "image"
+        choose_url: true
+        allow_multiple: false
+        
