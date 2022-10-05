@@ -4,15 +4,5 @@ name: Water Efficiency
 id: water_efficiency
 description: Reduces water use and/or helps conserve water. Find out more about
   water efficiency and conservation, and green infrastructure.
-icon: https://dtpr.helpfulplaces.com/dtpr_icons/purpose/water.svg
+icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832781/dtpr-icons/purpose/water_pidtsr.svg
 ---
-purpose
-
-Water Efficiency
-
-Reduces water use and/or helps conserve water. Find out more about water 
-efficiency and conservation, and green infrastructure.
-
-water_efficiency
-
-https://dtpr.helpfulplaces.com/dtpr_icons/purpose/water.svg

@@ -5,14 +5,5 @@ id: biometrics
 description: Biometrics are body measurements and calculations related to human
   characteristics. Find out more
   [here](https://en.wikipedia.org/wiki/Biometrics)
-icon: https://dtpr.helpfulplaces.com/dtpr_icons/tech/biometrics.svg
+icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832807/dtpr-icons/tech/biometrics_ivdqzs.svg
 ---
-tech
-
-Biometrics
-
-Biometrics are body measurements and calculations related to human characteristics. Find out more here (https://en.wikipedia.org/wiki/Biometrics)
-
-biometrics
-
-https://dtpr.helpfulplaces.com/dtpr_icons/tech/biometrics.svg

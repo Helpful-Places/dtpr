@@ -3,14 +3,5 @@ category: storage
 name: Retained indefinitely
 id: retained_indefinitely
 description: Data is retained indefinitely
-icon: https://dtpr.helpfulplaces.com/dtpr_icons/retention/yes.svg
+icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832795/dtpr-icons/retention/yes_nudvht.svg
 ---
-storage
-
-Retained indefinitely
-
-Data is retained indefinitely
-
-retained_indefinitely
-
-https://dtpr.helpfulplaces.com/dtpr_icons/retention/yes.svg

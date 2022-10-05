@@ -4,14 +4,5 @@ name: Research & Development
 id: research_development
 description: Supports exploratory research and testing. Find out more [here]
   (https://en.wikipedia.org/wiki/Research_and_development)
-icon: https://dtpr.helpfulplaces.com/dtpr_icons/purpose/research.svg
+icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832756/dtpr-icons/purpose/research_mfm3rq.svg
 ---
-purpose
-
-Research & Development
-
-Supports exploratory research and testing. Find out more here (https://en.wikipedia.org/wiki/Research_and_development)
-
-research_development
-
-https://dtpr.helpfulplaces.com/dtpr_icons/purpose/research.svg

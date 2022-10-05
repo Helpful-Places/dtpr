@@ -5,14 +5,5 @@ id: personal_device
 description: "A mobile device that combines cellular and mobile computing
   functions into one unit, that is intended for use by one person. Find out more
   [here](https://en.wikipedia.org/wiki/Smartphone) "
-icon: https://dtpr.helpfulplaces.com/dtpr_icons/tech/personal_device.svg
+icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832807/dtpr-icons/tech/personal_device_vytt3b.svg
 ---
-tech
-
-Personal Device
-
-A mobile device that combines cellular and mobile computing functions into one unit, that is intended for use by one person. Find out more here(https://en.wikipedia.org/wiki/Smartphone) 
-
-personal_device
-
-https://dtpr.helpfulplaces.com/dtpr_icons/tech/personal_device.svg

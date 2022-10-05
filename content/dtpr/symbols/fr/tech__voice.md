@@ -7,4 +7,5 @@ description: "Les données audio collectées permettent ou peuvent permettre
   savoir plus sur la [reconnaissance de la
   parole](https://fr.wikipedia.org/wiki/Reconnaissance_automatique_de_la_parole)
   "
+icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832810/dtpr-icons/tech/yellow/voice_nle1yg.svg
 ---

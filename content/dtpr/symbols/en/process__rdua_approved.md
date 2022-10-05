@@ -5,16 +5,5 @@ id: rdua_approved
 description: Data activity has undergone a Responsible Data Use Assessment and
   determined to provide a net benefit. The RDUA is a process that Sidewalk Labs
   conducts prior to the start of any data activity.
-icon: https://dtpr.helpfulplaces.com/dtpr_icons/process/rdua.svg
+icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832753/dtpr-icons/process/rdua_vubhkl.svg
 ---
-process
-
-RDUA Approved
-
-Data activity has undergone a Responsible Data Use Assessment and 
-determined to provide a net benefit. The RDUA is a process that Sidewalk 
-Labs conducts prior to the start of any data activity.
-
-rdua_approved
-
-https://dtpr.helpfulplaces.com/dtpr_icons/process/rdua.svg

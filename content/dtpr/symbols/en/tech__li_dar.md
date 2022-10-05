@@ -5,14 +5,5 @@ id: li_dar
 description: Uses lasers to measure distances to objects, collecting data that
   can create a 3-D representation of the object. Find out more
   [here](https://en.wikipedia.org/wiki/Lidar)
-icon: https://dtpr.helpfulplaces.com/dtpr_icons/tech/light.svg
+icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832813/dtpr-icons/tech/light_aj0xol.svg
 ---
-tech
-
-LiDAR
-
-Uses lasers to measure distances to objects, collecting data that can create a 3-D representation of the object. Find out more here (https://en.wikipedia.org/wiki/Lidar)
-
-li_dar
-
-https://dtpr.helpfulplaces.com/dtpr_icons/tech/light.svg

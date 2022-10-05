@@ -2,6 +2,7 @@
   <div>
     <NavHeader />
 
+    <SymbolSection symbol-category="accountable" symbol-category-name="Accountable" />
     <SymbolSection symbol-category="purpose" symbol-category-name="Purpose" />
     <SymbolSection symbol-category="tech" symbol-category-name="Technology" />
     <SymbolSection symbol-category="data" symbol-category-name="Data Type" />

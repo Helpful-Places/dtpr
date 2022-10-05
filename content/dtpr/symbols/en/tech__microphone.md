@@ -4,14 +4,5 @@ name: Microphone
 id: microphone
 description: A device that collects audio. Find out more
   [here](https://en.wikipedia.org/wiki/Microphone)
-icon: https://dtpr.helpfulplaces.com/dtpr_icons/tech/voice.svg
+icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832808/dtpr-icons/tech/voice_waavb6.svg
 ---
-tech
-
-Microphone
-
-A device that collects audio. Find out more here (https://en.wikipedia.org/wiki/Microphone)
-
-microphone
-
-https://dtpr.helpfulplaces.com/dtpr_icons/tech/voice.svg
