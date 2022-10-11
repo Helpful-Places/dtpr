@@ -1,6 +1,6 @@
 ---
 category: purpose
-name: Sûreté et sécurité
+name: Tranquillité Prévention
 description: Permet de créer un environnement sûr et/ou sécurisé, par exemple à
   des fins de [sécurité
   incendie](https://fr.wikipedia.org/wiki/Prévention_incendie), de [détection
