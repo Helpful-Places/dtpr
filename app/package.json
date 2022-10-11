@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "@nuxt/content": "^2.0.1",
+    "@nuxtjs/google-fonts": "^3.0.0-0",
     "@nuxtjs/tailwindcss": "^5.1.2",
     "nuxt": "3.0.0-rc.11"
   },
