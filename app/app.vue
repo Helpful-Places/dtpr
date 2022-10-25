@@ -13,15 +13,7 @@
     @apply font-sans;
   }
   
-  h1 {
-    @apply text-3xl;
-  }
-  
-  a {
-    @apply text-blue-300;
-  }
-  
-  .dtpr-container {
+  .app-container {
     @apply container mx-auto px-4;
   }
   </style>

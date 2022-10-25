@@ -1,14 +1,14 @@
 <template>
-  <div class="break-after-page">
+  <div class="break-after-page flex flex-col">
     <div class="border-b-2 border-dtpr-green mb-12 mt-16">
-      <h3 id="data-type" class="dtpr-container">{{props.symbolCategoryName}}</h3>
+      <h3 id="data-type" class="dtpr-container">{{ category.name }}</h3>
     </div>
-    <table class="dtpr-container">
+    <table class="dtpr-container grow">
       <thead>
         <tr class="text-left">
-          <th class="shrink">Icon</th>
-          <th class="w-1/6">Technology</th>
-          <th class="">Description</th>
+          <th class="w-1/12">{{ $t('icon') }}</th>
+          <th class="w-1/6">{{category.name}}</th>
+          <th class="">{{ $t('description') }}</th>
         </tr>
       </thead>
       <tbody>
@@ -23,21 +23,28 @@
 </template>
 
 <script setup>
-import { watch } from 'vue'
+import { useI18n } from 'vue-i18n';
+
+const { locale } = useI18n();
 
 const props = defineProps({
   'symbolCategory': String,
   'symbolCategoryName': String
 })
-const locale = useLocale();
-const symbolCategorySyncId = `symbols-${props.symbolCategory}`;
 
+const symbolCategorySyncId = `symbols-${props.symbolCategory}`;
 const { data: symbols } = await useAsyncData(symbolCategorySyncId, () => {
-  return queryContent(`/dtpr/symbols/${locale.value}`).where({ category: props.symbolCategory }).find();
+  return queryContent(`/dtpr/symbols/${locale.value.split('-')[0]}`).where({ category: props.symbolCategory }).find();
+});
+
+const categorySyncId = `category-${props.symbolCategory}`;
+const { data: category } = await useAsyncData(categorySyncId, () => {
+  return queryContent(`/dtpr/categories/${locale.value.split('-')[0]}`).where({ id: props.symbolCategory }).findOne();
 });
 
 watch(locale, async () => {
   refreshNuxtData(symbolCategorySyncId);
+  refreshNuxtData(categorySyncId);
 });
 </script>
 
