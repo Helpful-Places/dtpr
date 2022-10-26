@@ -45,6 +45,6 @@ h2 {
 }
 
 .bg-boston-deployment {
-  background-image: url('~/images/boston-deployment.png');
+  background-image: url('/images/boston-deployment.png');
 }
 </style>
