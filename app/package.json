@@ -15,8 +15,10 @@
     "@nuxt/content": "^2.0.1",
     "@nuxtjs/google-fonts": "^3.0.0-0",
     "@nuxtjs/tailwindcss": "^6.0.1",
+    "@tailwindcss/typography": "^0.5.7",
     "@volar-plugins/vetur": "^0.1.0",
     "nuxt": "^3.0.0-rc.12",
+    "nuxt-icon": "^0.1.7",
     "vue-i18n": "^9.2.2"
   },
   "dependencies": {

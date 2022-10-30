@@ -1,9 +1,9 @@
 <template>
-  <div class="app-container mt-4">
+  <div class="app-container mt-4 nav-header">
     <div class="md:flex md:items-center md:justify-between">
       <div class="flex justify-between items-center">
         <NuxtLink to="/" class="flex items-center">
-          <img src="/images/DTPR_Logo_Blue.svg" />
+          <img src="~/assets/images/dtpr_logo.svg" />
           <div class="font-[500] text-dtpr-blue text-xl ml-4">DTPR</div>
         </NuxtLink>
         <button class="cursor-pointer mx-2 md:hidden block print:hidden" @click="isOpen = !isOpen" type="button">
@@ -15,13 +15,12 @@
       <div class="md:flex print:hidden">
         <nav class="flex items-center">
           <ul :class="isOpen ? 'block' : 'hidden'" class="mt-4 md:flex md:items-center md:m-0">
-            <li><NuxtLink to="/guide">{{ $t('guide') }}</NuxtLink></li>
-            <li><NuxtLink to="/license_contributors">{{ $t('license_contributors') }}</NuxtLink></li>
+            <li><NuxtLink to="/guide">{{ $t('tools_resources') }}</NuxtLink></li>
             <li><NuxtLink to="/taxonomy">{{ $t('taxonomy') }}</NuxtLink></li>
-            <li><NuxtLink to="/get_involved">{{ $t('get_involved') }}</NuxtLink></li>
+            <li><NuxtLink to="/get-involved">{{ $t('get_involved') }}</NuxtLink></li>
           </ul>
         </nav>
-        <form :class="isOpen ? 'block' : 'hidden'" class="md:ml-4 mt-4 md:mt-0 flex md:flex">
+        <form :class="isOpen ? 'block' : 'higstdden'" class="md:ml-4 mt-4 md:mt-0 flex md:flex">
           <select class="text-sm bg-gray-200 rounded-md px-1 py-0 grow md:grow-0" id="locale-select" v-model="$i18n.locale">
             <option value="en-US">🇺🇸 en</option>
             <option value="en-CA">🇨🇦 en</option>
@@ -41,7 +40,7 @@ nav {
       @apply text-black font-[700] text-sm rounded-xl py-1 px-3;
   
       &:hover {
-        @apply text-dtpr-blue bg-gray-200;
+        @apply text-dtpr-blue bg-gray-200
       }
     }
   

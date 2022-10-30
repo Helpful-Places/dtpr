@@ -5,6 +5,8 @@
     <NuxtLayout>
       <NuxtPage/>
     </NuxtLayout>
+
+    <AppFooter />
   </div>
 </template>
 
@@ -15,5 +17,13 @@
   
   .app-container {
     @apply container mx-auto px-4;
+  }
+
+  a.u-line {
+    @apply border-b-2 transition ease-in-out;
+
+    &:hover {
+      @apply border-b-4;
+    }
   }
   </style>

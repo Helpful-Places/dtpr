@@ -29,5 +29,7 @@ module.exports = {
       'sans': ['Red Hat Text', 'sans-serif'],
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography')
+  ],
 }
