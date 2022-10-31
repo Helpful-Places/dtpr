@@ -1,7 +1,7 @@
 <template>
   <div class="intro-header md:pb-12 md:pt-[200px] py-5 mt-4">
     <div class="app-container">
-      <div class="bg-white rounded-2xl py-6 px-8 max-w-2xl">
+      <div class="bg-white rounded-2xl py-6 px-8 max-w-2xl outline outline-4 outline-dtpr-blue-lighter">
         <div class="text-2xl">
           <strong>Digital Trust for Places & Routines</strong> (DTPR) is 
           an open-source communication standard whose goal is to increase the transparency and accountability
