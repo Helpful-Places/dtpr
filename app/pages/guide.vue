@@ -38,13 +38,16 @@
           <h1>Related Projects</h1>
 
           <p>
-            Projects providing inspiration
+            Projects providing inspiration.
           </p>
 
           <ul>
-            <li><NuxtLink to="#" class="u-line border-dtpr-green-lighter">Sign up to our newsletter</NuxtLink></li>
-            <li><NuxtLink to="#" class="u-line border-dtpr-green-lighter">Join the DTPR Slack</NuxtLink></li>
-            <li><NuxtLink to="#" class="u-line border-dtpr-green-lighter">Contribute to the open-source resources</NuxtLink></li>
+            <li><NuxtLink to="https://foundation.mozilla.org/en/privacynotincluded/" class="u-line border-dtpr-green-lighter">Privacy not included (Mozilla)</NuxtLink></li>
+            <li><NuxtLink to="https://www.privacyassistant.org/" class="u-line border-dtpr-green-lighter">Privacy assistant (CMU)</NuxtLink></li>
+            <li><NuxtLink to="https://ieeexplore.ieee.org/document/8553750" class="u-line border-dtpr-green-lighter">Personal AI (IEEE)</NuxtLink></li>
+            <li><NuxtLink to="https://arrayofthings.github.io/" class="u-line border-dtpr-green-lighter">Array of things (Chicago)</NuxtLink></li>
+            <li><NuxtLink to="https://ajuntament.barcelona.cat/digital/en/digital-transformation/urban-technology/sentilo" class="u-line border-dtpr-green-lighter">Sensillio (Barcelona)</NuxtLink></li>
+            <li><NuxtLink to="https://www.seattle.gov/tech/initiatives/privacy/surveillance-technologies/about-surveillance-" class="u-line border-dtpr-green-lighter">Inventory of Surveillence Tech (Seattle)</NuxtLink></li>
           </ul>
         </Card>
       </div>
@@ -65,8 +68,7 @@
             freely available for others to adopt, use, and build upon. Further development of these draft standards are currently
             being stewarded by Helpful Places and an emerging coalition of partners and collaborators.
           </p>
-        </Card>
-        <Card class="w-1/3 text-dtpr-green">
+
           <ul>
             <li><NuxtLink to="https://medium.com/code-for-canada/grit-toronto-test-4-digital-transparency-in-the-public-realm-da3f47eb1510" class="u-line border-dtpr-green-lighter">2019 User Research</NuxtLink></li>
             <li><NuxtLink to="https://github.com/sidewalklabs/dtpr/tree/master/dtpr_codesignkit" class="u-line border-dtpr-green-lighter">2019 Co-design Kit</NuxtLink></li>
@@ -79,7 +81,7 @@
 
 <style lang="postcss" scoped>
 li {
-  @apply text-xl font-bold leading-relaxed;
+  @apply text-lg leading-relaxed;
 }
 
 h1 {
