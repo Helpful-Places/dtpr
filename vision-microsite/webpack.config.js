@@ -25,7 +25,7 @@ module.exports = {
     // },
   },
   output: {
-    path: __dirname + "./../app/public/vision",
+    path: __dirname + "/_build",
     filename: "bundle.js",
   },
   resolve: {
