@@ -10,6 +10,18 @@
   </div>
 </template>
 
+<script setup>
+  useHead({
+    titleTemplate: (titleChunk) => {
+      return titleChunk ? `${titleChunk} - Digital Trust for Places & Routines` : 'Digital Trust for Places & Routines';
+    },
+    meta: [
+      { name: 'description', content: 'Open-source communication standard increasing the transparency and accountability of digital technology in public places.' },
+      { name: 'og:image', content: 'https://dtpr.io/og-image.png' }
+    ],
+  })
+</script>
+
 <style lang="postcss">
   body {
     @apply font-sans;
@@ -26,4 +38,4 @@
       @apply border-b-4;
     }
   }
-  </style>
+</style>

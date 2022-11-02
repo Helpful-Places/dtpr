@@ -12,7 +12,7 @@
           </p>
 
           <ul>
-            <li><NuxtLink to="./documents/DTPR_Design_Guide.pdf" class="u-line border-dtpr-green-lighter"><Icon class="inline" icon="fa6-solid:file-pdf" /> Design Guide</NuxtLink></li>
+            <li><a href="/documents/DTPR_Design_Guide.pdf" class="u-line border-dtpr-green-lighter"><Icon class="inline" icon="fa6-solid:file-pdf" /> Design Guide</a></li>
             <li><NuxtLink to="#" class="u-line border-dtpr-green-lighter">Icons</NuxtLink></li>
             <li><NuxtLink to="/taxonomy" class="u-line border-dtpr-green-lighter">Taxonomy</NuxtLink></li>
             <li><NuxtLink to="https://demo.dtrp.guide" class="u-line border-dtpr-green-lighter">Helpful Places Guide App demo</NuxtLink></li>
@@ -91,4 +91,8 @@ h1 {
 
 <script setup>
 import { Icon } from '@iconify/vue';
+
+useHead({
+  title: 'Tools and Resources'
+})
 </script>

@@ -9,3 +9,9 @@
     <SymbolSection symbol-category="storage" symbol-category-name="Data Storage" />
   </div>
 </template>
+
+<script setup>
+  useHead({
+    title: 'Taxonomy'
+  })
+</script>

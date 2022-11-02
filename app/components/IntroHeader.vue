@@ -4,11 +4,11 @@
       <div class="bg-white rounded-2xl py-6 px-8 max-w-2xl outline outline-4 outline-dtpr-blue-lighter">
         <div class="text-2xl">
           <strong>Digital Trust for Places & Routines</strong> (DTPR) is 
-          an open-source communication standard whose goal is to increase the transparency and accountability
+          an open-source communication standard increasing the transparency and accountability
           of digital technology in public places.<br />
         </div>
         <h2>
-          <NuxtLink to="/guide" class="u-line border-dtpr-blue">Discover DTPR</NuxtLink>
+          <NuxtLink to="/tools-and-resources" class="u-line border-dtpr-blue">Discover DTPR</NuxtLink>
         </h2>
       </div>
     </div>

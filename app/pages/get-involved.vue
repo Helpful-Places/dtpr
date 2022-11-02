@@ -22,6 +22,12 @@
   </div>
 </template>
 
+<script setup>
+  useHead({
+    title: 'Get Involved'
+  })
+</script>
+
 <style lang="postcss" scoped>
 .bg-deployment {
   background-image: url('~/assets/images/tools_codesign.png');

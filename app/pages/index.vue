@@ -112,7 +112,7 @@
 
 
 .bg-deployment {
-  background-image: url('/images/boston-deployment.png');
+  background-image: url('~/assets/images/boston-deployment.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

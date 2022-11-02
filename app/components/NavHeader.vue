@@ -15,7 +15,7 @@
       <div class="md:flex print:hidden">
         <nav class="flex items-center">
           <ul :class="isOpen ? 'block' : 'hidden'" class="mt-4 md:flex md:items-center md:m-0">
-            <li><NuxtLink to="/guide">{{ $t('tools_resources') }}</NuxtLink></li>
+            <li><NuxtLink to="/tools-and-resources">{{ $t('tools_resources') }}</NuxtLink></li>
             <li><NuxtLink to="/taxonomy">{{ $t('taxonomy') }}</NuxtLink></li>
             <li><NuxtLink to="/get-involved">{{ $t('get_involved') }}</NuxtLink></li>
           </ul>
