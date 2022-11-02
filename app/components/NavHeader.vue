@@ -18,7 +18,7 @@
             <li><NuxtLink to="/tools-and-resources">{{ $t('tools_resources') }}</NuxtLink></li>
             <li><NuxtLink to="/taxonomy">{{ $t('taxonomy') }}</NuxtLink></li>
             <li><NuxtLink to="/get-involved">{{ $t('get_involved') }}</NuxtLink></li>
-            <li><a href="/vision" class="flex items-center">{{ $t('vision') }}<Icon class="inline text-gray-400 ml-1" icon="fa6-solid:up-right-from-square" /></a></li>
+            <li><a href="https://vision.dtpr.io" class="flex items-center">{{ $t('vision') }}<Icon class="inline text-gray-400 ml-1" icon="fa6-solid:up-right-from-square" /></a></li>
           </ul>
         </nav>
         <form :class="isOpen ? 'block' : 'higstdden'" class="md:ml-4 mt-4 md:mt-0 flex md:flex">
