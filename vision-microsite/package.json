@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "copy-webpack-plugin": "^6.0.0",
     "css-loader": "^3.6.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^6.1.1",
