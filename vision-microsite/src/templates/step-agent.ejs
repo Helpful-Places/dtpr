@@ -1,0 +1,14 @@
+
+  <div class="row mt-5">
+    <div class="col-12 col-md-7 offset-md-1">
+      <h2><%= title %></h2>
+      <p>
+        <%= lead %>
+      </p>
+      <div class="d-none d-md-block pai-options">
+        <% for (var i =0; i <buttons.length; i++ ) { %>
+        <button type="button" class="btn mr-1 <%= buttons[i].classes %>"><%= buttons[i].label %></button>
+        <% } %>
+      </div>
+    </div>
+  </div>

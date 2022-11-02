@@ -1,0 +1,51 @@
+<div class="row">
+  <% if(!contentLeft) { %>
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  <% }%>
+  <!-- <div class="col-3 col-md-1 text-center d-flex align-items-center flex-column">
+    <div><%= require("ejs-loader!./icon.ejs")({icon:sign[0]}) %></div>
+    <div class="d-flex flex-row my-n1">
+      <%= require("ejs-loader!./icon.ejs")({icon:sign[1]}) %>
+      <%= require("ejs-loader!./icon.ejs")({icon:sign[2]}) %>
+    </div>
+    <div><%= require("ejs-loader!./icon.ejs")({icon:sign[3]}) %></div>
+  </div> -->
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card pb-2 mt-5">
+      <h3><%= title %></h3>
+      <p>
+        <%= description %>
+      </p>
+    </div>
+  </div>
+  <% if(contentLeft) { %>
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  <% }%>
+</div>
+<div class="row">
+  <% if(!contentLeft) { %>
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  <% }%>
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <div class="card card-lightblue py-2">
+      <ul class="list-group">
+        <% for (var i =0; i <features.length; i++ ) { %>
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            <%= require("ejs-loader!./icon.ejs")({icon:features[i].icon}) %>
+          </div>
+          <div>
+            <p class="my-0"><small><%= features[i].title %></small></p>
+            <h6 class="my-0"><%= features[i].description %></h6>
+          </div>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+  <% if(contentLeft) { %>
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  <% }%>
+</div>

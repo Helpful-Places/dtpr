@@ -1,1 +1,6044 @@
-<html></html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>DTPR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/intersection-observer"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+  <link href="main.css" rel="stylesheet"></head>
+  <body>
+
+     
+
+    <!-- NAVIGATION -->
+    <div class="menu-overlay-container">
+  <div class="menu-overlay-scrim"></div>
+  <div class="menu-overlay">
+    <div class="container">
+      <div class="top row">
+        <div class="col">
+          <a class="menu-overlay-logo" href="#">
+            <img src="images/DTPR_Logo_Blue.svg" />
+          </a>
+        </div>
+        <a href="/" class="btn btn-primary float-right">Exit</a>
+        <div class="menu">
+          <span class="nav-open-menu"
+            >
+
+  <div class="align-middle icon-36">
+    <i class="material-icons md-36">close</i>
+  </div>
+</span
+          >
+        </div>
+      </div>
+      <div class="menu-overlay-toc row py-3">
+        <div class="col-4 col-md-2">
+          <button class="btn btn-card" data-link="section-vision">
+            Vision
+          </button>
+        </div>
+        <div class="col-4 col-md-2">
+          <button class="btn btn-card" data-link="section-agent">
+            <div class="smaller">Your</div>
+            <div class="bigger">Ai</div>
+          </button>
+        </div>
+        <div class="col-4 col-md-2">
+          <button class="btn btn-card" data-link="section-scenario-1">
+            <div class="smaller">Scenario</div>
+            <div class="bigger">1</div>
+          </button>
+        </div>
+        <div class="col-4 col-md-2">
+          <button class="btn btn-card" data-link="section-scenario-2">
+            <div class="smaller">Scenario</div>
+            <div class="bigger">2</div>
+          </button>
+        </div>
+        <div class="col-4 col-md-2">
+          <button class="btn btn-card" data-link="section-scenario-3">
+            <div class="smaller">Scenario</div>
+            <div class="bigger">3</div>
+          </button>
+        </div>
+        <div class="col-4 col-md-2">
+          <button class="btn btn-card" data-link="section-scenario-4">
+            <div class="smaller">Scenario</div>
+            <div class="bigger">4</div>
+          </button>
+        </div>
+        <div class="col-4 col-md-2">
+          <button class="btn btn-card" data-link="section-scenario-5">
+            <div class="smaller">Scenario</div>
+            <div class="bigger">5</div>
+          </button>
+        </div>
+        <div class="col-4 col-md-2">
+          <button class="btn btn-card" data-link="section-scenario-6">
+            <div class="smaller">Scenario</div>
+            <div class="bigger">6</div>
+          </button>
+        </div>
+        <div class="col-4 col-md-2">
+          <button class="btn btn-card" data-link="section-scenario-7">
+            <div class="smaller">Scenario</div>
+            <div class="bigger">7</div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div id="tapestry">
+      <div class="banner">
+        <img src="images/assistant_location_city.svg" class="tapestry-assistant" width="84" height="96" style="margin-left: 1430px; margin-top: 312px; position: absolute; z-index: 1;" />
+        <img src="images/assistant_location_city.svg" class="tapestry-assistant" width="84" height="96" style="margin-left: 4688px; margin-top: 456px; position: absolute; z-index: 1;" />
+        <img src="images/assistant_location_city.svg" class="tapestry-assistant" width="84" height="96" style="margin-left: 5904px; margin-top: 330px; position: absolute; z-index: 1;" />
+        <img src="images/assistant_location_city.svg" class="tapestry-assistant" width="50" height="58" style="margin-left: 8849px; margin-top: 318px; position: absolute; z-index: 1;" />
+        <img src="images/assistant_location_city.svg" class="tapestry-assistant" width="82" height="94" style="margin-left: 10907px; margin-top: 430px; position: absolute; z-index: 1;" />
+        <img src="images/assistant_location_city.svg" class="tapestry-assistant" width="84" height="96" style="margin-left: 12696px; margin-top: 424px; position: absolute; z-index: 1;" />
+        <img src="images/assistant_location_city.svg" class="tapestry-assistant" width="110" height="126" style="margin-left: 15643px; margin-top: 322px; position: absolute; z-index: 1;" />
+        <img src="images/assistant_location_city.svg" class="tapestry-assistant" width="104" height="118" style="margin-left: 17479px; margin-top: 452px; position: absolute; z-index: 1;" />
+        <img src="images/assistant_location_city.svg" class="tapestry-assistant" width="226" height="256" style="margin-left: 18379px; margin-top: 304px; position: absolute; z-index: 1;" />
+        <img src="images/assistant_location_city.svg" class="tapestry-assistant" width="158" height="178" style="margin-left: 19361px; margin-top: 398px; position: absolute; z-index: 1;" />
+        <img src="images/assistant_location_city.svg" class="tapestry-assistant" width="186" height="210" style="margin-left: 21921px; margin-top: 446px; position: absolute; z-index: 1;" />
+        <img src="images/assistant_location_city.svg" class="tapestry-assistant" width="74" height="84" style="margin-left: 25708px; margin-top: 526px; position: absolute; z-index: 1;" />
+        <img src="images/assistant_location_city.svg" class="tapestry-assistant" width="88" height="100" style="margin-left: 27250px; margin-top: 250px; position: absolute; z-index: 1;" />
+        <img src="images/scenario-1.svg" width="4174" height="1000" />
+        <img src="images/scenario-2.svg" width="4156" height="1000" />
+        <img src="images/scenario-3.svg" width="3818" height="1000" />
+        <img src="images/scenario-4.svg" width="3878" height="1000" />
+        <img src="images/scenario-5.svg" width="4168" height="1000" />
+        <img src="images/scenario-6.svg" width="4458" height="1000" />
+        <img src="images/scenario-7.svg" width="3412" height="1000" />
+      </div>
+    </div>
+
+    <div id="sticky-prototype">
+      <div class="prototype-content">
+        
+        <div class="prototype-conversation">
+          <img src="images/prototype/scenario-1a@2x.png" id="pcard-scenario-1a" class="prototype-card" data-prototype-step="scenario-1a" width="375" />
+          <img src="images/prototype/scenario-1b@2x.png" id="pcard-scenario-1b" class="prototype-card" data-prototype-step="scenario-1b" width="375" />
+          <img src="images/prototype/scenario-1c@2x.png" id="pcard-scenario-1c" class="prototype-card" data-prototype-step="scenario-1c" width="375" />
+          <img src="images/prototype/scenario-1d@2x.png" id="pcard-scenario-1d" class="prototype-card" data-prototype-step="scenario-1d" width="375" />
+
+          <img src="images/prototype/scenario-2a@2x.png" id="pcard-scenario-2a" class="prototype-card" data-prototype-step="scenario-2a" width="375" />
+          <img src="images/prototype/scenario-2b@2x.png" id="pcard-scenario-2b" class="prototype-card" data-prototype-step="scenario-2b" width="375" />
+          <img src="images/prototype/scenario-2d@2x.png" id="pcard-scenario-2d" class="prototype-card" data-prototype-step="scenario-2d" width="375" />
+
+          <img src="images/prototype/scenario-3a@2x.png" id="pcard-scenario-3a" class="prototype-card" data-prototype-step="scenario-3a" width="375" />
+          <img src="images/prototype/scenario-3b@2x.png" id="pcard-scenario-3b" class="prototype-card" data-prototype-step="scenario-3b" width="375" />
+          <img src="images/prototype/scenario-3c@2x.png" id="pcard-scenario-3c" class="prototype-card" data-prototype-step="scenario-3c" width="375" />
+          <img src="images/prototype/scenario-3d@2x.png" id="pcard-scenario-3d" class="prototype-card" data-prototype-step="scenario-3d" width="375" />
+          
+          <img src="images/prototype/scenario-4a@2x.png" id="pcard-scenario-4a" class="prototype-card" data-prototype-step="scenario-4a" width="375" />
+          <img src="images/prototype/scenario-4b@2x.png" id="pcard-scenario-4b" class="prototype-card" data-prototype-step="scenario-4b" width="375" />
+          <img src="images/prototype/scenario-4c@2x.png" id="pcard-scenario-4c" class="prototype-card" data-prototype-step="scenario-4c" width="375" />
+          <img src="images/prototype/scenario-4d@2x.png" id="pcard-scenario-4d" class="prototype-card" data-prototype-step="scenario-4d" width="375" />
+          
+          <img src="images/prototype/scenario-5a@2x.png" id="pcard-scenario-5a" class="prototype-card" data-prototype-step="scenario-5a" width="375" />
+          <img src="images/prototype/scenario-5b@2x.png" id="pcard-scenario-5b" class="prototype-card" data-prototype-step="scenario-5b" width="375" />
+          <img src="images/prototype/scenario-5c@2x.png" id="pcard-scenario-5c" class="prototype-card" data-prototype-step="scenario-5c" width="375" />
+          <img src="images/prototype/scenario-5d@2x.png" id="pcard-scenario-5d" class="prototype-card" data-prototype-step="scenario-5d" width="375" />
+
+          <img src="images/prototype/scenario-6a@2x.png" id="pcard-scenario-6a" class="prototype-card" data-prototype-step="scenario-6a" width="375" />
+          <img src="images/prototype/scenario-6b@2x.png" id="pcard-scenario-6b" class="prototype-card" data-prototype-step="scenario-6b" width="375" />
+          <img src="images/prototype/scenario-6c@2x.png" id="pcard-scenario-6c" class="prototype-card" data-prototype-step="scenario-6c" width="375" />
+          <img src="images/prototype/scenario-6d@2x.png" id="pcard-scenario-6d" class="prototype-card" data-prototype-step="scenario-6d" width="375" />
+
+          <img src="images/prototype/scenario-7a@2x.png" id="pcard-scenario-7a" class="prototype-card" data-prototype-step="scenario-7a" width="375" />
+          <img src="images/prototype/scenario-7b@2x.png" id="pcard-scenario-7b" class="prototype-card" data-prototype-step="scenario-7b" width="375" />
+          <img src="images/prototype/scenario-7c@2x.png" id="pcard-scenario-7c" class="prototype-card" data-prototype-step="scenario-7c" width="375" />
+          <img src="images/prototype/scenario-7d@2x.png" id="pcard-scenario-7d" class="prototype-card" data-prototype-step="scenario-7d" width="375" />
+        </div>
+        <div class="prototype-modal">
+          <img src="images/prototype/description--scenario-1a@2x.png" class="data-chain" id="datachain-scenario-1a" width="375" />
+          <img src="images/prototype/description--scenario-1b@2x.png" class="data-chain" id="datachain-scenario-1b" width="375" />
+          <img src="images/prototype/description--scenario-1c@2x.png" class="data-chain" id="datachain-scenario-1c" width="375" />
+          <img src="images/prototype/description--scenario-1d@2x.png" class="data-chain" id="datachain-scenario-1d" width="375" />
+
+          <img src="images/prototype/description--scenario-2a@2x.png" class="data-chain" id="datachain-scenario-2a" width="375" />
+          <img src="images/prototype/description--scenario-2b@2x.png" class="data-chain" id="datachain-scenario-2b" width="375" />
+          <img src="images/prototype/description--scenario-2d@2x.png" class="data-chain" id="datachain-scenario-2d" width="375" />
+
+          <img src="images/prototype/description--scenario-3a@2x.png" class="data-chain" id="datachain-scenario-3a" width="375" />
+          <img src="images/prototype/description--scenario-3c@2x.png" class="data-chain" id="datachain-scenario-3c" width="375" />
+          <img src="images/prototype/description--scenario-3d@2x.png" class="data-chain" id="datachain-scenario-3d" width="375" />
+          
+          <img src="images/prototype/description--scenario-4a@2x.png" class="data-chain" id="datachain-scenario-4a" width="375" />
+          <img src="images/prototype/description--scenario-4a-2@2x.png" class="data-chain" id="datachain-scenario-4a-2" width="375" />
+          <img src="images/prototype/description--scenario-4b@2x.png" class="data-chain" id="datachain-scenario-4b" width="375" />
+          <img src="images/prototype/description--scenario-4c@2x.png" class="data-chain" id="datachain-scenario-4c" width="375" />
+          <img src="images/prototype/description--scenario-4d@2x.png" class="data-chain" id="datachain-scenario-4d" width="375" />
+          
+          <img src="images/prototype/description--scenario-5a@2x.png" class="data-chain" id="datachain-scenario-5a" width="375" />
+          <img src="images/prototype/description--scenario-5b@2x.png" class="data-chain" id="datachain-scenario-5b" width="375" />
+          <img src="images/prototype/description--scenario-5b-2@2x.png" class="data-chain" id="datachain-scenario-5b-2" width="375" />
+          <img src="images/prototype/description--scenario-5c@2x.png" class="data-chain" id="datachain-scenario-5c" width="375" />
+          <img src="images/prototype/description--scenario-5d@2x.png" class="data-chain" id="datachain-scenario-5d" width="375" />
+
+          <img src="images/prototype/description--scenario-6a@2x.png" class="data-chain" id="datachain-scenario-6a" width="375" />
+          <img src="images/prototype/description--scenario-6b@2x.png" class="data-chain" id="datachain-scenario-6b" width="375" />
+          <img src="images/prototype/description--scenario-6d@2x.png" class="data-chain" id="datachain-scenario-6d" width="375" />
+
+          <img src="images/prototype/description--scenario-7a@2x.png" class="data-chain" id="datachain-scenario-7a" width="375" />
+          <img src="images/prototype/description--scenario-7b@2x.png" class="data-chain" id="datachain-scenario-7b" width="375" />
+          <img src="images/prototype/description--scenario-7c@2x.png" class="data-chain" id="datachain-scenario-7c" width="375" />
+          <img src="images/prototype/description--scenario-7d@2x.png" class="data-chain" id="datachain-scenario-7d" width="375" />
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION PAI -->
+    <div id="section-vision" class="step" data-step="section-vision">
+      <div class="sticky-section-header">
+        <div class="container sticky-nav">
+  <div class="row">
+    <div class="col-7 section-title">
+      <h4 class="mb-0">
+        <span class="nav-current-section">
+
+  <div class="dtpr-logo">
+    <img src="images/DTPR_Logo_Blue.svg" />
+  </div>
+</span>
+        <span class="pl-1">DTPR: A Vision</span>
+      </h4>
+    </div>
+    <div class="col-5 menu">
+      <a href="/" class="btn btn-sm btn-primary font-sm" style="font-size: 0.8rem; padding-bottom: 0.4rem; padding-top: 0.4rem;">Exit</a>
+      <!-- <span class="nav-prev-section">
+
+  <div class="align-middle circle-icon">
+    <i class="material-icons md-18">arrow_upward</i>
+  </div>
+</span>
+      <span class="nav-next-section">
+
+  <div class="align-middle circle-icon">
+    <i class="material-icons md-18">arrow_downward</i>
+  </div>
+</span> -->
+      <span class="nav-open-menu">
+
+  <div class="align-middle circle-icon">
+    <i class="material-icons md-18">apps</i>
+  </div>
+</span>
+    </div>
+  </div>
+</div>
+      </div>
+      <div class="section-image" style="background-image: url(images/Vision_Map.png);"></div>
+
+      <!-- VISION INTRO -->
+      
+
+      <div class="container pt-1 scenarios-toc">
+        
+  <div class="row mt-4">
+    <div class="col col-md-8">
+      <h3>A Vision</h3>
+      <h1>Join us on a journey that rejects the false dichotomy between privacy & convenience.</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col col-md-7">
+      <p>Out of the co-design sessions in early 2020 came an ask to envision how the standard might work in 5 years. Excitement built for the prospect of a personal AI assistant. This would be provided by an organization you trust. Your assistant knows your preferences and is ready to help.</p>
+    </div>
+  </div>
+  <div class="row mt-3 d-none d-md-block">
+    <div class="col">
+      <div class="card card-lightblue d-flex scenario-card big-card" style="height: 420px;background-image:url(images/Vision_Chapter_Image_1.svg);" data-link="section-scenario-1">
+        <div class="w-50">
+          <h6><span class="badge">1</span>How might we...</h6>
+          <h1>move seamlessly through places we love, and seamfully in places new to us?</h1>
+        </div>
+        <div class="btn">Start</div>
+      </div>
+    </div>
+  </div>
+  <div class="row pb-5">
+    
+      <div class="col-12 col-md-6 mt-2 d-sm-none">
+      <div class="card card-lightblue d-flex scenario-card" style="height:240px;background-image:url(images/Vision_Chapter_Image_1.svg);" data-link="section-scenario-1">
+          <div class="w-75">
+            <h6><span class="badge">1</span>How might we...</h6>
+            <h3>move seamlessly through places we love, and seamfully in places new to us?</h3>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-12 col-md-6 mt-2">
+      <div class="card card-lightblue d-flex scenario-card" style="height:240px;background-image:url(images/Vision_Chapter_Image_2.svg);" data-link="section-scenario-2">
+          <div class="w-75">
+            <h6><span class="badge">2</span>How might we...</h6>
+            <h3>understand how sensors work, and what they do for people?</h3>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-12 col-md-6 mt-2">
+      <div class="card card-lightblue d-flex scenario-card" style="height:240px;background-image:url(images/Vision_Chapter_Image_3.svg);" data-link="section-scenario-3">
+          <div class="w-75">
+            <h6><span class="badge">3</span>How might we...</h6>
+            <h3>look up from our phones, and strengthen the social fabric?</h3>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-12 col-md-6 mt-2">
+      <div class="card card-lightblue d-flex scenario-card" style="height:240px;background-image:url(images/Vision_Chapter_Image_4.svg);" data-link="section-scenario-4">
+          <div class="w-75">
+            <h6><span class="badge">4</span>How might we...</h6>
+            <h3>gain agency over technology, and enhance our experiences of a place?</h3>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-12 col-md-6 mt-2">
+      <div class="card card-lightblue d-flex scenario-card" style="height:240px;background-image:url(images/Vision_Chapter_Image_5.svg);" data-link="section-scenario-5">
+          <div class="w-75">
+            <h6><span class="badge">5</span>How might we...</h6>
+            <h3>get help from the built environment, and leave it better than we found it?</h3>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-12 col-md-6 mt-2">
+      <div class="card card-lightblue d-flex scenario-card" style="height:240px;background-image:url(images/Vision_Chapter_Image_6.svg);" data-link="section-scenario-6">
+          <div class="w-75">
+            <h6><span class="badge">6</span>How might we...</h6>
+            <h3>offer eyes on the street, with humans in the loop?</h3>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-12 col-md-6 mt-2">
+      <div class="card card-lightblue d-flex scenario-card" style="height:240px;background-image:url(images/Vision_Chapter_Image_7.svg);" data-link="section-scenario-7">
+          <div class="w-75">
+            <h6><span class="badge">7</span>How might we...</h6>
+            <h3>offer time-bound data sharing with ongoing control of choices?</h3>
+          </div>
+        </div>
+      </div>
+    
+  </div>
+
+
+      </div>
+    </div>
+    <div id="section-agent" class="step" data-step="section-agent">
+      <div class="sticky-section-header">
+        <div class="container sticky-nav">
+  <div class="row">
+    <div class="col-7 section-title">
+      <h4 class="mb-0">
+        <span class="nav-current-section">
+
+  <div class="align-middle circle-icon">
+    <i class="material-icons md-18">support_agent</i>
+  </div>
+</span>
+        <span class="pl-1">Your Digital Personal Assistant</span>
+      </h4>
+    </div>
+    <div class="col-5 menu">
+      <a href="/" class="btn btn-sm btn-primary font-sm" style="font-size: 0.8rem; padding-bottom: 0.4rem; padding-top: 0.4rem;">Exit</a>
+      <!-- <span class="nav-prev-section">
+
+  <div class="align-middle circle-icon">
+    <i class="material-icons md-18">arrow_upward</i>
+  </div>
+</span>
+      <span class="nav-next-section">
+
+  <div class="align-middle circle-icon">
+    <i class="material-icons md-18">arrow_downward</i>
+  </div>
+</span> -->
+      <span class="nav-open-menu">
+
+  <div class="align-middle circle-icon">
+    <i class="material-icons md-18">apps</i>
+  </div>
+</span>
+    </div>
+  </div>
+</div>
+      </div>
+      <div class="container pt-4 pb-4">
+        <div class="row">
+  <div class="col-12 col-md-5">
+    <h1>First, choose<br /> your agent</h1>
+    <p>In you're everyday life, you exchange data with a companies, apps, shops, and people. Everyone has different levels of comfort sharing data depending on the situation. We believe control for people can improve comfort. To ensure you maintain control of your data, these scenarios imagine a world where everyone has their own digital personal assistant.</p>
+    <div class="mt-3">
+      
+        <button data-link="section-scenario-1" type="button" class="btn mr-1 mb-4 btn-primary">Skip to the prototype</button>
+      
+    </div>
+  </div>
+  <div class="col-12 col-md-7">
+    <ul class="list-group ai-options">
+      
+        <li class="list-group-item">
+          <div class="ai-option selected col d-flex align-items-center" data-icon="location_city">
+            <div class="radio pr-1">
+              <i class="material-icons md-48 align-middle icon-unchecked">radio_button_unchecked</i>
+              <i class="material-icons md-48 align-middle icon-checked">radio_button_checked</i>
+            </div>
+            <div class="avatar pr-1"><i class="material-icons md-48 align-middle">location_city</i></div>
+            <div class="flex-grow-1">
+              <h3>Government</h3>
+              <p class="">Offered by your national, regional or local government</p>
+            </div>
+          </div>
+        </li>
+      
+        <li class="list-group-item">
+          <div class="ai-option  col d-flex align-items-center" data-icon="local_library">
+            <div class="radio pr-1">
+              <i class="material-icons md-48 align-middle icon-unchecked">radio_button_unchecked</i>
+              <i class="material-icons md-48 align-middle icon-checked">radio_button_checked</i>
+            </div>
+            <div class="avatar pr-1"><i class="material-icons md-48 align-middle">local_library</i></div>
+            <div class="flex-grow-1">
+              <h3>Library Dept.</h3>
+              <p class="">Provided by your library</p>
+            </div>
+          </div>
+        </li>
+      
+        <li class="list-group-item">
+          <div class="ai-option  col d-flex align-items-center" data-icon="account_balance">
+            <div class="radio pr-1">
+              <i class="material-icons md-48 align-middle icon-unchecked">radio_button_unchecked</i>
+              <i class="material-icons md-48 align-middle icon-checked">radio_button_checked</i>
+            </div>
+            <div class="avatar pr-1"><i class="material-icons md-48 align-middle">account_balance</i></div>
+            <div class="flex-grow-1">
+              <h3>Bank Co.</h3>
+              <p class="">An offering associated with your bank account</p>
+            </div>
+          </div>
+        </li>
+      
+        <li class="list-group-item">
+          <div class="ai-option  col d-flex align-items-center" data-icon="local_phone">
+            <div class="radio pr-1">
+              <i class="material-icons md-48 align-middle icon-unchecked">radio_button_unchecked</i>
+              <i class="material-icons md-48 align-middle icon-checked">radio_button_checked</i>
+            </div>
+            <div class="avatar pr-1"><i class="material-icons md-48 align-middle">local_phone</i></div>
+            <div class="flex-grow-1">
+              <h3>Phone Co.</h3>
+              <p class="">An account provided by your phone provider</p>
+            </div>
+          </div>
+        </li>
+      
+        <li class="list-group-item">
+          <div class="ai-option  col d-flex align-items-center" data-icon="help">
+            <div class="radio pr-1">
+              <i class="material-icons md-48 align-middle icon-unchecked">radio_button_unchecked</i>
+              <i class="material-icons md-48 align-middle icon-checked">radio_button_checked</i>
+            </div>
+            <div class="avatar pr-1"><i class="material-icons md-48 align-middle">help</i></div>
+            <div class="flex-grow-1">
+              <h3>Other...</h3>
+              <p class="">Who would you trust to help?</p>
+            </div>
+          </div>
+        </li>
+      
+      
+    </ul>    
+  </div>
+</div>
+      </div>
+    </div>
+    
+    <!-- SECTION 1 -->
+    
+    <div id="section-scenario-1" class="step" data-step="section-scenario-1">
+      <div class="sticky-section-header">
+        <div class="container sticky-nav">
+  <div class="row">
+    <div class="col-7 section-title">
+      <h4 class="mb-0">
+        <span class="nav-current-section">
+
+  <div class="align-middle number-icon">
+    1
+  </div>
+</span>
+        <span class="pl-1">Grab a book</span>
+      </h4>
+    </div>
+    <div class="col-5 menu">
+      <a href="/" class="btn btn-sm btn-primary font-sm" style="font-size: 0.8rem; padding-bottom: 0.4rem; padding-top: 0.4rem;">Exit</a>
+      <!-- <span class="nav-prev-section">
+
+  <div class="align-middle circle-icon">
+    <i class="material-icons md-18">arrow_upward</i>
+  </div>
+</span>
+      <span class="nav-next-section">
+
+  <div class="align-middle circle-icon">
+    <i class="material-icons md-18">arrow_downward</i>
+  </div>
+</span> -->
+      <span class="nav-open-menu">
+
+  <div class="align-middle circle-icon">
+    <i class="material-icons md-18">apps</i>
+  </div>
+</span>
+    </div>
+  </div>
+</div>
+      </div>
+      <div class="step-banner">
+        <div class="container">
+          <div class="row">
+  <div class="col">
+    <div class="card card-lightblue d-flex scenario-card big-card" style="background-image:url(images/Vision_Chapter_Image_1.svg);">
+      <div class="headers">
+        <h3><span class="badge">1</span>How might we...</h3>
+        <h1>move seamlessly through places we love, and seamfully in places new to us?</h1>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- <div class="row" style="margin-top:150px;margin-bottom:150px;">
+    <div class="col-6 offset-3 col-md-3 offset-md-0">
+      <img src="images/Seal_Place.png" width="100%" />
+    </div>
+    <div class="col-12 col-md-7 offset-md-1">
+      <h1 class="display-4 text-center text-md-left"></h1>
+      <p class="lead text-center text-md-left">
+        A standardised way to describe the systems, sensors, and technologies in a given area.
+      </p>
+      <div class="d-none d-md-block">
+        
+        <button type="button" class="btn mr-2 btn-primary">Start the journey</button>
+        
+        <button type="button" class="btn mr-2 btn-secondary">Skip to the prototype</button>
+        
+        <button type="button" class="btn mr-2 btn-secondary">See an example definition</button>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-5">
+    
+      <div class="col-6 col-md-3">
+        
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">map</i>
+  </div>
+
+        <h5 class="mt-2">Place descriptions</h5>
+        <h6>Publishing place definitions allows people to know what functionality is available in a given place.</h6>
+      </div>
+    
+      <div class="col-6 col-md-3">
+        
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">power</i>
+  </div>
+
+        <h5 class="mt-2">Ambient interactions</h5>
+        <h6>Rather than relying on a single app, an interoperable API ensures many channels of access.</h6>
+      </div>
+    
+      <div class="col-6 col-md-3">
+        
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">receipt</i>
+  </div>
+
+        <h5 class="mt-2">Trusted assistant</h5>
+        <h6>Each personal interaction that is digitally recorded is able to be audited and edited by that person.</h6>
+      </div>
+    
+      <div class="col-6 col-md-3">
+        
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">place</i>
+  </div>
+
+        <h5 class="mt-2">Zone-based notice</h5>
+        <h6>Alerts can be set based on geographic areas and a person’s familiarity with that place.</h6>
+      </div>
+    
+  </div> -->
+
+        </div>
+      </div>
+      <div>
+        <div
+  data-stepIndex="0"
+  data-stepFrame="0"
+  class="step step-holder step-holder-right"
+>
+  <div class="container">
+    <div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <!-- <div class="col-3 col-md-1 text-center d-flex align-items-center flex-column">
+    <div>
+
+  <img src="dtpr_icons/purpose/mobility.svg" />
+</div>
+    <div class="d-flex flex-row my-n1">
+      
+
+  <img src="dtpr_icons/tech/wave.svg" />
+
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+    </div>
+    <div>
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+</div>
+  </div> -->
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card pb-2 mt-5">
+      <h3>Dock your bike</h3>
+      <p>
+        Arriving at your destination, you dock your bike, and your session is ended. The trip is credited to your monthly membership.
+      </p>
+    </div>
+  </div>
+  
+</div>
+<div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <div class="card card-lightblue py-2">
+      <ul class="list-group">
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/purpose/mobility.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The purpose of this system is</small></p>
+            <h6 class="my-0">Mobility</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">pedal_bike</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The service is provided by</small></p>
+            <h6 class="my-0">Bikeshare Co.</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/tech/yellow/wave.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The technology is</small></p>
+            <h6 class="my-0">Bikeshare ID</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">directions_walking</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The interaction mode is</small></p>
+            <h6 class="my-0">Hands free</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The relationship is</small></p>
+            <h6 class="my-0">Membership</h6>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+  </div>
+</div>
+
+        
+      </div>
+      <div>
+        <div
+  data-stepIndex="0"
+  data-stepFrame="1"
+  class="step step-holder step-holder-left"
+>
+  <div class="container">
+    <div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <!-- <div class="col-3 col-md-1 text-center d-flex align-items-center flex-column">
+    <div>
+
+  <img src="dtpr_icons/purpose/water.svg" />
+</div>
+    <div class="d-flex flex-row my-n1">
+      
+
+  <img src="dtpr_icons/tech/light.svg" />
+
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+    </div>
+    <div>
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+</div>
+  </div> -->
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card pb-2 mt-5">
+      <h3>Enter the plaza</h3>
+      <p>
+        As you enter the plaza, you are given a link to a chatbot and can ask any questions you have about this place.
+      </p>
+    </div>
+  </div>
+  
+</div>
+<div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <div class="card card-lightblue py-2">
+      <ul class="list-group">
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/purpose/agency.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The purpose of this system is</small></p>
+            <h6 class="my-0">Agency</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">location_city</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The service is provided by</small></p>
+            <h6 class="my-0">Neighbourhood Org.</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="dtpr-logo">
+    <img src="images/DTPR_Logo_Outline.svg" />
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The technology is</small></p>
+            <h6 class="my-0">DTPR API</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">smartphone</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The interaction mode is</small></p>
+            <h6 class="my-0">Personal Device</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">meeting_room</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The relationship is</small></p>
+            <h6 class="my-0">Visit</h6>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+  </div>
+</div>
+
+        
+      </div>
+      <div>
+        <div
+  data-stepIndex="0"
+  data-stepFrame="2"
+  class="step step-holder step-holder-right"
+>
+  <div class="container">
+    <div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <!-- <div class="col-3 col-md-1 text-center d-flex align-items-center flex-column">
+    <div>
+
+  <img src="dtpr_icons/purpose/water.svg" />
+</div>
+    <div class="d-flex flex-row my-n1">
+      
+
+  <img src="dtpr_icons/tech/light.svg" />
+
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+    </div>
+    <div>
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+</div>
+  </div> -->
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card pb-2 mt-5">
+      <h3>Grab a book</h3>
+      <p>
+        You grab a book off the shelf and its added to your virtual cart. You can set these preferences with your personal AI.
+      </p>
+    </div>
+  </div>
+  
+</div>
+<div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <div class="card card-lightblue py-2">
+      <ul class="list-group">
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/purpose/agency.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The purpose of this system is</small></p>
+            <h6 class="my-0">Borrowing</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">local_library</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The service is provided by</small></p>
+            <h6 class="my-0">Library Dept.</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/tech/yellow/video.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The technology is</small></p>
+            <h6 class="my-0">Computer Vision</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">shopping_basket</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The interaction mode is</small></p>
+            <h6 class="my-0">Grab and Go</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The relationship is</small></p>
+            <h6 class="my-0">Membership</h6>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+  </div>
+</div>
+
+        
+      </div>
+      <div>
+        <div
+  data-stepIndex="0"
+  data-stepFrame="3"
+  class="step step-holder step-holder-left"
+>
+  <div class="container">
+    <div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <!-- <div class="col-3 col-md-1 text-center d-flex align-items-center flex-column">
+    <div>
+
+  <img src="dtpr_icons/purpose/water.svg" />
+</div>
+    <div class="d-flex flex-row my-n1">
+      
+
+  <img src="dtpr_icons/tech/light.svg" />
+
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+    </div>
+    <div>
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+</div>
+  </div> -->
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card pb-2 mt-5">
+      <h3>Head out to the street</h3>
+      <p>
+        As you leave, the book is checked out with your library card. You continue to the street - you know you can examine the transaction later.
+      </p>
+    </div>
+  </div>
+  
+</div>
+<div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <div class="card card-lightblue py-2">
+      <ul class="list-group">
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/purpose/water.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The purpose of this system is</small></p>
+            <h6 class="my-0">Borrowing</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/tech/light.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The service is provided by</small></p>
+            <h6 class="my-0">Library Dept.</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The user’s interface is </small></p>
+            <h6 class="my-0">Personal AI</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The relationship is</small></p>
+            <h6 class="my-0">Membership</h6>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+  </div>
+</div>
+
+        
+      </div>
+      <div class="step-footer">
+        <div class="container">
+          <div class="row pt-4">
+  <div class="col col-md-9">
+    <h3>Summary</h3>
+    <h2>In this scenario we learned about how a personal AI could interact with places, if the systems, sensors, and technologies in a given area were described in a standardised way.</h2>
+  </div>
+</div>
+<!-- <div class="row pb-4 pt-3">
+  
+    <div class="col-6 col-md-3">
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">map</i>
+  </div>
+
+      <h5 class="mt-2">Place descriptions</h5>
+      <p>Publishing place definitions allows people to know what functionality is available in a given place.</p>
+    </div>
+  
+    <div class="col-6 col-md-3">
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">directions_walking</i>
+  </div>
+
+      <h5 class="mt-2">Ambient interactions</h5>
+      <p>Rather than relying on a single app, an interoperable API ensures many channels of access.</p>
+    </div>
+  
+    <div class="col-6 col-md-3">
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+      <h5 class="mt-2">Trusted assistant</h5>
+      <p>Each personal interaction that is digitally recorded is able to be audited and edited by that person.</p>
+    </div>
+  
+    <div class="col-6 col-md-3">
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">place</i>
+  </div>
+
+      <h5 class="mt-2">Zone-based notice</h5>
+      <p>Alerts can be set based on geographic areas and a person’s familiarity with that place.</p>
+    </div>
+  
+</div> -->
+
+
+        </div>
+      </div>
+    </div>
+    <!-- / SECTION 1 -->
+
+    <!-- SECTION 2 -->
+    
+    <div id="section-scenario-2" class="step" data-step="section-scenario-2">
+      <div class="sticky-section-header">
+        <div class="container sticky-nav">
+  <div class="row">
+    <div class="col-7 section-title">
+      <h4 class="mb-0">
+        <span class="nav-current-section">
+
+  <div class="align-middle number-icon">
+    2
+  </div>
+</span>
+        <span class="pl-1">A new look</span>
+      </h4>
+    </div>
+    <div class="col-5 menu">
+      <a href="/" class="btn btn-sm btn-primary font-sm" style="font-size: 0.8rem; padding-bottom: 0.4rem; padding-top: 0.4rem;">Exit</a>
+      <!-- <span class="nav-prev-section">
+
+  <div class="align-middle circle-icon">
+    <i class="material-icons md-18">arrow_upward</i>
+  </div>
+</span>
+      <span class="nav-next-section">
+
+  <div class="align-middle circle-icon">
+    <i class="material-icons md-18">arrow_downward</i>
+  </div>
+</span> -->
+      <span class="nav-open-menu">
+
+  <div class="align-middle circle-icon">
+    <i class="material-icons md-18">apps</i>
+  </div>
+</span>
+    </div>
+  </div>
+</div>
+      </div>
+      <div class="step-banner">
+        <div class="container">
+          <div class="row">
+  <div class="col">
+    <div class="card card-lightblue d-flex scenario-card big-card" style="background-image:url(images/Vision_Chapter_Image_2.svg);">
+      <div class="headers">
+        <h3><span class="badge">2</span>How might we...</h3>
+        <h1>understand how sensors work, and what they do for people?</h1>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- <div class="row" style="margin-top:150px;margin-bottom:150px;">
+    <div class="col-6 offset-3 col-md-3 offset-md-0">
+      <img src="images/Seal_Sensor.png" width="100%" />
+    </div>
+    <div class="col-12 col-md-7 offset-md-1">
+      <h1 class="display-4 text-center text-md-left"></h1>
+      <p class="lead text-center text-md-left">
+        A standardised way to describe sensors and convey what kind of processing they're performing.
+      </p>
+      <div class="d-none d-md-block">
+        
+        <button type="button" class="btn mr-2 btn-primary">Start the journey</button>
+        
+        <button type="button" class="btn mr-2 btn-secondary">Skip to the prototype</button>
+        
+        <button type="button" class="btn mr-2 btn-secondary">See an example definition</button>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-5">
+    
+      <div class="col-6 col-md-3">
+        
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">accessibility_new</i>
+  </div>
+
+        <h5 class="mt-2">Agency for people</h5>
+        <h6>Publishing place definitions allows people to know what functionality is available in a given place.</h6>
+      </div>
+    
+      <div class="col-6 col-md-3">
+        
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">power</i>
+  </div>
+
+        <h5 class="mt-2">Interoperable access</h5>
+        <h6>Rather than relying on a single app, an interoperable API ensures many channels of access.</h6>
+      </div>
+    
+      <div class="col-6 col-md-3">
+        
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">receipt</i>
+  </div>
+
+        <h5 class="mt-2">Data exchange receipts</h5>
+        <h6>Each personal interaction that is digitally recorded is able to be audited and edited by that person.</h6>
+      </div>
+    
+      <div class="col-6 col-md-3">
+        
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">place</i>
+  </div>
+
+        <h5 class="mt-2">Zone-based notice</h5>
+        <h6>Alerts can be set based on geographic areas and a person’s familiarity with that place.</h6>
+      </div>
+    
+  </div> -->
+
+        </div>
+      </div>
+      <div>
+        <div
+  data-stepIndex="1"
+  data-stepFrame="0"
+  class="step step-holder step-holder-right"
+>
+  <div class="container">
+    <div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <!-- <div class="col-3 col-md-1 text-center d-flex align-items-center flex-column">
+    <div>
+
+  <img src="dtpr_icons/purpose/water.svg" />
+</div>
+    <div class="d-flex flex-row my-n1">
+      
+
+  <img src="dtpr_icons/tech/light.svg" />
+
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+    </div>
+    <div>
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+</div>
+  </div> -->
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card pb-2 mt-5">
+      <h3>Enter the shop</h3>
+      <p>
+        You enter a new local shop and are able to connect in the way you choose.
+      </p>
+    </div>
+  </div>
+  
+</div>
+<div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <div class="card card-lightblue py-2">
+      <ul class="list-group">
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/purpose/agency.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The purpose of this system is</small></p>
+            <h6 class="my-0">Agency</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">storefront</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The service is provided by</small></p>
+            <h6 class="my-0">Shop Co.</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="dtpr-logo">
+    <img src="images/DTPR_Logo_Black.svg" />
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The technology is</small></p>
+            <h6 class="my-0">DTPR API</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">smartphone</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The interaction mode is</small></p>
+            <h6 class="my-0">Personal Device</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">meeting_room</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The relationship is</small></p>
+            <h6 class="my-0">Temporary</h6>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+  </div>
+</div>
+
+        
+      </div>
+      <div>
+        <div
+  data-stepIndex="1"
+  data-stepFrame="1"
+  class="step step-holder step-holder-left"
+>
+  <div class="container">
+    <div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <!-- <div class="col-3 col-md-1 text-center d-flex align-items-center flex-column">
+    <div>
+
+  <img src="dtpr_icons/purpose/water.svg" />
+</div>
+    <div class="d-flex flex-row my-n1">
+      
+
+  <img src="dtpr_icons/tech/light.svg" />
+
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+    </div>
+    <div>
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+</div>
+  </div> -->
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card pb-2 mt-5">
+      <h3>Stand in front of mirror</h3>
+      <p>
+        You stand in front of the mirror. You see an option to connect and try on clothes virtually.
+      </p>
+    </div>
+  </div>
+  
+</div>
+<div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <div class="card card-lightblue py-2">
+      <ul class="list-group">
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/purpose/agency.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The purpose of this system is</small></p>
+            <h6 class="my-0">Agency</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">storefront</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The service is provided by</small></p>
+            <h6 class="my-0">Shop Co.</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/tech/blue/video.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The technology is</small></p>
+            <h6 class="my-0">Computer Vision</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">portrait</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The interaction mode is</small></p>
+            <h6 class="my-0">Magic Mirror</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">meeting_room</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The relationship is</small></p>
+            <h6 class="my-0">Temporary</h6>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+  </div>
+</div>
+
+        
+      </div>
+      <div>
+        <div
+  data-stepIndex="1"
+  data-stepFrame="2"
+  class="step step-holder step-holder-right"
+>
+  <div class="container">
+    <div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <!-- <div class="col-3 col-md-1 text-center d-flex align-items-center flex-column">
+    <div>
+
+  <img src="dtpr_icons/purpose/water.svg" />
+</div>
+    <div class="d-flex flex-row my-n1">
+      
+
+  <img src="dtpr_icons/tech/light.svg" />
+
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+    </div>
+    <div>
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+</div>
+  </div> -->
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card pb-2 mt-5">
+      <h3>Save for later</h3>
+      <p>
+        After trying on some items, you decide to purchase one item, save a couple others to a wishlist.
+      </p>
+    </div>
+  </div>
+  
+</div>
+<div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <div class="card card-lightblue py-2">
+      <ul class="list-group">
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/purpose/agency.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The purpose of this system is</small></p>
+            <h6 class="my-0">Saving</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">storefront</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The service is provided by</small></p>
+            <h6 class="my-0">Shop Co.</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/tech/blue/video.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The technology is</small></p>
+            <h6 class="my-0">Computer Vision</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">portrait</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The interaction mode is</small></p>
+            <h6 class="my-0">Magic Mirror</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">card_membership</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The relationship is</small></p>
+            <h6 class="my-0">Customer</h6>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+  </div>
+</div>
+
+        
+      </div>
+      <div>
+        <div
+  data-stepIndex="1"
+  data-stepFrame="3"
+  class="step step-holder step-holder-left"
+>
+  <div class="container">
+    <div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <!-- <div class="col-3 col-md-1 text-center d-flex align-items-center flex-column">
+    <div>
+
+  <img src="dtpr_icons/purpose/water.svg" />
+</div>
+    <div class="d-flex flex-row my-n1">
+      
+
+  <img src="dtpr_icons/tech/light.svg" />
+
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+    </div>
+    <div>
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+</div>
+  </div> -->
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card pb-2 mt-5">
+      <h3>Upgrade account</h3>
+      <p>
+        You bag your item, leave the store, and are given the option to create a connection with the local merchant, and change your payment method.
+      </p>
+    </div>
+  </div>
+  
+</div>
+<div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <div class="card card-lightblue py-2">
+      <ul class="list-group">
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="dtpr_icons/container/black/hexagon.svg" />
+    <i class="material-icons md-24" style="color:#fff;">shopping_basket</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The purpose of this system is</small></p>
+            <h6 class="my-0">Shopping</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">storefront</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The service is provided by</small></p>
+            <h6 class="my-0">Shop Co.</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/tech/yellow/wave.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The technology is</small></p>
+            <h6 class="my-0">Contactless payments</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">shopping_basket</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The interaction mode is</small></p>
+            <h6 class="my-0">Grab and go</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">card_membership</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The relationship is</small></p>
+            <h6 class="my-0">Customer</h6>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+  </div>
+</div>
+
+        
+      </div>
+      <div class="step-footer">
+        <div class="container">
+          <div class="row pt-4">
+  <div class="col col-md-9">
+    <h3>Summary</h3>
+    <h2>In this scenario we learned about a standardised way to learn about technologies and make use of shared devices.</h2>
+  </div>
+</div>
+<!-- <div class="row pb-4 pt-3">
+  
+    <div class="col-6 col-md-3">
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">accessibility_new</i>
+  </div>
+
+      <h5 class="mt-2">Agency for people</h5>
+      <p>Publishing place definitons allows people to know what functionality is available in a given place.</p>
+    </div>
+  
+    <div class="col-6 col-md-3">
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">power</i>
+  </div>
+
+      <h5 class="mt-2">Interoperable access</h5>
+      <p>Rather than relying on a single app, an interoperable API ensures many channels of access.</p>
+    </div>
+  
+    <div class="col-6 col-md-3">
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">receipt</i>
+  </div>
+
+      <h5 class="mt-2">Data exchange receipts</h5>
+      <p>Each personal interaction that is digitally recorded is able to be audited and edited by that person.</p>
+    </div>
+  
+    <div class="col-6 col-md-3">
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">place</i>
+  </div>
+
+      <h5 class="mt-2">Zone-based notice</h5>
+      <p>Alerts can be set based on geographic areas and a person’s familiarity with that place.</p>
+    </div>
+  
+</div> -->
+
+
+        </div>
+      </div>
+    </div>
+    <!-- / SECTION 2 -->
+
+    <!-- SECTION 3 -->
+    
+    <div id="section-scenario-3" class="step" data-step="section-scenario-3">
+      <div class="sticky-section-header">
+        <div class="container sticky-nav">
+  <div class="row">
+    <div class="col-7 section-title">
+      <h4 class="mb-0">
+        <span class="nav-current-section">
+
+  <div class="align-middle number-icon">
+    3
+  </div>
+</span>
+        <span class="pl-1">Stop to listen</span>
+      </h4>
+    </div>
+    <div class="col-5 menu">
+      <a href="/" class="btn btn-sm btn-primary font-sm" style="font-size: 0.8rem; padding-bottom: 0.4rem; padding-top: 0.4rem;">Exit</a>
+      <!-- <span class="nav-prev-section">
+
+  <div class="align-middle circle-icon">
+    <i class="material-icons md-18">arrow_upward</i>
+  </div>
+</span>
+      <span class="nav-next-section">
+
+  <div class="align-middle circle-icon">
+    <i class="material-icons md-18">arrow_downward</i>
+  </div>
+</span> -->
+      <span class="nav-open-menu">
+
+  <div class="align-middle circle-icon">
+    <i class="material-icons md-18">apps</i>
+  </div>
+</span>
+    </div>
+  </div>
+</div>
+      </div>
+      <div class="step-banner">
+        <div class="container">
+          <div class="row">
+  <div class="col">
+    <div class="card card-lightblue d-flex scenario-card big-card" style="background-image:url(images/Vision_Chapter_Image_3.svg);">
+      <div class="headers">
+        <h3><span class="badge">3</span>How might we...</h3>
+        <h1>look up from our phones, and strengthen the social fabric?</h1>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- <div class="row" style="margin-top:150px;margin-bottom:150px;">
+    <div class="col-6 offset-3 col-md-3 offset-md-0">
+      <img src="images/Seal_Sensor.png" width="100%" />
+    </div>
+    <div class="col-12 col-md-7 offset-md-1">
+      <h1 class="display-4 text-center text-md-left"></h1>
+      <p class="lead text-center text-md-left">
+        A standardised way to query information about the places you're in, and the affordances there.
+      </p>
+      <div class="d-none d-md-block">
+        
+        <button type="button" class="btn mr-2 btn-primary">Start the journey</button>
+        
+        <button type="button" class="btn mr-2 btn-secondary">Skip to the prototype</button>
+        
+        <button type="button" class="btn mr-2 btn-secondary">See an example definition</button>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-5">
+    
+      <div class="col-6 col-md-3">
+        
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">accessibility_new</i>
+  </div>
+
+        <h5 class="mt-2">Agency for people</h5>
+        <h6>Publishing place definitons allows people to know what functionality is available in a given place.</h6>
+      </div>
+    
+      <div class="col-6 col-md-3">
+        
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">power</i>
+  </div>
+
+        <h5 class="mt-2">Interoperable access</h5>
+        <h6>Rather than relying on a single app, an interoperable API ensures many channels of access.</h6>
+      </div>
+    
+      <div class="col-6 col-md-3">
+        
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">receipt</i>
+  </div>
+
+        <h5 class="mt-2">Data exchange receipts</h5>
+        <h6>Each personal interaction that is digitally recorded is able to be audited and edited by that person.</h6>
+      </div>
+    
+      <div class="col-6 col-md-3">
+        
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">place</i>
+  </div>
+
+        <h5 class="mt-2">Zone-based notice</h5>
+        <h6>Alerts can be set based on geographic areas and a person’s familiarity with that place.</h6>
+      </div>
+    
+  </div> -->
+
+        </div>
+      </div>
+      <div>
+        <div
+  data-stepIndex="2"
+  data-stepFrame="0"
+  class="step step-holder step-holder-right"
+>
+  <div class="container">
+    <div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <!-- <div class="col-3 col-md-1 text-center d-flex align-items-center flex-column">
+    <div>
+
+  <img src="dtpr_icons/purpose/water.svg" />
+</div>
+    <div class="d-flex flex-row my-n1">
+      
+
+  <img src="dtpr_icons/tech/light.svg" />
+
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+    </div>
+    <div>
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+</div>
+  </div> -->
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card pb-2 mt-5">
+      <h3>What's around me?</h3>
+      <p>
+        You hear some music and follow it to the source. A busker is playing a nostalgic tune and you listen for a while.
+      </p>
+    </div>
+  </div>
+  
+</div>
+<div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <div class="card card-lightblue py-2">
+      <ul class="list-group">
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/purpose/arts.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The purpose of this system is</small></p>
+            <h6 class="my-0">Arts & Culture</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">location_city</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The service is provided by</small></p>
+            <h6 class="my-0">Neighbourhood Org.</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/tech/wave.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The technology is</small></p>
+            <h6 class="my-0">Bluetooth</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">directions_walking</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The interaction mode is</small></p>
+            <h6 class="my-0">Hands free</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">meeting_room</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The relationship is</small></p>
+            <h6 class="my-0">Temporary</h6>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+  </div>
+</div>
+
+        
+      </div>
+      <div>
+        <div
+  data-stepIndex="2"
+  data-stepFrame="1"
+  class="step step-holder step-holder-left"
+>
+  <div class="container">
+    <div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <!-- <div class="col-3 col-md-1 text-center d-flex align-items-center flex-column">
+    <div>
+
+  <img src="dtpr_icons/purpose/arts.svg" />
+</div>
+    <div class="d-flex flex-row my-n1">
+      
+
+  <img src="dtpr_icons/tech/light.svg" />
+
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+    </div>
+    <div>
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+</div>
+  </div> -->
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card pb-2 mt-5">
+      <h3>Support the artist</h3>
+      <p>
+        Summoning your assistant, you ask to learn more about this busker. You're able to see artist information, and even tip.
+      </p>
+    </div>
+  </div>
+  
+</div>
+<div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <div class="card card-lightblue py-2">
+      <ul class="list-group">
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/purpose/arts.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The purpose of this system is</small></p>
+            <h6 class="my-0">Arts and Culture</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">music_note</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The service is provided by</small></p>
+            <h6 class="my-0">Busker</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/tech/yellow/wave.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The technology is</small></p>
+            <h6 class="my-0">Contactless payments</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The interaction mode is </small></p>
+            <h6 class="my-0">Personal AI</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The relationship is</small></p>
+            <h6 class="my-0">Supporter</h6>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+  </div>
+</div>
+
+        
+      </div>
+      <div>
+        <div
+  data-stepIndex="2"
+  data-stepFrame="2"
+  class="step step-holder step-holder-right"
+>
+  <div class="container">
+    <div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <!-- <div class="col-3 col-md-1 text-center d-flex align-items-center flex-column">
+    <div>
+
+  <img src="dtpr_icons/purpose/water.svg" />
+</div>
+    <div class="d-flex flex-row my-n1">
+      
+
+  <img src="dtpr_icons/tech/light.svg" />
+
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+    </div>
+    <div>
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+</div>
+  </div> -->
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card pb-2 mt-5">
+      <h3>What else is here?</h3>
+      <p>
+        The busker is presented on a shared and real-time map of this place. You can see other facilities, businesses, and those who have given you permission.
+      </p>
+    </div>
+  </div>
+  
+</div>
+<div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <div class="card card-lightblue py-2">
+      <ul class="list-group">
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/purpose/inform.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The purpose of this system is</small></p>
+            <h6 class="my-0">Inform</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">location_city</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The service is provided by</small></p>
+            <h6 class="my-0">Neighbourhood Org.</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="dtpr-logo">
+    <img src="images/DTPR_Logo_Black.svg" />
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The technology is</small></p>
+            <h6 class="my-0">DTPR API</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">smartphone</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The interaction mode is</small></p>
+            <h6 class="my-0">Personal Device</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">meeting_room</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The relationship is</small></p>
+            <h6 class="my-0">Temporary</h6>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+  </div>
+</div>
+
+        
+      </div>
+      <div>
+        <div
+  data-stepIndex="2"
+  data-stepFrame="3"
+  class="step step-holder step-holder-left"
+>
+  <div class="container">
+    <div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <!-- <div class="col-3 col-md-1 text-center d-flex align-items-center flex-column">
+    <div>
+
+  <img src="dtpr_icons/purpose/water.svg" />
+</div>
+    <div class="d-flex flex-row my-n1">
+      
+
+  <img src="dtpr_icons/tech/light.svg" />
+
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+    </div>
+    <div>
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+</div>
+  </div> -->
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card pb-2 mt-5">
+      <h3>Bumping into a friend</h3>
+      <p>
+        You see your friend on the map, who you share your location with. You both decide to grab lunch together.
+      </p>
+    </div>
+  </div>
+  
+</div>
+<div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <div class="card card-lightblue py-2">
+      <ul class="list-group">
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">people</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The purpose of this system is</small></p>
+            <h6 class="my-0">Social</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">call</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The service is provided by</small></p>
+            <h6 class="my-0">Phone Co.</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">gps-not_fixed</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The technology is</small></p>
+            <h6 class="my-0">GPS</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The user’s interface is </small></p>
+            <h6 class="my-0">Personal AI</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The relationship is</small></p>
+            <h6 class="my-0">Friends</h6>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+  </div>
+</div>
+
+        
+      </div>
+      <div class="step-footer">
+        <div class="container">
+          <div class="row pt-4">
+  <div class="col col-md-9">
+    <h3>Summary</h3>
+    <h2>In this scenario we learned about a standardised way to describe the systems, sensors, and technologies in a given area.</h2>
+  </div>
+</div>
+<!-- <div class="row pb-4 pt-3">
+  
+    <div class="col-6 col-md-3">
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">accessibility_new</i>
+  </div>
+
+      <h5 class="mt-2">Agency for people</h5>
+      <p>Publishing place definitons allows people to know what functionality is available in a given place.</p>
+    </div>
+  
+    <div class="col-6 col-md-3">
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">power</i>
+  </div>
+
+      <h5 class="mt-2">Interoperable access</h5>
+      <p>Rather than relying on a single app, an interoperable API ensures many channels of access.</p>
+    </div>
+  
+    <div class="col-6 col-md-3">
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">receipt</i>
+  </div>
+
+      <h5 class="mt-2">Data exchange receipts</h5>
+      <p>Each personal interaction that is digitally recorded is able to be audited and edited by that person.</p>
+    </div>
+  
+    <div class="col-6 col-md-3">
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">place</i>
+  </div>
+
+      <h5 class="mt-2">Zone-based notice</h5>
+      <p>Alerts can be set based on geographic areas and a person’s familiarity with that place.</p>
+    </div>
+  
+</div> -->
+
+
+        </div>
+      </div>
+    </div>
+    <!-- / SECTION 3 -->
+
+    <!-- SECTION 4 -->
+    
+    <div id="section-scenario-4" class="step" data-step="section-scenario-4">
+      <div class="sticky-section-header">
+        <div class="container sticky-nav">
+  <div class="row">
+    <div class="col-7 section-title">
+      <h4 class="mb-0">
+        <span class="nav-current-section">
+
+  <div class="align-middle number-icon">
+    4
+  </div>
+</span>
+        <span class="pl-1">A table for two</span>
+      </h4>
+    </div>
+    <div class="col-5 menu">
+      <a href="/" class="btn btn-sm btn-primary font-sm" style="font-size: 0.8rem; padding-bottom: 0.4rem; padding-top: 0.4rem;">Exit</a>
+      <!-- <span class="nav-prev-section">
+
+  <div class="align-middle circle-icon">
+    <i class="material-icons md-18">arrow_upward</i>
+  </div>
+</span>
+      <span class="nav-next-section">
+
+  <div class="align-middle circle-icon">
+    <i class="material-icons md-18">arrow_downward</i>
+  </div>
+</span> -->
+      <span class="nav-open-menu">
+
+  <div class="align-middle circle-icon">
+    <i class="material-icons md-18">apps</i>
+  </div>
+</span>
+    </div>
+  </div>
+</div>
+      </div>
+      <div class="step-banner">
+        <div class="container">
+          <div class="row">
+  <div class="col">
+    <div class="card card-lightblue d-flex scenario-card big-card" style="background-image:url(images/Vision_Chapter_Image_4.svg);">
+      <div class="headers">
+        <h3><span class="badge">4</span>How might we...</h3>
+        <h1>gain agency over technology, and enhance our experiences of a place?</h1>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- <div class="row" style="margin-top:150px;margin-bottom:150px;">
+    <div class="col-6 offset-3 col-md-3 offset-md-0">
+      <img src="images/Seal_Place.png" width="100%" />
+    </div>
+    <div class="col-12 col-md-7 offset-md-1">
+      <h1 class="display-4 text-center text-md-left"></h1>
+      <p class="lead text-center text-md-left">
+        An interoperable way to book, request, and control assets in a shared space.
+      </p>
+      <div class="d-none d-md-block">
+        
+        <button type="button" class="btn mr-2 btn-primary">Start the journey</button>
+        
+        <button type="button" class="btn mr-2 btn-secondary">Skip to the prototype</button>
+        
+        <button type="button" class="btn mr-2 btn-secondary">See an example definition</button>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-5">
+    
+      <div class="col-6 col-md-3">
+        
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">accessibility_new</i>
+  </div>
+
+        <h5 class="mt-2">Agency for people</h5>
+        <h6>Publishing place definitons allows people to know what functionality is available in a given place.</h6>
+      </div>
+    
+      <div class="col-6 col-md-3">
+        
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">power</i>
+  </div>
+
+        <h5 class="mt-2">Interoperable access</h5>
+        <h6>Rather than relying on a single app, an interoperable API ensures many channels of access.</h6>
+      </div>
+    
+      <div class="col-6 col-md-3">
+        
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">receipt</i>
+  </div>
+
+        <h5 class="mt-2">Data exchange receipts</h5>
+        <h6>Each personal interaction that is digitally recorded is able to be audited and edited by that person.</h6>
+      </div>
+    
+      <div class="col-6 col-md-3">
+        
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">place</i>
+  </div>
+
+        <h5 class="mt-2">Zone-based notice</h5>
+        <h6>Alerts can be set based on geographic areas and a person’s familiarity with that place.</h6>
+      </div>
+    
+  </div> -->
+
+        </div>
+      </div>
+      <div>
+        <div
+  data-stepIndex="3"
+  data-stepFrame="0"
+  class="step step-holder step-holder-right"
+>
+  <div class="container">
+    <div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <!-- <div class="col-3 col-md-1 text-center d-flex align-items-center flex-column">
+    <div>
+
+  <img src="dtpr_icons/purpose/water.svg" />
+</div>
+    <div class="d-flex flex-row my-n1">
+      
+
+  <img src="dtpr_icons/tech/light.svg" />
+
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+    </div>
+    <div>
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+</div>
+  </div> -->
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card pb-2 mt-5">
+      <h3>Order ahead</h3>
+      <p>
+        You select a restaurant and your AI makes a menu suggestion. You opt-in to share your purchase data for a discount.
+      </p>
+    </div>
+  </div>
+  
+</div>
+<div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <div class="card card-lightblue py-2">
+      <ul class="list-group">
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">local_atm</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The purpose of this system is</small></p>
+            <h6 class="my-0">Commerce</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">call</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The service is provided by</small></p>
+            <h6 class="my-0">Restaurant Co.</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/tech/yellow/wave.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The technology is</small></p>
+            <h6 class="my-0">Contactless payments</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The user’s interface is </small></p>
+            <h6 class="my-0">Personal AI</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">card_membership</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The relationship is</small></p>
+            <h6 class="my-0">Customer</h6>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+  </div>
+</div>
+
+        
+      </div>
+      <div>
+        <div
+  data-stepIndex="3"
+  data-stepFrame="1"
+  class="step step-holder step-holder-right"
+>
+  <div class="container">
+    <div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <!-- <div class="col-3 col-md-1 text-center d-flex align-items-center flex-column">
+    <div>
+
+  <img src="dtpr_icons/purpose/water.svg" />
+</div>
+    <div class="d-flex flex-row my-n1">
+      
+
+  <img src="dtpr_icons/tech/light.svg" />
+
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+    </div>
+    <div>
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+</div>
+  </div> -->
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card pb-2 mt-5">
+      <h3>See what it sees</h3>
+      <p>
+        On your way, you check the live seating status of the seating area, and choose a table.
+      </p>
+    </div>
+  </div>
+  
+</div>
+<div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <div class="card card-lightblue py-2">
+      <ul class="list-group">
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/purpose/inform.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The purpose of this system is</small></p>
+            <h6 class="my-0">Inform</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">location_city</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The service is provided by</small></p>
+            <h6 class="my-0">Neighbourhood Org.</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="dtpr-logo">
+    <img src="images/DTPR_Logo_Black.svg" />
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The technology is</small></p>
+            <h6 class="my-0">DTPR API</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">smartphone</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The interaction mode is</small></p>
+            <h6 class="my-0">Personal Device</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">meeting_room</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The relationship is</small></p>
+            <h6 class="my-0">Temporary</h6>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+  </div>
+</div>
+
+        
+      </div><div>
+        <div
+  data-stepIndex="3"
+  data-stepFrame="2"
+  class="step step-holder step-holder-left"
+>
+  <div class="container">
+    <div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <!-- <div class="col-3 col-md-1 text-center d-flex align-items-center flex-column">
+    <div>
+
+  <img src="dtpr_icons/purpose/water.svg" />
+</div>
+    <div class="d-flex flex-row my-n1">
+      
+
+  <img src="dtpr_icons/tech/light.svg" />
+
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+    </div>
+    <div>
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+</div>
+  </div> -->
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card pb-2 mt-5">
+      <h3>This way to your table</h3>
+      <p>
+        You get directions to your table and begin your stroll.
+      </p>
+    </div>
+  </div>
+  
+</div>
+<div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <div class="card card-lightblue py-2">
+      <ul class="list-group">
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/purpose/mobility.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The purpose of this system is</small></p>
+            <h6 class="my-0">Mobility</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">location_city</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The service is provided by</small></p>
+            <h6 class="my-0">Neighbourhood Org.</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/tech/wave.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The technology is</small></p>
+            <h6 class="my-0">GPS</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">smartphone</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The interaction mode is</small></p>
+            <h6 class="my-0">Personal Device</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">meeting_room</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The relationship is</small></p>
+            <h6 class="my-0">Temporary</h6>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+  </div>
+</div>
+
+        
+      </div>
+      <div>
+        <div
+  data-stepIndex="3"
+  data-stepFrame="3"
+  class="step step-holder step-holder-left"
+>
+  <div class="container">
+    <div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <!-- <div class="col-3 col-md-1 text-center d-flex align-items-center flex-column">
+    <div>
+
+  <img src="dtpr_icons/purpose/water.svg" />
+</div>
+    <div class="d-flex flex-row my-n1">
+      
+
+  <img src="dtpr_icons/tech/light.svg" />
+
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+    </div>
+    <div>
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+</div>
+  </div> -->
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card pb-2 mt-5">
+      <h3>Food is ready</h3>
+      <p>
+        After catching up with your friend, the food arrives. You have a quick chat with the server, thank them, and chow down.
+      </p>
+    </div>
+  </div>
+  
+</div>
+<div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <div class="card card-lightblue py-2">
+      <ul class="list-group">
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">local_atm</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The purpose of this system is</small></p>
+            <h6 class="my-0">Commerce</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">call</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The service is provided by</small></p>
+            <h6 class="my-0">Restaurant Co.</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/tech/yellow/wave.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The technology is</small></p>
+            <h6 class="my-0">Identifiable NFC</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">directions_walking</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The interaction mode is</small></p>
+            <h6 class="my-0">Hands free</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The relationship is</small></p>
+            <h6 class="my-0">Customer</h6>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+  </div>
+</div>
+
+        
+      </div>
+      <div class="step-footer">
+        <div class="container">
+          <div class="row pt-4">
+  <div class="col col-md-9">
+    <h3>Summary</h3>
+    <h2>In this scenario we learned about how a standardised way to interact with systems can enable us to use and navigate an location seamlessly.</h2>
+  </div>
+</div>
+<!-- <div class="row pb-4 pt-3">
+  
+    <div class="col-6 col-md-3">
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">accessibility_new</i>
+  </div>
+
+      <h5 class="mt-2">Agency for people</h5>
+      <p>Publishing place definitons allows people to know what functionality is available in a given place.</p>
+    </div>
+  
+    <div class="col-6 col-md-3">
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">power</i>
+  </div>
+
+      <h5 class="mt-2">Interoperable access</h5>
+      <p>Rather than relying on a single app, an interoperable API ensures many channels of access.</p>
+    </div>
+  
+    <div class="col-6 col-md-3">
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">receipt</i>
+  </div>
+
+      <h5 class="mt-2">Data exchange receipts</h5>
+      <p>Each personal interaction that is digitally recorded is able to be audited and edited by that person.</p>
+    </div>
+  
+    <div class="col-6 col-md-3">
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">place</i>
+  </div>
+
+      <h5 class="mt-2">Zone-based notice</h5>
+      <p>Alerts can be set based on geographic areas and a person’s familiarity with that place.</p>
+    </div>
+  
+</div> -->
+
+
+        </div>
+      </div>
+    </div>
+    <!-- / SECTION 4 -->
+
+    <!-- SECTION 5 -->
+    
+    <div id="section-scenario-5" class="step" data-step="section-scenario-5">
+      <div class="sticky-section-header">
+        <div class="container sticky-nav">
+  <div class="row">
+    <div class="col-7 section-title">
+      <h4 class="mb-0">
+        <span class="nav-current-section">
+
+  <div class="align-middle number-icon">
+    5
+  </div>
+</span>
+        <span class="pl-1">Recycle, recall</span>
+      </h4>
+    </div>
+    <div class="col-5 menu">
+      <a href="/" class="btn btn-sm btn-primary font-sm" style="font-size: 0.8rem; padding-bottom: 0.4rem; padding-top: 0.4rem;">Exit</a>
+      <!-- <span class="nav-prev-section">
+
+  <div class="align-middle circle-icon">
+    <i class="material-icons md-18">arrow_upward</i>
+  </div>
+</span>
+      <span class="nav-next-section">
+
+  <div class="align-middle circle-icon">
+    <i class="material-icons md-18">arrow_downward</i>
+  </div>
+</span> -->
+      <span class="nav-open-menu">
+
+  <div class="align-middle circle-icon">
+    <i class="material-icons md-18">apps</i>
+  </div>
+</span>
+    </div>
+  </div>
+</div>
+      </div>
+      <div class="step-banner">
+        <div class="container">
+          <div class="row">
+  <div class="col">
+    <div class="card card-lightblue d-flex scenario-card big-card" style="background-image:url(images/Vision_Chapter_Image_5.svg);">
+      <div class="headers">
+        <h3><span class="badge">5</span>How might we...</h3>
+        <h1>get help from the built environment, and leave it better than we found it?</h1>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- <div class="row" style="margin-top:150px;margin-bottom:150px;">
+    <div class="col-6 offset-3 col-md-3 offset-md-0">
+      <img src="images/Seal_System.png" width="100%" />
+    </div>
+    <div class="col-12 col-md-7 offset-md-1">
+      <h1 class="display-4 text-center text-md-left"></h1>
+      <p class="lead text-center text-md-left">
+        A standard way to describe systems within places, and what sensors, processing, and purposes they serve.
+      </p>
+      <div class="d-none d-md-block">
+        
+        <button type="button" class="btn mr-2 btn-primary">Start the journey</button>
+        
+        <button type="button" class="btn mr-2 btn-secondary">Skip to the prototype</button>
+        
+        <button type="button" class="btn mr-2 btn-secondary">See an example definition</button>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-5">
+    
+      <div class="col-6 col-md-3">
+        
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">accessibility_new</i>
+  </div>
+
+        <h5 class="mt-2">Agency for people</h5>
+        <h6>Publishing place definitons allows people to know what functionality is available in a given place.</h6>
+      </div>
+    
+      <div class="col-6 col-md-3">
+        
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">power</i>
+  </div>
+
+        <h5 class="mt-2">Interoperable access</h5>
+        <h6>Rather than relying on a single app, an interoperable API ensures many channels of access.</h6>
+      </div>
+    
+      <div class="col-6 col-md-3">
+        
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">receipt</i>
+  </div>
+
+        <h5 class="mt-2">Data exchange receipts</h5>
+        <h6>Each personal interaction that is digitally recorded is able to be audited and edited by that person.</h6>
+      </div>
+    
+      <div class="col-6 col-md-3">
+        
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">place</i>
+  </div>
+
+        <h5 class="mt-2">Zone-based notice</h5>
+        <h6>Alerts can be set based on geographic areas and a person’s familiarity with that place.</h6>
+      </div>
+    
+  </div> -->
+
+        </div>
+      </div>
+      <div>
+        <div
+  data-stepIndex="4"
+  data-stepFrame="0"
+  class="step step-holder step-holder-right"
+>
+  <div class="container">
+    <div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <!-- <div class="col-3 col-md-1 text-center d-flex align-items-center flex-column">
+    <div>
+
+  <img src="dtpr_icons/purpose/water.svg" />
+</div>
+    <div class="d-flex flex-row my-n1">
+      
+
+  <img src="dtpr_icons/tech/light.svg" />
+
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+    </div>
+    <div>
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+</div>
+  </div> -->
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card pb-2 mt-5">
+      <h3>Right things in the right place</h3>
+      <p>
+        You get guidance from the waste bin. The compost and the recyclables are placed in the correct bins.
+      </p>
+    </div>
+  </div>
+  
+</div>
+<div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <div class="card card-lightblue py-2">
+      <ul class="list-group">
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/purpose/waste.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The purpose of this system is</small></p>
+            <h6 class="my-0">Waste Management</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">location_city</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The service is provided by</small></p>
+            <h6 class="my-0">Neighbourhood Org.</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/tech/video.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The technology is</small></p>
+            <h6 class="my-0">Computer Vision</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The interaction mode is </small></p>
+            <h6 class="my-0">System Screen</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">meeting_room</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The relationship is</small></p>
+            <h6 class="my-0">Temporary</h6>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+  </div>
+</div>
+
+        
+      </div>
+      <div>
+        <div
+  data-stepIndex="4"
+  data-stepFrame="1"
+  class="step step-holder step-holder-left"
+>
+  <div class="container">
+    <div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <!-- <div class="col-3 col-md-1 text-center d-flex align-items-center flex-column">
+    <div>
+
+  <img src="dtpr_icons/purpose/water.svg" />
+</div>
+    <div class="d-flex flex-row my-n1">
+      
+
+  <img src="dtpr_icons/tech/light.svg" />
+
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+    </div>
+    <div>
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+</div>
+  </div> -->
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card pb-2 mt-5">
+      <h3>Ways to help</h3>
+      <p>
+        You find out about actions you can take to help the neighbourhood achieve sustainability goals. You opt-in to sharing your anonymous location data.
+      </p>
+    </div>
+  </div>
+  
+</div>
+<div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <div class="card card-lightblue py-2">
+      <ul class="list-group">
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/purpose/energy.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The purpose of this system is</small></p>
+            <h6 class="my-0">Energy Efficiency</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">location_city</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The service is provided by</small></p>
+            <h6 class="my-0">Neighbourhood Org.</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">gps_not_fixed</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The technology is</small></p>
+            <h6 class="my-0">De-identified GPS</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The interaction mode is</small></p>
+            <h6 class="my-0">Personal AI</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">meeting_room</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The relationship is</small></p>
+            <h6 class="my-0">Anonymous</h6>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+  </div>
+</div>
+
+        
+      </div>
+      <!-- TODO: Put in numina sensor prototype -->
+      <div>
+        <div
+  data-stepIndex="4"
+  data-stepFrame="2"
+  class="step step-holder step-holder-right"
+>
+  <div class="container">
+    <div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <!-- <div class="col-3 col-md-1 text-center d-flex align-items-center flex-column">
+    <div>
+
+  <img src="dtpr_icons/purpose/water.svg" />
+</div>
+    <div class="d-flex flex-row my-n1">
+      
+
+  <img src="dtpr_icons/tech/light.svg" />
+
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+    </div>
+    <div>
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+</div>
+  </div> -->
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card pb-2 mt-5">
+      <h3>Learn about the system</h3>
+      <p>
+        You can learn more about all the systems in this place or save it for later reading.
+      </p>
+    </div>
+  </div>
+  
+</div>
+<div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <div class="card card-lightblue py-2">
+      <ul class="list-group">
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/purpose/inform.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The purpose of this system is</small></p>
+            <h6 class="my-0">Inform</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">location_city</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The service is provided by</small></p>
+            <h6 class="my-0">Neighbourhood Org.</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="dtpr-logo">
+    <img src="images/DTPR_Logo_Black.svg" />
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The technology is</small></p>
+            <h6 class="my-0">DTPR API</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The interaction mode is</small></p>
+            <h6 class="my-0">Personal AI</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The relationship is</small></p>
+            <h6 class="my-0">Temporary</h6>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+  </div>
+</div>
+
+        
+      </div>
+      <div>
+        <div
+  data-stepIndex="4"
+  data-stepFrame="3"
+  class="step step-holder step-holder-left"
+>
+  <div class="container">
+    <div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <!-- <div class="col-3 col-md-1 text-center d-flex align-items-center flex-column">
+    <div>
+
+  <img src="dtpr_icons/purpose/water.svg" />
+</div>
+    <div class="d-flex flex-row my-n1">
+      
+
+  <img src="dtpr_icons/tech/light.svg" />
+
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+    </div>
+    <div>
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+</div>
+  </div> -->
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card pb-2 mt-5">
+      <h3>Occupancy sensor</h3>
+      <p>
+        You want to learn more about the occupancy sensor, you are able to ask questions about how it works, and why its important.
+      </p>
+    </div>
+  </div>
+  
+</div>
+<div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <div class="card card-lightblue py-2">
+      <ul class="list-group">
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/purpose/energy.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The purpose of this system is</small></p>
+            <h6 class="my-0">Energy Efficiency</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">location_city</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The service is provided by</small></p>
+            <h6 class="my-0">Neighbourhood Org.</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/tech/light.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The technology is</small></p>
+            <h6 class="my-0">Infrared sensor</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">forum</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The interaction mode is </small></p>
+            <h6 class="my-0">System chatbot</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">meeting_room</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The relationship is</small></p>
+            <h6 class="my-0">Temporary</h6>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+  </div>
+</div>
+
+        
+      </div>
+      <div class="step-footer">
+        <div class="container">
+          <div class="row pt-4">
+  <div class="col col-md-9">
+    <h3>Summary</h3>
+    <h2>In this scenario we learned about how a standardised taxonomy to describe systems can enable us to better understand, use and engage with the environment around us.</h2>
+  </div>
+</div>
+<!-- <div class="row pb-4 pt-3">
+  
+    <div class="col-6 col-md-3">
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">accessibility_new</i>
+  </div>
+
+      <h5 class="mt-2">Agency for people</h5>
+      <p>Publishing place definitons allows people to know what functionality is available in a given place.</p>
+    </div>
+  
+    <div class="col-6 col-md-3">
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">power</i>
+  </div>
+
+      <h5 class="mt-2">Interoperable access</h5>
+      <p>Rather than relying on a single app, an interoperable API ensures many channels of access.</p>
+    </div>
+  
+    <div class="col-6 col-md-3">
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">receipt</i>
+  </div>
+
+      <h5 class="mt-2">Data exchange receipts</h5>
+      <p>Each personal interaction that is digitally recorded is able to be audited and edited by that person.</p>
+    </div>
+  
+    <div class="col-6 col-md-3">
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">place</i>
+  </div>
+
+      <h5 class="mt-2">Zone-based notice</h5>
+      <p>Alerts can be set based on geographic areas and a person’s familiarity with that place.</p>
+    </div>
+  
+</div> -->
+
+
+        </div>
+      </div>
+    </div>
+    <!-- / SECTION 5 -->
+
+    <!-- SECTION 6 -->
+    
+    <div id="section-scenario-6" class="step" data-step="section-scenario-6">
+      <div class="sticky-section-header">
+        <div class="container sticky-nav">
+  <div class="row">
+    <div class="col-7 section-title">
+      <h4 class="mb-0">
+        <span class="nav-current-section">
+
+  <div class="align-middle number-icon">
+    6
+  </div>
+</span>
+        <span class="pl-1">Lost & Found</span>
+      </h4>
+    </div>
+    <div class="col-5 menu">
+      <a href="/" class="btn btn-sm btn-primary font-sm" style="font-size: 0.8rem; padding-bottom: 0.4rem; padding-top: 0.4rem;">Exit</a>
+      <!-- <span class="nav-prev-section">
+
+  <div class="align-middle circle-icon">
+    <i class="material-icons md-18">arrow_upward</i>
+  </div>
+</span>
+      <span class="nav-next-section">
+
+  <div class="align-middle circle-icon">
+    <i class="material-icons md-18">arrow_downward</i>
+  </div>
+</span> -->
+      <span class="nav-open-menu">
+
+  <div class="align-middle circle-icon">
+    <i class="material-icons md-18">apps</i>
+  </div>
+</span>
+    </div>
+  </div>
+</div>
+      </div>
+      <div class="step-banner">
+        <div class="container">
+          <div class="row">
+  <div class="col">
+    <div class="card card-lightblue d-flex scenario-card big-card" style="background-image:url(images/Vision_Chapter_Image_6.svg);">
+      <div class="headers">
+        <h3><span class="badge">6</span>How might we...</h3>
+        <h1>offer eyes on the street, with humans in the loop?</h1>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- <div class="row" style="margin-top:150px;margin-bottom:150px;">
+    <div class="col-6 offset-3 col-md-3 offset-md-0">
+      <img src="images/Seal_Sensor.png" width="100%" />
+    </div>
+    <div class="col-12 col-md-7 offset-md-1">
+      <h1 class="display-4 text-center text-md-left"></h1>
+      <p class="lead text-center text-md-left">
+        New methods in preserving privacy while maintaining a way to comply with security operations.
+      </p>
+      <div class="d-none d-md-block">
+        
+        <button type="button" class="btn mr-2 btn-primary">Start the journey</button>
+        
+        <button type="button" class="btn mr-2 btn-secondary">Skip to the prototype</button>
+        
+        <button type="button" class="btn mr-2 btn-secondary">See an example definition</button>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-5">
+    
+      <div class="col-6 col-md-3">
+        
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">accessibility_new</i>
+  </div>
+
+        <h5 class="mt-2">Agency for people</h5>
+        <h6>Publishing place definitons allows people to know what functionality is available in a given place.</h6>
+      </div>
+    
+      <div class="col-6 col-md-3">
+        
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">power</i>
+  </div>
+
+        <h5 class="mt-2">Interoperable access</h5>
+        <h6>Rather than relying on a single app, an interoperable API ensures many channels of access.</h6>
+      </div>
+    
+      <div class="col-6 col-md-3">
+        
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">receipt</i>
+  </div>
+
+        <h5 class="mt-2">Data exchange receipts</h5>
+        <h6>Each personal interaction that is digitally recorded is able to be audited and edited by that person.</h6>
+      </div>
+    
+      <div class="col-6 col-md-3">
+        
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">place</i>
+  </div>
+
+        <h5 class="mt-2">Zone-based notice</h5>
+        <h6>Alerts can be set based on geographic areas and a person’s familiarity with that place.</h6>
+      </div>
+    
+  </div> -->
+
+        </div>
+      </div>
+      <div>
+        <div
+  data-stepIndex="5"
+  data-stepFrame="0"
+  class="step step-holder step-holder-right"
+>
+  <div class="container">
+    <div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <!-- <div class="col-3 col-md-1 text-center d-flex align-items-center flex-column">
+    <div>
+
+  <img src="dtpr_icons/purpose/water.svg" />
+</div>
+    <div class="d-flex flex-row my-n1">
+      
+
+  <img src="dtpr_icons/tech/light.svg" />
+
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+    </div>
+    <div>
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+</div>
+  </div> -->
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card pb-2 mt-5">
+      <h3>You've lost your bag</h3>
+      <p>
+        You quickly head to a wall assistant and gesture to contact security.
+      </p>
+    </div>
+  </div>
+  
+</div>
+<div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <div class="card card-lightblue py-2">
+      <ul class="list-group">
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/purpose/security.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The purpose of this system is</small></p>
+            <h6 class="my-0">Safety and Security</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">location_city</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The service is provided by</small></p>
+            <h6 class="my-0">Neighbourhood Org.</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/tech/voice.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The technology is</small></p>
+            <h6 class="my-0">Intercom</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">forum</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The interaction mode is</small></p>
+            <h6 class="my-0">System chatbot</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">meeting_room</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The relationship is</small></p>
+            <h6 class="my-0">Temporary</h6>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+  </div>
+</div>
+
+        
+      </div>
+      <div>
+        <div
+  data-stepIndex="5"
+  data-stepFrame="1"
+  class="step step-holder step-holder-left"
+>
+  <div class="container">
+    <div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <!-- <div class="col-3 col-md-1 text-center d-flex align-items-center flex-column">
+    <div>
+
+  <img src="dtpr_icons/purpose/water.svg" />
+</div>
+    <div class="d-flex flex-row my-n1">
+      
+
+  <img src="dtpr_icons/tech/light.svg" />
+
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+    </div>
+    <div>
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+</div>
+  </div> -->
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card pb-2 mt-5">
+      <h3>Decrypt when required</h3>
+      <p>
+        The security agent understands, and offers to decrypt based on 2 factor authentication using your location data.
+      </p>
+    </div>
+  </div>
+  
+</div>
+<div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <div class="card card-lightblue py-2">
+      <ul class="list-group">
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/purpose/security.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The purpose of this system is</small></p>
+            <h6 class="my-0">Safety and Security</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">location_city</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The service is provided by</small></p>
+            <h6 class="my-0">Neighbourhood Org.</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/tech/yellow/video.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The technology is</small></p>
+            <h6 class="my-0">Computer vision</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The interaction mode is </small></p>
+            <h6 class="my-0">Personal AI</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">verified_user</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The relationship is</small></p>
+            <h6 class="my-0">Secure and authenticated</h6>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+  </div>
+</div>
+
+        
+      </div>
+      <div>
+        <div
+  data-stepIndex="5"
+  data-stepFrame="2"
+  class="step step-holder step-holder-right"
+>
+  <div class="container">
+    <div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <!-- <div class="col-3 col-md-1 text-center d-flex align-items-center flex-column">
+    <div>
+
+  <img src="dtpr_icons/purpose/water.svg" />
+</div>
+    <div class="d-flex flex-row my-n1">
+      
+
+  <img src="dtpr_icons/tech/light.svg" />
+
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+    </div>
+    <div>
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+</div>
+  </div> -->
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card pb-2 mt-5">
+      <h3>Trace your steps</h3>
+      <p>
+        The security helps you trace your steps back to the food court, and monitors your bag until you retrieve it.
+      </p>
+    </div>
+  </div>
+  
+</div>
+<div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <div class="card card-lightblue py-2">
+      <ul class="list-group">
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/purpose/security.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The purpose of this system is</small></p>
+            <h6 class="my-0">Safety and Security</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">location_city</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The service is provided by</small></p>
+            <h6 class="my-0">Neighbourhood Org.</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/tech/yellow/video.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The technology is</small></p>
+            <h6 class="my-0">Computer vision</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">forum</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The interaction mode is</small></p>
+            <h6 class="my-0">System chatbot</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">verified_user</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The relationship is</small></p>
+            <h6 class="my-0">Secure and authenticated</h6>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+  </div>
+</div>
+
+        
+      </div>
+      <div>
+        <div
+  data-stepIndex="5"
+  data-stepFrame="3"
+  class="step step-holder step-holder-left"
+>
+  <div class="container">
+    <div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <!-- <div class="col-3 col-md-1 text-center d-flex align-items-center flex-column">
+    <div>
+
+  <img src="dtpr_icons/purpose/water.svg" />
+</div>
+    <div class="d-flex flex-row my-n1">
+      
+
+  <img src="dtpr_icons/tech/light.svg" />
+
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+    </div>
+    <div>
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+</div>
+  </div> -->
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card pb-2 mt-5">
+      <h3>On your way</h3>
+      <p>
+        After getting your bag back, you unlock 2 bikes, one for your friend, and head home together.
+      </p>
+    </div>
+  </div>
+  
+</div>
+<div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <div class="card card-lightblue py-2">
+      <ul class="list-group">
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/purpose/mobility.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The purpose of this system is</small></p>
+            <h6 class="my-0">Mobility</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/tech/light.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The service is provided by</small></p>
+            <h6 class="my-0">Bikeshare Co.</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/tech/yellow/wave.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The technology is</small></p>
+            <h6 class="my-0">Bikeshare ID</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">directions_walking</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The interaction mode is</small></p>
+            <h6 class="my-0">Hands free</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The relationship is</small></p>
+            <h6 class="my-0">Membership</h6>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+  </div>
+</div>
+
+        
+      </div>
+      <div class="step-footer">
+        <div class="container">
+          <div class="row pt-4">
+  <div class="col col-md-9">
+    <h3>Summary</h3>
+    <h2>In this scenario we learned about how a standardised way to interact with systems can enable us to access data streams to support different needs - securely.</h2>
+  </div>
+</div>
+<!-- <div class="row pb-4 pt-3">
+  
+    <div class="col-6 col-md-3">
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">accessibility_new</i>
+  </div>
+
+      <h5 class="mt-2">Agency for people</h5>
+      <p>Publishing place definitons allows people to know what functionality is available in a given place.</p>
+    </div>
+  
+    <div class="col-6 col-md-3">
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">power</i>
+  </div>
+
+      <h5 class="mt-2">Interoperable access</h5>
+      <p>Rather than relying on a single app, an interoperable API ensures many channels of access.</p>
+    </div>
+  
+    <div class="col-6 col-md-3">
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">receipt</i>
+  </div>
+
+      <h5 class="mt-2">Data exchange receipts</h5>
+      <p>Each personal interaction that is digitally recorded is able to be audited and edited by that person.</p>
+    </div>
+  
+    <div class="col-6 col-md-3">
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">place</i>
+  </div>
+
+      <h5 class="mt-2">Zone-based notice</h5>
+      <p>Alerts can be set based on geographic areas and a person’s familiarity with that place.</p>
+    </div>
+  
+</div> -->
+
+
+        </div>
+      </div>
+    </div>
+    <!-- / SECTION 6 -->
+
+    <!-- SECTION 7 -->
+    
+    <div id="section-scenario-7" class="step" data-step="section-scenario-7">
+      <div class="sticky-section-header">
+        <div class="container sticky-nav">
+  <div class="row">
+    <div class="col-7 section-title">
+      <h4 class="mb-0">
+        <span class="nav-current-section">
+
+  <div class="align-middle number-icon">
+    7
+  </div>
+</span>
+        <span class="pl-1">Head home</span>
+      </h4>
+    </div>
+    <div class="col-5 menu">
+      <a href="/" class="btn btn-sm btn-primary font-sm" style="font-size: 0.8rem; padding-bottom: 0.4rem; padding-top: 0.4rem;">Exit</a>
+      <!-- <span class="nav-prev-section">
+
+  <div class="align-middle circle-icon">
+    <i class="material-icons md-18">arrow_upward</i>
+  </div>
+</span>
+      <span class="nav-next-section">
+
+  <div class="align-middle circle-icon">
+    <i class="material-icons md-18">arrow_downward</i>
+  </div>
+</span> -->
+      <span class="nav-open-menu">
+
+  <div class="align-middle circle-icon">
+    <i class="material-icons md-18">apps</i>
+  </div>
+</span>
+    </div>
+  </div>
+</div>
+      </div>
+      <div class="step-banner">
+        <div class="container">
+          <div class="row">
+  <div class="col">
+    <div class="card card-lightblue d-flex scenario-card big-card" style="background-image:url(images/Vision_Chapter_Image_7.svg);">
+      <div class="headers">
+        <h3><span class="badge">7</span>How might we...</h3>
+        <h1>offer time-bound data sharing with ongoing control of choices?</h1>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- <div class="row" style="margin-top:150px;margin-bottom:150px;">
+    <div class="col-6 offset-3 col-md-3 offset-md-0">
+      <img src="images/Seal_Sensor.png" width="100%" />
+    </div>
+    <div class="col-12 col-md-7 offset-md-1">
+      <h1 class="display-4 text-center text-md-left"></h1>
+      <p class="lead text-center text-md-left">
+        A standard way for people to review their data footprint, delete transactions, and save other for later.
+      </p>
+      <div class="d-none d-md-block">
+        
+        <button type="button" class="btn mr-2 btn-primary">Start the journey</button>
+        
+        <button type="button" class="btn mr-2 btn-secondary">Skip to the prototype</button>
+        
+        <button type="button" class="btn mr-2 btn-secondary">See an example definition</button>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-5">
+    
+      <div class="col-6 col-md-3">
+        
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">accessibility_new</i>
+  </div>
+
+        <h5 class="mt-2">Agency for people</h5>
+        <h6>Publishing place definitons allows people to know what functionality is available in a given place.</h6>
+      </div>
+    
+      <div class="col-6 col-md-3">
+        
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">power</i>
+  </div>
+
+        <h5 class="mt-2">Interoperable access</h5>
+        <h6>Rather than relying on a single app, an interoperable API ensures many channels of access.</h6>
+      </div>
+    
+      <div class="col-6 col-md-3">
+        
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">receipt</i>
+  </div>
+
+        <h5 class="mt-2">Data exchange receipts</h5>
+        <h6>Each personal interaction that is digitally recorded is able to be audited and edited by that person.</h6>
+      </div>
+    
+      <div class="col-6 col-md-3">
+        
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">place</i>
+  </div>
+
+        <h5 class="mt-2">Zone-based notice</h5>
+        <h6>Alerts can be set based on geographic areas and a person’s familiarity with that place.</h6>
+      </div>
+    
+  </div> -->
+
+        </div>
+      </div>
+      <div>
+        <div
+  data-stepIndex="6"
+  data-stepFrame="0"
+  class="step step-holder step-holder-right"
+>
+  <div class="container">
+    <div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <!-- <div class="col-3 col-md-1 text-center d-flex align-items-center flex-column">
+    <div>
+
+  <img src="dtpr_icons/purpose/water.svg" />
+</div>
+    <div class="d-flex flex-row my-n1">
+      
+
+  <img src="dtpr_icons/tech/light.svg" />
+
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+    </div>
+    <div>
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+</div>
+  </div> -->
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card pb-2 mt-5">
+      <h3>Cycle the green wave</h3>
+      <p>
+        As you wait at a light, you opt into the green wave for this journey. This considers your journey in light changes.
+      </p>
+    </div>
+  </div>
+  
+</div>
+<div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <div class="card card-lightblue py-2">
+      <ul class="list-group">
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/purpose/mobility.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The purpose of this system is</small></p>
+            <h6 class="my-0">Mobility</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">add_road</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The service is provided by</small></p>
+            <h6 class="my-0">Gov Dept.</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/tech/light.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The technology is</small></p>
+            <h6 class="my-0">Radar</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">directions_bike</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The interaction mode is</small></p>
+            <h6 class="my-0">Bicycling</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">meeting_room</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The relationship is</small></p>
+            <h6 class="my-0">Temporary</h6>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+  </div>
+</div>
+
+        
+      </div>
+      <div>
+        <div
+  data-stepIndex="6"
+  data-stepFrame="1"
+  class="step step-holder step-holder-left"
+>
+  <div class="container">
+    <div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <!-- <div class="col-3 col-md-1 text-center d-flex align-items-center flex-column">
+    <div>
+
+  <img src="dtpr_icons/purpose/water.svg" />
+</div>
+    <div class="d-flex flex-row my-n1">
+      
+
+  <img src="dtpr_icons/tech/light.svg" />
+
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+    </div>
+    <div>
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+</div>
+  </div> -->
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card pb-2 mt-5">
+      <h3>Unlock door</h3>
+      <p>
+        You unlock your door with your Personal AI, and your friend can see your home data policies.
+      </p>
+    </div>
+  </div>
+  
+</div>
+<div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <div class="card card-lightblue py-2">
+      <ul class="list-group">
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/purpose/agency.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The purpose of this system is</small></p>
+            <h6 class="my-0">Agency</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">home</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The service is provided by</small></p>
+            <h6 class="my-0">Your Home</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="dtpr-logo">
+    <img src="images/DTPR_Logo_Black.svg" />
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The technology is</small></p>
+            <h6 class="my-0">DTPR API</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The interaction mode is </small></p>
+            <h6 class="my-0">Personal AI</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">verified_user</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The relationship is</small></p>
+            <h6 class="my-0">Secure and authenticated</h6>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+  </div>
+</div>
+
+        
+      </div>
+      <div>
+        <div
+  data-stepIndex="6"
+  data-stepFrame="2"
+  class="step step-holder step-holder-right"
+>
+  <div class="container">
+    <div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <!-- <div class="col-3 col-md-1 text-center d-flex align-items-center flex-column">
+    <div>
+
+  <img src="dtpr_icons/purpose/water.svg" />
+</div>
+    <div class="d-flex flex-row my-n1">
+      
+
+  <img src="dtpr_icons/tech/light.svg" />
+
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+    </div>
+    <div>
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+</div>
+  </div> -->
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card pb-2 mt-5">
+      <h3>Review transactions from the day</h3>
+      <p>
+        Looking back, you're able to see the digital interactions you had throughout the day. You can edit them, delete some, and set future preferences.
+      </p>
+    </div>
+  </div>
+  
+</div>
+<div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <div class="card card-lightblue py-2">
+      <ul class="list-group">
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/purpose/agency.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The purpose of this system is</small></p>
+            <h6 class="my-0">Agency</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The service is provided by</small></p>
+            <h6 class="my-0">Personal AI</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="dtpr-logo">
+    <img src="images/DTPR_Logo_Black.svg" />
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The technology is</small></p>
+            <h6 class="my-0">DTPR API</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The interaction mode is </small></p>
+            <h6 class="my-0">Personal AI</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">verified_user</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The relationship is</small></p>
+            <h6 class="my-0">Secure and authenticated</h6>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+  </div>
+</div>
+
+        
+      </div>
+      <div>
+        <div
+  data-stepIndex="6"
+  data-stepFrame="3"
+  class="step step-holder step-holder-left"
+>
+  <div class="container">
+    <div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <!-- <div class="col-3 col-md-1 text-center d-flex align-items-center flex-column">
+    <div>
+
+  <img src="dtpr_icons/purpose/water.svg" />
+</div>
+    <div class="d-flex flex-row my-n1">
+      
+
+  <img src="dtpr_icons/tech/light.svg" />
+
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+    </div>
+    <div>
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+</div>
+  </div> -->
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card pb-2 mt-5">
+      <h3>Feedback</h3>
+      <p>
+        You choose to share the busker you saw with a friend.
+      </p>
+    </div>
+  </div>
+  
+</div>
+<div class="row">
+  
+  <div class="d-none d-md-block col-md-6 col-lg-8"></div>
+  
+  <div class="col-12 col-md-6 col-lg-4 mt-2">
+    <div class="card card-lightblue py-2">
+      <ul class="list-group">
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <img src="dtpr_icons/purpose/inform.svg" />
+
+          </div>
+          <div>
+            <p class="my-0"><small>The purpose of this system is</small></p>
+            <h6 class="my-0">Inform</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The service is provided by</small></p>
+            <h6 class="my-0">Personal AI</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">sms</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The technology is</small></p>
+            <h6 class="my-0">SMS</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">room_service</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The interaction mode is </small></p>
+            <h6 class="my-0">Personal AI</h6>
+          </div>
+        </li>
+        
+        <li
+          class="list-group-item d-flex align-items-center px-0 py-1 border-0" style="background:transparent;"
+        >
+          <div class="mr-3">
+            
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">favorite</i>
+  </div>
+
+          </div>
+          <div>
+            <p class="my-0"><small>The relationship is</small></p>
+            <h6 class="my-0">Friend</h6>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+  </div>
+</div>
+
+        
+      </div>
+      <div class="step-footer">
+        <div class="container">
+          <div class="row pt-4">
+  <div class="col col-md-9">
+    <h3>Summary</h3>
+    <h2>In this scenario we learned about how a standardised way to interact with systems can enable choices and agency over digital systems - no matter where you are.</h2>
+  </div>
+</div>
+<!-- <div class="row pb-4 pt-3">
+  
+    <div class="col-6 col-md-3">
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">accessibility_new</i>
+  </div>
+
+      <h5 class="mt-2">Agency for people</h5>
+      <p>Publishing place definitons allows people to know what functionality is available in a given place.</p>
+    </div>
+  
+    <div class="col-6 col-md-3">
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">power</i>
+  </div>
+
+      <h5 class="mt-2">Interoperable access</h5>
+      <p>Rather than relying on a single app, an interoperable API ensures many channels of access.</p>
+    </div>
+  
+    <div class="col-6 col-md-3">
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">receipt</i>
+  </div>
+
+      <h5 class="mt-2">Data exchange receipts</h5>
+      <p>Each personal interaction that is digitally recorded is able to be audited and edited by that person.</p>
+    </div>
+  
+    <div class="col-6 col-md-3">
+      
+
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24">place</i>
+  </div>
+
+      <h5 class="mt-2">Zone-based notice</h5>
+      <p>Alerts can be set based on geographic areas and a person’s familiarity with that place.</p>
+    </div>
+  
+</div> -->
+
+
+        </div>
+      </div>
+    </div>
+  <script type="text/javascript" src="bundle.js"></script></body>
+</html>

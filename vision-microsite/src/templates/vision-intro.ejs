@@ -1,0 +1,36 @@
+
+  <div class="row mt-4">
+    <div class="col col-md-8">
+      <h3><%= prehead %></h3>
+      <h1><%= title %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col col-md-7">
+      <p><%= lead %></p>
+    </div>
+  </div>
+  <div class="row mt-3 d-none d-md-block">
+    <div class="col">
+      <div class="card card-lightblue d-flex scenario-card big-card" style="height: 420px;background-image:url(<%= features[0].image %>);" data-link="section-scenario-1">
+        <div class="w-50">
+          <h6><span class="badge">1</span>How might we...</h6>
+          <h1><%= features[0].description %></h1>
+        </div>
+        <div class="btn">Start</div>
+      </div>
+    </div>
+  </div>
+  <div class="row pb-5">
+    <% for (var i =0; i <features.length; i++ ) { %>
+      <div class="col-12 col-md-6 mt-2<% if(i == 0){ %> d-sm-none<% } %>">
+      <div class="card card-lightblue d-flex scenario-card" style="height:240px;background-image:url(<%= features[i].image %>);" data-link="section-scenario-<%= i+1 %>">
+          <div class="w-75">
+            <h6><span class="badge"><%= i+1 %></span>How might we...</h6>
+            <h3><%= features[i].description %></h3>
+          </div>
+        </div>
+      </div>
+    <% } %>
+  </div>
+

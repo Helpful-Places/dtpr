@@ -1,0 +1,32 @@
+
+<% if(icon.search(/dtpr_icons/) > -1) { %>
+  <img src="<%= icon %>" />
+<% } else if (icon.search(/black-icon/) > -1) { %>
+  <div class="align-middle hex-icon">
+    <img src="dtpr_icons/container/black/hexagon.svg" />
+    <i class="material-icons md-24" style="color:#fff;"><%= icon.split("black-icon-")[1] %></i>
+  </div>
+<% } else if (icon.search(/dtpr-logo/) > -1) { %>
+  <div class="dtpr-logo">
+    <img src="images/DTPR_Logo_<%= icon.split  ("dtpr-logo-")[1] %>.svg" />
+  </div>
+<% } else if (icon.search(/hex-icon/) > -1) { %>
+  <div class="align-middle hex-icon">
+    <img src="images/hexagon.svg" />
+    <i class="material-icons md-24"><%= icon.split("hex-icon-")[1] %></i>
+  </div>
+<% } else if (icon.search(/circle-icon/) > -1) { %>
+  <div class="align-middle circle-icon">
+    <i class="material-icons md-18"><%= icon.split  ("circle-icon-")[1] %></i>
+  </div>
+<% } else if (icon.search(/icon-36/) > -1) { %>
+  <div class="align-middle icon-36">
+    <i class="material-icons md-36"><%= icon.split  ("icon-36-")[1] %></i>
+  </div>
+<% } else if (icon.search(/number-icon/) > -1) { %>
+  <div class="align-middle number-icon">
+    <%= icon.split  ("number-icon-")[1] %>
+  </div>
+<% } else { %>
+  <i class="material-icons md-36"><%= icon %></i>
+<% } %>

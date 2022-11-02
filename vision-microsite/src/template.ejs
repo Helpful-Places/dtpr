@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>DTPR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/intersection-observer"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+  </head>
+  <body>
+
+    <% 
+      // Story Variables
+      var orgNeighbourhood = "Neighbourhood Org."
+      var orgBike = "Bikeshare Co."
+      var orgLibrary ="Library Dept."
+      var orgStore ="Shop Co."
+      var orgBank = "Bank Co."
+      var orgGov = "Gov Dept.";
+    %> 
+
+    <!-- NAVIGATION -->
+    <%=
+    require("ejs-loader!./templates/header.ejs")({}) %>
+    <div id="tapestry">
+      <div class="banner">
+        <img src="images/assistant_location_city.svg" class="tapestry-assistant" width="84" height="96" style="margin-left: 1430px; margin-top: 312px; position: absolute; z-index: 1;" />
+        <img src="images/assistant_location_city.svg" class="tapestry-assistant" width="84" height="96" style="margin-left: 4688px; margin-top: 456px; position: absolute; z-index: 1;" />
+        <img src="images/assistant_location_city.svg" class="tapestry-assistant" width="84" height="96" style="margin-left: 5904px; margin-top: 330px; position: absolute; z-index: 1;" />
+        <img src="images/assistant_location_city.svg" class="tapestry-assistant" width="50" height="58" style="margin-left: 8849px; margin-top: 318px; position: absolute; z-index: 1;" />
+        <img src="images/assistant_location_city.svg" class="tapestry-assistant" width="82" height="94" style="margin-left: 10907px; margin-top: 430px; position: absolute; z-index: 1;" />
+        <img src="images/assistant_location_city.svg" class="tapestry-assistant" width="84" height="96" style="margin-left: 12696px; margin-top: 424px; position: absolute; z-index: 1;" />
+        <img src="images/assistant_location_city.svg" class="tapestry-assistant" width="110" height="126" style="margin-left: 15643px; margin-top: 322px; position: absolute; z-index: 1;" />
+        <img src="images/assistant_location_city.svg" class="tapestry-assistant" width="104" height="118" style="margin-left: 17479px; margin-top: 452px; position: absolute; z-index: 1;" />
+        <img src="images/assistant_location_city.svg" class="tapestry-assistant" width="226" height="256" style="margin-left: 18379px; margin-top: 304px; position: absolute; z-index: 1;" />
+        <img src="images/assistant_location_city.svg" class="tapestry-assistant" width="158" height="178" style="margin-left: 19361px; margin-top: 398px; position: absolute; z-index: 1;" />
+        <img src="images/assistant_location_city.svg" class="tapestry-assistant" width="186" height="210" style="margin-left: 21921px; margin-top: 446px; position: absolute; z-index: 1;" />
+        <img src="images/assistant_location_city.svg" class="tapestry-assistant" width="74" height="84" style="margin-left: 25708px; margin-top: 526px; position: absolute; z-index: 1;" />
+        <img src="images/assistant_location_city.svg" class="tapestry-assistant" width="88" height="100" style="margin-left: 27250px; margin-top: 250px; position: absolute; z-index: 1;" />
+        <img src="images/scenario-1.svg" width="4174" height="1000" />
+        <img src="images/scenario-2.svg" width="4156" height="1000" />
+        <img src="images/scenario-3.svg" width="3818" height="1000" />
+        <img src="images/scenario-4.svg" width="3878" height="1000" />
+        <img src="images/scenario-5.svg" width="4168" height="1000" />
+        <img src="images/scenario-6.svg" width="4458" height="1000" />
+        <img src="images/scenario-7.svg" width="3412" height="1000" />
+      </div>
+    </div>
+
+    <div id="sticky-prototype">
+      <div class="prototype-content">
+        
+        <div class="prototype-conversation">
+          <img src="images/prototype/scenario-1a@2x.png" id="pcard-scenario-1a" class="prototype-card" data-prototype-step="scenario-1a" width="375" />
+          <img src="images/prototype/scenario-1b@2x.png" id="pcard-scenario-1b" class="prototype-card" data-prototype-step="scenario-1b" width="375" />
+          <img src="images/prototype/scenario-1c@2x.png" id="pcard-scenario-1c" class="prototype-card" data-prototype-step="scenario-1c" width="375" />
+          <img src="images/prototype/scenario-1d@2x.png" id="pcard-scenario-1d" class="prototype-card" data-prototype-step="scenario-1d" width="375" />
+
+          <img src="images/prototype/scenario-2a@2x.png" id="pcard-scenario-2a" class="prototype-card" data-prototype-step="scenario-2a" width="375" />
+          <img src="images/prototype/scenario-2b@2x.png" id="pcard-scenario-2b" class="prototype-card" data-prototype-step="scenario-2b" width="375" />
+          <img src="images/prototype/scenario-2d@2x.png" id="pcard-scenario-2d" class="prototype-card" data-prototype-step="scenario-2d" width="375" />
+
+          <img src="images/prototype/scenario-3a@2x.png" id="pcard-scenario-3a" class="prototype-card" data-prototype-step="scenario-3a" width="375" />
+          <img src="images/prototype/scenario-3b@2x.png" id="pcard-scenario-3b" class="prototype-card" data-prototype-step="scenario-3b" width="375" />
+          <img src="images/prototype/scenario-3c@2x.png" id="pcard-scenario-3c" class="prototype-card" data-prototype-step="scenario-3c" width="375" />
+          <img src="images/prototype/scenario-3d@2x.png" id="pcard-scenario-3d" class="prototype-card" data-prototype-step="scenario-3d" width="375" />
+          
+          <img src="images/prototype/scenario-4a@2x.png" id="pcard-scenario-4a" class="prototype-card" data-prototype-step="scenario-4a" width="375" />
+          <img src="images/prototype/scenario-4b@2x.png" id="pcard-scenario-4b" class="prototype-card" data-prototype-step="scenario-4b" width="375" />
+          <img src="images/prototype/scenario-4c@2x.png" id="pcard-scenario-4c" class="prototype-card" data-prototype-step="scenario-4c" width="375" />
+          <img src="images/prototype/scenario-4d@2x.png" id="pcard-scenario-4d" class="prototype-card" data-prototype-step="scenario-4d" width="375" />
+          
+          <img src="images/prototype/scenario-5a@2x.png" id="pcard-scenario-5a" class="prototype-card" data-prototype-step="scenario-5a" width="375" />
+          <img src="images/prototype/scenario-5b@2x.png" id="pcard-scenario-5b" class="prototype-card" data-prototype-step="scenario-5b" width="375" />
+          <img src="images/prototype/scenario-5c@2x.png" id="pcard-scenario-5c" class="prototype-card" data-prototype-step="scenario-5c" width="375" />
+          <img src="images/prototype/scenario-5d@2x.png" id="pcard-scenario-5d" class="prototype-card" data-prototype-step="scenario-5d" width="375" />
+
+          <img src="images/prototype/scenario-6a@2x.png" id="pcard-scenario-6a" class="prototype-card" data-prototype-step="scenario-6a" width="375" />
+          <img src="images/prototype/scenario-6b@2x.png" id="pcard-scenario-6b" class="prototype-card" data-prototype-step="scenario-6b" width="375" />
+          <img src="images/prototype/scenario-6c@2x.png" id="pcard-scenario-6c" class="prototype-card" data-prototype-step="scenario-6c" width="375" />
+          <img src="images/prototype/scenario-6d@2x.png" id="pcard-scenario-6d" class="prototype-card" data-prototype-step="scenario-6d" width="375" />
+
+          <img src="images/prototype/scenario-7a@2x.png" id="pcard-scenario-7a" class="prototype-card" data-prototype-step="scenario-7a" width="375" />
+          <img src="images/prototype/scenario-7b@2x.png" id="pcard-scenario-7b" class="prototype-card" data-prototype-step="scenario-7b" width="375" />
+          <img src="images/prototype/scenario-7c@2x.png" id="pcard-scenario-7c" class="prototype-card" data-prototype-step="scenario-7c" width="375" />
+          <img src="images/prototype/scenario-7d@2x.png" id="pcard-scenario-7d" class="prototype-card" data-prototype-step="scenario-7d" width="375" />
+        </div>
+        <div class="prototype-modal">
+          <img src="images/prototype/description--scenario-1a@2x.png" class="data-chain" id="datachain-scenario-1a" width="375" />
+          <img src="images/prototype/description--scenario-1b@2x.png" class="data-chain" id="datachain-scenario-1b" width="375" />
+          <img src="images/prototype/description--scenario-1c@2x.png" class="data-chain" id="datachain-scenario-1c" width="375" />
+          <img src="images/prototype/description--scenario-1d@2x.png" class="data-chain" id="datachain-scenario-1d" width="375" />
+
+          <img src="images/prototype/description--scenario-2a@2x.png" class="data-chain" id="datachain-scenario-2a" width="375" />
+          <img src="images/prototype/description--scenario-2b@2x.png" class="data-chain" id="datachain-scenario-2b" width="375" />
+          <img src="images/prototype/description--scenario-2d@2x.png" class="data-chain" id="datachain-scenario-2d" width="375" />
+
+          <img src="images/prototype/description--scenario-3a@2x.png" class="data-chain" id="datachain-scenario-3a" width="375" />
+          <img src="images/prototype/description--scenario-3c@2x.png" class="data-chain" id="datachain-scenario-3c" width="375" />
+          <img src="images/prototype/description--scenario-3d@2x.png" class="data-chain" id="datachain-scenario-3d" width="375" />
+          
+          <img src="images/prototype/description--scenario-4a@2x.png" class="data-chain" id="datachain-scenario-4a" width="375" />
+          <img src="images/prototype/description--scenario-4a-2@2x.png" class="data-chain" id="datachain-scenario-4a-2" width="375" />
+          <img src="images/prototype/description--scenario-4b@2x.png" class="data-chain" id="datachain-scenario-4b" width="375" />
+          <img src="images/prototype/description--scenario-4c@2x.png" class="data-chain" id="datachain-scenario-4c" width="375" />
+          <img src="images/prototype/description--scenario-4d@2x.png" class="data-chain" id="datachain-scenario-4d" width="375" />
+          
+          <img src="images/prototype/description--scenario-5a@2x.png" class="data-chain" id="datachain-scenario-5a" width="375" />
+          <img src="images/prototype/description--scenario-5b@2x.png" class="data-chain" id="datachain-scenario-5b" width="375" />
+          <img src="images/prototype/description--scenario-5b-2@2x.png" class="data-chain" id="datachain-scenario-5b-2" width="375" />
+          <img src="images/prototype/description--scenario-5c@2x.png" class="data-chain" id="datachain-scenario-5c" width="375" />
+          <img src="images/prototype/description--scenario-5d@2x.png" class="data-chain" id="datachain-scenario-5d" width="375" />
+
+          <img src="images/prototype/description--scenario-6a@2x.png" class="data-chain" id="datachain-scenario-6a" width="375" />
+          <img src="images/prototype/description--scenario-6b@2x.png" class="data-chain" id="datachain-scenario-6b" width="375" />
+          <img src="images/prototype/description--scenario-6d@2x.png" class="data-chain" id="datachain-scenario-6d" width="375" />
+
+          <img src="images/prototype/description--scenario-7a@2x.png" class="data-chain" id="datachain-scenario-7a" width="375" />
+          <img src="images/prototype/description--scenario-7b@2x.png" class="data-chain" id="datachain-scenario-7b" width="375" />
+          <img src="images/prototype/description--scenario-7c@2x.png" class="data-chain" id="datachain-scenario-7c" width="375" />
+          <img src="images/prototype/description--scenario-7d@2x.png" class="data-chain" id="datachain-scenario-7d" width="375" />
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION PAI -->
+    <div id="section-vision" class="step" data-step="section-vision">
+      <div class="sticky-section-header">
+        <%=
+        require("ejs-loader!./templates/section-divider.ejs")({
+          section:"Vision",
+          title: "DTPR: A Vision",
+          icon:"dtpr-logo-Blue",
+        }) %>
+      </div>
+      <div class="section-image" style="background-image: url(images/Vision_Map.png);"></div>
+
+      <!-- VISION INTRO -->
+      <% var stepData =[ 
+      {image:"images/Vision_Chapter_Image_1.svg", title:"Grab a book", description:"move seamlessly through places we love, and seamfully in places new to us?" }, 
+      { image:"images/Vision_Chapter_Image_2.svg", title:"A new look", description:"understand how sensors work, and what they do for people?" }, 
+      { image:"images/Vision_Chapter_Image_3.svg", title:"Stop to listen", description:"look up from our phones, and strengthen the social fabric?" }, 
+      { image:"images/Vision_Chapter_Image_4.svg", title:"A table for two", description:"gain agency over technology, and enhance our experiences of a place?" }, 
+      { image:"images/Vision_Chapter_Image_5.svg", title:"Recycle, recall", description:"get help from the built environment, and leave it better than we found it?" }, 
+      { image:"images/Vision_Chapter_Image_6.svg", title:"Lost & Found", description:"offer eyes on the street, with humans in the loop?" }, 
+      { image:"images/Vision_Chapter_Image_7.svg", title:"Head home", description:"offer time-bound data sharing with ongoing control of choices?" }, 
+      ]; 
+      %>
+
+      <div class="container pt-1 scenarios-toc">
+        <%= require("ejs-loader!./templates/vision-intro.ejs")({
+          prehead:"A Vision", 
+          title:"Join us on a journey that rejects the false dichotomy between privacy & convenience.", 
+          lead:"Out of the co-design sessions in early 2020 came an ask to envision how the standard might work in 5 years. Excitement built for the prospect of a personal AI assistant. This would be provided by an organization you trust. Your assistant knows your preferences and is ready to help.",
+          features:stepData,
+        })%>
+      </div>
+    </div>
+    <div id="section-agent" class="step" data-step="section-agent">
+      <div class="sticky-section-header">
+        <%=
+        require("ejs-loader!./templates/section-divider.ejs")({
+          section:"Vision",
+          title: "Your Digital Personal Assistant",
+          icon:"circle-icon-support_agent",
+        }) %>
+      </div>
+      <div class="container pt-4 pb-4">
+        <%= require("ejs-loader!./templates/vision-pai.ejs")({
+          section:"part 1", 
+          title: "First, choose<br /> your agent", 
+          lead: "In you're everyday life, you exchange data with a companies, apps, shops, and people. Everyone has different levels of comfort sharing data depending on the situation. We believe control for people can improve comfort. To ensure you maintain control of your data, these scenarios imagine a world where everyone has their own digital personal assistant.", 
+          buttons: [
+            { label: "Skip to the prototype", classes: "btn-primary",link:"section-scenario-1" },
+          ],
+          options: [
+            { icon:"location_city", title: "Government", label: "Offered by your national, regional or local government" },
+            { icon:"local_library", title: "Library Dept.", label: "Provided by your library" },
+            { icon:"account_balance", title: "Bank Co.", label: "An offering associated with your bank account" },
+            { icon:"local_phone", title: "Phone Co.", label: "An account provided by your phone provider" },
+            { icon:"help", title: "Other...", label: "Who would you trust to help?" },
+          ],
+        }) %>
+      </div>
+    </div>
+    
+    <!-- SECTION 1 -->
+    <% 
+      var currentFrame = 0;
+      var currentIndex = 0;
+      var currentStepData = stepData[currentIndex];
+    %>
+    <div id="section-scenario-1" class="step" data-step="section-scenario-1">
+      <div class="sticky-section-header">
+        <%= require("ejs-loader!./templates/section-divider.ejs")({
+          section:"Places<br />", 
+          title: currentStepData.title, 
+          icon:"number-icon-"+(currentIndex+1),
+        }) %>
+      </div>
+      <div class="step-banner">
+        <div class="container">
+          <%= require("ejs-loader!./templates/step-header.ejs")({ 
+            title: currentStepData.description, 
+            lead: "A standardised way to describe the systems, sensors, and technologies in a given area.", 
+            image:"images/Vision_Chapter_Image_1.svg",
+            stepNumber:currentIndex+1,
+            seal: "Seal_Place.png", 
+            buttons: [
+              { title: "titl", label: "Start the journey", classes: "btn-primary" },
+              { title: "titl", label: "Skip to the prototype", classes: "btn-secondary" },
+              { title: "titl", label: "See an example definition", classes: "btn-secondary" },
+            ], 
+            features: [ 
+              { title: "Place descriptions", label: "label", icon: "hex-icon-map", description: "Publishing place definitions allows people to know what functionality is available in a given place." }, 
+              { title: "Ambient interactions", label: "label", icon: "hex-icon-power", description: "Rather than relying on a single app, an interoperable API ensures many channels of access." }, 
+              { title: "Trusted assistant", label: "label", icon: "hex-icon-receipt", description: "Each personal interaction that is digitally recorded is able to be audited and edited by that person." }, 
+              { title: "Zone-based notice",label: "label", icon: "hex-icon-place", description: "Alerts can be set based on geographic areas and a person’s familiarity with that place." }, 
+            ], 
+          }) %>
+        </div>
+      </div>
+      <div>
+        <%= require("ejs-loader!./templates/step-holder.ejs")({
+          contentLeft:false,
+          prototypeType:"framer",
+          prototypeUrl:"framer://bikedock", 
+          sign:["face","hex-icon-face","dtpr_icons/tech/air.svg","dtpr_icons/tech/air.svg"],
+          title:"Dock your bike",
+          description:"Arriving at your destination, you dock your bike, and your session is ended. The trip is credited to your monthly membership.",
+          image:"images/Frame_Subject.svg",
+          frame:"images/Frame_Background.png",
+          sign:["dtpr_icons/purpose/mobility.svg","dtpr_icons/tech/wave.svg","hex-icon-room_service","hex-icon-favorite"],
+          features: [ 
+            { title: "The purpose of this system is", icon: "dtpr_icons/purpose/mobility.svg", description: "Mobility" }, 
+            { title: "The service is provided by", icon: "hex-icon-pedal_bike", description: orgBike }, 
+            { title: "The technology is", icon: "dtpr_icons/tech/yellow/wave.svg", description: "Bikeshare ID" }, 
+            { title: "The interaction mode is", icon: "hex-icon-directions_walking", description: "Hands free" }, 
+            { title: "The relationship is", icon: "hex-icon-favorite", description: "Membership" },
+          ],
+          index:currentIndex,
+          frame:currentFrame,
+        }) %>
+        <% 
+          currentFrame++;
+        %>
+      </div>
+      <div>
+        <%= require("ejs-loader!./templates/step-holder.ejs")({
+          contentLeft:true,
+          prototypeType:"framer",
+          prototypeUrl:"https://framer.com/share/Step1-ghD2K7KlMUDR3jc4Am7m/UXM1Lab84",
+          
+          title:"Enter the plaza",
+          description:"As you enter the plaza, you are given a link to a chatbot and can ask any questions you have about this place.",
+          image:"images/Frame_Subject.svg",
+          frame:"images/Frame_Background.png",
+          sign:["dtpr_icons/purpose/water.svg","dtpr_icons/tech/light.svg","hex-icon-room_service","hex-icon-favorite"],
+          features: [ 
+            { title: "The purpose of this system is", icon: "dtpr_icons/purpose/agency.svg", description: "Agency" }, 
+            { title: "The service is provided by", icon: "hex-icon-location_city", description: orgNeighbourhood }, 
+            { title: "The technology is", icon: "dtpr-logo-Outline", description: "DTPR API" }, 
+            { title: "The interaction mode is", icon: "hex-icon-smartphone", description: "Personal Device" }, 
+            { title: "The relationship is", icon: "hex-icon-meeting_room", description: "Visit" },
+          ],
+          index:currentIndex,
+          frame:currentFrame,
+        }) %>
+        <% 
+          currentFrame++;
+        %>
+      </div>
+      <div>
+        <%= require("ejs-loader!./templates/step-holder.ejs")({
+          contentLeft:false,
+          prototypeType:"dialogflow",
+          prototypeUrl:"https://dtpr.sidewalklabs.com/dtpr_chatbot/place.html", 
+          sign:["face","hex-icon-face","dtpr_icons/tech/air.svg","dtpr_icons/tech/air.svg"],
+          title:"Grab a book",
+          description:"You grab a book off the shelf and its added to your virtual cart. You can set these preferences with your personal AI.",
+          image:"images/Frame_Subject.svg",
+          frame:"images/Frame_Background.png",
+          sign:["dtpr_icons/purpose/water.svg","dtpr_icons/tech/light.svg","hex-icon-room_service","hex-icon-favorite"],
+          features: [ 
+            { title: "The purpose of this system is", icon: "dtpr_icons/purpose/agency.svg", description: "Borrowing" }, 
+            { title: "The service is provided by", icon: "hex-icon-local_library", description: orgLibrary }, 
+            { title: "The technology is", icon: "dtpr_icons/tech/yellow/video.svg", description: "Computer Vision" }, 
+            { title: "The interaction mode is", icon: "hex-icon-shopping_basket", description: "Grab and Go" }, 
+            { title: "The relationship is", icon: "hex-icon-favorite", description: "Membership" },
+          ],
+          index:currentIndex,
+          frame:currentFrame,
+        }) %>
+        <% 
+          currentFrame++;
+        %>
+      </div>
+      <div>
+        <%= require("ejs-loader!./templates/step-holder.ejs")({
+          contentLeft:true,
+          prototypeType:"framer",
+          prototypeUrl:"https://framer.com/share/Step1-ghD2K7KlMUDR3jc4Am7m/UXM1Lab84",
+          
+          title:"Head out to the street",
+          description:"As you leave, the book is checked out with your library card. You continue to the street - you know you can examine the transaction later.",
+          image:"images/Frame_Subject.svg",
+          frame:"images/Frame_Background.png",
+          sign:["dtpr_icons/purpose/water.svg","dtpr_icons/tech/light.svg","hex-icon-room_service","hex-icon-favorite"],
+          features: [ 
+            { title: "The purpose of this system is", icon: "dtpr_icons/purpose/water.svg", description: "Borrowing" }, 
+            { title: "The service is provided by", icon: "dtpr_icons/tech/light.svg", description: orgLibrary }, 
+            { title: "The user’s interface is ", icon: "hex-icon-room_service", description: "Personal AI" }, 
+            { title: "The relationship is", icon: "hex-icon-favorite", description: "Membership" }, 
+          ],
+          index:currentIndex,
+          frame:currentFrame,
+        }) %>
+        <% 
+          currentFrame++;
+        %>
+      </div>
+      <div class="step-footer">
+        <div class="container">
+          <%= require("ejs-loader!./templates/step-footer.ejs")({ 
+            description: "In this scenario we learned about how a personal AI could interact with places, if the systems, sensors, and technologies in a given area were described in a standardised way.", 
+            features: [ 
+              { title: "Place descriptions", label: "label", icon: "hex-icon-map", description: "Publishing place definitions allows people to know what functionality is available in a given place." }, 
+              { title: "Ambient interactions", label: "label", icon: "hex-icon-directions_walking", description: "Rather than relying on a single app, an interoperable API ensures many channels of access." }, 
+              { title: "Trusted assistant", label: "label", icon: "hex-icon-room_service", description: "Each personal interaction that is digitally recorded is able to be audited and edited by that person." }, 
+              { title: "Zone-based notice",label: "label", icon: "hex-icon-place", description: "Alerts can be set based on geographic areas and a person’s familiarity with that place." }, 
+            ], 
+          }) %>
+        </div>
+      </div>
+    </div>
+    <!-- / SECTION 1 -->
+
+    <!-- SECTION 2 -->
+    <% 
+      var currentIndex = 1;
+      var currentFrame = 0;
+      var currentStepData = stepData[currentIndex];
+    %>
+    <div id="section-scenario-2" class="step" data-step="section-scenario-2">
+      <div class="sticky-section-header">
+        <%= require("ejs-loader!./templates/section-divider.ejs")({
+          section:"Sensors", 
+          title: currentStepData.title, 
+          icon:"number-icon-"+(currentIndex+1),
+        }) %>
+      </div>
+      <div class="step-banner">
+        <div class="container">
+          <%= require("ejs-loader!./templates/step-header.ejs")({ 
+            title: currentStepData.description, 
+            lead: "A standardised way to describe sensors and convey what kind of processing they're performing.", 
+            image:"images/Vision_Chapter_Image_2.svg",
+            stepNumber:currentIndex+1,
+            seal: "Seal_Sensor.png", 
+            buttons: [
+              { title: "titl", label: "Start the journey", classes: "btn-primary" },
+              { title: "titl", label: "Skip to the prototype", classes: "btn-secondary" },
+              { title: "titl", label: "See an example definition", classes: "btn-secondary" },
+            ], 
+            features: [ 
+              { title: "Agency for people", label: "label", icon: "hex-icon-accessibility_new", description: "Publishing place definitions allows people to know what functionality is available in a given place." }, 
+              { title: "Interoperable access", label: "label", icon: "hex-icon-power", description: "Rather than relying on a single app, an interoperable API ensures many channels of access." }, 
+              { title: "Data exchange receipts", label: "label", icon: "hex-icon-receipt", description: "Each personal interaction that is digitally recorded is able to be audited and edited by that person." }, 
+              { title: "Zone-based notice",label: "label", icon: "hex-icon-place", description: "Alerts can be set based on geographic areas and a person’s familiarity with that place." }, 
+            ], 
+          }) %>
+        </div>
+      </div>
+      <div>
+        <%= require("ejs-loader!./templates/step-holder.ejs")({
+          contentLeft:false,
+          prototypeType:"dialogflow",
+          prototypeUrl:"https://dtpr.sidewalklabs.com/dtpr_chatbot/place.html", 
+          sign:["face","hex-icon-face","dtpr_icons/tech/air.svg","dtpr_icons/tech/air.svg"],
+          title:"Enter the shop",
+          description:"You enter a new local shop and are able to connect in the way you choose.",
+          image:"images/Frame_Subject.svg",
+          frame:"images/Frame_Background.png",
+          sign:["dtpr_icons/purpose/water.svg","dtpr_icons/tech/light.svg","hex-icon-room_service","hex-icon-favorite"],
+          features: [ 
+            { title: "The purpose of this system is", icon: "dtpr_icons/purpose/agency.svg", description: "Agency" }, 
+            { title: "The service is provided by", icon: "hex-icon-storefront", description: orgStore }, 
+            { title: "The technology is", icon: "dtpr-logo-Black", description: "DTPR API" }, 
+            { title: "The interaction mode is", icon: "hex-icon-smartphone", description: "Personal Device" }, 
+            { title: "The relationship is", icon: "hex-icon-meeting_room", description: "Temporary" },
+          ],
+          index:currentIndex,
+          frame:currentFrame,
+        }) %>
+        <% 
+          currentFrame++;
+        %>
+      </div>
+      <div>
+        <%= require("ejs-loader!./templates/step-holder.ejs")({
+          contentLeft:true,
+          prototypeType:"framer",
+          prototypeUrl:"https://framer.com/share/Step1-ghD2K7KlMUDR3jc4Am7m/UXM1Lab84",
+          
+          title:"Stand in front of mirror",
+          description:"You stand in front of the mirror. You see an option to connect and try on clothes virtually.",
+          image:"images/Frame_Subject.svg",
+          frame:"images/Frame_Background.png",
+          sign:["dtpr_icons/purpose/water.svg","dtpr_icons/tech/light.svg","hex-icon-room_service","hex-icon-favorite"],
+          features: [ 
+            { title: "The purpose of this system is", icon: "dtpr_icons/purpose/agency.svg", description: "Agency" }, 
+            { title: "The service is provided by", icon: "hex-icon-storefront", description: orgStore }, 
+            { title: "The technology is", icon: "dtpr_icons/tech/blue/video.svg", description: "Computer Vision" }, 
+            { title: "The interaction mode is", icon: "hex-icon-portrait", description: "Magic Mirror" }, 
+            { title: "The relationship is", icon: "hex-icon-meeting_room", description: "Temporary" },
+          ],
+          index:currentIndex,
+          frame:currentFrame,
+        }) %>
+        <% 
+          currentFrame++;
+        %>
+      </div>
+      <div>
+        <%= require("ejs-loader!./templates/step-holder.ejs")({
+          contentLeft:false,
+          prototypeType:"dialogflow",
+          prototypeUrl:"https://dtpr.sidewalklabs.com/dtpr_chatbot/sensor.html", 
+          sign:["face","hex-icon-face","dtpr_icons/tech/air.svg","dtpr_icons/tech/air.svg"],
+          title:"Save for later",
+          description:"After trying on some items, you decide to purchase one item, save a couple others to a wishlist.",
+          image:"images/Frame_Subject.svg",
+          frame:"images/Frame_Background.png",
+          sign:["dtpr_icons/purpose/water.svg","dtpr_icons/tech/light.svg","hex-icon-room_service","hex-icon-favorite"],
+          features: [ 
+            { title: "The purpose of this system is", icon: "dtpr_icons/purpose/agency.svg", description: "Saving" }, 
+            { title: "The service is provided by", icon: "hex-icon-storefront", description: orgStore }, 
+            { title: "The technology is", icon: "dtpr_icons/tech/blue/video.svg", description: "Computer Vision" }, 
+            { title: "The interaction mode is", icon: "hex-icon-portrait", description: "Magic Mirror" }, 
+            { title: "The relationship is", icon: "hex-icon-card_membership", description: "Customer" },
+          ],
+          index:currentIndex,
+          frame:currentFrame,
+        }) %>
+        <% 
+          currentFrame++;
+        %>
+      </div>
+      <div>
+        <%= require("ejs-loader!./templates/step-holder.ejs")({
+          contentLeft:true,
+          prototypeType:"framer",
+          prototypeUrl:"https://framer.com/share/Step1-ghD2K7KlMUDR3jc4Am7m/UXM1Lab84",
+          
+          title:"Upgrade account",
+          description:"You bag your item, leave the store, and are given the option to create a connection with the local merchant, and change your payment method.",
+          image:"images/Frame_Subject.svg",
+          frame:"images/Frame_Background.png",
+          sign:["dtpr_icons/purpose/water.svg","dtpr_icons/tech/light.svg","hex-icon-room_service","hex-icon-favorite"],
+          features: [ 
+            { title: "The purpose of this system is", icon: "black-icon-shopping_basket", description: "Shopping" }, 
+            { title: "The service is provided by", icon: "hex-icon-storefront", description: orgStore }, 
+            { title: "The technology is", icon: "dtpr_icons/tech/yellow/wave.svg", description: "Contactless payments" }, 
+            { title: "The interaction mode is", icon: "hex-icon-shopping_basket", description: "Grab and go" }, 
+            { title: "The relationship is", icon: "hex-icon-card_membership", description: "Customer" },
+          ],
+          index:currentIndex,
+          frame:currentFrame,
+        }) %>
+        <% 
+          currentFrame++;
+        %>
+      </div>
+      <div class="step-footer">
+        <div class="container">
+          <%= require("ejs-loader!./templates/step-footer.ejs")({ 
+            description: "In this scenario we learned about a standardised way to learn about technologies and make use of shared devices.", 
+            features: [ 
+              { title: "Agency for people", label: "label", icon: "hex-icon-accessibility_new", description: "Publishing place definitons allows people to know what functionality is available in a given place." }, 
+              { title: "Interoperable access", label: "label", icon: "hex-icon-power", description: "Rather than relying on a single app, an interoperable API ensures many channels of access." }, 
+              { title: "Data exchange receipts", label: "label", icon: "hex-icon-receipt", description: "Each personal interaction that is digitally recorded is able to be audited and edited by that person." }, 
+              { title: "Zone-based notice",label: "label", icon: "hex-icon-place", description: "Alerts can be set based on geographic areas and a person’s familiarity with that place." }, 
+            ], 
+          }) %>
+        </div>
+      </div>
+    </div>
+    <!-- / SECTION 2 -->
+
+    <!-- SECTION 3 -->
+    <% 
+      var currentIndex = 2;
+      var currentFrame = 0;
+      var currentStepData = stepData[currentIndex];
+    %>
+    <div id="section-scenario-3" class="step" data-step="section-scenario-3">
+      <div class="sticky-section-header">
+        <%= require("ejs-loader!./templates/section-divider.ejs")({
+          section:"Wayfinding", 
+          title: currentStepData.title, 
+          icon:"number-icon-"+(currentIndex+1),
+        }) %>
+      </div>
+      <div class="step-banner">
+        <div class="container">
+          <%= require("ejs-loader!./templates/step-header.ejs")({ 
+            title: currentStepData.description, 
+            lead: "A standardised way to query information about the places you're in, and the affordances there.", 
+            image:"images/Vision_Chapter_Image_3.svg",
+            stepNumber:currentIndex+1,
+            seal: "Seal_Sensor.png", 
+            buttons: [
+              { title: "titl", label: "Start the journey", classes: "btn-primary" },
+              { title: "titl", label: "Skip to the prototype", classes: "btn-secondary" },
+              { title: "titl", label: "See an example definition", classes: "btn-secondary" },
+            ], 
+            features: [ 
+              { title: "Agency for people", label: "label", icon: "hex-icon-accessibility_new", description: "Publishing place definitons allows people to know what functionality is available in a given place." }, 
+              { title: "Interoperable access", label: "label", icon: "hex-icon-power", description: "Rather than relying on a single app, an interoperable API ensures many channels of access." }, 
+              { title: "Data exchange receipts", label: "label", icon: "hex-icon-receipt", description: "Each personal interaction that is digitally recorded is able to be audited and edited by that person." }, 
+              { title: "Zone-based notice",label: "label", icon: "hex-icon-place", description: "Alerts can be set based on geographic areas and a person’s familiarity with that place." }, 
+            ], 
+          }) %>
+        </div>
+      </div>
+      <div>
+        <%= require("ejs-loader!./templates/step-holder.ejs")({
+          contentLeft:false,
+          prototypeType:"dialogflow",
+          prototypeUrl:"https://dtpr.sidewalklabs.com/dtpr_chatbot/place.html", 
+          sign:["face","hex-icon-face","dtpr_icons/tech/air.svg","dtpr_icons/tech/air.svg"],
+          title:"What's around me?",
+          description:"You hear some music and follow it to the source. A busker is playing a nostalgic tune and you listen for a while.",
+          image:"images/Frame_Subject.svg",
+          frame:"images/Frame_Background.png",
+          sign:["dtpr_icons/purpose/water.svg","dtpr_icons/tech/light.svg","hex-icon-room_service","hex-icon-favorite"],
+          features: [ 
+            { title: "The purpose of this system is", icon: "dtpr_icons/purpose/arts.svg", description: "Arts & Culture" }, 
+            { title: "The service is provided by", icon: "hex-icon-location_city", description: orgNeighbourhood }, 
+            { title: "The technology is", icon: "dtpr_icons/tech/wave.svg", description: "Bluetooth" }, 
+            { title: "The interaction mode is", icon: "hex-icon-directions_walking", description: "Hands free" }, 
+            { title: "The relationship is", icon: "hex-icon-meeting_room", description: "Temporary" },
+          ],
+          index:currentIndex,
+          frame:currentFrame,
+        }) %>
+        <% 
+          currentFrame++;
+        %>
+      </div>
+      <div>
+        <%= require("ejs-loader!./templates/step-holder.ejs")({
+          contentLeft:true,
+          prototypeType:"framer",
+          prototypeUrl:"https://framer.com/share/Step1-ghD2K7KlMUDR3jc4Am7m/UXM1Lab84",
+          
+          title:"Support the artist",
+          description:"Summoning your assistant, you ask to learn more about this busker. You're able to see artist information, and even tip.",
+          image:"images/Frame_Subject.svg",
+          frame:"images/Frame_Background.png",
+          sign:["dtpr_icons/purpose/arts.svg","dtpr_icons/tech/light.svg","hex-icon-room_service","hex-icon-favorite"],
+          features: [ 
+            { title: "The purpose of this system is", icon: "dtpr_icons/purpose/arts.svg", description: "Arts and Culture" }, 
+            { title: "The service is provided by", icon: "hex-icon-music_note", description: "Busker" }, 
+            { title: "The technology is", icon: "dtpr_icons/tech/yellow/wave.svg", description: "Contactless payments" },
+            { title: "The interaction mode is ", icon: "hex-icon-room_service", description: "Personal AI" }, 
+            { title: "The relationship is", icon: "hex-icon-favorite", description: "Supporter" }, 
+          ],
+          index:currentIndex,
+          frame:currentFrame,
+        }) %>
+        <% 
+          currentFrame++;
+        %>
+      </div>
+      <div>
+        <%= require("ejs-loader!./templates/step-holder.ejs")({
+          contentLeft:false,
+          prototypeType:"dialogflow",
+          prototypeUrl:"https://dtpr.sidewalklabs.com/dtpr_chatbot/place.html", 
+          sign:["face","hex-icon-face","dtpr_icons/tech/air.svg","dtpr_icons/tech/air.svg"],
+          title:"What else is here?",
+          description:"The busker is presented on a shared and real-time map of this place. You can see other facilities, businesses, and those who have given you permission.",
+          image:"images/Frame_Subject.svg",
+          frame:"images/Frame_Background.png",
+          sign:["dtpr_icons/purpose/water.svg","dtpr_icons/tech/light.svg","hex-icon-room_service","hex-icon-favorite"],
+          features: [ 
+            { title: "The purpose of this system is", icon: "dtpr_icons/purpose/inform.svg", description: "Inform" }, 
+            { title: "The service is provided by", icon: "hex-icon-location_city", description: orgNeighbourhood },  
+            { title: "The technology is", icon: "dtpr-logo-Black", description: "DTPR API" }, 
+            { title: "The interaction mode is", icon: "hex-icon-smartphone", description: "Personal Device" }, 
+            { title: "The relationship is", icon: "hex-icon-meeting_room", description: "Temporary" },
+          ],
+          index:currentIndex,
+          frame:currentFrame,
+        }) %>
+        <% 
+          currentFrame++;
+        %>
+      </div>
+      <div>
+        <%= require("ejs-loader!./templates/step-holder.ejs")({
+          contentLeft:true,
+          prototypeType:"framer",
+          prototypeUrl:"https://framer.com/share/Step1-ghD2K7KlMUDR3jc4Am7m/UXM1Lab84",
+          
+          title:"Bumping into a friend",
+          description:"You see your friend on the map, who you share your location with. You both decide to grab lunch together.",
+          image:"images/Frame_Subject.svg",
+          frame:"images/Frame_Background.png",
+          sign:["dtpr_icons/purpose/water.svg","dtpr_icons/tech/light.svg","hex-icon-room_service","hex-icon-favorite"],
+          features: [ 
+            { title: "The purpose of this system is", icon: "hex-icon-people", description: "Social" }, 
+            { title: "The service is provided by", icon: "hex-icon-call", description: "Phone Co." },  
+            { title: "The technology is", icon: "hex-icon-gps-not_fixed", description: "GPS" }, 
+            { title: "The user’s interface is ", icon: "hex-icon-room_service", description: "Personal AI" }, 
+            { title: "The relationship is", icon: "hex-icon-favorite", description: "Friends" },
+          ],
+          index:currentIndex,
+          frame:currentFrame,
+        }) %>
+        <% 
+          currentFrame++;
+        %>
+      </div>
+      <div class="step-footer">
+        <div class="container">
+          <%= require("ejs-loader!./templates/step-footer.ejs")({ 
+            description: "In this scenario we learned about a standardised way to describe the systems, sensors, and technologies in a given area.", 
+            features: [ 
+              { title: "Agency for people", label: "label", icon: "hex-icon-accessibility_new", description: "Publishing place definitons allows people to know what functionality is available in a given place." }, 
+              { title: "Interoperable access", label: "label", icon: "hex-icon-power", description: "Rather than relying on a single app, an interoperable API ensures many channels of access." }, 
+              { title: "Data exchange receipts", label: "label", icon: "hex-icon-receipt", description: "Each personal interaction that is digitally recorded is able to be audited and edited by that person." }, 
+              { title: "Zone-based notice",label: "label", icon: "hex-icon-place", description: "Alerts can be set based on geographic areas and a person’s familiarity with that place." }, 
+            ], 
+          }) %>
+        </div>
+      </div>
+    </div>
+    <!-- / SECTION 3 -->
+
+    <!-- SECTION 4 -->
+    <% 
+      var currentIndex = 3;
+      var currentFrame = 0;
+      var currentStepData = stepData[currentIndex];
+    %>
+    <div id="section-scenario-4" class="step" data-step="section-scenario-4">
+      <div class="sticky-section-header">
+        <%= require("ejs-loader!./templates/section-divider.ejs")({
+          section:"Assets", 
+          title: currentStepData.title, 
+          icon:"number-icon-"+(currentIndex+1),
+        }) %>
+      </div>
+      <div class="step-banner">
+        <div class="container">
+          <%= require("ejs-loader!./templates/step-header.ejs")({ 
+            title: currentStepData.description, 
+            lead: "An interoperable way to book, request, and control assets in a shared space.", 
+            image:"images/Vision_Chapter_Image_4.svg",
+            stepNumber:currentIndex+1,
+            seal: "Seal_Place.png", 
+            buttons: [
+              { title: "titl", label: "Start the journey", classes: "btn-primary" },
+              { title: "titl", label: "Skip to the prototype", classes: "btn-secondary" },
+              { title: "titl", label: "See an example definition", classes: "btn-secondary" },
+            ], 
+            features: [ 
+              { title: "Agency for people", label: "label", icon: "hex-icon-accessibility_new", description: "Publishing place definitons allows people to know what functionality is available in a given place." }, 
+              { title: "Interoperable access", label: "label", icon: "hex-icon-power", description: "Rather than relying on a single app, an interoperable API ensures many channels of access." }, 
+              { title: "Data exchange receipts", label: "label", icon: "hex-icon-receipt", description: "Each personal interaction that is digitally recorded is able to be audited and edited by that person." }, 
+              { title: "Zone-based notice",label: "label", icon: "hex-icon-place", description: "Alerts can be set based on geographic areas and a person’s familiarity with that place." }, 
+            ], 
+          }) %>
+        </div>
+      </div>
+      <div>
+        <%= require("ejs-loader!./templates/step-holder.ejs")({
+          contentLeft:false,
+          prototypeType:"dialogflow",
+          prototypeUrl:"https://dtpr.sidewalklabs.com/dtpr_chatbot/place.html", 
+          sign:["face","hex-icon-face","dtpr_icons/tech/air.svg","dtpr_icons/tech/air.svg"],
+          title:"Order ahead",
+          description:"You select a restaurant and your AI makes a menu suggestion. You opt-in to share your purchase data for a discount.",
+          image:"images/Frame_Subject.svg",
+          frame:"images/Frame_Background.png",
+          sign:["dtpr_icons/purpose/water.svg","dtpr_icons/tech/light.svg","hex-icon-room_service","hex-icon-favorite"],
+          features: [ 
+            { title: "The purpose of this system is", icon: "hex-icon-local_atm", description: "Commerce" }, 
+            { title: "The service is provided by", icon: "hex-icon-call", description: "Restaurant Co." },  
+            { title: "The technology is", icon: "dtpr_icons/tech/yellow/wave.svg", description: "Contactless payments" }, 
+            { title: "The user’s interface is ", icon: "hex-icon-room_service", description: "Personal AI" }, 
+            { title: "The relationship is", icon: "hex-icon-card_membership", description: "Customer" },
+          ],
+          index:currentIndex,
+          frame:currentFrame,
+        }) %>
+        <% 
+          currentFrame++;
+        %>
+      </div>
+      <div>
+        <%= require("ejs-loader!./templates/step-holder.ejs")({
+          contentLeft:false,
+          prototypeType:"dialogflow",
+          prototypeUrl:"https://dtpr.sidewalklabs.com/dtpr_chatbot/place.html", 
+          sign:["face","hex-icon-face","dtpr_icons/tech/air.svg","dtpr_icons/tech/air.svg"],
+          title:"See what it sees",
+          description:"On your way, you check the live seating status of the seating area, and choose a table.",
+          image:"images/Frame_Subject.svg",
+          frame:"images/Frame_Background.png",
+          sign:["dtpr_icons/purpose/water.svg","dtpr_icons/tech/light.svg","hex-icon-room_service","hex-icon-favorite"],
+          features: [ 
+            { title: "The purpose of this system is", icon: "dtpr_icons/purpose/inform.svg", description: "Inform" }, 
+            { title: "The service is provided by", icon: "hex-icon-location_city", description: orgNeighbourhood },  
+            { title: "The technology is", icon: "dtpr-logo-Black", description: "DTPR API" }, 
+            { title: "The interaction mode is", icon: "hex-icon-smartphone", description: "Personal Device" }, 
+            { title: "The relationship is", icon: "hex-icon-meeting_room", description: "Temporary" },
+          ],
+          index:currentIndex,
+          frame:currentFrame,
+        }) %>
+        <% 
+          currentFrame++;
+        %>
+      </div><div>
+        <%= require("ejs-loader!./templates/step-holder.ejs")({
+          contentLeft:true,
+          prototypeType:"framer",
+          prototypeUrl:"https://framer.com/share/Step1-ghD2K7KlMUDR3jc4Am7m/UXM1Lab84",
+          
+          title:"This way to your table",
+          description:"You get directions to your table and begin your stroll.",
+          image:"images/Frame_Subject.svg",
+          frame:"images/Frame_Background.png",
+          sign:["dtpr_icons/purpose/water.svg","dtpr_icons/tech/light.svg","hex-icon-room_service","hex-icon-favorite"],
+          features: [ 
+            { title: "The purpose of this system is", icon: "dtpr_icons/purpose/mobility.svg", description: "Mobility" }, 
+            { title: "The service is provided by", icon: "hex-icon-location_city", description: orgNeighbourhood },  
+            { title: "The technology is", icon: "dtpr_icons/tech/wave.svg", description: "GPS" }, 
+            { title: "The interaction mode is", icon: "hex-icon-smartphone", description: "Personal Device" }, 
+            { title: "The relationship is", icon: "hex-icon-meeting_room", description: "Temporary" },
+          ],
+          index:currentIndex,
+          frame:currentFrame,
+        }) %>
+        <% 
+          currentFrame++;
+        %>
+      </div>
+      <div>
+        <%= require("ejs-loader!./templates/step-holder.ejs")({
+          contentLeft:true,
+          prototypeType:"framer",
+          prototypeUrl:"https://framer.com/share/Step1-ghD2K7KlMUDR3jc4Am7m/UXM1Lab84",
+          
+          title:"Food is ready",
+          description:"After catching up with your friend, the food arrives. You have a quick chat with the server, thank them, and chow down.",
+          image:"images/Frame_Subject.svg",
+          frame:"images/Frame_Background.png",
+          sign:["dtpr_icons/purpose/water.svg","dtpr_icons/tech/light.svg","hex-icon-room_service","hex-icon-favorite"],
+          features: [ 
+            { title: "The purpose of this system is", icon: "hex-icon-local_atm", description: "Commerce" }, 
+            { title: "The service is provided by", icon: "hex-icon-call", description: "Restaurant Co." },              
+            { title: "The technology is", icon: "dtpr_icons/tech/yellow/wave.svg", description: "Identifiable NFC" }, 
+            { title: "The interaction mode is", icon: "hex-icon-directions_walking", description: "Hands free" }, 
+            { title: "The relationship is", icon: "hex-icon-favorite", description: "Customer" }, 
+          ],
+          index:currentIndex,
+          frame:currentFrame,
+        }) %>
+        <% 
+          currentFrame++;
+        %>
+      </div>
+      <div class="step-footer">
+        <div class="container">
+          <%= require("ejs-loader!./templates/step-footer.ejs")({ 
+            description: "In this scenario we learned about how a standardised way to interact with systems can enable us to use and navigate an location seamlessly.", 
+            features: [ 
+              { title: "Agency for people", label: "label", icon: "hex-icon-accessibility_new", description: "Publishing place definitons allows people to know what functionality is available in a given place." }, 
+              { title: "Interoperable access", label: "label", icon: "hex-icon-power", description: "Rather than relying on a single app, an interoperable API ensures many channels of access." }, 
+              { title: "Data exchange receipts", label: "label", icon: "hex-icon-receipt", description: "Each personal interaction that is digitally recorded is able to be audited and edited by that person." }, 
+              { title: "Zone-based notice",label: "label", icon: "hex-icon-place", description: "Alerts can be set based on geographic areas and a person’s familiarity with that place." }, 
+            ], 
+          }) %>
+        </div>
+      </div>
+    </div>
+    <!-- / SECTION 4 -->
+
+    <!-- SECTION 5 -->
+    <% 
+      var currentIndex = 4;
+      var currentFrame = 0;
+      var currentStepData = stepData[currentIndex];
+    %>
+    <div id="section-scenario-5" class="step" data-step="section-scenario-5">
+      <div class="sticky-section-header">
+        <%= require("ejs-loader!./templates/section-divider.ejs")({
+          section:"Systems", 
+          title: currentStepData.title, 
+          icon:"number-icon-"+(currentIndex+1),
+        }) %>
+      </div>
+      <div class="step-banner">
+        <div class="container">
+          <%= require("ejs-loader!./templates/step-header.ejs")({ 
+            title: currentStepData.description, 
+            lead: "A standard way to describe systems within places, and what sensors, processing, and purposes they serve.", 
+            image:"images/Vision_Chapter_Image_5.svg",
+            stepNumber:currentIndex+1,
+            seal: "Seal_System.png", 
+            buttons: [
+              { title: "titl", label: "Start the journey", classes: "btn-primary" },
+              { title: "titl", label: "Skip to the prototype", classes: "btn-secondary" },
+              { title: "titl", label: "See an example definition", classes: "btn-secondary" },
+            ], 
+            features: [ 
+              { title: "Agency for people", label: "label", icon: "hex-icon-accessibility_new", description: "Publishing place definitons allows people to know what functionality is available in a given place." }, 
+              { title: "Interoperable access", label: "label", icon: "hex-icon-power", description: "Rather than relying on a single app, an interoperable API ensures many channels of access." }, 
+              { title: "Data exchange receipts", label: "label", icon: "hex-icon-receipt", description: "Each personal interaction that is digitally recorded is able to be audited and edited by that person." }, 
+              { title: "Zone-based notice",label: "label", icon: "hex-icon-place", description: "Alerts can be set based on geographic areas and a person’s familiarity with that place." }, 
+            ], 
+          }) %>
+        </div>
+      </div>
+      <div>
+        <%= require("ejs-loader!./templates/step-holder.ejs")({
+          contentLeft:false,
+          prototypeType:"dialogflow",
+          prototypeUrl:"https://dtpr.sidewalklabs.com/dtpr_chatbot/system.html", 
+          sign:["face","hex-icon-face","dtpr_icons/tech/air.svg","dtpr_icons/tech/air.svg"],
+          title:"Right things in the right place",
+          description:"You get guidance from the waste bin. The compost and the recyclables are placed in the correct bins.",
+          image:"images/Frame_Subject.svg",
+          frame:"images/Frame_Background.png",
+          sign:["dtpr_icons/purpose/water.svg","dtpr_icons/tech/light.svg","hex-icon-room_service","hex-icon-favorite"],
+          features: [ 
+            { title: "The purpose of this system is", icon: "dtpr_icons/purpose/waste.svg", description: "Waste Management" }, 
+            { title: "The service is provided by", icon: "hex-icon-location_city", description: orgNeighbourhood },  
+            { title: "The technology is", icon: "dtpr_icons/tech/video.svg", description: "Computer Vision" }, 
+            { title: "The interaction mode is ", icon: "hex-icon-room_service", description: "System Screen" }, 
+            { title: "The relationship is", icon: "hex-icon-meeting_room", description: "Temporary" },
+          ],
+          index:currentIndex,
+          frame:currentFrame,
+        }) %>
+        <% 
+          currentFrame++;
+        %>
+      </div>
+      <div>
+        <%= require("ejs-loader!./templates/step-holder.ejs")({
+          contentLeft:true,
+          prototypeType:"framer",
+          prototypeUrl:"https://framer.com/share/Step1-ghD2K7KlMUDR3jc4Am7m/UXM1Lab84",
+          
+          title:"Ways to help",
+          description:"You find out about actions you can take to help the neighbourhood achieve sustainability goals. You opt-in to sharing your anonymous location data.",
+          image:"images/Frame_Subject.svg",
+          frame:"images/Frame_Background.png",
+          sign:["dtpr_icons/purpose/water.svg","dtpr_icons/tech/light.svg","hex-icon-room_service","hex-icon-favorite"],
+          features: [ 
+            { title: "The purpose of this system is", icon: "dtpr_icons/purpose/energy.svg", description: "Energy Efficiency" }, 
+            { title: "The service is provided by", icon: "hex-icon-location_city", description: orgNeighbourhood },  
+            { title: "The technology is", icon: "hex-icon-gps_not_fixed", description: "De-identified GPS" }, 
+            <!-- TODO make this GPS icon blue -->
+            { title: "The interaction mode is", icon: "hex-icon-room_service", description: "Personal AI" }, 
+            { title: "The relationship is", icon: "hex-icon-meeting_room", description: "Anonymous" },
+          ],
+          index:currentIndex,
+          frame:currentFrame,
+        }) %>
+        <% 
+          currentFrame++;
+        %>
+      </div>
+      <!-- TODO: Put in numina sensor prototype -->
+      <div>
+        <%= require("ejs-loader!./templates/step-holder.ejs")({
+          contentLeft:false,
+          prototypeType:"dialogflow",
+          prototypeUrl:"https://dtpr.sidewalklabs.com/dtpr_chatbot/place.html", 
+          sign:["face","hex-icon-face","dtpr_icons/tech/air.svg","dtpr_icons/tech/air.svg"],
+          title:"Learn about the system",
+          description:"You can learn more about all the systems in this place or save it for later reading.",
+          image:"images/Frame_Subject.svg",
+          frame:"images/Frame_Background.png",
+          sign:["dtpr_icons/purpose/water.svg","dtpr_icons/tech/light.svg","hex-icon-room_service","hex-icon-favorite"],
+          features: [ 
+            { title: "The purpose of this system is", icon: "dtpr_icons/purpose/inform.svg", description: "Inform" }, 
+            { title: "The service is provided by", icon: "hex-icon-location_city", description: orgNeighbourhood },  
+            { title: "The technology is", icon: "dtpr-logo-Black", description: "DTPR API" }, 
+            { title: "The interaction mode is", icon: "hex-icon-room_service", description: "Personal AI" }, 
+            { title: "The relationship is", icon: "hex-icon-favorite", description: "Temporary" },
+          ],
+          index:currentIndex,
+          frame:currentFrame,
+        }) %>
+        <% 
+          currentFrame++;
+        %>
+      </div>
+      <div>
+        <%= require("ejs-loader!./templates/step-holder.ejs")({
+          contentLeft:true,
+          prototypeType:"framer",
+          prototypeUrl:"https://framer.com/share/Step1-ghD2K7KlMUDR3jc4Am7m/UXM1Lab84",
+          
+          title:"Occupancy sensor",
+          description:"You want to learn more about the occupancy sensor, you are able to ask questions about how it works, and why its important.",
+          image:"images/Frame_Subject.svg",
+          frame:"images/Frame_Background.png",
+          sign:["dtpr_icons/purpose/water.svg","dtpr_icons/tech/light.svg","hex-icon-room_service","hex-icon-favorite"],
+          features: [ 
+            { title: "The purpose of this system is", icon: "dtpr_icons/purpose/energy.svg", description: "Energy Efficiency" }, 
+            { title: "The service is provided by", icon: "hex-icon-location_city", description: orgNeighbourhood },  
+            { title: "The technology is", icon: "dtpr_icons/tech/light.svg", description: "Infrared sensor" }, 
+            { title: "The interaction mode is ", icon: "hex-icon-forum", description: "System chatbot" }, 
+            { title: "The relationship is", icon: "hex-icon-meeting_room", description: "Temporary" },
+          ],
+          index:currentIndex,
+          frame:currentFrame,
+        }) %>
+        <% 
+          currentFrame++;
+        %>
+      </div>
+      <div class="step-footer">
+        <div class="container">
+          <%= require("ejs-loader!./templates/step-footer.ejs")({ 
+            description: "In this scenario we learned about how a standardised taxonomy to describe systems can enable us to better understand, use and engage with the environment around us.", 
+            features: [ 
+              { title: "Agency for people", label: "label", icon: "hex-icon-accessibility_new", description: "Publishing place definitons allows people to know what functionality is available in a given place." }, 
+              { title: "Interoperable access", label: "label", icon: "hex-icon-power", description: "Rather than relying on a single app, an interoperable API ensures many channels of access." }, 
+              { title: "Data exchange receipts", label: "label", icon: "hex-icon-receipt", description: "Each personal interaction that is digitally recorded is able to be audited and edited by that person." }, 
+              { title: "Zone-based notice",label: "label", icon: "hex-icon-place", description: "Alerts can be set based on geographic areas and a person’s familiarity with that place." }, 
+            ], 
+          }) %>
+        </div>
+      </div>
+    </div>
+    <!-- / SECTION 5 -->
+
+    <!-- SECTION 6 -->
+    <% 
+      var currentIndex = 5;
+      var currentFrame = 0;
+      var currentStepData = stepData[currentIndex];
+    %>
+    <div id="section-scenario-6" class="step" data-step="section-scenario-6">
+      <div class="sticky-section-header">
+        <%= require("ejs-loader!./templates/section-divider.ejs")({
+          section:"Encryption", 
+          title: currentStepData.title, 
+          icon:"number-icon-"+(currentIndex+1),
+        }) %>
+      </div>
+      <div class="step-banner">
+        <div class="container">
+          <%= require("ejs-loader!./templates/step-header.ejs")({ 
+            title: currentStepData.description, 
+            lead: "New methods in preserving privacy while maintaining a way to comply with security operations.", 
+            image:"images/Vision_Chapter_Image_6.svg",
+            stepNumber:currentIndex+1,
+            seal: "Seal_Sensor.png", 
+            buttons: [
+              { title: "titl", label: "Start the journey", classes: "btn-primary" },
+              { title: "titl", label: "Skip to the prototype", classes: "btn-secondary" },
+              { title: "titl", label: "See an example definition", classes: "btn-secondary" },
+            ], 
+            features: [ 
+              { title: "Agency for people", label: "label", icon: "hex-icon-accessibility_new", description: "Publishing place definitons allows people to know what functionality is available in a given place." }, 
+              { title: "Interoperable access", label: "label", icon: "hex-icon-power", description: "Rather than relying on a single app, an interoperable API ensures many channels of access." }, 
+              { title: "Data exchange receipts", label: "label", icon: "hex-icon-receipt", description: "Each personal interaction that is digitally recorded is able to be audited and edited by that person." }, 
+              { title: "Zone-based notice",label: "label", icon: "hex-icon-place", description: "Alerts can be set based on geographic areas and a person’s familiarity with that place." }, 
+            ], 
+          }) %>
+        </div>
+      </div>
+      <div>
+        <%= require("ejs-loader!./templates/step-holder.ejs")({
+          contentLeft:false,
+          prototypeType:"dialogflow",
+          prototypeUrl:"https://dtpr.sidewalklabs.com/dtpr_chatbot/place.html", 
+          sign:["face","hex-icon-face","dtpr_icons/tech/air.svg","dtpr_icons/tech/air.svg"],
+          title:"You've lost your bag",
+          description:"You quickly head to a wall assistant and gesture to contact security.",
+          image:"images/Frame_Subject.svg",
+          frame:"images/Frame_Background.png",
+          sign:["dtpr_icons/purpose/water.svg","dtpr_icons/tech/light.svg","hex-icon-room_service","hex-icon-favorite"],
+          features: [ 
+            { title: "The purpose of this system is", icon: "dtpr_icons/purpose/security.svg", description: "Safety and Security" }, 
+            { title: "The service is provided by", icon: "hex-icon-location_city", description: orgNeighbourhood },  
+            { title: "The technology is", icon: "dtpr_icons/tech/voice.svg", description: "Intercom" }, 
+            { title: "The interaction mode is", icon: "hex-icon-forum", description: "System chatbot" },             
+            { title: "The relationship is", icon: "hex-icon-meeting_room", description: "Temporary" }, 
+          ],
+          index:currentIndex,
+          frame:currentFrame,
+        }) %>
+        <% 
+          currentFrame++;
+        %>
+      </div>
+      <div>
+        <%= require("ejs-loader!./templates/step-holder.ejs")({
+          contentLeft:true,
+          prototypeType:"framer",
+          prototypeUrl:"https://framer.com/share/Step1-ghD2K7KlMUDR3jc4Am7m/UXM1Lab84",
+          
+          title:"Decrypt when required",
+          description:"The security agent understands, and offers to decrypt based on 2 factor authentication using your location data.",
+          image:"images/Frame_Subject.svg",
+          frame:"images/Frame_Background.png",
+          sign:["dtpr_icons/purpose/water.svg","dtpr_icons/tech/light.svg","hex-icon-room_service","hex-icon-favorite"],
+          features: [ 
+            { title: "The purpose of this system is", icon: "dtpr_icons/purpose/security.svg", description: "Safety and Security" }, 
+            { title: "The service is provided by", icon: "hex-icon-location_city", description: orgNeighbourhood },  
+            { title: "The technology is", icon: "dtpr_icons/tech/yellow/video.svg", description: "Computer vision" }, 
+            { title: "The interaction mode is ", icon: "hex-icon-room_service", description: "Personal AI" },             
+            { title: "The relationship is", icon: "hex-icon-verified_user", description: "Secure and authenticated" }, 
+          ],
+          index:currentIndex,
+          frame:currentFrame,
+        }) %>
+        <% 
+          currentFrame++;
+        %>
+      </div>
+      <div>
+        <%= require("ejs-loader!./templates/step-holder.ejs")({
+          contentLeft:false,
+          prototypeType:"dialogflow",
+          prototypeUrl:"https://dtpr.sidewalklabs.com/dtpr_chatbot/place.html", 
+          sign:["face","hex-icon-face","dtpr_icons/tech/air.svg","dtpr_icons/tech/air.svg"],
+          title:"Trace your steps",
+          description:"The security helps you trace your steps back to the food court, and monitors your bag until you retrieve it.",
+          image:"images/Frame_Subject.svg",
+          frame:"images/Frame_Background.png",
+          sign:["dtpr_icons/purpose/water.svg","dtpr_icons/tech/light.svg","hex-icon-room_service","hex-icon-favorite"],
+          features: [ 
+            { title: "The purpose of this system is", icon: "dtpr_icons/purpose/security.svg", description: "Safety and Security" }, 
+            { title: "The service is provided by", icon: "hex-icon-location_city", description: orgNeighbourhood },  
+            { title: "The technology is", icon: "dtpr_icons/tech/yellow/video.svg", description: "Computer vision" }, 
+            { title: "The interaction mode is", icon: "hex-icon-forum", description: "System chatbot" },             
+            { title: "The relationship is", icon: "hex-icon-verified_user", description: "Secure and authenticated" }, 
+          ],
+          index:currentIndex,
+          frame:currentFrame,
+        }) %>
+        <% 
+          currentFrame++;
+        %>
+      </div>
+      <div>
+        <%= require("ejs-loader!./templates/step-holder.ejs")({
+          contentLeft:true,
+          prototypeType:"framer",
+          prototypeUrl:"https://framer.com/share/Step1-ghD2K7KlMUDR3jc4Am7m/UXM1Lab84",
+          
+          title:"On your way",
+          description:"After getting your bag back, you unlock 2 bikes, one for your friend, and head home together.",
+          image:"images/Frame_Subject.svg",
+          frame:"images/Frame_Background.png",
+          sign:["dtpr_icons/purpose/water.svg","dtpr_icons/tech/light.svg","hex-icon-room_service","hex-icon-favorite"],
+          features: [ 
+            { title: "The purpose of this system is", icon: "dtpr_icons/purpose/mobility.svg", description: "Mobility" }, 
+            { title: "The service is provided by", icon: "dtpr_icons/tech/light.svg", description: orgBike }, 
+            { title: "The technology is", icon: "dtpr_icons/tech/yellow/wave.svg", description: "Bikeshare ID" }, 
+            { title: "The interaction mode is", icon: "hex-icon-directions_walking", description: "Hands free" },
+            { title: "The relationship is", icon: "hex-icon-favorite", description: "Membership" }, 
+          ],
+          index:currentIndex,
+          frame:currentFrame,
+        }) %>
+        <% 
+          currentFrame++;
+        %>
+      </div>
+      <div class="step-footer">
+        <div class="container">
+          <%= require("ejs-loader!./templates/step-footer.ejs")({ 
+            description: "In this scenario we learned about how a standardised way to interact with systems can enable us to access data streams to support different needs - securely.", 
+            features: [ 
+              { title: "Agency for people", label: "label", icon: "hex-icon-accessibility_new", description: "Publishing place definitons allows people to know what functionality is available in a given place." }, 
+              { title: "Interoperable access", label: "label", icon: "hex-icon-power", description: "Rather than relying on a single app, an interoperable API ensures many channels of access." }, 
+              { title: "Data exchange receipts", label: "label", icon: "hex-icon-receipt", description: "Each personal interaction that is digitally recorded is able to be audited and edited by that person." }, 
+              { title: "Zone-based notice",label: "label", icon: "hex-icon-place", description: "Alerts can be set based on geographic areas and a person’s familiarity with that place." }, 
+            ], 
+          }) %>
+        </div>
+      </div>
+    </div>
+    <!-- / SECTION 6 -->
+
+    <!-- SECTION 7 -->
+    <% 
+      var currentIndex = 6;
+      var currentFrame = 0;
+      var currentStepData = stepData[currentIndex];
+    %>
+    <div id="section-scenario-7" class="step" data-step="section-scenario-7">
+      <div class="sticky-section-header">
+        <%= require("ejs-loader!./templates/section-divider.ejs")({
+          section:"Review", 
+          title: currentStepData.title, 
+          icon:"number-icon-"+(currentIndex+1),
+        }) %>
+      </div>
+      <div class="step-banner">
+        <div class="container">
+          <%= require("ejs-loader!./templates/step-header.ejs")({ 
+            title: currentStepData.description, 
+            lead: "A standard way for people to review their data footprint, delete transactions, and save other for later.", 
+            image:"images/Vision_Chapter_Image_7.svg",
+            stepNumber:currentIndex+1,
+            seal: "Seal_Sensor.png", 
+            buttons: [
+              { title: "titl", label: "Start the journey", classes: "btn-primary" },
+              { title: "titl", label: "Skip to the prototype", classes: "btn-secondary" },
+              { title: "titl", label: "See an example definition", classes: "btn-secondary" },
+            ], 
+            features: [ 
+              { title: "Agency for people", label: "label", icon: "hex-icon-accessibility_new", description: "Publishing place definitons allows people to know what functionality is available in a given place." }, 
+              { title: "Interoperable access", label: "label", icon: "hex-icon-power", description: "Rather than relying on a single app, an interoperable API ensures many channels of access." }, 
+              { title: "Data exchange receipts", label: "label", icon: "hex-icon-receipt", description: "Each personal interaction that is digitally recorded is able to be audited and edited by that person." }, 
+              { title: "Zone-based notice",label: "label", icon: "hex-icon-place", description: "Alerts can be set based on geographic areas and a person’s familiarity with that place." }, 
+            ], 
+          }) %>
+        </div>
+      </div>
+      <div>
+        <%= require("ejs-loader!./templates/step-holder.ejs")({
+          contentLeft:false,
+          prototypeType:"dialogflow",
+          prototypeUrl:"https://dtpr.sidewalklabs.com/dtpr_chatbot/place.html", 
+          sign:["face","hex-icon-face","dtpr_icons/tech/air.svg","dtpr_icons/tech/air.svg"],
+          title:"Cycle the green wave",
+          description:"As you wait at a light, you opt into the green wave for this journey. This considers your journey in light changes.",
+          image:"images/Frame_Subject.svg",
+          frame:"images/Frame_Background.png",
+          sign:["dtpr_icons/purpose/water.svg","dtpr_icons/tech/light.svg","hex-icon-room_service","hex-icon-favorite"],
+          features: [ 
+            { title: "The purpose of this system is", icon: "dtpr_icons/purpose/mobility.svg", description: "Mobility" }, 
+            { title: "The service is provided by", icon: "hex-icon-add_road", description: orgGov }, 
+            { title: "The technology is", icon: "dtpr_icons/tech/light.svg", description: "Radar" }, 
+            { title: "The interaction mode is", icon: "hex-icon-directions_bike", description: "Bicycling" },
+            { title: "The relationship is", icon: "hex-icon-meeting_room", description: "Temporary" }, 
+          ],
+          index:currentIndex,
+          frame:currentFrame,
+        }) %>
+        <% 
+          currentFrame++;
+        %>
+      </div>
+      <div>
+        <%= require("ejs-loader!./templates/step-holder.ejs")({
+          contentLeft:true,
+          prototypeType:"framer",
+          prototypeUrl:"https://framer.com/share/Step1-ghD2K7KlMUDR3jc4Am7m/UXM1Lab84",
+          
+          title:"Unlock door",
+          description:"You unlock your door with your Personal AI, and your friend can see your home data policies.",
+          image:"images/Frame_Subject.svg",
+          frame:"images/Frame_Background.png",
+          sign:["dtpr_icons/purpose/water.svg","dtpr_icons/tech/light.svg","hex-icon-room_service","hex-icon-favorite"],
+          features: [ 
+            { title: "The purpose of this system is", icon: "dtpr_icons/purpose/agency.svg", description: "Agency" }, 
+            { title: "The service is provided by", icon: "hex-icon-home", description: "Your Home" }, 
+            { title: "The technology is", icon: "dtpr-logo-Black", description: "DTPR API" }, 
+            { title: "The interaction mode is ", icon: "hex-icon-room_service", description: "Personal AI" }, 
+            { title: "The relationship is", icon: "hex-icon-verified_user", description: "Secure and authenticated" },  
+          ],
+          index:currentIndex,
+          frame:currentFrame,
+        }) %>
+        <% 
+          currentFrame++;
+        %>
+      </div>
+      <div>
+        <%= require("ejs-loader!./templates/step-holder.ejs")({
+          contentLeft:false,
+          prototypeType:"dialogflow",
+          prototypeUrl:"https://dtpr.sidewalklabs.com/dtpr_chatbot/place.html", 
+          sign:["face","hex-icon-face","dtpr_icons/tech/air.svg","dtpr_icons/tech/air.svg"],
+          title:"Review transactions from the day",
+          description:"Looking back, you're able to see the digital interactions you had throughout the day. You can edit them, delete some, and set future preferences.",
+          image:"images/Frame_Subject.svg",
+          frame:"images/Frame_Background.png",
+          sign:["dtpr_icons/purpose/water.svg","dtpr_icons/tech/light.svg","hex-icon-room_service","hex-icon-favorite"],
+          features: [ 
+            { title: "The purpose of this system is", icon: "dtpr_icons/purpose/agency.svg", description: "Agency" }, 
+            { title: "The service is provided by", icon: "hex-icon-room_service", description: "Personal AI"  }, 
+            { title: "The technology is", icon: "dtpr-logo-Black", description: "DTPR API" }, 
+            { title: "The interaction mode is ", icon: "hex-icon-room_service", description: "Personal AI" }, 
+            { title: "The relationship is", icon: "hex-icon-verified_user", description: "Secure and authenticated" },
+          ],
+          index:currentIndex,
+          frame:currentFrame,
+        }) %>
+        <% 
+          currentFrame++;
+        %>
+      </div>
+      <div>
+        <%= require("ejs-loader!./templates/step-holder.ejs")({
+          contentLeft:true,
+          prototypeType:"framer",
+          prototypeUrl:"https://framer.com/share/Step1-ghD2K7KlMUDR3jc4Am7m/UXM1Lab84",
+          
+          title:"Feedback",
+          description:"You choose to share the busker you saw with a friend.",
+          image:"images/Frame_Subject.svg",
+          frame:"images/Frame_Background.png",
+          sign:["dtpr_icons/purpose/water.svg","dtpr_icons/tech/light.svg","hex-icon-room_service","hex-icon-favorite"],
+          features: [ 
+            { title: "The purpose of this system is", icon: "dtpr_icons/purpose/inform.svg", description: "Inform" }, 
+            { title: "The service is provided by", icon: "hex-icon-room_service", description: "Personal AI"  }, 
+            { title: "The technology is", icon: "hex-icon-sms", description: "SMS" }, 
+            { title: "The interaction mode is ", icon: "hex-icon-room_service", description: "Personal AI" }, 
+            { title: "The relationship is", icon: "hex-icon-favorite", description: "Friend" }, 
+          ],
+          index:currentIndex,
+          frame:currentFrame,
+        }) %>
+        <% 
+          currentFrame++;
+        %>
+      </div>
+      <div class="step-footer">
+        <div class="container">
+          <%= require("ejs-loader!./templates/step-footer.ejs")({ 
+            description: "In this scenario we learned about how a standardised way to interact with systems can enable choices and agency over digital systems - no matter where you are.", 
+            features: [ 
+              { title: "Agency for people", label: "label", icon: "hex-icon-accessibility_new", description: "Publishing place definitons allows people to know what functionality is available in a given place." }, 
+              { title: "Interoperable access", label: "label", icon: "hex-icon-power", description: "Rather than relying on a single app, an interoperable API ensures many channels of access." }, 
+              { title: "Data exchange receipts", label: "label", icon: "hex-icon-receipt", description: "Each personal interaction that is digitally recorded is able to be audited and edited by that person." }, 
+              { title: "Zone-based notice",label: "label", icon: "hex-icon-place", description: "Alerts can be set based on geographic areas and a person’s familiarity with that place." }, 
+            ], 
+          }) %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

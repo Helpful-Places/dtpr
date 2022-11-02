@@ -1,0 +1,46 @@
+{
+  "name": "dtpr-webpack",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "start": "webpack-dev-server --open",
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^3.6.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^6.1.1",
+    "html-inline-css-webpack-plugin": "^1.9.0",
+    "html-loader": "^1.3.2",
+    "html-webpack-inline-chunk-plugin": "^1.1.1",
+    "html-webpack-inline-source-plugin": "0.0.10",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "postcss-loader": "^3.0.0",
+    "sass": "^1.27.0",
+    "sass-loader": "^8.0.2",
+    "script-loader": "^0.7.2",
+    "style-loader": "^1.3.0",
+    "svg-inline-loader": "^0.8.2",
+    "url-loader": "^4.1.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "ejs-loader": "^0.3.7",
+    "jquery": "^3.5.1",
+    "lodash": "^4.17.20",
+    "nodemon": "^2.0.6",
+    "popper.js": "^1.16.1",
+    "precss": "^4.0.0"
+  }
+}

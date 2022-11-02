@@ -1,0 +1,16 @@
+<div class="container sticky-nav">
+  <div class="row">
+    <div class="col-7 section-title">
+      <h4 class="mb-0">
+        <span class="nav-current-section"><%= require("ejs-loader!./icon.ejs")({icon:icon}) %></span>
+        <span class="pl-1"><%= title %></span>
+      </h4>
+    </div>
+    <div class="col-5 menu">
+      <a href="/" class="btn btn-sm btn-primary font-sm" style="font-size: 0.8rem; padding-bottom: 0.4rem; padding-top: 0.4rem;">Exit</a>
+      <!-- <span class="nav-prev-section"><%= require("ejs-loader!./icon.ejs")({icon:"circle-icon-arrow_upward"}) %></span>
+      <span class="nav-next-section"><%= require("ejs-loader!./icon.ejs")({icon:"circle-icon-arrow_downward"}) %></span> -->
+      <span class="nav-open-menu"><%= require("ejs-loader!./icon.ejs")({icon:"circle-icon-apps"}) %></span>
+    </div>
+  </div>
+</div>
