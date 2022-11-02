@@ -67,16 +67,15 @@
             </div>
           </div>
 
-          <div class="flex items-center mt-8">
+          <!-- <div class="flex items-center mt-8">
             <div class="min-w-[13rem]">
               <NuxtLink to="https://knightfoundation.org/"><img class="max-w-[12rem]" src="~/assets/images/knight_foundation.webp" alt="Knight Foundation logo" /></NuxtLink>
             </div>
             
-            
             <div class="text-2xl ml-4 font-[500]">
               Significant financial support from the <NuxtLink to="https://knightfoundation.org/" class="u-line border-dtpr-blue font-bold">Knight Foundation</NuxtLink>
             </div>
-          </div>
+          </div> -->
           
           <div class="mt-8">
             DTPR has received financial and in-kind support from a number partners. We are always looking for new

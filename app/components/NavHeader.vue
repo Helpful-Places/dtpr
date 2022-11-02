@@ -18,14 +18,13 @@
             <li><NuxtLink to="/tools-and-resources">{{ $t('tools_resources') }}</NuxtLink></li>
             <li><NuxtLink to="/taxonomy">{{ $t('taxonomy') }}</NuxtLink></li>
             <li><NuxtLink to="/get-involved">{{ $t('get_involved') }}</NuxtLink></li>
+            <li><a href="/vision" class="flex items-center">{{ $t('vision') }}<Icon class="inline text-gray-400 ml-1" icon="fa6-solid:up-right-from-square" /></a></li>
           </ul>
         </nav>
         <form :class="isOpen ? 'block' : 'higstdden'" class="md:ml-4 mt-4 md:mt-0 flex md:flex">
           <select class="text-sm bg-gray-200 rounded-md px-1 py-0 grow md:grow-0" id="locale-select" v-model="$i18n.locale">
-            <option value="en-US">🇺🇸 en</option>
-            <option value="en-CA">🇨🇦 en</option>
-            <option value="fr-FR">🇫🇷 fr</option>
-            <option value="fr-CA">🇨🇦 fr</option>
+            <option value="en">en</option>
+            <option value="fr">fr</option>
           </select>
         </form>
       </div>
@@ -53,5 +52,6 @@ nav {
 </style>
 
 <script setup>
+import { Icon } from '@iconify/vue';
 var isOpen = ref(true);
 </script>

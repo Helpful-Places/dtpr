@@ -1,6 +1,6 @@
 export const getBrowserLocale = (options = {}) => {
   if (process.client && typeof navigator !== 'undefined') {
-    const defaultOptions = { countryCodeOnly: false }
+    const defaultOptions = { countryCodeOnly: true }
 
     const opt = { ...defaultOptions, ...options }
   

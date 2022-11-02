@@ -11,13 +11,11 @@ export default defineNuxtPlugin(({ vueApp }) => {
   const i18n = createI18n({
     legacy: false,
     globalInjection: true,
-    locale: getBrowserLocale() || 'en-US',
-    fallbackLocale: 'en-US',
+    locale: getBrowserLocale() || 'en',
+    fallbackLocale: 'en',
     messages: {
-      'en-US': en_US,
-      'en-CA': en_CA,
-      'fr-FR': fr_FR,
-      'fr-CA': fr_CA
+      'en': en_US,
+      'fr': fr_FR
     }
   })
 
