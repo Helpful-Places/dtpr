@@ -3,9 +3,7 @@ import { getBrowserLocale } from '../composables/locale'
 
 // Using language and country codes from: https://wpcentral.io/internationalization/
 import en_US from '../locales/en-US.json';
-import en_CA from '../locales/en-CA.json';
 import fr_FR from '../locales/fr-FR.json';
-import fr_CA from '../locales/fr-CA.json';
 
 export default defineNuxtPlugin(({ vueApp }) => {
   const i18n = createI18n({

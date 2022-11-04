@@ -8,8 +8,12 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxt/content',
     '@nuxtjs/google-fonts',
-    'nuxt-icon'
+    'nuxt-icon',
+    'vue-plausible'
   ],
+  plausible: {
+    domain: 'dtpr.io',
+  },
   googleFonts: {
     families: {
       'Red Hat Text': [300, 400, 500, 600, 700]
