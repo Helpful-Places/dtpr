@@ -15,13 +15,13 @@
       <div class="md:flex print:hidden">
         <nav class="flex items-center">
           <ul :class="isOpen ? 'block' : 'hidden'" class="mt-4 md:flex md:items-center md:m-0">
-            <li><NuxtLink to="/tools-and-resources">{{ $t('tools_resources') }}</NuxtLink></li>
-            <li><NuxtLink to="/taxonomy">{{ $t('taxonomy') }}</NuxtLink></li>
-            <li><NuxtLink to="/get-involved">{{ $t('get_involved') }}</NuxtLink></li>
+            <li><NuxtLink to="/tools-and-resources" @click="isOpen = false">{{ $t('tools_resources') }}</NuxtLink></li>
+            <li><NuxtLink to="/taxonomy" @click="isOpen = false">{{ $t('taxonomy') }}</NuxtLink></li>
+            <li><NuxtLink to="/get-involved" @click="isOpen = false">{{ $t('get_involved') }}</NuxtLink></li>
             <!-- <li><a href="https://vision.dtpr.io" class="flex items-center">{{ $t('vision') }}<Icon class="inline text-gray-400 ml-1" icon="fa6-solid:up-right-from-square" /></a></li> -->
           </ul>
         </nav>
-        <form :class="isOpen ? 'block' : 'higstdden'" class="md:ml-4 mt-4 md:mt-0 flex md:flex">
+        <form :class="isOpen ? 'block' : 'hidden'" class="md:ml-4 mt-4 md:mt-0 flex md:flex">
           <select class="text-sm bg-gray-200 rounded-md px-1 py-0 grow md:grow-0" id="locale-select" v-model="$i18n.locale">
             <option value="en">en</option>
             <option value="fr">fr</option>

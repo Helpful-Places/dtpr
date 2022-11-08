@@ -1,9 +1,9 @@
 <template>
   <div class="app-container mt-12">
-    <div class="flex gap-8">
-      <Card class="w-[60%] bg-dtpr-red text-dtpr-red-lighter">
+    <div class="md:flex gap-8">
+      <Card class="md:w-[60%] bg-dtpr-red text-dtpr-red-lighter">
         <h2>Get Involved</h2>
-        <div class="text-[3rem] font-[700] leading-tight mb-4">Join an emerging coalition</div>
+        <h1>Join an emerging coalition</h1>
 
         <p>
           We are always looking for new collaborators — from pilot opportunities and implementers,
@@ -11,13 +11,19 @@
         </p>
 
         <ul>
-          <li><NuxtLink to="#" class="u-line border-dtpr-red-lighter">Sign up to our newsletter</NuxtLink></li>
-          <li><NuxtLink to="#" class="u-line border-dtpr-red-lighter">Join the DTPR Slack</NuxtLink></li>
-          <li><NuxtLink to="#" class="u-line border-dtpr-red-lighter">Contribute to the open-source resources</NuxtLink></li>
+          <li><a href="https://join.slack.com/t/dtprworkspace/shared_invite/zt-rjy2fvch-4JpFFwIgpasqJH7lTAl~dA" class="u-line border-dtpr-red-lighter">Join the DTPR Slack</a></li>
+          <li><a href="https://github.com/Helpful-Places/dtpr" class="u-line border-dtpr-red-lighter">Contribute to the open-source resources</a></li>
         </ul>
       </Card>  
       
-      <Card class="bg-deployment w-[40%]"></Card>
+      <Card class="bg-deployment md:w-[40%] min-h-[12rem]"></Card>
+    </div>
+
+    <div class="flex gap-8">
+      <Card class="bg-dtpr-red-lighter border-4 border-dtpr-red w-[100%] md:mt-8">
+        <h2 class="text-dtpr-red">Subscribe to our Newsletter</h2>
+        <TallyForm />
+      </Card>
     </div>
   </div>
 </template>
