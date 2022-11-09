@@ -1,6 +1,10 @@
-# Nuxt 3 Minimal Starter
+# DTPR.io
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+The official website of DTPR (Digital Trust for Places & Routines). It includes the most up-to-date version of the DTPR taxonomy, as well as an API to access the taxonomy programmatically.
+
+## Stack
+
+This app is built on [Nuxt3](https://v3.nuxtjs.org/).
 
 ## Setup
 
@@ -22,21 +26,12 @@ pnpm install --shamefully-hoist
 Start the development server on http://localhost:3000
 
 ```bash
+yarn dev
+```
+
+
+```bash
 npm run dev
 ```
 
-## Production
 
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.

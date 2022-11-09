@@ -17,23 +17,25 @@ There are four major components to DTPR - **icons**, a **signage system**, and a
 
 ### Icons
 
-You can download the latest set of the [icon files and visual system](https://github.com/helpful-places/dtpr/tree/master/dtpr_icons) from Github.
+You can download the latest set of the [icon files and visual system](https://github.com/Helpful-Places/dtpr/tree/main/resources/icons) from Github.
 
 ### Design Guide
 
-The [design guide](https://github.com/sidewalklabs/dtpr/blob/master/dtpr_designguide/DTPR_Design_Guide.pdf) has what you need to know in order to actually create signs using the icons or add the icons to existing signage. This has not changed since the initial V1 release.
+The [design guide](https://github.com/Helpful-Places/dtpr/blob/main/app/public/documents/DTPR_Design_Guide.pdf) has what you need to know in order to actually create signs using the icons or add the icons to existing signage. This has not changed since the initial V1 release.
 
 ### Taxonomy
 
-The taxonomy is the full set of definitions on which the icons are based. These definitions are also used in the prototype of the digital channel. The work-in-progress V2 draft of the taxonomy and the associated icons are managed in an Airtable, which you can see [here](https://airtable.com/shrgffVQQN7CsFhFt). Please note this is an active work in progress! 
+The taxonomy is the full set of definitions on which the icons are based. These definitions are also used in the prototype of the digital channel. The work-in-progress V3 draft of the taxonomy and the associated icons are managed in this [repo](https://github.com/Helpful-Places/dtpr/tree/main/app/content/dtpr) here, which you can see displayed on the DTPR website [here](https://dtpr.io/taxonomy). Please note this is an active work in progress!
 
 ### Prototype for the Digital Channel
 
-When you scan a QR code on a sign, it brings you to a webpage where you get more information. Here's the current [prototype for the digital channel](https://dtpr.helpfulplaces.com/dtpr_prototype/index.html). Here’s the [source code](https://github.com/Helpful-Places/dtpr/tree/master/dtpr_prototype).
+When you scan a QR code on a sign, it brings you to a webpage where you get more information. Here's the current [prototype for the digital channel](https://dtpr.helpfulplaces.com/dtpr_prototype/index.html). Here’s the [source code](https://github.com/Helpful-Places/dtpr-web-original/tree/main/dtpr_prototype).
+
+Helpful Places has developed a live version of this digital channel. You can see a demonstration of this app [here](https://www.demo.dtpr.guide/sensors/bgLGhGqeHBlJfU2CL2rE).
 
 ## Co-Design Kit
 
-In the course of developing the initial prototypes, we developed materials and a facilitation guide that was used to run our co-design sessions. All the materials are provided [here](https://github.com/sidewalklabs/dtpr/tree/master/dtpr_codesignkit) so that anyone, anywhere, can take up these tools and use them to engage in this crucial topic. This is unchanged since V1.
+In the course of developing the initial prototypes, we developed materials and a facilitation guide that was used to run our co-design sessions. All the materials are provided [here](https://github.com/Helpful-Places/dtpr/tree/main/resources/codesignkit) so that anyone, anywhere, can take up these tools and use them to engage in this crucial topic. This is unchanged since V1.
 
 ## Contributors
 

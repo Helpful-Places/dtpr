@@ -1,8 +1,8 @@
 # Contributors List #
 
-Designing for Digital Transparency in the Public Realm is a collaborative co-design project organized initially by Sidewalk Labs.  Many people and organizations contributed to the development of the project.
+Digital Trust for Places & Routines is a collaborative co-design project. Many people and organizations have contributed to its development.
 
-Project contributors agreed to license new and original material produced during co-design sessions under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) to the [Digital Transparency in the Public Realm project](https://github.com/sidewalklabs/dtpr). 
+Project contributors agreed to license new and original material produced during co-design sessions under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) to the [Digital Trust for Places & Routines](https://github.com/helpfulplaces/dtpr) project. 
 
 #### Contributors who opted-in to be referenced as part of the attribution include:
 
@@ -45,12 +45,13 @@ Fulton Wang;
 Gehl Institute;
 Geoffrey Wylde, World Economic Forum;
 IDEO CoLab;
-Jacqueline Lu, Sidewalk Labs;
+Jacqueline Lu;
 Jacques Priol, CIVITEO;
 Jamila Smith-Loud;
 Jeff Merritt, World Economic Forum;
 Joel Reardon, University of Calgary;
 John Wittrock, Sidewalk Labs;
+Jonathan Pichot;
 Jordan Prokopy, PwC;
 Juan Martin, Royal Bank of Canada;
 Law & Design CoLab;
@@ -83,6 +84,7 @@ Roxanne Leitão, Central Saint Martins;
 Ryan Brack, FleishmanHillard;
 Sarah Williams;
 Seita Goto, Puncture Design;
+Sidewalk Labs;
 Spencer Cathcart, Puncture Design;
 Steve M Pepple, Pepple Co;
 The Bentway Conservancy;
