@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col">
+    <div class="card card-lightblue d-flex scenario-card big-card" style="background-image:url(<%= image %>);">
+      <div class="headers">
+        <h3><span class="badge"><%= stepNumber %></span>How might we...</h3>
+        <h1><%= title %></h1>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- <div class="row" style="margin-top:150px;margin-bottom:150px;">
+    <div class="col-6 offset-3 col-md-3 offset-md-0">
+      <img src="images/<%= seal %>" width="100%" />
+    </div>
+    <div class="col-12 col-md-7 offset-md-1">
+      <h1 class="display-4 text-center text-md-left"></h1>
+      <p class="lead text-center text-md-left">
+        <%= lead %>
+      </p>
+      <div class="d-none d-md-block">
+        <% for (var i =0; i <buttons.length; i++ ) { %>
+        <button type="button" class="btn mr-2 <%= buttons[i].classes %>"><%= buttons[i].label %></button>
+        <% } %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-5">
+    <% for (var i =0; i <features.length; i++ ) { %>
+      <div class="col-6 col-md-3">
+        <%= require("ejs-loader!./icon.ejs")({icon:features[i].icon}) %>
+        <h5 class="mt-2"><%= features[i].title %></h5>
+        <h6><%= features[i].description %></h6>
+      </div>
+    <% } %>
+  </div> -->

@@ -1,0 +1,33 @@
+<div class="row">
+  <% if(!contentLeft) { %>
+  <div class="col-8 d-none d-md-block"></div>
+  <% }%>
+
+  <div class="col-12 col-md-4 mt-5">
+    <div class="prototype">
+      <img src="images/PhoneFrame.png" class="prototype-phone" />
+      <div class="prototype-loader">
+        <button type="button" class="btn btn-primary mx-auto" >Load Prototype</button>
+      </div>
+      <div class="prototype-container">
+        <% if(prototypeType == "figma") { %>
+          <div class="prototype-figma-border"></div>
+          <iframe 
+          data-src="<%= prototypeUrl %>" 
+          src="" 
+          allowfullscreen
+          ></iframe>
+        <% } else { %>
+          <iframe
+          data-src="<%= prototypeUrl %>"
+          src=""
+          allowfullscreen
+        ></iframe>
+        <% }%>
+      </div>
+    </div>
+  </div>
+  <% if(contentLeft) { %>
+  <div class="col-8 d-none d-md-block"></div>
+  <% }%>
+</div>

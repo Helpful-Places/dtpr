@@ -1,0 +1,10 @@
+<div
+  data-stepIndex="<%= index %>"
+  data-stepFrame="<%= frame %>"
+  class="step step-holder step-holder-<% if(contentLeft===true) {%>left<% }else{%>right<%} %>"
+>
+  <div class="container">
+    <%= require("ejs-loader!./step-description.ejs")({ contentLeft:false,
+    sign:sign, title:title, description:description, features: features, }) %>
+  </div>
+</div>

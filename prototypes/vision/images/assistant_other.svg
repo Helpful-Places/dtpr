@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="48px" viewBox="0 0 42 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>assistant_other</title>
+    <g id="assistant_other" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon id="Path" fill-rule="nonzero" points="21.0559457 0 0 11.8339623 0 35.9849057 21.0559457 48 42 36.0352201 42 12.0352201"></polygon>
+        <g id="contact_support-24px" transform="translate(9.000000, 12.000000)">
+            <polygon id="Path" points="0 0 24 0 24 24 0 24"></polygon>
+            <path d="M11.5,2 C6.81,2 3,5.81 3,10.5 C3,15.19 6.81,19 11.5,19 L12,19 L12,22 C16.86,19.66 20,15 20,10.5 C20,5.81 16.19,2 11.5,2 Z M12.5,16.5 L10.5,16.5 L10.5,14.5 L12.5,14.5 L12.5,16.5 Z M12.5,13 L10.5,13 C10.5,9.75 13.5,10 13.5,8 C13.5,6.9 12.6,6 11.5,6 C10.4,6 9.5,6.9 9.5,8 L7.5,8 C7.5,5.79 9.29,4 11.5,4 C13.71,4 15.5,5.79 15.5,8 C15.5,10.5 12.5,10.75 12.5,13 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>

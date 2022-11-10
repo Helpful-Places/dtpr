@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="48px" viewBox="0 0 42 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>local_local_library</title>
+    <g id="local_local_library" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon id="Path" fill-rule="nonzero" points="21.0559457 0 0 11.8339623 0 35.9849057 21.0559457 48 42 36.0352201 42 12.0352201"></polygon>
+        <g id="local_library-24px" transform="translate(9.000000, 12.000000)">
+            <polygon id="Path" points="0 0 24 0 24 24 0 24"></polygon>
+            <path d="M12,11.55 C9.64,9.35 6.48,8 3,8 L3,19 C6.48,19 9.64,20.35 12,22.55 C14.36,20.36 17.52,19 21,19 L21,8 C17.52,8 14.36,9.35 12,11.55 Z M12,8 C13.66,8 15,6.66 15,5 C15,3.34 13.66,2 12,2 C10.34,2 9,3.34 9,5 C9,6.66 10.34,8 12,8 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>

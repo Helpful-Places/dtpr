@@ -21,7 +21,7 @@ You can download the latest set of the [icon files and visual system](https://gi
 
 ### Design Guide
 
-The [design guide](https://github.com/Helpful-Places/dtpr/blob/main/app/public/documents/DTPR_Design_Guide.pdf) has what you need to know in order to actually create signs using the icons or add the icons to existing signage. This has not changed since the initial V1 release.
+The [design guide](https://github.com/Helpful-Places/dtpr/blob/main/resources/DTPR_Design_Guide.pdf) has what you need to know in order to actually create signs using the icons or add the icons to existing signage. This has not changed since the initial V1 release.
 
 ### Taxonomy
 
