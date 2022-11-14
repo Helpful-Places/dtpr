@@ -46,6 +46,11 @@ watch(locale, async () => {
   refreshNuxtData(symbolCategorySyncId);
   refreshNuxtData(categorySyncId);
 });
+
+onMounted(() => {
+  refreshNuxtData(symbolCategorySyncId);
+  refreshNuxtData(categorySyncId);
+});
 </script>
 
 <style lang="postcss">

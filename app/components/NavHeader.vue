@@ -22,7 +22,7 @@
           </ul>
         </nav>
         <form :class="isOpen ? 'block' : 'hidden'" class="md:ml-4 mt-4 md:mt-0 flex md:flex">
-          <select class="text-sm bg-gray-200 rounded-md px-1 py-0 grow md:grow-0" id="locale-select" v-model="$i18n.locale">
+          <select class="w-[3rem] text-sm bg-gray-200 rounded-md px-1 py-0 grow md:grow-0" id="locale-select" v-model="$i18n.locale">
             <option value="en">en</option>
             <option value="fr">fr</option>
           </select>
