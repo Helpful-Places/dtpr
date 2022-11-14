@@ -9,7 +9,8 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxtjs/google-fonts',
     'nuxt-icon',
-    'vue-plausible'
+    'vue-plausible',
+    '@nuxt/image-edge',
   ],
   plausible: {
     domain: 'dtpr.io',

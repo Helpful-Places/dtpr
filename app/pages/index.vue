@@ -6,7 +6,7 @@
       <div class="md:flex gap-8">
         <div class="card md:w-[60%] bg-dtpr-blue text-dtpr-blue-lighter">
           <h2>The Problem</h2>
-          <h1>Technology can make our cities more responsive to our needs. But is it living up to its promises?</h1>
+          <h1>Digital technology is increasingly present in the places and spaces in which we live. How might we learn about and give feedback on its use?</h1>
         </div>
 
         <div class="card md:w-[40%] bg-dtpr-blue-lighter text-dtpr-blue">
@@ -20,7 +20,7 @@
             environment lacks controls for people.
           </p>
           <p>
-            We've drafted a standard that enables transparency, accountability, and control for people.
+            We've drafted a standard that enables transparency, legibility, accountability, and control for people.
           </p>
         </div>
       </div>
@@ -29,9 +29,9 @@
         <div class="card bg-deployment md:w-[40%] min-h-[12rem]"></div>
         
         <div class="card md:w-[60%] bg-dtpr-green text-dtpr-green-lighter">
-          <h2>Our Solution</h2>
+          <h2>Our Proposal</h2>
           <h1>The DTPR Taxonomy, Design Patterns and Prototypes</h1>
-          <p>The core of the DTPR communication standard is a taxonomy of concepts around digital tech and data practices,and a set of icons to quickly and clearly communicate those concepts. These components can then expressed in a number of ways - from physical signage to digital channels for communication – which together, help visualize and convey how a digital system works.</p>
+          <p>The core of the DTPR communication standard is a taxonomy of concepts around digital tech and data practices, and a set of icons to quickly and clearly communicate those concepts. These components can then expressed in a number of ways - from physical signage to digital channels for communication – which together, help visualize and convey how a digital system works.</p>
           <NuxtLink to="/taxonomy" class="u-line border-dtpr-green-lighter">Explore the Taxonomy</NuxtLink>
         </div>
       </div>
@@ -48,21 +48,22 @@
 
       <div class="md:flex gap-8 mt-8">
         <div class="card text-dtpr-blue">
-          <h2>Sponsors</h2>
+          <h2>Partners</h2>
           
           <div class="flex items-center mt-8">
-            <div class="hidden md:block min-w-[13rem]">
+            <div class="hidden md:block min-w-[10rem]">
               <NuxtLink to="https://www.helpfulplaces.com/"><img class="max-w-[8rem]" src="~/assets/images/hp_logo.png" alt="Helpful Places logo" /></NuxtLink>
             </div>
 
-            <div class="md:ml-4">
+            <div class="md:ml-2">
               <div class="text-2xl font-[500]">
                 DTPR is stewarded by <NuxtLink to="https://www.helpfulplaces.com/" class="u-line border-dtpr-blue font-bold">Helpful Places</NuxtLink>
               </div>
 
               <p class="leading-tight mt-2">
-                Helpful Places helps organizations, and the communities they serve, harness the power of technology in ways that are
-                transparent, inclusive, participatory, and in alignment with the community's goals.
+                Helpful Places is a mission-driven company that helps organizations, and the communities they serve,
+                harness the power of technology in ways that are transparent, inclusive, participatory, and in alignment
+                with the community's goals. Supporting DTPR implementations is one of a variety of ways that we accomplish this.
               </p>
             </div>
           </div>
@@ -78,18 +79,71 @@
           </div> -->
           
           <div class="mt-8">
-            DTPR has received financial and in-kind support from a number partners. We are always looking for new
-            collaborators — from pilot opportunities and implementers, to funders and service providers - to help us test,
-            improve, and advance adoption of the open source standard.
+            DTPR has received financial and in-kind support from a number of partners. We are always looking for new collaborators — 
+            from pilot opportunities and implementers, to funders and service providers - to help us test, improve, and advance adoption
+            of the open source standard. Have an idea on how to support the iteration and adoption of DTPR? Get in touch with the
+            Helpful Places team at <a class="u-line border-dtpr-blue" href="mailto:hello@helpfulplaces.com">hello@helpfulplaces.com</a>.
           </div>
 
           <ul class="font-bold text-2xl mt-8 leading-relaxed">
-            <li><NuxtLink class="u-line border-dtpr-blue" to="https://www.digitalpublicsquare.org/">Digital Public Square</NuxtLink></li>
             <li><NuxtLink class="u-line border-dtpr-blue" to="https://www.normative.com/">Normative</NuxtLink></li>
+            <li><NuxtLink class="u-line border-dtpr-blue" to="https://www.weforum.org/">World Economic Forum</NuxtLink></li>
+            <li><NuxtLink class="u-line border-dtpr-blue" to="https://www.digitalpublicsquare.org/">Digital Public Square</NuxtLink></li>
             <li><NuxtLink class="u-line border-dtpr-blue" to="https://www.glia.foundation/">GLIA Foundation</NuxtLink></li>
-            <li><NuxtLink class="u-line border-dtpr-blue" to="https://www.boston.gov/departments/new-urban-mechanics">City of Boston's Office of New Urban Mechanics</NuxtLink></li>
-            <li><NuxtLink class="u-line border-dtpr-blue" to="https://www.sidewalklabs.com/">Sidewalk Labs</NuxtLink></li>
           </ul>
+        </div>
+      </div>
+
+      <div class="mt-8">
+        <div class="card text-dtpr-blue">
+          <h2>Pilots</h2>
+
+          <div class="grid md:grid-cols-3 lg:grid-cols-4 mt-8 gap-10 text-center font-bold text-lg">
+            <PartnerCard
+              url="https://www.boston.gov/departments/new-urban-mechanics/digital-transparency-public-realm"
+              imageFile="boston-logo.png"
+              imageAlt="City of Boston logo"
+            >
+              Boston, Massachusetts
+            </PartnerCard>
+
+            <PartnerCard
+              url="https://longbeach.gov/smartcity/projects/digital-rights-platform/"
+              imageFile="long-beach-logo.png"
+              imageAlt="City of Long Beach logo"
+            >
+              Long Beach, California
+            </PartnerCard>
+
+            <PartnerCard
+              url="https://innisfil.ca/en/news/town-of-innisfil-wants-your-feedback-on-new-innovative-technology.aspx"
+              imageFile="innisfil-logo.svg"
+              imageAlt="City of Innisfil logo"
+            >
+              Innisfil, Canada
+            </PartnerCard>
+
+            <PartnerCard
+              imageFile="dc-logo.svg"
+              imageAlt="City of Washington, DC logo"
+            >
+              Washington, DC
+            </PartnerCard>
+
+            <PartnerCard
+              imageFile="alm-logo.png"
+              imageAlt="Angers Loire Metropole logo"
+            >
+              Angers Loire Métropole, France
+            </PartnerCard>
+
+            <PartnerCard
+              imageFile="sydney-olympic-park-logo.png"
+              imageAlt="Sydney Olympic Park logo"
+            >
+              Sydney Olympic Park, Australia
+            </PartnerCard>
+          </div>
         </div>
       </div>
     </div>

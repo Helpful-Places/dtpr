@@ -4,7 +4,7 @@
       <p class="text-gray-600 my-4 text-sm">
         The Icons, Design Guide and Taxonomy for DTPR are licensed by the Digital Trust for Places and Routines contributors under the 
         <NuxtLink to="https://creativecommons.org/licenses/by/4.0/" class="u-line">
-          Commons Attribution 4.0 International (CC BY 4.0)
+          Creative Commons Attribution 4.0 International (CC BY 4.0)
         </NuxtLink>
         <NuxtLink to="https://creativecommons.org/licenses/by/4.0/">
           <Icon icon="fa6-brands:creative-commons" class="icon" />
