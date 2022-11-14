@@ -6,7 +6,7 @@
       <div class="md:flex gap-8">
         <div class="card md:w-[60%] bg-dtpr-blue text-dtpr-blue-lighter">
           <h2>The Problem</h2>
-          <h1>Digital technology is increasingly present in the places and spaces in which we live. How might we learn about and give feedback on its use?</h1>
+          <h1>Digital technology is increasingly present in the places and spaces in which we live. How might people learn about and give feedback on its use?</h1>
         </div>
 
         <div class="card md:w-[40%] bg-dtpr-blue-lighter text-dtpr-blue">
