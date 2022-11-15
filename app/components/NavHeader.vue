@@ -53,5 +53,5 @@ nav {
 
 <script setup>
 import { Icon } from '@iconify/vue';
-var isOpen = ref(true);
+var isOpen = ref(false);
 </script>
