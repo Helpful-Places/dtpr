@@ -32,7 +32,7 @@ export default defineEventHandler(async event => {
     let id = `${s.category}__${s.id || fallback.id}`;
     let icon = s.icon || fallback.icon;
 
-    let headline = categories[locale].find(cat => cat.id === s.category).headline
+    let headline = categories[locale].find(cat => cat.id === s.category)?.headline
     
     return {
       id,
