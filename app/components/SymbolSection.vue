@@ -13,7 +13,7 @@
       </thead>
       <tbody>
         <tr v-for="symbol in symbols" :key="`${locale}-${symbol.id}`">
-          <td><img :src=symbol.icon /></td>
+          <td><img class="w-[36px] h-[36px]" :src=symbol.icon /></td>
           <td>{{symbol.name}}</td>
           <td v-html="$md.render(symbol.description)"></td>
         </tr>
