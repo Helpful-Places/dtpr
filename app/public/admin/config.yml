@@ -46,7 +46,7 @@ collections:
   - name: "symbols" # Used in routes, e.g., /admin/collections/blog
     i18n: true
     label: "Symbol" # Used in the UI
-    folder: "content/dtpr/symbols" # The path to the folder where the documents are stored
+    folder: "app/content/dtpr/symbols" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     identifier_field: name
     slug: '{{category}}__{{id}}'
