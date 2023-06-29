@@ -1,18 +1,12 @@
 backend:
   name: github
   repo: Helpful-Places/dtpr
-  branch: staging # Branch to update (optional; defaults to master)
+  branch: contribute # Branch to update (optional; defaults to master)
+  open_authoring: true
   # api_root: https://api.github.com
   # base_url: https://api.netlify.com
 
-media_folder: "images/dtpr-icons"
-public_folder: "/public"
-
-media_library:
-  name: cloudinary
-  config:
-    cloud_name: helpful-places
-    api_key: 665599687557175
+publish_mode: editorial_workflow
 
 i18n:
   # Required and can be one of multiple_folders, multiple_files or single_file
@@ -27,6 +21,15 @@ i18n:
   # Optional, defaults to the first item in locales.
   # The locale to be used for fields validation and as a baseline for the entry.
   default_locale: en
+
+# Media
+media_folder: "images/dtpr-icons"
+public_folder: "/public"
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: helpful-places
+    api_key: 665599687557175
 
 collections:
   - name: "categories" # Used in routes, e.g., /admin/collections/blog
@@ -43,7 +46,7 @@ collections:
   - name: "symbols" # Used in routes, e.g., /admin/collections/blog
     i18n: true
     label: "Symbol" # Used in the UI
-    folder: "app/content/dtpr/symbols" # The path to the folder where the documents are stored
+    folder: "content/dtpr/symbols" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     identifier_field: name
     slug: '{{category}}__{{id}}'
