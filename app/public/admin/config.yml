@@ -2,6 +2,7 @@ backend:
   name: github
   repo: Helpful-Places/dtpr
   branch: contribute # Branch to update (optional; defaults to master)
+  cms_label_prefix: contribution/
   open_authoring: true
   # api_root: https://api.github.com
   # base_url: https://api.netlify.com
@@ -43,10 +44,10 @@ collections:
       - {label: "Name", name: "name", widget: "string", i18n: true}
       - {label: "Headline", name: "headline", widget: "string", i18n: true}
       - {label: "ID", name: "id", widget: "string", i18n: "duplicate"}
-  - name: "symbols" # Used in routes, e.g., /admin/collections/blog
+  - name: "elements" # Used in routes, e.g., /admin/collections/blog
     i18n: true
-    label: "Symbol" # Used in the UI
-    folder: "app/content/dtpr/symbols" # The path to the folder where the documents are stored
+    label: "Element" # Used in the UI
+    folder: "app/content/dtpr/elements" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     identifier_field: name
     slug: '{{category}}__{{id}}'
@@ -69,8 +70,8 @@ collections:
       - {label: "Description", name: "description", widget: "markdown", i18n: true}
       - label: "Icon"
         name: "icon"
-        i18n: "duplicate"
         widget: "image"
         choose_url: true
         allow_multiple: false
+        i18n: "duplicate"
         

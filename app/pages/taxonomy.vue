@@ -1,12 +1,12 @@
 <template>
   <div class="app-container">
-    <SymbolSection symbol-category="accountable" symbol-category-name="Accountable" />
-    <SymbolSection symbol-category="purpose" symbol-category-name="Purpose" />
-    <SymbolSection symbol-category="tech" symbol-category-name="Technology" />
-    <SymbolSection symbol-category="data" symbol-category-name="Data Type" />
-    <SymbolSection symbol-category="process" symbol-category-name="Data Processing" />
-    <SymbolSection symbol-category="access" symbol-category-name="Data Access" />
-    <SymbolSection symbol-category="storage" symbol-category-name="Data Storage" />
+    <ElementSection element-category="accountable" element-category-name="Accountable" />
+    <ElementSection element-category="purpose" element-category-name="Purpose" />
+    <ElementSection element-category="tech" element-category-name="Technology" />
+    <ElementSection element-category="data" element-category-name="Data Type" />
+    <ElementSection element-category="process" element-category-name="Data Processing" />
+    <ElementSection element-category="access" element-category-name="Data Access" />
+    <ElementSection element-category="storage" element-category-name="Data Storage" />
   </div>
 </template>
 

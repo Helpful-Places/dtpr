@@ -12,10 +12,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="symbol in symbols" :key="`${locale}-${symbol.id}`">
-          <td><img class="w-[36px] h-[36px]" :src=symbol.icon /></td>
-          <td>{{symbol.name}}</td>
-          <td v-html="$md.render(symbol.description)"></td>
+        <tr v-for="element in elements" :key="`${locale}-${element.id}`">
+          <td><img class="w-[36px] h-[36px]" :src=element.icon /></td>
+          <td>{{element.name}}</td>
+          <td v-html="$md.render(element.description)"></td>
         </tr>
       </tbody>
     </table>
@@ -28,27 +28,27 @@ import { useI18n } from 'vue-i18n';
 const { locale } = useI18n();
 
 const props = defineProps({
-  'symbolCategory': String,
-  'symbolCategoryName': String
+  'elementCategory': String,
+  'elementCategoryName': String
 })
 
-const symbolCategorySyncId = `symbols-${props.symbolCategory}`;
-const { data: symbols } = await useAsyncData(symbolCategorySyncId, () => {
-  return queryContent(`/dtpr/symbols/${locale.value.split('-')[0]}`).where({ category: props.symbolCategory }).find();
+const elementCategorySyncId = `elements-${props.elementCategory}`;
+const { data: elements } = await useAsyncData(elementCategorySyncId, () => {
+  return queryContent(`dtpr/elements/${locale.value.split('-')[0]}`).where({ category: props.elementCategory }).find();
 });
 
-const categorySyncId = `category-${props.symbolCategory}`;
+const categorySyncId = `category-${props.elementCategory}`;
 const { data: category } = await useAsyncData(categorySyncId, () => {
-  return queryContent(`/dtpr/categories/${locale.value.split('-')[0]}`).where({ id: props.symbolCategory }).findOne();
+  return queryContent(`dtpr/categories/${locale.value.split('-')[0]}`).where({ id: props.elementCategory }).findOne();
 });
 
 watch(locale, async () => {
-  refreshNuxtData(symbolCategorySyncId);
+  refreshNuxtData(elementCategorySyncId);
   refreshNuxtData(categorySyncId);
 });
 
 onMounted(() => {
-  refreshNuxtData(symbolCategorySyncId);
+  refreshNuxtData(elementCategorySyncId);
   refreshNuxtData(categorySyncId);
 });
 </script>
