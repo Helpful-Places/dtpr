@@ -34,4 +34,10 @@ yarn dev
 npm run dev
 ```
 
+## Accessing Netlify CMS
 
+```bash
+yarn cms
+```
+
+Go to `https://localhost:3000/admin`

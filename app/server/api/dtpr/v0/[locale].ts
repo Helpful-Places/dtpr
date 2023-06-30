@@ -1,4 +1,4 @@
-const fileName = (_id) => {
+const fileName = (_id: any) => {
   return _id.split(":").pop();
 }
 
@@ -19,10 +19,10 @@ export default defineEventHandler(async event => {
 
   const json = { 
     en: data.filter((s) => { 
-      return s._id.includes(':en:') && s._id.includes(':symbols:')
+      return s._id.includes(':en:') && s._id.includes(':elements:')
     }),
     fr: data.filter((s) => { 
-      return s._id.includes(':fr:') && s._id.includes(':symbols:')
+      return s._id.includes(':fr:') && s._id.includes(':elements:')
     })
   }
 

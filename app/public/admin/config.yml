@@ -1,16 +1,13 @@
 backend:
-  name: git-gateway
-  branch: cms-pushes # Branch to update (optional; defaults to master)
-local_backend: true
+  name: github
+  repo: Helpful-Places/dtpr
+  branch: main
+  cms_label_prefix: contribution/
+  open_authoring: true
+  # api_root: https://api.github.com
+  # base_url: https://api.netlify.com
 
-media_folder: "images/dtpr-icons"
-public_folder: "/public"
-
-media_library:
-  name: cloudinary
-  config:
-    cloud_name: helpful-places
-    api_key: 665599687557175
+publish_mode: editorial_workflow
 
 i18n:
   # Required and can be one of multiple_folders, multiple_files or single_file
@@ -20,28 +17,37 @@ i18n:
   structure: multiple_folders
 
   # Required - a list of locales to show in the editor UI
-  locales: [en, fr]
+  locales: [en, fr, es, pt]
 
   # Optional, defaults to the first item in locales.
   # The locale to be used for fields validation and as a baseline for the entry.
   default_locale: en
+
+# Media
+media_folder: "images/dtpr-icons"
+public_folder: "/public"
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: helpful-places
+    api_key: 665599687557175
 
 collections:
   - name: "categories" # Used in routes, e.g., /admin/collections/blog
     i18n: true
     label: "Category" # Used in the UI
     slug: '{{category}}__{{id}}'
-    folder: "content/dtpr/categories" # The path to the folder where the documents are stored
+    folder: "app/content/dtpr/categories" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     identifier_field: name
     fields: # The fields for each document, usually in front matter
       - {label: "Name", name: "name", widget: "string", i18n: true}
       - {label: "Headline", name: "headline", widget: "string", i18n: true}
       - {label: "ID", name: "id", widget: "string", i18n: "duplicate"}
-  - name: "symbols" # Used in routes, e.g., /admin/collections/blog
+  - name: "elements" # Used in routes, e.g., /admin/collections/blog
     i18n: true
-    label: "Symbol" # Used in the UI
-    folder: "content/dtpr/symbols" # The path to the folder where the documents are stored
+    label: "Element" # Used in the UI
+    folder: "app/content/dtpr/elements" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     identifier_field: name
     slug: '{{category}}__{{id}}'
@@ -64,8 +70,8 @@ collections:
       - {label: "Description", name: "description", widget: "markdown", i18n: true}
       - label: "Icon"
         name: "icon"
-        i18n: duplicate
         widget: "image"
         choose_url: true
         allow_multiple: false
+        i18n: "duplicate"
         
