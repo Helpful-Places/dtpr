@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: Helpful-Places/dtpr
-  branch: contribute # Branch to update (optional; defaults to master)
+  branch: main
   cms_label_prefix: contribution/
   open_authoring: true
   # api_root: https://api.github.com
