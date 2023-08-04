@@ -1,5 +1,5 @@
 ---
 category: tech
-id: Electric_vehicle_charger
-icon: https://github.com/Helpful-Places/dtpr/blob/main/resources/icons/tech/handsfree.svg
+id: electric_vehicle_charger
+icon: https://res.cloudinary.com/helpful-places/image/upload/v1691178249/ev_charger_yarben.svg
 ---
