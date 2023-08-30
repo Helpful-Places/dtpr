@@ -15,9 +15,7 @@ export default defineEventHandler(async event => {
     fr: data.filter((s) => { 
       return s._id.includes(':fr:') && s._id.includes(':categories:')
     }),
-    es: data.filter((s)=>{
-      return s._id.includes(':es:') && s._id.includes(':categories:')
-    })
+    es:data.filter(s)
 
   }
 
@@ -27,9 +25,6 @@ export default defineEventHandler(async event => {
     }),
     fr: data.filter((s) => { 
       return s._id.includes(':fr:') && s._id.includes(':elements:')
-    }),
-    es: data.filter((s) => { 
-      return s._id.includes(':es:') && s._id.includes(':elements:')
     })
   }
 

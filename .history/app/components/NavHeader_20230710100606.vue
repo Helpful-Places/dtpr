@@ -25,7 +25,6 @@
           <select class="w-[3rem] text-sm bg-gray-200 rounded-md px-1 py-0 grow md:grow-0" id="locale-select" v-model="$i18n.locale">
             <option value="en">en</option>
             <option value="fr">fr</option>
-            <option value="es">es</option>
           </select>
         </form>
       </div>

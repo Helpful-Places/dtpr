@@ -4,7 +4,7 @@ import { getBrowserLocale } from '../composables/locale'
 // Using language and country codes from: https://wpcentral.io/internationalization/
 import en_US from '../locales/en-US.json';
 import fr_FR from '../locales/fr-FR.json';
-import es_pr from '../locales/es-pr.json';
+import es_MIA from '../locales'
 
 export default defineNuxtPlugin(({ vueApp }) => {
   const i18n = createI18n({
@@ -15,7 +15,7 @@ export default defineNuxtPlugin(({ vueApp }) => {
     messages: {
       'en': en_US,
       'fr': fr_FR,
-      'es': es_pr
+      'es':es_MIA
     }
   })
 
