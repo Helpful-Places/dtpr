@@ -1,0 +1,7 @@
+---
+category: process
+name: Datos brutos
+id: process__raw_data
+description: Datos que no han sido procesados o alterados desde el punto de recogida - los datos son efectivamente idénticos a cómo se recogió de la fuente de datos original. Más información [aquÌ](https://en.wikipedia.org/wiki/Raw_data)
+icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832751/dtpr-icons/process/raw_dxpopc.svg
+---

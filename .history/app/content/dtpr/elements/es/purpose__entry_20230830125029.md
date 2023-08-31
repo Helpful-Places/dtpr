@@ -1,0 +1,7 @@
+---
+category: purpose
+name: Entrada
+id: purpose__entry
+description: Soporta autenticación o validación para acceder a un espacio o servicio. Más información [aquÌ](https://en.wikipedia.org/wiki/Access_control)
+icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832795/dtpr-icons/purpose/entry_ykr8r0.svg
+---
