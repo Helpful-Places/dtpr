@@ -1,0 +1,56 @@
+# This is a basic workflow to create a GitHub Discussion thread when a pull request is made to the main branch
+
+name: Create Discussion
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on pull request events
+  pull_request:
+    # Only runs when the pull request is made to the main branch
+    branches: [ main ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:https://github.com/Helpful-Places/dtpr/tree/main
+  # This job creates a discussion thread using the GitHub Discussions GraphQL API
+  create-discussion:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks out the repository under $GITHUB_WORKSPACE, so the job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a single command using the runners shell
+      - name: Create discussion
+        # The command to run
+        run: |
+          # Set the variables for the GraphQL query
+          REPO_NAME="DTPR"
+          REPO_OWNER=github.repository_owner
+          ACCESS_TOKEN="your-access-token" # Replace with your personal access token with repo scope
+          DISCUSSION_TITLE="${{ github.event.pull_request.title }}" # Use the pull request title as the discussion title
+          DISCUSSION_BODY="${{ github.event.pull_request.body }}" # Use the pull request description as the discussion body
+
+          # Query the ID of the category by its name
+          CATEGORY_ID=$(gh api graphql -f owner=$REPO_OWNER -f name=$REPO_NAME -f query="Proposed Taxonomy Changes" -q '.data.repository.discussionCategories.nodes[0].id')
+
+          # Construct the GraphQL mutation
+          MUTATION=$(cat <<-END
+          mutation {
+            createDiscussion(input: {
+              repositoryId: "\$(gh api graphql -f owner=\$REPO_OWNER -f name=\$REPO_NAME -q '.data.repository.id')"
+              categoryId: "\$CATEGORY_ID"
+              title: "\$DISCUSSION_TITLE"
+              body: "\$DISCUSSION_BODY"
+            }) {
+              discussion {
+                url
+              }
+            }
+          }
+          END
+          )
+
+          # Execute the GraphQL mutation using the GitHub CLI
+          gh api graphql -f query="\$MUTATION" -H "Authorization: bearer \$ACCESS_TOKEN"
