@@ -4,6 +4,7 @@ name: Create Discussion
 
 # Controls when the workflow will run
 on:
+  workflow_dispatch
   # Triggers the workflow on pull request events
   pull_request:
     # Only runs when the pull request is made to the main branch
