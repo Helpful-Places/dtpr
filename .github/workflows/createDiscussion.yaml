@@ -1,17 +1,14 @@
 # This is a basic workflow to create a GitHub Discussion thread when a pull request is made to the main branch
-
 name: Create Discussion
-
 # Controls when the workflow will run
 on:
-  workflow_dispatch
   # Triggers the workflow on pull request events
   pull_request:
     # Only runs when the pull request is made to the main branch
     branches: [ main ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:https://github.com/Helpful-Places/dtpr/tree/main
+jobs:
   # This job creates a discussion thread using the GitHub Discussions GraphQL API
   create-discussion:
     # The type of runner that the job will run on
