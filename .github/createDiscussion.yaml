@@ -27,13 +27,13 @@ jobs:https://github.com/Helpful-Places/dtpr/tree/main
         run: |
           # Set the variables for the GraphQL query
           REPO_NAME="DTPR"
-          REPO_OWNER=github.repository_owner
-          ACCESS_TOKEN="your-access-token" # Replace with your personal access token with repo scope
-          DISCUSSION_TITLE="${{ github.event.pull_request.title }}" # Use the pull request title as the discussion title
-          DISCUSSION_BODY="${{ github.event.pull_request.body }}" # Use the pull request description as the discussion body
+          REPO_OWNER="Helpful-Places"
+          ACCESS_TOKEN="${{secrets.GITHUB_TOKEN}}"
+          DISCUSSION_TITLE="${{ github.event.pull_request.title }}"
+          DISCUSSION_BODY="${{ github.event.pull_request.body }}"
 
           # Query the ID of the category by its name
-          CATEGORY_ID=$(gh api graphql -f owner=$REPO_OWNER -f name=$REPO_NAME -f query="Proposed Taxonomy Changes" -q '.data.repository.discussionCategories.nodes[0].id')
+          CATEGORY_ID="DIC_kwDOHibgUc4Cbmpw"
 
           # Construct the GraphQL mutation
           MUTATION=$(cat <<-END
