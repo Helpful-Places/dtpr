@@ -21,12 +21,13 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Create discussion
-        # The command to run
+        # The command to run  
+        env:
+          ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Set the variables for the GraphQL query
           REPO_NAME="DTPR"
           REPO_OWNER="Helpful-Places"
-          ACCESS_TOKEN="${{secrets.GITHUB_TOKEN}}"
           DISCUSSION_TITLE="${{ github.event.pull_request.title }}"
           DISCUSSION_BODY="${{ github.event.pull_request.body }}"
 
