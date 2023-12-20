@@ -23,7 +23,7 @@ jobs:
       - name: Create discussion
         # The command to run
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
         run: |
           # Set the variables for the GraphQL query
           REPO_NAME="DTPR"
