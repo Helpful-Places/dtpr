@@ -18,17 +18,16 @@ jobs:
     steps:
       # Checks out the repository under $GITHUB_WORKSPACE, so the job can access it
       - uses: actions/checkout@v2
+      - with:
+          ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Runs a single command using the runners shell
       - name: Create discussion
         # The command to run
-        env:
-          GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
         run: |
           # Set the variables for the GraphQL query
           REPO_NAME="DTPR"
           REPO_OWNER="Helpful-Places"
-          ACCESS_TOKEN="${{env.GITHUB_TOKEN}}"
           DISCUSSION_TITLE="${{ github.event.pull_request.title }}"
           DISCUSSION_BODY="${{ github.event.pull_request.body }}"
 
