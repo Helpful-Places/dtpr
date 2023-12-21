@@ -1,5 +1,5 @@
 ---
 name: Data Type
-headline: Type of data collected
+headline: Type of data collected (testing)
 id: data
 ---
