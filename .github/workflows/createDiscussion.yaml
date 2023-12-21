@@ -1,56 +1,54 @@
-# This is a basic workflow to create a GitHub Discussion thread when a pull request is made to the main branch
-name: Create Discussion
-# Controls when the workflow will run
+name: Create Discussion thread
 on:
-  # Triggers the workflow on pull request events
   pull_request:
-    # Only runs when the pull request is made to the main branch
-    branches: [ main ]
+    branches: [main]
+  workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This job creates a discussion thread using the GitHub Discussions GraphQL API
   create-discussion:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks out the repository under $GITHUB_WORKSPACE, so the job can access it
+      # Use the actions/checkout action to check out the repository
       - uses: actions/checkout@v2
-
-      # Runs a single command using the runners shell
-      - name: Create discussion
-        env:
-          GH_TOKEN: ${{ github.token }}
-        # The command to run
-        run: |
-          # Set the variables for the GraphQL query
-          REPO_NAME="DTPR"
-          REPO_OWNER="Helpful-Places"
-          DISCUSSION_TITLE="${{ github.event.pull_request.title }}"
-          DISCUSSION_BODY="${{ github.event.pull_request.body }}"
-          GH_TOKEN="${{env.GH_TOKEN}}"
-
-          # Query the ID of the category by its name
-          CATEGORY_ID="DIC_kwDOHibgUc4Cbmpw"
-
-          # Construct the GraphQL mutation
-          MUTATION=$(cat <<-END
-          mutation {
-            createDiscussion(input: {
-              repositoryId: "\$(gh api graphql -f owner=\$REPO_OWNER -f name=\$REPO_NAME -q '.data.repository.id')"
-              categoryId: "\$CATEGORY_ID"
-              title: "\$DISCUSSION_TITLE"
-              body: "\$DISCUSSION_BODY"
-            }) {
-              discussion {
-                url
-              }
-            }
-          }
-          END
-          )
-
-          # Execute the GraphQL mutation using the GitHub CLI
-          gh api graphql -f query="\$MUTATION" -H "Authorization: bearer \$GH_TOKEN"
+      # Use the actions/github-script action to run a script using the GitHub API
+      - name: Create discussion thread
+        uses: actions/github-script@v4
+        with:
+          script: |
+            // Set the pull request number to a default value of 0, or change it to a different value if you want
+            const pr_number = 0;
+            // Get the pull request information from the GitHub API or the context
+            const pr = pr_number ? await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr_number
+            }) : context.payload.pull_request;
+            // Set the discussion category name
+            const category = "Proposed Taxonomy Edits";
+            // Set the discussion title to the pull request title
+            const title = pr.data.title;
+            // Set the discussion body to the pull request description and a url linking to it
+            const body = `${pr.data.body}\n\nView pull request`;
+            // Get the repository owner and name from the context
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            // Get the discussion categories for the repository
+            const categories = await github.rest.discussions.listCategoriesForRepo({
+              owner,
+              repo
+            });
+            // Find the category id that matches the category name
+            const category_id = categories.data.find(c => c.name === category).id;
+            // Create a new discussion in the category with the title and body
+            await github.rest.discussions.create({
+              owner,
+              repo,
+              category_id,
+              title,
+              body
+            });
+      
+  
+  
+    
