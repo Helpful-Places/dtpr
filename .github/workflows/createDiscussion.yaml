@@ -18,8 +18,6 @@ jobs:
     steps:
       # Checks out the repository under $GITHUB_WORKSPACE, so the job can access it
       - uses: actions/checkout@v2
-        with:
-          ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Runs a single command using the runners shell
       - name: Create discussion
@@ -32,6 +30,7 @@ jobs:
           REPO_OWNER="Helpful-Places"
           DISCUSSION_TITLE="${{ github.event.pull_request.title }}"
           DISCUSSION_BODY="${{ github.event.pull_request.body }}"
+          GH_TOKEN="${{env.GH_TOKEN}}"
 
           # Query the ID of the category by its name
           CATEGORY_ID="DIC_kwDOHibgUc4Cbmpw"
