@@ -14,6 +14,8 @@ jobs:
       # Use the actions/github-script action to run a script using the GitHub API
       - name: Create discussion thread
         uses: actions/github-script@v4
+        env:
+          GH_TOKEN: ${{ github.token }}
         with:
           script: |
             // Set the pull request number to a default value of 0, or change it to a different value if you want
@@ -46,7 +48,10 @@ jobs:
               repo,
               category_id,
               title,
-              body
+              body,
+              headers: {
+                authorization: 'Bearer ${{env.GH_TOKEN}}'
+              }
             });
       
   
