@@ -23,6 +23,8 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Create discussion
+        env:
+          GH_TOKEN: ${{ github.token }}
         # The command to run
         run: |
           # Set the variables for the GraphQL query
@@ -52,4 +54,4 @@ jobs:
           )
 
           # Execute the GraphQL mutation using the GitHub CLI
-          gh api graphql -f query="\$MUTATION" -H "Authorization: bearer \$ACCESS_TOKEN"
+          gh api graphql -f query="\$MUTATION" -H "Authorization: bearer \$GH_TOKEN"
