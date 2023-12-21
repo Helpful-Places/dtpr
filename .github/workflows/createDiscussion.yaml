@@ -1,59 +1,23 @@
-name: Create Discussion thread
+name: Proposed Taxonomy Edits
+
 on:
-  pull_request:
-    branches: [main]
   workflow_dispatch:
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  create-discussion:
+  create_discussion:
     runs-on: ubuntu-latest
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    permissions:
+      issues: write # this is the minimum permission required to create a discussion
     steps:
-      # Use the actions/checkout action to check out the repository
-      - uses: actions/checkout@v2
-      # Use the actions/github-script action to run a script using the GitHub API
-      - name: Create discussion thread
-        uses: actions/github-script@v4
-        env:
-          GH_TOKEN: ${{ github.token }}
-        with:
-          script: |
-            // Set the pull request number to a default value of 0, or change it to a different value if you want
-            const pr_number = 0;
-            // Get the pull request information from the GitHub API or the context
-            const pr = pr_number ? await github.rest.pulls.get({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: pr_number
-            }) : context.payload.pull_request;
-            // Set the discussion category name
-            const category = "Proposed Taxonomy Edits";
-            // Set the discussion title to the pull request title
-            const title = pr.data.title;
-            // Set the discussion body to the pull request description and a url linking to it
-            const body = `${pr.data.body}\n\nView pull request`;
-            // Get the repository owner and name from the context
-            const owner = context.repo.owner;
-            const repo = context.repo.repo;
-            // Get the discussion categories for the repository
-            const categories = await github.rest.discussions.listCategoriesForRepo({
-              owner,
-              repo
-            });
-            // Find the category id that matches the category name
-            const category_id = categories.data.find(c => c.name === category).id;
-            // Create a new discussion in the category with the title and body
-            await github.rest.discussions.create({
-              owner,
-              repo,
-              category_id,
-              title,
-              body,
-              headers: {
-                authorization: 'Bearer ${{env.GH_TOKEN}}'
-              }
-            });
-      
-  
-  
-    
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Create discussion
+        run: |
+          curl -X POST \
+          -H "Accept: application/vnd.github.v3+json" \
+          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          https://api.github.com/repos/${{ github.repository }}/discussions \
+          -d '{"title": "'${{ github.event.pull_request.title }}'", "category_name": "Proposed Taxonomy Edits", "body": "'${{ github.event.pull_request.body }}\n\nLink to pull request: ${{ github.event.pull_request.html_url }}'"}'
