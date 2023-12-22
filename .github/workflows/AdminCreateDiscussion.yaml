@@ -1,29 +1,46 @@
-name: Admin Taxonomy Edits
-
+name: Admin Create Discussion Post
 on:
   workflow_dispatch:
   pull_request:
     branches:
-      - main  
+      - main
 
 jobs:
-  admin_create_discussion:
+  create_discussion:
     runs-on: ubuntu-latest
-    permissions:
-      actions: write
-      issues: write
-      discussions: write
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_REPOSITORY: ${{ github.repository }}
+      CATEGORY_ID: "DIC_kwDOHibgUc4Cbmpw"
+    outputs:
+      discussion_url: ${{ steps.create_discussion.outputs.discussion_url }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: admin Create discussion
-        run: |
-          curl -X POST \
-            -H "Accept: application/vnd.github.v3+json" \
-            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            https://api.github.com/teams/dtpr/discussions \
-            -d '{
-                  "title": "'${{ github.event.pull_request.title }}'",
-                  "category_name": "Proposed Taxonomy Edits",
-                  "body": "'${{ github.event.pull_request.body }}\n\nLink to pull request: ${{ github.event.pull_request.html_url }}'"
-                }'
+
+      - name: Create Discussion Post
+        id: create_discussion
+        if: github.event.action == 'opened' || github.event.action == 'reopened'
+        run: >
+          # Get the pull request details
+          title=$(jq -r .pull_request.title "$GITHUB_EVENT_PATH")
+          body=$(jq -r .pull_request.body "$GITHUB_EVENT_PATH")
+          url=$(jq -r .pull_request.html_url "$GITHUB_EVENT_PATH")
+          files_url=$(jq -r .pull_request._links.self.href "$GITHUB_EVENT_PATH")
+
+          # Get the list of changed files
+          files=$(curl -s -H "Authorization: token $GITHUB_TOKEN" "$files_url/files" | jq -r .[].filename)
+
+          # Create the discussion body
+          discussion_body="Pull Request: $title\n\n$body\n\nChanged Files:\n$files\n\nView Pull Request"
+
+          # Create the discussion
+          response=$(curl -s -X POST -H "Authorization: token $GITHUB_TOKEN" \
+            -d '{"title": "'"$title"'", "body": "'"$discussion_body"'", "category_id": "'"$CATEGORY_ID"'"}' \
+            https://api.github.com/repos/$GITHUB_REPOSITORY/discussions)
+
+          # Get the discussion url
+          discussion_url=$(echo "$response" | jq -r .html_url)
+
+          # Set the output variable
+          echo "::set-output name=discussion_url::$discussion_url"
