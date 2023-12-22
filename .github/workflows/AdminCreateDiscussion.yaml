@@ -21,7 +21,7 @@ jobs:
       - name: Create Discussion Post
         id: create_discussion
         if: github.event.action == 'opened' || github.event.action == 'reopened'
-        run: >
+        run: |
           # Get the pull request details
           title=$(jq -r .pull_request.title "$GITHUB_EVENT_PATH")
           body=$(jq -r .pull_request.body "$GITHUB_EVENT_PATH")
