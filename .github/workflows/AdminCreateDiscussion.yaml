@@ -7,14 +7,9 @@ jobs:
   create-discussion:
     runs-on: ubuntu-latest
     steps:
-      # - name: Set variables
-      #   id: vars
-      #   run: |
-      #     echo "::set-output name=pr_title::${{ github.event.pull_request.title }}"
-      #     echo "::set-output name=pr_body::${{ github.event.pull_request.body }} (Link: ${{ github.event.pull_request.html_url }})"
       - name: Create a new GitHub Discussion
         id: create-discussion
-        uses: abirismyname/create-discussion@v1.x
+        uses: abirismyname/create-discussion@v1.1.0
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
         with:
@@ -27,7 +22,3 @@ jobs:
         run: |
           echo discussion-id: ${{steps.create-discussion.outputs.discussion-id}} 
           echo discussion-url: ${{steps.create-discussion.outputs.discussion-url}} 
-
-      # - name: Run curl command
-      #   run: |
-      #     curl -H "Authorization: bearer  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" -X POST -d " {   \"query\": \"mutation {     createDiscussion(       input: {repositoryId: \\\"R_kgDOHibgUQ\\\", categoryId: \\\"DIC_kwDOHibgUc4Cbmpw\\\", body: \\\"${{ steps.vars.outputs.pr_body }}\\\", title: \\\"${{ steps.vars.outputs.pr_title }}\\\"}     ) {       discussion {         id       }     }   }\" }" https://api.github.com/graphql 
