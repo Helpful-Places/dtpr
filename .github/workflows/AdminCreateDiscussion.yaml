@@ -7,21 +7,22 @@ jobs:
   create-discussion:
     runs-on: ubuntu-latest
     steps:
-      - name: Set variables
-        id: vars
-        run: |
-          echo "::set-output name=pr_title::${{ github.event.pull_request.title }}"
-          echo "::set-output name=pr_body::${{ github.event.pull_request.body }} (Link: ${{ github.event.pull_request.html_url }})"
+      # - name: Set variables
+      #   id: vars
+      #   run: |
+      #     echo "::set-output name=pr_title::${{ github.event.pull_request.title }}"
+      #     echo "::set-output name=pr_body::${{ github.event.pull_request.body }} (Link: ${{ github.event.pull_request.html_url }})"
       - name: Create a new GitHub Discussion
         id: create-discussion
         uses: abirismyname/create-discussion@v1.x
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
         with:
-          title: ${{ secrets.pr_title }}
-          body: ${{ secrets.pr_body }}
+          title: ${{ github.event.pull_request.title }}
+          body: |
+            ${{ github.event.pull_request.body }} (Link: ${{ github.event.pull_request.html_url }})
           repository-id: ${{ secrets.REPO_ID }}
-          category-id: ${{ secrets.CAT_ID }}  
+          category-id: ${{ secrets.CAT_ID }}
       - name: Print discussion url and id
         run: |
           echo discussion-id: ${{steps.create-discussion.outputs.discussion-id}} 
