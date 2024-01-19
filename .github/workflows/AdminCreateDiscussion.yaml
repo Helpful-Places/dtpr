@@ -12,7 +12,21 @@ jobs:
         run: |
           echo "::set-output name=pr_title::${{ github.event.pull_request.title }}"
           echo "::set-output name=pr_body::${{ github.event.pull_request.body }} (Link: ${{ github.event.pull_request.html_url }})"
-      - name: Run curl command
+      - name: Create a new GitHub Discussion
+        id: create-discussion
+        uses: abirismyname/create-discussion@v1.x
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
+        with:
+          title: ${{ secrets.pr_title }}
+          body: ${{ secrets.pr_body }}
+          repository-id: ${{ secrets.REPO_ID }}
+          category-id: ${{ secrets.CAT_ID }}  
+      - name: Print discussion url and id
         run: |
-          curl -H "Authorization: bearer  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" -X POST -d " {   \"query\": \"mutation {     createDiscussion(       input: {repositoryId: \\\"R_kgDOHibgUQ\\\", categoryId: \\\"DIC_kwDOHibgUc4Cbmpw\\\", body: \\\"${{ steps.vars.outputs.pr_body }}\\\", title: \\\"${{ steps.vars.outputs.pr_title }}\\\"}     ) {       discussion {         id       }     }   }\" }" https://api.github.com/graphql 
-          
+          echo discussion-id: ${{steps.create-discussion.outputs.discussion-id}} 
+          echo discussion-url: ${{steps.create-discussion.outputs.discussion-url}} 
+
+      # - name: Run curl command
+      #   run: |
+      #     curl -H "Authorization: bearer  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" -X POST -d " {   \"query\": \"mutation {     createDiscussion(       input: {repositoryId: \\\"R_kgDOHibgUQ\\\", categoryId: \\\"DIC_kwDOHibgUc4Cbmpw\\\", body: \\\"${{ steps.vars.outputs.pr_body }}\\\", title: \\\"${{ steps.vars.outputs.pr_title }}\\\"}     ) {       discussion {         id       }     }   }\" }" https://api.github.com/graphql 
