@@ -1,0 +1,7 @@
+---
+category: process
+name: Code sa pagpirma
+id: code_signing
+description: Ang code na pagpirma (code signing) ay ang proseso ng digital na pagpirma ng mga executable at script upang kumpirmahin ang may-akda ng software at ginagarantiyahan na ang code ay hindi binago o nasira mula nang ito ay nilagdaan. Ang proseso ay gumagamit ng paggamit ng isang cryptographic hash upang mapatunayan ang pagiging tunay at integridad. Alamin ang higit pa [dito](https://en.wikipedia.org/wiki/Code_signing)
+icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832754/dtpr-icons/process/encrypted_oedzbb.svg
+---
