@@ -1,0 +1,7 @@
+---
+category: access
+name: មានសម្រាប់ខ្ញុំ
+id: available_to_me
+description: មានសម្រាប់ខ្ញុំប៉ុន្តែមិនឱ្យបុគ្គលផ្សេងទៀតទេ។ ឧទាហរណ៍ក្នុងនាមជាបុគ្គលដែលអ្នកមានសិទ្ធិចូលប្រើកំណត់ត្រាអេឡិចត្រូនិចរបស់អ្នកទាំងអស់សម្រាប់រថយន្តរបស់អ្នកប៉ុន្តែបុគ្គលផ្សេងទៀតមិនមានលទ្ធភាពចូលប្រើវាទេ។
+icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832730/dtpr-icons/access/yes_c8kvwa.svg
+---
