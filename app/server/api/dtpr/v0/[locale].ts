@@ -41,7 +41,7 @@ export default defineEventHandler(async event => {
       return s._id.includes(':km') && s._id.includes(':elements:')
     }),
     tl: data.filter((s) => {
-      return s._id.includes(':tl') && s._id.includes(':elements')
+      return s._id.includes(':tl') && s._id.includes(':elements:')
     })
   }
 
