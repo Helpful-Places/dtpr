@@ -2,6 +2,6 @@
 category: purpose
 name: ការគ្រប់គ្រងសំរាម
 id: waste_management
-description: គាំទ្រដល់ការដោះស្រាយនិងការបោះចោលកាកសំណល់រួមទាំងការកែឆ្នៃជីកំប៉ុសនិងវត្ថុធាតុដើមដែលមានគ្រោះថ្នាក់ [HTTPS :/en.wikipedia.org/wiki/hazardous_waste) ។ ស្វែងយល់បន្ថែមអំពីការគ្រប់គ្រងសំរាម [HTTPS :/en.wikipedia.org/wiki/waste_man_man_man_mman)
+description: គាំទ្រការចាត់ចែង និងការចោលកាកសំណល់ រួមទាំងជាសំណល់ដែលអាចកែច្នៃបាន ជីកំប៉ុស និង [សម្ភារៈគ្រោះថ្នាក់](https://en.wikipedia.org/wiki/Hazardous_waste)។ ស្វែងយល់បន្ថែមអំពី [ការគ្រប់គ្រងកាកសំណល់](https://en.wikipedia.org/wiki/Waste_management)
 icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832757/dtpr-icons/purpose/waste_lbmlul.svg
 ---
