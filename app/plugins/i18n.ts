@@ -2,9 +2,10 @@ import { createI18n } from 'vue-i18n'
 import { getBrowserLocale } from '../composables/locale'
 
 // Using language and country codes from: https://wpcentral.io/internationalization/
-import en_US from '../locales/en-US.json';
-import fr_FR from '../locales/fr-FR.json';
-import es_pr from '../locales/es-pr.json';
+import en from '../locales/en.json';
+import fr from '../locales/fr.json';
+import es from '../locales/es.json';
+import pt from '../locales/pt.json';
 
 export default defineNuxtPlugin(({ vueApp }) => {
   const i18n = createI18n({
@@ -13,9 +14,10 @@ export default defineNuxtPlugin(({ vueApp }) => {
     locale: getBrowserLocale() || 'en',
     fallbackLocale: 'en',
     messages: {
-      'en': en_US,
-      'fr': fr_FR,
-      'es': es_pr
+      'en': en,
+      'fr': fr,
+      'es': es,
+      'pt': pt
     }
   })
 
