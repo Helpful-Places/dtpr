@@ -17,14 +17,7 @@ export default defineEventHandler(async event => {
     }),
     es: data.filter((s)=>{
       return s._id.includes(':es:') && s._id.includes(':categories:')
-    }),
-    km: data.filter((s) => {
-      return s._id.includes(':km') && s._id.includes(':categories:')
-    }),
-    tl: data.filter((s) => {
-      return s._id.includes(':tl') && s._id.includes(':categories:')
     })
-
   }
 
   const json = { 
@@ -36,12 +29,6 @@ export default defineEventHandler(async event => {
     }),
     es: data.filter((s) => { 
       return s._id.includes(':es:') && s._id.includes(':elements:')
-    }),
-    km: data.filter((s) => {
-      return s._id.includes(':km') && s._id.includes(':elements:')
-    }),
-    tl: data.filter((s) => {
-      return s._id.includes(':tl') && s._id.includes(':elements:')
     })
   }
 

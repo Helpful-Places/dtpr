@@ -1,7 +1,0 @@
----
-category: process
-name: បានអ៊ិនគ្រីបនៅពេលសម្រាក
-id: encrypted_at_rest
-description: ការអ៊ិនគ្រីបនៅពេលសម្រាកគឺជាការអ៊ិនគ្រីបទិន្នន័យនៅពេលវាត្រូវបានតស៊ូទៅនឹងឧបករណ៍ផ្ទុកដូចជាដ្រាយឬឃ្លាំងទិន្នន័យ។ វាការពារទិន្នន័យប្រឆាំងនឹងការចូលដំណើរការដោយផ្ទាល់នៃប្រព័ន្ធទិន្នន័យដោយខ្លួនវាផ្ទាល់។
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832754/dtpr-icons/process/encrypted_oedzbb.svg
----
