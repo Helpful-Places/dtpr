@@ -18,7 +18,6 @@ export default defineEventHandler(async event => {
     es: data.filter((s)=>{
       return s._id.includes(':es:') && s._id.includes(':categories:')
     })
-
   }
 
   const json = { 

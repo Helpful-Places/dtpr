@@ -1,5 +1,5 @@
 ---
 name: Propósito
-headline: Propósito de esta tecnologÌa
+headline: Propósito de esta tecnologìa
 id: purpose
 ---

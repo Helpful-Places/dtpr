@@ -1,5 +1,5 @@
 ---
 name: Contable
-headline: ¬øQuién es responsable de esto
+headline: ¿Quién es responsable?
 id: accountable
 ---
