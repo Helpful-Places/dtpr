@@ -23,6 +23,9 @@ export default defineEventHandler(async event => {
     }),
     tl: data.filter((s) => {
       return s._id.includes(':tl') && s._id.includes(':categories:')
+    }),
+    pt: data.filter((s)=>{
+      return s._id.includes(':pt:') && s._id.includes(':categories:')
     })
   }
 
@@ -41,6 +44,9 @@ export default defineEventHandler(async event => {
     }),
     tl: data.filter((s) => {
       return s._id.includes(':tl') && s._id.includes(':elements:')
+    }),
+    pt: data.filter((s) => { 
+      return s._id.includes(':pt:') && s._id.includes(':elements:')
     })
   }
 
