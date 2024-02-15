@@ -1,5 +1,5 @@
 ---
-name: Procesamiento
-headline: Describe cómo se procesan o manipulan los datos recogidos o manejados por una tecnologìa
-id: process
+name: Tecnologia
+headline: Cómo funciona esta tecnologÌa
+id: tech
 ---
