@@ -1,0 +1,7 @@
+---
+category: tech
+name: បុគ្គលិកឧបករណ៍
+id: personal_device
+description: ឧបករណ៍ចល័តដែលផ្សំគ្នានូវកុំព្យូទ័ររបស់កោសិកានិងចល័តមុខងារចូលក្នុងមួយឯកតាដែលមានគោលបំណងប្រើប្រាស់ដោយមនុស្សម្នាក់។ ស្វែងយល់បន្ថែម [នៅទីនេះ](https://en.wikipedia.org/wiki/smartphone)
+icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832807/dtpr-icons/tech/personal_device_vytt3b.svg
+---
