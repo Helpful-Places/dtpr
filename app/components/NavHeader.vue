@@ -27,6 +27,8 @@
             <option value="fr">fr</option>
             <option value="es">es</option>
             <option value="pt">pt</option>
+            <option value="tl">tl</option>
+            <option value="km">km</option>
           </select>
         </form>
       </div>
