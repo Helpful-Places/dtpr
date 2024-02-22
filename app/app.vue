@@ -2,9 +2,7 @@
   <div>
     <NavHeader />
 
-    <NuxtLayout>
-      <NuxtPage/>
-    </NuxtLayout>
+    <NuxtPage/>
 
     <AppFooter />
   </div>

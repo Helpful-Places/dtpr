@@ -34,12 +34,12 @@ const props = defineProps({
 
 const elementCategorySyncId = `elements-${props.elementCategory}`;
 const { data: elements } = await useAsyncData(elementCategorySyncId, () => {
-  return queryContent(`dtpr/elements/${locale.value.split('-')[0]}`).where({ category: props.elementCategory }).find();
+  return queryContent(`dtpr/elements/${locale.value}`).where({ category: props.elementCategory }).find();
 });
 
 const categorySyncId = `category-${props.elementCategory}`;
 const { data: category } = await useAsyncData(categorySyncId, () => {
-  return queryContent(`dtpr/categories/${locale.value.split('-')[0]}`).where({ id: props.elementCategory }).findOne();
+  return queryContent(`dtpr/categories/${locale.value}`).where({ id: props.elementCategory }).findOne();
 });
 
 watch(locale, async () => {
