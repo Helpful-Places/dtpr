@@ -1,6 +1,7 @@
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'url'
 import VueI18nVitePlugin from '@intlify/unplugin-vue-i18n/vite'
+import { defineNuxtConfig } from 'nuxt/config'
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
@@ -9,12 +10,8 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxtjs/google-fonts',
     'nuxt-icon',
-    'vue-plausible',
-    '@nuxt/image-edge',
+    '@nuxt/image',
   ],
-  plausible: {
-    domain: 'dtpr.io',
-  },
   googleFonts: {
     families: {
       'Red Hat Text': [300, 400, 500, 600, 700]
