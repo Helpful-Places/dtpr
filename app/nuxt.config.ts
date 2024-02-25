@@ -1,5 +1,16 @@
 import { defineNuxtConfig } from 'nuxt/config'
 
+const locales = [
+  'en',
+  'fr',
+  'es',
+  'pt',
+  'tl',
+  'km'
+]
+
+const defaultLocale = 'en'
+
 export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
@@ -14,20 +25,17 @@ export default defineNuxtConfig({
       'Red Hat Text': [300, 400, 500, 600, 700]
     }
   },
+  content: {
+    defaultLocale,
+    locales
+  },
   i18n: {
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',
       redirectOn: 'root' // recommended
     },
-    defaultLocale: 'en',
-    locales: [
-      'en',
-      'fr',
-      'es',
-      'pt',
-      'tl',
-      'km'
-    ],
+    defaultLocale,
+    locales,
   }
 })
