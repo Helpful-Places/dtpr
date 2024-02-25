@@ -1,9 +1,5 @@
-import { resolve, dirname } from 'node:path'
-import { fileURLToPath } from 'url'
-import VueI18nVitePlugin from '@intlify/unplugin-vue-i18n/vite'
 import { defineNuxtConfig } from 'nuxt/config'
 
-// https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
@@ -11,19 +7,27 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     'nuxt-icon',
     '@nuxt/image',
+    '@nuxtjs/i18n'
   ],
   googleFonts: {
     families: {
       'Red Hat Text': [300, 400, 500, 600, 700]
     }
   },
-  vite: {
-    plugins: [
-      VueI18nVitePlugin({
-        include: [
-          resolve(dirname(fileURLToPath(import.meta.url)), './locales/*.json')
-        ]
-      })
-    ]
+  i18n: {
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root' // recommended
+    },
+    defaultLocale: 'en',
+    locales: [
+      'en',
+      'fr',
+      'es',
+      'pt',
+      'tl',
+      'km'
+    ],
   }
 })

@@ -8,7 +8,7 @@
           accountability of digital technology in the built environment.<br />
         </div>
         <h2>
-          <NuxtLink to="/tools-and-resources" class="u-line border-dtpr-blue">Discover DTPR</NuxtLink>
+          <NuxtLinkLocale to="/tools-and-resources" class="u-line border-dtpr-blue">Discover DTPR</NuxtLinkLocale>
         </h2>
       </div>
     </div>

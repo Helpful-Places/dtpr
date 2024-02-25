@@ -32,7 +32,7 @@
           <h2>Our Proposal</h2>
           <h1>The DTPR Taxonomy, Design Patterns and Prototypes</h1>
           <p>The core of the DTPR communication standard is a taxonomy of concepts around digital tech and data practices, and a set of icons to quickly and clearly communicate those concepts. These components can then expressed in a number of ways - from physical signage to digital channels for communication – which together, help visualize and convey how a digital system works.</p>
-          <NuxtLink to="/taxonomy" class="u-line border-dtpr-green-lighter">Explore the Taxonomy</NuxtLink>
+          <NuxtLinkLocale to="/taxonomy" class="u-line border-dtpr-green-lighter">Explore the Taxonomy</NuxtLinkLocale>
         </div>
       </div>
 
@@ -40,7 +40,7 @@
         <div class="card md:w-[60%] bg-dtpr-red text-dtpr-red-lighter">
           <h2>Our Mission</h2>
           <h1>Enable human agency in the world's shared spaces.</h1>
-          <NuxtLink to="/get-involved" class="u-line border-dtpr-red-lighter">Get Involved</NuxtLink>
+          <NuxtLinkLocale to="/get-involved" class="u-line border-dtpr-red-lighter">Get Involved</NuxtLinkLocale>
         </div>
         
         <div class="card bg-mission md:w-[40%] min-h-[12rem]"></div>
