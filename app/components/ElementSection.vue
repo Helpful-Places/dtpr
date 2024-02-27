@@ -5,17 +5,6 @@ const props = defineProps({
 
 const { locale } = useI18n();
 
-// const { elements, categories } = unref(props);
-
-
-// const e = computed(() => {
-//   return elements.filter((element) => element.category === props.elementCategory);
-// });
-
-// const category = computed(() => {
-//   return categories.find((category) => category.id === props.elementCategory);
-// })
-
 const category = await queryContent('dtpr/categories').where({
   _locale: locale.value,
   id: props.elementCategory
