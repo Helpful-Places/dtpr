@@ -2,68 +2,59 @@ const fileName = (_id: any) => {
   return _id.split(":").pop();
 }
 
-export default defineEventHandler(async event => {
-  const locale = event.context.params.locale || 'en';
-  const data = await $fetch('/api/_content/query', {
-    method: 'GET'
+export default defineEventHandler(async event => {  
+  const locale = event.context.params?.locale || 'en';
+
+  const elements = await $fetch('/api/_content/query', {
+    method: 'GET',
+    query: {
+      _params: {
+        where: {
+          _type: 'element',
+          _locale: locale,
+        }
+      }
+    }
   });
 
-  const categories = {
-    en: data.filter((s) => { 
-      return s._id.includes(':en:') && s._id.includes(':categories:')
-    }),
-    fr: data.filter((s) => { 
-      return s._id.includes(':fr:') && s._id.includes(':categories:')
-    }),
-    es: data.filter((s)=>{
-      return s._id.includes(':es:') && s._id.includes(':categories:')
-    }),
-    km: data.filter((s) => {
-      return s._id.includes(':km') && s._id.includes(':categories:')
-    }),
-    tl: data.filter((s) => {
-      return s._id.includes(':tl') && s._id.includes(':categories:')
-    }),
-    pt: data.filter((s)=>{
-      return s._id.includes(':pt:') && s._id.includes(':categories:')
-    })
-  }
+  const categories = await $fetch('/api/_content/query', {
+    method: 'GET',
+    query: {
+      _params: {
+        where: {
+          _type: 'category',
+          _locale: locale,
+        }
+      }
+    }
+  });
 
-  const json = { 
-    en: data.filter((s) => { 
-      return s._id.includes(':en:') && s._id.includes(':elements:')
-    }),
-    fr: data.filter((s) => { 
-      return s._id.includes(':fr:') && s._id.includes(':elements:')
-    }),
-    es: data.filter((s) => { 
-      return s._id.includes(':es:') && s._id.includes(':elements:')
-    }),
-    km: data.filter((s) => {
-      return s._id.includes(':km') && s._id.includes(':elements:')
-    }),
-    tl: data.filter((s) => {
-      return s._id.includes(':tl') && s._id.includes(':elements:')
-    }),
-    pt: data.filter((s) => { 
-      return s._id.includes(':pt:') && s._id.includes(':elements:')
-    })
-  }
+  const englishElements = await $fetch('/api/_content/query', {
+    method: 'GET',
+    query: {
+      _params: {
+        where: {
+          _type: 'element',
+          _locale: 'en',
+        }
+      }
+    }
+  });
 
-  return json[locale].map((s) => {
-    const fallback = json.en.find(sym => fileName(sym._id) === fileName(s._id));
+  return elements.map((s) => {
+    const fallback = englishElements.find(sym => fileName(sym._id) === fileName(s._id));
     
     let id = `${s.category}__${s.id || fallback.id}`;
     let icon = s.icon || fallback.icon;
 
-    let headline = categories[locale].find(cat => cat.id === s.category)?.headline
+    let headline = categories.find(cat => cat.id === s.category)?.headline
     
     return {
       id,
+      icon,
+      headline,
       category: s.category,
       description: s.description,
-      headline,
-      icon,
       title: s.name,
     }
   });
