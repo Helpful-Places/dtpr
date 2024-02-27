@@ -1,3 +1,24 @@
+<script setup>
+import { useI18n } from 'vue-i18n';
+
+const { locale } = useI18n();
+
+const props = defineProps({
+  'elementCategory': String,
+})
+
+const { data } = useNuxtData('dtpr-elements');
+const { data: categories } = useNuxtData('dtpr-categories');
+
+const elements = computed(() => {
+  return data.value.filter((element) => element.category === props.elementCategory);
+});
+
+const category = computed(() => {
+  return categories.value.find((category) => category.id === props.elementCategory);
+})
+</script>
+
 <template>
   <div class="break-after-page flex flex-col">
     <div class="border-b-2 border-dtpr-green mb-2 mt-16">
@@ -21,37 +42,6 @@
     </table>
   </div>
 </template>
-
-<script setup>
-import { useI18n } from 'vue-i18n';
-
-const { locale } = useI18n();
-
-const props = defineProps({
-  'elementCategory': String,
-  'elementCategoryName': String
-})
-
-const elementCategorySyncId = `elements-${props.elementCategory}`;
-const { data: elements } = await useAsyncData(elementCategorySyncId, () => {
-  return queryContent(`dtpr/elements/${locale.value}`).where({ category: props.elementCategory }).find();
-});
-
-const categorySyncId = `category-${props.elementCategory}`;
-const { data: category } = await useAsyncData(categorySyncId, () => {
-  return queryContent(`dtpr/categories/${locale.value}`).where({ id: props.elementCategory }).findOne();
-});
-
-watch(locale, async () => {
-  refreshNuxtData(elementCategorySyncId);
-  refreshNuxtData(categorySyncId);
-});
-
-onMounted(() => {
-  refreshNuxtData(elementCategorySyncId);
-  refreshNuxtData(categorySyncId);
-});
-</script>
 
 <style lang="postcss">
 h3 {
