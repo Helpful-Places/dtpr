@@ -1,22 +1,30 @@
 <script setup>
-import { useI18n } from 'vue-i18n';
+const props = defineProps({
+  elementCategory: String,
+})
 
 const { locale } = useI18n();
 
-const props = defineProps({
-  'elementCategory': String,
-})
+// const { elements, categories } = unref(props);
 
-const { data } = useNuxtData('dtpr-elements');
-const { data: categories } = useNuxtData('dtpr-categories');
 
-const elements = computed(() => {
-  return data.value.filter((element) => element.category === props.elementCategory);
-});
+// const e = computed(() => {
+//   return elements.filter((element) => element.category === props.elementCategory);
+// });
 
-const category = computed(() => {
-  return categories.value.find((category) => category.id === props.elementCategory);
-})
+// const category = computed(() => {
+//   return categories.find((category) => category.id === props.elementCategory);
+// })
+
+const category = await queryContent('dtpr/categories').where({
+  _locale: locale.value,
+  id: props.elementCategory
+}).findOne()
+
+const elements = await queryContent('dtpr/elements').where({
+  _locale: locale.value,
+  category: category.id
+}).find()
 </script>
 
 <template>
@@ -33,7 +41,7 @@ const category = computed(() => {
         </tr>
       </thead>
       <tbody>
-        <tr v-for="element in elements" :key="`${locale}-${element.id}`">
+        <tr v-for="element in elements" :key="element.id">
           <td><img class="w-[36px] h-[36px]" :src=element.icon /></td>
           <td>{{element.name}}</td>
           <td v-html="$md.render(element.description)"></td>

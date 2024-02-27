@@ -12,6 +12,12 @@ const locales = [
 const defaultLocale = 'en'
 
 export default defineNuxtConfig({
+  ssr: true,
+  nitro: {
+    prerender: {
+      routes: locales.map(locale => `/api/dtpr/v0/${locale}`)
+    }
+  },
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxt/content',

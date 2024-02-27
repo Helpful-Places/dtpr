@@ -2,18 +2,6 @@
 useHead({
   title: 'Taxonomy'
 })
-
-const { locale } = useI18n();
-
-await useAsyncData('dtpr-elements', () => queryContent('dtpr/elements').where({
-    _locale: locale.value
-  }).find()
-);
-
-await useAsyncData('dtpr-categories', () => queryContent('dtpr/categories').where({
-    _locale: locale.value
-  }).find()
-);
 </script>
 
 <template>
