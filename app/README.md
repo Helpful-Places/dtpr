@@ -11,14 +11,8 @@ This app is built on [Nuxt3](https://v3.nuxtjs.org/).
 Make sure to install the dependencies:
 
 ```bash
-# yarn
-yarn install
-
-# npm
-npm install
-
-# pnpm
-pnpm install --shamefully-hoist
+# bun
+bun install
 ```
 
 ## Development Server
@@ -26,12 +20,7 @@ pnpm install --shamefully-hoist
 Start the development server on http://localhost:3000
 
 ```bash
-yarn dev
-```
-
-
-```bash
-npm run dev
+bun dev
 ```
 
 ## Accessing Netlify CMS

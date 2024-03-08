@@ -47,7 +47,7 @@
 
 <style lang="postcss" scoped>
 .bg-deployment {
-  background-image: url('~/assets/images/tools_codesign.png');
+  background-image: url('/images/tools_codesign.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

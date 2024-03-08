@@ -1,3 +1,21 @@
+<script setup>
+const props = defineProps({
+  elementCategory: String,
+})
+
+const { locale } = useI18n();
+
+const category = await queryContent('dtpr/categories').where({
+  _locale: locale.value,
+  id: props.elementCategory
+}).findOne()
+
+const elements = await queryContent('dtpr/elements').where({
+  _locale: locale.value,
+  category: category.id
+}).find()
+</script>
+
 <template>
   <div class="break-after-page flex flex-col">
     <div class="border-b-2 border-dtpr-green mb-2 mt-16">
@@ -12,7 +30,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="element in elements" :key="`${locale}-${element.id}`">
+        <tr v-for="element in elements" :key="element.id">
           <td><img class="w-[36px] h-[36px]" :src=element.icon /></td>
           <td>{{element.name}}</td>
           <td v-html="$md.render(element.description)"></td>
@@ -21,37 +39,6 @@
     </table>
   </div>
 </template>
-
-<script setup>
-import { useI18n } from 'vue-i18n';
-
-const { locale } = useI18n();
-
-const props = defineProps({
-  'elementCategory': String,
-  'elementCategoryName': String
-})
-
-const elementCategorySyncId = `elements-${props.elementCategory}`;
-const { data: elements } = await useAsyncData(elementCategorySyncId, () => {
-  return queryContent(`dtpr/elements/${locale.value}`).where({ category: props.elementCategory }).find();
-});
-
-const categorySyncId = `category-${props.elementCategory}`;
-const { data: category } = await useAsyncData(categorySyncId, () => {
-  return queryContent(`dtpr/categories/${locale.value}`).where({ id: props.elementCategory }).findOne();
-});
-
-watch(locale, async () => {
-  refreshNuxtData(elementCategorySyncId);
-  refreshNuxtData(categorySyncId);
-});
-
-onMounted(() => {
-  refreshNuxtData(elementCategorySyncId);
-  refreshNuxtData(categorySyncId);
-});
-</script>
 
 <style lang="postcss">
 h3 {

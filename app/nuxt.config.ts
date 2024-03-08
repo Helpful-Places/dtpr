@@ -1,32 +1,52 @@
-import { resolve, dirname } from 'node:path'
-import { fileURLToPath } from 'url'
-import VueI18nVitePlugin from '@intlify/unplugin-vue-i18n/vite'
+import { defineNuxtConfig } from 'nuxt/config'
 
-// https://v3.nuxtjs.org/api/configuration/nuxt.config
+const locales = [
+  'en',
+  'fr',
+  'es',
+  'pt',
+  'tl',
+  'km'
+]
+
+const defaultLocale = 'en'
+
 export default defineNuxtConfig({
+  ssr: true,
+  nitro: {
+    prerender: {
+      routes: locales.map(locale => `/api/dtpr/v0/${locale}`)
+    }
+  },
+  routeRules: {
+    '/api/dtpr/**': {
+      'cors': true
+    }
+  },
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxt/content',
     '@nuxtjs/google-fonts',
     'nuxt-icon',
-    'vue-plausible',
-    '@nuxt/image-edge',
+    '@nuxt/image',
+    '@nuxtjs/i18n'
   ],
-  plausible: {
-    domain: 'dtpr.io',
-  },
   googleFonts: {
     families: {
       'Red Hat Text': [300, 400, 500, 600, 700]
     }
   },
-  vite: {
-    plugins: [
-      VueI18nVitePlugin({
-        include: [
-          resolve(dirname(fileURLToPath(import.meta.url)), './locales/*.json')
-        ]
-      })
-    ]
+  content: {
+    defaultLocale,
+    locales
+  },
+  i18n: {
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root' // recommended
+    },
+    defaultLocale,
+    locales,
   }
 })

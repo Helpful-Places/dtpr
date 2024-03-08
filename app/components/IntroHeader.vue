@@ -8,7 +8,7 @@
           accountability of digital technology in the built environment.<br />
         </div>
         <h2>
-          <NuxtLink to="/tools-and-resources" class="u-line border-dtpr-blue">Discover DTPR</NuxtLink>
+          <NuxtLinkLocale to="/tools-and-resources" class="u-line border-dtpr-blue">Discover DTPR</NuxtLinkLocale>
         </h2>
       </div>
     </div>
@@ -18,7 +18,7 @@
 <style lang="postcss" scoped>
 .intro-header {
   height: fit-content;
-  background-image: url('~/assets/images/intro_header.svg');
+  background-image: url('/images/intro_header.svg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

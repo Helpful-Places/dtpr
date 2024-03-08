@@ -17,6 +17,9 @@
       { name: 'description', content: 'Open-source communication standard increasing the transparency and accountability of digital technology in public places.' },
       { name: 'og:image', content: 'https://dtpr.io/og-image.png' }
     ],
+    script: [
+      { defer: true, 'data-domain': "dtpr.io", src: "https://plausible.io/js/script.js" }
+    ]
   })
 </script>
 
