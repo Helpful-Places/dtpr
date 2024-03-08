@@ -18,6 +18,11 @@ export default defineNuxtConfig({
       routes: locales.map(locale => `/api/dtpr/v0/${locale}`)
     }
   },
+  routeRules: {
+    '/api/dtpr/**': {
+      'cors': true
+    }
+  },
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxt/content',
