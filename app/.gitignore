@@ -6,5 +6,6 @@ node_modules
 .output
 .env
 dist
+.history
 
 .DS_Store

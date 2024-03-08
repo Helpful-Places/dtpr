@@ -7,7 +7,7 @@ var isOpen = ref(false);
     <div class="md:flex md:items-center md:justify-between">
       <div class="flex justify-between items-center">
         <NuxtLinkLocale to="/" class="flex items-center">
-          <img src="~/assets/images/dtpr_logo.svg" />
+          <img src="/images/dtpr_logo.svg" />
           <div class="font-[500] text-dtpr-blue text-xl ml-4">DTPR</div>
         </NuxtLinkLocale>
         <div class="flex">

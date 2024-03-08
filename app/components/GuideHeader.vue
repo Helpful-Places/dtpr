@@ -14,7 +14,7 @@
 
 <style lang="postcss" scoped>
 .guide-header-background {
-  background-image: url('~/assets/images/guide_header.svg');
+  background-image: url('/images/guide_header.svg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

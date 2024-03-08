@@ -18,7 +18,7 @@
 <style lang="postcss" scoped>
 .intro-header {
   height: fit-content;
-  background-image: url('~/assets/images/intro_header.svg');
+  background-image: url('/images/intro_header.svg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

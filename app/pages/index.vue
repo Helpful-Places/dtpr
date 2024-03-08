@@ -52,7 +52,7 @@
           
           <div class="flex items-center mt-8">
             <div class="hidden md:block min-w-[10rem]">
-              <NuxtLink to="https://www.helpfulplaces.com/"><img class="max-w-[8rem]" src="~/assets/images/hp_logo.png" alt="Helpful Places logo" /></NuxtLink>
+              <NuxtLink to="https://www.helpfulplaces.com/"><img class="max-w-[8rem]" src="/images/hp_logo.png" alt="Helpful Places logo" /></NuxtLink>
             </div>
 
             <div class="md:ml-2">
@@ -70,7 +70,7 @@
 
           <!-- <div class="flex items-center mt-8">
             <div class="min-w-[13rem]">
-              <NuxtLink to="https://knightfoundation.org/"><img class="max-w-[12rem]" src="~/assets/images/knight_foundation.webp" alt="Knight Foundation logo" /></NuxtLink>
+              <NuxtLink to="https://knightfoundation.org/"><img class="max-w-[12rem]" src="/images/knight_foundation.webp" alt="Knight Foundation logo" /></NuxtLink>
             </div>
             
             <div class="text-2xl ml-4 font-[500]">
@@ -152,14 +152,14 @@
 
 <style lang="postcss" scoped>
 .bg-deployment {
-  background-image: url('~/assets/images/boston-deployment.png');
+  background-image: url('/images/boston-deployment.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
 
 .bg-mission {
-  background-image: url('~/assets/images/intro_mission.svg');
+  background-image: url('/images/intro_mission.svg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
