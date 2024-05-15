@@ -4,8 +4,6 @@ backend:
   branch: main
   cms_label_prefix: contribution/
   open_authoring: true
-  # api_root: https://api.github.com
-  # base_url: https://api.netlify.com
 
 publish_mode: editorial_workflow
 
@@ -17,7 +15,7 @@ i18n:
   structure: multiple_folders
 
   # Required - a list of locales to show in the editor UI
-  locales: [en, fr, es, pt]
+  locales: [en, fr, es, pt, km, tl]
 
   # Optional, defaults to the first item in locales.
   # The locale to be used for fields validation and as a baseline for the entry.
