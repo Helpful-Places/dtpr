@@ -18,9 +18,14 @@ export default defineNuxtConfig({
       routes: locales.map(locale => `/api/dtpr/v0/${locale}`)
     }
   },
+  vite: {
+    server: {
+      cors: true, // Only for dev
+    },
+  },
   routeRules: {
-    '/api/dtpr/**': {
-      'cors': true
+    '/api/**': {
+      cors: true,
     }
   },
   modules: [
