@@ -2,6 +2,12 @@
 category: tech
 name: De-kinilala na video
 id: de_identified_video
-description: Kinokolekta ang video footage na may sapat na resolusyon kung saan maaaring makilala ang mga indibidwal, halimbawa sa pamamagitan ng pagkuha ng mga imahe ng mga mukha o natatanging mga numero tulad ng mga plaka ng lisensya sa sasakyan. Gayunpaman, ang video ay naproseso sa isang paraan na nag-aalis ng pagkilala sa mga katangian bago ito magamit o nakaimbak (kilala bilang *pagtanggal ng pagkakakilanlan bago unang gamitin*o *pagtanggal ng pagkakakilanlan sa aparato*), halimbawa sa pamamagitan ng pagpapalabo ng mga mukha gamit ang paningin ng computer. 
+description: Bumubuo ng video footage ng sapat na resolution kung saan
+  makikilala ang mga indibidwal, halimbawa sa pamamagitan ng pagkuha ng mga
+  larawan ng mga mukha o natatanging numero gaya ng mga plaka ng sasakyan.
+  Gayunpaman, ang video ay pinoproseso sa paraang nag-aalis ng mga katangian ng
+  pagkakakilanlan bago ito gamitin o iimbak (kilala bilang de-identified bago
+  unang gamitin o de-identified sa device), halimbawa sa pamamagitan ng pag-blur
+  ng mga mukha gamit ang computer vision.
 icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832799/dtpr-icons/tech/blue/video_rd4ydo.svg
 ---
