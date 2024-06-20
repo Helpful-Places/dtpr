@@ -2,7 +2,7 @@
 category: tech
 name: Identifiable Video
 id: identifiable_video
-description: Collects [video footage](https://en.wikipedia.org/wiki/Video) of a
+description: Generates [video footage](https://en.wikipedia.org/wiki/Video) of a
   sufficient resolution where individuals can be identified, for example by
   capturing images of faces or unique numbers such as vehicle license plates.
   Identifying information can be collected either through manual review by a
