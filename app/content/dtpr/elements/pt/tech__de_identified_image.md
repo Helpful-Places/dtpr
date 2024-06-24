@@ -8,8 +8,6 @@ description: Gera imagens fixas com uma resolução suficiente para permitir a
   imagens são processadas de forma a remover as características de identificação
   antes de serem utilizadas ou armazenadas (conhecido como *desidentificação
   antes da primeira utilização* ou *desidentificação no dispositivo*), por
-  exemplo, desfocando os rostos através de visão por computador. Saiba mais
-  sobre a desidentificação
-  [aqui](https://en.wikipedia.org/wiki/De-identification).
+  exemplo, desfocando os rostos através de visão por computador.
 icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832798/dtpr-icons/tech/blue/image_ashhv9.svg
 ---
