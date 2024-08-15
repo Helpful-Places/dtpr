@@ -1,10 +1,1 @@
-<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M31.8564 8.8453L19 1.42265C18.3812 1.06538 17.6188 1.06538 17 1.42265L4.14359 8.8453C3.52479 9.20257 3.14359 9.86282 3.14359 10.5774V25.4226C3.14359 26.1372 3.52479 26.7974 4.14359 27.1547L17 34.5774C17.6188 34.9346 18.3812 34.9346 19 34.5774L31.8564 27.1547C32.4752 26.7974 32.8564 26.1372 32.8564 25.4226V10.5774C32.8564 9.86282 32.4752 9.20256 31.8564 8.8453Z" fill="black" stroke="black" stroke-width="2"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M12.5 25.0044C12.5 26.1084 13.396 27.0044 14.5 27.0044H22.5C23.605 27.0044 24.5 26.1084 24.5 25.0044V13.0044H12.5V25.0044Z" fill="white"/>
-<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="11" y="9" width="15" height="4">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M11 9.0004H26V12.0044H11V9.0004Z" fill="white"/>
-</mask>
-<g mask="url(#mask0)">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M25.0576 10.0044H24.1256V9.9434C24.1256 9.4224 23.7026 9.0004 23.1816 9.0004H13.8186C13.2976 9.0004 12.8746 9.4224 12.8746 9.9434V10.0044H11.9426C11.4226 10.0044 10.9996 10.4264 10.9996 10.9474V11.0614C10.9996 11.5824 11.4226 12.0044 11.9426 12.0044H25.0576C25.5786 12.0044 26.0006 11.5824 26.0006 11.0614V10.9474C26.0006 10.4264 25.5786 10.0044 25.0576 10.0044Z" fill="white"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="none"><path fill="#000" stroke="#000" stroke-width="2" d="M31.856 8.845 19 1.423a2 2 0 0 0-2 0L4.144 8.845a2 2 0 0 0-1 1.732v14.846a2 2 0 0 0 1 1.732L17 34.577a2 2 0 0 0 2 0l12.856-7.422a2 2 0 0 0 1-1.732V10.577a2 2 0 0 0-1-1.732Z"/><path fill="#fff" fill-rule="evenodd" d="M12.5 25.004a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-12h-12z" clip-rule="evenodd"/><mask id="a" width="15" height="4" x="11" y="9" mask-type="alpha" maskUnits="userSpaceOnUse"><path fill="#fff" fill-rule="evenodd" d="M11 9h15v3.004H11z" clip-rule="evenodd"/></mask><g mask="url(#a)"><path fill="#fff" fill-rule="evenodd" d="M25.058 10.004h-.932v-.06A.944.944 0 0 0 23.182 9h-9.363a.944.944 0 0 0-.944.943v.061h-.932a.943.943 0 0 0-.943.943v.114c0 .521.423.943.943.943h13.115a.943.943 0 0 0 .943-.943v-.114a.943.943 0 0 0-.943-.943" clip-rule="evenodd"/></g></svg>
