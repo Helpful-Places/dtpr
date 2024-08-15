@@ -9,10 +9,10 @@ importers:
   .:
     dependencies:
       '@nuxt/image':
-        specifier: ^1.3.0
+        specifier: ^1.7.0
         version: 1.7.0(ioredis@5.4.1)(magicast@0.3.4)(rollup@4.20.0)
       '@nuxt/ui':
-        specifier: ^2.14.1
+        specifier: ^2.18.4
         version: 2.18.4(magicast@0.3.4)(rollup@4.20.0)(vite@5.4.0(@types/node@22.3.0)(terser@5.31.6))(vue@3.4.37)
       cors:
         specifier: ^2.8.5
@@ -30,24 +30,9 @@ importers:
       '@nuxtjs/i18n':
         specifier: ^8.1.1
         version: 8.3.3(magicast@0.3.4)(rollup@4.20.0)(vue@3.4.37)
-      '@nuxtjs/tailwindcss':
-        specifier: ^6.11.4
-        version: 6.12.1(magicast@0.3.4)(rollup@4.20.0)
-      '@tailwindcss/forms':
-        specifier: ^0.5.7
-        version: 0.5.7(tailwindcss@3.4.10)
-      '@tailwindcss/typography':
-        specifier: ^0.5.10
-        version: 0.5.14(tailwindcss@3.4.10)
-      daisyui:
-        specifier: latest
-        version: 4.12.10(postcss@8.4.41)
       nuxt:
         specifier: ^3.12.4
         version: 3.12.4(@parcel/watcher@2.4.1)(@types/node@22.3.0)(ioredis@5.4.1)(magicast@0.3.4)(rollup@4.20.0)(terser@5.31.6)(vite@5.4.0(@types/node@22.3.0)(terser@5.31.6))
-      nuxt-icon:
-        specifier: ^0.6.8
-        version: 0.6.10(magicast@0.3.4)(rollup@4.20.0)(vite@5.4.0(@types/node@22.3.0)(terser@5.31.6))(vue@3.4.37)
 
 packages:
 
@@ -684,11 +669,6 @@ packages:
 
   '@iconify/utils@2.1.30':
     resolution: {integrity: sha512-bY0IO5xLOlbzJBnjWLxknp6Sss3yla03sVY9VeUz9nT6dbc+EGKlLfCt+6uytJnWm5CUvTF/BNotsLWF7kI61A==}
-
-  '@iconify/vue@4.1.2':
-    resolution: {integrity: sha512-CQnYqLiQD5LOAaXhBrmj1mdL2/NCJvwcC4jtW2Z8ukhThiFkLDkutarTOV2trfc9EXqUqRs0KqXOL9pZ/IyysA==}
-    peerDependencies:
-      vue: '>=3'
 
   '@iconify/vue@4.1.3-beta.1':
     resolution: {integrity: sha512-N7iEOnWfhjbMqiyGMhotJKip23nrK5l3+T1hQwpEjKeMD2o4zOjm8zmeEfOOH81EXllhhOm7upR8jcH499YRWA==}
@@ -1824,9 +1804,6 @@ packages:
   css-select@5.1.0:
     resolution: {integrity: sha512-nwoRF1rvRRnnCqqY7updORDsuqKzqYJ28+oSMaJMMgOauh3fvwHqMS7EZpIPqK8GL+g9mKxF1vP/ZjSeNjEVHg==}
 
-  css-selector-tokenizer@0.8.0:
-    resolution: {integrity: sha512-Jd6Ig3/pe62/qe5SBPTN8h8LeUg/pT4lLgtavPf7updwwHpvFzxvOQBHYj2LZDMjUnBzgvIUSjRcf6oT5HzHFg==}
-
   css-tree@2.2.1:
     resolution: {integrity: sha512-OA0mILzGc1kCOCSJerOeqDxDQ4HOh+G8NbOJFOTgOCzpw7fCBubk0fEyxp8AgOL/jvLgYA/uV0cMbe43ElF1JA==}
     engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0, npm: '>=7.0.0'}
@@ -1871,14 +1848,6 @@ packages:
 
   csstype@3.1.3:
     resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
-
-  culori@3.3.0:
-    resolution: {integrity: sha512-pHJg+jbuFsCjz9iclQBqyL3B2HLCBF71BwVNujUYEvCeQMvV97R59MNK3R2+jgJ3a1fcZgI9B3vYgz8lzr/BFQ==}
-    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
-
-  daisyui@4.12.10:
-    resolution: {integrity: sha512-jp1RAuzbHhGdXmn957Z2XsTZStXGHzFfF0FgIOZj3Wv9sH7OZgLfXTRZNfKVYxltGUOBsG1kbWAdF5SrqjebvA==}
-    engines: {node: '>=16.9.0'}
 
   db0@0.1.4:
     resolution: {integrity: sha512-Ft6eCwONYxlwLjBXSJxw0t0RYtA5gW9mq8JfBXn9TtC0nDPlqePAhpv9v4g9aONBi6JI1OXHTKKkUYGd+BOrCA==}
@@ -2196,9 +2165,6 @@ packages:
 
   fast-npm-meta@0.1.1:
     resolution: {integrity: sha512-uS9DjGncI/9XZ6HJFrci0WzSi++N8Jskbb2uB7+9SQlrgA3VaLhXhV9Gl5HwIGESHkayYYZFGnVNhJwRDKCWIA==}
-
-  fastparse@1.1.2:
-    resolution: {integrity: sha512-483XLLxTVIwWK3QTrMGRqUfUpoOs/0hbQrl2oz4J0pAcm3A3bu84wxTFqGqkJzewCLdME38xJLJAxBABfQT8sQ==}
 
   fastq@1.17.1:
     resolution: {integrity: sha512-sRVD3lWVIXWg6By68ZN7vho9a1pQcN/WBFaAAsDDFzlJjvoGx0P8z7V1t72grFJfJhu3YPZBuu25f7Kaw2jN1w==}
@@ -3125,9 +3091,6 @@ packages:
     resolution: {integrity: sha512-6vRdiXTw9SajEQOUi6Ze/XaIXzy1q/sD5UqHQSv3yqTu7Pot5S7fEihNXV8LpcgLz+9HzjVt70r7jYe7R99c2w==}
     engines: {node: ^16.10.0 || >=18.0.0}
     hasBin: true
-
-  nuxt-icon@0.6.10:
-    resolution: {integrity: sha512-S9zHVA66ox4ZSpMWvCjqKZC4ZogC0s2z3vZs+M4D95YXGPEXwxDZu+insMKvkbe8+k7gvEmtTk0eq3KusKlxiw==}
 
   nuxt@3.12.4:
     resolution: {integrity: sha512-/ddvyc2kgYYIN2UEjP8QIz48O/W3L0lZm7wChIDbOCj0vF/yLLeZHBaTb3aNvS9Hwp269nfjrm8j/mVxQK4RhA==}
@@ -4920,11 +4883,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@iconify/vue@4.1.2(vue@3.4.37)':
-    dependencies:
-      '@iconify/types': 2.0.0
-      vue: 3.4.37
-
   '@iconify/vue@4.1.3-beta.1(vue@3.4.37)':
     dependencies:
       '@iconify/types': 2.0.0
@@ -6493,11 +6451,6 @@ snapshots:
       domutils: 3.1.0
       nth-check: 2.1.1
 
-  css-selector-tokenizer@0.8.0:
-    dependencies:
-      cssesc: 3.0.0
-      fastparse: 1.1.2
-
   css-tree@2.2.1:
     dependencies:
       mdn-data: 2.0.28
@@ -6564,17 +6517,6 @@ snapshots:
       css-tree: 2.2.1
 
   csstype@3.1.3: {}
-
-  culori@3.3.0: {}
-
-  daisyui@4.12.10(postcss@8.4.41):
-    dependencies:
-      css-selector-tokenizer: 0.8.0
-      culori: 3.3.0
-      picocolors: 1.0.1
-      postcss-js: 4.0.1(postcss@8.4.41)
-    transitivePeerDependencies:
-      - postcss
 
   db0@0.1.4: {}
 
@@ -6907,8 +6849,6 @@ snapshots:
       micromatch: 4.0.7
 
   fast-npm-meta@0.1.1: {}
-
-  fastparse@1.1.2: {}
 
   fastq@1.17.1:
     dependencies:
@@ -8150,19 +8090,6 @@ snapshots:
   nuxi@3.12.0:
     optionalDependencies:
       fsevents: 2.3.3
-
-  nuxt-icon@0.6.10(magicast@0.3.4)(rollup@4.20.0)(vite@5.4.0(@types/node@22.3.0)(terser@5.31.6))(vue@3.4.37):
-    dependencies:
-      '@iconify/collections': 1.0.449
-      '@iconify/vue': 4.1.2(vue@3.4.37)
-      '@nuxt/devtools-kit': 1.3.9(magicast@0.3.4)(rollup@4.20.0)(vite@5.4.0(@types/node@22.3.0)(terser@5.31.6))
-      '@nuxt/kit': 3.12.4(magicast@0.3.4)(rollup@4.20.0)
-    transitivePeerDependencies:
-      - magicast
-      - rollup
-      - supports-color
-      - vite
-      - vue
 
   nuxt@3.12.4(@parcel/watcher@2.4.1)(@types/node@22.3.0)(ioredis@5.4.1)(magicast@0.3.4)(rollup@4.20.0)(terser@5.31.6)(vite@5.4.0(@types/node@22.3.0)(terser@5.31.6)):
     dependencies:
