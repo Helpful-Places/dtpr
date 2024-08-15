@@ -8,5 +8,5 @@ description: Les crypto-monnaies sont des réseaux neuronaux qui peuvent être
   à l'hôte de l'application les clés de décryptage des données. Les Cryptonets
   sont une mise en œuvre du chiffrement homomorphique. Pour en savoir plus
   [ici](https://fr.wikipedia.org/wiki/Chiffrement_homomorphe)
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832754/dtpr-icons/process/encrypted_oedzbb.svg
+icon: /dtpr-icons/encrypted.svg
 ---

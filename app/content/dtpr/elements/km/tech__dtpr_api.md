@@ -3,5 +3,5 @@ category: tech
 name: dtp api api
 id: dtpr_api
 description: DTPR API ផ្តល់នូវការចូលប្រើម៉ាស៊ីនដែលអាចអានបានក្នុងការចុះឈ្មោះនៃប្រព័ន្ធនិងឧបករណ៍ចាប់សញ្ញាដែលត្រូវបានពិពណ៌នាដោយប្រើ DTPR ប្រារពដ្ឋាន DTP ។ ស្វែងយល់បន្ថែមអំពីប្រព័ន្ធ [នៅទីនេះ](https://github.com/helpiful-places/dtpr)
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832809/dtpr-icons/tech/dtpr_api_krp7kl.svg
+icon: /dtpr-icons/dtpr_api.svg
 ---

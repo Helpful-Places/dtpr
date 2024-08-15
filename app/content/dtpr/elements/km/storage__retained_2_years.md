@@ -4,5 +4,5 @@ name: រក្សាទុក 2 ឆ្នាំ។
 description: ទិន្នន័យត្រូវបានរក្សាទុករយៈពេល 2 ឆ្នាំ
   ហើយបន្ទាប់មកបន្ទាប់ពីរយៈពេលនោះត្រូវបានលុប។
 id: retained_2_years
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832795/dtpr-icons/retention/yes_nudvht.svg
+icon: /dtpr-icons/yes.svg
 ---

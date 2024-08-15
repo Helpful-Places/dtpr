@@ -6,5 +6,5 @@ description: ប្រើរលក ultrasonic ដើម្បីវាស់ច�
   ឧបករណ៍ចាប់សញ្ញាបញ្ចេញរលក ultrasonic ហើយទទួលរលកដែលឆ្លុះបញ្ចាំងពីវត្ថុ។
   ចម្ងាយត្រូវបានគណនាដោយប្រើពេលវេលារវាងការបំភាយនិងទទួលភ្ញៀវ។ ស្វែងយល់បន្ថែម
   [នៅទីនេះ](https://en.wikipedia.org/wiki/ultrasiconiconic_transducer) ។
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832813/dtpr-icons/tech/light_aj0xol.svg
+icon: /dtpr-icons/light.svg
 ---

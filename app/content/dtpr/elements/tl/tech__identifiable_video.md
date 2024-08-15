@@ -9,5 +9,5 @@ description: Bumubuo ng video footage ng sapat na resolution kung saan
   manu-manong pagsusuri ng isang tao, o sa pamamagitan ng mga diskarte sa
   computer vision na kumukuha ng impormasyon sa anyo ng data mula sa video o mga
   imahe
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832811/dtpr-icons/tech/yellow/video_xcdv6g.svg
+icon: /dtpr-icons/video.svg
 ---

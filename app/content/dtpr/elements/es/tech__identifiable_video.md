@@ -9,5 +9,5 @@ description: Genera [imágenes de video] (https://en.wikipedia.org/wiki/video) d
   una revisión manual por una persona o mediante técnicas [visión por
   computadora] (https://en.wikipedia.org/wiki/Computer_Vision) que derivan
   información en forma de datos de videos o imágenes.
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832811/dtpr-icons/tech/yellow/video_xcdv6g.svg
+icon: /dtpr-icons/video.svg
 ---

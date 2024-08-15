@@ -7,5 +7,5 @@ description: El cálculo seguro multipartidista es un subcampo de criptografía
   una función sobre sus entradas mientras mantiene esas entradas privadas.
   Permite a los participantes generar información agregada a partir de datos
   mientras mantiene en secreto los elementos individuales de datos.
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832754/dtpr-icons/process/encrypted_oedzbb.svg
+icon: /dtpr-icons/encrypted.svg
 ---

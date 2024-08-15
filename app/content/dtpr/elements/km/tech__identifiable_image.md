@@ -8,5 +8,5 @@ description: បង្កើតរូបភាពបន្តនៃគុណភ�
   ការកំណត់អត្តសញ្ញាណព័ត៌មានអាចត្រូវបានប្រមូលតាមរយៈការពិនិត្យដោយដៃនៃរូបភាពដោយមនុស្សម្នាក់
   ឬតាមរយៈបច្ចេកទេសចក្ខុវិស័យដែលបានគណនា
   ដែលទាញយកព័ត៌មានក្នុងទម្រង់ជាទិន្នន័យពីរូបភាព។
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832810/dtpr-icons/tech/yellow/image_d33iap.svg
+icon: /dtpr-icons/image.svg
 ---

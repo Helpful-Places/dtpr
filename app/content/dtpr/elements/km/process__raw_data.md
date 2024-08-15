@@ -3,5 +3,5 @@ category: process
 name: ទិន្នន័យ​ដើម
 id: raw_data
 description: ទិន្នន័យដែលមិនត្រូវបានដំណើរការឬផ្លាស់ប្តូរពីចំណុចនៃការប្រមូល - ទិន្នន័យគឺមានប្រសិទ្ធិភាពដូចគ្នានឹងរបៀបដែលវាត្រូវបានប្រមូលចេញពីប្រភពទិន្នន័យដើម។ ស្វែងយល់បន្ថែម [នៅទីនេះ](https://en.wikipedia.org/wiki/raw_data)
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832751/dtpr-icons/process/raw_dxpopc.svg
+icon: /dtpr-icons/raw.svg
 ---

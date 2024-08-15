@@ -8,5 +8,5 @@ description: Enables the identification of items using electromagnetic fields,
   associated with an individual's [personal
   data](https://en.wikipedia.org/wiki/Personal_data). Find out more
   [here](https://en.wikipedia.org/wiki/Radio-frequency_identification)
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832811/dtpr-icons/tech/yellow/wave_fy4pn8.svg
+icon: /dtpr-icons/wave.svg
 ---

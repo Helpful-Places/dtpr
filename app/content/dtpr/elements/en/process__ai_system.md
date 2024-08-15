@@ -7,5 +7,5 @@ description: Data that is processed by automated, algorithmic or artificial
   [automated](https://en.wikipedia.org/wiki/Automated_decision_support),
   [algorithmic](https://en.wikipedia.org/wiki/Algorithm) and [artificial
   intelligence](https://en.wikipedia.org/wiki/Artificial_intelligence) systems.
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832752/dtpr-icons/process/ai_ixpvqd.svg
+icon: /dtpr-icons/ai.svg
 ---

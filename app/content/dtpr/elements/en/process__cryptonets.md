@@ -8,5 +8,5 @@ description: Cryptonets are neural networks that can be applied to encrypted
   application host with the keys to decrypt the data. Cryptonets are an
   implementation of Homomorphic Encryption. Find out more
   [here](https://en.wikipedia.org/wiki/Homomorphic_encryption)
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832754/dtpr-icons/process/encrypted_oedzbb.svg
+icon: /dtpr-icons/encrypted.svg
 ---

@@ -9,5 +9,5 @@ description: Dados que são processados para remover valores de identificação,
   como sendo depois de os dados já terem saído de um dispositivo de hardware, ou
   depois de terem sido armazenados numa base de dados.
   [](https://fr.wikipedia.org/wiki/Désidentification)
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832751/dtpr-icons/process/deidentified_sfq92y.svg
+icon: /dtpr-icons/deidentified.svg
 ---

@@ -5,5 +5,5 @@ id: wireless_access_point
 description: ផ្តល់នូវការចូលប្រើឥតខ្សែឥតខ្សែទៅបណ្តាញកុំព្យូទ័រដែលមានខ្សែរឺអ៊ិនធឺរណែត។
   ស្វែងយល់បន្ថែម
   [នៅទីនេះ](https://en.wikipedia.org/wiki/wireless_wiress_access_point)
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832813/dtpr-icons/tech/wave_bmvtme.svg
+icon: /dtpr-icons/wave.svg
 ---

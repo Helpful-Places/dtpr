@@ -7,5 +7,5 @@ description: On parle de détection de personnes lorsqu'un systéme peut détect
   emplacement ou leur nombre dans une image, mais ne permet pas d'identifier les
   individus. La technologie ne conserve ni n'utilise aucune information
   personnelle identifiable.
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1683711208/dtpr-icons/tech/person_detection_szf3jn.svg
+icon: /dtpr-icons/person_detection.svg
 ---

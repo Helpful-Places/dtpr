@@ -8,5 +8,5 @@ description: Sa isang modelo ng ibinahaging nakaimbak na datos ang nakaimbak na
   pag-access at pagkasira ng datos sa pamamagitan ng mga patakaran na binuo sa
   istraktura ng datos mismo. Alamin ang higit pa
   [dito](https://en.wikipedia.org/wiki/Cooperative_storage_cloud)
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832797/dtpr-icons/storage/cloud_gvkk5g.svg
+icon: /dtpr-icons/cloud.svg
 ---
