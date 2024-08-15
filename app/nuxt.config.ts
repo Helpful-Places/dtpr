@@ -20,6 +20,10 @@ export default defineNuxtConfig({
     }
   },
 
+  routeRules: {
+    '/api/**': { cors: true }
+  },
+
   vite: {
     server: {
       cors: true, // Only for dev

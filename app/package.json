@@ -22,7 +22,6 @@
   "dependencies": {
     "@nuxt/image": "^1.7.0",
     "@nuxt/ui": "^2.18.4",
-    "cors": "^2.8.5",
     "markdown-it": "^13.0.1"
   }
 }
