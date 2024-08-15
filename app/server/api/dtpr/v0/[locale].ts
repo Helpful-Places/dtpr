@@ -2,8 +2,16 @@ const fileName = (_id: any) => {
   return _id.split(":").pop();
 }
 
-export default defineEventHandler(async event => {  
+export default defineEventHandler(async event => {
+  const host = getRequestHost(event);
+  const protocol = getRequestProtocol(event);
+
   const locale = event.context.params?.locale || 'en';
+
+  const iconUrl = (icon: string) => {
+    if (!icon) { return null; }
+    return `${protocol}://${host}${icon}`;
+  }
 
   const elements = await $fetch('/api/_content/query', {
     method: 'GET',
@@ -45,7 +53,7 @@ export default defineEventHandler(async event => {
     const fallback = englishElements.find(sym => fileName(sym._id) === fileName(s._id));
     
     let id = `${s.category}__${s.id || fallback.id}`;
-    let icon = s.icon || fallback.icon;
+    let icon = iconUrl(s.icon) || iconUrl(fallback.icon);
 
     let headline = categories.find(cat => cat.id === s.category)?.headline
     

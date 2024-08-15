@@ -20,13 +20,8 @@ i18n:
   default_locale: en
 
 # Media
-media_folder: "images/dtpr-icons"
-public_folder: "/public"
-media_library:
-  name: cloudinary
-  config:
-    cloud_name: helpful-places
-    api_key: 665599687557175
+media_folder: "public/dtpr-icons"
+public_folder: "/dtpr-icons"
 
 collections:
   - name: "categories" # Used in routes, e.g., /admin/collections/blog
@@ -47,7 +42,6 @@ collections:
     create: true # Allow users to create new documents in this collection
     identifier_field: name
     slug: '{{category}}__{{id}}'
-    media_folder: 'public/images/dtpr-icons'
     summary: "{{category}} – {{name}}"
     view_groups:
       - label: "Category"
@@ -67,7 +61,7 @@ collections:
       - label: "Icon"
         name: "icon"
         widget: "image"
-        choose_url: true
+        choose_url: false
         allow_multiple: false
         i18n: "duplicate"
         
