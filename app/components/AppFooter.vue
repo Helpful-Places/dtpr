@@ -7,8 +7,8 @@
           Creative Commons Attribution 4.0 International (CC BY 4.0)
         </NuxtLink>
         <NuxtLink to="https://creativecommons.org/licenses/by/4.0/">
-          <Icon icon="fa6-brands:creative-commons" class="icon" />
-          <Icon icon="fa6-brands:creative-commons-by" class="icon" />
+          <UIcon name="fa6-brands:creative-commons" class="text-gray-600 w-6 h-6 align-bottom" />
+          <UIcon name="fa6-brands:creative-commons-by" class="text-gray-600 w-6 h-6 align-bottom" />
         </NuxtLink>.
       </p>
 
@@ -21,20 +21,8 @@
 
     <div class="app-container mt-8">
       <NuxtLink to="https://github.com/Helpful-Places/dtpr">
-        <Icon icon="fa6-brands:github" class="icon" />
+        <UIcon name="fa6-brands:github" class="text-gray-600 w-6 h-6" />
       </NuxtLink>
     </div>
   </footer>
 </template>
-
-
-<style lang="postcss" scoped>
-.icon {
-  font-size: 1.5rem;
-  @apply inline text-gray-600;
-}
-</style>
-
-<script setup>
-import { Icon } from '@iconify/vue';
-</script>
