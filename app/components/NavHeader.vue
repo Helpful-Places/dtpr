@@ -8,7 +8,7 @@ var isOpen = ref(false);
       <div class="flex justify-between items-center">
         <NuxtLinkLocale to="/" class="flex items-center">
           <img src="/images/dtpr_logo.svg" />
-          <div class="font-[500] text-dtpr-blue text-xl ml-4">DTPR</div>
+          <div class="font-[500] text-dtpr-blue-950 text-xl ml-4">DTPR</div>
         </NuxtLinkLocale>
         <div class="flex">
           <LocaleSwitcher class="block md:hidden" />
@@ -28,7 +28,7 @@ var isOpen = ref(false);
             <!-- <li><a href="https://vision.dtpr.io" class="flex items-center">{{ $t('vision') }}<Icon class="inline text-gray-400 ml-1" icon="fa6-solid:up-right-from-square" /></a></li> -->
           </ul>
         </nav>
-        <LocaleSwitcher class="hidden md:block" />
+        <LocaleSwitcher class="hidden md:block ml-4" />
       </div>
     </div>
   </div>
@@ -41,7 +41,7 @@ nav {
       @apply text-black font-[700] text-sm rounded-xl py-1 px-3;
   
       &:hover {
-        @apply text-dtpr-blue bg-gray-200
+        @apply text-dtpr-blue-950 bg-gray-200
       }
     }
   

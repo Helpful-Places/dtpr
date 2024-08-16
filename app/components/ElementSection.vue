@@ -31,7 +31,9 @@ const elements = await queryContent('dtpr/elements').where({
       </thead>
       <tbody>
         <tr v-for="element in elements" :key="element.id">
-          <td><img class="w-[36px] h-[36px]" :src=element.icon /></td>
+          <td>
+            <NuxtImg :src="element.icon" width="36" height="36" />
+          </td>
           <td>{{element.name}}</td>
           <td v-html="$md.render(element.description)"></td>
         </tr>

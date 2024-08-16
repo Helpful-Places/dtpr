@@ -1,8 +1,8 @@
 <template>
   <div class="lg:flex lg:items-center">
     <div class="lg:w-0 lg:flex-1">
-      <h2 class="font-bold tracking-tight text-dtpr-red text-4xl">Want DTPR news and updates?</h2>
-      <p class="mt-3 max-w-3xl text-lg leading-6 text-dtpr-red">Sign up for our newsletter to stay up to date.</p>
+      <h2 class="font-bold tracking-tight text-dtpr-red-950 text-4xl">Want DTPR news and updates?</h2>
+      <p class="mt-3 max-w-3xl text-lg leading-6 text-dtpr-red-950">Sign up for our newsletter to stay up to date.</p>
     </div>
     <div class="lg:w-full lg:max-w-md mt-4 lg:mt-0">
       <form
@@ -11,11 +11,11 @@
         method="post"
         class="mt-2 sm:mt-0"
       >
-        <span data-element="success" class="hidden mb-2 text-dtpr-red">
+        <span data-element="success" class="hidden mb-2 text-dtpr-red-950">
             Success! Please verify your email address to confirm your subscription.
         </span>
 
-        <ul data-element="errors" class="hidden mb-2 text-dtpr-red"></ul>
+        <ul data-element="errors" class="hidden mb-2 text-dtpr-red-950"></ul>
 
         <fieldset class="sm:flex">
           <input 
@@ -34,7 +34,7 @@
         </fieldset>
       </form>
 
-      <p class="mt-3 text-sm text-dtpr-red">
+      <p class="mt-3 text-sm text-dtpr-red-950">
         We use the privacy-first service <a class="u-line border-dtpr-red" href="https://getsendstack.com/privacy">SendStack</a> for our newsletter.
       </p>
     </div>

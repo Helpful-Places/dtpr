@@ -4,12 +4,12 @@
 
     <div class="app-container mt-12">
       <div class="md:flex gap-8">
-        <div class="card md:w-[60%] bg-dtpr-blue text-dtpr-blue-lighter">
+        <div class="card md:w-[60%] bg-dtpr-blue-950 text-dtpr-blue-100">
           <h2>The Problem</h2>
           <h1>Digital technology is increasingly present in the places and spaces in which we live. How might people learn about and give feedback on its use?</h1>
         </div>
 
-        <div class="card md:w-[40%] bg-dtpr-blue-lighter text-dtpr-blue">
+        <div class="card md:w-[40%] bg-dtpr-blue-100 text-dtpr-blue-950">
           <p class="text-lg font-bold leading-snug">
             How can we be confident the technology is achieving its goal? Whether seeking safety, sustainability,
             or accessibility, many are left asking: what are the benefits, the risks, and the trade-offs we're making?
@@ -28,26 +28,26 @@
       <div class="md:flex gap-8 mt-8">
         <div class="card bg-deployment md:w-[40%] min-h-[12rem]"></div>
         
-        <div class="card md:w-[60%] bg-dtpr-green text-dtpr-green-lighter">
+        <div class="card md:w-[60%] bg-dtpr-green-800 text-dtpr-green-100">
           <h2>Our Proposal</h2>
           <h1>The DTPR Taxonomy, Design Patterns and Prototypes</h1>
           <p>The core of the DTPR communication standard is a taxonomy of concepts around digital tech and data practices, and a set of icons to quickly and clearly communicate those concepts. These components can then expressed in a number of ways - from physical signage to digital channels for communication – which together, help visualize and convey how a digital system works.</p>
-          <NuxtLinkLocale to="/taxonomy" class="u-line border-dtpr-green-lighter">Explore the Taxonomy</NuxtLinkLocale>
+          <NuxtLinkLocale to="/taxonomy" class="u-line border-dtpr-green-100">Explore the Taxonomy</NuxtLinkLocale>
         </div>
       </div>
 
       <div class="md:flex gap-8 mt-8">
-        <div class="card md:w-[60%] bg-dtpr-red text-dtpr-red-lighter">
+        <div class="card md:w-[60%] bg-dtpr-red-100 text-dtpr-red-800">
           <h2>Our Mission</h2>
           <h1>Enable human agency in the world's shared spaces.</h1>
-          <NuxtLinkLocale to="/get-involved" class="u-line border-dtpr-red-lighter">Get Involved</NuxtLinkLocale>
+          <NuxtLinkLocale to="/get-involved" class="u-line border-dtpr-red-800">Get Involved</NuxtLinkLocale>
         </div>
         
         <div class="card bg-mission md:w-[40%] min-h-[12rem]"></div>
       </div>
 
       <div class="md:flex gap-8 mt-8">
-        <div class="card text-dtpr-blue">
+        <div class="card text-dtpr-blue-950 partners">
           <h2>Partners</h2>
           
           <div class="flex items-center mt-8">
@@ -82,20 +82,20 @@
             DTPR has received financial and in-kind support from a number of partners. We are always looking for new collaborators — 
             from pilot opportunities and implementers, to funders and service providers - to help us test, improve, and advance adoption
             of the open source standard. Have an idea on how to support the iteration and adoption of DTPR? Get in touch with the
-            Helpful Places team at <a class="u-line border-dtpr-blue" href="mailto:hello@helpfulplaces.com">hello@helpfulplaces.com</a>.
+            Helpful Places team at <a class="u-line" href="mailto:hello@helpfulplaces.com">hello@helpfulplaces.com</a>.
           </div>
 
           <ul class="font-bold text-2xl mt-8 leading-relaxed">
-            <li><NuxtLink class="u-line border-dtpr-blue" to="https://www.normative.com/">Normative</NuxtLink></li>
-            <li><NuxtLink class="u-line border-dtpr-blue" to="https://www.weforum.org/">World Economic Forum</NuxtLink></li>
-            <li><NuxtLink class="u-line border-dtpr-blue" to="https://www.digitalpublicsquare.org/">Digital Public Square</NuxtLink></li>
-            <li><NuxtLink class="u-line border-dtpr-blue" to="https://www.glia.foundation/">GLIA Foundation</NuxtLink></li>
+            <li><NuxtLink class="u-line" to="https://www.normative.com/">Normative</NuxtLink></li>
+            <li><NuxtLink class="u-line" to="https://www.weforum.org/">World Economic Forum</NuxtLink></li>
+            <li><NuxtLink class="u-line" to="https://www.digitalpublicsquare.org/">Digital Public Square</NuxtLink></li>
+            <li><NuxtLink class="u-line" to="https://www.glia.foundation/">GLIA Foundation</NuxtLink></li>
           </ul>
         </div>
       </div>
 
       <div class="mt-8">
-        <div class="card text-dtpr-blue">
+        <div class="card pilots text-dtpr-blue-950">
           <h2>Pilots</h2>
 
           <div class="grid md:grid-cols-3 lg:grid-cols-4 mt-8 gap-10 text-center font-bold text-lg">
@@ -163,5 +163,10 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+
+.partners a,
+.pilots a {
+  @apply border-dtpr-blue-950;
 }
 </style>

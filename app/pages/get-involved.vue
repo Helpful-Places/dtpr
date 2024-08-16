@@ -1,7 +1,7 @@
 <template>
   <div class="app-container mt-12">
     <div class="md:flex gap-8">
-      <Card class="md:w-[60%] bg-dtpr-red text-dtpr-red-lighter">
+      <Card class="md:w-[60%] bg-dtpr-red text-dtpr-red-100">
         <h2>Get Involved</h2>
         <h1>Join an emerging community of practice</h1>
 
@@ -32,7 +32,7 @@
     </div>
 
     <div class="flex gap-8">
-      <Card class="bg-dtpr-red-lighter w-[100%] md:mt-8">
+      <Card class="bg-dtpr-red-100 w-[100%] md:mt-8">
         <NewsletterSignup />
       </Card>
     </div>

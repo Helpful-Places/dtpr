@@ -7,12 +7,12 @@ export default <Partial<Config>>{
     extend: {
       colors: {
         'dtpr-green': {
+          DEFAULT: '#0f5153',
           '50': '#effefb',
           '100': '#c9fef8',
           '200': '#92fdf2',
           '300': '#54f4eb',
           '400': '#21e0db',
-          DEFAULT: '#08c4c1',
           '500': '#08c4c1',
           '600': '#039d9e',
           '700': '#087b7d',
@@ -21,12 +21,12 @@ export default <Partial<Config>>{
           '950': '#012e32',
         },
         'dtpr-blue': {
+          DEFAULT: '#002684',
           '50': '#e4f6ff',
           '100': '#cfeeff',
           '200': '#a8ddff',
           '300': '#74c5ff',
           '400': '#3e99ff',
-          DEFAULT: '#136cff',
           '500': '#136cff',
           '600': '#0059ff',
           '700': '#0059ff',
@@ -35,12 +35,12 @@ export default <Partial<Config>>{
           '950': '#002684',
         },
         'dtpr-red': {
+          DEFAULT: '#f04a4a',
           '50': '#fef2f2',
           '100': '#fee2e2',
           '200': '#fecaca',
           '300': '#fca5a5',
           '400': '#f87171',
-          DEFAULT: '#f04a4a',
           '500': '#f04a4a',
           '600': '#dc2626',
           '700': '#b91c1c',
