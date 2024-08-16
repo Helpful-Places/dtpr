@@ -21,19 +21,14 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    '/api/**': { cors: true }
+    '/api/**': { cors: true },
+    '/dtpr-icons/**': { cors: true }
   },
 
   vite: {
     server: {
       cors: true, // Only for dev
     },
-  },
-
-  routeRules: {
-    '/api/**': {
-      cors: true,
-    }
   },
 
   modules: [
