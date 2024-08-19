@@ -24,6 +24,7 @@ i18n:
 # Media
 media_folder: "app/public/dtpr-icons"
 public_folder: "/dtpr-icons"
+site_url: "https://dtpr.io"
 
 collections:
   - name: "categories" # Used in routes, e.g., /admin/collections/blog
@@ -44,7 +45,6 @@ collections:
     create: true # Allow users to create new documents in this collection
     identifier_field: name
     slug: '{{category}}__{{id}}'
-    media_folder: 'public/images/dtpr-icons'
     summary: "{{category}} – {{name}}"
     view_groups:
       - label: "Category"
