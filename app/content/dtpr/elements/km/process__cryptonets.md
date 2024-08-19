@@ -7,5 +7,5 @@ description: Cryptonets
   ដោយសារតែសមត្ថភាពនេះវាមិនចាំបាច់ឌិគ្រីបទិន្នន័យក្នុងកំឡុងពេលដំណើរការហើយដោយសារតែនេះវាមិនចាំបាច់សូម្បីតែផ្តល់ម៉ាស៊ីនរបស់កម្មវិធីជាមួយគ្រាប់ចុចដើម្បីឌិគ្រីបទិន្នន័យ។
   គ្រីបគ្រីបគឺជាការអនុវត្តនៃការអ៊ិនគ្រីប homomorphic ។ ស្វែងយល់បន្ថែម
   [នៅទីនេះ](https://en.wikipedia.org/wiki/homomorphic_encry.com)
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832754/dtpr-icons/process/encrypted_oedzbb.svg
+icon: /dtpr-icons/encrypted.svg
 ---

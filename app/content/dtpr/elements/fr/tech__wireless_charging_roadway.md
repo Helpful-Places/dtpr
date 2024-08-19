@@ -7,5 +7,5 @@ description: Des segments de bobines de cuivre enterrés sous la route sont
   magnétique, ce qui signifie que les véhicules électriques équipés d'un
   récepteur spécial peuvent être rechargés pendant qu'ils roulent ou sont garés
   au-dessus de la route.
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1703279044/wireless_charging_roadway_1_jhfrly.svg
+icon: /dtpr-icons/wireless_charging_roadway_1.svg
 ---

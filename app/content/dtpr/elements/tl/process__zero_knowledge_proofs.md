@@ -7,5 +7,5 @@ description: Ang Zero Knowledge Proof ay isang pamamaraan kung saan maaaring
   nang hindi nagbibigay ng anumang karagdagang impormasyon tulad ng mismong
   halaga. Matuto nang higit pa
   [dito](https://en.wikipedia.org/wiki/Zero-knowledge_proof)
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832754/dtpr-icons/process/zero-knowledge-proof_ttvjz0.svg
+icon: /dtpr-icons/zero-knowledge-proof.svg
 ---

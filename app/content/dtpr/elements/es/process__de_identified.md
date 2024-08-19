@@ -9,5 +9,5 @@ description: Datos que se procesan para eliminar los valores de identificación,
   definimos que signifique que los datos ya han dejado un dispositivo de
   hardware, o después de que se haya almacenado en una base de datos. Obtenga
   más información [aquí] (https://en.wikipedia.org/wiki/de-identificación)
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832751/dtpr-icons/process/deidentified_sfq92y.svg
+icon: /dtpr-icons/deidentified.svg
 ---

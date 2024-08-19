@@ -7,5 +7,5 @@ description: បង្កើត​វីដេអូ​នៃ​កម្រិ�
   ការកំណត់អត្តសញ្ញាណព័ត៌មានអាចប្រមូលបានតាមរយៈការត្រួតពិនិត្យដោយដៃដោយបុគ្គលម្នាក់
   ឬតាមរយៈបច្ចេកទេសចក្ខុវិស័យកុំព្យូទ័រដែលទាញយកព័ត៌មានក្នុងទម្រង់ជាទិន្នន័យពីវីដេអូ
   ឬរូបភាព។
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832811/dtpr-icons/tech/yellow/video_xcdv6g.svg
+icon: /dtpr-icons/video.svg
 ---

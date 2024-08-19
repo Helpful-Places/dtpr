@@ -9,5 +9,5 @@ description: Ang datos na naproseso upang alisin ang pagkilala sa mga halaga,
   namin tinutukoy kung ano ito kapag wala na ang datos sa hardware device, o
   pagkatapos na ito naka-imbak sa isang database. Alamin ang higit pa
   [dito](https://en.wikipedia.org/wiki/De-identification)
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832751/dtpr-icons/process/deidentified_sfq92y.svg
+icon: /dtpr-icons/deidentified.svg
 ---

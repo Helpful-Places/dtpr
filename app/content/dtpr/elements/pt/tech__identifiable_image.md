@@ -10,5 +10,5 @@ description: Gera imagens
   manual das imagens por uma pessoa, quer através de técnicas de visão por
   computador que obtêm
   informações sob a forma de dados a partir de imagens.
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832810/dtpr-icons/tech/yellow/image_d33iap.svg
+icon: /dtpr-icons/image.svg
 ---

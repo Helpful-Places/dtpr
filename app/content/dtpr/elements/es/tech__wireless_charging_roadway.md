@@ -8,5 +8,5 @@ description: Los segmentos de la bobina de cobre enterrados debajo de la
   con un receptor especial se pueden cargar mientras conduce o está estacionado
   sobre la carretera. Haga clic en [aquí]
   (https://en.wikipedia.org/wiki/electric_road) para obtener más información.
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1703279044/wireless_charging_roadway_1_jhfrly.svg
+icon: /dtpr-icons/wireless_charging_roadway_1.svg
 ---

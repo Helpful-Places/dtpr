@@ -9,5 +9,5 @@ description: Gera imagens de vídeo com
   análise manual por uma pessoa, quer através de técnicas de visão por
   computador que obtêm
   informações sob a forma de dados a partir de vídeos ou imagens.
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832811/dtpr-icons/tech/yellow/video_xcdv6g.svg
+icon: /dtpr-icons/video.svg
 ---

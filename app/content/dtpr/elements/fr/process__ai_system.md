@@ -4,7 +4,7 @@ description: Données traitées par des systémes automatisés, algorithmiques o
   artificielle pour en tirer un nouveau résultat ou point de données. Pour en savoir
   plus sur les systémes [algorithmiques](https://fr.wikipedia.org/wiki/Algorithme)
   et d'[intelligence artificielle](https://fr.wikipedia.org/wiki/Intelligence_artificielle).
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832752/dtpr-icons/process/ai_ixpvqd.svg
+icon: /dtpr-icons/ai.svg
 id: ai_system
 name: Systéme d'IA
 ---

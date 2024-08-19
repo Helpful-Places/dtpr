@@ -9,5 +9,5 @@ description: Ang isang unmanned aircraft system (UAS) ay binubuo ng isang
   ng sistemang ito. Para sa karagdagang impormasyon, i-click ang
   [dito](https://en.wikipedia.org/wiki/Unmanned_aerial_vehicle#terminology)
   upang malaman ang higit pa.
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1698172513/UAS_v5fjcb.svg
+icon: /dtpr-icons/UAS.svg
 ---

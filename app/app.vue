@@ -25,7 +25,7 @@
 
 <style lang="postcss">
   body {
-    @apply font-sans;
+    @apply font-sans dark:bg-white dark:text-black;
   }
   
   .app-container {

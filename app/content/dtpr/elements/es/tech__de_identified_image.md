@@ -10,5 +10,5 @@ description: Genera imágenes fijas con una resolución suficiente para poder
   *o *desentificado en el dispositivo *), por ejemplo, bordeando caras usando la
   visión por computadora. Obtenga más información sobre la desidentificación
   [aquí] (https://en.wikipedia.org/wiki/de-identificación).
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832798/dtpr-icons/tech/blue/image_ashhv9.svg
+icon: /dtpr-icons/image.svg
 ---

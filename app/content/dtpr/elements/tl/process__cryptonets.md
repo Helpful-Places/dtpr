@@ -8,5 +8,5 @@ description: Ang mga cryptonets ay mga neural na network na maaaring mailapat sa
   na magbigay sa host ng application ng mga susi upang ma-decrypt ang datos. Ang
   mga cryptonet ay isang pagpapatupad ng homomorphic encryption. Alamin ang
   higit pa [dito](https://en.wikipedia.org/wiki/Homomorphic_encryption)
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832754/dtpr-icons/process/encrypted_oedzbb.svg
+icon: /dtpr-icons/encrypted.svg
 ---

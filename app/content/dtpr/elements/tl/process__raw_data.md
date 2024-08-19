@@ -3,5 +3,5 @@ category: process
 name: Hilaw na data
 id: raw_data
 description: Ang mga datos na hindi naproseso o binago mula sa punto ng koleksyon - ang datos ay epektibong magkapareho sa kung paano ito natipon mula sa orihinal na mapagkukunan ng datos. Alamin ang higit pa [dito](https://en.wikipedia.org/wiki/Raw_data)
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832751/dtpr-icons/process/raw_dxpopc.svg
+icon: /dtpr-icons/raw.svg
 ---

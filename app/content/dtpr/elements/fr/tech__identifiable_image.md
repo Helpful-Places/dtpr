@@ -10,5 +10,5 @@ description: "Génère des [images fixes](https://fr.wikipedia.org/wiki/Image)
   soit par des techniques de [vision par
   ordinateur](https://fr.wikipedia.org/wiki/Vision_par_ordinateur) qui
   produisent des informations sous forme de données à partir d'images. "
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832810/dtpr-icons/tech/yellow/image_d33iap.svg
+icon: /dtpr-icons/image.svg
 ---

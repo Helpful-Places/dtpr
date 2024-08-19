@@ -8,5 +8,5 @@ description: Generates video footage of a sufficient resolution where
   in a way that removes identifying characteristics before it is used or stored
   (known as *de-identified before first use* or *de-identified on device*), for
   example by blurring faces using computer vision.
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832799/dtpr-icons/tech/blue/video_rd4ydo.svg
+icon: /dtpr-icons/video.svg
 ---

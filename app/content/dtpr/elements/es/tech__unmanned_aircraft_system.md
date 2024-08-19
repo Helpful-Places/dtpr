@@ -8,5 +8,5 @@ description: Un sistema de aviones no tripulados (UAS) consiste en una aeronave
   sistema. Para obtener más información, haga clic en [aquí]
   (https://en.wikipedia.org/wiki/unmanned_aerial_vehicle#terminology) para
   obtener más información.
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1698172513/UAS_v5fjcb.svg
+icon: /dtpr-icons/UAS.svg
 ---

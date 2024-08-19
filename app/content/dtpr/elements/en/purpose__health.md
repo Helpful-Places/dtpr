@@ -10,5 +10,5 @@ description: "Supports the measurement or monitoring of the aspects of the
   monitoring](https://en.wikipedia.org/wiki/Environmental_monitoring) and
   [occupational health and
   safety](https://en.wikipedia.org/wiki/Occupational_safety_and_health) "
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832759/dtpr-icons/purpose/health_fhsmie.svg
+icon: /dtpr-icons/health.svg
 ---

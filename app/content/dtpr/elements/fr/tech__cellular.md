@@ -5,7 +5,7 @@ description: Ce dispositif utilise un réseau de communication cellulaire où la
   les téléphones mobiles) de communiquer entre eux et avec des émetteurs-récepteurs
   fixes et des téléphones n'importe où dans le réseau. Pour en savoir plus sur les
   réseaux cellulaires [cliquez-ici](https://fr.wikipedia.org/wiki/Réseau_de_téléphonie_mobile)
-icon: https://res.cloudinary.com/helpful-places/image/upload/v1664832813/dtpr-icons/tech/wave_bmvtme.svg
+icon: /dtpr-icons/wave.svg
 id: cellular
 name: Cellulaire
 ---
