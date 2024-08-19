@@ -64,7 +64,7 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
-    siteUrl: process.env.SITE_URL
+    siteUrl: process.env.SITE_URL || process.env.RENDER_EXTERNAL_URL
   },
 
   compatibilityDate: '2024-08-14'
