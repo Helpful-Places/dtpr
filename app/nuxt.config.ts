@@ -63,5 +63,9 @@ export default defineNuxtConfig({
     locales,
   },
 
+  runtimeConfig: {
+    siteUrl: process.env.SITE_URL
+  },
+
   compatibilityDate: '2024-08-14'
 })

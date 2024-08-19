@@ -3,14 +3,12 @@ const fileName = (_id: any) => {
 }
 
 export default defineEventHandler(async event => {
-  const host = getRequestHost(event);
-  const protocol = getRequestProtocol(event);
-
+  const { siteUrl } = useRuntimeConfig();
   const locale = event.context.params?.locale || 'en';
 
   const iconUrl = (icon: string) => {
     if (!icon) { return null; }
-    return `${protocol}://${host}${icon}`;
+    return `${siteUrl}${icon}`;
   }
 
   const elements = await $fetch('/api/_content/query', {
