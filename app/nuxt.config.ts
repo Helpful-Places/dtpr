@@ -17,12 +17,11 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       routes: locales.map(locale => `/api/dtpr/v0/${locale}`)
+    },
+    routeRules: {
+      '/api/**': { cors: true },
+      '/dtpr-icons/**': { cors: true }
     }
-  },
-
-  routeRules: {
-    '/api/**': { cors: true },
-    '/dtpr-icons/**': { cors: true }
   },
 
   vite: {
