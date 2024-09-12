@@ -10,5 +10,5 @@ description: Genera [imágenes fijas]
   revisión manual de imágenes por una persona o mediante técnicas [visión por
   computadora] (https://en.wikipedia.org/wiki/computer_vision) que derivan
   información en forma de datos de imágenes.
-icon: /dtpr-icons/image.svg
+icon: /dtpr-icons/identifiable_image.svg
 ---

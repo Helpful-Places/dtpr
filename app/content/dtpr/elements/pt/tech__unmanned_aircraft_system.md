@@ -6,5 +6,5 @@ description: Um sistema de aeronaves não tripuladas (UAS) consiste numa aeronav
   não tripulada e no equipamento necessário para a operação segura e eficaz
   dessa aeronave. Um veículo aéreo não tripulado (UAV) é um dos componentes
   deste sistema.
-icon: /dtpr-icons/UAS.svg
+icon: /dtpr-icons/unmanned_aircraft_system.svg
 ---

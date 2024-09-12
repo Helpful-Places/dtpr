@@ -7,5 +7,5 @@ description: Utiliza ondas ultrasónicas para medir distancias a los objetos. El
   distancia se calcula utilizando el tiempo entre la emisión y la recepción.
   Obtenga más información [aquí]
   (https://en.wikipedia.org/wiki/Ultrasonic_transducer).
-icon: /dtpr-icons/light.svg
+icon: /dtpr-icons/ultrasonic_level_sensor.svg
 ---

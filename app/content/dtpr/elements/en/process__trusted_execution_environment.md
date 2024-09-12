@@ -7,5 +7,5 @@ description: "A TEE is an isolated environment created using  special purpose
   “trusted environment” inside which a process can run while it is invisible to
   any other process on the processor, the operating system or any other type of
   privileged access. "
-icon: /dtpr-icons/encrypted.svg
+icon: /dtpr-icons/trusted_execution_environment.svg
 ---

@@ -9,5 +9,5 @@ description: São recolhidos dados de áudio que identificam ou podem identifica
   processados de forma a remover as características de identificação antes de
   serem utilizados ou armazenados (conhecido como *desidentificado antes da
   primeira utilização* ou *desidentificado no dispositivo*).
-icon: /dtpr-icons/voice.svg
+icon: /dtpr-icons/de_identified_voice.svg
 ---

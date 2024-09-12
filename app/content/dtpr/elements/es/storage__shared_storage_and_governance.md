@@ -8,5 +8,5 @@ description: En un modelo de almacén de datos compartido, el almacén de datos 
   destrucción de los datos por las políticas integradas en la estructura de los
   datos en sí. Obtenga más información [aquí]
   (https://en.wikipedia.org/wiki/cooperative_storage_cloud)
-icon: /dtpr-icons/cloud.svg
+icon: /dtpr-icons/shared_storage_and_governance.svg
 ---

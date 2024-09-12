@@ -8,5 +8,5 @@ description: Genera datos de audio que pueden identificar a las personas, pero
   *desidentificación antes del primer uso* o *desidentificación en el
   dispositivo*). Obtenga más información sobre la desidentificación [aquí]
   (https://es.wikipedia.org/wiki/Desidentificaci%C3%B3n_(privacidad)).
-icon: /dtpr-icons/voice.svg
+icon: /dtpr-icons/de_identified_voice.svg
 ---

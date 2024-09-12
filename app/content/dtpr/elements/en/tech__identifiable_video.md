@@ -9,5 +9,5 @@ description: Generates [video footage](https://en.wikipedia.org/wiki/Video) of a
   person, or through [computer
   vision](https://en.wikipedia.org/wiki/Computer_vision) techniques that derives
   information in the form of data from video or images.
-icon: /dtpr-icons/video.svg
+icon: /dtpr-icons/identifiable_video.svg
 ---

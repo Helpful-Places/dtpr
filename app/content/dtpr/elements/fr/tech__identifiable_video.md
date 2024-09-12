@@ -11,5 +11,5 @@ description: "Génère des [séquences vidéo](https://fr.wikipedia.org/wiki/Vid
   ordinateur](https://fr.wikipedia.org/wiki/Vision_par_ordinateur) qui
   produisent des informations sous forme de données à partir de vidéos ou
   d'images. "
-icon: /dtpr-icons/video.svg
+icon: /dtpr-icons/identifiable_video.svg
 ---

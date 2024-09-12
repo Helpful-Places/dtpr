@@ -9,5 +9,5 @@ description: Gera imagens de vídeo com
   análise manual por uma pessoa, quer através de técnicas de visão por
   computador que obtêm
   informações sob a forma de dados a partir de vídeos ou imagens.
-icon: /dtpr-icons/video.svg
+icon: /dtpr-icons/identifiable_video.svg
 ---

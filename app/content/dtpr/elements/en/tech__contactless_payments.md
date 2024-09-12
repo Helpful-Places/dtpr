@@ -8,5 +8,5 @@ description: Contactless payment systems are are credit cards and debit cards,
   communication (NFC) for making secure payments.  Find out more about
   contactless payment systems
   [here](https://en.wikipedia.org/wiki/Contactless_payment).
-icon: /dtpr-icons/wave.svg
+icon: /dtpr-icons/contactless_payments.svg
 ---

@@ -9,5 +9,5 @@ description: Bumubuo ng video footage ng sapat na resolution kung saan
   manu-manong pagsusuri ng isang tao, o sa pamamagitan ng mga diskarte sa
   computer vision na kumukuha ng impormasyon sa anyo ng data mula sa video o mga
   imahe
-icon: /dtpr-icons/video.svg
+icon: /dtpr-icons/identifiable_video.svg
 ---

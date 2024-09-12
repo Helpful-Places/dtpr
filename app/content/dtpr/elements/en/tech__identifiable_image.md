@@ -10,5 +10,5 @@ description: Generates [still
   person, or through [computer
   vision](https://en.wikipedia.org/wiki/Computer_vision) techniques that derives
   information in the form of data from images.
-icon: /dtpr-icons/image.svg
+icon: /dtpr-icons/identifiable_image.svg
 ---

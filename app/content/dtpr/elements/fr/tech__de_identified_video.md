@@ -10,5 +10,5 @@ description: Génère des séquences vidéo d'une résolution suffisante pour
   (on parle de *désidentification avant la premiére utilisation* ou
   *désidentifiée sur le dispositif*), par exemple en estompant les visages à
   l'aide de la vision par ordinateur.
-icon: /dtpr-icons/video.svg
+icon: /dtpr-icons/de_identified_video.svg
 ---

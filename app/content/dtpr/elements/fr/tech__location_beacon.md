@@ -8,5 +8,5 @@ description: Les balises sont des émetteurs matériels Bluetooth à faible éne
   appareils d'effectuer des actions lorsqu'ils se trouvent à proximité d'une
   balise. En savoir plus
   [cliquez-ici](https://fr.wikipedia.org/wiki/Liaison_sans_fil_à_faible_consommation_énergétique#Bluetooth_Low_Energy)
-icon: /dtpr-icons/wave.svg
+icon: /dtpr-icons/location_beacon.svg
 ---

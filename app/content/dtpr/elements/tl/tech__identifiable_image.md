@@ -9,5 +9,5 @@ description: Bumubuo ng mga still na larawan ng sapat na resolution kung saan
   manu-manong pagsusuri ng mga larawan ng isang tao, o sa pamamagitan ng
   computed vision techniques na kumukuha ng impormasyon sa anyo ng data mula sa
   mga imahe.
-icon: /dtpr-icons/image.svg
+icon: /dtpr-icons/identifiable_image.svg
 ---

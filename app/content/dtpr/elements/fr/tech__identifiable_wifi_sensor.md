@@ -1,5 +1,5 @@
 ---
 category: tech
 id: identifiable_wifi_sensor
-icon: /dtpr-icons/wave.svg
+icon: /dtpr-icons/identifiable_wifi_sensor.svg
 ---

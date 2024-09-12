@@ -10,5 +10,5 @@ description: Genera imágenes fijas con una resolución suficiente para poder
   *o *desentificado en el dispositivo *), por ejemplo, bordeando caras usando la
   visión por computadora. Obtenga más información sobre la desidentificación
   [aquí] (https://en.wikipedia.org/wiki/de-identificación).
-icon: /dtpr-icons/image.svg
+icon: /dtpr-icons/de_identified_image.svg
 ---

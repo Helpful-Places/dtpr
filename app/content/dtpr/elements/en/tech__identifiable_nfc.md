@@ -8,5 +8,5 @@ description: A wireless communication protocol for electronic devices that are
   particular item is closely associated with an individual's [personal
   data](https://en.wikipedia.org/wiki/Personal_data). Find out more
   [here](https://en.wikipedia.org/wiki/Near-field_communication)
-icon: /dtpr-icons/wave.svg
+icon: /dtpr-icons/identifiable_nfc.svg
 ---

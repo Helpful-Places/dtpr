@@ -7,5 +7,5 @@ description: Code signing is the process of digitally signing executables and
   been altered or corrupted since it was signed. The process employs the use of
   a cryptographic hash to validate authenticity and integrity. Find out more
   [here](https://en.wikipedia.org/wiki/Code_signing)
-icon: /dtpr-icons/encrypted.svg
+icon: /dtpr-icons/code_signing.svg
 ---

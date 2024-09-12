@@ -7,5 +7,5 @@ description: An intercom (intercommunication device) is a stand-alone voice
   buildings, and is separate from other communications networks (such as the
   telephone system). Find out more about intercom systems
   [here](https://en.wikipedia.org/wiki/Intercom)
-icon: /dtpr-icons/voice.svg
+icon: /dtpr-icons/intercom.svg
 ---

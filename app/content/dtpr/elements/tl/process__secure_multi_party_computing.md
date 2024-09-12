@@ -8,5 +8,5 @@ description: Ang secure multi-party na pag-compute ay isang subfield ng
   pinapanatiling pribado ang mga input na iyon. Pinapayagan nito ang mga kalahok
   na makabuo ng mga pinagsama-samang pananaw mula sa datos habang pinapanatili
   ang mga indibidwal na aytem ng pagiging sikreto ng datos.
-icon: /dtpr-icons/encrypted.svg
+icon: /dtpr-icons/secure_multi_party_computing.svg
 ---

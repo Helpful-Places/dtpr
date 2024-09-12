@@ -7,5 +7,5 @@ description: Une preuve de connaissance zéro est une méthode par laquelle une
   transmettre d'informations supplémentaires telles que la valeur elle-même. En
   savoir plus
   [cliquez-ici](https://fr.wikipedia.org/wiki/Preuve_à_divulgation_nulle_de_connaissance)
-icon: /dtpr-icons/zero-knowledge-proof.svg
+icon: /dtpr-icons/zero_knowledge_proofs.svg
 ---
