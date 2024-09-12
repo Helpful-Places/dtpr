@@ -6,7 +6,7 @@ export default defineEventHandler(async event => {
   const { siteUrl } = useRuntimeConfig();
   const locale = event.context.params?.locale || 'en';
 
-  const iconUrl = (icon: string) => {
+  const iconUrl = (icon: /dtpr-icons/string) => {
     if (!icon) { return null; }
     return `${siteUrl}${icon}`;
   }
