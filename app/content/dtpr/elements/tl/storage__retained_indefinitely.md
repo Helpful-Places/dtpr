@@ -3,5 +3,5 @@ category: storage
 name: Pinanatili nang walang hanggan
 id: retained_indefinitely
 description: Ang datos ay mananatili nang walang hanggan
-icon: is_retained.svg
+icon: /dtpr-icons/is_retained.svg
 ---

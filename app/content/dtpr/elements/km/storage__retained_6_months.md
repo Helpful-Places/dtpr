@@ -1,5 +1,5 @@
 ---
 category: storage
 id: retained_6_months
-icon: is_retained.svg
+icon: /dtpr-icons/is_retained.svg
 ---
