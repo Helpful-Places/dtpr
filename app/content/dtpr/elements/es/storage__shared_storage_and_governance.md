@@ -6,7 +6,6 @@ description: En un modelo de almacén de datos compartido, el almacén de datos 
   comparte en múltiples partes y, debido a que la infraestructura se comparte,
   es posible hacer cumplir la gobernanza en torno a la retención, acceso y
   destrucción de los datos por las políticas integradas en la estructura de los
-  datos en sí. Obtenga más información [aquí]
-  (https://en.wikipedia.org/wiki/cooperative_storage_cloud)
+  datos en sí.
 icon: /dtpr-icons/shared_storage_and_governance.svg
 ---

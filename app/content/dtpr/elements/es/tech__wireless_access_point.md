@@ -3,7 +3,6 @@ category: tech
 name: Punto de acceso inalámbrico
 id: wireless_access_point
 description: Proporciona acceso inalámbrico a una red informática con cable, o a
-  Internet. Obtenga más información [aquí]
-  (https://en.wikipedia.org/wiki/wireless_access_point)
+  Internet.
 icon: /dtpr-icons/wireless_access_point.svg
 ---

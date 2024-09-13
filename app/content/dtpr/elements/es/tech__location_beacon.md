@@ -6,7 +6,5 @@ description: Las balizas son transmisores de hardware Bluetooth Low Energy (LE)
   que transmiten su identificador a dispositivos electrónicos portátiles
   cercanos. La tecnología permite que los teléfonos inteligentes, las tabletas y
   otros dispositivos realicen acciones cuando estén muy cerca de una baliza.
-  Obtenga más información [aquí]
-  (https://en.wikipedia.org/wiki/bluetooth_low_energy_beacon)
 icon: /dtpr-icons/location_beacon.svg
 ---

@@ -2,6 +2,6 @@
 category: tech
 name: Biometría
 id: biometrics
-description: La biometría son mediciones corporales y cálculos relacionados con las características humanas. Obtenga más información [aquí] (https://en.wikipedia.org/wiki/biometrics)
+description: La biometría son mediciones corporales y cálculos relacionados con las características humanas.
 icon: /dtpr-icons/biometrics.svg
 ---
