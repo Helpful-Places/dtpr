@@ -8,5 +8,5 @@ description: Enables a safe and/or secure environment, for example for the
   passage in places such as
   [airports](https://en.wikipedia.org/wiki/Airport_security) or
   [roads](https://en.wikipedia.org/wiki/Road_traffic_safety)
-icon: /dtpr-icons/security.svg
+icon: /dtpr-icons/safety_security.svg
 ---

@@ -9,5 +9,5 @@ description: Genera secuencias de vídeo con una resolución suficiente para pod
   se use o almacene (conocido como *desidentificado antes del primer uso *o
   *desidentificado en el dispositivo *), por ejemplo, difuminando caras usando
   la visión por computadora.
-icon: /dtpr-icons/video.svg
+icon: /dtpr-icons/de_identified_video.svg
 ---

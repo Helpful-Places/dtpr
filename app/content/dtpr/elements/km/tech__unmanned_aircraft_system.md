@@ -8,5 +8,5 @@ description: ប្រព័ន្ធយន្ដហោះដែលគ្មា�
   សម្រាប់ព័ត៌មានបន្ថែមសូមចុច
   [ទីនេះ](https://en.wikipedia.org/wiki/unmanned_aerial_vehlenial_vehleasestterminoology)
   ដើម្បីស្វែងយល់បន្ថែម។
-icon: /dtpr-icons/UAS.svg
+icon: /dtpr-icons/unmanned_aircraft_system.svg
 ---

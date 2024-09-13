@@ -8,5 +8,5 @@ description: An unmanned aircraft system (UAS) consists of an unmanned aircraft
   system.  For more information, click
   [here](https://en.wikipedia.org/wiki/Unmanned_aerial_vehicle#Terminology) to
   learn more.
-icon: /dtpr-icons/UAS.svg
+icon: /dtpr-icons/unmanned_aircraft_system.svg
 ---

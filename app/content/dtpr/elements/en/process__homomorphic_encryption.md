@@ -7,5 +7,5 @@ description: Homomorphic encryption is a form of encryption that allows
   decrypted, matches the result of the operations as if they had been performed
   on the plaintext. Find out more
   [here](https://en.wikipedia.org/wiki/Homomorphic_encryption)
-icon: /dtpr-icons/encrypted.svg
+icon: /dtpr-icons/homomorphic_encryption.svg
 ---

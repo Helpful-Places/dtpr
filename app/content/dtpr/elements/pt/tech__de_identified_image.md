@@ -9,5 +9,5 @@ description: Gera imagens fixas com uma resolução suficiente para permitir a
   antes de serem utilizadas ou armazenadas (conhecido como *desidentificação
   antes da primeira utilização* ou *desidentificação no dispositivo*), por
   exemplo, desfocando os rostos através de visão por computador.
-icon: /dtpr-icons/image.svg
+icon: /dtpr-icons/de_identified_image.svg
 ---

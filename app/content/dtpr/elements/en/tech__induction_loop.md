@@ -8,5 +8,5 @@ description: An induction loop uses a moving magnet to generate an electric
   metal objects. Click
   [here](https://en.wikipedia.org/wiki/Induction_loop#Applications) to learn
   more.
-icon: /dtpr-icons/wave.svg
+icon: /dtpr-icons/induction_loop.svg
 ---

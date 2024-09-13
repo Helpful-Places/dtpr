@@ -11,5 +11,5 @@ description: Génère des images fixes d'une résolution suffisante pour permett
   sur le dispositif*), par exemple en floutant les visages à l'aide de la vision
   par ordinateur. Pour en savoir plus sur la désidentification, [cliquez
   ici](https://fr.wikipedia.org/wiki/Désidentification).
-icon: /dtpr-icons/image.svg
+icon: /dtpr-icons/de_identified_image.svg
 ---

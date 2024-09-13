@@ -8,5 +8,5 @@ description: Data that is processed to remove identifying values, usually to
   it is published. Here we define it to mean after the data has already left a
   hardware device, or after it has been stored in a database. Find out more
   [here](https://en.wikipedia.org/wiki/De-identification)
-icon: /dtpr-icons/deidentified.svg
+icon: /dtpr-icons/de_identified.svg
 ---

@@ -9,5 +9,5 @@ description: Generates still images of a sufficient resolution where individuals
   *de-identified before first use* or *de-identified on device*), for example by
   blurring faces using computer vision. Find out more about de-identification
   [here](https://en.wikipedia.org/wiki/De-identification).
-icon: /dtpr-icons/image.svg
+icon: /dtpr-icons/de_identified_image.svg
 ---

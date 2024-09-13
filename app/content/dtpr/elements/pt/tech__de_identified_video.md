@@ -9,5 +9,5 @@ description: Recolhe imagens de vídeo com uma resolução suficiente para permi
   ou armazenado (conhecido como \*desidentificação antes da primeira
   utilização\* ou \*desidentificação no dispositivo\*), por exemplo, desfocando
   os rostos através de visão por computador.
-icon: /dtpr-icons/video.svg
+icon: /dtpr-icons/de_identified_video.svg
 ---

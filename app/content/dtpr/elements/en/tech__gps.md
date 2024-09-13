@@ -7,5 +7,5 @@ description: GPS is one of the global navigation satellite systems that provides
   Earth where there is an unobstructed line of sight to four or more GPS
   satellites. Find out more about GPS
   [here](https://en.wikipedia.org/wiki/Global_Positioning_System).
-icon: /dtpr-icons/wave.svg
+icon: /dtpr-icons/gps.svg
 ---

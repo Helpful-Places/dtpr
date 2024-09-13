@@ -7,5 +7,5 @@ description: Beacons គឺជាឧបករណ៍ការពារផ្ន�
   បច្ចេកវិទ្យានេះអនុញ្ញាតឱ្យស្មាតហ្វូនថេប្លេតនិងឧបករណ៍ផ្សេងទៀតដើម្បីអនុវត្តសកម្មភាពនៅពេលដែលនៅជិតនឹងអង្កាំ។
   ស្វែងយល់បន្ថែម
   [នៅទីនេះ](https://en.wikipedia.org/wiki/bleuetooth_energ_energy_energy_beage_beace)
-icon: /dtpr-icons/wave.svg
+icon: /dtpr-icons/location_beacon.svg
 ---

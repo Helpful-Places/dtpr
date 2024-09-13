@@ -9,5 +9,5 @@ description: បង្កើត​វីដេអូ​នៃ​កម្រិ�
   ឬរក្សាទុក (ត្រូវបានគេស្គាល់ថាជា de-identified before use first or
   de-identified on device)
   ឧទាហរណ៍ដោយការធ្វើឱ្យមុខព្រិលដោយប្រើការមើលឃើញកុំព្យូទ័រ។
-icon: /dtpr-icons/video.svg
+icon: /dtpr-icons/de_identified_video.svg
 ---

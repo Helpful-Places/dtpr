@@ -10,5 +10,5 @@ description: Gera imagens
   manual das imagens por uma pessoa, quer através de técnicas de visão por
   computador que obtêm
   informações sob a forma de dados a partir de imagens.
-icon: /dtpr-icons/image.svg
+icon: /dtpr-icons/identifiable_image.svg
 ---

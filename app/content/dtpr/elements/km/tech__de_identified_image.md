@@ -8,5 +8,5 @@ description: បង្កើតរូបភាពបន្តនៃគុណភ�
   រូបភាពត្រូវបានដំណើរការតាមរបៀបដែលដកចេញនូវលក្ខណៈសម្គាល់មុនពេលវាប្រើប្រាស់
   ឬរក្សាទុក (ត្រូវបានគេស្គាល់ថាជា de-identified before use first ឬ de-identified
   on device) ឧទាហរណ៍ដោយការធ្វើឱ្យមុខព្រិលដោយប្រើការមើលឃើញកុំព្យូទ័រ។
-icon: /dtpr-icons/image.svg
+icon: /dtpr-icons/de_identified_image.svg
 ---

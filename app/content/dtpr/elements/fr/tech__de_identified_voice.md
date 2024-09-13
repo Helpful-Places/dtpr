@@ -9,5 +9,5 @@ description: >
   la premiére utilisation* ou *désidentifiées sur le dispositif*). Pour en
   savoir plus sur la désidentification, [cliquez
   ici](https://en.wikipedia.org/wiki/De-identification).
-icon: /dtpr-icons/voice.svg
+icon: /dtpr-icons/de_identified_voice.svg
 ---

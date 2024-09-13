@@ -10,5 +10,5 @@ description: "Génère des [images fixes](https://fr.wikipedia.org/wiki/Image)
   soit par des techniques de [vision par
   ordinateur](https://fr.wikipedia.org/wiki/Vision_par_ordinateur) qui
   produisent des informations sous forme de données à partir d'images. "
-icon: /dtpr-icons/image.svg
+icon: /dtpr-icons/identifiable_image.svg
 ---
