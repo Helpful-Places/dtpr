@@ -12,12 +12,21 @@
           </p>
 
           <ul>
-            <li><a href="/documents/DTPR_Design_Guide.pdf" class="u-line border-dtpr-green-lighter">Design Guide <Icon class="inline" icon="fa6-solid:file-pdf" /></a></li>
-            <li><NuxtLink to="https://github.com/sidewalklabs/dtpr/tree/master/dtpr_codesignkit" class="u-line border-dtpr-green-lighter">Co-design Kit (2019)</NuxtLink></li>
-            <li><a href="https://github.com/Helpful-Places/dtpr/tree/main/resources/icons" class="u-line border-dtpr-green-lighter">Icons</a></li>
-            <li><NuxtLink to="/taxonomy" class="u-line border-dtpr-green-lighter">Taxonomy</NuxtLink></li>
-            <li><a href="https://www.demo.dtpr.guide/sensors/bgLGhGqeHBlJfU2CL2rE" class="u-line border-dtpr-green-lighter">Helpful Places Guide App demo</a></li>
+            <li class="mb-5">
+              <NuxtLink to="https://helpful-places.gitbook.io/a-guide-to-dtpr" class="u-line border-dtpr-green-lighter">Design Guide <Icon class="inline" icon="fa6-solid:file-pdf" /></NuxtLink>
+              <p class="text-m mt-3 mb-3 indent-8"><strong>Description: </strong> An overview of the DTPR standard, its design rationale, and
+	guidance for deploying it in public spaces based on practical insights gained
+from in-field implementations
+</p>
+            </li>
+            <li class="mb-5">
+              <NuxtLink to="https://github.com/Helpful-Places/dtpr/tree/main/resources/icons" class="u-line border-dtpr-green-lighter">Icons</NuxtLink>
+              <p class="text-m mt-3 mb-3 indent-8"><strong>Description: </strong>GitHub repository hosting all DTPR icon SVG files, ready for
+download.
+</p>
+            </li>
           </ul>
+          <p>Helpful Places, a social impact enterprise, offers solutions and services that support DTPR implementation and adoption. Please see the <a href="https://www.helpfulplaces.com">Helpful Places website</a> for more information</p>
         </Card>
 
         <Card class="md:w-1/2 text-dtpr-green">
@@ -27,19 +36,22 @@
             A non-exhaustive collection of blog posts about the development and use of DTPR.
           </p>
 
-          <h3>2022</h3>
+          <h3>2023</h3>
+          <ul class="list-disc">
+            <li><NuxtLink to="https://medium.com/@helpfulplaces/us-dtpr-pilot-implementations-planned-in-miami-charlotte-and-west-palm-beach-in-2023-as-part-of-69f9efba65e4">US DTPR pilot implementations planned in Miami, Charlotte and West Palm Beach in 2023 as part of the Knight Community DTPR Program</NuxtLink></li>
+            <li><NuxtLink to="https://medium.com/@helpfulplaces/helpful-places-releases-2022-dtpr-city-cohort-program-report-a00a40dee736">Helpful Places releases 2022 DTPR City Cohort Program Report</NuxtLink></li>
+            <li><NuxtLink to="https://medium.com/@helpfulplaces/first-australian-deployment-of-dtpr-launches-9fbf8e700cdb">First Australian Deployment of DTPR Launches</NuxtLink></li>
+
+            
+          </ul>
+
+          <h3 class="mt-4">2022</h3>
           <ul class="list-disc">
             <li><NuxtLink to="https://medium.com/@helpfulplaces/announcing-the-launch-of-the-2022-dtpr-city-cohort-b2cb55699925" class="u-line border-dtpr-green-lighter">Annoucement of Helpful Places' 2022 DTPR cohort</NuxtLink></li>
           </ul>
 
-          <h3 class="mt-4">2020</h3>
-          <ul class="list-disc">
-            <li><NuxtLink to="https://newurbanmechanics.medium.com/a-year-in-reflection-2020-in-review-d2b004324a35#:~:text=2.%20Digital%20Transparency%20in%20the%20Public%20Realm%20(DTPR)%20Signage%20for%20Sensors" class="u-line border-dtpr-green-lighter">Read-out of Boston's experience piloting DTPR</NuxtLink> by their Office of New Urban Mechanics</li>
-          </ul>
-
           <h3 class="mt-4">2019</h3>
           <ul class="list-disc">
-            <li><NuxtLink to="https://medium.com/sidewalk-talk/how-can-we-make-urban-tech-transparent-these-icons-are-a-first-step-f03f237f8ff0" class="u-line border-dtpr-green-lighter">DTPR release annoucement</NuxtLink> describing the design process and how it works</li>
             <li><NuxtLink to="https://medium.com/code-for-canada/grit-toronto-test-4-digital-transparency-in-the-public-realm-da3f47eb1510" class="u-line border-dtpr-green-lighter">Summary of the user research</NuxtLink> that went into DTPR</li>
           </ul>
         </Card>

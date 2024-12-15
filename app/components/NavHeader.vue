@@ -25,6 +25,9 @@ var isOpen = ref(false);
             <li><NuxtLinkLocale to="/tools-and-resources" @click="isOpen = false">{{ $t('tools_resources') }}</NuxtLinkLocale></li>
             <li><NuxtLinkLocale to="/taxonomy" @click="isOpen = false">{{ $t('taxonomy') }}</NuxtLinkLocale></li>
             <li><NuxtLinkLocale to="/get-involved" @click="isOpen = false">{{ $t('get_involved') }}</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale to="/how-we-got-here" @click="isOpen=false">{{ $t('how-we-got-here') }}</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale to="/governance" @click="isOpen-false">{{ $t('governance') }}</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale to="/awards" @click="isOpen-false">{{ $t('awards') }}</NuxtLinkLocale></li>
             <!-- <li><a href="https://vision.dtpr.io" class="flex items-center">{{ $t('vision') }}<Icon class="inline text-gray-400 ml-1" icon="fa6-solid:up-right-from-square" /></a></li> -->
           </ul>
         </nav>
