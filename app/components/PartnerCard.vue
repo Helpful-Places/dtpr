@@ -2,7 +2,12 @@
   <div class="flex flex-col justify-between">
     <div class="h-2/3 flex flex-col justify-around">
       <NuxtLink :to="url">
-        <NuxtImg class="max-w-[10rem] max-h-[6rem] mb-2 mx-auto" :src='`/images/${imageFile}`' :alt="imageAlt"/>
+        <NuxtImg 
+          v-if="imageFile"
+          class="max-w-[10rem] max-h-[6rem] mb-2 mx-auto"
+          :src='`/images/${imageFile}`'
+          :alt="imageAlt"
+        />
       </NuxtLink>
     </div>
     <div class="h-1/3">

@@ -199,12 +199,12 @@
                   image-alt="Digital Public Square Logo">
                     Digital Public Square
                 </PartnerCard>
-                <PartnerCard 
+                <!-- <PartnerCard 
                   url="#" 
                   image-file="g20.png" 
                   image-alt="G20 smart cities alliance logo">
                     G20 Smart Cities Alliance
-                </PartnerCard>
+                </PartnerCard> -->
                 <PartnerCard 
                   url="#" 
                   image-file="glia-logo.jpg" 
@@ -232,7 +232,8 @@
                 <PartnerCard 
                   url="#" 
                   image-file="" 
-                  image-alt="">
+                  image-alt=""
+                >
                     World Economic Forum Future of the Connected World initiative
                 </PartnerCard>
 
