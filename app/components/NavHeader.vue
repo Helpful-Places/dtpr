@@ -28,7 +28,7 @@ var isOpen = ref(false);
             <li><NuxtLinkLocale to="/awards" @click="isOpen-false">Awards</NuxtLinkLocale></li>
             <li><NuxtLinkLocale to="/get-involved" @click="isOpen = false">Get Involved</NuxtLinkLocale></li>
             <li><NuxtLinkLocale to="/taxonomy" @click="isOpen = false">Taxonomy</NuxtLinkLocale></li>
-            <!-- <li><a href="https://vision.dtpr.io" class="flex items-center">{{ $t('vision') }}<Icon class="inline text-gray-400 ml-1" icon="fa6-solid:up-right-from-square" /></a></li> -->
+            <!-- <li><a href="https://vision.dtpr.io" class="flex items-center">Vision<Icon class="inline text-gray-400 ml-1" icon="fa6-solid:up-right-from-square" /></a></li> -->
           </ul>
         </nav>
         <!-- <LocaleSwitcher class="hidden lg:block ml-4" /> -->
