@@ -219,7 +219,7 @@
                 </PartnerCard>
                 <PartnerCard 
                   url="#" 
-                  image-file="urban-AI-logo.jpg" 
+                  image-file="urbanAI-logo.jpg" 
                   image-alt="Urban AI Logo">
                     Urban AI
                 </PartnerCard>
