@@ -24,9 +24,9 @@ const elements = await queryContent('dtpr/elements').where({
     <table class="grow">
       <thead>
         <tr class="text-left">
-          <th class="w-1/12">{{ $t('icon') }}</th>
+          <th class="w-1/12">Icon</th>
           <th class="w-1/6">{{category.name}}</th>
-          <th class="">{{ $t('description') }}</th>
+          <th class="">Description</th>
         </tr>
       </thead>
       <tbody>

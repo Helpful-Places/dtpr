@@ -14,7 +14,9 @@ const items = computed(() => {
 </script>
 
 <template>
-  <UDropdown :items="items">
-    <UButton color="white" :label="locale" trailing-icon="i-heroicons-chevron-down-20-solid" />
-  </UDropdown>
+  <UFormGroup label="Choose taxonomy language">
+    <UDropdown :items="items">
+      <UButton color="white" :label="locale" trailing-icon="i-heroicons-chevron-down-20-solid" />
+    </UDropdown>
+  </UFormGroup>
 </template>

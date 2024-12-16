@@ -22,16 +22,16 @@ var isOpen = ref(false);
       <div class="flex print:hidden">
         <nav class="flex items-center">
           <ul :class="isOpen ? 'block' : 'hidden'" class="mt-4 md:flex md:items-center md:m-0">
-            <li><NuxtLinkLocale to="/tools-and-resources" @click="isOpen = false">{{ $t('tools_resources') }}</NuxtLinkLocale></li>
-            <li><NuxtLinkLocale to="/taxonomy" @click="isOpen = false">{{ $t('taxonomy') }}</NuxtLinkLocale></li>
-            <li><NuxtLinkLocale to="/get-involved" @click="isOpen = false">{{ $t('get_involved') }}</NuxtLinkLocale></li>
-            <li><NuxtLinkLocale to="/how-we-got-here" @click="isOpen=false">{{ $t('how-we-got-here') }}</NuxtLinkLocale></li>
-            <li><NuxtLinkLocale to="/governance" @click="isOpen-false">{{ $t('governance') }}</NuxtLinkLocale></li>
-            <li><NuxtLinkLocale to="/awards" @click="isOpen-false">{{ $t('awards') }}</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale to="/tools-and-resources" @click="isOpen = false">Tools & Resources</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale to="/taxonomy" @click="isOpen = false">Taxonomy</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale to="/get-involved" @click="isOpen = false">Get Involved</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale to="/how-we-got-here" @click="isOpen=false">How Did We Get Here</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale to="/governance" @click="isOpen-false">Governance</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale to="/awards" @click="isOpen-false">Awards</NuxtLinkLocale></li>
             <!-- <li><a href="https://vision.dtpr.io" class="flex items-center">{{ $t('vision') }}<Icon class="inline text-gray-400 ml-1" icon="fa6-solid:up-right-from-square" /></a></li> -->
           </ul>
         </nav>
-        <LocaleSwitcher class="hidden md:block ml-4" />
+        <!-- <LocaleSwitcher class="hidden md:block ml-4" /> -->
       </div>
     </div>
   </div>
