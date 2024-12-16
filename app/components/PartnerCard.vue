@@ -1,6 +1,5 @@
 <template>
   <div class="flex flex-col justify-between">
-    <div class="h-2/3 flex flex-col justify-around">
       <NuxtLink :to="url">
         <NuxtImg 
           v-if="imageFile"
@@ -9,12 +8,9 @@
           :alt="imageAlt"
         />
       </NuxtLink>
-    </div>
-    <div class="h-1/3">
       <NuxtLink :to="url">
         <slot></slot>
       </NuxtLink>
-    </div>
   </div>
 </template>
 
