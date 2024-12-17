@@ -1,21 +1,21 @@
 <template>
-  <div class="flex flex-col justify-start">
-    <div class="h-6rem flex flex-col justify-around mb-5">
-      <NuxtLink :to="url">
-        <NuxtImg class="rounded max-w-[10rem] max-h-[6rem] mb-2 mx-auto" :src='`/images/${imageFile}`' :alt="imageAlt"/>
-      </NuxtLink>
-    </div>
-    <div class="">
-      <NuxtLink :to="url">
-        <slot></slot>
-      </NuxtLink>
-    </div>
+  <div class="flex flex-col">
+    <NuxtImg
+      v-if="imageFile"
+      class="rounded-full mx-auto mb-4"
+      :src='`/images/${imageFile}`'
+      :alt="imageAlt"
+      height="100"
+      width="100"
+      fit="cover"
+    />
+
+    <slot />
   </div>
 </template>
 
 <script setup>
 const props = defineProps({
-  url: String,
   title: String,
   imageFile: String,
   imageAlt: String

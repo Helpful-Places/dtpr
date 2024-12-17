@@ -13,17 +13,12 @@
 
           <ul>
             <li class="mb-5">
-              <NuxtLink to="https://helpful-places.gitbook.io/a-guide-to-dtpr" class="u-line border-dtpr-green-lighter">Design Guide <Icon class="inline" icon="fa6-solid:file-pdf" /></NuxtLink>
-              <p class="text-m mt-3 mb-3 indent-8"><strong>Description: </strong> An overview of the DTPR standard, its design rationale, and
-	guidance for deploying it in public spaces based on practical insights gained
-from in-field implementations
-</p>
+              <NuxtLink to="https://helpful-places.gitbook.io/a-guide-to-dtpr" class="u-line border-dtpr-green-lighter">DTPR Standard Guide</NuxtLink> – An overview of the DTPR standard, its design rationale, and
+                guidance for deploying it in public spaces based on practical insights gained
+                from in-field implementations
             </li>
             <li class="mb-5">
-              <NuxtLink to="https://github.com/Helpful-Places/dtpr/tree/main/resources/icons" class="u-line border-dtpr-green-lighter">Icons</NuxtLink>
-              <p class="text-m mt-3 mb-3 indent-8"><strong>Description: </strong>GitHub repository hosting all DTPR icon SVG files, ready for
-download.
-</p>
+              <NuxtLink to="https://github.com/Helpful-Places/dtpr/tree/main/resources/icons" class="u-line border-dtpr-green-lighter">Icons</NuxtLink> – GitHub repository hosting all DTPR icon SVG files, ready for download.
             </li>
           </ul>
           <p>Helpful Places, a social impact enterprise, offers solutions and services that support DTPR implementation and adoption. Please see the <a href="https://www.helpfulplaces.com">Helpful Places website</a> for more information</p>
@@ -38,16 +33,14 @@ download.
 
           <h3>2023</h3>
           <ul class="list-disc">
-            <li><NuxtLink to="https://medium.com/@helpfulplaces/us-dtpr-pilot-implementations-planned-in-miami-charlotte-and-west-palm-beach-in-2023-as-part-of-69f9efba65e4">US DTPR pilot implementations planned in Miami, Charlotte and West Palm Beach in 2023 as part of the Knight Community DTPR Program</NuxtLink></li>
-            <li><NuxtLink to="https://medium.com/@helpfulplaces/helpful-places-releases-2022-dtpr-city-cohort-program-report-a00a40dee736">Helpful Places releases 2022 DTPR City Cohort Program Report</NuxtLink></li>
-            <li><NuxtLink to="https://medium.com/@helpfulplaces/first-australian-deployment-of-dtpr-launches-9fbf8e700cdb">First Australian Deployment of DTPR Launches</NuxtLink></li>
-
-            
+            <li><NuxtLink to="https://medium.com/@helpfulplaces/us-dtpr-pilot-implementations-planned-in-miami-charlotte-and-west-palm-beach-in-2023-as-part-of-69f9efba65e4" class="u-line border-dtpr-green-lighter">US DTPR pilot implementations planned in Miami, Charlotte and West Palm Beach in 2023 as part of the Knight Community DTPR Program</NuxtLink></li>
+            <li><NuxtLink to="https://medium.com/@helpfulplaces/helpful-places-releases-2022-dtpr-city-cohort-program-report-a00a40dee736" class="u-line border-dtpr-green-lighter">Helpful Places releases 2022 DTPR City Cohort Program Report</NuxtLink></li>
+            <li><NuxtLink to="https://medium.com/@helpfulplaces/first-australian-deployment-of-dtpr-launches-9fbf8e700cdb" class="u-line border-dtpr-green-lighter">First Australian Deployment of DTPR Launches</NuxtLink></li>
           </ul>
 
           <h3 class="mt-4">2022</h3>
           <ul class="list-disc">
-            <li><NuxtLink to="https://medium.com/@helpfulplaces/announcing-the-launch-of-the-2022-dtpr-city-cohort-b2cb55699925" class="u-line border-dtpr-green-lighter">Annoucement of Helpful Places' 2022 DTPR cohort</NuxtLink></li>
+            <li><NuxtLink to="https://medium.com/@helpfulplaces/announcing-the-launch-of-the-2022-dtpr-city-cohort-b2cb55699925" class="u-line border-dtpr-green-lighter">Announcement of Helpful Places' 2022 DTPR cohort</NuxtLink></li>
           </ul>
 
           <h3 class="mt-4">2019</h3>
