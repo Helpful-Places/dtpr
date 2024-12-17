@@ -53,8 +53,6 @@
 
       <div class="md:flex gap-8 mt-8">
         <div class="card text-dtpr-blue-950 partners">
-          <h2>Partners</h2>
-
           <div class="flex items-center mt-8">
             <div class="hidden md:block min-w-[10rem]">
               <NuxtLink to="https://www.helpfulplaces.com/"><img class="max-w-[8rem]" src="/images/hp_logo.png"
@@ -77,18 +75,17 @@
           </div>
 
           <div class="items-center mt-8">
-            DTPR has had a variety of supporters and champions since its inception:
-            <div class="items-center mt-8">
-              <h3 class="text-center text-lg font-bold"> Partners that have supported and enabled DTPR deployments in
-                collaboration with Helpful Places:</h3>
+            <div class="items-center mt-12">
+              <h3 class="text-center text-2xl">Partners that have supported and enabled DTPR deployments in
+                collaboration with Helpful Places</h3>
               <div class="grid mb-20 md:grid-cols-3 lg:grid-cols-4 mt-8 gap-10 text-center font-bold text-m">
-                <PartnerCard url="#" imageFile="alm-logo.png" imageAlt="Angers Loire Metropole logo">
+                <PartnerCard url="https://angers.dtpr.guide/" imageFile="alm-logo.png" imageAlt="Angers Loire Metropole logo">
                   Angers Loire Metropolitan
                 </PartnerCard>
-                <PartnerCard url="#" image-file="angers-university-logo.svg" image-alt="Angers University Logo">
-                  Angers University Research Lab
+                <PartnerCard url="https://p2ac.univ-angers.fr/" image-file="angers-university-logo.svg" image-alt="Angers University Logo">
+                  Angers University Userlab
                 </PartnerCard>
-                <PartnerCard image-file="civiteo-logo.jpg" image-alt="Civiteo Logo">
+                <PartnerCard url="https://civiteo.fr/" image-file="civiteo-logo.jpg" image-alt="Civiteo Logo">
                   CIVITEO
                 </PartnerCard>
                 <PartnerCard
@@ -96,37 +93,37 @@
                   imageFile="boston-logo.png" imageAlt="City of Boston logo">
                   City of Boston
                 </PartnerCard>
-                <PartnerCard url="#" image-file="city-of-calgary.png" image-alt="Calgary City Logo">
+                <PartnerCard image-file="city-of-calgary.png" image-alt="Calgary City Logo">
                   City of Calgary
                 </PartnerCard>
                 <PartnerCard url="https://longbeach.gov/smartcity/projects/digital-rights-platform/"
                   imageFile="long-beach-logo.png" imageAlt="City of Long Beach logo">
                   City of Long Beach
                 </PartnerCard>
-                <PartnerCard url="#" imageFile="dc-logo.svg" imageAlt="City of Washington, DC logo">
+                <PartnerCard url="https://dc.dtpr.guide/" imageFile="dc-logo.svg" imageAlt="City of Washington, DC logo">
                   City of Washington D.C
                 </PartnerCard>
-                <PartnerCard url="#" image-file="wpb-logo.png" image-alt="West Palm Beach City Logo">
+                <PartnerCard url="https://wpb.dtpr.guide/" image-file="wpb-logo.png" image-alt="West Palm Beach City Logo">
                   City of West Palm Beach
                 </PartnerCard>
-                <PartnerCard url="#" image-file="cpc-logo.jpg" image-alt="Connected Places Catapult Logos">
+                <PartnerCard url="https://bristol-siz.dtpr.guide/" image-file="cpc-logo.jpg" image-alt="Connected Places Catapult Logos">
                   Connected Places Catapult
                 </PartnerCard>
-                <PartnerCard url="#" image-file="fau-logo.png" image-alt="Florida Atlantic University Logo">
+                <PartnerCard image-file="fau.png" image-alt="Florida Atlantic University Logo">
                   Florida Atlantic University
                 </PartnerCard>
-                <PartnerCard url="#" image-file="knight-logo.png" image-alt="Knight Foundation Logo">
+                <PartnerCard url="https://medium.com/@helpfulplaces/us-dtpr-pilot-implementations-planned-in-miami-charlotte-and-west-palm-beach-in-2023-as-part-of-69f9efba65e4" image-file="knight-logo.png" image-alt="Knight Foundation Logo">
                   Knight Foundation
                 </PartnerCard>
-                <PartnerCard url="#" image-file="mc-logo.png" image-alt="Michigan Central Logo">
+                <PartnerCard url="https://michigancentral.com/innovation/" image-file="mc-logo.png" image-alt="Michigan Central Logo">
                   Michigan Central
                 </PartnerCard>
-                <PartnerCard url="#" image-file="paris-17-logo.png" image-alt="Paris 17 Logo">
+                <PartnerCard url="https://mairie17.paris.fr/pages/open-batignolles-un-quartier-intelligent-en-evolution-26383" image-file="paris-17-logo.png" image-alt="Paris 17 Logo">
                   Paris 17
                 </PartnerCard>
-                <PartnerCard url="#" image-file="porto-digital-logo.png" image-alt="Porto Digtal logo">Porto Digital
+                <PartnerCard url="https://transparenciadigital.porto.digital/" image-file="porto-digital-logo.png" image-alt="Porto Digtal logo">Porto Digital
                 </PartnerCard>
-                <PartnerCard url="#" imageFile="sydney-olympic-park-logo.png" imageAlt="Sydney Olympic Park logo">
+                <PartnerCard url="https://sopa.dtpr.guide/" imageFile="sydney-olympic-park-logo.png" imageAlt="Sydney Olympic Park logo">
                   Sydney Olympic Park
                 </PartnerCard>
                 <PartnerCard
@@ -134,54 +131,54 @@
                   imageFile="innisfil-logo.svg" imageAlt="City of Innisfil logo">
                   Town of Innisfil
                 </PartnerCard>
-                <!-- <PartnerCard url="#" image-file="us-doe-logo.png" image-alt="US Department of Energy Logo">
+                <PartnerCard url="https://clt.dtpr.guide/" image-file="clt.jpg" image-alt="City of Charlotte Logo">
                   City of Charlotte
                 </PartnerCard>
-                <PartnerCard url="#" image-file="us-doe-logo.png" image-alt="US Department of Energy Logo">
-                  The Underline (Miami)
-                </PartnerCard> -->
+                <PartnerCard url="https://theunderline.dtpr.guide/" image-file="underline.jpeg" image-alt="The Underline | Miami Logo">
+                  The Underline | Miami
+                </PartnerCard>
               </div>
             </div>
-            <div class="items-center mt-8">
-              <h3 class="text-center text-lg font-bold">Initiatives and partners supporting the evolution of the DTPR
-                standard:</h3>
+            <div class="items-center mt-12">
+              <h3 class="text-center text-2xl">Initiatives and partners supporting the evolution of the DTPR
+                standard</h3>
               <div class="grid mb-20 md:grid-cols-3 lg:grid-cols-4 mt-8 gap-10 text-center font-bold text-lg">
-                <PartnerCard url="#" image-file="cscwg-logo.jpg" image-alt="picture of workshop activity">
+                <PartnerCard url="https://www.us-ignite.org/blogs/ca-smart-city-signage-working-group-the-origin-story/" image-file="cscwg-logo.jpg" image-alt="picture of workshop activity">
                   California Smart City Signage Working Group
                 </PartnerCard>
-                <PartnerCard url="#" image-file="code-for-canada.jpg" image-alt="Code for Canada logo">
+                <PartnerCard url="https://codefor.ca/" image-file="code-for-canada.jpg" image-alt="Code for Canada logo">
                   Code for Canada
                 </PartnerCard>
-                <PartnerCard url="#" image-file="digital-public-square.png" image-alt="Digital Public Square Logo">
+                <PartnerCard url="https://www.digitalpublicsquare.org/" image-file="digital-public-square.png" image-alt="Digital Public Square Logo">
                   Digital Public Square
                 </PartnerCard>
-                <!-- <PartnerCard 
-                  url="#" 
-                  image-file="g20.png" 
+                <PartnerCard 
+                  url="https://www.globalsmartcitiesalliance.org/" 
+                  image-file="g20.png"
                   image-alt="G20 smart cities alliance logo">
                     G20 Smart Cities Alliance
-                </PartnerCard> -->
-                <PartnerCard url="#" image-file="glia-logo.jpg" image-alt="Glia Foundation Logo">
+                </PartnerCard>
+                <PartnerCard url="https://www.glia.net/" image-file="glia-logo.jpg" image-alt="Glia Foundation Logo">
                   GLIA Foundation
                 </PartnerCard>
-                <PartnerCard url="#" image-file="superbloom-logo.png" image-alt="Superbloom logo">
+                <PartnerCard url="https://superbloom.design/" image-file="superbloom-logo.png" image-alt="Superbloom logo">
                   Superbloom Design
                 </PartnerCard>
-                <PartnerCard url="#" image-file="urbanAI-logo.jpg" image-alt="Urban AI Logo">
+                <PartnerCard url="https://urbanai.fr/" image-file="urbanAI-logo.jpg" image-alt="Urban AI Logo">
                   Urban AI
                 </PartnerCard>
-                <PartnerCard url="#" image-file="US-Ignite-logo.png" image-alt="US Ignite Logo">
+                <PartnerCard url="https://www.us-ignite.org/" image-file="US-Ignite-logo.png" image-alt="US Ignite Logo">
                   US Ignite
                 </PartnerCard>
-                <PartnerCard url="#" image-file="" image-alt="">
+                <PartnerCard url="https://www.weforum.org/connectedworld/initiatives/" image-file="wef.svg" image-alt="World Economic Forum logo">
                   World Economic Forum Future of the Connected World initiative
                 </PartnerCard>
               </div>
             </div>
 
-            <div class="items-center mt-8">
-              <h3 class="text-center text-lg font-bold">Collaborators and partners involved in the original co-design of
-                DTPR: </h3>
+            <div class="items-center mt-12">
+              <h3 class="text-center text-2xl">Collaborators and partners involved in the original co-design of
+                DTPR</h3>
               <div class="grid md:grid-cols-3 lg:grid-cols-4 mt-8 gap-10 text-center font-bold text-lg">
                 <PartnerCard url="https://www.normative.com/" image-file="normative-logo.jpg"
                   image-alt="Normative logo">
