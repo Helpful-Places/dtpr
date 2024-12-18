@@ -43,8 +43,8 @@ useHead({
 
     <Card class="grid md:grid-cols-2 gap-12 mt-8 font-normal">
       <COPC-Card url="#" imageFile="CoPC-Headshots/charles.png" imageAlt="Headshot of Charles Finley">
-        <strong>Charles Finley: </strong> The DTPR Community of Practice Council is led by Charles Finley, the
-        DTPR Governance Lead.
+        <strong>Charles Finley</strong> 
+        Charles is the DTPR Governance Lead for Helpful Places and has been involved with the evolution of the DTPR standard from the very first workshops in 2019. He is a civic tech leader in Canada as co-founder and founding Chair at Code for Canada as well as member of the Ontario Information and Privacy Commission's Strategic Advisory Council. He serves as Chief Growth Officer with multidisciplinary engineering firm MTE Consultants and as Strategic Advisor to the Diversity Institute at Toronto Metropolitan University where he leverages his extensive expertise in driving organizational growth, strategic transformation, and program development. Charles previously served on the Waterfront Toronto Digital Strategy Advisory Panel with respect to the Sidewalk Labs project and has held executive-level roles with IBI Group,  Futurpreneur Canada, MaRS Discovery District and Thomson Reuters, contributing significantly to Canada’s city-building, tech, innovation and non-profit sectors.
       </COPC-Card>
 
       <COPC-Card url="#" imageFile="CoPC-Headshots/Dana.jpg" imageAlt="Headshot of Dana">
