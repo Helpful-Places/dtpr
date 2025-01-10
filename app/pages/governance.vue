@@ -44,7 +44,7 @@ useHead({
     <Card class="grid md:grid-cols-2 gap-12 mt-8 font-normal">
       <COPC-Card url="#" imageFile="CoPC-Headshots/charles.png" imageAlt="Headshot of Charles Finley">
         <strong>Charles Finley</strong>
-        Charles is the DTPR Governance Lead for Helpful Places and has been involved with the evolution of the DTPR
+        is the DTPR Governance Lead for Helpful Places and has been involved with the evolution of the DTPR
         standard from the very first workshops in 2019. He is a civic tech leader in Canada as co-founder and founding
         Chair at Code for Canada as well as member of the Ontario Information and Privacy Commission's Strategic
         Advisory Council. He serves as Chief Growth Officer with multidisciplinary engineering firm MTE Consultants and
@@ -57,7 +57,7 @@ useHead({
 
       <COPC-Card url="#" imageFile="CoPC-Headshots/Albert.jpg" imageAlt="Headshot of Albert Gehami">
         <strong>Albert Gehami</strong>
-        Albert Gehami is the Privacy Officer for the City of San José, overseeing responsible and effective deployment
+        is the Privacy Officer for the City of San José, overseeing responsible and effective deployment
         of AI, technology, and data initiatives. Under his leadership, San José has been recognized as a national leader
         in privacy and AI governance, having been highlighted as a national exemplar by the White House, National
         Institute of Standards and Technology, Department of Homeland Security, and other forums. His office is
@@ -66,8 +66,8 @@ useHead({
       </COPC-Card>
 
       <COPC-Card url="#" imageFile="CoPC-Headshots/Dana.jpg" imageAlt="Headshot of Dana">
-        <strong>Dana Chermesh-Reshef, Founder & CEO, inCitu</strong>
-        Dana is an architect specialized in infill development and housing policies, turned urban data scientist
+        <strong>Dana Chermesh-Reshef</strong>
+        is Founder & CEO of inCitu, and an architect specialized in infill development and housing policies, turned urban data scientist
         (NYU CUSP '18). In 2020, Dana founded inCitu: a startup on the mission to democratize city planning
         through augmented reality (AR).
         Prior to inCitu Dana worked at the New York City Department of City Planning (DCP), her research on the
