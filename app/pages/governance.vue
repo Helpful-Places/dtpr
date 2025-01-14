@@ -191,7 +191,7 @@ useHead({
       </COPC-Card>
 
       <COPC-Card url="#" imageFile="" imageAlt="Headshot of Anu Devi">
-        <strong>Anu Devi</strong> lead G20 Global Smart Cities Alliance at World Economic Forum’s Centre for
+        <strong>Anu Devi</strong> Lead, G20 Global Smart Cities Alliance at World Economic Forum’s Centre for
         Urban Transformation.
       </COPC-Card>
     </Card>
