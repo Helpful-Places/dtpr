@@ -1,7 +1,7 @@
 ---
 category: tech
 name: Sonomètre
-id: sound-level
+id: sound_level
 description: Effectue des mesures acoustiques, le plus souvent pour mesurer la
   pollution sonore. En savoir
   plus [cliquez-ici](https://fr.wikipedia.org/wiki/Sonom%C3%A9tre)

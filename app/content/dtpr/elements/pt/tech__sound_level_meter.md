@@ -1,5 +1,5 @@
 ---
 category: tech
-id: sound-level
+id: sound_level
 icon: /dtpr-icons/sound_level_meter.svg
 ---
