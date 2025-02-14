@@ -1,7 +1,5 @@
 ---
 category: tech
-name: Sonômetro
-id: sound_level_meter
-description: Efectua medições acústicas, geralmente para medir a poluição sonora.
+id: sound_level
 icon: /dtpr-icons/sound_level_meter.svg
 ---
