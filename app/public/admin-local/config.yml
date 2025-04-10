@@ -27,14 +27,14 @@ collections:
   - name: "categories" # Used in routes, e.g., /admin/collections/blog
     i18n: true
     label: "Category" # Used in the UI
-    slug: '{{category}}__{{id}}'
+    slug: '{{id}}'
     folder: "content/dtpr/categories" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     identifier_field: name
     fields: # The fields for each document, usually in front matter
       - {label: "Name", name: "name", widget: "string", i18n: true}
       - {label: "Headline", name: "headline", widget: "string", i18n: true}
-      - {label: "ID", name: "id", widget: "string", i18n: "duplicate"}
+      - {label: "ID", name: "id", widget: "string", i18n: "duplicate"}    
   - name: "elements" # Used in routes, e.g., /admin/collections/blog
     i18n: true
     label: "Element" # Used in the UI
@@ -58,6 +58,27 @@ collections:
       - {label: "Name", name: "name", widget: "string", i18n: true}
       - {label: "ID", name: "id", widget: "string", i18n: "duplicate"}
       - {label: "Description", name: "description", widget: "markdown", i18n: true}
+      - {label: "Citation", name: "citation", widget: "markdown", i18n: true}
+      - label: "Variables"
+        name: "variables"
+        widget: "list"
+        fields:
+          - label: "ID"
+            name: "id"
+            widget: "string"
+            i18n: "duplicate"
+          - label: "Label"
+            name: "label"
+            widget: "string"
+            i18n: true
+          - label: "Required"
+            name: "required"
+            widget: "boolean"
+            i18n: "duplicate"
+          - label: "Default"
+            name: "default"
+            widget: "string"
+            i18n: "duplicate"
       - label: "Icon"
         name: "icon"
         widget: "image"
