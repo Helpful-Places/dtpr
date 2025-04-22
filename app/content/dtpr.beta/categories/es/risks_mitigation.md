@@ -1,4 +1,0 @@
----
-id: risks_mitigation
-
----
