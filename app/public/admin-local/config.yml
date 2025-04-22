@@ -24,6 +24,14 @@ media_folder: "public/dtpr-icons"
 public_folder: "/dtpr-icons"
 
 collections:
+  - name: "datachain_types"
+    i18n: true
+    label: "Datachain Types" # Used in the UI
+    slug: "{{id}}"
+    folder: "content/dtpr/datachain_types" # The path to the folder where the documents are stored
+    fields:
+      - {label: "ID", name: "id", widget: "string", i18n: "duplicate"}
+      - {label: "Name", name: "name", widget: "string", i18n: true}
   - name: "categories" # Used in routes, e.g., /admin/collections/blog
     i18n: true
     label: "Category" # Used in the UI
@@ -31,10 +39,44 @@ collections:
     folder: "content/dtpr/categories" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     identifier_field: name
+    summary: "{{datachain_type}} – {{name}}"
     fields: # The fields for each document, usually in front matter
+      - {label: "ID", name: "id", widget: "string", i18n: "duplicate"}
       - {label: "Name", name: "name", widget: "string", i18n: true}
-      - {label: "Headline", name: "headline", widget: "string", i18n: true}
-      - {label: "ID", name: "id", widget: "string", i18n: "duplicate"}    
+      - {label: "Description", name: "description", widget: "string", i18n: true, required: false}
+      - {label: "Question", name: "question", widget: "string", i18n: true, required: false}
+      - label: "Datachain Types"
+        name: "datachain_type"
+        widget: "relation"
+        collection: "datachain_types"
+        value_field: "id"
+        search_fields: ["name", "id"]
+        display_fields: ["name"]
+        i18n: "duplicate"
+      - label: "Element Variables"
+        name: "element_variables"
+        widget: "list"
+        fields:
+          - label: "ID"
+            name: "id"
+            widget: "string"
+            i18n: "duplicate"
+          - label: "Label"
+            name: "label"
+            widget: "string"
+            i18n: true
+          - label: "Required"
+            name: "required"
+            widget: "boolean"
+            i18n: "duplicate"
+          - label: "Default"
+            name: "default"
+            widget: "string"
+            i18n: "duplicate"
+          - label: "Schema"
+            name: "schema"
+            widget: "string"
+            i18n: "duplicate"
   - name: "elements" # Used in routes, e.g., /admin/collections/blog
     i18n: true
     label: "Element" # Used in the UI
@@ -58,31 +100,11 @@ collections:
       - {label: "Name", name: "name", widget: "string", i18n: true}
       - {label: "ID", name: "id", widget: "string", i18n: "duplicate"}
       - {label: "Description", name: "description", widget: "markdown", i18n: true}
-      - {label: "Citation", name: "citation", widget: "markdown", i18n: true}
-      - label: "Variables"
-        name: "variables"
-        widget: "list"
-        fields:
-          - label: "ID"
-            name: "id"
-            widget: "string"
-            i18n: "duplicate"
-          - label: "Label"
-            name: "label"
-            widget: "string"
-            i18n: true
-          - label: "Required"
-            name: "required"
-            widget: "boolean"
-            i18n: "duplicate"
-          - label: "Default"
-            name: "default"
-            widget: "string"
-            i18n: "duplicate"
+      - {label: "Citation", name: "citation", widget: "markdown", i18n: true, required: false}
       - label: "Icon"
         name: "icon"
         widget: "image"
         choose_url: false
         allow_multiple: false
         i18n: "duplicate"
-        
+  
