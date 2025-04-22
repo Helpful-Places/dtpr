@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Imagem
 id: image
 description: Gera imagens fixas.

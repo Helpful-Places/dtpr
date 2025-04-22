@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Personal Device
 id: personal_device
 description: "A mobile device that combines cellular and mobile computing

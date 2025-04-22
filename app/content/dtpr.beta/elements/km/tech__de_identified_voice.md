@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: សំលេងដែលត្រូវបានកំណត់អត្តសញ្ញាណ
 id: de_identified_voice
 description: បង្កើតទិន្នន័យអូឌីយ៉ូដែលអាចកំណត់អត្តសញ្ញាណបុគ្គល

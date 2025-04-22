@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Video identificable
 id: identifiable_video
 description: Genera [imágenes de video](https://en.wikipedia.org/wiki/video) de

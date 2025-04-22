@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Assistance Station
 id: assistance_station
 description: Provides access to assistive services. Examples include [assistive

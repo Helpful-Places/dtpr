@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Identifiable NFC
 id: identifiable_nfc
 description: A wireless communication protocol for electronic devices that are

@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: Cero pruebas de conocimiento
 id: zero_knowledge_proofs
 description: Una prueba de conocimiento cero es un método por el cual una parte

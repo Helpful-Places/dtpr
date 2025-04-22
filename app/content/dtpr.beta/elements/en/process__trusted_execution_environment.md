@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: "Trusted Execution Environment "
 id: trusted_execution_environment
 description: "A TEE is an isolated environment created using  special purpose

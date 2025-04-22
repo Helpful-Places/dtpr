@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Emplacement Beacon
 id: location_beacon
 description: Les balises sont des émetteurs matériels Bluetooth à faible énergie

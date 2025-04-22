@@ -1,5 +1,7 @@
 ---
-category: purpose
+category: 
+  - sensor__purpose
+  - ai__purpose
 name: Inform
 id: inform
 description: Supports the provision of information, for example about a

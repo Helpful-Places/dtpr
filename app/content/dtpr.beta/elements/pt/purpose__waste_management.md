@@ -1,5 +1,7 @@
 ---
-category: purpose
+category: 
+  - sensor__purpose
+  - ai__purpose
 name: Gestão de resíduos
 id: waste_management
 description: Apoia o manuseamento e a eliminação de resíduos, incluindo recicláveis, composto e materiais perigosos.

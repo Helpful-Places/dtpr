@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Sistema de aeronaves não tripuladas
 id: unmanned_aircraft_system
 description: Um sistema de aeronaves não tripuladas (UAS) consiste numa aeronave

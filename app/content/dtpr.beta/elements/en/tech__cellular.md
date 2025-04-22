@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Cellular
 id: cellular
 description: This devices uses a cellular communication network where the last

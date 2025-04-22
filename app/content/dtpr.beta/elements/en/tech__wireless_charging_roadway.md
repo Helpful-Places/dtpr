@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Wireless Charging Roadway
 id: wireless_charging_roadway
 description: Copper coil segments buried under the road are activated to charge

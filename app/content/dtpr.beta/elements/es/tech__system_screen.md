@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Pantalla del sistema
 id: system_screen
 description: Las personas pueden interactuar con este sistema digital utilizando

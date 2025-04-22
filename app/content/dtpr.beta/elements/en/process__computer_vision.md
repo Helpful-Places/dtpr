@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: Computer vision
 id: computer_vision
 description: Computer vision refers to computer science methodologies that

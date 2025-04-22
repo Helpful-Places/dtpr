@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 id: electric_vehicle_charger
 icon: /dtpr-icons/electric_vehicle_charger.svg
 name: Station de recharge de véhicule électrique

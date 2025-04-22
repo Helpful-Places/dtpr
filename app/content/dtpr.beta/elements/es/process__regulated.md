@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: Regulado
 id: regulated
 description: Dependiendo de la jurisdicción y el tipo de datos, los datos están regulados de varias maneras

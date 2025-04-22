@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 description: Toutes les interactions avec les données tout au long de leur cycle de
   vie, y compris l'accés et les transformations appliquées, sont enregistrées dans
   un registre de requêtes immuable, créant ainsi une chaîne de responsabilité vérifiable,

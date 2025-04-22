@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Voice
 id: voice
 description: Audio data is collected that does or can identify individuals,

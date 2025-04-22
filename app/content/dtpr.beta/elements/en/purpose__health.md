@@ -1,5 +1,7 @@
 ---
-category: purpose
+category: 
+  - sensor__purpose
+  - ai__purpose
 name: Health
 id: health
 description: "Supports the measurement or monitoring of the aspects of the

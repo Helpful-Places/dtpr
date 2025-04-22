@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: Cryptonets
 id: cryptonets
 description: Cryptonets are neural networks that can be applied to encrypted

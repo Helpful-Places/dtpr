@@ -1,5 +1,7 @@
 ---
-category: purpose
+category: 
+  - sensor__purpose
+  - ai__purpose
 name: Connectivity
 id: connectivity
 description: Enables connectivity of devices to a digital network. Find out more

@@ -114,12 +114,13 @@ collections:
         collection: "categories"
         value_field: "id"
         search_fields: ["name", "id"]
-        display_fields: ["name"]
+        display_fields: ["datachain_type", "name"]
         i18n: "duplicate"
+        multiple: true
       - {label: "Name", name: "name", widget: "string", i18n: true}
       - {label: "ID", name: "id", widget: "string", i18n: "duplicate"}
       - {label: "Description", name: "description", widget: "markdown", i18n: true}
-      - {label: "Citation", name: "citation", widget: "markdown", i18n: true, required: false}
+      - {label: "References", name: "references", widget: "markdown", i18n: true, required: false}
       - label: "Icon"
         name: "icon"
         widget: "image"

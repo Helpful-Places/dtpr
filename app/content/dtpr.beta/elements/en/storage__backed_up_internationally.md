@@ -1,5 +1,7 @@
 ---
-category: storage
+category:
+  - sensor__storage
+  - ai__storage
 name: Backed up internationally
 id: backed_up_internationally
 description: Data is backed up outside the jurisdiction where it was collected.

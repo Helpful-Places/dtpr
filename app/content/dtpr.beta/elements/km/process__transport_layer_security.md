@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: សន្តិសុខស្រទាប់សេវាដឹកជញ្ជូន
 id: transport_layer_security
 description: សន្តិសុខស្រទាប់សេវាដឹកជញ្ជូនឬ TLS

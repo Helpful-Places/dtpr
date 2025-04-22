@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Intercom
 id: intercom
 description: An intercom (intercommunication device) is a stand-alone voice

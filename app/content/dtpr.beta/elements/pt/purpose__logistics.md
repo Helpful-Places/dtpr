@@ -1,5 +1,7 @@
 ---
-category: purpose
+category: 
+  - sensor__purpose
+  - ai__purpose
 name: Logística
 id: logistics
 description: Apoia a circulação de mercadorias ou materiais.

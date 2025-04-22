@@ -1,5 +1,7 @@
 ---
-category: purpose
+category: 
+  - sensor__purpose
+  - ai__purpose
 name: ផស្ថ
 id: logistics
 description: គាំទ្រចលនាទំនិញឬសម្ភារៈ។ ស្វែងយល់បន្ថែម [នៅទីនេះ](https://en.wikipedia.org/wiki/logists)

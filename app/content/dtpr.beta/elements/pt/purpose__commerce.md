@@ -1,5 +1,7 @@
 ---
-category: purpose
+category: 
+  - sensor__purpose
+  - ai__purpose
 name: Comércio
 id: commerce
 description: Permite a compra e venda de bens e serviços.

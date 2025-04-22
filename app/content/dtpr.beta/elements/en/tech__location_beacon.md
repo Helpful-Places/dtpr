@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Location Beacon
 id: location_beacon
 description: Beacons are Bluetooth low energy (LE) hardware transmitters  that

@@ -1,5 +1,7 @@
 ---
-category: purpose
+category: 
+  - sensor__purpose
+  - ai__purpose
 description: Permet de créer un environnement sór et/ou sécurisé, par exemple à des
   fins de [sécurité incendie](https://fr.wikipedia.org/wiki/Prévention_incendie),
   de [détection des intrusions](https://fr.wikipedia.org/wiki/Alarme_anti-intrusion)

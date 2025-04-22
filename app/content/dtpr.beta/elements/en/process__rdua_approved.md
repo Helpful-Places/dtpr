@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: RDUA Approved
 id: rdua_approved
 description: Data activity has undergone a Responsible Data Use Assessment and

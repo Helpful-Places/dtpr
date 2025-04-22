@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Electric vehicle charger
 id: electric_vehicle_charger
 description: An electric vehicle charger (EV charger) supplies power for

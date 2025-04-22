@@ -1,5 +1,8 @@
 ---
-category: data
+category: 
+  - sensor__data
+  - ai__input_dataset
+  - ai__output_dataset
 name: Spatial
 id: spatial
 description: Data that represents a location, such as an address, a place name

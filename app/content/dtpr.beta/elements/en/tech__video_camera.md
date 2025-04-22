@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Video camera
 id: video_camera
 description: Generates video footage. Find out more

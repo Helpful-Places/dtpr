@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Augmented Reality
 id: augmented_reality
 description: Augmented reality is a technology that combines both physical and

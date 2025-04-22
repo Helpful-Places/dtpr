@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Thermometer
 id: thermometer
 description: Measures the temperature of or changes of temperature in the

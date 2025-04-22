@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: Sécurité de la couche transport
 id: transport_layer_security
 description: Transport Layer Security, ou TLS, est un protocole de sécurité

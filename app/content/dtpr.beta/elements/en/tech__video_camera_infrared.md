@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Video camera - infrared
 id: video_camera_infrared
 description: Generates video footage in the

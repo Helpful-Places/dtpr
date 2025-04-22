@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: ត្រូវបានកំណត់អត្តសញ្ញាណ
 id: de_identified
 description: ទិន្នន័យដែលត្រូវបានដំណើរការដើម្បីលុបតម្លៃកំណត់រចនាសម្ព័ន្ធជាធម្មតាដើម្បីការពារភាពឯកជន។

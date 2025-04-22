@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Caméra vidéo - infrarouge
 id: video_camera_infrared
 description: Génère des séquences vidéo dans la partie

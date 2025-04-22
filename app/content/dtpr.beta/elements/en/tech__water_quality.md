@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Water Quality
 id: water_quality
 description: Measures various aspects of water quality, such as the amount of

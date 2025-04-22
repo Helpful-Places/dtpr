@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Voz no identificada
 id: de_identified_voice
 description: Genera datos de audio que pueden identificar a las personas, pero

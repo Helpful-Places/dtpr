@@ -1,5 +1,7 @@
 ---
-category: storage
+category:
+  - sensor__storage
+  - ai__storage
 name: Armazenados principalmente a nível internacional
 id: stored_primarily_internationally
 description: Os dados são armazenados fora da jurisdição onde foram recolhidos.

@@ -1,5 +1,7 @@
 ---
-category: access
+category:
+  - sensor__access
+  - ai__access
 name: Available to me
 id: available_to_me
 description: Available to me but not to other individuals. For example, as an

@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Image dé-identifiée
 id: de_identified_image
 description: Génère des images fixes d'une résolution suffisante pour permettre

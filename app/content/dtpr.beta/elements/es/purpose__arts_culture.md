@@ -1,5 +1,7 @@
 ---
-category: purpose
+category: 
+  - sensor__purpose
+  - ai__purpose
 name: Artes y cultura
 id: arts_culture
 description: Habilita la expresión artística y/o cultural.

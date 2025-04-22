@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: Aggregated
 id: aggregated
 description: Data that has been grouped or summarized from individual

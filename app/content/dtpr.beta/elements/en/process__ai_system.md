@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: AI System
 id: ai_system
 description: Data that is processed by automated, algorithmic or artificial

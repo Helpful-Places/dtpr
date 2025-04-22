@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: Informatique multipartite sécurisée
 id: secure_multi_party_computing
 description: Le calcul multipartite sécurisé est un sous-domaine de la

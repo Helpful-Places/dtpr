@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: LiDAR
 id: li_dar
 description: Uses lasers to measure distances to objects, collecting data that

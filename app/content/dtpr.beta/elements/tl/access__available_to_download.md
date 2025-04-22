@@ -1,5 +1,7 @@
 ---
-category: access
+category:
+  - sensor__access
+  - ai__access
 name: Magagamit upang i -download
 id: available_to_download
 description: Datos na maaaring ma-access at mai-download online, maging libre man o may bayad

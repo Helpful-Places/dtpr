@@ -1,5 +1,7 @@
 ---
-category: storage
+category:
+  - sensor__storage
+  - ai__storage
 name: Stockage et gouvernance partagés
 id: shared_storage_and_governance
 description: Dans un modéle de magasin de données partagé, le magasin de données

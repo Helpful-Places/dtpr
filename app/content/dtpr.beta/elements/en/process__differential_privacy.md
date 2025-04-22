@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: Differential privacy
 id: differential_privacy
 description: Differential privacy is a system for publicly sharing information

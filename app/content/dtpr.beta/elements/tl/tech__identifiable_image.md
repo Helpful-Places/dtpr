@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Makikilalang imahe
 id: identifiable_image
 description: Bumubuo ng mga still na larawan ng sapat na resolution kung saan

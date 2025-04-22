@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Video Camera
 id: video_camera
 description: Bumubuo ng video footage.

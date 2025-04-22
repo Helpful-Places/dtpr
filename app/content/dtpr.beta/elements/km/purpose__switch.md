@@ -1,5 +1,7 @@
 ---
-category: purpose
+category: 
+  - sensor__purpose
+  - ai__purpose
 name: ការបិត
 id: switch
 description: គាំទ្រមុខងារមេកានិច - ដូចជាការបិទឬបិទឧបករណ៍បើកឬបិទឬកែតម្រូវពន្លឺនិងអាំងតង់ស៊ីតេ។

@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: រូបភាពដែលអាចកំណត់អត្តសញ្ញាណបាន
 id: identifiable_image
 description: បង្កើតរូបភាពបន្តនៃគុណភាពបង្ហាញគ្រប់គ្រាន់

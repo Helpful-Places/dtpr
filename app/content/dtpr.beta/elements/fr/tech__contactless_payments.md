@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 description: Les systémes de paiement sans contact sont des cartes de crédit et de
   débit, des porte-clés, des cartes à puce ou d'autres dispositifs, y compris les
   smartphones et autres appareils mobiles, qui utilisent l'identification par radiofréquence

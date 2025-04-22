@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 id: induction_loop
 icon: /dtpr-icons/induction_loop.svg
 name: Boucle d'induction magnétique

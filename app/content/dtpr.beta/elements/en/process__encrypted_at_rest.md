@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: Encrypted at Rest
 id: encrypted_at_rest
 description: Encryption at Rest is the encryption of data when it is persisted

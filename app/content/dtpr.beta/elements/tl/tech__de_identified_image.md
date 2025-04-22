@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: De-kinikilala na imahe
 id: de_identified_image
 description: Bumubuo ng mga still na larawan ng sapat na resolution kung saan

@@ -1,5 +1,7 @@
 ---
-category: purpose
+category: 
+  - sensor__purpose
+  - ai__purpose
 name: Waste Management
 id: waste_management
 description: Supports the handling and disposal of waste, including as

@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Video desidentificado
 id: de_identified_video
 description: Recolhe imagens de vídeo com uma resolução suficiente para permitir

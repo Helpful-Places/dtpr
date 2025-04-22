@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: NFC
 id: nfc
 description: A wireless communication protocol for electronic devices that are

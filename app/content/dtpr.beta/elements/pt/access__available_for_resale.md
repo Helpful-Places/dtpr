@@ -1,5 +1,7 @@
 ---
-category: access
+category:
+  - sensor__access
+  - ai__access
 name: Disponível para revenda
 id: available_for_resale
 description: Os dados recolhidos podem ser revendidos a terceiros

@@ -1,5 +1,7 @@
 ---
-category: access
+category:
+  - sensor__access
+  - ai__access
 name: Not available to me
 id: not_available_to_me
 description: Not available to me or other individuals. As an individual, there

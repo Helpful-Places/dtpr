@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: K-Anonymity
 id: k_anonymity
 description: K-Anonymity is used to ensure anonymity when disclosing otherwise

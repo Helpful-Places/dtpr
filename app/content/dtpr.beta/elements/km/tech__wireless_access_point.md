@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: ចំណុចចូលប្រើឥតខ្សែ
 id: wireless_access_point
 description: ផ្តល់នូវការចូលប្រើឥតខ្សែឥតខ្សែទៅបណ្តាញកុំព្យូទ័រដែលមានខ្សែរឺអ៊ិនធឺរណែត។

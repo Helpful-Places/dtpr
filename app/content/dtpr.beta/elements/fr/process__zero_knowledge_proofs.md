@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: Les preuves à apport nul de connaissance
 id: zero_knowledge_proofs
 description: Une preuve de connaissance zéro est une méthode par laquelle une

@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Image identifiable
 id: identifiable_image
 description: "Génère des [images fixes](https://fr.wikipedia.org/wiki/Image)

@@ -1,5 +1,7 @@
 ---
-category: purpose
+category: 
+  - sensor__purpose
+  - ai__purpose
 name: Energy Efficiency
 id: energy_efficiency
 description: Reduces energy use and/or helps conserve energy. Find out more

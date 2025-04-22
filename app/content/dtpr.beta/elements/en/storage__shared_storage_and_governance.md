@@ -1,5 +1,7 @@
 ---
-category: storage
+category:
+  - sensor__storage
+  - ai__storage
 name: Shared storage and governance
 id: shared_storage_and_governance
 description: In a shared data store model the data store is shared across

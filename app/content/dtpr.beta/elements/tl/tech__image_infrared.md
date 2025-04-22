@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Larawan - Infrared
 id: image_infrared
 description: Bumubuo ng mga still na imahe sa infrared na bahagi ng

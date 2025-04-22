@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Identifiable Image
 id: identifiable_image
 description: Generates [still

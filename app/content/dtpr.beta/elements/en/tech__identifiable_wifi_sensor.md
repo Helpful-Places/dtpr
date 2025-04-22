@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Identifiable WiFi Sensor
 id: identifiable_wifi_sensor
 description: W﻿iFi sensors measure the strength of the wireless signals from

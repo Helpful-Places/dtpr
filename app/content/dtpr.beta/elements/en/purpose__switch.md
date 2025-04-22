@@ -1,5 +1,7 @@
 ---
-category: purpose
+category: 
+  - sensor__purpose
+  - ai__purpose
 name: Switch
 id: switch
 description: Supports a mechanical function - such as turning a device on or

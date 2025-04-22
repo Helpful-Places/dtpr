@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: Bitmap manipulation
 id: bitmap_manipulation
 description: Bitmap manipulation is the process of altering pixels in a
