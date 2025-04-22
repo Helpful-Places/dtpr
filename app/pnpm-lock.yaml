@@ -18,6 +18,9 @@ importers:
         specifier: ^13.0.1
         version: 13.0.2
     devDependencies:
+      '@iconify-json/fa6-brands':
+        specifier: ^1.2.5
+        version: 1.2.5
       '@nuxt/content':
         specifier: ^2.12.0
         version: 2.13.4(db0@0.3.1)(ioredis@5.6.0)(magicast@0.3.5)(nuxt@3.16.2(@parcel/watcher@2.5.1)(db0@0.3.1)(ioredis@5.6.0)(magicast@0.3.5)(rollup@4.39.0)(terser@5.39.0)(vite@6.2.5(jiti@2.4.2)(terser@5.39.0)(yaml@2.7.1))(yaml@2.7.1))(vue@3.5.13)
@@ -353,6 +356,9 @@ packages:
     engines: {node: '>=10'}
     peerDependencies:
       vue: ^3.2.0
+
+  '@iconify-json/fa6-brands@1.2.5':
+    resolution: {integrity: sha512-U/iFfziz6jSN9zArOJZYTtoj2tQyh6MxPdI8M84DQ2kEulPaj8j+h9bqvjmzszNHmD7v+kmmKd/MLkMKk+3Zuw==}
 
   '@iconify-json/heroicons@1.2.2':
     resolution: {integrity: sha512-qoW4pXr5kTTL6juEjgTs83OJIwpePu7q1tdtKVEdj+i0zyyVHgg/dd9grsXJQnpTpBt6/VwNjrXBvFjRsKPENg==}
@@ -4526,6 +4532,10 @@ snapshots:
     dependencies:
       '@tanstack/vue-virtual': 3.13.6(vue@3.5.13)
       vue: 3.5.13
+
+  '@iconify-json/fa6-brands@1.2.5':
+    dependencies:
+      '@iconify/types': 2.0.0
 
   '@iconify-json/heroicons@1.2.2':
     dependencies:
