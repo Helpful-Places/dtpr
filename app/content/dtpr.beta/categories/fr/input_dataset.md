@@ -1,4 +1,0 @@
----
-id: input_dataset
-
----
