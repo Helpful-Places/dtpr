@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: Homomorphic encryption
 id: homomorphic_encryption
 description: Homomorphic encryption is a form of encryption that allows

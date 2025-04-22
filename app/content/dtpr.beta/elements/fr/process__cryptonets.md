@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: Cryptonets
 id: cryptonets
 description: Les crypto-monnaies sont des réseaux neuronaux qui peuvent être

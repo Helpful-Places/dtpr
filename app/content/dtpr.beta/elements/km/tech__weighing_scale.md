@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: ជញ្ជីងថ្លឹង
 id: weighing_scale
 description: ជញ្ជីងថ្លឹងគឺជាឧបករណ៍វាស់ទម្ងន់ឬម៉ាស។

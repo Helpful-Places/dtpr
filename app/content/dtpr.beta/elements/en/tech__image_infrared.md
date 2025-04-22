@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Image - infrared
 id: image_infrared
 description: Generates still images in the

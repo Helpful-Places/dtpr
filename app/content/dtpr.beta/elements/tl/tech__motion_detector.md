@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Detektor ng Paggalaw
 id: motion_detector
 description: Isang sensor na nakikita ang paggalaw ng mga kalapit na bagay.

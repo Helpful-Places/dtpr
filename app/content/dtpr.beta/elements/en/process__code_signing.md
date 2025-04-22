@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: Code signing
 id: code_signing
 description: Code signing is the process of digitally signing executables and

@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Biometrics
 id: biometrics
 description: Biometrics are body measurements and calculations related to human

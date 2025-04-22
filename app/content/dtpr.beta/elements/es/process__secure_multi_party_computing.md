@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: Computación multipartidista segura
 id: secure_multi_party_computing
 description: El cálculo seguro multipartidista es un subcampo de criptografía

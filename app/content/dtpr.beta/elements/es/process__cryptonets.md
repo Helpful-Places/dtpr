@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: Cryptonets
 id: cryptonets
 description: Los cryptonets son redes neuronales que se pueden aplicar a los

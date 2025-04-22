@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Wireless Charging Roadway
 id: wireless_charging_roadway
 description: Ang mga segment ng coil ng tanso na inilibing sa ilalim ng kalsada

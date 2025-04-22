@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: Hardware audits
 id: hardware_audits
 description: 3rd Party auditing specialists periodically examine the hardware &

@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: Transport Layer Security
 id: transport_layer_security
 description: Ang Transport Layer Security, o TLS, ay isang malawak na pinagtibay

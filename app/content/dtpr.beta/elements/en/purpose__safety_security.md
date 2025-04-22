@@ -1,5 +1,7 @@
 ---
-category: purpose
+category: 
+  - sensor__purpose
+  - ai__purpose
 name: Safety & Security
 id: safety_security
 description: Enables a safe and/or secure environment, for example for the

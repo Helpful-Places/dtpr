@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: Zero Knowledge Proofs
 id: zero_knowledge_proofs
 description: A Zero Knowledge Proof is a method by which one party can prove to

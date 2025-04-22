@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Sensor ultrasónico
 id: ultrasonic_level_sensor
 description: Utiliza ondas ultrasónicas para medir distancias a los objetos. El

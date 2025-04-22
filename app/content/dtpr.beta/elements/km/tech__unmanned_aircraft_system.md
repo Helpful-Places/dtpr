@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: ប្រព័ន្ធយន្តហោះគ្មានមនុស្សបើក
 id: unmanned_aircraft_system
 description: ប្រព័ន្ធយន្ដហោះដែលគ្មានមនុស្សបើកឡាន (យូអេសអេស)

@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Écran du systéme
 id: system_screen
 description: Les gens peuvent interagir avec ce systéme numérique à l'aide de

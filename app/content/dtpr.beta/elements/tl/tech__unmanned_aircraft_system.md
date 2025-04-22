@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Unmanned Aircraft System
 id: unmanned_aircraft_system
 description: Ang isang unmanned aircraft system (UAS) ay binubuo ng isang

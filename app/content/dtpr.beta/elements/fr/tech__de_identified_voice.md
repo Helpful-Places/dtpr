@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Voix dé-identifiée
 id: de_identified_voice
 description: >

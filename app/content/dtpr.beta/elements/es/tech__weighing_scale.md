@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Balanza
 id: weighing_scale
 description: Una escala de pesaje es un dispositivo para medir el peso o la

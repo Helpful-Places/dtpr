@@ -1,5 +1,7 @@
 ---
-category: storage
+category:
+  - sensor__storage
+  - ai__storage
 name: Ibinahaging imbakan at pamamahala
 id: shared_storage_and_governance
 description: Sa isang modelo ng ibinahaging nakaimbak na datos ang nakaimbak na

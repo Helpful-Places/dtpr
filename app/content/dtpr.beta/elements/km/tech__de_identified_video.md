@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: វីដេអូដែលបានកំណត់អត្តសញ្ញាណ
 id: de_identified_video
 description: បង្កើត​វីដេអូ​នៃ​កម្រិត​ច្បាស់​គ្រប់គ្រាន់​ដែល​បុគ្គល​អាច​ត្រូវ​បាន​កំណត់​អត្តសញ្ញាណ

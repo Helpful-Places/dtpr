@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: GPS
 id: gps
 description: GPS is one of the global navigation satellite systems that provides

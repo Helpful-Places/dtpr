@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Ultrasonic sensor
 id: ultrasonic_level_sensor
 description: Gumagamit ng mga ultrasonic waves upang masukat ang mga distansya

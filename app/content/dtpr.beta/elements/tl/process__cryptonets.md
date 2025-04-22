@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: Mga Cryptonets
 id: cryptonets
 description: Ang mga cryptonets ay mga neural na network na maaaring mailapat sa

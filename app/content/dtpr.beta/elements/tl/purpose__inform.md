@@ -1,5 +1,7 @@
 ---
-category: purpose
+category: 
+  - sensor__purpose
+  - ai__purpose
 name: Ipagbigay -alam
 id: inform
 description: Sinusuportahan ang pagkakaloob ng impormasyon, halimbawa tungkol sa isang lokasyon, isang serbisyo, o upang magbigay ng tulong

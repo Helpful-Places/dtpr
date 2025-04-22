@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: De-identified Image
 id: de_identified_image
 description: Generates still images of a sufficient resolution where individuals

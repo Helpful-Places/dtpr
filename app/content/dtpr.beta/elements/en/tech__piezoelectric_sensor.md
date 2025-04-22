@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Piezoelectric sensor
 id: piezoelectric_sensor
 description: Measures changes in pressure, acceleration, temperature, strain, or

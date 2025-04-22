@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Image - infrarouge
 id: image_infrared
 description: Génère des images fixes dans la partie

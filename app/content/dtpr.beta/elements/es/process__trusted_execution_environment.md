@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: Entorno de ejecución de confianza
 id: trusted_execution_environment
 description: Un tee es un entorno aislado creado utilizando hardware y software

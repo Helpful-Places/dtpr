@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: Raw data
 id: raw_data
 description: Data that has not been processed or altered from the point of

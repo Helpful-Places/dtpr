@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Non-identifiable Video
 id: non_identifiable_video
 description: Generates video footage incapable of identifying individuals due to

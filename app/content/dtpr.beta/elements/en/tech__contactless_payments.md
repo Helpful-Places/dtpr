@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Contactless Payments
 id: contactless_payments
 description: Contactless payment systems are are credit cards and debit cards,

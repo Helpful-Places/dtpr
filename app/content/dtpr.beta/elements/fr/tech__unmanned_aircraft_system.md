@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Système de drone
 id: unmanned_aircraft_system
 description: Un système de drone est un système aérien sans pilote (UAS) qui

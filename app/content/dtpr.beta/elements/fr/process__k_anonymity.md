@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 description: 'L''anonymat K est utilisé pour garantir l''anonymat lors de la divulgation
   de données autrement identifiables personnellement. Les attributs des données sont
   supprimés ou généralisés jusqu''à ce que chaque ligne soit identique à au moins

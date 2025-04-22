@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Video no identificado
 id: de_identified_video
 description: Genera secuencias de vídeo con una resolución suficiente para poder

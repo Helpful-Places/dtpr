@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Lokasyon Beacon
 id: location_beacon
 description: Ang mga Beacon ay mga Bluetooth low energy (LE) hardware na mga

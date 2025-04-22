@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: Reviewed Internally
 id: reviewed_internally
 description: Many organizations have internal review processes that consider the

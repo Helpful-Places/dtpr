@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Facial characterization
 id: facial_characterization
 description: Facial characterization allows a system to make inferences such as

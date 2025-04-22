@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Ubicación Beacon
 id: location_beacon
 description: Las balizas son transmisores de hardware Bluetooth Low Energy (LE)

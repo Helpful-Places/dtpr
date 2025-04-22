@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Weather Station
 id: weather_station
 description: A set of instruments for measuring atmospheric conditions such as

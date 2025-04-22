@@ -1,5 +1,7 @@
 ---
-category: access
+category:
+  - sensor__access
+  - ai__access
 name: Available to 3rd parties
 id: available_to_3rd_parties
 description: Data is available to 3rd parties not involved in the data activity.

@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: Federated learning
 id: federated_learning
 description: Federated Learning involves both Edge Computing and a Cloud based

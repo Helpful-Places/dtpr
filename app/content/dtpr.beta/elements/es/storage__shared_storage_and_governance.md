@@ -1,5 +1,7 @@
 ---
-category: storage
+category:
+  - sensor__storage
+  - ai__storage
 name: Almacenamiento y gobierno compartidos
 id: shared_storage_and_governance
 description: En un modelo de almacén de datos compartido, el almacén de datos se

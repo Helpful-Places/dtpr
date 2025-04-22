@@ -1,5 +1,7 @@
 ---
-category: storage
+category:
+  - sensor__storage
+  - ai__storage
 name: Respaldado localmente
 id: backed_up_locally
 description: Los datos están respaldados con la jurisdicción donde se recopiló.

@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Route de recharge par induction
 id: wireless_charging_roadway
 description: Des segments de bobines de cuivre enterrés sous la route sont

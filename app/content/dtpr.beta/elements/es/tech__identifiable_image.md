@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Imagen identificable
 id: identifiable_image
 description: Genera imágenes fijas de una resolución

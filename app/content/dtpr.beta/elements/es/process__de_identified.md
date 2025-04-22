@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: No identificado
 id: de_identified
 description: Datos que se procesan para eliminar los valores de identificación,

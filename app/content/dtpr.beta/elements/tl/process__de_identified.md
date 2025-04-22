@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: De-kinilala
 id: de_identified
 description: Ang datos na naproseso upang alisin ang pagkilala sa mga halaga,

@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Hands-free
 id: hands_free
 description: Describes a technology where the primary mode of interaction does

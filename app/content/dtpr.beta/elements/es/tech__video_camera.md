@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Camara de video
 id: video_camera
 description: Genera imágenes de video.

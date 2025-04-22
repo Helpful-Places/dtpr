@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Vidéo identifiable
 id: identifiable_video
 description: "Génère des [séquences vidéo](https://fr.wikipedia.org/wiki/Vidéo)

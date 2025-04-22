@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Imagen no identificada
 id: de_identified_image
 description: Genera imágenes fijas con una resolución suficiente para poder

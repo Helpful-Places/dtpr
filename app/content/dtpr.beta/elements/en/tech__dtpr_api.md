@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: DTPR API
 id: dtpr_api
 description: The DTPR API provides machine-readable access to a place-centric

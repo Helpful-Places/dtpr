@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: Zero Knowledge na mga Patunay
 id: zero_knowledge_proofs
 description: Ang Zero Knowledge Proof ay isang pamamaraan kung saan maaaring

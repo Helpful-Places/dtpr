@@ -1,5 +1,6 @@
 ---
-category: process
+category: 
+  - sensor__process
 name: Immutable Query Ledger
 id: immutable_query_ledger
 description: All interactions with the data throughout its lifecycle, including

@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: RFID
 id: rfid
 description: Enables the identification of items using electromagnetic fields,

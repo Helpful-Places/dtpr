@@ -1,5 +1,7 @@
 ---
-category: storage
+category:
+  - sensor__storage
+  - ai__storage
 name: Almacenado principalmente localmente
 id: stored_primarily_locally
 description: Los datos se almacenan principalmente en la jurisdicción donde se recopiló.

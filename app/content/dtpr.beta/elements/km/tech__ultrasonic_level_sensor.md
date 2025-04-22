@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: ឧបករណ៍ចាប់សញ្ញា Ultrasonic
 id: ultrasonic_level_sensor
 description: ប្រើរលក ultrasonic ដើម្បីវាស់ចម្ងាយនៃវត្ថុ។

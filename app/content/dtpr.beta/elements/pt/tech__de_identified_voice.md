@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Voz desidentificada
 id: de_identified_voice
 description: São recolhidos dados de áudio que identificam ou podem identificar

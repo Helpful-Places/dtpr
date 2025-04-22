@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: De-identified Voice
 id: de_identified_voice
 description: Generates audio data that can identify individuals, but the data is

@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Timbangan
 id: weighing_scale
 description: Ang timbangan ay isang aparato upang masukat ang timbang o mass.

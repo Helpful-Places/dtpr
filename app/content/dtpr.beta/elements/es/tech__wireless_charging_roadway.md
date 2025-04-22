@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Carretera de carga inalámbrica
 id: wireless_charging_roadway
 description: Los segmentos de la bobina de cobre enterrados debajo de la

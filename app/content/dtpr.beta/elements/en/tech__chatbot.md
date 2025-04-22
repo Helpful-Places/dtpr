@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: Chatbot
 id: chatbot
 description: A chatbot is a computer program designed to simulate human

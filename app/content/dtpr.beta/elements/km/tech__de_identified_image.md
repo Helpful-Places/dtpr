@@ -1,5 +1,6 @@
 ---
-category: tech
+category: 
+  - sensor__tech
 name: រូបភាពដែលបានកំណត់អត្តសញ្ញាណ
 id: de_identified_image
 description: បង្កើតរូបភាពបន្តនៃគុណភាពបង្ហាញគ្រប់គ្រាន់
