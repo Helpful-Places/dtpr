@@ -53,9 +53,30 @@ collections:
         search_fields: ["name", "id"]
         display_fields: ["name"]
         i18n: "duplicate"
+      # - label: "Element Context"
+      #   name: "element_color_context"
+      #   widget: "list"
+      #   fields:
+      #     - label: "Value"
+      #       name: "value"
+      #       widget: "string"
+      #       i18n: "duplicate"
+      #     - label: "Label"
+      #       name: "label"
+      #       widget: "string"
+      #       i18n: true
+      #     - label: "Description"
+      #       name: "description"
+      #       widget: "string"
+      #       i18n: true
+      #     - label: "Color"
+      #       name: "color"
+      #       widget: "string"
+      #       i18n: "duplicate"
       - label: "Element Variables"
         name: "element_variables"
         widget: "list"
+        i18n: true
         fields:
           - label: "ID"
             name: "id"
@@ -67,14 +88,12 @@ collections:
             i18n: true
           - label: "Required"
             name: "required"
+            required: false
             widget: "boolean"
             i18n: "duplicate"
           - label: "Default"
+            required: false
             name: "default"
-            widget: "string"
-            i18n: "duplicate"
-          - label: "Schema"
-            name: "schema"
             widget: "string"
             i18n: "duplicate"
   - name: "elements" # Used in routes, e.g., /admin/collections/blog
