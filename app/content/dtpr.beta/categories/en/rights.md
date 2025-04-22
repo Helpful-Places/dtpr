@@ -1,0 +1,5 @@
+---
+name: Rights
+id: rights
+
+---
