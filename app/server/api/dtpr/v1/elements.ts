@@ -1,4 +1,14 @@
+
+import { getQuery } from 'h3'
+
 export default eventHandler(async event => {
+  // Get the query parameters
+  const query = getQuery(event)
+  // Parse locales from query parameter (e.g., ?locales=en,fr,es)
+  const requestedLocales = query.locales 
+    ? (Array.isArray(query.locales) ? query.locales : query.locales.toString().split(','))
+    : null
+    
   const elements = await queryCollection(event, 'elements').all()
 
   // Group elements by title to handle multiple locales for the same element
@@ -81,7 +91,46 @@ export default eventHandler(async event => {
   }, {})
 
   // Convert the object back to an array
-  const formattedElements = Object.values(elementsByTitle)
+  let formattedElements = Object.values(elementsByTitle)
+  
+  // Filter localized fields if requestedLocales is provided
+  if (requestedLocales && requestedLocales.length > 0) {
+    formattedElements = formattedElements.map(formattedElement => {
+      const element = { ...formattedElement }
+      
+      // Filter title by requested locales
+      element.element.title = element.element.title.filter(item => 
+        requestedLocales.includes(item.locale)
+      )
+      
+      // Filter description by requested locales
+      element.element.description = element.element.description.filter(item => 
+        requestedLocales.includes(item.locale)
+      )
+      
+      // Filter icon alt_text by requested locales
+      element.element.icon.alt_text = element.element.icon.alt_text.filter(item => 
+        requestedLocales.includes(item.locale)
+      )
+      
+      // Filter citation by requested locales (if it exists)
+      if (element.element.citation && element.element.citation.length > 0) {
+        element.element.citation = element.element.citation.filter(item => 
+          requestedLocales.includes(item.locale)
+        )
+      }
+      
+      // Filter variables labels by requested locales
+      element.element.variables = element.element.variables.map(variable => {
+        return {
+          ...variable,
+          label: variable.label.filter(item => requestedLocales.includes(item.locale))
+        }
+      })
+      
+      return element
+    })
+  }
 
   return formattedElements
 });
