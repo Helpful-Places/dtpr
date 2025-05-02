@@ -48,3 +48,54 @@ node translate-content.js --source en --target es --fields name --key-file path/
 - The script preserves existing content in target files
 - Only the specified frontmatter fields are translated
 - New files are created in the target locale directory if they don't exist
+# DTPR Scripts
+
+This directory contains utility scripts for maintaining the DTPR content.
+
+## Available Scripts
+
+### sync-attributes.js
+
+Syncs shared attributes (id, category, icon by default) across all locale files. The English (en) locale is considered the canonical source of truth. The script can also create missing files in non-English locales, copying only the specified attributes from the English files, without adding any other attributes like name or description.
+
+**Usage:**
+```bash
+# Navigate to the project root
+cd /path/to/dtpr/app
+
+# Run with default options (dry run)
+node scripts/sync-attributes.js --dry-run
+
+# Apply changes
+node scripts/sync-attributes.js
+
+# Specify custom content directory
+node scripts/sync-attributes.js --content-dir content/dtpr/elements
+
+# Specify custom attributes to sync
+node scripts/sync-attributes.js --attributes id,category,icon,custom_field
+
+# Skip creating missing files, only update existing ones
+node scripts/sync-attributes.js --no-create
+```
+
+**Options:**
+- `--dry-run`: Show what would be changed without making actual changes
+- `--content-dir`: Path to content directory (default: content/dtpr.beta/elements)
+- `--attributes`: Comma-separated list of attributes to sync (default: id,category,icon)
+- `--create-missing`: Create missing files in non-English locales (enabled by default)
+- `--no-create`: Don't create missing files, only update existing ones
+
+**Dependencies:**
+This script requires the following npm packages:
+- gray-matter
+- glob
+
+Install them with:
+```bash
+npm install gray-matter glob
+```
+or
+```bash
+pnpm add gray-matter glob
+```
