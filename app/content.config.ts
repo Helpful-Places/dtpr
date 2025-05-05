@@ -10,7 +10,8 @@ export default defineContentConfig({
         id: z.string(),
         name: z.string(),
         description: z.string(),
-        datachain_type: z.string()
+        datachain_type: z.string(),
+        _locale: z.string()
       })
     }),
     datachain_types: defineCollection({
@@ -18,7 +19,8 @@ export default defineContentConfig({
       source: 'dtpr.v1/datachain_types/**/*.md',
       schema: z.object({
         id: z.string(),
-        name: z.string()
+        name: z.string(),
+        _locale: z.string()
       })
     }),
     elements: defineCollection({
@@ -29,7 +31,9 @@ export default defineContentConfig({
         name: z.string(),
         id: z.string(),
         description: z.string(),
-        icon: z.string()
+        icon: z.string(),
+        dtpr_id: z.string(),
+        _locale: z.string()
       })
     }),
     v0_elements: defineCollection({
@@ -40,7 +44,8 @@ export default defineContentConfig({
         name: z.string(),
         id: z.string(),
         description: z.string(),
-        icon: z.string()
+        icon: z.string(),
+        _locale: z.string()
       })
     }),
     v0_categories: defineCollection({
@@ -50,6 +55,7 @@ export default defineContentConfig({
         id: z.string(),
         name: z.string(),
         headline: z.string(),
+        _locale: z.string()
       })
     }),
   }
