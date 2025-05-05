@@ -81,7 +81,7 @@ node scripts/sync-attributes.js --no-create
 
 **Options:**
 - `--dry-run`: Show what would be changed without making actual changes
-- `--content-dir`: Path to content directory (default: content/dtpr.beta/elements)
+- `--content-dir`: Path to content directory (default: content/dtpr.v1/elements)
 - `--attributes`: Comma-separated list of attributes to sync (default: id,category,icon)
 - `--create-missing`: Create missing files in non-English locales (enabled by default)
 - `--no-create`: Don't create missing files, only update existing ones
