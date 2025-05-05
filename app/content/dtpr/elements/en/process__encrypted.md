@@ -4,6 +4,6 @@ name: Encrypted
 id: encrypted
 description: Data has been encoded so that only authorized parties can access
   it, which can reduce risk related to handling private or sensitive
-  information. Find out more [here](https://en.wikipedia.org/wiki/Encryption)
+  information. 
 icon: /dtpr-icons/encrypted.svg
 ---

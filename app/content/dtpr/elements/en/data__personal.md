@@ -2,7 +2,6 @@
 category: data
 name: "Personal  "
 id: personal
-description: Information about identifiable individuals. Find out more
-  [here](https://en.wikipedia.org/wiki/Personal_data)
+description: Information about identifiable individuals. 
 icon: /dtpr-icons/personal.svg
 ---

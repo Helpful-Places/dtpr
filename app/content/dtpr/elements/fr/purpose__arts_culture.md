@@ -1,6 +1,6 @@
 ---
 category: purpose
-description: Permet l'expression artistique et/ou culturelle. En savoir plus [cliquez-ici](https://fr.wikipedia.org/wiki/Art_interactif)
+description: Permet l'expression artistique et/ou culturelle. 
 icon: /dtpr-icons/arts_culture.svg
 id: arts_culture
 name: Arts et culture
