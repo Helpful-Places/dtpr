@@ -11,20 +11,24 @@ export default eventHandler(async event => {
     
   const elements = await queryCollection(event, 'elements').all()
 
-  // Group elements by title to handle multiple locales for the same element
-  const elementsByTitle = elements.reduce((acc, element) => {
-    // Extract element ID from the path (e.g., "purpose__wayfinding_services")
-    const pathParts = element.path.split('/')
+  // Group elements by filename to handle multiple locales for the same element
+  const elementsByFilename = elements.reduce((acc, element) => {
+    // Extract element ID from the stem (e.g., "access__available_for_resale")
+    const pathParts = element.stem.split('/')
     const lastPart = pathParts[pathParts.length - 1]
     const elementId = lastPart.split('__')[1] || lastPart
-    const categoryIds = element.meta.category
+    const categoryIds = element.category || []
     
-    // Extract locale from path (e.g., "en", "es", "fr")
+    // Extract locale from stem (e.g., "en", "es", "fr")
     const locale = pathParts[pathParts.length - 2]
 
-    // If this title is not in our accumulator yet, initialize it
-    if (!acc[element.title]) {
-      acc[element.title] = {
+    // Key for grouping - extract the base filename without locale
+    // This ensures proper grouping across different locales
+    const key = lastPart
+
+    // If this element is not in our accumulator yet, initialize it
+    if (!acc[key]) {
+      acc[key] = {
         schema: {
           name: "DTPR Element",
           id: "dtpr_element",
@@ -36,7 +40,7 @@ export default eventHandler(async event => {
           category_ids: categoryIds,
           version: "2024-06-11T00:00:00Z",
           icon: {
-            url: element.meta.icon ? `https://dtpr-io-static.onrender.com${element.meta.icon}` : "",
+            url: element.icon ? `https://dtpr-io-static.onrender.com${element.icon}` : "",
             alt_text: [],
             format: "svg"
           },
@@ -57,31 +61,31 @@ export default eventHandler(async event => {
     }
 
     // Add locale-specific data
-    const title = element.meta.name || element.title
+    const title = element.name || ""
     const description = element.description || ""
     
     // Add to title array
-    acc[element.title].element.title.push({
+    acc[key].element.title.push({
       locale,
       value: title
     })
     
     // Add to description array
-    acc[element.title].element.description.push({
+    acc[key].element.description.push({
       locale,
       value: description
     })
     
     // Add to alt_text array for the icon
-    acc[element.title].element.icon.alt_text.push({
+    acc[key].element.icon.alt_text.push({
       locale,
       value: `${title} icon`
     })
     
     // Add to label array for the additional_description variable
-    const varIndex = acc[element.title].element.variables.findIndex(v => v.id === "additional_description")
-    if (varIndex >= 0 && !acc[element.title].element.variables[varIndex].label.some(l => l.locale === locale)) {
-      acc[element.title].element.variables[varIndex].label.push({
+    const varIndex = acc[key].element.variables.findIndex(v => v.id === "additional_description")
+    if (varIndex >= 0 && !acc[key].element.variables[varIndex].label.some(l => l.locale === locale)) {
+      acc[key].element.variables[varIndex].label.push({
         locale,
         value: "Additional Details"
       })
@@ -91,7 +95,7 @@ export default eventHandler(async event => {
   }, {})
 
   // Convert the object back to an array
-  let formattedElements = Object.values(elementsByTitle)
+  let formattedElements = Object.values(elementsByFilename)
   
   // Filter localized fields if requestedLocales is provided
   if (requestedLocales && requestedLocales.length > 0) {
