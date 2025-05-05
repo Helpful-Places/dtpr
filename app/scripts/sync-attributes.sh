@@ -24,7 +24,7 @@ if [[ "$1" == "--help" || "$1" == "-h" ]]; then
   echo ""
   echo "Options:"
   echo "  --dry-run           Show what would be changed without making actual changes"
-  echo "  --content-dir PATH  Path to content directory (default: content/dtpr.beta/elements)"
+  echo "  --content-dir PATH  Path to content directory (default: content/dtpr.v1/elements)"
   echo "  --attributes LIST   Comma-separated list of attributes to sync (default: id,category,icon)"
   echo "  --create-missing    Create missing files in non-English locales (enabled by default)"
   echo "  --no-create         Don't create missing files, only update existing ones"
