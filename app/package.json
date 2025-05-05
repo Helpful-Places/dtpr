@@ -19,6 +19,7 @@
     "@nuxtjs/i18n": "^9.3.0",
     "@nuxtjs/tailwindcss": "6.13.2",
     "nuxt": "^3.16.2",
+    "remark-mdc": "^3.6.0",
     "svgo": "^3.3.2",
     "tailwindcss": "3"
   },
