@@ -11,20 +11,17 @@ export default eventHandler(async event => {
     
   const elements = await queryCollection(event, 'elements').all()
 
-  // Group elements by filename to handle multiple locales for the same element
-  const elementsByFilename = elements.reduce((acc, element) => {
-    // Extract element ID from the stem (e.g., "access__available_for_resale")
-    const pathParts = element.stem.split('/')
-    const lastPart = pathParts[pathParts.length - 1]
-    const elementId = lastPart.split('__')[1] || lastPart
+  // Group elements by dtpr_id to handle multiple locales for the same element
+  const elementsByDtprId = elements.reduce((acc, element) => {
+    // Use dtpr_id as the unique identifier for elements
+    const elementId = element.dtpr_id
     const categoryIds = element.category || []
     
-    // Extract locale from stem (e.g., "en", "es", "fr")
-    const locale = pathParts[pathParts.length - 2]
-
-    // Key for grouping - extract the base filename without locale
-    // This ensures proper grouping across different locales
-    const key = lastPart
+    // Use _locale attribute directly from the element
+    const locale = element._locale
+    
+    // Use dtpr_id as the key for grouping elements across different locales
+    const key = elementId
 
     // If this element is not in our accumulator yet, initialize it
     if (!acc[key]) {
@@ -95,7 +92,7 @@ export default eventHandler(async event => {
   }, {})
 
   // Convert the object back to an array
-  let formattedElements = Object.values(elementsByFilename)
+  let formattedElements = Object.values(elementsByDtprId)
   
   // Filter localized fields if requestedLocales is provided
   if (requestedLocales && requestedLocales.length > 0) {

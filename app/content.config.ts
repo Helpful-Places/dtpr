@@ -7,7 +7,7 @@ export default defineContentConfig({
       type: 'data',
       source: 'dtpr.v1/categories/**/*.md',
       schema: z.object({
-        id: z.string(),
+        dtpr_id: z.string(),
         name: z.string(),
         description: z.string(),
         datachain_type: z.string(),
@@ -18,7 +18,7 @@ export default defineContentConfig({
       type: 'data',
       source: 'dtpr.v1/datachain_types/**/*.md',
       schema: z.object({
-        id: z.string(),
+        dtpr_id: z.string(),
         name: z.string(),
         _locale: z.string()
       })
@@ -29,7 +29,6 @@ export default defineContentConfig({
       schema: z.object({
         category: z.array(z.string()),
         name: z.string(),
-        id: z.string(),
         description: z.string(),
         icon: z.string(),
         dtpr_id: z.string(),
@@ -42,7 +41,7 @@ export default defineContentConfig({
       schema: z.object({
         category: z.string(),
         name: z.string(),
-        id: z.string(),
+        dtpr_id: z.string(),
         description: z.string(),
         icon: z.string(),
         _locale: z.string()
@@ -52,7 +51,7 @@ export default defineContentConfig({
       type: 'data',
       source: 'dtpr.v0/categories/**/*.md',
       schema: z.object({
-        id: z.string(),
+        dtpr_id: z.string(),
         name: z.string(),
         headline: z.string(),
         _locale: z.string()
