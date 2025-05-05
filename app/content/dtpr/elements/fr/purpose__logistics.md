@@ -1,7 +1,6 @@
 ---
 category: purpose
-description: Favorise la circulation des marchandises ou des matériaux. En savoir
-  plus [cliquez-ici](https://fr.wikipedia.org/wiki/Logistique)
+description: Favorise la circulation des marchandises ou des matériaux. 
 icon: /dtpr-icons/logistics.svg
 id: logistics
 name: Logistique

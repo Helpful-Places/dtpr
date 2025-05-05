@@ -2,7 +2,6 @@
 category: tech
 name: Caméra vidéo
 id: video_camera
-description: "Génère de séquences vidéo. En savoir plus
-  [cliquez-ici](https://fr.wikipedia.org/wiki/Vidéo). "
+description: "Génère de séquences vidéo.  "
 icon: /dtpr-icons/video_camera.svg
 ---
