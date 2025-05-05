@@ -1,25 +1,27 @@
 <script setup>
 const props = defineProps({
-  elementCategory: String,
+  category: {
+    type: Object,
+    required: true
+  },
+  elements: {
+    type: Array,
+    required: true
+  }
 })
 
-const { locale } = useI18n();
-
-const category = await queryContent('dtpr/categories').where({
-  _locale: locale.value,
-  id: props.elementCategory
-}).findOne()
-
-const elements = await queryContent('dtpr/elements').where({
-  _locale: locale.value,
-  category: category.id
-}).find()
+// Filter elements that belong to this category
+const filteredElements = computed(() => {
+  return props.elements.filter(element => {
+    return element.category && element.category.includes(props.category.dtpr_id)
+  })
+})
 </script>
 
 <template>
   <div class="break-after-page flex flex-col">
     <div class="border-b-2 border-dtpr-green mb-2 mt-16">
-      <h3 id="data-type">{{ category.name }}</h3>
+      <h3 :id="category.dtpr_id">{{ category.name }}</h3>
     </div>
     <table class="grow">
       <thead>
@@ -30,7 +32,7 @@ const elements = await queryContent('dtpr/elements').where({
         </tr>
       </thead>
       <tbody>
-        <tr v-for="element in elements" :key="element.id">
+        <tr v-for="element in filteredElements" :key="element.id">
           <td>
             <NuxtImg :src="element.icon" width="36" height="36" />
           </td>
