@@ -7,7 +7,6 @@ description: Ang datos na naproseso upang alisin ang pagkilala sa mga halaga,
   maaaring mangyari sa anumang punto sa proseso ng pagkolekta ng datos,
   halimbawa bago ito nakaimbak sa isang database, o bago ito mailathala. Dito
   namin tinutukoy kung ano ito kapag wala na ang datos sa hardware device, o
-  pagkatapos na ito naka-imbak sa isang database. Alamin ang higit pa
-  [dito](https://en.wikipedia.org/wiki/De-identification)
+  pagkatapos na ito naka-imbak sa isang database. 
 icon: /dtpr-icons/de_identified.svg
 ---

@@ -2,6 +2,6 @@
 category: purpose
 name: Logistik
 id: logistics
-description: Sinusuportahan ang paggalaw ng mga kalakal o materyales. Alamin ang higit pa [dito](https://en.wikipedia.org/wiki/logistics)
+description: Sinusuportahan ang paggalaw ng mga kalakal o materyales. 
 icon: /dtpr-icons/logistics.svg
 ---

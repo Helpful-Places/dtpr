@@ -3,6 +3,5 @@ category: data
 name: រូបភាពផ្អែកលើភីកសែល
 id: pixel_based_image
 description: រូបភាពឌីជីថលមួយត្រូវបានផ្សំឡើងដោយក្រឡាចត្រង្គនៃភីកសែលនីមួយៗ។
-  ស្វែងយល់បន្ថែមនៅ [រូបភាពឌីជីថល](https://en.wikipedia.org/wiki/digital_imity)
 icon: /dtpr-icons/pixel_based_image.svg
 ---
