@@ -3,6 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
+const matter = require('gray-matter');
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -17,7 +18,8 @@ function getSentencesWithLinks(text) {
   if (!text) return [];
   
   // Split by sentence endings (.!?) followed by space or newline
-  const sentences = text.split(/(?<=[.!?])\s+/);
+  // Use a regex that accounts for common abbreviations
+  const sentences = text.split(/(?<=[.!?])(?:\s+|$)(?![a-z]|[A-Z]\.)/);
   
   return sentences.filter(sentence => linkRegex.test(sentence));
 }
@@ -66,22 +68,21 @@ async function processFile(filePath) {
     return;
   }
   
-  // Parse frontmatter
-  const match = content.match(/^---\n([\s\S]*?)\n---/);
-  if (!match) {
-    console.log(`No frontmatter found in ${filePath}`);
+  // Parse frontmatter with gray-matter
+  let data;
+  try {
+    data = matter(content);
+  } catch (err) {
+    console.error(`Error parsing frontmatter in ${filePath}: ${err}`);
     return;
   }
   
-  const frontmatter = match[1];
-  const descriptionMatch = frontmatter.match(/description:\s*(.*(?:\n\s+.*)*)/);
-  
-  if (!descriptionMatch) {
+  if (!data.data.description) {
     console.log(`No description found in ${filePath}`);
     return;
   }
   
-  let description = descriptionMatch[1];
+  const description = data.data.description;
   
   // Check if there are any links in the description
   const sentencesWithLinks = getSentencesWithLinks(description);
@@ -101,22 +102,25 @@ async function processFile(filePath) {
     await new Promise(resolve => {
       promptUserForSentence(sentence, (newSentence) => {
         if (newSentence === '') {
-          // Remove entire sentence
-          updatedDescription = updatedDescription.replace(sentence, '');
-        } else {
-          // Replace sentence with new version
-          updatedDescription = updatedDescription.replace(sentence, newSentence);
+          // Remove entire sentence while preserving whitespace pattern
+          updatedDescription = updatedDescription.replace(sentence, '').replace(/\s+/g, ' ').trim();
+        } else if (sentence !== newSentence) {
+          // Replace sentence with new version, being careful with regex
+          // Escape special regex characters in the sentence
+          const escapedSentence = sentence.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          updatedDescription = updatedDescription.replace(new RegExp(escapedSentence, 'g'), newSentence);
         }
         resolve();
       });
     });
   }
   
-  // Update file content
-  const updatedContent = content.replace(
-    /description:\s*(.*(?:\n\s+.*)*)/, 
-    `description: ${updatedDescription}`
-  );
+  // Update frontmatter description
+  data.data.description = updatedDescription;
+  
+  // Create updated content using matter.stringify
+  // which uses js-yaml internally for proper YAML formatting
+  const updatedContent = matter.stringify(data.content, data.data);
   
   // Write back to file
   try {
@@ -163,7 +167,7 @@ async function main() {
     const locale = await promptForLocale();
     
     // Determine the directory to search
-    const baseDir = path.join(__dirname, 'content/dtpr/elements');
+    const baseDir = path.join(process.cwd(), 'content/dtpr/elements');
     let rootDir;
     
     if (locale) {

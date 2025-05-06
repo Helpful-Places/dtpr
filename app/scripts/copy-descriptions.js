@@ -65,6 +65,17 @@ let stats = {
   noDescription: 0
 };
 
+// Gray-matter can be configured to format YAML properly
+// It uses js-yaml internally, which has good formatting support
+const matterOptions = {
+  engines: {
+    yaml: {
+      // No custom stringify needed - js-yaml handles formatting well
+      // Just use defaults which format arrays and strings properly
+    }
+  }
+};
+
 // Process each locale
 locales.forEach(locale => {
   console.log(`\nProcessing locale: ${locale}`);
@@ -86,6 +97,7 @@ locales.forEach(locale => {
     let v0Data;
     
     try {
+      // Read source file
       v0Data = matter(v0FileContent);
     } catch (error) {
       console.error(`Error parsing front matter in ${v0FilePath}: ${error.message}`);
@@ -138,7 +150,8 @@ locales.forEach(locale => {
     // Update the frontmatter
     v1Data.data.description = v0Data.data.description;
     
-    // Generate updated content
+    // Generate updated content using gray-matter's stringify
+    // This will use js-yaml for proper YAML formatting
     const updatedContent = matter.stringify(v1Data.content, v1Data.data);
     
     // Write back to file if not in dry run mode
