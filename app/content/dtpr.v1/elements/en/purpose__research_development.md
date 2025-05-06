@@ -1,9 +1,10 @@
 ---
-category: 
+category:
   - sensor__purpose
   - ai__purpose
 name: Research & Development
 id: research_development
-description: Supports exploratory research and testing. Find out more [here](https://en.wikipedia.org/wiki/Research_and_development).
+description: Supports exploratory research and testing.
 icon: /dtpr-icons/research_development.svg
 ---
+

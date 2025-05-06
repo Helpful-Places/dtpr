@@ -1,11 +1,12 @@
 ---
-category: 
+category:
   - sensor__purpose
   - ai__purpose
-description: Permet de contrôler ou d'interagir avec certains aspects d'un espace
-  ou d'une technologie. En savoir plus sur les [médias interactifs](https://fr.wikipedia.org/wiki/Média_interactif)
-  et la [réalité virtuelle](https://fr.wikipedia.org/wiki/Réalité_virtuelle).
+description: >-
+  Permet de contrôler ou d'interagir avec certains aspects d'un espace ou d'une
+  technologie.
 icon: /dtpr-icons/agency_interaction.svg
 id: agency_interaction
 name: Capacité à agir & Interaction
 ---
+
