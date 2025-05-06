@@ -37,7 +37,7 @@ var isOpen = ref(false);
   </div>
 </template>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 nav {  
   ul {
     li a {
