@@ -6,6 +6,11 @@ const matter = require('gray-matter');
 const { Translate } = require('@google-cloud/translate').v2;
 const { program } = require('commander');
 
+// Get the correct base paths regardless of where the script is run from
+// Find the project root (parent directory of scripts)
+const scriptDir = __dirname;
+const projectRoot = path.resolve(scriptDir, '..');  // Go up one level from scripts dir to project root
+
 program
   .name('translate-content')
   .description('Translate content between locales using Google Translate API')
@@ -13,7 +18,7 @@ program
   .option('-t, --target <locale>', 'Target locale')
   .option('-f, --fields <fields>', 'Fields to translate (comma-separated)', 'name,description')
   .option('-k, --key-file <path>', 'Path to Google service account key file')
-  .option('-c, --content-dir <dir>', 'Content directory', path.resolve(process.cwd(), 'content/dtpr/elements'))
+  .option('-c, --content-dir <dir>', 'Content directory', path.resolve(projectRoot, 'content/dtpr/elements'))
   .requiredOption('-t, --target <locale>', 'Target locale is required')
   .requiredOption('-k, --key-file <path>', 'Path to Google service account key file is required')
   .parse(process.argv);

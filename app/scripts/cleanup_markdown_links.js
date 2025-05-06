@@ -5,6 +5,11 @@ const path = require('path');
 const readline = require('readline');
 const matter = require('gray-matter');
 
+// Get the correct base paths regardless of where the script is run from
+// Find the project root (parent directory of scripts)
+const scriptDir = __dirname;
+const projectRoot = path.resolve(scriptDir, '..');  // Go up one level from scripts dir to project root
+
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
@@ -167,7 +172,7 @@ async function main() {
     const locale = await promptForLocale();
     
     // Determine the directory to search
-    const baseDir = path.join(process.cwd(), 'content/dtpr/elements');
+    const baseDir = path.join(projectRoot, 'content/dtpr/elements');
     let rootDir;
     
     if (locale) {
