@@ -10,5 +10,5 @@ description: A technology that evaluates emotional tone and subjective
   evaluate public response to services, or detect rising tensions. The
   technology typically works by identifying emotional indicators and comparing
   them against trained models of sentiment patterns.
-icon: /dtpr-icons/dtpr_api.svg
+icon: /dtpr-icons/processing_sentiment-analysis.svg
 ---

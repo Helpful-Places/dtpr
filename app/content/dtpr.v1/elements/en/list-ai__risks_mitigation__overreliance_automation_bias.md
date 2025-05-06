@@ -9,5 +9,5 @@ description: The risk that people place excessive trust in AI systems, leading
   they are incorrect or harmful. Mitigations may include clear communication
   about system limitations, training for users on appropriate reliance, and
   maintaining meaningful human involvement in critical decisions.
-icon: /dtpr-icons/dtpr_api.svg
+icon: /dtpr-icons/risks_overreliance-and-automation.svg
 ---

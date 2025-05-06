@@ -10,5 +10,5 @@ description: A technology that modifies data to remove or obscure personally
   processing enables valuable insights from data collection without compromising
   personal information. The technology typically creates a barrier between raw
   collected data and the information used for decision-making.
-icon: /dtpr-icons/dtpr_api.svg
+icon: /dtpr-icons/processing_privacy-preservoing-transformation.svg
 ---

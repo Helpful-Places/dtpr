@@ -9,5 +9,5 @@ description: A decision-making process where the AI/algorithm determines how to
   availability, demand, and priority to optimize distribution. Examples include
   determining trash pickup routes, assigning staff schedules, or distributing
   public services across neighborhoods.
-icon: /dtpr-icons/dtpr_api.svg
+icon: /dtpr-icons/dm_allocation-of-resources.svg
 ---

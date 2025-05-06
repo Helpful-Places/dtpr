@@ -8,5 +8,5 @@ description: The right to be free from discriminatory treatment by AI systems
   disability, or sexual orientation. Organizations must implement and
   demonstrate appropriate technical and organizational measures to prevent
   discriminatory outcomes from their AI systems.
-icon: /dtpr-icons/dtpr_api.svg
+icon: /dtpr-icons/rights_non-discrimination.svg
 ---

@@ -2,6 +2,5 @@
 category:
   - ai__rights
 id: right_purpose_limitation
-icon: /dtpr-icons/dtpr_api.svg
+icon: /dtpr-icons/rights_purpose-limitation.svg
 ---
-

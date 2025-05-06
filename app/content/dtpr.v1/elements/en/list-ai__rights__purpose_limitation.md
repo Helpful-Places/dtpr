@@ -8,5 +8,5 @@ description: The right to ensure your data is only used for the specific
   organizations from using your data for new, unrelated purposes without your
   knowledge or consent. The data collector must specify and document the
   intended purposes before collection begins, and adhere to these limitations.
-icon: /dtpr-icons/dtpr_api.svg
+icon: /dtpr-icons/rights_purpose-limitation.svg
 ---
