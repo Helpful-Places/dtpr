@@ -1,11 +1,11 @@
 ---
-category: 
+category:
   - sensor__data
   - ai__input_dataset
   - ai__output_dataset
-name: "Personal  "
+name: 'Personal  '
 id: personal
-description: Information about identifiable individuals. Find out more
-  [here](https://en.wikipedia.org/wiki/Personal_data)
+description: Information about identifiable individuals.
 icon: /dtpr-icons/personal.svg
 ---
+

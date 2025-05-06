@@ -1,11 +1,11 @@
 ---
-category: 
+category:
   - sensor__tech
-description: Mesure divers aspects de la qualité de l'air, tels que le [pollen](https://fr.wikipedia.org/wiki/Pollen),
-  les [particules](https://fr.wikipedia.org/wiki/Particules_en_suspension_en_Europe),
-  l'[ozone](https://fr.wikipedia.org/wiki/Ozone) et les [gaz à effet de serre](https://fr.wikipedia.org/wiki/Gaz_à_effet_de_serre).
-  Pour en savoir plus [ici](https://fr.wikipedia.org/wiki/Pollution_de_l%27air)
+description: >-
+  Mesure divers aspects de la qualité de l'air, tels que le pollen, les
+  particules, l'ozone et les gaz à effet de serre.
 icon: /dtpr-icons/air_quality.svg
 id: air_quality
 name: Qualité de l'air
 ---
+
