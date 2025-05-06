@@ -8,5 +8,5 @@ description: A decision-making process where the AI/algorithm tailors content,
   preferences, behaviors, or characteristics. The system analyzes personal data
   to customize experiences. Examples include content recommendations,
   personalized learning paths, or targeted communications from public services.
-icon: /dtpr-icons/dtpr_api.svg
+icon: /dtpr-icons/dm_personalization.svg
 ---

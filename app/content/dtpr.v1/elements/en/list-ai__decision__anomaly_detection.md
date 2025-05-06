@@ -8,5 +8,5 @@ description: A decision-making process where the AI/algorithm identifies unusual
   establishes a baseline of normal activity and flags significant deviations.
   Examples include fraud detection, infrastructure monitoring, or public health
   surveillance systems.
-icon: /dtpr-icons/dtpr_api.svg
+icon: /dtpr-icons/dm_anomay-detection.svg
 ---

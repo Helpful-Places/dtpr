@@ -2,6 +2,5 @@
 category:
   - ai__decision
 id: matching
-icon: /dtpr-icons/dtpr_api.svg
+icon: /dtpr-icons/dm_matching.svg
 ---
-

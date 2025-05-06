@@ -8,5 +8,5 @@ description: Technology that converts written text into spoken voice output.
   voice patterns, intonations, and pronunciations. Text-to-Speech is commonly
   used in accessibility tools, virtual assistants, and automated customer
   service systems.
-icon: /dtpr-icons/dtpr_api.svg
+icon: /dtpr-icons/processing_text-to-speech.svg
 ---

@@ -2,4 +2,5 @@
 category:
   - ai__processing
 id: time-series-forecasting
+icon: /dtpr-icons/processing_time-series-forecasting.svg
 ---

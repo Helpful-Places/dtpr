@@ -9,5 +9,5 @@ description: The risk that the AI system could access, expose, or deduce private
   sensitive characteristics from seemingly non-sensitive inputs. Mitigations may
   include data minimization practices, robust security measures, differential
   privacy techniques, and rigorous access controls.
-icon: /dtpr-icons/dtpr_api.svg
+icon: /dtpr-icons/risks_compromise-of-privacy.svg
 ---

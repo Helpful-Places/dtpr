@@ -8,5 +8,5 @@ description: A decision-making process where the AI/algorithm pairs entities
   system evaluates multiple variables to determine the most appropriate
   connections. Examples include housing assistance placement, job applicant
   matching, or pairing service providers with community needs.
-icon: /dtpr-icons/dtpr_api.svg
+icon: /dtpr-icons/dm_matching.svg
 ---

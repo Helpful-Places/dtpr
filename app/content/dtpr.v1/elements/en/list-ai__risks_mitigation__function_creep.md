@@ -10,5 +10,5 @@ description: The risk that AI systems originally deployed for specific, limited
   (e.g., law enforcement) without adequate assessment of new risks or public
   notification. This can undermine public trust and potentially lead to uses
   that weren't properly designed for or vetted.
-icon: /dtpr-icons/dtpr_api.svg
+icon: /dtpr-icons/risks_unforseen-or-function-creep.svg
 ---

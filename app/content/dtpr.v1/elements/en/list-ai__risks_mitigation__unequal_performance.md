@@ -9,5 +9,5 @@ description: The risk that the AI system performs differently (typically worse)
   or unfair outcomes that disproportionately impact vulnerable communities.
   Mitigations may include diverse training data, routine fairness audits, and
   regular performance monitoring across different demographic groups.
-icon: /dtpr-icons/dtpr_api.svg
+icon: /dtpr-icons/risks_unequal-performance.svg
 ---
