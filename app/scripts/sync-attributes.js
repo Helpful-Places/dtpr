@@ -129,10 +129,8 @@ enFiles.forEach(file => {
       const newFileData = attributesToSync;
       
       // Create content similar to the English file but with a placeholder
-      const newContent = matter.stringify(
-        enData.content.trim() ? `[${locale}] Translation needed` : '',
-        newFileData
-      );
+      const placeholder = enData.content.trim() ? `[${locale}] Translation needed` : '';
+      const newContent = matter.stringify(placeholder, newFileData);
       
       console.log(`Creating new file for locale ${locale}: ${file}`);
       Object.entries(newFileData).forEach(([attr, value]) => {
@@ -173,7 +171,7 @@ enFiles.forEach(file => {
         localeData.data[attr] = value;
       });
 
-      // Generate updated content
+      // Generate updated content using matter.stringify which uses js-yaml internally
       const updatedContent = matter.stringify(localeData.content, localeData.data);
 
       // Display changes

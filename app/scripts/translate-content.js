@@ -72,7 +72,8 @@ async function processFile(sourceFilePath, targetFilePath) {
       }
     }
 
-    // Create the final translated content
+    // Create the final translated content using matter.stringify
+    // which uses js-yaml internally for proper YAML formatting
     const translatedFileContent = matter.stringify(targetMarkdown, targetFrontmatter);
     
     // Ensure target directory exists
