@@ -3,7 +3,6 @@ category: tech
 name: Image
 id: image
 description: Generates still
-  images. Find out more
-  about cameras [here](https://en.wikipedia.org/wiki/Camera)
+  images.
 icon: /dtpr-icons/image.svg
 ---

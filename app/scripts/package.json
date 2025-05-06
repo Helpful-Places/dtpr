@@ -1,0 +1,9 @@
+{
+  "name": "dtpr-scripts",
+  "private": true,
+  "dependencies": {
+    "@google-cloud/translate": "^7.2.1",
+    "commander": "^11.1.0",
+    "gray-matter": "^4.0.3"
+  }
+}
