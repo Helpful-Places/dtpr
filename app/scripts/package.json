@@ -13,6 +13,10 @@
     "sync-attributes": "node sync-attributes.js",
     "sync-attributes:dry": "node sync-attributes.js --dry-run",
     "sync-attributes:create": "node sync-attributes.js --create-missing",
-    "sync-attributes:update-only": "node sync-attributes.js --no-create"
+    "sync-attributes:update-only": "node sync-attributes.js --no-create",
+    "translate": "node translate-content.js",
+    "cleanup-links": "node cleanup_markdown_links.js",
+    "copy-descriptions": "node copy-descriptions.js",
+    "copy-descriptions:dry": "node copy-descriptions.js --dry-run"
   }
 }
