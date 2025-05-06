@@ -44,8 +44,12 @@ if (attributesIndex !== -1 && args[attributesIndex + 1]) {
   options.attributes = args[attributesIndex + 1].split(',');
 }
 
-// Get the base path (assuming script is run from project root)
-const basePath = process.cwd();
+// Get the correct base paths regardless of where the script is run from
+// Find the project root (parent directory of scripts)
+const scriptDir = __dirname;
+const basePath = path.resolve(scriptDir, '..');  // Go up one level from scripts dir to project root
+
+// Set up content path relative to project root
 const contentPath = path.join(basePath, options.contentDir);
 
 // Ensure the content directory exists

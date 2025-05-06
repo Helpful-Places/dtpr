@@ -32,8 +32,12 @@ if (localesIndex !== -1 && args[localesIndex + 1]) {
   options.locales = args[localesIndex + 1].split(',');
 }
 
-// Get the base path (assuming script is run from project root)
-const basePath = process.cwd();
+// Get the correct base paths regardless of where the script is run from
+// Find the project root (parent directory of scripts)
+const scriptDir = __dirname;
+const basePath = path.resolve(scriptDir, '..');  // Go up one level from scripts dir to project root
+
+// Set up content paths relative to project root
 const v0Path = path.join(basePath, 'content/dtpr.v0/elements');
 const v1Path = path.join(basePath, 'content/dtpr.v1/elements');
 
@@ -63,17 +67,6 @@ let stats = {
   missing: 0,
   skipped: 0,
   noDescription: 0
-};
-
-// Gray-matter can be configured to format YAML properly
-// It uses js-yaml internally, which has good formatting support
-const matterOptions = {
-  engines: {
-    yaml: {
-      // No custom stringify needed - js-yaml handles formatting well
-      // Just use defaults which format arrays and strings properly
-    }
-  }
 };
 
 // Process each locale
@@ -150,7 +143,7 @@ locales.forEach(locale => {
     // Update the frontmatter
     v1Data.data.description = v0Data.data.description;
     
-    // Generate updated content using gray-matter's stringify
+    // Generate updated content using matter.stringify
     // This will use js-yaml for proper YAML formatting
     const updatedContent = matter.stringify(v1Data.content, v1Data.data);
     
