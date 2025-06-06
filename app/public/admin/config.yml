@@ -6,9 +6,9 @@ backend:
   open_authoring: true
 
   commit_messages:
-    create: {{author-name}} created a new dtpr element called {{slug}}
-    update: {{author-name}} updated the following dtpr element: {{slug}}
-    delete: {{author-name}} deleted the following dtpr element: {{slug}}
+    create: '{{author-name}} created a new dtpr element called {{slug}}'
+    update: '{{author-name}} updated the following dtpr element: {{slug}}'
+    delete: '{{author-name}} deleted the following dtpr element: {{slug}}'
     
 
 publish_mode: editorial_workflow
