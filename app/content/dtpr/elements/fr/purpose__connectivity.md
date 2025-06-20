@@ -1,7 +1,7 @@
 ---
 category: purpose
-description: Permettre la connexion à internet.
-icon: /dtpr-icons/connectivity.svg
-id: connectivity
 name: Accés à internet
+id: connectivity
+description: Permet à un utilisateur de se connecter à un réseau, tel qu'Internet
+icon: /dtpr-icons/connectivity.svg
 ---
