@@ -2,6 +2,6 @@
 category: purpose
 name: Pagkakakonekta
 id: connectivity
-description: Sumusuporta sa pagsukat o pagsubaybay sa natural na kapaligiran. 
+description: Nagbibigay-daan sa isang user na kumonekta sa isang network, gaya ng internet
 icon: /dtpr-icons/connectivity.svg
 ---

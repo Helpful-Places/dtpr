@@ -2,6 +2,6 @@
 category: purpose
 name: Conectividad
 id: connectivity
-description: Permite la conectividad de los dispositivos a una red digital.
+description: Permite a un usuario conectarse a una red, como Internet.
 icon: /dtpr-icons/connectivity.svg
 ---
