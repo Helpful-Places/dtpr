@@ -37,6 +37,11 @@ const categoryOrder = [
 
 <template>
   <div>
+    <div class="flex items-center justify-between mb-8">
+      <p>The following DTPR elements can be used to construct a data chain for physical technologies, such as sensors or robotics.</p>
+      <LocaleSwitcher />
+    </div>
+
     <ElementSection
       v-for="categoryId in categoryOrder"
       :key="categoryId"
