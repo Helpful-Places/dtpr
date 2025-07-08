@@ -40,16 +40,12 @@ const categoryOrder = [
 
 <template>
   <div>
-    <div class="flex items-center justify-between mb-8">
-      <p>The following DTPR elements can be used to construct a data chain for AI or algorithmic decision making systems.</p>
-      <LocaleSwitcher />
-    </div>
-
-    <ElementSection
-      v-for="categoryId in categoryOrder"
-      :key="categoryId"
-      :category="categories.find(c => c.dtpr_id === categoryId)"
+    <TaxonomyLayout
+      :categories="categories"
       :elements="elements"
+      :category-order="categoryOrder"
+      title="AI Taxonomy"
+      description="The following DTPR elements can be used to construct a data chain for AI or algorithmic decision making systems."
     />
   </div>
 </template>
