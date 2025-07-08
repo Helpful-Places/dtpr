@@ -1,4 +1,8 @@
 ---
 id: ai__processing
+name: Algoritmo de Processamento ou IA
 datachain_type: ai
+element_variables:
+  - id: additional_description
+    label: Descrição Adicional
 ---
