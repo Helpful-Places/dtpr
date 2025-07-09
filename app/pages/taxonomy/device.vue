@@ -1,6 +1,6 @@
 <script setup>
 useHead({
-  title: 'Sensor Taxonomy'
+  title: 'Device Taxonomy'
 })
 
 const { locale } = useI18n()
@@ -41,8 +41,8 @@ const categoryOrder = [
       :categories="categories"
       :elements="elements"
       :category-order="categoryOrder"
-      title="Sensor Taxonomy"
-      description="The following DTPR elements can be used to construct a data chain for physical technologies, such as sensors or robotics."
+      title="Device Taxonomy"
+      description="The following DTPR elements can be used to construct a data chain for physical technologies, such as sensors, robotics, and other physical devices."
     />
   </div>
 </template>

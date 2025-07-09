@@ -1,3 +1,3 @@
 <script setup lang="js">
-await navigateTo('/taxonomy/sensor')
+await navigateTo('/taxonomy/device')
 </script>

@@ -4,8 +4,8 @@ useHead({
 })
 
 const links = [[
-  { label: 'Sensor', to: '/taxonomy/sensor' },
-  { label: 'AI / Alogrithm (beta)', to: '/taxonomy/ai' },
+  { label: 'Devices', to: '/taxonomy/device' },
+  { label: 'AI / Algorithms (beta)', to: '/taxonomy/ai' },
 ]];
 </script>
 
