@@ -5,10 +5,8 @@ const fileName = (_id: any) => {
 export default defineEventHandler(async event => {
   const locale = event.context.params?.locale || 'en';
 
-  // Get the host from the request headers
-  const host = getHeader(event, 'host');
-  const protocol = getHeader(event, 'x-forwarded-proto') || 'http';
-  const baseUrl = `${protocol}://${host}`;
+  // Get the base URL from environment variable or default to localhost
+  const baseUrl = process.env.BASE_URL || 'http://localhost:3000';
 
   const elements = await queryCollection(event, 'v0_elements')
     .where('_locale', '=', locale)
