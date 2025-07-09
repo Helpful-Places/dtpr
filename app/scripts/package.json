@@ -6,8 +6,9 @@
   "dependencies": {
     "@google-cloud/translate": "^7.2.1",
     "commander": "^11.1.0",
-    "gray-matter": "^4.0.3",
-    "glob": "^10.3.10"
+    "deepl-node": "^1.19.0",
+    "glob": "^10.3.10",
+    "gray-matter": "^4.0.3"
   },
   "scripts": {
     "sync-attributes": "node sync-attributes.js",
