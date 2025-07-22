@@ -14,7 +14,7 @@
       return titleChunk ? `${titleChunk} - Digital Trust for Places & Routines` : 'Digital Trust for Places & Routines';
     },
     meta: [
-      { name: 'description', content: 'Open-source communication standard increasing the transparency and accountability of digital technology in public places.' },
+      { name: 'description', content: 'Open-source communication standard to bring transparency, legibility, and accountability to technology.' },
       { name: 'og:image', content: 'https://dtpr.io/og-image.png' }
     ],
     script: [

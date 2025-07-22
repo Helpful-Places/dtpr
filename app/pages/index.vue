@@ -4,32 +4,29 @@
 
     <div class="app-container mt-12">
       <div class="md:flex gap-8">
-        <div class="card md:w-[60%] bg-dtpr-blue-950 text-dtpr-blue-100">
+        <div class="card md:w-[40%] bg-dtpr-blue-950 text-dtpr-blue-100">
           <h2>The Problem</h2>
-          <h1>Digital technology is increasingly present in the places and spaces in which we live. How might people
-            learn about and give feedback on its use?</h1>
+          <h3>Our lives governed by invisible technologies, with little transparency about what data these systems are collecting, by whom, and for what purposes.</h3>
+          <h1>How can we trust them?</h1>
         </div>
 
-        <div class="card md:w-[40%] bg-dtpr-blue-100 text-dtpr-blue-950">
+        <div class="card md:w-[60%] bg-dtpr-blue-100 text-dtpr-blue-950">
           <p class="text-lg font-bold leading-snug">
-            How can we be confident the technology is achieving its goal? Whether seeking safety, sustainability,
-            or accessibility, many are left asking: what are the benefits, the risks, and the trade-offs we're making?
+            How can we be confident the technology is achieving its goal?
           </p>
           <p>
-            Digital technology is all around us, but often invisible. There's little transparency about what data these
-            technologies are collecting, by whom, and for what purposes. We've also seen that much technology in the
-            built
-            environment lacks controls for people.
+            Our commutes to work are controlled by automated traffic lights. Our job applications are reviewed and filtered by AI decision makers. Our street lights use sensors and edge-computing to optimize electricity usage. Technology now has just as much an impact on how our public spaces function as roadways or parks.  It seems natural that people should have a right to learn about and give feedback on its use.
           </p>
           <p>
-            We've drafted a standard that enables transparency, legibility, accountability, and control for people.
+            If these systems are hidden from us, how can we be certain they’re achieving their goals? Whether seeking safety, sustainability, or accessibility, many are left asking: what are the benefits, the risks, and the trade-offs we're making? 
+          </p>
+          <p>
+            We're building a communication standard that enables transparency, legibility, accountability, and control for people.
           </p>
         </div>
       </div>
 
       <div class="md:flex gap-8 mt-8">
-        <div class="card bg-deployment md:w-[40%] min-h-[12rem]"></div>
-
         <div class="card md:w-[60%] bg-dtpr-green-800 text-dtpr-green-100">
           <h2>Our Proposal</h2>
           <h1>The DTPR Taxonomy, Design Patterns and Prototypes</h1>
@@ -39,16 +36,17 @@
             together, help visualize and convey how a digital system works.</p>
           <NuxtLinkLocale to="/taxonomy" class="u-line border-dtpr-green-100">Explore the Taxonomy</NuxtLinkLocale>
         </div>
+        <div class="card bg-deployment md:w-[40%] min-h-[12rem]"></div>
       </div>
 
       <div class="md:flex gap-8 mt-8">
-        <div class="card md:w-[60%] bg-dtpr-red-100 text-dtpr-red-800">
+        <div class="card md:w-[40%] bg-dtpr-red-100 text-dtpr-red-800">
           <h2>Our Mission</h2>
-          <h1>Enable human agency in the world's shared spaces.</h1>
+          <h1>Enable human agency in the world's shared physical and digital spaces.</h1>
           <NuxtLinkLocale to="/get-involved" class="u-line border-dtpr-red-800">Get Involved</NuxtLinkLocale>
         </div>
 
-        <div class="card bg-mission md:w-[40%] min-h-[12rem]"></div>
+        <div class="card bg-mission md:w-[60%] min-h-[12rem]"></div>
       </div>
 
       <div class="md:flex gap-8 mt-8">
@@ -237,6 +235,10 @@
 
   h2 {
     @apply text-xl font-bold mb-4;
+  }
+
+  h3 {
+    @apply text-lg mb-4;
   }
 }
 </style>

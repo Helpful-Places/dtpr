@@ -3,65 +3,41 @@ const fileName = (_id: any) => {
 }
 
 export default defineEventHandler(async event => {
-  const { siteUrl } = useRuntimeConfig();
   const locale = event.context.params?.locale || 'en';
 
-  const iconUrl = (icon: string) => {
-    if (!icon) { return null; }
-    return `${siteUrl}${icon}`;
-  }
+  // Get the base URL from environment variable or default to localhost
+  const baseUrl = process.env.BASE_URL || 'http://localhost:3000';
 
-  const elements = await $fetch('/api/_content/query', {
-    method: 'GET',
-    query: {
-      _params: {
-        where: {
-          _type: 'element',
-          _locale: locale,
-        }
-      }
-    }
-  });
-
-  const categories = await $fetch('/api/_content/query', {
-    method: 'GET',
-    query: {
-      _params: {
-        where: {
-          _type: 'category',
-          _locale: locale,
-        }
-      }
-    }
-  });
-
-  const englishElements = await $fetch('/api/_content/query', {
-    method: 'GET',
-    query: {
-      _params: {
-        where: {
-          _type: 'element',
-          _locale: 'en',
-        }
-      }
-    }
-  });
+  const elements = await queryCollection(event, 'v0_elements')
+    .where('_locale', '=', locale)
+    .all();
+  const englishElements = await queryCollection(event, 'v0_elements')
+    .where('_locale', '=', 'en')
+    .all();
+  const categories = await queryCollection(event, 'v0_categories')
+    .all();
 
   return elements.map((s) => {
-    const fallback = englishElements.find(sym => fileName(sym._id) === fileName(s._id));
+    const fallback = englishElements.find(en => en.id === s.id);
+    const headline = categories.find(cat => cat.id === s.category)?.headline
     
-    let id = `${s.category}__${s.id || fallback.id}`;
-    let icon = iconUrl(s.icon) || iconUrl(fallback.icon);
-
-    let headline = categories.find(cat => cat.id === s.category)?.headline
+    // Extract the filename from the full path
+    const filename = s.id.split('/').pop()?.replace('.md', '') || s.id;
+    
+    // The filename already contains the category__element format
+    // So we use it directly as the API id
+    const apiId = filename;
+    
+    // Generate complete URL for icon
+    const iconUrl = s.icon ? `${baseUrl}${s.icon}` : s.icon;
     
     return {
-      id,
-      icon,
+      id: apiId,
+      icon: iconUrl,
       headline,
       category: s.category,
-      description: s.description,
-      title: s.name,
+      description: s.description || fallback?.description,
+      title: s.name || fallback?.name,
     }
   });
 });

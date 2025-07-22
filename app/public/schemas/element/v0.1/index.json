@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "title": "DTPR Element",
+  "description": "A schema for DTPR (Digital Transparency in Public Realm) elements",
+  "type": "object",
+  "required": ["schema", "element"],
+  "properties": {
+    "schema": {
+      "type": "object",
+      "required": ["name", "id", "version", "namespace"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the schema",
+          "enum": ["DTPR Element"]
+        },
+        "id": {
+          "type": "string",
+          "description": "The identifier of the schema",
+          "enum": ["dtpr_element"]
+        },
+        "version": {
+          "type": "string",
+          "description": "The version of the schema",
+          "pattern": "^\\d+\\.\\d+$"
+        },
+        "namespace": {
+          "type": "string",
+          "description": "The namespace of the schema",
+          "format": "uri"
+        }
+      }
+    },
+    "element": {
+      "type": "object",
+      "required": ["id", "category_ids", "version", "icon", "title", "description", "variables"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the element"
+        },
+        "category_ids": {
+          "type": "array",
+          "description": "The categories this element belongs to",
+          "items": {
+            "type": "string"
+          }
+        },
+        "version": {
+          "type": "string",
+          "description": "The version of this element, in ISO 8601 format",
+          "format": "date-time"
+        },
+        "icon": {
+          "type": "object",
+          "required": ["url", "alt_text", "format"],
+          "properties": {
+            "url": {
+              "type": "string",
+              "description": "URL to the icon image",
+              "format": "uri"
+            },
+            "alt_text": {
+              "type": "array",
+              "description": "Localized alt text for the icon",
+              "items": {
+                "$ref": "#/definitions/localizedString"
+              }
+            },
+            "format": {
+              "type": "string",
+              "description": "Format of the icon",
+              "enum": ["svg", "png", "jpg", "jpeg"]
+            }
+          }
+        },
+        "title": {
+          "type": "array",
+          "description": "Localized titles for the element",
+          "items": {
+            "$ref": "#/definitions/localizedString"
+          }
+        },
+        "description": {
+          "type": "array",
+          "description": "Localized descriptions for the element",
+          "items": {
+            "$ref": "#/definitions/localizedString"
+          }
+        },
+        "citation": {
+          "type": "array",
+          "description": "Localized citations or references",
+          "items": {
+            "$ref": "#/definitions/localizedString"
+          }
+        },
+        "variables": {
+          "type": "array",
+          "description": "Variables that can be used in the element's content",
+          "items": {
+            "type": "object",
+            "required": ["id", "label", "type", "required"],
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Unique identifier for the variable"
+              },
+              "label": {
+                "type": "array",
+                "description": "Localized labels for the variable",
+                "items": {
+                  "$ref": "#/definitions/localizedString"
+                }
+              },
+              "type": {
+                "type": "string",
+                "description": "Data type of the variable",
+                "enum": ["string", "number", "boolean", "date", "time", "datetime"]
+              },
+              "required": {
+                "type": "boolean",
+                "description": "Whether the variable is required"
+              },
+              "default": {
+                "description": "Default value for the variable",
+                "type": ["string", "number", "boolean", "null"]
+              },
+              "options": {
+                "type": "array",
+                "description": "Possible values for the variable",
+                "items": {
+                  "type": ["string", "number", "boolean"]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "localizedString": {
+      "type": "object",
+      "required": ["locale", "value"],
+      "properties": {
+        "locale": {
+          "type": "string",
+          "description": "The language code (e.g., 'en', 'fr', 'es')",
+          "pattern": "^[a-z]{2}(-[A-Z]{2})?$"
+        },
+        "value": {
+          "type": "string",
+          "description": "The localized text"
+        }
+      }
+    }
+  }
+}

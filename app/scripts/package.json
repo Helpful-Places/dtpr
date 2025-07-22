@@ -1,9 +1,23 @@
 {
   "name": "dtpr-scripts",
   "private": true,
+  "version": "1.0.0",
+  "description": "Utility scripts for managing DTPR content",
   "dependencies": {
     "@google-cloud/translate": "^7.2.1",
     "commander": "^11.1.0",
+    "deepl-node": "^1.19.0",
+    "glob": "^10.3.10",
     "gray-matter": "^4.0.3"
+  },
+  "scripts": {
+    "sync-attributes": "node sync-attributes.js",
+    "sync-attributes:dry": "node sync-attributes.js --dry-run",
+    "sync-attributes:create": "node sync-attributes.js --create-missing",
+    "sync-attributes:update-only": "node sync-attributes.js --no-create",
+    "translate": "node translate-content.js",
+    "cleanup-links": "node cleanup_markdown_links.js",
+    "copy-descriptions": "node copy-descriptions.js",
+    "copy-descriptions:dry": "node copy-descriptions.js --dry-run"
   }
 }
