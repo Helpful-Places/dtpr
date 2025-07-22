@@ -37,7 +37,7 @@ collections:
     i18n: true
     label: "Category" # Used in the UI
     slug: '{{category}}__{{id}}'
-    folder: "app/content/dtpr/categories" # The path to the folder where the documents are stored
+    folder: "app/content/dtpr.v0/categories" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     identifier_field: name
     fields: # The fields for each document, usually in front matter
@@ -47,7 +47,7 @@ collections:
   - name: "elements" # Used in routes, e.g., /admin/collections/blog
     i18n: true
     label: "Element" # Used in the UI
-    folder: "app/content/dtpr/elements" # The path to the folder where the documents are stored
+    folder: "app/content/dtpr.v0/elements" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     identifier_field: name
     slug: '{{category}}__{{id}}'
