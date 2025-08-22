@@ -44,7 +44,7 @@ const categoryOrder = [
       :categories="categories"
       :elements="elements"
       :category-order="categoryOrder"
-      title="AI / Algorithm Taxonomy"
+      title="AI / Algorithm Taxonomy (Beta)"
       description="The following DTPR elements can be used to construct a data chain for AI or algorithmic decision making systems."
     />
   </div>

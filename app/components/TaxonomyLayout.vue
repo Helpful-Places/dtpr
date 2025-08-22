@@ -219,6 +219,9 @@ onUnmounted(() => {
         <p class="text-gray-600 dark:text-gray-400">
           {{ description }}
         </p>
+        <p v-if="description.toLowerCase().includes('ai')" class="text-gray-600 dark:text-gray-400 mt-5">
+          This version of the standard is still in beta. If you have any thoughts, feedback, or contributions you wish to share, please do so on our <a class="u-line border-dtpr-green-lighter" href="https://github.com/Helpful-Places/dtpr/issues/228">open GitHub proposal</a>
+        </p>
       </div>
       
       <div class="flex flex-col lg:flex-row gap-0 lg:gap-8">
