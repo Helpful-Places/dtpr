@@ -2,6 +2,6 @@
 id: sensor__access
 name: Access
 description: Pag-access ng data
-datachain_type: sensor
+datachain_type: device
 ---
 

@@ -4,6 +4,6 @@ name: Pinoproseso
 description: >-
   Inilalarawan kung paano pinoproseso o manipulahin ang data na kinokolekta o
   pinangangasiwaan ng isang teknolohiya
-datachain_type: sensor
+datachain_type: device
 ---
 

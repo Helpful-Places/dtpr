@@ -2,6 +2,6 @@
 id: sensor__accountable
 name: ទទួលខុសត្រូវ
 description: តើនរណាជាអ្នកទទួលខុសត្រូវចំពោះរឿងនេះ
-datachain_type: sensor
+datachain_type: device
 ---
 

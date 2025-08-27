@@ -4,6 +4,6 @@ name: Tratamiento
 description: >-
   Describe cómo se procesan o manipulan los datos recopilados o manejados por
   una tecnología.
-datachain_type: sensor
+datachain_type: device
 ---
 

@@ -2,6 +2,6 @@
 id: sensor__access
 name: Accéder
 description: Accès aux données
-datachain_type: sensor
+datachain_type: device
 ---
 

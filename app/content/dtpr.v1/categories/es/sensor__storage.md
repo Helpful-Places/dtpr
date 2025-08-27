@@ -2,6 +2,6 @@
 id: sensor__storage
 name: Almacenamiento
 description: ¿Dónde se almacenan los datos?
-datachain_type: sensor
+datachain_type: device
 ---
 

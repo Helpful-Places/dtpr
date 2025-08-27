@@ -60,9 +60,9 @@ Categories define the organizational structure and display order for elements wi
 "categories": [
   {
     "id": "tech",
-    "order": 0,
+    "order": 1,
     "name": [{"locale": "en", "value": "Technology"}],
-    "headline": [{"locale": "en", "value": "How does this technology work?"}],
+    "prompt": [{"locale": "en", "value": "How does this technology work?"}],
     "description": [{"locale": "en", "value": "The core technology components that collect or process data"}],
     "context_types": [
       {
@@ -81,9 +81,9 @@ Categories define the organizational structure and display order for elements wi
 - **`id`** (string, required): Unique identifier for the category
 - **`order`** (integer, required): Display order for categories (0-based)
 - **`name`** (array, required): Localized display name for the category
-- **`headline`** (array, required): Localized question or prompt for this category
+- **`prompt`** (array, required): Localized question or prompt for this category
 - **`description`** (array, required): Localized explanation of what elements in this category represent
-- **`context_types`** (array, optional): Available context types for elements in this category
+- **`context_types`** [TODO] (array, optional): Available context types for elements in this category
 
 ### Context Types
 

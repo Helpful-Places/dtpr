@@ -2,6 +2,6 @@
 id: sensor__purpose
 name: គោលបំណង
 description: គោលបំណងនៃបច្ចេកវិទ្យានេះ។
-datachain_type: sensor
+datachain_type: device
 ---
 

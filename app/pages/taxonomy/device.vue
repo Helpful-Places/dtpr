@@ -7,7 +7,7 @@ const { locale } = useI18n()
 
 // Query categories of type 'sensor'
 const categories = await queryCollection('categories')
-  .where('datachain_type', '=', 'sensor')
+  .where('datachain_type', '=', 'device')
   .where('_locale', '=', locale.value)
   .all();
 
