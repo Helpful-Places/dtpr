@@ -81,15 +81,6 @@ export default eventHandler(async event => {
       value: `${title} icon`
     })
     
-    // Add to label array for the additional_description variable
-    const varIndex = acc[key].element.variables.findIndex(v => v.id === "additional_description")
-    if (varIndex >= 0 && !acc[key].element.variables[varIndex].label.some(l => l.locale === locale)) {
-      acc[key].element.variables[varIndex].label.push({
-        locale,
-        value: "Additional Details"
-      })
-    }
-    
     return acc
   }, {})
 
