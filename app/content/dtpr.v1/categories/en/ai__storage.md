@@ -1,10 +1,10 @@
 ---
-id: ai__retention
-name: Retention
-description: The policies and practices governing the retention of data produced by the AI system.
-prompt: How long is the data kept?
+id: ai__storage
+name: Data Storage
+description: Where the data produced by the AI system is stored.
+prompt: Where is the data produced by the AI system stored?
 required: false
-order: 8
+order: 9
 datachain_type: ai
 element_variables:
   - id: additional_description
