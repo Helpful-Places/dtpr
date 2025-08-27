@@ -1,6 +1,7 @@
 ---
 id: sensor__access
-name: ការចុលដល់
+name: ការចូលប្រើ
 description: ការចូលប្រើទិន្នន័យ
 datachain_type: sensor
 ---
+

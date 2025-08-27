@@ -1,13 +1,19 @@
 ---
 id: ai__retention
 name: Retenção
-description: How long is the data kept?
+description: >-
+  As políticas e práticas que regem a retenção de dados produzidos pelo sistema
+  de IA.
 datachain_type: ai
 element_variables:
   - id: additional_description
     label: Descrição
   - id: duration
     label: Duração
-    default: ""
+    default: ''
     required: true
+required: false
+order: 8
+prompt: Por quanto tempo os dados são mantidos?
 ---
+

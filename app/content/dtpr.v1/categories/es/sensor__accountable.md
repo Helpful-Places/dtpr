@@ -1,6 +1,7 @@
 ---
 id: sensor__accountable
-name: Contable
-description: ¿Quién es responsable?
+name: Responsable
+description: ¿Quién es responsable de esto?
 datachain_type: sensor
 ---
+

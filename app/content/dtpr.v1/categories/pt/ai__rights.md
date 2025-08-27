@@ -3,6 +3,12 @@ id: ai__rights
 name: Direitos
 datachain_type: ai
 element_variables:
-  - id: additional_description
-    label: Descrição Adicional
+  - id: rights
+    label: Descrição dos Direitos
+    required: true
+required: false
+order: 11
+description: Os direitos do usuário em relação ao sistema de IA.
+prompt: Quais são os direitos do usuário em relação ao sistema de IA?
 ---
+

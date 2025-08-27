@@ -1,6 +1,7 @@
 ---
 id: sensor__purpose
-name: Objectif
+name: But
 description: Objectif de cette technologie
 datachain_type: sensor
 ---
+

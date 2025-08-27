@@ -1,6 +1,7 @@
 ---
 id: sensor__access
-name: I -access
-description: I -access
+name: Access
+description: Pag-access ng data
 datachain_type: sensor
 ---
+

@@ -1,6 +1,7 @@
 ---
 id: sensor__storage
 name: Imbakan
-description: Imbakan
+description: Saan nakaimbak ang data?
 datachain_type: sensor
 ---
+

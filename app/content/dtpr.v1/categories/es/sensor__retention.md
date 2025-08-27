@@ -1,6 +1,7 @@
 ---
 id: sensor__retention
 name: Retención
-description: ¿Cuánto tiempo se guardan los datos?
+description: ¿Durante cuánto tiempo se conservan los datos?
 datachain_type: sensor
 ---
+

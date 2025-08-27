@@ -1,6 +1,7 @@
 ---
 id: sensor__accountable
-name: ដេលអាចរាប់បាន
-description: ដែលទទួលខុសត្រូវចំពោះនេះ
+name: ទទួលខុសត្រូវ
+description: តើនរណាជាអ្នកទទួលខុសត្រូវចំពោះរឿងនេះ
 datachain_type: sensor
 ---
+

@@ -1,6 +1,7 @@
 ---
 id: sensor__accountable
-name: Redevable
-description: Qui est redevable de cela
+name: Responsable
+description: Qui est responsable de cela ?
 datachain_type: sensor
 ---
+

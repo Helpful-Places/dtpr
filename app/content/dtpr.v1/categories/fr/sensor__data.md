@@ -1,6 +1,7 @@
 ---
 id: sensor__data
-name: Données
+name: Type de données
 description: Type de données collectées
 datachain_type: sensor
 ---
+

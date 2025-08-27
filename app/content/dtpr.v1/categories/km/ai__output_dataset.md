@@ -1,9 +1,14 @@
 ---
 id: ai__output_dataset
-name: ទិន្នន័យលទ្ធផល
+name: សំណុំទិន្នន័យលទ្ធផល
 datachain_type: ai
 element_variables:
   - id: additional_description
-    label: បរិយាយ
+    label: ការពិពណ៌នា
     required: true
+required: false
+order: 6
+description: សំណុំទិន្នន័យដែលផលិតដោយប្រព័ន្ធ AI នេះ។
+prompt: តើសំណុំទិន្នន័យអ្វីខ្លះត្រូវបានផលិតដោយប្រព័ន្ធ AI នេះ?
 ---
+

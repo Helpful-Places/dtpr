@@ -1,6 +1,7 @@
 ---
 id: sensor__tech
 name: Tecnologia
-description: Como funciona esta tecnologia
+description: Como essa tecnologia funciona
 datachain_type: sensor
 ---
+

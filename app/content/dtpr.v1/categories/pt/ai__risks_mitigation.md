@@ -4,6 +4,15 @@ name: Riscos e Mitigação
 datachain_type: ai
 element_variables:
   - id: mitigation
-    label: Mitigação
+    label: Descrição de Riscos e Mitigações
     required: true
+required: false
+order: 10
+description: >-
+  Os riscos associados a este sistema de IA e as estratégias de mitigação
+  implementadas.
+prompt: >-
+  Quais são os riscos associados a este sistema de IA e quais estratégias de
+  mitigação estão em vigor?
 ---
+

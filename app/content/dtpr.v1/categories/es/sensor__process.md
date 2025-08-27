@@ -1,7 +1,9 @@
 ---
 id: sensor__process
-name: Procesamiento
-description: Describe cómo se procesan o manipulan los datos recogidos o
-  manejados por una tecnologìa
+name: Tratamiento
+description: >-
+  Describe cómo se procesan o manipulan los datos recopilados o manejados por
+  una tecnología.
 datachain_type: sensor
 ---
+

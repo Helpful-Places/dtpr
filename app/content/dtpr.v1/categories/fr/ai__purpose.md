@@ -1,9 +1,13 @@
 ---
 id: ai__purpose
-name: Objectif
-description: Purpose of this technology
+name: But
+description: Le but de ce système d’IA.
 datachain_type: ai
 element_variables:
   - id: additional_description
     label: Description
+required: true
+order: 2
+prompt: Quel est le but de ce système d’IA ?
 ---
+

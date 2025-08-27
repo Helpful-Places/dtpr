@@ -1,6 +1,7 @@
 ---
 id: sensor__data
-name: Uri ng datos
-description: Uri ng datos
+name: Uri ng Data
+description: Uri ng data na nakolekta
 datachain_type: sensor
 ---
+

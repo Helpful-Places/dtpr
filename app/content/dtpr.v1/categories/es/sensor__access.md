@@ -1,6 +1,7 @@
 ---
 id: sensor__access
 name: Acceso
-description: Acceso a los datos
+description: Acceso a datos
 datachain_type: sensor
 ---
+
