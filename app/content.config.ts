@@ -10,6 +10,14 @@ export default defineContentConfig({
         dtpr_id: z.string(),
         name: z.string(),
         description: z.string(),
+        prompt: z.string(),
+        required: z.boolean().optional(),
+        order: z.number().min(0).optional(),
+        element_variables: z.array(z.object({
+          id: z.string(),
+          label: z.string().optional(),
+          required: z.boolean().optional()
+        })).optional(),
         datachain_type: z.string(),
         _locale: z.string()
       })
