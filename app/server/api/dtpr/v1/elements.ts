@@ -8,7 +8,10 @@ export default eventHandler(async event => {
   const requestedLocales = query.locales 
     ? (Array.isArray(query.locales) ? query.locales : query.locales.toString().split(','))
     : null
-    
+
+// Get the base URL from environment variable or default to localhost
+  const baseUrl = process.env.BASE_URL || 'http://localhost:3000';
+
   const elements = await queryCollection(event, 'elements').all()
 
   // Group elements by dtpr_id to handle multiple locales for the same element
@@ -37,7 +40,7 @@ export default eventHandler(async event => {
           category_ids: categoryIds,
           version: "2024-06-11T00:00:00Z",
           icon: {
-            url: element.icon ? `https://dtpr-io-static.onrender.com${element.icon}` : "",
+            url: element.icon ? `${baseUrl}${element.icon}` : "",
             alt_text: [],
             format: "svg"
           },
@@ -47,7 +50,6 @@ export default eventHandler(async event => {
           variables: [
             {
               id: "additional_description",
-              label: [],
               type: "string",
               required: true,
               default: ""
