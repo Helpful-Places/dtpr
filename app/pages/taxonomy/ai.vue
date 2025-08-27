@@ -32,7 +32,7 @@ const categoryOrder = [
   'ai__output_dataset',
   'ai__access',
   'ai__retention',
-  // 'ai__storage',
+  'ai__storage',
   'ai__risks_mitigation',
   'ai__rights'
 ]
