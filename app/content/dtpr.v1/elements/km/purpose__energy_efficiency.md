@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__purpose
+  - device__purpose
   - ai__purpose
 name: ប្រសិទ្ធភាពថាមពល
 id: energy_efficiency

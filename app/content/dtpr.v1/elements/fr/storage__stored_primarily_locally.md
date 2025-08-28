@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__storage
+  - device__storage
   - ai__storage
 description: Les données sont stockées principalement dans la juridiction où elles
   ont été collectées.

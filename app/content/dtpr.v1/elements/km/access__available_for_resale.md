@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__access
+  - device__access
   - ai__access
 name: អាចប្រើបានសម្រាប់ការប៉ាន់ស្មាន
 id: available_for_resale

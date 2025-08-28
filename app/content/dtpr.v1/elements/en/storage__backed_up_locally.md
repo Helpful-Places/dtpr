@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__storage
+  - device__storage
   - ai__storage
 name: Backed up locally
 id: backed_up_locally

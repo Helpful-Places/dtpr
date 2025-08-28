@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__purpose
+  - device__purpose
   - ai__purpose
 description: >-
   Contribue au fonctionnement des services qui assurent la sécurité et la santé

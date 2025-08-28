@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__process
+  - device__process
 name: Secure Multi-Party na Pag-compute
 id: secure_multi_party_computing
 description: Ang secure multi-party na pag-compute ay isang subfield ng

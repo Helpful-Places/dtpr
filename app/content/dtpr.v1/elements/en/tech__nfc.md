@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: NFC
 id: nfc
 description: >-

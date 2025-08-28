@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Contactless Payments
 id: contactless_payments
 description: >-

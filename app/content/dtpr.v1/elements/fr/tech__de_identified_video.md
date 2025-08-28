@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: Vidéo dé-identifiée
 id: de_identified_video
 description: Génère des séquences vidéo d'une résolution suffisante pour

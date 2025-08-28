@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__access
+  - device__access
   - ai__access
 description: Disponible pour moi mais pas pour d'autres individus. Par exemple, en
   tant qu'individu, vous avez accés à tous vos enregistrements de péage électronique

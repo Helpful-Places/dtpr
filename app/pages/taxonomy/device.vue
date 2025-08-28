@@ -24,14 +24,14 @@ const elements = await queryCollection('elements')
   .all();
 
 const categoryOrder = [
-  'sensor__accountable',
-  'sensor__purpose',
-  'sensor__tech',
-  'sensor__data',
-  'sensor__process',
-  'sensor__access',
-  'sensor__retention',
-  'sensor__storage'
+  'device__accountable',
+  'device__purpose',
+  'device__tech',
+  'device__data',
+  'device__process',
+  'device__access',
+  'device__retention',
+  'device__storage'
 ]
 </script>
 

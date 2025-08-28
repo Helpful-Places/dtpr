@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__access
+  - device__access
   - ai__access
 name: Magagamit sa akin
 id: available_to_me

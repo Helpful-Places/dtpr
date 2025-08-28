@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 description: >-
   Ce dispositif utilise un réseau de communication cellulaire où la derniére
   liaison est sans fil, ce qui permet aux émetteurs-récepteurs portables (par

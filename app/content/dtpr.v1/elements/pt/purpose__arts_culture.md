@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__purpose
+  - device__purpose
   - ai__purpose
 name: Artes e cultura
 id: arts_culture

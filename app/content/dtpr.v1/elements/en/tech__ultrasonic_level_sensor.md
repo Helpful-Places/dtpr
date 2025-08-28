@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Ultrasonic Sensor
 id: ultrasonic_level_sensor
 description: >-

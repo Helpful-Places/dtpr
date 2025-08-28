@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__purpose
+  - device__purpose
   - ai__purpose
 name: Paghahanap ng Lugar at mga Serbisyo
 id: wayfinding_services

@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: De-kinilala na Boses
 id: de_identified_voice
 description: Bumubuo ng audio data na maaaring tumukoy sa mga indibidwal, ngunit

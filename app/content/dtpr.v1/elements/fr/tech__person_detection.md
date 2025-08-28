@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: Détection de personnes
 id: person_detection
 description: On parle de détection de personnes lorsqu'un systéme peut détecter

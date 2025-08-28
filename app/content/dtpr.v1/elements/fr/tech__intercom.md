@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 description: >-
   Un interphone (dispositif d'intercommunication) est un systéme de
   communication vocale autonome destiné à être utilisé dans un bâtiment ou un

@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__storage
+  - device__storage
   - ai__storage
 name: Nakaimbak nang lokal
 id: stored_locally

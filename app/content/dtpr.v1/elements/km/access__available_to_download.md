@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__access
+  - device__access
   - ai__access
 name: មានដើម្បីទាញយក
 id: available_to_download

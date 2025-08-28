@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__purpose
+  - device__purpose
   - ai__purpose
 name: សុវត្ថិភាពនិងសន្តិសុខ
 id: safety_security

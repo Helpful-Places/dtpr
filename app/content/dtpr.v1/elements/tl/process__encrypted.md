@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 name: Naka -encrypt
 id: encrypted
 description: >-

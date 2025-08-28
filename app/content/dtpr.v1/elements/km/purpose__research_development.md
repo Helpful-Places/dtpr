@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__purpose
+  - device__purpose
   - ai__purpose
 name: ស្រាវជ្រាវនិងអភិវឌ្ឍន៍
 id: research_development

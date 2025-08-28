@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__access
+  - device__access
   - ai__access
 name: Disponible para mi
 id: available_to_me

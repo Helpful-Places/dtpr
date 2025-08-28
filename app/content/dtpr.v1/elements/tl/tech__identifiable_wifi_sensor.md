@@ -1,7 +1,7 @@
 ---
 id: identifiable_wifi_sensor
 category:
-  - sensor__tech
+  - device__tech
 icon: /dtpr-icons/identifiable_wifi_sensor.svg
 name: Makikilalang WiFi Sensor
 description: >-

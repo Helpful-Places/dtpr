@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 id: augmented_reality
 icon: /dtpr-icons/augmented_reality.svg
 name: Réalité augmentée

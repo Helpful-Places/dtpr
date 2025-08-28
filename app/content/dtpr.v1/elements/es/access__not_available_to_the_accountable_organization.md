@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__access
+  - device__access
   - ai__access
 name: No disponible para la organización responsable
 id: not_available_to_the_accountable_organization

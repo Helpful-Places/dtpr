@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: Video Camera - Infrared
 id: video_camera_infrared
 description: Bumubuo ng video footage sa infrared na bahagi ng electromagnetic spectrum.

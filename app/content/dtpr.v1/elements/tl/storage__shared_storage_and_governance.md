@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__storage
+  - device__storage
   - ai__storage
 name: Ibinahaging imbakan at pamamahala
 id: shared_storage_and_governance

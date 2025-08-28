@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__storage
+  - device__storage
   - ai__storage
 name: បានបម្រុងទុកក្នុងមូលដ្ឋាន
 id: backed_up_locally

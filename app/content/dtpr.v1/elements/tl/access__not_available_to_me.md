@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__access
+  - device__access
   - ai__access
 name: Hindi magagamit sa akin
 id: not_available_to_me

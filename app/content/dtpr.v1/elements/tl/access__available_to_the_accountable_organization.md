@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__access
+  - device__access
   - ai__access
 name: Magagamit sa accountable na organisasyon
 id: available_to_the_accountable_organization

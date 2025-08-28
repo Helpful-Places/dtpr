@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 name: Hilaw na data
 id: raw_data
 description: >-

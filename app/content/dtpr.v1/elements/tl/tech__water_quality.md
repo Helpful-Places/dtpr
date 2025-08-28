@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Kalidad ng tubig
 id: water_quality
 description: >-

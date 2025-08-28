@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 description: >-
   Mesure divers aspects de la qualité de l'air, tels que le pollen, les
   particules, l'ozone et les gaz à effet de serre.

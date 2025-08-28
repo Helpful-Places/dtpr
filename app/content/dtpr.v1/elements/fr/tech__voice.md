@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 description: >-
   Les données audio collectées permettent ou peuvent permettre d'identifier des
   personnes, soit par un examen manuel, soit par des technologies capables de

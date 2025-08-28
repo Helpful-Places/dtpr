@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Makikilalang NFC
 id: identifiable_nfc
 description: >-

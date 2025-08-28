@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: Capteur ultrasons
 id: ultrasonic_level_sensor
 description: Utilise des ondes ultrasoniques pour mesurer la distance entre des

@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__data
+  - device__data
   - ai__input_dataset
   - ai__output_dataset
 name: តម្លៃ / ពេលវេលា

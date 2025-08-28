@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__storage
+  - device__storage
   - ai__storage
 description: Les données sont sauvegardées dans la juridiction où elles ont été collectées.
 icon: /dtpr-icons/backed_up_locally.svg

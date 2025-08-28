@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__storage
+  - device__storage
   - ai__storage
 name: រក្សាទុកជាចម្បងក្នុងស្រុក
 id: stored_primarily_locally

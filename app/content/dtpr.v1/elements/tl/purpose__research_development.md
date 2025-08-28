@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__purpose
+  - device__purpose
   - ai__purpose
 name: Pananaliksik at Pag -unlad
 id: research_development

@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__retention
+  - device__retention
   - ai__retention
 name: No data retained
 id: no_data_retained

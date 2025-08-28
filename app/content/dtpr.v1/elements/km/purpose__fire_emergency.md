@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__purpose
+  - device__purpose
   - ai__purpose
 name: អគ្គិភ័យនិងអាសន្ន
 id: fire_emergency

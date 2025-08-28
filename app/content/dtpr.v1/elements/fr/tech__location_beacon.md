@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Emplacement Beacon
 id: location_beacon
 description: >-

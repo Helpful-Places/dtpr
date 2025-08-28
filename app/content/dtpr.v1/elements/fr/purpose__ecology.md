@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__purpose
+  - device__purpose
   - ai__purpose
 description: Permet la mesure ou la surveillance de l'environnement naturel.
 icon: /dtpr-icons/ecology.svg

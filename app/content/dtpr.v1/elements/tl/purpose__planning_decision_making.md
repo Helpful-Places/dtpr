@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__purpose
+  - device__purpose
   - ai__purpose
 name: Pagpaplano at paggawa ng desisyon
 id: planning_decision_making

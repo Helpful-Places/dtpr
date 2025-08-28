@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__purpose
+  - device__purpose
   - ai__purpose
 description: >-
   Permet l'authentification ou la validation afin d'accéder à un espace ou à un

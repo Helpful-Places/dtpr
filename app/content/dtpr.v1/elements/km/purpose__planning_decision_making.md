@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__purpose
+  - device__purpose
   - ai__purpose
 name: ការរៀបចំផែនការនិងការសម្រេចចិត្ត
 id: planning_decision_making

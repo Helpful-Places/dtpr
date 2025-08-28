@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: Person detection
 id: person_detection
 description: Person detection refers to when a system can detect the presence of

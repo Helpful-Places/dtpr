@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__process
+  - device__process
 name: Kinokontrol
 id: regulated
 description: Depende sa hurisdiksyon at uri ng datos, ang datos ay kinokontrol sa iba't ibang paraan

@@ -1,5 +1,5 @@
 ---
-id: sensor__process
+id: device__process
 name: Traitement
 description: >-
   Décrit comment les données collectées ou traitées par une technologie sont

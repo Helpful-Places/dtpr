@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Istasyon ng panahon
 id: weather_station
 description: >-

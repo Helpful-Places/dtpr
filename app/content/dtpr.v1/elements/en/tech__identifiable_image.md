@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Identifiable Image
 id: identifiable_image
 description: >-

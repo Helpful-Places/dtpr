@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__storage
+  - device__storage
   - ai__storage
 name: Armazenado principalmente a nível local
 id: stored_primarily_locally

@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: De-identified Voice
 id: de_identified_voice
 description: >-

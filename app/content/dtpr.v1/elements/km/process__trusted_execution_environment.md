@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__process
+  - device__process
 name: បរិស្ថានប្រតិបត្តិដែលទុកចិត្ត
 id: trusted_execution_environment
 description: Tee

@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__purpose
+  - device__purpose
   - ai__purpose
 name: សិល្បៈនិងវប្បធម៌
 id: arts_culture

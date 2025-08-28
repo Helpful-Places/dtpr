@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 description: >-
   Les données biométriques sont des mesures corporelles et des calculs liés aux
   caractéristiques humaines.

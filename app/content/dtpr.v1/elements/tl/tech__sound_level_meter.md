@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: Sound Level Meter
 id: sound_level_meter
 description: Gumagawa ng mga sukat ng tunog, kadalasan para sa pagsukat ng

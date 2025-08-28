@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 name: Federated learning
 id: federated_learning
 description: >-

@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: Imagen
 id: image
 description: Genera imágenes fijas.

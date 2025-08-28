@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: Makikilalang video
 id: identifiable_video
 description: Bumubuo ng video footage ng sapat na resolution kung saan

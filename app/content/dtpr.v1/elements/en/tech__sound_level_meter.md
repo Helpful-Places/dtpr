@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Sound Level Meter
 id: sound_level_meter
 description: 'Takes acoustic measurements, most typically for measuring noise pollution.'

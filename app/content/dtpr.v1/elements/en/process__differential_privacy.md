@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 name: Differential privacy
 id: differential_privacy
 description: >-

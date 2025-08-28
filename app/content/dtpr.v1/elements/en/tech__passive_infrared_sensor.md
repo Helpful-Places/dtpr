@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Passive Infrared Sensor
 id: passive_infrared_sensor
 description: >-

@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Estación de asistencia
 id: assistance_station
 description: >-

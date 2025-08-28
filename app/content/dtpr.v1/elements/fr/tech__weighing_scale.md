@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Balança de pesagem
 id: weighing_scale
 description: >-

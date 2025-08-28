@@ -1,5 +1,5 @@
 ---
-id: sensor__storage
+id: device__storage
 name: Stockage
 description: Où sont stockées les données ?
 datachain_type: device

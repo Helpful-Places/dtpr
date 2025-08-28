@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__purpose
+  - device__purpose
   - ai__purpose
 name: Planificación y toma de decisiones
 id: planning_decision_making

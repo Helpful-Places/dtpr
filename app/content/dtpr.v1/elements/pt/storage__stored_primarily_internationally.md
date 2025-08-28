@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__storage
+  - device__storage
   - ai__storage
 name: Armazenados principalmente a nível internacional
 id: stored_primarily_internationally

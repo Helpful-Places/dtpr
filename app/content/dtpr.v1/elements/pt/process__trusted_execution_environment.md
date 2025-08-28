@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__process
+  - device__process
 name: Ambiente de execução fiável
 id: trusted_execution_environment
 description: Um TEE é um ambiente isolado criado utilizando hardware e software

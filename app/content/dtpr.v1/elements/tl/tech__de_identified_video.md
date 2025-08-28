@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: De-kinilala na video
 id: de_identified_video
 description: Bumubuo ng video footage ng sapat na resolution kung saan

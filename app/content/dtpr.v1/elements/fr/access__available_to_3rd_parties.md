@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__access
+  - device__access
   - ai__access
 description: Les données sont disponibles pour des tiers non impliqués dans l'activité
   de données

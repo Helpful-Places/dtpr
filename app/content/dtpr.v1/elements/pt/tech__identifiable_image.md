@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: Imagem identificável
 id: identifiable_image
 description: Gera imagens

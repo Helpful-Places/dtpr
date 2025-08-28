@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Charger ng de -koryenteng sasakyan
 id: electric_vehicle_charger
 description: >-

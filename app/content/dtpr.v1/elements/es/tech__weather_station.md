@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: Estación meteorológica
 id: weather_station
 description: Un conjunto de instrumentos para medir condiciones atmosféricas como temperatura, precipitación, velocidad y dirección del viento, y presión barométrica.

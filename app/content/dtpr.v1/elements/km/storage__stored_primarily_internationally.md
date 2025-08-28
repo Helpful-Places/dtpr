@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__storage
+  - device__storage
   - ai__storage
 name: រក្សាទុកជាចម្បងអន្តរជាតិ
 id: stored_primarily_internationally

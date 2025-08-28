@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 name: ការចុះហត្ថលេខាកូដ
 id: code_signing
 description: >-

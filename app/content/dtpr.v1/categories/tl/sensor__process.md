@@ -1,5 +1,5 @@
 ---
-id: sensor__process
+id: device__process
 name: Pinoproseso
 description: >-
   Inilalarawan kung paano pinoproseso o manipulahin ang data na kinokolekta o

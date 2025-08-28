@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 name: ចក្ខុវិសុរកុំព្យូទ័រ
 id: computer_vision
 description: >-

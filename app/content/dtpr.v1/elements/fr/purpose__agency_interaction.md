@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__purpose
+  - device__purpose
   - ai__purpose
 description: >-
   Permet de contrôler ou d'interagir avec certains aspects d'un espace ou d'une

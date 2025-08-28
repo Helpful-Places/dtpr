@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__access
+  - device__access
   - ai__access
 name: មានសម្រាប់ខ្ញុំ
 id: available_to_me

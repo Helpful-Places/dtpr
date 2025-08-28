@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__data
+  - device__data
   - ai__input_dataset
   - ai__output_dataset
 description: Mesures recueillies à intervalles réguliers sur une période de temps donnée.

@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 name: Computer vision
 id: computer_vision
 description: >-

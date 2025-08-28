@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__process
+  - device__process
 name: Trusted Execution Environment
 id: trusted_execution_environment
 description: Ang TEE ay isang nakahiwalay na kapaligiran na nilikha gamit ang

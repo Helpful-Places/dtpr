@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__purpose
+  - device__purpose
   - ai__purpose
 name: សេវាកម្មនិងសេវាកម្ម
 id: wayfinding_services

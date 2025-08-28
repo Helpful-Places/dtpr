@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__access
+  - device__access
   - ai__access
 name: មានសម្រាប់អ្នកលក់
 id: available_to_vendor

@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 description: >-
   Mesure la température ou les changements de température dans l'environnement
   physique et quantifie ces attributs selon une échelle standardisée telle que

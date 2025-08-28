@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Vidéo identifiable
 id: identifiable_video
 description: >-

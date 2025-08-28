@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: Vídeo não identificável
 id: non_identifiable_video
 description: Recolha de imagens de vídeo incapazes de identificar pessoas devido

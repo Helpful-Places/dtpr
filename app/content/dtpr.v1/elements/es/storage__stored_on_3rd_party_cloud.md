@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__storage
+  - device__storage
   - ai__storage
 name: Almacenado en la nube de terceros
 id: stored_on_3rd_party_cloud

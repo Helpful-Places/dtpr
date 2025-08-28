@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__purpose
+  - device__purpose
   - ai__purpose
 name: សិទ្ធិជ្រើសរើសនិងអន្តរកម្ម
 id: agency_interaction

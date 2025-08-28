@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: Motion Detector
 id: motion_detector
 description: A sensor that detects the movement of nearby objects.

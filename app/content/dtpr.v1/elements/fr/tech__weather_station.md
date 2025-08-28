@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 description: >-
   Ensemble d'instruments permettant de mesurer les conditions atmosphériques
   telles que la température, les précipitations, la vitesse et la direction du

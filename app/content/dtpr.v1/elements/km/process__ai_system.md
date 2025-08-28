@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 name: ប្រព័ន្ធអេអាយអេ
 id: ai_system
 description: >-

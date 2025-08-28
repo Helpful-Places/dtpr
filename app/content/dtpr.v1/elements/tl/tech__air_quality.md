@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Kalidad ng hangin
 id: air_quality
 description: >-

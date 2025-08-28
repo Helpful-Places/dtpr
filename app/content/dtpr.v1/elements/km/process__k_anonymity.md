@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 name: k- សំអាងការ
 id: k_anonymity
 description: >-

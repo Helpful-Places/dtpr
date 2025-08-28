@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: Imagem - infravermelhos
 id: image_infrared
 description: Gera imagens fixas na parte infravermelha do espetro eletromagnético.

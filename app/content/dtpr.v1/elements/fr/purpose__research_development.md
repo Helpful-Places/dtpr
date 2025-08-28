@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__purpose
+  - device__purpose
   - ai__purpose
 description: Favorise la recherche exploratoire et les tests.
 icon: /dtpr-icons/research_development.svg

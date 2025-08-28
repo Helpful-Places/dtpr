@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__purpose
+  - device__purpose
   - ai__purpose
 description: Utilisé pour l'application de lois ou de réglements.
 icon: /dtpr-icons/enforcement.svg

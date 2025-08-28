@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 description: >-
   La confidentialité différentielle est un systéme permettant de partager
   publiquement des informations sur un ensemble de données en décrivant les

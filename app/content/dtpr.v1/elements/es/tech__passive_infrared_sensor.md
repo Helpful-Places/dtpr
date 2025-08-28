@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: Sensor infrarrojo pasivo
 id: passive_infrared_sensor
 description: Un sensor electrónico que mide la luz infrarroja (IR) que irradia de los objetos en su campo de visión.

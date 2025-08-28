@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 description: >-
   Un protocole de communication sans fil pour les appareils électroniques qui se
   trouvent à une courte distance les uns des autres, généralement utilisé dans

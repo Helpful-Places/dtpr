@@ -1,0 +1,4 @@
+---
+id: device
+name: Dispositivo
+---

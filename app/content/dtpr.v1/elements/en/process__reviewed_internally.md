@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__process
+  - device__process
 name: Reviewed Internally
 id: reviewed_internally
 description: Many organizations have internal review processes that consider the

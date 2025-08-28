@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 name: De-identified
 id: de_identified
 description: >-

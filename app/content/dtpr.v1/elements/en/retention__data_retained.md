@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__retention
+  - device__retention
   - ai__retention
 name: Retained {duration}
 id: data_retained

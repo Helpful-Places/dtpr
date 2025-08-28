@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 name: ការអ៊ិនគ្រីប homomorphic
 id: homomorphic_encryption
 description: >-

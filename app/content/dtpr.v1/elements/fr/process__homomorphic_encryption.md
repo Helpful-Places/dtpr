@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 description: >-
   Le chiffrement homomorphique est une forme de chiffrement qui permet
   d'effectuer des calculs sur des textes chiffrés, en générant un résultat

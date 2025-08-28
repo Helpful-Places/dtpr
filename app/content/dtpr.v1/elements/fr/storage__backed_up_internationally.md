@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__storage
+  - device__storage
   - ai__storage
 description: Les données sont sauvegardées en dehors de la juridiction où elles ont
   été collectées.

@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__purpose
+  - device__purpose
   - ai__purpose
 description: >-
   Aide à l'élaboration de plans futurs, ou à la mesure de l'impact d'une

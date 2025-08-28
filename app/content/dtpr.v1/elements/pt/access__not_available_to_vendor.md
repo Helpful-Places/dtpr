@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__access
+  - device__access
   - ai__access
 name: Não disponível para o fornecedor
 id: not_available_to_vendor

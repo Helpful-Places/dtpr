@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__storage
+  - device__storage
   - ai__storage
 name: Nakaimbak sa ika -3 na ulap ng partido
 id: stored_on_3rd_party_cloud

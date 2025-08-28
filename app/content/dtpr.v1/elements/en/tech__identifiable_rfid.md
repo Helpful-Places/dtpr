@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Identifiable RFID
 id: identifiable_rfid
 description: >-

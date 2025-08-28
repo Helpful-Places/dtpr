@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 name: Les preuves à apport nul de connaissance
 id: zero_knowledge_proofs
 description: >-

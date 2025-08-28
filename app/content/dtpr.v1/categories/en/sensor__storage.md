@@ -1,5 +1,5 @@
 ---
-id: sensor__storage
+id: device__storage
 name: Storage
 description: Where is the data stored?
 datachain_type: device

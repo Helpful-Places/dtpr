@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: Piezoelectric sensor
 id: piezoelectric_sensor
 description: Sinusukat ang mga pagbabago sa presyon, acceleration, temperatura,

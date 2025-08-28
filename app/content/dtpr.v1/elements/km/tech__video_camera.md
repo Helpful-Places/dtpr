@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: វីដេអូកាមេរ៉ា
 id: video_camera
 description: បង្កើតរូបភាពវីដេអូ។

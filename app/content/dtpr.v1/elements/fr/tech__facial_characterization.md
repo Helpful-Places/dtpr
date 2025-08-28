@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: Caractérisation faciale
 id: facial_characterization
 description: La caractérisation faciale permet à un systéme de faire des

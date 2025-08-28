@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Video camera - infrared
 id: video_camera_infrared
 description: >-

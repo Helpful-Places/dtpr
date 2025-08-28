@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 name: បានអ៊ិនគ្រីប
 id: encrypted
 description: >-

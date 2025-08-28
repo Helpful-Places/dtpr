@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__access
+  - device__access
   - ai__access
 name: Magagamit para sa muling pagbebenta
 id: available_for_resale

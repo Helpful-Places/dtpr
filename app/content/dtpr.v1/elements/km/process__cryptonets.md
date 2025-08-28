@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 name: គ្រីបថ្វាយ
 id: cryptonets
 description: >-

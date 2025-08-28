@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Image dé-identifiée
 id: de_identified_image
 description: >-

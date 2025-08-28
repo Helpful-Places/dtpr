@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 name: Code sa pagpirma
 id: code_signing
 description: >-

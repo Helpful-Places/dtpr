@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Sonomètre
 id: sound_level_meter
 description: >-

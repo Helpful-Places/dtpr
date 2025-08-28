@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: LiDAR
 id: li_dar
 description: >-

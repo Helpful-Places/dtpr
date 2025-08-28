@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Lokasyon Beacon
 id: location_beacon
 description: >-

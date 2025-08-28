@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__purpose
+  - device__purpose
   - ai__purpose
 description: Réduit la consommation d'énergie et/ou aide à conserver l'énergie.
 icon: /dtpr-icons/energy_efficiency.svg

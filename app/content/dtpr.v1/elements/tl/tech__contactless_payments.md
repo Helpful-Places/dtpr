@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Walang contact na pagbabayad
 id: contactless_payments
 description: >-

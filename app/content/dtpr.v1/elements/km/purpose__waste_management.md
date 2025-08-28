@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__purpose
+  - device__purpose
   - ai__purpose
 name: ការគ្រប់គ្រងសំរាម
 id: waste_management

@@ -1,5 +1,5 @@
 ---
-id: sensor__purpose
+id: device__purpose
 name: Purpose
 description: Purpose of this technology
 datachain_type: device

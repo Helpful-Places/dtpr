@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Induction Loop
 id: induction_loop
 description: >-

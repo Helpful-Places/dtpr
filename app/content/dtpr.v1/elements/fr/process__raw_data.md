@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 description: >-
   Données qui n'ont pas été traitées ou modifiées depuis leur collecte - les
   données sont effectivement identiques à la maniére dont elles ont été

@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 description: >-
   Utilise des lasers pour mesurer la distance entre des objets et recueillir des
   données permettant de créer une représentation tridimensionnelle de l'objet.

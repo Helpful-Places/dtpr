@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__access
+  - device__access
   - ai__access
 name: មិនមានសម្រាប់អ្នកលក់ទេ
 id: not_available_to_vendor

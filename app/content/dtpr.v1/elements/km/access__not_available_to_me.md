@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__access
+  - device__access
   - ai__access
 name: មិនមានសម្រាប់ខ្ញុំទេ
 id: not_available_to_me

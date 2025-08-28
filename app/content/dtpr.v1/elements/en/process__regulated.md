@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__process
+  - device__process
 name: Regulated
 id: regulated
 description: Depending on the jurisdiction and type of data, data is regulated

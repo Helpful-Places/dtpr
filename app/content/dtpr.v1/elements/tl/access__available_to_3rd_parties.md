@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__access
+  - device__access
   - ai__access
 name: Magagamit sa mga 3rd party
 id: available_to_3rd_parties

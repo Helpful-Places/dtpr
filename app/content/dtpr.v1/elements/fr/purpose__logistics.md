@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__purpose
+  - device__purpose
   - ai__purpose
 description: Favorise la circulation des marchandises ou des matériaux.
 icon: /dtpr-icons/logistics.svg

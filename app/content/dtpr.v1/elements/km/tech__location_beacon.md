@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: ទីតាំង Beace
 id: location_beacon
 description: Beacons គឺជាឧបករណ៍ការពារផ្នែករឹងប៊្លូធូសទាប (LE)

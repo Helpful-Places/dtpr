@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__access
+  - device__access
   - ai__access
 name: មានដល់ភាគីទី 3
 id: available_to_3rd_parties

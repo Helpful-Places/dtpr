@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: Screen ng System
 id: system_screen
 description: Ang mga tao ay maaaring makipag-ugnay sa digital system na ito

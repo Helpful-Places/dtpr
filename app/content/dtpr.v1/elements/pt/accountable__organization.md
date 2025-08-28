@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__accountable
+  - device__accountable
   - ai__accountable
 name: Organização
 id: organization

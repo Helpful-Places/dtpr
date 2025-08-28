@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 name: ត្រូវបានកំណត់អត្តសញ្ញាណ
 id: de_identified
 description: >-

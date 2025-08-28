@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__storage
+  - device__storage
   - ai__storage
 name: ការផ្ទុកនិងអភិបាលកិច្ចរួមគ្នា
 id: shared_storage_and_governance

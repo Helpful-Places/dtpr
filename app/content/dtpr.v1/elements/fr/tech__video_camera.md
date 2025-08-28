@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Caméra vidéo
 id: video_camera
 description: 'Génère de séquences vidéo.  '

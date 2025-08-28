@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 name: Zero Knowledge Proofs
 id: zero_knowledge_proofs
 description: >-

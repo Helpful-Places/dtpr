@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__storage
+  - device__storage
   - ai__storage
 name: Pangunahing nakaimbak sa buong mundo
 id: stored_primarily_internationally

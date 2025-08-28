@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 name: Pinagsama -sama
 id: aggregated
 description: >-

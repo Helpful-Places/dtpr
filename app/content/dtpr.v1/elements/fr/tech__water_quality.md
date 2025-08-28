@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 description: >-
   Mesure divers aspects de la qualité de l'eau, tels que la quantité d'oxygéne
   dissous dans l'eau, le pH et les nitrates.

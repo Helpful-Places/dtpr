@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__process
+  - device__process
 name: Secure Multi-Party Computing
 id: secure_multi_party_computing
 description: Secure multi-party computation is a subfield of cryptography with

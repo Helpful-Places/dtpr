@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Calidad del aire
 id: air_quality
 description: >-

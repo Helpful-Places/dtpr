@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 description: >-
   La signature de code est le processus de signature électronique des
   exécutables et des scripts pour confirmer l'auteur du logiciel et garantir que

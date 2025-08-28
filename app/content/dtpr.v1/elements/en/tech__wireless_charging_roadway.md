@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Wireless Charging Roadway
 id: wireless_charging_roadway
 description: >-

@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: Deteksyon ng tao
 id: person_detection
 description: Ang pagtuklas ng tao ay tumutukoy kung kailan maaaring makita ng

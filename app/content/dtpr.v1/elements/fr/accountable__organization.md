@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__accountable
+  - device__accountable
   - ai__accountable
 description: L'entité qui est responsable et redevable de cette activité de collecte
   de données

@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: DTPR API
 id: dtpr_api
 description: >-

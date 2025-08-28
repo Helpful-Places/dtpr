@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__purpose
+  - device__purpose
   - ai__purpose
 name: Ahensya at Pakikipag-ugnayan
 id: agency_interaction

@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__access
+  - device__access
   - ai__access
 name: Available to 3rd parties
 id: available_to_3rd_parties

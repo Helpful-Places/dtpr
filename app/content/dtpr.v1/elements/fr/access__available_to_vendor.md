@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__access
+  - device__access
   - ai__access
 description: Les données sont disponibles pour le fournisseur de la collecte de données
   ou de la technologie

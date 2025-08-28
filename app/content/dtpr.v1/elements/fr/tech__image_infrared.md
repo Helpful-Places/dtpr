@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Image - infrarouge
 id: image_infrared
 description: >-

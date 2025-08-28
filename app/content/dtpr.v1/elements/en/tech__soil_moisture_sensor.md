@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Soil Moisture Sensor
 id: soil_moisture_sensor
 description: Soil moisture sensors measures the water content in soil.

@@ -1,5 +1,5 @@
 ---
-id: sensor__tech
+id: device__tech
 name: បច្ចេកវិទ្យា
 description: របៀបដែលបច្ចេកវិទ្យានេះដំណើរការ
 datachain_type: device

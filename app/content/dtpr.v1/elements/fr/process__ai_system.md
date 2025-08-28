@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 description: >-
   Données traitées par des systémes automatisés, algorithmiques ou
   d'intelligence artificielle pour en tirer un nouveau résultat ou point de

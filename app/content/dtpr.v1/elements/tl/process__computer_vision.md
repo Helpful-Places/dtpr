@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 name: Pangitain sa Computer
 id: computer_vision
 description: >-

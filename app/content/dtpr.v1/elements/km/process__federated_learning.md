@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 name: ការរៀនសូត្រសហព័ន្ធ
 id: federated_learning
 description: >-

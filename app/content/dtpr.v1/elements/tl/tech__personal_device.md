@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Personal na Aparato
 id: personal_device
 description: >-

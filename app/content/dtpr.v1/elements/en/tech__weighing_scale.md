@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Weighing Scale
 id: weighing_scale
 description: >-

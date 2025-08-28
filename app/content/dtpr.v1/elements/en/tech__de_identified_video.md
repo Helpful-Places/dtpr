@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: De-identified Video
 id: de_identified_video
 description: Generates video footage of a sufficient resolution where

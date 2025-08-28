@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 id: chatbot
 name: Chatbot
 description: Un chatbot es un programa informático diseñado para simular una conversación humana con los usuarios.

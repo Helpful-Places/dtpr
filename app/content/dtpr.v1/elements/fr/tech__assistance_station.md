@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 description: >-
   Fournit un accés aux services d'assistance, par exemple les assistants
   virtuels.

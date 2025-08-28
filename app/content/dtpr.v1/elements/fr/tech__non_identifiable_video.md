@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: Vidéo non identifiable
 id: non_identifiable_video
 description: Génère des séquences vidéo ne permettant pas d'identifier les

@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__storage
+  - device__storage
   - ai__storage
 description: Les données sont stockées dans une zone soumise aux mêmes lois que celle
   où elles sont collectées.

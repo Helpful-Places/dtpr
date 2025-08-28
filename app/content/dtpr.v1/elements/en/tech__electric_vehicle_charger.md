@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Electric vehicle charger
 id: electric_vehicle_charger
 description: >-

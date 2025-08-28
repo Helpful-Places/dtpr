@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: System Screen
 id: system_screen
 description: People can interact with this digital system using the screen that

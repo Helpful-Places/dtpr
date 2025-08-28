@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: Biometria
 id: biometrics
 description: A biometria é a medição do corpo e os cálculos relacionados com as características humanas.

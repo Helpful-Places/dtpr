@@ -1,5 +1,5 @@
 ---
-id: sensor__access
+id: device__access
 name: Acceso
 description: Acceso a datos
 datachain_type: device

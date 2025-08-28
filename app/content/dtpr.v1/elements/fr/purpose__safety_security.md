@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__purpose
+  - device__purpose
   - ai__purpose
 description: >-
   Permet de créer un environnement sór et/ou sécurisé, par exemple à des fins de

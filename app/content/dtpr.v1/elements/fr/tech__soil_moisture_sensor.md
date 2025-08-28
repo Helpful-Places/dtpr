@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 description: Les capteurs d'humidité du sol mesurent la teneur en eau du sol.
 icon: /dtpr-icons/soil_moisture_sensor.svg
 id: soil_moisture_sensor

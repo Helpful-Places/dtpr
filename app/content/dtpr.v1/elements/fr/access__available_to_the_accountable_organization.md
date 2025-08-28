@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__access
+  - device__access
   - ai__access
 description: Les données sont mises à disposition de l’organisation responsable
 icon: /dtpr-icons/available_to_the_accountable_organization.svg

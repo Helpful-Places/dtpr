@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 id: identifiable_wifi_sensor
 icon: /dtpr-icons/identifiable_wifi_sensor.svg
 name: Identifiable WiFi Sensor

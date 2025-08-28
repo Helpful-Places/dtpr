@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__access
+  - device__access
   - ai__access
 name: Disponible para la organización responsable
 id: available_to_the_accountable_organization

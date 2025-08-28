@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: Imahe
 id: image
 description: Bumubuo ng mga still images.

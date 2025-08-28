@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: Medidor de nível sonoro
 id: sound_level_meter
 description: Efectua medições acústicas, geralmente para medir a poluição sonora.

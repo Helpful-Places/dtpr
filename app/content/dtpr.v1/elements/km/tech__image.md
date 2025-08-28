@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: ធម្ផារម្ផន៍
 id: image
 description: បង្កើតរូបភាព។

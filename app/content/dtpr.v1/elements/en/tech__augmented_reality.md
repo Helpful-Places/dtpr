@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Augmented Reality
 id: augmented_reality
 description: >-

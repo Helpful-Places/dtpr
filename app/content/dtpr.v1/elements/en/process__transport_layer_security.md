@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__process
+  - device__process
 name: Transport Layer Security
 id: transport_layer_security
 description: Transport Layer Security, or TLS, is a widely adopted security

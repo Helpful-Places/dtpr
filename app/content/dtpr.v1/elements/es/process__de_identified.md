@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__process
+  - device__process
 name: No identificado
 id: de_identified
 description: Datos que se procesan para eliminar los valores de identificación,

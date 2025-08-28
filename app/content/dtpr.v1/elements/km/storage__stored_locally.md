@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__storage
+  - device__storage
   - ai__storage
 name: រក្សាទុកក្នុងមូលដ្ឋាន
 id: stored_locally

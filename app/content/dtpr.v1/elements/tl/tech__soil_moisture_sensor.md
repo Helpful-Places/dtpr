@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Sensor ng kahalumigmigan ng lupa
 id: soil_moisture_sensor
 description: >-

@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Unmanned Aircraft System
 id: unmanned_aircraft_system
 description: >-

@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__storage
+  - device__storage
   - ai__storage
 name: បានគាំទ្រជាអន្តរជាតិ
 id: backed_up_internationally

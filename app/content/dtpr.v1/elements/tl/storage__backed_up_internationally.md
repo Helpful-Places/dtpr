@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__storage
+  - device__storage
   - ai__storage
 name: Naka -back up sa buong mundo
 id: backed_up_internationally

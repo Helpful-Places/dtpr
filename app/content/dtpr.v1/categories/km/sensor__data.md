@@ -1,5 +1,5 @@
 ---
-id: sensor__data
+id: device__data
 name: ប្រភេទទិន្នន័យ
 description: ប្រភេទទិន្នន័យដែលប្រមូលបាន។
 datachain_type: device

@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: Microfone
 id: microphone
 description: Um dispositivo que gera áudio.

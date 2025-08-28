@@ -1,5 +1,5 @@
 ---
-id: sensor__storage
+id: device__storage
 name: ការផ្ទុក
 description: តើទិន្នន័យត្រូវបានរក្សាទុកនៅឯណា?
 datachain_type: device

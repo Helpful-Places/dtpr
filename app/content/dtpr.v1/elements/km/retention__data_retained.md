@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__retention
+  - device__retention
   - ai__retention
 id: data_retained
 icon: /dtpr-icons/is_retained.svg

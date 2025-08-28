@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__storage
+  - device__storage
   - ai__storage
 name: Armazenamendo e governando de forma partilhada
 id: shared_storage_and_governance

@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Makikilalang RFID
 id: identifiable_rfid
 description: >-

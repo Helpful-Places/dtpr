@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 name: ទិន្នន័យ​ដើម
 id: raw_data
 description: >-

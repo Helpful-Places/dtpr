@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 description: >-
   Décrit une technologie dont le principal mode d'interaction ne nécessite pas
   l'utilisation des mains, par exemple, des dispositifs qui répondent à des

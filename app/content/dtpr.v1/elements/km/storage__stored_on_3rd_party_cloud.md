@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__storage
+  - device__storage
   - ai__storage
 name: រក្សាទុកនៅលើពពកគណបក្សទី 3
 id: stored_on_3rd_party_cloud

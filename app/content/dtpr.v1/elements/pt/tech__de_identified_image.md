@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: Imagem desidentificada
 id: de_identified_image
 description: Gera imagens fixas com uma resolução suficiente para permitir a

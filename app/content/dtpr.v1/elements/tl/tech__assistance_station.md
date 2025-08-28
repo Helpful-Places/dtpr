@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Istasyon ng tulong
 id: assistance_station
 description: >-
