@@ -11,4 +11,5 @@ description: Genera secuencias de vídeo con una resolución suficiente para pod
   *desidentificado en el dispositivo *), por ejemplo, difuminando caras usando
   la visión por computadora.
 icon: /dtpr-icons/de_identified_video.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

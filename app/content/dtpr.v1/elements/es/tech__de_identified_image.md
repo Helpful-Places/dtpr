@@ -11,4 +11,5 @@ description: Genera imágenes fijas con una resolución suficiente para poder
   o desentificado en el dispositivo*), por ejemplo, bordeando caras usando la
   visión por computadora.
 icon: /dtpr-icons/de_identified_image.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

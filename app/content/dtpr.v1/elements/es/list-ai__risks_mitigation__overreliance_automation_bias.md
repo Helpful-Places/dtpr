@@ -13,5 +13,6 @@ description: >-
   sobre las limitaciones del sistema, la formación de los usuarios sobre la
   confianza adecuada y el mantenimiento de una participación humana
   significativa en las decisiones críticas.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

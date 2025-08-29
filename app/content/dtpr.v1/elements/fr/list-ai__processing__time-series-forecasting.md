@@ -12,5 +12,6 @@ description: >-
   applications courantes comprennent les prévisions météorologiques, les
   prévisions boursières, la planification de la demande et la gestion des
   ressources.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

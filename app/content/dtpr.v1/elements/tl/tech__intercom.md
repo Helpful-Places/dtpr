@@ -9,5 +9,6 @@ description: >-
   na koleksyon ng mga gusali, at hiwalay sa iba pang mga network ng komunikasyon
   (tulad ng sistema ng telepono).
 icon: /dtpr-icons/intercom.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

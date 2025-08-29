@@ -10,5 +10,6 @@ description: >-
   appareils d'effectuer des actions lorsqu'ils se trouvent à proximité d'une
   balise.
 icon: /dtpr-icons/location_beacon.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

@@ -12,5 +12,6 @@ description: >-
   comunidades vulneráveis. As mitigações podem incluir dados de treinamento
   diversificados, auditorias rotineiras de justiça e monitoramento regular do
   desempenho em diferentes grupos demográficos.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

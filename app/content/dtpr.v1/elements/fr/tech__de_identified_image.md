@@ -13,5 +13,6 @@ description: >-
   sur le dispositif*), par exemple en floutant les visages à l'aide de la vision
   par ordinateur.
 icon: /dtpr-icons/de_identified_image.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

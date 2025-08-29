@@ -11,4 +11,5 @@ description: São recolhidos dados de áudio que identificam ou podem identifica
   serem utilizados ou armazenados (conhecido como *desidentificado antes da
   primeira utilização* ou *desidentificado no dispositivo*).
 icon: /dtpr-icons/de_identified_voice.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

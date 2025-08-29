@@ -13,5 +13,6 @@ description: >-
   d'atténuation peuvent inclure des données de formation diversifiées, des
   audits d'équité de routine et un contrôle régulier des performances au sein de
   différents groupes démographiques.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

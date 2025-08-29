@@ -9,4 +9,5 @@ description: La detección de personas se refiere a cuando un sistema puede
   tecnología no retiene ni utiliza ninguna información de identificación
   personal.
 icon: /dtpr-icons/person_detection.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

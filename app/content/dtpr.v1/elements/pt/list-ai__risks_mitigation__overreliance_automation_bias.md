@@ -12,5 +12,6 @@ description: >-
   incluir uma comunicação clara sobre as limitações do sistema, treinamento para
   os usuários sobre a confiança adequada e manutenção de um envolvimento humano
   significativo em decisões críticas.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

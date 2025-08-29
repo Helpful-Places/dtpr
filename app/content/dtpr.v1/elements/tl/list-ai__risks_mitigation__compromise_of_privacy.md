@@ -13,5 +13,6 @@ description: >-
   mitigations ang mga kasanayan sa pag-minimize ng data, matatag na mga hakbang
   sa seguridad, differential privacy techniques, at mahigpit na mga kontrol sa
   pag-access.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

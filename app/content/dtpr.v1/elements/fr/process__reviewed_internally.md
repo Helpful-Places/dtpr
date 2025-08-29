@@ -7,4 +7,5 @@ description: De nombreuses organisations disposent de processus d'examen interne
 icon: /dtpr-icons/reviewed_internally.svg
 id: reviewed_internally
 name: Examiné en interne
+updated_at: 2025-08-29T00:00:00Z
 ---

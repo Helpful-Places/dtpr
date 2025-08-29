@@ -7,4 +7,5 @@ name: Tabular
 id: tabular
 description: Dados que são armazenados numa tabela, onde os valores são armazenados em linhas e colunas.
 icon: /dtpr-icons/tabular.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

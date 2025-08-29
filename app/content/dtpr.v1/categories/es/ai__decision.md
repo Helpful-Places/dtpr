@@ -9,5 +9,6 @@ required: true
 order: 3
 description: El tipo de decisión que toma el sistema de IA.
 prompt: ¿Qué tipo de decisión toma este sistema de IA?
+updated_at: 2025-08-29T00:00:00Z
 ---
 

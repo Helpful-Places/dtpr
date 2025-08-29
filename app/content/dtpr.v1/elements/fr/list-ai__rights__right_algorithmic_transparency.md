@@ -11,5 +11,6 @@ description: >-
   doivent être fournies dans un langage clair et simple qui vous permette de
   comprendre comment le système fonctionne et comment il est parvenu à une
   décision particulière.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

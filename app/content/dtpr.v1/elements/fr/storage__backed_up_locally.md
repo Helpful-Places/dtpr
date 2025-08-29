@@ -6,4 +6,5 @@ description: Les données sont sauvegardées dans la juridiction où elles ont �
 icon: /dtpr-icons/backed_up_locally.svg
 id: backed_up_locally
 name: Sauvegardé localement
+updated_at: 2025-08-29T00:00:00Z
 ---

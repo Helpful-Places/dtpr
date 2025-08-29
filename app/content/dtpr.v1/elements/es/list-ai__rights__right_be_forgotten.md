@@ -11,5 +11,6 @@ description: >-
   exista un interés legítimo para seguir tratándolos. Esto incluye el derecho a
   que el sistema "desaprenda" la información derivada de sus datos cuando sea
   técnicamente factible.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

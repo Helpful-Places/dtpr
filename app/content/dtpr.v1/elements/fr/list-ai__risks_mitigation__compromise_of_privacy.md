@@ -13,5 +13,6 @@ description: >-
   des pratiques de minimisation des données, des mesures de sécurité robustes,
   des techniques de protection différentielle de la vie privée et des contrôles
   d'accès rigoureux.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

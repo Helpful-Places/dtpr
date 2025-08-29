@@ -11,5 +11,6 @@ description: >-
   más adecuadas. Algunos ejemplos son la colocación de ayuda para la vivienda,
   el emparejamiento de solicitantes de empleo o el emparejamiento de proveedores
   de servicios con las necesidades de la comunidad.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

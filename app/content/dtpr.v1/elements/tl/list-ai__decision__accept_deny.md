@@ -12,5 +12,6 @@ description: >-
   nakakatugon sa kinakailangang threshold para sa pag-apruba. Kasama sa mga
   halimbawa ang mga aplikasyon para sa serbisyong sibil, pagpasok sa paaralan,
   pag-apruba ng pautang, o pagpapasiya sa pagiging karapat-dapat sa benepisyo.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

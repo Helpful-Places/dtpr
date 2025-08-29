@@ -9,5 +9,6 @@ description: >-
   e outros dispositivos móveis.  Essas medições podem ser usadas para rastrear
   as posições e o movimento desses dispositivos no espaço físico. Isso pode ser
   associado aos endereços de hardware dos próprios dispositivos.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

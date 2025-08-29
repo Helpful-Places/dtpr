@@ -6,4 +6,5 @@ name: Ecologia
 id: ecology
 description: Apoia a medição ou o controlo do ambiente natural.
 icon: /dtpr-icons/ecology.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

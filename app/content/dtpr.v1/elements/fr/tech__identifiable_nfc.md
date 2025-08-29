@@ -10,5 +10,6 @@ description: >-
 icon: /dtpr-icons/identifiable_nfc.svg
 id: identifiable_nfc
 name: NFC identifiable
+updated_at: 2025-08-29T00:00:00Z
 ---
 

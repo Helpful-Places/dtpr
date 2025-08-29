@@ -9,4 +9,5 @@ description: The right to understand how an AI system makes decisions that
   should be provided in clear, plain language that allows you to understand how
   the system works and how it arrived at a particular decision.
 icon: /dtpr-icons/rights_algorithmic-transparency.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

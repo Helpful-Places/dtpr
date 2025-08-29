@@ -7,4 +7,5 @@ description: Les données sont sauvegardées en dehors de la juridiction où ell
 icon: /dtpr-icons/backed_up_internationally.svg
 id: backed_up_internationally
 name: Sauvegardé à internationale
+updated_at: 2025-08-29T00:00:00Z
 ---

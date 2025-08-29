@@ -8,5 +8,6 @@ description: >-
   party that they know a value, without conveying any additional information
   such as the value itself.
 icon: /dtpr-icons/zero_knowledge_proofs.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

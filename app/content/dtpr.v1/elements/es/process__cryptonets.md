@@ -9,4 +9,5 @@ description: Los cryptonets son redes neuronales que se pueden aplicar a los
   proporcionar al host de aplicación las claves para descifrar los datos.
   Cryptonets son una implementación del cifrado homomórfico.
 icon: /dtpr-icons/cryptonets.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

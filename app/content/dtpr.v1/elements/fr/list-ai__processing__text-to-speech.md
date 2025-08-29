@@ -10,5 +10,6 @@ description: >-
   les intonations et les prononciations de la voix humaine. La synthèse vocale
   est couramment utilisée dans les outils d'accessibilité, les assistants
   virtuels et les systèmes automatisés de service à la clientèle.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

@@ -8,5 +8,6 @@ description: >-
 icon: /dtpr-icons/rfid.svg
 id: rfid
 name: RFID
+updated_at: 2025-08-29T00:00:00Z
 ---
 

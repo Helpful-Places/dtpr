@@ -7,5 +7,6 @@ description: >-
 icon: /dtpr-icons/passive_infrared_sensor.svg
 id: passive_infrared_sensor
 name: Capteur passif à infrarouge
+updated_at: 2025-08-29T00:00:00Z
 ---
 

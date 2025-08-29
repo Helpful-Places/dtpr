@@ -8,5 +8,6 @@ description: >-
 icon: /dtpr-icons/planning_decision_making.svg
 id: planning_decision_making
 name: Planification et prise de décision
+updated_at: 2025-08-29T00:00:00Z
 ---
 

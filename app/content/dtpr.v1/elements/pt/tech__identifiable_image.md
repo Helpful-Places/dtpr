@@ -12,4 +12,5 @@ description: Gera imagens
   computador que obtêm
   informações sob a forma de dados a partir de imagens.
 icon: /dtpr-icons/identifiable_image.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

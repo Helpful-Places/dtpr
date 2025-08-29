@@ -8,5 +8,6 @@ description: >-
 icon: /dtpr-icons/waste_management.svg
 id: waste_management
 name: Gestion des déchets
+updated_at: 2025-08-29T00:00:00Z
 ---
 

@@ -8,5 +8,6 @@ description: >-
 icon: /dtpr-icons/thermometer.svg
 id: thermometer
 name: Thermométre
+updated_at: 2025-08-29T00:00:00Z
 ---
 

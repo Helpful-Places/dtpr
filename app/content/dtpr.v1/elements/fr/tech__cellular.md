@@ -9,5 +9,6 @@ description: >-
 icon: /dtpr-icons/cellular.svg
 id: cellular
 name: Cellulaire
+updated_at: 2025-08-29T00:00:00Z
 ---
 

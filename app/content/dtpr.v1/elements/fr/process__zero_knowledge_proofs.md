@@ -8,5 +8,6 @@ description: >-
   prouver à une autre partie qu'elle connaît une valeur, sans transmettre
   d'informations supplémentaires telles que la valeur elle-même.
 icon: /dtpr-icons/zero_knowledge_proofs.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

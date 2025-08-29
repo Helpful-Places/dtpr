@@ -9,5 +9,6 @@ description: >-
   mga layunin ng kaligtasan sa sunog, seguridad sa tahanan o pagtiyak ng ligtas
   na daan sa mga lugar tulad ng mga paliparan o mga kalsada
 icon: /dtpr-icons/safety_security.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

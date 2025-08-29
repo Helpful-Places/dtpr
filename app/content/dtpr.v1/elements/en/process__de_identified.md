@@ -10,5 +10,6 @@ description: >-
   published. Here we define it to mean after the data has already left a
   hardware device, or after it has been stored in a database.
 icon: /dtpr-icons/de_identified.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

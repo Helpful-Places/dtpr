@@ -14,5 +14,6 @@ description: >-
 prompt: >-
   Quels sont les risques associés à ce système d’IA et quelles stratégies
   d’atténuation sont en place ?
+updated_at: 2025-08-29T00:00:00Z
 ---
 

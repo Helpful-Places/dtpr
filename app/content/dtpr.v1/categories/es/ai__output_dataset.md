@@ -10,5 +10,6 @@ required: false
 order: 6
 description: El conjunto o los conjuntos de datos producidos por este sistema de IA.
 prompt: ¿Qué conjunto(s) de datos produce este sistema de IA?
+updated_at: 2025-08-29T00:00:00Z
 ---
 

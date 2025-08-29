@@ -11,5 +11,6 @@ description: >-
   As mitigações podem incluir o uso de modelos de IA interpretáveis quando
   possível, o desenvolvimento de métodos de explicação e a manutenção da
   documentação do projeto do sistema e dos processos de treinamento.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

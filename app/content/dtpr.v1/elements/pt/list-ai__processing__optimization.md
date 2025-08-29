@@ -10,5 +10,6 @@ description: >-
   ou a alocação de recursos mais eficiente. Esses algoritmos funcionam avaliando
   sistematicamente diferentes possibilidades para maximizar ou minimizar
   resultados específicos, como custo, tempo ou recursos.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

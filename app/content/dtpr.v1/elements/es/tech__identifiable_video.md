@@ -11,5 +11,6 @@ description: >-
   visión por computadora que derivan información en forma de datos de videos o
   imágenes.
 icon: /dtpr-icons/identifiable_video.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

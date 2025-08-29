@@ -12,5 +12,6 @@ description: >-
   produisent des informations sous forme de données à partir de vidéos ou
   d'images. 
 icon: /dtpr-icons/identifiable_video.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

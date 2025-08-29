@@ -9,5 +9,6 @@ element_variables:
 required: true
 order: 2
 prompt: ¿Cuál es el propósito de este sistema de IA?
+updated_at: 2025-08-29T00:00:00Z
 ---
 

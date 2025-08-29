@@ -12,5 +12,6 @@ description: >-
   la distribution. Les exemples incluent la détermination des itinéraires de
   ramassage des ordures, l'affectation des horaires du personnel ou la
   distribution des services publics dans les quartiers.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

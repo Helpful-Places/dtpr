@@ -11,4 +11,5 @@ description: A technology that evaluates emotional tone and subjective
   technology typically works by identifying emotional indicators and comparing
   them against trained models of sentiment patterns.
 icon: /dtpr-icons/processing_sentiment-analysis.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

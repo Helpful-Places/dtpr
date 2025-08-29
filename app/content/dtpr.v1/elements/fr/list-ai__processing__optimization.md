@@ -11,5 +11,6 @@ description: >-
   efficaces. Ces algorithmes fonctionnent en évaluant systématiquement
   différentes possibilités pour maximiser ou minimiser des résultats spécifiques
   tels que le coût, le temps ou les ressources.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

@@ -10,5 +10,6 @@ required: false
 order: 11
 description: Mga karapatan ng gumagamit kaugnay ng AI system.
 prompt: Ano ang mga karapatan ng gumagamit kaugnay ng AI system?
+updated_at: 2025-08-29T00:00:00Z
 ---
 

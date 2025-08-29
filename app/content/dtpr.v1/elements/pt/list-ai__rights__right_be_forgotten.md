@@ -11,5 +11,6 @@ description: >-
   não houver interesse legítimo em continuar a processá-los. Isso inclui o
   direito de fazer com que o sistema "desaprenda" as informações derivadas de
   seus dados quando for tecnicamente viável.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

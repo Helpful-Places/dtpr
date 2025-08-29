@@ -9,5 +9,6 @@ element_variables:
 required: true
 order: 2
 prompt: តើប្រព័ន្ធ AI នេះមានគោលបំណងអ្វី?
+updated_at: 2025-08-29T00:00:00Z
 ---
 

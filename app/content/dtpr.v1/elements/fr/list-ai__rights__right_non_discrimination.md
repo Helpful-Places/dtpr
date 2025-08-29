@@ -11,5 +11,6 @@ description: >-
   doivent mettre en œuvre et démontrer des mesures techniques et
   organisationnelles appropriées pour éviter que leurs systèmes d'IA ne
   produisent des résultats discriminatoires.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

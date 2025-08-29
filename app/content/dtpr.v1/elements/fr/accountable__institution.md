@@ -7,4 +7,5 @@ description: L'entité qui est responsable et redevable de cette activité de co
 icon: /dtpr-icons/institution.svg
 id: institution
 name: Institution
+updated_at: 2025-08-29T00:00:00Z
 ---

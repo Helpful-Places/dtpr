@@ -12,5 +12,6 @@ description: >-
   interventions d'urgence, la commande de tickets de service à la clientèle, la
   programmation des demandes de maintenance ou les priorités de financement des
   projets publics.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

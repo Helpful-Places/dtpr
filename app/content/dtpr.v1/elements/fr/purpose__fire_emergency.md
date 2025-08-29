@@ -8,5 +8,6 @@ description: >-
 icon: /dtpr-icons/fire_emergency.svg
 id: fire_emergency
 name: Incendie et urgence
+updated_at: 2025-08-29T00:00:00Z
 ---
 

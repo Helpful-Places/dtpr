@@ -10,5 +10,6 @@ description: >-
   recursos más eficientes. Estos algoritmos funcionan evaluando sistemáticamente
   distintas posibilidades para maximizar o minimizar resultados específicos como
   el coste, el tiempo o los recursos.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

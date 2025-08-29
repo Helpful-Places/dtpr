@@ -6,4 +6,5 @@ description: La manipulation de bitmaps est le processus de modification des pix
 icon: /dtpr-icons/bitmap_manipulation.svg
 id: bitmap_manipulation
 name: Manipulation des bitmaps
+updated_at: 2025-08-29T00:00:00Z
 ---

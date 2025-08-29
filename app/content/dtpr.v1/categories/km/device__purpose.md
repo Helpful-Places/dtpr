@@ -3,5 +3,6 @@ id: device__purpose
 name: គោលបំណង
 description: គោលបំណងនៃបច្ចេកវិទ្យានេះ។
 datachain_type: device
+updated_at: 2025-08-29T00:00:00Z
 ---
 

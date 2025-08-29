@@ -7,5 +7,6 @@ description: 'Données qui ont l''une des deux valeurs suivantes, par exemple vr
 icon: /dtpr-icons/boolean.svg
 id: boolean
 name: Booléen
+updated_at: 2025-08-29T00:00:00Z
 ---
 

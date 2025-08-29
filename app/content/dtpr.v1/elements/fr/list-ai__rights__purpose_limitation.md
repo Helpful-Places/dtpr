@@ -11,5 +11,6 @@ description: >-
   rapport avec celles-ci, sans que vous en soyez informé ou que vous y
   consentiez. Le collecteur de données doit préciser et documenter les finalités
   prévues avant le début de la collecte et respecter ces limitations.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

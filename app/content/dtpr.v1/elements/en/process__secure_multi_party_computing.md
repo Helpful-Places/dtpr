@@ -9,4 +9,5 @@ description: Secure multi-party computation is a subfield of cryptography with
   generate aggregated insights from data while keeping the individual items of
   data secret.
 icon: /dtpr-icons/secure_multi_party_computing.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

@@ -8,4 +8,5 @@ description: L'activité de données a fait l'objet d'une évaluation de l'utili
 icon: /dtpr-icons/rdua_approved.svg
 id: rdua_approved
 name: Approuvé par la RDUA
+updated_at: 2025-08-29T00:00:00Z
 ---

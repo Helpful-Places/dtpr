@@ -12,5 +12,6 @@ description: >-
   interpretables cuando sea posible, el desarrollo de métodos de explicación y
   el mantenimiento de documentación sobre el diseño del sistema y los procesos
   de formación.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

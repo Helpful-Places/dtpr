@@ -8,5 +8,6 @@ description: >-
   nearby wire. When a metal object moves close to the wire it changes the
   current. This makes it useful for detecting vehicles or other metal objects.
 icon: /dtpr-icons/induction_loop.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

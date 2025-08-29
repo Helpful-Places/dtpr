@@ -6,4 +6,5 @@ name: No data retained
 id: no_data_retained
 description: No data is kept or stored
 icon: /dtpr-icons/no_data_retained.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

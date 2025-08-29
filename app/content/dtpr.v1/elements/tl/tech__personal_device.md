@@ -7,5 +7,6 @@ description: >-
   Isang mobile device na pinagsasama ang mga paggamit ng cellular at mobile
   computing sa isang yunit, na inilaan para magamit ng isang tao.
 icon: /dtpr-icons/personal_device.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

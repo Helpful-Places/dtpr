@@ -7,5 +7,6 @@ description: >-
 icon: /dtpr-icons/li_dar.svg
 id: li_dar
 name: LiDAR
+updated_at: 2025-08-29T00:00:00Z
 ---
 

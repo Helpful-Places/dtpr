@@ -10,5 +10,6 @@ description: >-
   modèles peuvent effectuer des tâches telles que rédiger des textes, répondre à
   des questions, résumer des contenus et traduire des langues. Ils fonctionnent
   en prédisant quels mots sont susceptibles de suivre dans une séquence.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

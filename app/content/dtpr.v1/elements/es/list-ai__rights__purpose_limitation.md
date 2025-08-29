@@ -11,5 +11,6 @@ description: >-
   conocimiento o consentimiento. El recopilador de datos debe especificar y
   documentar los fines previstos antes de iniciar la recopilación, y atenerse a
   estas limitaciones.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

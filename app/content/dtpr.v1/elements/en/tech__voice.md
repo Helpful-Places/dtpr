@@ -8,5 +8,6 @@ description: >-
   manual review or by technologies that can determine either what is being said,
   or who is saying it.
 icon: /dtpr-icons/voice.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

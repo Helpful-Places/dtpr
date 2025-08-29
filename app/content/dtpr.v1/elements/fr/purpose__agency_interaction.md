@@ -8,5 +8,6 @@ description: >-
 icon: /dtpr-icons/agency_interaction.svg
 id: agency_interaction
 name: Capacité à agir & Interaction
+updated_at: 2025-08-29T00:00:00Z
 ---
 

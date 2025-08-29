@@ -8,4 +8,5 @@ description: 'L''anonymat K est utilisé pour garantir l''anonymat lors de la di
 icon: /dtpr-icons/k_anonymity.svg
 id: k_anonymity
 name: K-Anonymat
+updated_at: 2025-08-29T00:00:00Z
 ---

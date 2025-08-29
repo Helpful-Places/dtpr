@@ -13,5 +13,6 @@ description: >-
   suministro de información, mejorar la orientación o aumentar la eficacia de
   los servicios. Suelen emplear técnicas de filtrado que equilibran las
   preferencias individuales con patrones de uso más amplios.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

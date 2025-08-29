@@ -13,5 +13,6 @@ description: >-
 prompt: >-
   Anong algorithm o AI model ang ginagamit para sa pagproseso ng data sa system
   na ito?
+updated_at: 2025-08-29T00:00:00Z
 ---
 

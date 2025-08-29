@@ -9,5 +9,6 @@ description: >-
   each row is identical with at least k-1 other rows. At this point the database
   is said to be k-anonymous.
 icon: /dtpr-icons/k_anonymity.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

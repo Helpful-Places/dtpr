@@ -8,5 +8,6 @@ description: >-
   equipment necessary for the safe and effective operation of that aircraft. An
   unmanned aerial vehicle (UAV) is one component of this system.
 icon: /dtpr-icons/unmanned_aircraft_system.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

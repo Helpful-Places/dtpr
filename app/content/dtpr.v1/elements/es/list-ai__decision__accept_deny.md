@@ -12,5 +12,6 @@ description: >-
   cumple el umbral requerido para su aprobación. Algunos ejemplos son las
   solicitudes de empleo público, las admisiones escolares, las aprobaciones de
   préstamos o las determinaciones de elegibilidad para prestaciones.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

@@ -10,5 +10,6 @@ description: >-
   entonações e as pronúncias da voz humana. O Text-to-Speech é comumente usado
   em ferramentas de acessibilidade, assistentes virtuais e sistemas
   automatizados de atendimento ao cliente.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

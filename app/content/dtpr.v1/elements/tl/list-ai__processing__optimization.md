@@ -11,5 +11,6 @@ description: >-
   Gumagana ang mga algorithm na ito sa pamamagitan ng sistematikong pagsusuri ng
   iba't ibang mga posibilidad upang i-maximize o i-minimize ang mga partikular
   na resulta tulad ng gastos, oras, o mga mapagkukunan.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

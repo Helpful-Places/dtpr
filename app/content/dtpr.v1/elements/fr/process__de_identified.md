@@ -11,5 +11,6 @@ description: >-
   depois de os dados já terem saído de um dispositivo de hardware, ou depois de
   terem sido armazenados numa base de dados.
 icon: /dtpr-icons/de_identified.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

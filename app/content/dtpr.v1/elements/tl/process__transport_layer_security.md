@@ -8,4 +8,5 @@ description: Ang Transport Layer Security, o TLS, ay isang malawak na pinagtibay
   seguridad ng datos para sa mga komunikasyon sa internet sa pamamagitan ng
   pag-encrypt ng datos habang nasa loob.
 icon: /dtpr-icons/transport_layer_security.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

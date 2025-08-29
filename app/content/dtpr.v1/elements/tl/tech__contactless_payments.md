@@ -10,5 +10,6 @@ description: >-
   identification (RFID) o near field communication (NFC) para sa paggawa ng
   ligtas na pagbabayad.
 icon: /dtpr-icons/contactless_payments.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

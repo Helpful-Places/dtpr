@@ -13,5 +13,6 @@ element_variables:
 required: true
 order: 1
 prompt: Qui est responsable de ce système d’IA ?
+updated_at: 2025-08-29T00:00:00Z
 ---
 

@@ -9,5 +9,6 @@ description: >-
   equipped with a special receiver can be charged while it is driving along or
   is parked over the road.
 icon: /dtpr-icons/wireless_charging_roadway.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

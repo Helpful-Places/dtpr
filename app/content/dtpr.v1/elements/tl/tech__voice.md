@@ -9,5 +9,6 @@ description: >-
   ng mga teknolohiya na maaaring matukoy ang alinman sa sinasabi, o kung sino
   ang nagsasabi nito.
 icon: /dtpr-icons/voice.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

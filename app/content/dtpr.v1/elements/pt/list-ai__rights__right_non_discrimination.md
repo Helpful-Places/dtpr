@@ -10,5 +10,6 @@ description: >-
   deficiência ou orientação sexual. As organizações devem implementar e
   demonstrar medidas técnicas e organizacionais adequadas para evitar resultados
   discriminatórios de seus sistemas de IA.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

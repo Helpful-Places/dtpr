@@ -12,5 +12,6 @@ description: >-
   atende ao limite necessário para aprovação. Os exemplos incluem solicitações
   de serviço civil, admissões em escolas, aprovações de empréstimos ou
   determinações de elegibilidade de benefícios.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

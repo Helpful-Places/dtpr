@@ -8,4 +8,5 @@ description: Prend en charge une fonction mécanique - comme la mise en marche o
 icon: /dtpr-icons/switch_tech.svg
 id: switch
 name: Interrupteur
+updated_at: 2025-08-29T00:00:00Z
 ---

@@ -13,5 +13,6 @@ description: >-
   citons les modèles de planification urbaine qui ne tiennent pas compte des
   changements démographiques ou des schémas de transport qui changent au fil des
   saisons ou avec l'arrivée de nouvelles infrastructures.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

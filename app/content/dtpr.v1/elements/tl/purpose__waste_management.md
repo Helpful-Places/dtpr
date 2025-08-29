@@ -10,5 +10,6 @@ description: >-
   tungkol sa [pamamahala ng
   basura](https://en.wikipedia.org/wiki/Waste_management)
 icon: /dtpr-icons/waste_management.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

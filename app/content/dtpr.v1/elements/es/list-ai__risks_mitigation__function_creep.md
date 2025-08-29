@@ -14,5 +14,6 @@ description: >-
   notificación pública. Esto puede socavar la confianza del público y conducir
   potencialmente a usos para los que no se diseñaron o investigaron
   adecuadamente.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

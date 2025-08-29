@@ -11,5 +11,6 @@ description: >-
   ang pinakaangkop na mga koneksyon. Kasama sa mga halimbawa ang paglalagay ng
   tulong sa pabahay, pagtutugma ng aplikante sa trabaho, o pagpapares ng mga
   tagapagbigay ng serbisyo sa mga pangangailangan ng komunidad.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

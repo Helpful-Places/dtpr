@@ -7,5 +7,6 @@ description: >-
 icon: /dtpr-icons/aggregated.svg
 id: aggregated
 name: Agrégé
+updated_at: 2025-08-29T00:00:00Z
 ---
 

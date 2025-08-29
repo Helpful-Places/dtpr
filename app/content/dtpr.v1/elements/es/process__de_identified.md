@@ -10,4 +10,5 @@ description: Datos que se procesan para eliminar los valores de identificación,
   definimos que signifique que los datos ya han dejado un dispositivo de
   hardware, o después de que se haya almacenado en una base de datos.
 icon: /dtpr-icons/de_identified.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

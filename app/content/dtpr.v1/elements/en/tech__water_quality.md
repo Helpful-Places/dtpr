@@ -7,5 +7,6 @@ description: >-
   Measures various aspects of water quality, such as the amount of dissolved
   oxygen in water, pH, nitrates and dissolved oxygen.
 icon: /dtpr-icons/water_quality.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

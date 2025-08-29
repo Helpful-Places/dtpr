@@ -9,5 +9,6 @@ required: true
 order: 3
 description: O tipo de decisão tomada pelo sistema de IA.
 prompt: Que tipo de decisão está sendo tomada por este sistema de IA?
+updated_at: 2025-08-29T00:00:00Z
 ---
 

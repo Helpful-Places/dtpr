@@ -13,5 +13,6 @@ description: >-
   Kasama sa mga halimbawa ang mga modelo sa pagpaplano ng lunsod na hindi
   isinasaalang-alang ang mga pagbabago sa demograpiko o mga pattern ng
   transportasyon na nagbabago sa pana-panahon o sa bagong imprastraktura.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

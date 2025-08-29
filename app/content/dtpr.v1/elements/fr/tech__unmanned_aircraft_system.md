@@ -8,4 +8,5 @@ description: Un système de drone est un système aérien sans pilote (UAS) qui
   pour une variété de tâches, y compris la photographie aérienne, la
   surveillance, la cartographie, la livraison de colis et bien plus encore.
 icon: /dtpr-icons/unmanned_aircraft_system.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

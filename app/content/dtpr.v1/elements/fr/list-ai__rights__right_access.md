@@ -10,5 +10,6 @@ description: >-
   manière dont ces données sont utilisées et sur les décisions qui ont été
   prises sur la base de ces informations. Cela inclut le droit d'obtenir une
   copie de vos données dans un format lisible.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

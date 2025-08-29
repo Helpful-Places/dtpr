@@ -9,5 +9,6 @@ element_variables:
 required: false
 order: 7
 prompt: តើអ្នកណាអាចចូលប្រើទិន្នន័យដែលផលិតដោយប្រព័ន្ធ AI?
+updated_at: 2025-08-29T00:00:00Z
 ---
 

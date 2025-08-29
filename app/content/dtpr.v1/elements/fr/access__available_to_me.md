@@ -8,4 +8,5 @@ description: Disponible pour moi mais pas pour d'autres individus. Par exemple, 
 icon: /dtpr-icons/available_to_me.svg
 id: available_to_me
 name: Disponible pour moi
+updated_at: 2025-08-29T00:00:00Z
 ---

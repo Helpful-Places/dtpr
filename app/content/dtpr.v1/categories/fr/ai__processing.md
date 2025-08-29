@@ -11,5 +11,6 @@ description: >-
   L'algorithme ou le modèle d'IA utilisé pour traiter les données dans ce
   système.
 prompt: "Quel algorithme ou modèle d’IA est utilisé pour traiter les données dans ce système\_?"
+updated_at: 2025-08-29T00:00:00Z
 ---
 

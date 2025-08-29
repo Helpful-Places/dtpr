@@ -13,5 +13,6 @@ description: >-
   modelos de planificación urbana que no tienen en cuenta los cambios
   demográficos o los patrones de transporte que cambian estacionalmente o con
   las nuevas infraestructuras.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

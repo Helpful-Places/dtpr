@@ -10,5 +10,6 @@ description: >-
   kapansanan, o oryentasyong sekswal. Ang mga organisasyon ay dapat magpatupad
   at magpakita ng naaangkop na teknikal at pang-organisasyon na mga hakbang
   upang maiwasan ang mga diskriminasyong resulta mula sa kanilang mga AI system.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

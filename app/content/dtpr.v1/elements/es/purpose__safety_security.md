@@ -9,5 +9,6 @@ description: >-
   seguridad contra incendios, Home Security o garantizar un paso seguro en
   lugares como aeropuertos o carreteras
 icon: /dtpr-icons/safety_security.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

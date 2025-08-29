@@ -7,5 +7,6 @@ name: Personal
 id: personal
 description: Impormasyon tungkol sa mga nakikilalang indibidwal.
 icon: /dtpr-icons/personal.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

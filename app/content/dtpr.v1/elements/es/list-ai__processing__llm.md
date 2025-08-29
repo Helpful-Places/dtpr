@@ -10,5 +10,6 @@ description: >-
   realizar tareas como escribir textos, responder preguntas, resumir contenidos
   y traducir idiomas. Funcionan prediciendo qué palabras es probable que vengan
   a continuación en una secuencia.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

@@ -10,5 +10,6 @@ required: false
 order: 4
 description: Le(s) ensemble(s) de données utilisé(s) pour former ce système d'IA.
 prompt: "Quels ensembles de données ont été utilisés pour former ce système d’IA\_?"
+updated_at: 2025-08-29T00:00:00Z
 ---
 

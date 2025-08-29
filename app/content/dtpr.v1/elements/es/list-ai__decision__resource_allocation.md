@@ -12,5 +12,6 @@ description: >-
   Algunos ejemplos son la determinación de las rutas de recogida de basura, la
   asignación de horarios al personal o la distribución de los servicios públicos
   por barrios.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

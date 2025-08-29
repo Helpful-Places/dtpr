@@ -12,5 +12,6 @@ description: >-
   atteint le seuil requis pour être approuvée. Les exemples incluent les
   demandes de la fonction publique, les admissions dans les écoles, les
   approbations de prêts ou les déterminations d'éligibilité aux prestations.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

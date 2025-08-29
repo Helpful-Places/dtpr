@@ -7,4 +7,5 @@ description: Le chiffrage au repos est le cryptage des données lorsqu'elles son
 icon: /dtpr-icons/encrypted_at_rest.svg
 id: encrypted_at_rest
 name: Chiffré au repos
+updated_at: 2025-08-29T00:00:00Z
 ---

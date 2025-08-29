@@ -7,5 +7,6 @@ description: >-
 icon: /dtpr-icons/air_quality.svg
 id: air_quality
 name: Qualité de l'air
+updated_at: 2025-08-29T00:00:00Z
 ---
 

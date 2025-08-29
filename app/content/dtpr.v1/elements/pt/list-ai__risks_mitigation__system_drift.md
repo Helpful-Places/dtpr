@@ -12,5 +12,6 @@ description: >-
   vez mais imprecisos. Os exemplos incluem modelos de planejamento urbano que
   não levam em conta as mudanças demográficas ou os padrões de transporte que
   mudam sazonalmente ou com a nova infraestrutura.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

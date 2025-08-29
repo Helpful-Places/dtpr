@@ -10,5 +10,6 @@ required: false
 order: 4
 description: Los conjuntos de datos utilizados para entrenar este sistema de IA.
 prompt: ¿Qué conjunto(s) de datos se utilizaron para entrenar este sistema de IA?
+updated_at: 2025-08-29T00:00:00Z
 ---
 

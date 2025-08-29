@@ -13,5 +13,6 @@ description: >-
   les tensions croissantes. La technologie fonctionne généralement en
   identifiant des indicateurs émotionnels et en les comparant à des modèles de
   sentiments formés.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

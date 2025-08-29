@@ -8,4 +8,5 @@ description: All interactions with the data throughout its lifecycle, including
   query ledger creating an auditable chain of accountability mediated by a
   distributed database.
 icon: /dtpr-icons/immutable_query_ledger.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

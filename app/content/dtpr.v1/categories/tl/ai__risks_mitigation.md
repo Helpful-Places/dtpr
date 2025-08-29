@@ -14,5 +14,6 @@ description: >-
 prompt: >-
   Ano ang mga panganib na nauugnay sa AI system na ito at anong mga diskarte sa
   pagpapagaan ang nasa lugar?
+updated_at: 2025-08-29T00:00:00Z
 ---
 

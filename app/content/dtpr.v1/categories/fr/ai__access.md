@@ -11,5 +11,6 @@ element_variables:
 required: false
 order: 7
 prompt: Qui a accès aux données produites par le système d’IA ?
+updated_at: 2025-08-29T00:00:00Z
 ---
 

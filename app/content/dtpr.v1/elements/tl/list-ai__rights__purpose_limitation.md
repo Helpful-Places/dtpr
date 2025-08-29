@@ -11,5 +11,6 @@ description: >-
   hindi nauugnay na mga layunin nang hindi mo alam o pahintulot. Dapat tukuyin
   at idokumento ng tagakolekta ng data ang mga nilalayon na layunin bago
   magsimula ang pangongolekta, at sumunod sa mga limitasyong ito.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

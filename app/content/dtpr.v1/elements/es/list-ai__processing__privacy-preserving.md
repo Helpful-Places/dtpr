@@ -13,5 +13,6 @@ description: >-
   permite obtener información valiosa de la recogida de datos sin comprometer la
   información personal. La tecnología suele crear una barrera entre los datos en
   bruto recogidos y la información utilizada para la toma de decisiones.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

@@ -10,5 +10,6 @@ required: false
 order: 11
 description: Los derechos del usuario en relación con el sistema de IA.
 prompt: ¿Cuáles son los derechos del usuario en relación con el sistema de IA?
+updated_at: 2025-08-29T00:00:00Z
 ---
 

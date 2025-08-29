@@ -9,5 +9,6 @@ description: >-
 icon: /dtpr-icons/homomorphic_encryption.svg
 id: homomorphic_encryption
 name: Chiffrage homomorphe
+updated_at: 2025-08-29T00:00:00Z
 ---
 

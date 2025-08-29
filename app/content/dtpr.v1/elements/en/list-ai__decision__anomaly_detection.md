@@ -9,4 +9,5 @@ description: A decision-making process where the AI/algorithm identifies unusual
   Examples include fraud detection, infrastructure monitoring, or public health
   surveillance systems.
 icon: /dtpr-icons/dm_anomay-detection.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

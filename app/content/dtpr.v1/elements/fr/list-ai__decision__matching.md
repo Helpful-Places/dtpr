@@ -11,5 +11,6 @@ description: >-
   déterminer les connexions les plus appropriées. Les exemples incluent le
   placement de l'aide au logement, l'appariement des candidats à l'emploi ou
   l'appariement des prestataires de services avec les besoins de la communauté.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

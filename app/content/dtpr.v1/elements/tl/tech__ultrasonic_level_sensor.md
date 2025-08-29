@@ -9,5 +9,6 @@ description: >-
   wave na makikita pabalik mula sa bagay. Ang distansya ay kinakalkula gamit ang
   oras sa pagitan ng paglabas at pagtanggap.
 icon: /dtpr-icons/ultrasonic_level_sensor.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

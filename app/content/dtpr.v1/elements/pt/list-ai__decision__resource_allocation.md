@@ -11,5 +11,6 @@ description: >-
   disponibilidade, demanda e prioridade para otimizar a distribuição. Os
   exemplos incluem a determinação de rotas de coleta de lixo, a atribuição de
   horários para a equipe ou a distribuição de serviços públicos entre bairros.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

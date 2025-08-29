@@ -8,4 +8,5 @@ description: Réduit la consommation d'eau et/ou contribue à sa conservation. P
 icon: /dtpr-icons/water_efficiency.svg
 id: water_efficiency
 name: Efficacité de l'eau
+updated_at: 2025-08-29T00:00:00Z
 ---

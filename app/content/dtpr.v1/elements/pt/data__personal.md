@@ -7,4 +7,5 @@ name: Pessoal
 id: personal
 description: Informações sobre indivíduos identificáveis.
 icon: /dtpr-icons/personal.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

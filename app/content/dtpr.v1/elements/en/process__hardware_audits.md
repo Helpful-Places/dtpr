@@ -8,4 +8,5 @@ description: 3rd Party auditing specialists periodically examine the hardware &
   disclosure when it comes to the type of data the device is capturing and how
   it is being processed.
 icon: /dtpr-icons/hardware_audits.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

@@ -11,4 +11,5 @@ description: Gera imagens de vídeo com
   computador que obtêm
   informações sob a forma de dados a partir de vídeos ou imagens.
 icon: /dtpr-icons/identifiable_video.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

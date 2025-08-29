@@ -7,4 +7,5 @@ description: Non disponible pour moi ou d'autres individus. En tant qu'individu,
 icon: /dtpr-icons/not_available_to_me.svg
 id: not_available_to_me
 name: Non disponible pour moi
+updated_at: 2025-08-29T00:00:00Z
 ---

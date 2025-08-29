@@ -8,5 +8,6 @@ description: >-
 icon: /dtpr-icons/ai_system.svg
 id: ai_system
 name: Systéme d'IA
+updated_at: 2025-08-29T00:00:00Z
 ---
 

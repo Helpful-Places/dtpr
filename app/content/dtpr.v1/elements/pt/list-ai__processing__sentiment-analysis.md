@@ -12,5 +12,6 @@ description: >-
   multidão, avaliar a resposta do público aos serviços ou detectar tensões
   crescentes. Normalmente, a tecnologia funciona identificando indicadores
   emocionais e comparando-os com modelos treinados de padrões de sentimento.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

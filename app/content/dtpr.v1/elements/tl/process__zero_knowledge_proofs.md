@@ -8,5 +8,6 @@ description: >-
   isang partido sa ibang partido na alam nila ang isang halaga, nang hindi
   nagbibigay ng anumang karagdagang impormasyon tulad ng mismong halaga.
 icon: /dtpr-icons/zero_knowledge_proofs.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

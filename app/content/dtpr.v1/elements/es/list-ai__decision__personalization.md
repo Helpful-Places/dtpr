@@ -11,5 +11,6 @@ description: >-
   personales para personalizar las experiencias. Algunos ejemplos son las
   recomendaciones de contenidos, los itinerarios de aprendizaje personalizados o
   las comunicaciones específicas de los servicios públicos.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

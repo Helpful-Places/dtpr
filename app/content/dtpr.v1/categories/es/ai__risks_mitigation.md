@@ -14,5 +14,6 @@ description: >-
 prompt: >-
   ¿Cuáles son los riesgos asociados con este sistema de IA y qué estrategias de
   mitigación existen?
+updated_at: 2025-08-29T00:00:00Z
 ---
 

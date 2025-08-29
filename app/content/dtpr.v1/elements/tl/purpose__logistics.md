@@ -6,5 +6,6 @@ name: Logistik
 id: logistics
 description: Sinusuportahan ang paggalaw ng mga kalakal o materyales.
 icon: /dtpr-icons/logistics.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

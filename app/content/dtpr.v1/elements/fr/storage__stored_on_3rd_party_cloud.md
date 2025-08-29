@@ -7,4 +7,5 @@ description: Les données sont stockées au nom de l'organisation ou du collecte
 icon: /dtpr-icons/stored_on_3rd_party_cloud.svg
 id: stored_on_3rd_party_cloud
 name: Stocké sur un cloud tiers
+updated_at: 2025-08-29T00:00:00Z
 ---

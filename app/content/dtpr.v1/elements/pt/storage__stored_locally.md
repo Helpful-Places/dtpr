@@ -6,4 +6,5 @@ name: Armazenado localmente
 id: stored_locally
 description: Os dados são armazenados na jurisdição onde foram recolhidos.
 icon: /dtpr-icons/stored_locally.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
