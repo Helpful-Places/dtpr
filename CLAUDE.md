@@ -1,0 +1,1 @@
+- Never run the server directly. If you need it, ask if I'm running it. I usually am.

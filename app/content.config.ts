@@ -19,6 +19,7 @@ export default defineContentConfig({
           required: z.boolean().optional()
         })).optional(),
         datachain_type: z.string(),
+        updated_at: z.string(),
         _locale: z.string()
       })
     }),
@@ -40,6 +41,7 @@ export default defineContentConfig({
         description: z.string(),
         icon: z.string(),
         dtpr_id: z.string(),
+        updated_at: z.string(),
         _locale: z.string()
       })
     }),

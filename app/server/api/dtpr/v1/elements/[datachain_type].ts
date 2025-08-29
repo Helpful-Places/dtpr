@@ -27,10 +27,16 @@ export default eventHandler(async event => {
     .where('datachain_type', '=', datachain_type)
     .all()
   
-  // Extract unique category IDs
-  const categoryIds = [...new Set(categories.map((cat: any) => 
-    cat.id.split('/').pop()?.replace('.md', '') || cat.id
-  ))]
+  // Extract unique category IDs and build a map of category_id -> category data
+  const categoryMap = new Map<string, any[]>()
+  categories.forEach((cat: any) => {
+    const categoryId = cat.id.split('/').pop()?.replace('.md', '') || cat.id
+    if (!categoryMap.has(categoryId)) {
+      categoryMap.set(categoryId, [])
+    }
+    categoryMap.get(categoryId)!.push(cat)
+  })
+  const categoryIds = [...categoryMap.keys()]
 
   // Step 2: Get all elements and filter by categories
   // Since category is an array field in elements, we need to filter after fetching
@@ -56,6 +62,51 @@ export default eventHandler(async event => {
 
     // If this element is not in our accumulator yet, initialize it
     if (!acc[key]) {
+      // Collect all unique variables from all categories this element belongs to
+      const variablesMap = new Map<string, any>()
+      
+      // Collect all timestamps for version calculation
+      const timestamps: string[] = []
+      
+      elementCategories.forEach((catId: string) => {
+        const categoryData = categoryMap.get(catId) || []
+        categoryData.forEach((cat: any) => {
+          // Collect category timestamps
+          if (cat.updated_at) {
+            timestamps.push(cat.updated_at)
+          }
+          
+          if (cat.element_variables) {
+            cat.element_variables.forEach((variable: any) => {
+              if (!variablesMap.has(variable.id)) {
+                variablesMap.set(variable.id, {
+                  id: variable.id,
+                  label: [],
+                  required: variable.required !== undefined ? variable.required : false
+                })
+              }
+              // Add locale-specific label if it exists
+              if (variable.label) {
+                const existingVariable = variablesMap.get(variable.id)!
+                const catLocale = cat._locale
+                // Check if we already have this locale's label
+                const hasLocale = existingVariable.label.some((l: any) => l.locale === catLocale)
+                if (!hasLocale) {
+                  existingVariable.label.push({
+                    locale: catLocale,
+                    value: variable.label
+                  })
+                }
+                // Update required field if this category specifies it as true
+                if (variable.required === true) {
+                  existingVariable.required = true
+                }
+              }
+            })
+          }
+        })
+      })
+      
       acc[key] = {
         schema: {
           name: "DTPR Element",
@@ -66,7 +117,7 @@ export default eventHandler(async event => {
         element: {
           id: elementId,
           category_ids: elementCategories,
-          version: "2024-06-11T00:00:00Z",
+          version: "2024-06-11T00:00:00Z", // Will be updated after collecting all element timestamps
           icon: {
             url: element.icon ? `${baseUrl}${element.icon}` : "",
             alt_text: [],
@@ -75,21 +126,20 @@ export default eventHandler(async event => {
           title: [],
           description: [],
           citation: [],
-          variables: [
-            {
-              id: "additional_description",
-              type: "string",
-              required: true,
-              default: ""
-            }
-          ]
-        }
+          variables: Array.from(variablesMap.values())
+        },
+        _timestamps: timestamps // Temporarily store timestamps for later processing
       }
     }
 
     // Add locale-specific data
     const title = element.name || ""
     const description = element.description || ""
+    
+    // Add element's timestamp to the collection
+    if (element.updated_at) {
+      acc[key]._timestamps.push(element.updated_at)
+    }
     
     // Add to title array
     acc[key].element.title.push({
@@ -111,6 +161,19 @@ export default eventHandler(async event => {
     
     return acc
   }, {})
+
+  // Calculate the latest version for each element based on all timestamps
+  Object.values(elementsByDtprId).forEach((item: any) => {
+    if (item._timestamps && item._timestamps.length > 0) {
+      // Find the latest timestamp
+      const latestTimestamp = item._timestamps.reduce((latest: string, current: string) => {
+        return new Date(current) > new Date(latest) ? current : latest
+      })
+      item.element.version = latestTimestamp
+    }
+    // Remove the temporary _timestamps field
+    delete item._timestamps
+  })
 
   // Convert the object back to an array
   let formattedElements = Object.values(elementsByDtprId)
@@ -144,7 +207,7 @@ export default eventHandler(async event => {
       
       // Filter variables labels by requested locales (if they have labels)
       element.element.variables = element.element.variables.map((variable: any) => {
-        if (variable.label) {
+        if (variable.label && variable.label.length > 0) {
           return {
             ...variable,
             label: variable.label.filter((item: any) => requestedLocales.includes(item.locale))

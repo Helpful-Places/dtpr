@@ -118,9 +118,11 @@ Variables allow elements to be customized when instantiated in a datachain:
 "variables": [
   {
     "id": "additional_description",
-    "type": "string",
     "required": false,
-    "default": ""
+    "label": [{
+      "locale": "en",
+      "value": "Additional Description"
+    }]
   }
 ]
 ```
@@ -250,9 +252,11 @@ Implementations should validate:
     "variables": [
       {
         "id": "additional_description",
-        "type": "string",
         "required": false,
-        "default": ""
+        "label": [{
+          "locale": "en",
+          "value": "Additional Description"
+        }]
       }
     ]
   },
