@@ -1,15 +1,13 @@
 import { getQuery } from 'h3'
-
-interface LocaleValue {
-  locale: string
-  value: string
-}
-
-interface Variable {
-  id: string
-  label: LocaleValue[]
-  required: boolean
-}
+import type { LocaleValue, Variable, SchemaMetadata } from '../types'
+import { 
+  validateDatachainType, 
+  parseLocalesQuery, 
+  calculateLatestVersion,
+  filterLocaleValues,
+  processVariableWithLocale,
+  filterVariablesByLocale
+} from '../utils'
 
 interface CategoryContent {
   id: string
@@ -23,33 +21,18 @@ interface CategoryContent {
 }
 
 interface CategoryData {
-  schema: {
-    name: string
-    id: string
-    version: string
-    namespace: string
-  }
+  schema: SchemaMetadata
   category: CategoryContent
 }
 
 export default eventHandler(async event => {
-  // Get the datachain_type from route parameters
-  const datachain_type = event.context.params?.datachain_type
-  
-  // Validate datachain_type
-  if (!datachain_type || !['ai', 'device'].includes(datachain_type)) {
-    throw createError({
-      statusCode: 400,
-      statusMessage: 'Invalid datachain_type. Must be "ai" or "device"'
-    })
-  }
+  // Get and validate the datachain_type from route parameters
+  const datachain_type = validateDatachainType(event.context.params?.datachain_type)
 
   // Get query parameters
   const query = getQuery(event)
   // Parse locales from query parameter (e.g., ?locales=en,fr,es)
-  const requestedLocales = query.locales 
-    ? (Array.isArray(query.locales) ? query.locales : query.locales.toString().split(','))
-    : null
+  const requestedLocales = parseLocalesQuery(query)
 
   // Query categories filtered by datachain_type
   const categories = await queryCollection(event, 'categories')
@@ -66,9 +49,6 @@ export default eventHandler(async event => {
     if (!acc[categoryId]) {
       // Collect all timestamps for version calculation
       const timestamps: string[] = []
-      
-      // Initialize variables map for element_variables
-      const variablesMap = new Map<string, Variable>()
       
       acc[categoryId] = {
         schema: {
@@ -90,7 +70,8 @@ export default eventHandler(async event => {
           version: "2024-06-11T00:00:00Z", // Will be updated later
           element_variables: []
         },
-        _timestamps: timestamps // Temporarily store timestamps
+        _timestamps: timestamps, // Temporarily store timestamps
+        _variablesMap: new Map<string, Variable>() // Initialize variables map
       } as any
     }
 
@@ -102,36 +83,7 @@ export default eventHandler(async event => {
     // Process element_variables
     if (category.element_variables) {
       category.element_variables.forEach((variable: any) => {
-        let existingVar = (acc[categoryId] as any)._variablesMap?.get(variable.id)
-        
-        if (!existingVar) {
-          if (!(acc[categoryId] as any)._variablesMap) {
-            (acc[categoryId] as any)._variablesMap = new Map<string, Variable>()
-          }
-          existingVar = {
-            id: variable.id,
-            label: [],
-            required: variable.required !== undefined ? variable.required : false
-          };
-          (acc[categoryId] as any)._variablesMap.set(variable.id, existingVar)
-        }
-        
-        // Add locale-specific label if it exists
-        if (variable.label) {
-          // Check if we already have this locale's label
-          const hasLocale = existingVar.label.some((l: LocaleValue) => l.locale === locale)
-          if (!hasLocale) {
-            existingVar.label.push({
-              locale,
-              value: variable.label
-            })
-          }
-        }
-        
-        // Update required field if this category specifies it as true
-        if (variable.required === true) {
-          existingVar.required = true
-        }
+        processVariableWithLocale(variable, locale, (acc[categoryId] as any)._variablesMap)
       })
     }
 
@@ -175,10 +127,7 @@ export default eventHandler(async event => {
   Object.values(categoriesById).forEach((item: any) => {
     // Calculate the latest version based on all timestamps
     if (item._timestamps && item._timestamps.length > 0) {
-      const latestTimestamp = item._timestamps.reduce((latest: string, current: string) => {
-        return new Date(current) > new Date(latest) ? current : latest
-      })
-      item.category.version = latestTimestamp
+      item.category.version = calculateLatestVersion(item._timestamps)
     }
     
     // Convert variables map to array
@@ -201,30 +150,19 @@ export default eventHandler(async event => {
       const category = { ...categoryWrapper.category }
       
       // Filter name by requested locales
-      category.name = categoryWrapper.category.name.filter((item: LocaleValue) => 
-        requestedLocales.includes(item.locale)
-      )
+      category.name = filterLocaleValues(categoryWrapper.category.name, requestedLocales)
       
       // Filter description by requested locales
-      category.description = categoryWrapper.category.description.filter((item: LocaleValue) => 
-        requestedLocales.includes(item.locale)
-      )
+      category.description = filterLocaleValues(categoryWrapper.category.description, requestedLocales)
       
       // Filter prompt by requested locales (if it exists and has entries)
       if (categoryWrapper.category.prompt && categoryWrapper.category.prompt.length > 0) {
-        category.prompt = categoryWrapper.category.prompt.filter((item: LocaleValue) => 
-          requestedLocales.includes(item.locale)
-        )
+        category.prompt = filterLocaleValues(categoryWrapper.category.prompt, requestedLocales)
       }
       
       // Filter element_variables labels by requested locales
       if (category.element_variables && category.element_variables.length > 0) {
-        category.element_variables = category.element_variables.map((variable: Variable) => ({
-          ...variable,
-          label: variable.label.filter((item: LocaleValue) => 
-            requestedLocales.includes(item.locale)
-          )
-        }))
+        category.element_variables = filterVariablesByLocale(category.element_variables, requestedLocales)
       }
       
       filteredWrapper.category = category

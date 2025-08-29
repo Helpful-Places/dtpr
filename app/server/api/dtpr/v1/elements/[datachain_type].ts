@@ -1,15 +1,13 @@
 import { getQuery } from 'h3'
-
-interface LocaleValue {
-  locale: string
-  value: string
-}
-
-interface Variable {
-  id: string
-  label: LocaleValue[]
-  required: boolean
-}
+import type { LocaleValue, Variable, SchemaMetadata } from '../types'
+import { 
+  validateDatachainType, 
+  parseLocalesQuery, 
+  calculateLatestVersion,
+  filterLocaleValues,
+  processVariableWithLocale,
+  filterVariablesByLocale
+} from '../utils'
 
 interface Icon {
   url: string
@@ -29,33 +27,18 @@ interface ElementContent {
 }
 
 interface ElementData {
-  schema: {
-    name: string
-    id: string
-    version: string
-    namespace: string
-  }
+  schema: SchemaMetadata
   element: ElementContent
 }
 
 export default eventHandler(async event => {
-  // Get the datachain_type from route parameters
-  const datachain_type = event.context.params?.datachain_type
-  
-  // Validate datachain_type
-  if (!datachain_type || !['ai', 'device'].includes(datachain_type)) {
-    throw createError({
-      statusCode: 400,
-      statusMessage: 'Invalid datachain_type. Must be "ai" or "device"'
-    })
-  }
+  // Get and validate the datachain_type from route parameters
+  const datachain_type = validateDatachainType(event.context.params?.datachain_type)
 
   // Get query parameters
   const query = getQuery(event)
   // Parse locales from query parameter (e.g., ?locales=en,fr,es)
-  const requestedLocales = query.locales 
-    ? (Array.isArray(query.locales) ? query.locales : query.locales.toString().split(','))
-    : null
+  const requestedLocales = parseLocalesQuery(query)
 
   // Get the base URL from environment variable or default to localhost
   const baseUrl = process.env.BASE_URL || 'http://localhost:3000'
@@ -116,30 +99,7 @@ export default eventHandler(async event => {
           
           if (cat.element_variables) {
             cat.element_variables.forEach((variable: any) => {
-              if (!variablesMap.has(variable.id)) {
-                variablesMap.set(variable.id, {
-                  id: variable.id,
-                  label: [],
-                  required: variable.required !== undefined ? variable.required : false
-                })
-              }
-              // Add locale-specific label if it exists
-              if (variable.label) {
-                const existingVariable = variablesMap.get(variable.id)!
-                const catLocale = cat._locale
-                // Check if we already have this locale's label
-                const hasLocale = existingVariable.label.some((l: LocaleValue) => l.locale === catLocale)
-                if (!hasLocale) {
-                  existingVariable.label.push({
-                    locale: catLocale,
-                    value: variable.label
-                  })
-                }
-                // Update required field if this category specifies it as true
-                if (variable.required === true) {
-                  existingVariable.required = true
-                }
-              }
+              processVariableWithLocale(variable, cat._locale, variablesMap)
             })
           }
         })
@@ -203,11 +163,7 @@ export default eventHandler(async event => {
   // Calculate the latest version for each element based on all timestamps
   Object.values(elementsByDtprId).forEach((item: any) => {
     if (item._timestamps && item._timestamps.length > 0) {
-      // Find the latest timestamp
-      const latestTimestamp = item._timestamps.reduce((latest: string, current: string) => {
-        return new Date(current) > new Date(latest) ? current : latest
-      })
-      item.element.version = latestTimestamp
+      item.element.version = calculateLatestVersion(item._timestamps)
     }
     // Remove the temporary _timestamps field
     delete item._timestamps
@@ -223,40 +179,24 @@ export default eventHandler(async event => {
       const elementContent = { ...formattedElement.element }
       
       // Filter title by requested locales
-      elementContent.title = formattedElement.element.title.filter((item: LocaleValue) => 
-        requestedLocales.includes(item.locale)
-      )
+      elementContent.title = filterLocaleValues(formattedElement.element.title, requestedLocales)
       
       // Filter description by requested locales
-      elementContent.description = formattedElement.element.description.filter((item: LocaleValue) => 
-        requestedLocales.includes(item.locale)
-      )
+      elementContent.description = filterLocaleValues(formattedElement.element.description, requestedLocales)
       
       // Filter icon alt_text by requested locales
       elementContent.icon = {
         ...formattedElement.element.icon,
-        alt_text: formattedElement.element.icon.alt_text.filter((item: LocaleValue) => 
-          requestedLocales.includes(item.locale)
-        )
+        alt_text: filterLocaleValues(formattedElement.element.icon.alt_text, requestedLocales)
       }
       
       // Filter citation by requested locales (if it exists)
       if (formattedElement.element.citation && formattedElement.element.citation.length > 0) {
-        elementContent.citation = formattedElement.element.citation.filter((item: LocaleValue) => 
-          requestedLocales.includes(item.locale)
-        )
+        elementContent.citation = filterLocaleValues(formattedElement.element.citation, requestedLocales)
       }
       
-      // Filter variables labels by requested locales (if they have labels)
-      elementContent.variables = formattedElement.element.variables.map((variable: Variable) => {
-        if (variable.label && variable.label.length > 0) {
-          return {
-            ...variable,
-            label: variable.label.filter((item: LocaleValue) => requestedLocales.includes(item.locale))
-          }
-        }
-        return variable
-      })
+      // Filter variables labels by requested locales
+      elementContent.variables = filterVariablesByLocale(formattedElement.element.variables, requestedLocales)
       
       element.element = elementContent
       return element
