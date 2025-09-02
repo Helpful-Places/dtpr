@@ -7,10 +7,10 @@ required: true
 order: 1
 datachain_type: ai
 element_variables:
-  - id: name
-    label: Name
+  - id: title
+    label: Title
     required: true
-  - id: additional_description
+  - id: description
     label: Description
     required: true
 updated_at: 2025-08-29T00:00:00Z

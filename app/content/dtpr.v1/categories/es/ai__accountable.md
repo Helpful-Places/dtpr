@@ -4,10 +4,10 @@ name: Responsable
 description: La organización responsable de la implementación de este sistema de IA.
 datachain_type: ai
 element_variables:
-  - id: name
-    label: Nombre
+  - id: title
+    label: Título
     required: true
-  - id: additional_description
+  - id: description
     label: Descripción
     required: true
 required: true

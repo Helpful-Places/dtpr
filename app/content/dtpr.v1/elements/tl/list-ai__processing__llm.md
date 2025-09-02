@@ -2,7 +2,7 @@
 category:
   - ai__processing
 id: llm
-icon: /dtpr-icons/dtpr_api.svg
+icon: /dtpr-icons/processing_llm.svg
 name: Malaking Modelo ng Wika
 description: >-
   Isang uri ng AI system na sinanay sa napakaraming data ng text na maaaring

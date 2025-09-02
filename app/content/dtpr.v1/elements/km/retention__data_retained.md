@@ -4,9 +4,9 @@ category:
   - ai__retention
 id: data_retained
 icon: /dtpr-icons/is_retained.svg
-name: 'បានរក្សាទុក {រយៈពេល}'
+name: 'បានរក្សាទុក {{duration}}'
 description: >-
-  ទិន្នន័យត្រូវបានរក្សាទុកសម្រាប់រយៈពេល {duration}
+  ទិន្នន័យត្រូវបានរក្សាទុកសម្រាប់រយៈពេល {{duration}}
   ហើយបន្ទាប់ពីរយៈពេលនេះត្រូវបានលុប
 updated_at: 2025-08-29T00:00:00Z
 ---

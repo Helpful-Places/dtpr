@@ -2,7 +2,7 @@
 category:
   - ai__decision
 id: priority_ranking
-icon: /dtpr-icons/dtpr_api.svg
+icon: /dtpr-icons/dm_priority-ranking.svg
 name: ចំណាត់ថ្នាក់អាទិភាព
 description: >-
   ដំណើរការធ្វើការសម្រេចចិត្តដែល AI/algorithm វាយតម្លៃធាតុ ឬសំណើជាច្រើន

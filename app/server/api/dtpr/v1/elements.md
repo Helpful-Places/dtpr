@@ -123,7 +123,7 @@ Variables can be referenced in the description text using double curly braces:
 
 ```json
 "description": [
-  {"locale": "en", "value": "This system stores data for {{duration}} and {{additional_description}}"}
+  {"locale": "en", "value": "This system stores data for {{{duration}}} and {{additional_description}}"}
 ]
 ```
 

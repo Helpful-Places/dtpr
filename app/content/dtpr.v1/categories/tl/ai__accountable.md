@@ -4,10 +4,10 @@ name: Pananagutan
 description: Ang organisasyon ay may pananagutan para sa pag-deploy ng AI system na ito.
 datachain_type: ai
 element_variables:
-  - id: name
-    label: Pangalan
+  - id: title
+    label: Titulo
     required: true
-  - id: additional_description
+  - id: description
     label: Paglalarawan
     required: true
 required: true

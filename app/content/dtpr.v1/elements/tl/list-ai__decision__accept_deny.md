@@ -3,6 +3,7 @@ category:
   - ai__decision
 icon: /dtpr-icons/dm_accept-or-deny.svg
 name: Tanggapin o tanggihan
+id: accept_deny
 description: >-
   Isang binary na proseso ng paggawa ng desisyon kung saan sinusuri ng
   AI/algorithm ang impormasyon laban sa mga partikular na pamantayan upang

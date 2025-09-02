@@ -4,10 +4,10 @@ name: ទទួលខុសត្រូវ
 description: អង្គការទទួលខុសត្រូវចំពោះការដាក់ពង្រាយប្រព័ន្ធ AI នេះ។
 datachain_type: ai
 element_variables:
-  - id: name
-    label: ឈ្មោះ
+  - id: title
+    label: ចំណងជើង
     required: true
-  - id: additional_description
+  - id: description
     label: ការពិពណ៌នា
     required: true
 required: true
