@@ -11,5 +11,6 @@ description: >-
   pessoais para personalizar experiências. Os exemplos incluem recomendações de
   conteúdo, caminhos de aprendizado personalizados ou comunicações direcionadas
   de serviços públicos.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

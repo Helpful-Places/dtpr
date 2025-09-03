@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: Sistema de aeronaves no tripuladas
 id: unmanned_aircraft_system
 description: Un sistema de aviones no tripulados (UAS) consiste en una aeronave
@@ -8,4 +8,5 @@ description: Un sistema de aviones no tripulados (UAS) consiste en una aeronave
   aeronave. Un vehículo aéreo no tripulado (UAV) es un componente de este
   sistema.
 icon: /dtpr-icons/unmanned_aircraft_system.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

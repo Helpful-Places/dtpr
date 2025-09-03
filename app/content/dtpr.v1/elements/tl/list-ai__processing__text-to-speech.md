@@ -10,5 +10,6 @@ description: >-
   pananalita na ginagaya ang mga pattern ng boses, intonasyon, at pagbigkas ng
   tao. Ang Text-to-Speech ay karaniwang ginagamit sa mga tool sa accessibility,
   virtual assistant, at mga automated na customer service system.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

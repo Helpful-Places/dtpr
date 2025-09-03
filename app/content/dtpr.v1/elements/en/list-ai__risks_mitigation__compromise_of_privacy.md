@@ -10,4 +10,5 @@ description: The risk that the AI system could access, expose, or deduce private
   include data minimization practices, robust security measures, differential
   privacy techniques, and rigorous access controls.
 icon: /dtpr-icons/risks_compromise-of-privacy.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

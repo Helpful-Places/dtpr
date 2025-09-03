@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 description: >-
   Le chiffrement homomorphique est une forme de chiffrement qui permet
   d'effectuer des calculs sur des textes chiffrés, en générant un résultat
@@ -9,5 +9,6 @@ description: >-
 icon: /dtpr-icons/homomorphic_encryption.svg
 id: homomorphic_encryption
 name: Chiffrage homomorphe
+updated_at: 2025-08-29T00:00:00Z
 ---
 

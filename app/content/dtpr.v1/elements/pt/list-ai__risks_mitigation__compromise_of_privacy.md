@@ -12,5 +12,6 @@ description: >-
   sensíveis. As atenuações podem incluir práticas de minimização de dados,
   medidas de segurança robustas, técnicas de privacidade diferenciadas e
   controles de acesso rigorosos.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

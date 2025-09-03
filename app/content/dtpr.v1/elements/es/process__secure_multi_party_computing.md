@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__process
+  - device__process
 name: Computación multipartidista segura
 id: secure_multi_party_computing
 description: El cálculo seguro multipartidista es un subcampo de criptografía
@@ -9,4 +9,5 @@ description: El cálculo seguro multipartidista es un subcampo de criptografía
   Permite a los participantes generar información agregada a partir de datos
   mientras mantiene en secreto los elementos individuales de datos.
 icon: /dtpr-icons/secure_multi_party_computing.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

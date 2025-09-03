@@ -13,5 +13,6 @@ description: >-
   komunikasyon tungkol sa mga limitasyon ng system, pagsasanay para sa mga user
   sa naaangkop na pagtitiwala, at pagpapanatili ng makabuluhang pakikilahok ng
   tao sa mga kritikal na desisyon.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

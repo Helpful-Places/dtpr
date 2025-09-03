@@ -2,7 +2,7 @@
 category:
   - ai__decision
 id: priority_ranking
-icon: /dtpr-icons/dtpr_api.svg
+icon: /dtpr-icons/dm_priority-ranking.svg
 name: ចំណាត់ថ្នាក់អាទិភាព
 description: >-
   ដំណើរការធ្វើការសម្រេចចិត្តដែល AI/algorithm វាយតម្លៃធាតុ ឬសំណើជាច្រើន
@@ -11,5 +11,6 @@ description: >-
   ប្រព័ន្ធកំណត់តម្លៃដែលទាក់ទងទៅធាតុនីមួយៗ ហើយតម្រៀបវាទៅតាមនោះ។ ឧទាហរណ៏រួមមាន
   triage ការឆ្លើយតបសង្គ្រោះបន្ទាន់ ការបញ្ជាទិញសំបុត្រសេវាអតិថិជន
   ការកំណត់កាលវិភាគស្នើសុំការថែទាំ ឬអាទិភាពនៃគម្រោងសាធារណៈ។
+updated_at: 2025-08-29T00:00:00Z
 ---
 

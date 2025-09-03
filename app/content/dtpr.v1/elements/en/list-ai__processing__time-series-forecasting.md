@@ -9,4 +9,5 @@ description: A method that analyzes historical data points collected over time
   applications include weather forecasting, stock market prediction, demand
   planning, and resource management.
 icon: /dtpr-icons/processing_time-series-forecasting.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

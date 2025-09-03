@@ -12,5 +12,6 @@ description: >-
   no sensibles. Las medidas de mitigación pueden incluir prácticas de
   minimización de datos, medidas de seguridad sólidas, técnicas de privacidad
   diferencial y controles de acceso rigurosos.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

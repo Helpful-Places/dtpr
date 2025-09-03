@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__purpose
+  - device__purpose
   - ai__purpose
 description: Réduit la consommation d'eau et/ou contribue à sa conservation. Pour
   en savoir plus sur l'efficacité et la conservation de l'eau, ainsi que sur l'infrastructure
@@ -8,4 +8,5 @@ description: Réduit la consommation d'eau et/ou contribue à sa conservation. P
 icon: /dtpr-icons/water_efficiency.svg
 id: water_efficiency
 name: Efficacité de l'eau
+updated_at: 2025-08-29T00:00:00Z
 ---

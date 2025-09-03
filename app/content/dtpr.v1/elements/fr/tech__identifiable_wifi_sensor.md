@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 id: identifiable_wifi_sensor
 icon: /dtpr-icons/identifiable_wifi_sensor.svg
 name: Identifiable WiFi Sensor
@@ -10,5 +10,6 @@ description: >-
   utilisées pour suivre les positions et les mouvements de ces appareils dans
   l'espace physique. Ces données peuvent être associées aux adresses matérielles
   des appareils eux-mêmes.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

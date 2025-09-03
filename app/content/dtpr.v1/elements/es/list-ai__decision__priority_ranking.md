@@ -2,7 +2,7 @@
 category:
   - ai__decision
 id: priority_ranking
-icon: /dtpr-icons/dtpr_api.svg
+icon: /dtpr-icons/dm_priority-ranking.svg
 name: Clasificación prioritaria
 description: >-
   Proceso de toma de decisiones en el que la IA/algoritmo evalúa múltiples
@@ -12,5 +12,6 @@ description: >-
   emergencia, el pedido de tickets de atención al cliente, la programación de
   solicitudes de mantenimiento o las prioridades de financiación de proyectos
   públicos.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

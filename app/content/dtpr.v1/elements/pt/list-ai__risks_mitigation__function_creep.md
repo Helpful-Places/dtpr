@@ -13,5 +13,6 @@ description: >-
   exemplo, aplicação da lei) sem a avaliação adequada de novos riscos ou
   notificação pública. Isso pode minar a confiança do público e, potencialmente,
   levar a usos que não foram adequadamente projetados ou examinados.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

@@ -2,7 +2,7 @@
 category:
   - ai__processing
 id: llm
-icon: /dtpr-icons/dtpr_api.svg
+icon: /dtpr-icons/processing_llm.svg
 name: Gran modelo lingüístico
 description: >-
   Un tipo de sistema de IA entrenado en grandes cantidades de datos de texto que
@@ -10,5 +10,6 @@ description: >-
   realizar tareas como escribir textos, responder preguntas, resumir contenidos
   y traducir idiomas. Funcionan prediciendo qué palabras es probable que vengan
   a continuación en una secuencia.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

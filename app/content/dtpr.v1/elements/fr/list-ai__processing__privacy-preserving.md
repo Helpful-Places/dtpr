@@ -14,5 +14,6 @@ description: >-
   collecte de données sans compromettre les informations personnelles. La
   technologie crée généralement une barrière entre les données brutes collectées
   et les informations utilisées pour la prise de décision.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

@@ -12,5 +12,6 @@ description: >-
   ang pamamahagi. Kasama sa mga halimbawa ang pagtukoy sa mga ruta ng pagkuha ng
   basura, pagtatalaga ng mga iskedyul ng kawani, o pamamahagi ng mga
   pampublikong serbisyo sa mga kapitbahayan.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

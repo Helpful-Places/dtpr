@@ -11,5 +11,6 @@ description: >-
   comportamentos futuros. As aplicações comuns incluem previsão do tempo,
   previsão do mercado de ações, planejamento de demanda e gerenciamento de
   recursos.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

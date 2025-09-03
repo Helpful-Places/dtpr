@@ -13,5 +13,6 @@ description: >-
   communication claire sur les limites du système, la formation des utilisateurs
   à une confiance appropriée et le maintien d'une participation humaine
   significative dans les décisions critiques.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

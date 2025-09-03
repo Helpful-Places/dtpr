@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 name: Hilaw na data
 id: raw_data
 description: >-
@@ -8,5 +8,6 @@ description: >-
   datos ay epektibong magkapareho sa kung paano ito natipon mula sa orihinal na
   mapagkukunan ng datos.
 icon: /dtpr-icons/raw_data.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

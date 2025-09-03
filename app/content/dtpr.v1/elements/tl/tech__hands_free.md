@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Walang kamay
 id: hands_free
 description: >-
@@ -9,5 +9,6 @@ description: >-
   aparato na tumugon sa mga utos ng boses o mga interface na "touchless" na
   batay sa kilos.
 icon: /dtpr-icons/hands_free.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

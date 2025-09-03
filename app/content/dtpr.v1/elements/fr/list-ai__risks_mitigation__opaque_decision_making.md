@@ -13,5 +13,6 @@ description: >-
   lorsque cela est possible, l'élaboration de méthodes d'explication et la tenue
   d'une documentation sur la conception du système et les processus de
   formation.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

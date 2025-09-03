@@ -1,8 +1,15 @@
 ---
 id: ai__rights
-name: Mga Karapatan
+name: Mga karapatan
 datachain_type: ai
 element_variables:
-  - id: additional_description
-    label: Karagdagang Paglalarawan
+  - id: rights
+    label: Paglalarawan ng Mga Karapatan
+    required: true
+required: false
+order: 11
+description: Mga karapatan ng gumagamit kaugnay ng AI system.
+prompt: Ano ang mga karapatan ng gumagamit kaugnay ng AI system?
+updated_at: 2025-08-29T00:00:00Z
 ---
+

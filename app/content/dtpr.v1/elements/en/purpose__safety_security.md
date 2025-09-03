@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__purpose
+  - device__purpose
   - ai__purpose
 name: Safety & Security
 id: safety_security
@@ -9,5 +9,6 @@ description: >-
   safety, home security or ensuring safe passage in places such as airports or
   roads
 icon: /dtpr-icons/safety_security.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

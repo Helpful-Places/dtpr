@@ -10,5 +10,6 @@ description: >-
   ginagamit ang data na ito, at kung anong mga desisyon ang ginawa gamit ang
   impormasyong ito. Kabilang dito ang karapatang makakuha ng kopya ng iyong data
   sa isang nababasang format.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

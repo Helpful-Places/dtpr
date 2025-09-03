@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: Video desidentificado
 id: de_identified_video
 description: Recolhe imagens de vídeo com uma resolução suficiente para permitir
@@ -11,4 +11,5 @@ description: Recolhe imagens de vídeo com uma resolução suficiente para permi
   utilização\* ou \*desidentificação no dispositivo\*), por exemplo, desfocando
   os rostos através de visão por computador.
 icon: /dtpr-icons/de_identified_video.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

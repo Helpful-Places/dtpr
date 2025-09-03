@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 name: Cryptonets
 id: cryptonets
 description: >-
@@ -10,5 +10,6 @@ description: >-
   the keys to decrypt the data. Cryptonets are an implementation of Homomorphic
   Encryption.
 icon: /dtpr-icons/cryptonets.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

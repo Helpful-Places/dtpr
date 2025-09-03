@@ -14,5 +14,6 @@ description: >-
   évaluation adéquate des nouveaux risques ou sans notification au public. Cela
   peut saper la confiance du public et conduire à des utilisations qui n'ont pas
   été correctement conçues ou approuvées.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

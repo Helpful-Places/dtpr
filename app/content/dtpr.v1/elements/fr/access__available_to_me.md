@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__access
+  - device__access
   - ai__access
 description: Disponible pour moi mais pas pour d'autres individus. Par exemple, en
   tant qu'individu, vous avez accés à tous vos enregistrements de péage électronique
@@ -8,4 +8,5 @@ description: Disponible pour moi mais pas pour d'autres individus. Par exemple, 
 icon: /dtpr-icons/available_to_me.svg
 id: available_to_me
 name: Disponible pour moi
+updated_at: 2025-08-29T00:00:00Z
 ---

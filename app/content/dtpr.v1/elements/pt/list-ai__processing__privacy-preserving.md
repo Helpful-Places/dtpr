@@ -13,5 +13,6 @@ description: >-
   coleta de dados sem comprometer as informações pessoais. Normalmente, a
   tecnologia cria uma barreira entre os dados brutos coletados e as informações
   usadas para a tomada de decisões.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

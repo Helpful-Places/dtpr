@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__process
+  - device__process
 name: Computação multipartidária segura
 id: secure_multi_party_computing
 description: A computação segura multipartidária é um subcampo da criptografia
@@ -9,4 +9,5 @@ description: A computação segura multipartidária é um subcampo da criptograf
   participantes gerar conhecimentos agregados a partir dos dados, mantendo em
   segredo os elementos individuais dos dados.
 icon: /dtpr-icons/secure_multi_party_computing.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

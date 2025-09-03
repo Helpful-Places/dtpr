@@ -1,9 +1,10 @@
 ---
 category: 
-  - sensor__purpose
+  - device__purpose
   - ai__purpose
 name: Paghahanap ng Lugar at mga Serbisyo
 id: wayfinding_services
 description: Pinapayagan ang nabigasyon ng isang lokasyon at mga amenity at serbisyo nito.
 icon: /dtpr-icons/wayfinding_services.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

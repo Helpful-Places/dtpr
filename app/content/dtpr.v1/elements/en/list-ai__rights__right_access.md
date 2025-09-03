@@ -8,4 +8,5 @@ description: The right to request and receive information about what personal
   what decisions have been made using this information. This includes the right
   to obtain a copy of your data in a readable format.
 icon: /dtpr-icons/rights_access.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

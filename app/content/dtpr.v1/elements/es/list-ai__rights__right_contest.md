@@ -11,5 +11,6 @@ description: >-
   de las decisiones automatizadas, a proporcionar información adicional, a
   expresar su punto de vista y a que se reconsidere la decisión sobre la base de
   sus aportaciones.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

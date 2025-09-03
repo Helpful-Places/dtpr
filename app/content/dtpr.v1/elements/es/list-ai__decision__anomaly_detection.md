@@ -11,5 +11,6 @@ description: >-
   desviaciones significativas. Algunos ejemplos son la detección de fraudes, la
   supervisión de infraestructuras o los sistemas de vigilancia de la salud
   pública.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

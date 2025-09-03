@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 name: Federated Learning
 id: federated_learning
 description: >-
@@ -8,5 +8,6 @@ description: >-
   na nagbibigay-daan sa pag-aaral ng makina na maganap sa isang malaking bahagi
   ng desentralisadong datos  na hindi kinilala.
 icon: /dtpr-icons/federated_learning.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

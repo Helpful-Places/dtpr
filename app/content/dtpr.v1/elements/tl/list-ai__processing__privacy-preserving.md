@@ -15,5 +15,6 @@ description: >-
   na impormasyon. Ang teknolohiya ay karaniwang lumilikha ng isang hadlang sa
   pagitan ng hilaw na nakolektang data at ang impormasyong ginagamit para sa
   paggawa ng desisyon.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

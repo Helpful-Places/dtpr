@@ -1,8 +1,9 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: Mãos livres
 id: hands_free
 description: Descreve uma tecnologia em que o principal modo de interação não requer a utilização das mãos, por exemplo, dispositivos que respondem a comandos de voz ou interfaces "sem toque" baseadas em gestos.
 icon: /dtpr-icons/hands_free.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

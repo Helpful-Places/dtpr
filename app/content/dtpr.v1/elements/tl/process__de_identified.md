@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 name: De-kinilala
 id: de_identified
 description: >-
@@ -11,5 +11,6 @@ description: >-
   kung ano ito kapag wala na ang datos sa hardware device, o pagkatapos na ito
   naka-imbak sa isang database.
 icon: /dtpr-icons/de_identified.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

@@ -9,5 +9,6 @@ description: A decision-making process where the AI/algorithm evaluates multiple
   them accordingly. Examples include emergency response triage, customer service
   ticket ordering, maintenance request scheduling, or public project funding
   priorities.
-icon: /dtpr-icons/dtpr_api.svg
+icon: /dtpr-icons/dm_priority-ranking.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

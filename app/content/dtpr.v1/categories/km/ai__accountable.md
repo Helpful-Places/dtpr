@@ -1,10 +1,18 @@
 ---
 id: ai__accountable
-name: ទំនួលខុសត្រូវ
-description: Who's accountable for this
+name: ទទួលខុសត្រូវ
+description: អង្គការទទួលខុសត្រូវចំពោះការដាក់ពង្រាយប្រព័ន្ធ AI នេះ។
 datachain_type: ai
 element_variables:
-  - id: additional_description
-    label: បរិយាយ
+  - id: title
+    label: ចំណងជើង
     required: true
+  - id: description
+    label: ការពិពណ៌នា
+    required: true
+required: true
+order: 1
+prompt: តើអ្នកណាជាអ្នកទទួលខុសត្រូវចំពោះប្រព័ន្ធ AI នេះ?
+updated_at: 2025-08-29T00:00:00Z
 ---
+

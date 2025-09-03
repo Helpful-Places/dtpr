@@ -10,5 +10,6 @@ description: >-
   estabelece uma linha de base de atividade normal e sinaliza desvios
   significativos. Os exemplos incluem detecção de fraudes, monitoramento de
   infraestrutura ou sistemas de vigilância de saúde pública.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

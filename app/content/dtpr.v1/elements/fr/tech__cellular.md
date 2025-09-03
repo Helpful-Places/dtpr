@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 description: >-
   Ce dispositif utilise un réseau de communication cellulaire où la derniére
   liaison est sans fil, ce qui permet aux émetteurs-récepteurs portables (par
@@ -9,5 +9,6 @@ description: >-
 icon: /dtpr-icons/cellular.svg
 id: cellular
 name: Cellulaire
+updated_at: 2025-08-29T00:00:00Z
 ---
 

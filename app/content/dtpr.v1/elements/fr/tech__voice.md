@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 description: >-
   Les données audio collectées permettent ou peuvent permettre d'identifier des
   personnes, soit par un examen manuel, soit par des technologies capables de
@@ -8,5 +8,6 @@ description: >-
 icon: /dtpr-icons/voice.svg
 id: voice
 name: Voix
+updated_at: 2025-08-29T00:00:00Z
 ---
 

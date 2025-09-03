@@ -9,5 +9,6 @@ description: >-
   recopilado un sistema de IA sobre usted, cómo se están utilizando estos datos
   y qué decisiones se han tomado utilizando esta información. Esto incluye el
   derecho a obtener una copia de sus datos en un formato legible.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

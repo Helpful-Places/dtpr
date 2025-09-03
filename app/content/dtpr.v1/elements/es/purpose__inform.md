@@ -1,9 +1,10 @@
 ---
 category: 
-  - sensor__purpose
+  - device__purpose
   - ai__purpose
 name: Informar
 id: inform
 description: Apoya la provisión de información, por ejemplo, sobre una ubicación, un servicio o para brindar asistencia
 icon: /dtpr-icons/inform.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

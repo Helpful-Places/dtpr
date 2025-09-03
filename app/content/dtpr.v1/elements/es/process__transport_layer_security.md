@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__process
+  - device__process
 name: Transport Layer Security
 id: transport_layer_security
 description: La seguridad de la capa de transporte, o TLS, es un protocolo de
@@ -8,4 +8,5 @@ description: La seguridad de la capa de transporte, o TLS, es un protocolo de
   seguridad de los datos para las comunicaciones a través de Internet al
   encriptar los datos mientras está dentro.
 icon: /dtpr-icons/transport_layer_security.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

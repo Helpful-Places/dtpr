@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__process
+  - device__process
 description: L'activité de données a fait l'objet d'une évaluation de l'utilisation
   responsable des données et a été déterminée comme apportant un bénéfice net. Le
   RDUA est un processus que Sidewalk Labs méne avant le début de toute activité liée
@@ -8,4 +8,5 @@ description: L'activité de données a fait l'objet d'une évaluation de l'utili
 icon: /dtpr-icons/rdua_approved.svg
 id: rdua_approved
 name: Approuvé par la RDUA
+updated_at: 2025-08-29T00:00:00Z
 ---

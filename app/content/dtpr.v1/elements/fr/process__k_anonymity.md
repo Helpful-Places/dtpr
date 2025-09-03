@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__process
+  - device__process
 description: 'L''anonymat K est utilisé pour garantir l''anonymat lors de la divulgation
   de données autrement identifiables personnellement. Les attributs des données sont
   supprimés ou généralisés jusqu''à ce que chaque ligne soit identique à au moins
@@ -8,4 +8,5 @@ description: 'L''anonymat K est utilisé pour garantir l''anonymat lors de la di
 icon: /dtpr-icons/k_anonymity.svg
 id: k_anonymity
 name: K-Anonymat
+updated_at: 2025-08-29T00:00:00Z
 ---

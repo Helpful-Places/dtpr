@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__process
+  - device__process
 description: Des spécialistes de l'audit tiers examinent périodiquement le matériel
   et le micrologiciel afin d'identifier les vulnérabilités des meilleures pratiques
   en matiére de sécurité et/ou les lacunes en matiére de divulgation en ce qui concerne
@@ -8,4 +8,5 @@ description: Des spécialistes de l'audit tiers examinent périodiquement le mat
 icon: /dtpr-icons/hardware_audits.svg
 id: hardware_audits
 name: Audits du matériel
+updated_at: 2025-08-29T00:00:00Z
 ---

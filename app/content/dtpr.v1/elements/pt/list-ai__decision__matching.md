@@ -11,5 +11,6 @@ description: >-
   adequadas. Entre os exemplos estão a colocação de assistência habitacional, a
   correspondência de candidatos a emprego ou o emparelhamento de prestadores de
   serviços com as necessidades da comunidade.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

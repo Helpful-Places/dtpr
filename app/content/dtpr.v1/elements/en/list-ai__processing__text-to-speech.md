@@ -9,4 +9,5 @@ description: Technology that converts written text into spoken voice output.
   used in accessibility tools, virtual assistants, and automated customer
   service systems.
 icon: /dtpr-icons/processing_text-to-speech.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

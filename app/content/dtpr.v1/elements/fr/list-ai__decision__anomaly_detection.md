@@ -10,5 +10,6 @@ description: >-
   Le système établit une base d'activité normale et signale les écarts
   importants. Les exemples incluent la détection des fraudes, la surveillance
   des infrastructures ou les systèmes de surveillance de la santé publique.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

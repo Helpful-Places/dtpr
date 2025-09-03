@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__storage
+  - device__storage
   - ai__storage
 name: Ibinahaging imbakan at pamamahala
 id: shared_storage_and_governance
@@ -11,5 +11,6 @@ description: >-
   pagkasira ng datos sa pamamagitan ng mga patakaran na binuo sa istraktura ng
   datos mismo.
 icon: /dtpr-icons/shared_storage_and_governance.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

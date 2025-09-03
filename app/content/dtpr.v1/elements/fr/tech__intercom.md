@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 description: >-
   Un interphone (dispositif d'intercommunication) est un systéme de
   communication vocale autonome destiné à être utilisé dans un bâtiment ou un
@@ -9,5 +9,6 @@ description: >-
 icon: /dtpr-icons/intercom.svg
 id: intercom
 name: Intercom
+updated_at: 2025-08-29T00:00:00Z
 ---
 

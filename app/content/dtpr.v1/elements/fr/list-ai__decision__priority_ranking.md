@@ -2,7 +2,7 @@
 category:
   - ai__decision
 id: priority_ranking
-icon: /dtpr-icons/dtpr_api.svg
+icon: /dtpr-icons/dm_priority-ranking.svg
 name: Classement des priorités
 description: >-
   Processus décisionnel dans lequel l'IA/l'algorithme évalue plusieurs éléments
@@ -12,5 +12,6 @@ description: >-
   interventions d'urgence, la commande de tickets de service à la clientèle, la
   programmation des demandes de maintenance ou les priorités de financement des
   projets publics.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

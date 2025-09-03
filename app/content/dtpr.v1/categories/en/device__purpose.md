@@ -1,0 +1,7 @@
+---
+id: device__purpose
+name: Purpose
+description: Purpose of this technology
+datachain_type: device
+updated_at: 2025-08-29T00:00:00Z
+---

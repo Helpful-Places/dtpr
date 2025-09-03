@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 name: Mga Cryptonets
 id: cryptonets
 description: >-
@@ -10,5 +10,6 @@ description: >-
   na magbigay sa host ng application ng mga susi upang ma-decrypt ang datos. Ang
   mga cryptonet ay isang pagpapatupad ng homomorphic encryption.
 icon: /dtpr-icons/cryptonets.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

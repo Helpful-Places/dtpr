@@ -11,5 +11,6 @@ description: >-
   relacionadas sem seu conhecimento ou consentimento. O coletor de dados deve
   especificar e documentar as finalidades pretendidas antes do início da coleta
   e aderir a essas limitações.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

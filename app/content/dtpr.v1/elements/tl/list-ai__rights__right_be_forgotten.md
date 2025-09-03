@@ -11,5 +11,6 @@ description: >-
   ng pahintulot, o kapag walang lehitimong interes sa patuloy na pagproseso
   nito. Kabilang dito ang karapatang magkaroon ng impormasyon na "hindi
   matutunan" ng system na hango sa iyong data kung saan posible sa teknikal.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

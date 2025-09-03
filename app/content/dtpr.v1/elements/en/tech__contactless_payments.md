@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Contactless Payments
 id: contactless_payments
 description: >-
@@ -9,5 +9,6 @@ description: >-
   that use radio-frequency identification (RFID) or near field communication
   (NFC) for making secure payments.
 icon: /dtpr-icons/contactless_payments.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: Deteksyon ng tao
 id: person_detection
 description: Ang pagtuklas ng tao ay tumutukoy kung kailan maaaring makita ng
@@ -9,4 +9,5 @@ description: Ang pagtuklas ng tao ay tumutukoy kung kailan maaaring makita ng
   hindi nakikilala ang mga indibidwa. Ang teknolohiya ay hindi nagpapanatili o
   gumagamit ng anumang personal na makikilalang impormasyon.
 icon: /dtpr-icons/person_detection.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

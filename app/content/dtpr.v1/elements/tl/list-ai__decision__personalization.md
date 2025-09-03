@@ -11,5 +11,6 @@ description: >-
   data upang i-customize ang mga karanasan. Kasama sa mga halimbawa ang mga
   rekomendasyon sa nilalaman, mga personalized na landas sa pag-aaral, o mga
   naka-target na komunikasyon mula sa mga pampublikong serbisyo.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

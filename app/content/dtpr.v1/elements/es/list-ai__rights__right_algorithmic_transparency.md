@@ -10,5 +10,6 @@ description: >-
   del procesamiento y las consecuencias probables. Esta información debe
   proporcionarse en un lenguaje claro y sencillo que le permita comprender cómo
   funciona el sistema y cómo ha llegado a una decisión concreta.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

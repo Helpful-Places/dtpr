@@ -8,10 +8,13 @@ The DTPR (Digital Trust for Places & Routines) Element schema defines the struct
 
 ### Root Level
 
-The schema consists of three main sections:
+The API endpoint returns:
 
 - **`schema`**: Metadata about the schema specification itself
 - **`element`**: The core element definition
+
+When deployed in datachains, elements also include:
+
 - **`instance`**: The specific instantiation with values and configuration
 
 ## Schema Section
@@ -90,25 +93,6 @@ Each localized content array contains objects with:
 - **`alt_text`** (array, required): Localized alternative text for accessibility
 - **`format`** (string, required): File format of the icon (e.g., "svg", "png")
 
-### Context Information
-
-Context provides visual and semantic cues about the element's characteristics:
-
-```json
-"context": {
-  "type": "pii",
-  "color": "#FFCC00",
-  "label": [{"locale": "en", "value": "Collects Identifiable Information"}],
-  "description": [{"locale": "en", "value": "This technology can collect data that may identify individuals."}]
-}
-```
-
-#### Properties
-
-- **`type`** (string, required): Identifier that should match a context type defined in the parent category
-- **`color`** (string, required): Hex color code for visual representation
-- **`label`** (array, required): Localized short description of the context
-- **`description`** (array, required): Localized detailed explanation of what this context means
 
 ### Variables
 
@@ -118,9 +102,11 @@ Variables allow elements to be customized when instantiated in a datachain:
 "variables": [
   {
     "id": "additional_description",
-    "type": "string",
     "required": false,
-    "default": ""
+    "label": [{
+      "locale": "en",
+      "value": "Additional Description"
+    }]
   }
 ]
 ```
@@ -128,11 +114,8 @@ Variables allow elements to be customized when instantiated in a datachain:
 #### Variable Properties
 
 - **`id`** (string, required): Unique identifier for the variable within the element
-- **`type`** (string, required): Data type ("string", "number", "boolean", etc.)
 - **`required`** (boolean, required): Whether this variable must be provided when instantiating
-- **`default`** (any, required if required is false): Default value if not provided in instance
-
-Note: Variables in the element definition specify the structure and constraints, but do not include localized labels as these are provided in the instance when the variable is used.
+- **`label`** (array, required): Localized labels for the variable
 
 #### Variable Interpolation
 
@@ -140,13 +123,13 @@ Variables can be referenced in the description text using double curly braces:
 
 ```json
 "description": [
-  {"locale": "en", "value": "This system stores data for {{duration}} and {{additional_description}}"}
+  {"locale": "en", "value": "This system stores data for {{{duration}}} and {{additional_description}}"}
 ]
 ```
 
-## Instance Section
+## Instance Section (Deployment Only)
 
-The `instance` section contains the specific instantiation of the element with actual values and configuration for use in a datachain.
+The `instance` section contains the specific instantiation of the element with actual values and configuration for use in a datachain. This section is not returned by the API endpoint but is used when elements are deployed in actual datachains.
 
 ### Instance Properties
 
@@ -206,9 +189,7 @@ Implementations should validate:
 - Required fields are present
 - Locale codes follow standard formats
 - Variable references in descriptions match defined variables
-- Context types exist in the parent category
 - URLs are properly formatted
-- Color codes are valid hex values
 
 ## Example Use Cases
 
@@ -217,17 +198,49 @@ Implementations should validate:
 3. **Data Classification**: Elements in the "data" category specify what types of data are collected
 4. **Access Control**: Elements in the "access" category define who can access collected data
 
+## Future/Proposed Properties
+
+### Context Information
+
+Context provides visual and semantic cues about the element's characteristics (planned feature):
+
+```json
+"context": {
+  "type": "pii",
+  "color": "#FFCC00",
+  "label": [{"locale": "en", "value": "Collects Identifiable Information"}],
+  "description": [{"locale": "en", "value": "This technology can collect data that may identify individuals."}]
+}
+```
+
+#### Proposed Properties
+
+- **`type`** (string): Identifier that should match a context type defined in the parent category
+- **`color`** (string): Hex color code for visual representation
+- **`label`** (array): Localized short description of the context
+- **`description`** (array): Localized detailed explanation of what this context means
+
+### Extended Variable Properties
+
+Future versions may include additional variable properties:
+
+- **`type`** (string): Data type ("string", "number", "boolean", etc.)
+- **`default`** (any): Default value if not provided in instance
+
 ## Related Schemas
 
 - **Datachain Schema**: Defines how elements are organized and instantiated
-- **Category Schema**: Defines the categories that elements belong to, including available context types
+- **Category Schema**: Defines the categories that elements belong to
 
 ## Full Example
+
+### API Response Example
 
 ```json
 {
   "schema": {
-    "name": "DTPR",
+    "name": "DTPR Element",
+    "id": "dtpr_element",
     "version": "0.1",
     "namespace": "https://dtpr.io/schemas/element/v0.1"
   },
@@ -250,9 +263,53 @@ Implementations should validate:
     "variables": [
       {
         "id": "additional_description",
-        "type": "string",
         "required": false,
-        "default": ""
+        "label": [{
+          "locale": "en",
+          "value": "Additional Description"
+        }]
+      }
+    ]
+  }
+}
+```
+
+### Full Example with Instance (Deployment)
+
+When deployed in a datachain, the element would include an instance section:
+
+```json
+{
+  "schema": {
+    "name": "DTPR Element",
+    "id": "dtpr_element",
+    "version": "0.1",
+    "namespace": "https://dtpr.io/schemas/element/v0.1"
+  },
+  "element": {
+    "id": "identifiable_video",
+    "category_ids": ["tech"],
+    "version": "2024-06-11T00:00:00Z",
+    "icon": {
+      "url": "https://dtpr-io-static.onrender.com/dtpr-icons/identifiable_video.svg",
+      "alt_text": [{"locale": "en", "value": "Identifiable video icon"}],
+      "format": "svg"
+    },
+    "title": [{"locale": "en", "value": "Identifiable Video"}],
+    "description": [
+      {"locale": "en", "value": "Generates video footage of a sufficient resolution where individuals can be identified, for example by capturing images of faces or unique numbers such as vehicle license plates."}
+    ],
+    "citation": [
+      {"locale": "en", "value": "Find out more about [computer vision](https://en.wikipedia.org/wiki/Computer_vision)."}
+    ],
+    "variables": [
+      {
+        "id": "additional_description",
+        "required": false,
+        "label": [{
+          "locale": "en",
+          "value": "Additional Description"
+        }]
       }
     ]
   },

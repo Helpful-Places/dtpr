@@ -10,5 +10,6 @@ description: >-
   significativos. Isso inclui o direito de solicitar a revisão humana de
   decisões automatizadas, fornecer informações adicionais, expressar seu ponto
   de vista e fazer com que a decisão seja reconsiderada com base em sua opinião.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

@@ -11,5 +11,6 @@ description: >-
   humain des décisions automatisées, de fournir des informations
   supplémentaires, d'exprimer votre point de vue et d'obtenir que la décision
   soit réexaminée sur la base de votre contribution.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

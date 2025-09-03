@@ -11,5 +11,6 @@ description: >-
   pagsusuri ng tao sa mga awtomatikong desisyon, magbigay ng karagdagang
   impormasyon, ipahayag ang iyong pananaw, at muling isaalang-alang ang desisyon
   batay sa iyong input.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

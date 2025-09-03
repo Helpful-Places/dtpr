@@ -12,5 +12,6 @@ description: >-
   ng epekto sa mga mahihinang komunidad. Maaaring kabilang sa mga mitigations
   ang magkakaibang data ng pagsasanay, regular na pag-audit sa pagiging patas,
   at regular na pagsubaybay sa pagganap sa iba't ibang demograpikong grupo.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

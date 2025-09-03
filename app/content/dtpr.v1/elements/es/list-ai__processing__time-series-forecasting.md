@@ -11,5 +11,6 @@ description: >-
   acontecimientos o comportamientos futuros. Sus aplicaciones más comunes son la
   previsión meteorológica, la predicción bursátil, la planificación de la
   demanda y la gestión de recursos.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

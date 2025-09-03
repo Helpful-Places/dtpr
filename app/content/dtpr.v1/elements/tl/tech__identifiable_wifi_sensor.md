@@ -1,7 +1,7 @@
 ---
 id: identifiable_wifi_sensor
 category:
-  - sensor__tech
+  - device__tech
 icon: /dtpr-icons/identifiable_wifi_sensor.svg
 name: Makikilalang WiFi Sensor
 description: >-
@@ -10,5 +10,6 @@ description: >-
   ito upang subaybayan ang mga posisyon at paggalaw ng mga device na ito sa
   pisikal na espasyo. Maaaring nauugnay ito sa mga address ng hardware ng mga
   device mismo.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

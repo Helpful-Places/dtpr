@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Intercom
 id: intercom
 description: >-
@@ -8,5 +8,6 @@ description: >-
   system for use within a building or small collection of buildings, and is
   separate from other communications networks (such as the telephone system).
 icon: /dtpr-icons/intercom.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

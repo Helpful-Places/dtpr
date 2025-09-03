@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__data
+  - device__data
   - ai__input_dataset
   - ai__output_dataset
 name: Boolean
@@ -9,5 +9,6 @@ description: >-
   Ang mga datos na may isa sa dalawang mga halaga ng data, halimbawa totoo at
   hindi totoo.
 icon: /dtpr-icons/boolean.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

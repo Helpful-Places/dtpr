@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Ultrasonic Sensor
 id: ultrasonic_level_sensor
 description: >-
@@ -8,5 +8,6 @@ description: >-
   ultrasonic wave and receives the wave reflected back from the object. The
   distance is calculated using the time between emission and reception.
 icon: /dtpr-icons/ultrasonic_level_sensor.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

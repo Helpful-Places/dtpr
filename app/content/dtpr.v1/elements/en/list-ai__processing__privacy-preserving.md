@@ -11,4 +11,5 @@ description: A technology that modifies data to remove or obscure personally
   personal information. The technology typically creates a barrier between raw
   collected data and the information used for decision-making.
 icon: /dtpr-icons/processing_privacy-preservoing-transformation.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

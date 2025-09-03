@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 description: >-
   La signature de code est le processus de signature électronique des
   exécutables et des scripts pour confirmer l'auteur du logiciel et garantir que
@@ -9,5 +9,6 @@ description: >-
 icon: /dtpr-icons/code_signing.svg
 id: code_signing
 name: Signature du code
+updated_at: 2025-08-29T00:00:00Z
 ---
 

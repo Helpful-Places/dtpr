@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Image identifiable
 id: identifiable_image
 description: >-
@@ -12,5 +12,6 @@ description: >-
   ordinateur qui produisent des informations sous forme de données à partir
   d'images. 
 icon: /dtpr-icons/identifiable_image.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

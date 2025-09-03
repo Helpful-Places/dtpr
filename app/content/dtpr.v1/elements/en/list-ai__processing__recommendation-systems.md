@@ -11,4 +11,5 @@ description: A technology that suggests items, services, or actions to users
   service efficiency. They typically employ filtering techniques that balance
   individual preferences with broader usage patterns.
 icon: /dtpr-icons/processing_recommendation-systems.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

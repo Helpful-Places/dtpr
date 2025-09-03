@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: De-identified Image
 id: de_identified_image
 description: >-
@@ -11,5 +11,6 @@ description: >-
   *de-identified before first use* or *de-identified on device*), for example by
   blurring faces using computer vision.
 icon: /dtpr-icons/de_identified_image.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

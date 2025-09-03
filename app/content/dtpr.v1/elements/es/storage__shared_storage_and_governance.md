@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__storage
+  - device__storage
   - ai__storage
 name: Almacenamiento y gobierno compartidos
 id: shared_storage_and_governance
@@ -10,4 +10,5 @@ description: En un modelo de almacén de datos compartido, el almacén de datos 
   destrucción de los datos por las políticas integradas en la estructura de los
   datos en sí.
 icon: /dtpr-icons/shared_storage_and_governance.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

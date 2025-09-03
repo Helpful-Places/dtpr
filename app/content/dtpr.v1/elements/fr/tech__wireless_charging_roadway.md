@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: Route de recharge par induction
 id: wireless_charging_roadway
 description: Des segments de bobines de cuivre enterrés sous la route sont
@@ -9,4 +9,5 @@ description: Des segments de bobines de cuivre enterrés sous la route sont
   récepteur spécial peuvent être rechargés pendant qu'ils roulent ou sont garés
   au-dessus de la route.
 icon: /dtpr-icons/wireless_charging_roadway.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

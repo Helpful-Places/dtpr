@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Cellular
 id: cellular
 description: >-
@@ -9,5 +9,6 @@ description: >-
   with each other and with fixed transceivers and telephones anywhere in the
   network.
 icon: /dtpr-icons/cellular.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

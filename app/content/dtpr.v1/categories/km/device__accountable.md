@@ -1,0 +1,8 @@
+---
+id: device__accountable
+name: ទទួលខុសត្រូវ
+description: តើនរណាជាអ្នកទទួលខុសត្រូវចំពោះរឿងនេះ
+datachain_type: device
+updated_at: 2025-08-29T00:00:00Z
+---
+

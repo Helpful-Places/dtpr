@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__purpose
+  - device__purpose
   - ai__purpose
 description: >-
   Permet de créer un environnement sór et/ou sécurisé, par exemple à des fins de
@@ -9,5 +9,6 @@ description: >-
 icon: /dtpr-icons/safety_security.svg
 id: safety_security
 name: Tranquillité Prévention
+updated_at: 2025-08-29T00:00:00Z
 ---
 

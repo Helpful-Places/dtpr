@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__purpose
+  - device__purpose
   - ai__purpose
 description: 'Permet la mesure ou la surveillance des aspects de l''environnement
   physique qui ont un impact sur la santé humaine, comme les [rayonnements](https://fr.wikipedia.org/wiki/Radioprotection)
@@ -11,4 +11,5 @@ description: 'Permet la mesure ou la surveillance des aspects de l''environnemen
 icon: /dtpr-icons/health.svg
 id: health
 name: Santé
+updated_at: 2025-08-29T00:00:00Z
 ---

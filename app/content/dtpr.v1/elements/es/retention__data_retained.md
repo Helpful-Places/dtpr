@@ -1,12 +1,13 @@
 ---
 category:
-  - sensor__retention
+  - device__retention
   - ai__retention
 id: data_retained
 icon: /dtpr-icons/is_retained.svg
-name: 'Retenido {duración}'
+name: 'Retenido {{duration}}'
 description: >-
-  Los datos se almacenan durante {duración}, y después de este período de tiempo
+  Los datos se almacenan durante {{duration}}, y después de este período de tiempo
   se borran
+updated_at: 2025-08-29T00:00:00Z
 ---
 

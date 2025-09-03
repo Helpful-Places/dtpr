@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__data
+  - device__data
   - ai__input_dataset
   - ai__output_dataset
 name: Mga halaga / oras
@@ -9,5 +9,6 @@ description: >-
   Ang mga pagsukat na nakolekta sa mga regular na agwat sa loob ng isang
   panahon.
 icon: /dtpr-icons/values_time.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 description: >-
   Les systémes de paiement sans contact sont des cartes de crédit et de débit,
   des porte-clés, des cartes à puce ou d'autres dispositifs, y compris les
@@ -10,5 +10,6 @@ description: >-
 icon: /dtpr-icons/contactless_payments.svg
 id: contactless_payments
 name: Paiements sans contact
+updated_at: 2025-08-29T00:00:00Z
 ---
 

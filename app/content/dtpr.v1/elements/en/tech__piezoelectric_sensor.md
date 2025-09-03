@@ -1,9 +1,10 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: Piezoelectric sensor
 id: piezoelectric_sensor
 description: Measures changes in pressure, acceleration, temperature, strain, or
   force by converting them to an electrical charge.
 icon: /dtpr-icons/inclinometer.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

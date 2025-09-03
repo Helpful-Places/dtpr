@@ -11,5 +11,6 @@ description: >-
   consentement ou lorsqu'il n'y a pas d'intérêt légitime à continuer de les
   traiter. Cela inclut le droit de demander au système de "désapprendre" les
   informations dérivées de vos données lorsque cela est techniquement possible.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

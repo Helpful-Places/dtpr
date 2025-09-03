@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 description: >-
   Permet l'identification d'articles à l'aide de champs électromagnétiques,
   couramment utilisés pour suivre les stocks dans les magasins. Dans ce cas, une
@@ -9,5 +9,6 @@ description: >-
 icon: /dtpr-icons/identifiable_rfid.svg
 id: identifiable_rfid
 name: Identifiable RFID
+updated_at: 2025-08-29T00:00:00Z
 ---
 

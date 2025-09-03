@@ -10,5 +10,6 @@ description: >-
   religión, la discapacidad o la orientación sexual. Las organizaciones deben
   aplicar y demostrar las medidas técnicas y organizativas adecuadas para evitar
   resultados discriminatorios de sus sistemas de IA.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

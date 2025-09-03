@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 description: >-
   Décrit une technologie dont le principal mode d'interaction ne nécessite pas
   l'utilisation des mains, par exemple, des dispositifs qui répondent à des
@@ -8,5 +8,6 @@ description: >-
 icon: /dtpr-icons/hands_free.svg
 id: hands_free
 name: Mains libres
+updated_at: 2025-08-29T00:00:00Z
 ---
 

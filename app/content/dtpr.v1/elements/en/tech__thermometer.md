@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__tech
+  - device__tech
 name: Thermometer
 id: thermometer
 description: >-
@@ -8,5 +8,6 @@ description: >-
   environment, and quantifies those attributes according to a standardized scale
   such as Celsius or Fahrenheit.
 icon: /dtpr-icons/thermometer.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 

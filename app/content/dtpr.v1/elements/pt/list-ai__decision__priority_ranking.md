@@ -2,7 +2,7 @@
 category:
   - ai__decision
 id: priority_ranking
-icon: /dtpr-icons/dtpr_api.svg
+icon: /dtpr-icons/dm_priority-ranking.svg
 name: Classificação de prioridades
 description: >-
   Um processo de tomada de decisão em que a IA/algoritmo avalia vários itens ou
@@ -11,5 +11,6 @@ description: >-
   classifica de acordo. Os exemplos incluem triagem de resposta de emergência,
   pedido de tíquetes de atendimento ao cliente, programação de solicitações de
   manutenção ou prioridades de financiamento de projetos públicos.
+updated_at: 2025-08-29T00:00:00Z
 ---
 

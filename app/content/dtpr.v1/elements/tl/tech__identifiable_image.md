@@ -1,6 +1,6 @@
 ---
 category: 
-  - sensor__tech
+  - device__tech
 name: Makikilalang imahe
 id: identifiable_image
 description: Bumubuo ng mga still na larawan ng sapat na resolution kung saan
@@ -11,4 +11,5 @@ description: Bumubuo ng mga still na larawan ng sapat na resolution kung saan
   computed vision techniques na kumukuha ng impormasyon sa anyo ng data mula sa
   mga imahe.
 icon: /dtpr-icons/identifiable_image.svg
+updated_at: 2025-08-29T00:00:00Z
 ---

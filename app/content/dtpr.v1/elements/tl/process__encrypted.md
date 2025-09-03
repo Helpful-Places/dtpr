@@ -1,6 +1,6 @@
 ---
 category:
-  - sensor__process
+  - device__process
 name: Naka -encrypt
 id: encrypted
 description: >-
@@ -8,5 +8,6 @@ description: >-
   maka-access nito, na maaaring magpabawas ng panganib na may kaugnayan sa
   paghawak ng pribado o sensitibong impormasyon.
 icon: /dtpr-icons/encrypted.svg
+updated_at: 2025-08-29T00:00:00Z
 ---
 
