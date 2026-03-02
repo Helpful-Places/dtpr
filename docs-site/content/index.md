@@ -1,0 +1,29 @@
+---
+title: DTPR Documentation
+description: Documentation for the Digital Trust for Places & Routines (DTPR) API and standard.
+navigation: false
+---
+
+# DTPR Documentation
+
+Welcome to the documentation for **Digital Trust for Places & Routines (DTPR)** — an open-source communication standard for digital transparency in the built environment.
+
+DTPR provides a taxonomy and API for describing data-collecting technologies in public spaces, helping organizations communicate what data is collected, why, and how it's managed.
+
+::card-group
+  ::card{title="Getting Started" to="/getting-started/introduction"}
+  Learn what DTPR is and make your first API call.
+  ::
+
+  ::card{title="API Reference" to="/api"}
+  Explore the DTPR API endpoints, schemas, and response formats.
+  ::
+
+  ::card{title="Concepts" to="/concepts/taxonomy"}
+  Understand the core concepts: elements, categories, datachains, and localization.
+  ::
+
+  ::card{title="Changelog" to="/changelog"}
+  See what's changed across API versions.
+  ::
+::
