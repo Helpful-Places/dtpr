@@ -10,18 +10,26 @@
     "preview": "nuxt preview",
     "cms": "npx netlify-cms-proxy-server",
     "admin": "npx serve public/admin-local",
-    "optimize-dtpr-icons": "svgo -f public/dtpr-icons"
+    "optimize-dtpr-icons": "svgo -f public/dtpr-icons",
+    "test": "vitest run",
+    "test:unit": "vitest run --project unit",
+    "test:api": "vitest run --project api",
+    "test:update-snapshots": "vitest run --update"
   },
   "devDependencies": {
     "@iconify-json/fa6-brands": "^1.2.5",
     "@nuxt/content": "^3.4.0",
+    "@nuxt/test-utils": "^4.0.0",
     "@nuxtjs/google-fonts": "^3.1.3",
     "@nuxtjs/i18n": "^9.3.0",
     "@nuxtjs/tailwindcss": "6.13.2",
+    "h3": "2.0.1-rc.14",
     "nuxt": "^4.1.0",
     "remark-mdc": "^3.6.0",
     "svgo": "^3.3.2",
-    "tailwindcss": "3"
+    "tailwindcss": "3",
+    "vitest": "^4.0.18",
+    "zod": "^3.25.76"
   },
   "dependencies": {
     "@nuxt/image": "^1.8.0",
