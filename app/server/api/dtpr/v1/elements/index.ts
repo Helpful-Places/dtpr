@@ -32,8 +32,8 @@ export default eventHandler(async event => {
         schema: {
           name: "DTPR Element",
           id: "dtpr_element",
-          version: "0.1",
-          namespace: "https://dtpr.io/schemas/element/v0.1"
+          version: "0.2",
+          namespace: "https://dtpr.io/schemas/element/v0.2"
         },
         element: {
           id: elementId,
@@ -47,6 +47,7 @@ export default eventHandler(async event => {
           title: [],
           description: [],
           citation: [],
+          ...(element.context_type_id && { context_type_id: element.context_type_id }),
           variables: [
             {
               id: "additional_description",

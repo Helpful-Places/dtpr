@@ -1,12 +1,16 @@
 import { getQuery } from 'h3'
-import type { LocaleValue, Variable, SchemaMetadata } from '../types'
-import { 
-  validateDatachainType, 
-  parseLocalesQuery, 
+import type { LocaleValue, Variable, Context, SchemaMetadata } from '../types'
+import type { ContextAccumulator } from '../utils'
+import {
+  validateDatachainType,
+  parseLocalesQuery,
   calculateLatestVersion,
   filterLocaleValues,
   processVariableWithLocale,
-  filterVariablesByLocale
+  filterVariablesByLocale,
+  processContextWithLocale,
+  finalizeContext,
+  filterContextByLocale
 } from '../utils'
 
 interface CategoryContent {
@@ -18,6 +22,7 @@ interface CategoryContent {
   prompt: LocaleValue[]
   version: string
   element_variables: Variable[]
+  context?: Context
 }
 
 interface CategoryData {
@@ -54,8 +59,8 @@ export default eventHandler(async event => {
         schema: {
           name: "DTPR Category",
           id: "dtpr_category",
-          version: "0.1",
-          namespace: "https://dtpr.io/schemas/category/v0.1"
+          version: "0.2",
+          namespace: "https://dtpr.io/schemas/category/v0.2"
         },
         category: {
           id: categoryId,
@@ -71,7 +76,8 @@ export default eventHandler(async event => {
           element_variables: []
         },
         _timestamps: timestamps, // Temporarily store timestamps
-        _variablesMap: new Map<string, Variable>() // Initialize variables map
+        _variablesMap: new Map<string, Variable>(), // Initialize variables map
+        _contextAccumulator: null as ContextAccumulator | null // Initialize context accumulator
       } as any
     }
 
@@ -85,6 +91,15 @@ export default eventHandler(async event => {
       category.element_variables.forEach((variable: any) => {
         processVariableWithLocale(variable, locale, (acc[categoryId] as any)._variablesMap)
       })
+    }
+
+    // Process context data
+    if (category.context) {
+      (acc[categoryId] as any)._contextAccumulator = processContextWithLocale(
+        category.context,
+        locale,
+        (acc[categoryId] as any)._contextAccumulator
+      )
     }
 
     // Add locale-specific data
@@ -135,9 +150,15 @@ export default eventHandler(async event => {
       item.category.element_variables = Array.from(item._variablesMap.values())
     }
     
+    // Convert context accumulator to final object
+    if (item._contextAccumulator) {
+      item.category.context = finalizeContext(item._contextAccumulator)
+    }
+
     // Remove temporary fields
     delete item._timestamps
     delete item._variablesMap
+    delete item._contextAccumulator
   })
 
   // Convert to array
@@ -163,6 +184,11 @@ export default eventHandler(async event => {
       // Filter element_variables labels by requested locales
       if (category.element_variables && category.element_variables.length > 0) {
         category.element_variables = filterVariablesByLocale(category.element_variables, requestedLocales)
+      }
+
+      // Filter context locale arrays
+      if (category.context) {
+        category.context = filterContextByLocale(category.context, requestedLocales)
       }
       
       filteredWrapper.category = category

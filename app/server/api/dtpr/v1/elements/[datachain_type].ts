@@ -24,6 +24,7 @@ interface ElementContent {
   description: LocaleValue[]
   citation: LocaleValue[]
   variables: Variable[]
+  context_type_id?: string
 }
 
 interface ElementData {
@@ -109,8 +110,8 @@ export default eventHandler(async event => {
         schema: {
           name: "DTPR Element",
           id: "dtpr_element",
-          version: "0.1",
-          namespace: "https://dtpr.io/schemas/element/v0.1"
+          version: "0.2",
+          namespace: "https://dtpr.io/schemas/element/v0.2"
         },
         element: {
           id: elementId,
@@ -124,7 +125,8 @@ export default eventHandler(async event => {
           title: [],
           description: [],
           citation: [],
-          variables: Array.from(variablesMap.values())
+          variables: Array.from(variablesMap.values()),
+          ...(element.context_type_id && { context_type_id: element.context_type_id })
         },
         _timestamps: timestamps // Temporarily store timestamps for later processing
       } as any // Temporary any for _timestamps field

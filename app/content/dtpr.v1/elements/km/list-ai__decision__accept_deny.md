@@ -3,6 +3,7 @@ category:
   - ai__decision
 id: accept_deny
 icon: /dtpr-icons/dm_accept-or-deny.svg
+context_type_id: ai_only
 name: ទទួលយកឬបដិសេធ
 description: >-
   ដំណើរការធ្វើការសម្រេចចិត្តប្រព័ន្ធគោលពីរដែល AI/algorithm

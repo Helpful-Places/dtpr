@@ -3,6 +3,7 @@ category:
   - ai__decision
 id: anomaly_detection
 icon: /dtpr-icons/dm_anomay-detection.svg
+context_type_id: ai_flags_human_decides
 name: Pagtuklas ng Anomalya
 description: >-
   Isang proseso ng paggawa ng desisyon kung saan tinutukoy ng AI/algorithm ang

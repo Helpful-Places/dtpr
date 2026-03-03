@@ -3,6 +3,7 @@ category:
   - ai__decision
 id: personalization
 icon: /dtpr-icons/dm_personalization.svg
+context_type_id: ai_only
 name: Personalização
 description: >-
   Um processo de tomada de decisão em que a IA/algoritmo adapta conteúdo,

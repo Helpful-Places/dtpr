@@ -175,13 +175,25 @@ The element definition provides the reusable template with structure, constraint
 
 Elements are designed to be reusable across multiple datachains. The element definition provides the template, while specific instances (created in datachain instances) provide the variable values and contextual information.
 
+### Context Type Reference
+
+Elements can optionally reference a context type defined on their parent category via `context_type_id`. This provides visual and semantic cues about the element's classification within the category's contextual dimension.
+
+```json
+"context_type_id": "ai_only"
+```
+
+- **`context_type_id`** (string, optional): Identifier that matches a context value `id` defined in the parent category's `context.values` array. Only present for elements in categories that define a context.
+
+The color and labels for this context type are resolved from the parent category's context definition.
+
 ### Extensibility
 
 The schema supports extension through:
 - Additional variable types as needed
 - New localization locales
 - Additional icon formats
-- Custom context types (defined at the category level)
+- Context types (defined at the category level, referenced by elements)
 
 ### Validation
 
@@ -199,26 +211,6 @@ Implementations should validate:
 4. **Access Control**: Elements in the "access" category define who can access collected data
 
 ## Future/Proposed Properties
-
-### Context Information
-
-Context provides visual and semantic cues about the element's characteristics (planned feature):
-
-```json
-"context": {
-  "type": "pii",
-  "color": "#FFCC00",
-  "label": [{"locale": "en", "value": "Collects Identifiable Information"}],
-  "description": [{"locale": "en", "value": "This technology can collect data that may identify individuals."}]
-}
-```
-
-#### Proposed Properties
-
-- **`type`** (string): Identifier that should match a context type defined in the parent category
-- **`color`** (string): Hex color code for visual representation
-- **`label`** (array): Localized short description of the context
-- **`description`** (array): Localized detailed explanation of what this context means
 
 ### Extended Variable Properties
 
@@ -241,8 +233,8 @@ Future versions may include additional variable properties:
   "schema": {
     "name": "DTPR Element",
     "id": "dtpr_element",
-    "version": "0.1",
-    "namespace": "https://dtpr.io/schemas/element/v0.1"
+    "version": "0.2",
+    "namespace": "https://dtpr.io/schemas/element/v0.2"
   },
   "element": {
     "id": "identifiable_video",
@@ -283,8 +275,8 @@ When deployed in a datachain, the element would include an instance section:
   "schema": {
     "name": "DTPR Element",
     "id": "dtpr_element",
-    "version": "0.1",
-    "namespace": "https://dtpr.io/schemas/element/v0.1"
+    "version": "0.2",
+    "namespace": "https://dtpr.io/schemas/element/v0.2"
   },
   "element": {
     "id": "identifiable_video",

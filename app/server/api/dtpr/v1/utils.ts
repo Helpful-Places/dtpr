@@ -1,5 +1,5 @@
 import { createError } from 'h3'
-import type { LocaleValue, Variable, DatachainType } from './types'
+import type { LocaleValue, Variable, Context, ContextValue, DatachainType } from './types'
 import { VALID_DATACHAIN_TYPES } from './types'
 
 /**
@@ -86,6 +86,106 @@ export function processVariableWithLocale(
   // Update required field if this instance specifies it as true
   if (variable.required === true) {
     existingVar.required = true
+  }
+}
+
+/**
+ * Accumulator for building context data across locale files
+ */
+export interface ContextAccumulator {
+  id: string
+  name: LocaleValue[]
+  description: LocaleValue[]
+  values: Map<string, {
+    id: string
+    name: LocaleValue[]
+    description: LocaleValue[]
+    color: string
+  }>
+}
+
+/**
+ * Processes context data from a locale file into the accumulator
+ */
+export function processContextWithLocale(
+  context: any,
+  locale: string,
+  accumulator: ContextAccumulator | null
+): ContextAccumulator {
+  if (!accumulator) {
+    accumulator = {
+      id: context.id,
+      name: [],
+      description: [],
+      values: new Map()
+    }
+  }
+
+  // Add locale-specific name and description
+  const hasLocaleName = accumulator.name.some((l: LocaleValue) => l.locale === locale)
+  if (!hasLocaleName && context.name) {
+    accumulator.name.push({ locale, value: context.name })
+  }
+
+  const hasLocaleDesc = accumulator.description.some((l: LocaleValue) => l.locale === locale)
+  if (!hasLocaleDesc && context.description) {
+    accumulator.description.push({ locale, value: context.description })
+  }
+
+  // Process each context value
+  if (context.values) {
+    context.values.forEach((val: any) => {
+      let existing = accumulator!.values.get(val.id)
+      if (!existing) {
+        existing = {
+          id: val.id,
+          name: [],
+          description: [],
+          color: val.color
+        }
+        accumulator!.values.set(val.id, existing)
+      }
+
+      const hasValName = existing.name.some((l: LocaleValue) => l.locale === locale)
+      if (!hasValName && val.name) {
+        existing.name.push({ locale, value: val.name })
+      }
+
+      const hasValDesc = existing.description.some((l: LocaleValue) => l.locale === locale)
+      if (!hasValDesc && val.description) {
+        existing.description.push({ locale, value: val.description })
+      }
+    })
+  }
+
+  return accumulator
+}
+
+/**
+ * Converts a context accumulator to the final Context object
+ */
+export function finalizeContext(accumulator: ContextAccumulator): Context {
+  return {
+    id: accumulator.id,
+    name: accumulator.name,
+    description: accumulator.description,
+    values: Array.from(accumulator.values.values())
+  }
+}
+
+/**
+ * Filters locale arrays within a Context object by requested locales
+ */
+export function filterContextByLocale(context: Context, requestedLocales: string[]): Context {
+  return {
+    id: context.id,
+    name: filterLocaleValues(context.name, requestedLocales),
+    description: filterLocaleValues(context.description, requestedLocales),
+    values: context.values.map((val: ContextValue) => ({
+      ...val,
+      name: filterLocaleValues(val.name, requestedLocales),
+      description: filterLocaleValues(val.description, requestedLocales)
+    }))
   }
 }
 

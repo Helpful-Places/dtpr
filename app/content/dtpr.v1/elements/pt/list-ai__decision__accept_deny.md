@@ -3,6 +3,7 @@ category:
   - ai__decision
 id: accept_deny
 icon: /dtpr-icons/dm_accept-or-deny.svg
+context_type_id: ai_only
 name: Aceitar ou negar
 description: >-
   Um processo binário de tomada de decisão em que a IA/algoritmo avalia as

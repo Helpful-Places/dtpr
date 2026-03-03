@@ -3,6 +3,7 @@ category:
   - ai__decision
 id: matching
 icon: /dtpr-icons/dm_matching.svg
+context_type_id: ai_decides_human_executes
 name: ការផ្គូផ្គង
 description: >-
   ដំណើរការធ្វើការសម្រេចចិត្តដែល AI/algorithm ផ្គូផ្គងអង្គភាព (មនុស្ស ធនធាន ឱកាស)

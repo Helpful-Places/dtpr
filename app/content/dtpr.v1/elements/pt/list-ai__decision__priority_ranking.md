@@ -3,6 +3,7 @@ category:
   - ai__decision
 id: priority_ranking
 icon: /dtpr-icons/dm_priority-ranking.svg
+context_type_id: ai_flags_human_decides
 name: Classificação de prioridades
 description: >-
   Um processo de tomada de decisão em que a IA/algoritmo avalia vários itens ou
