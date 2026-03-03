@@ -4,8 +4,6 @@ description: Documentation for the Digital Trust for Places & Routines (DTPR) AP
 navigation: false
 ---
 
-# DTPR Documentation
-
 Welcome to the documentation for **Digital Trust for Places & Routines (DTPR)** — an open-source communication standard for digital transparency in the built environment.
 
 DTPR provides a taxonomy and API for describing data-collecting technologies in public spaces, helping organizations communicate what data is collected, why, and how it's managed.

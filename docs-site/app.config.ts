@@ -1,6 +1,6 @@
 export default defineAppConfig({
   header: {
-    title: 'DTPR Docs'
+    title: 'Digital Trust for Places & Routines'
   },
   seo: {
     title: 'DTPR Documentation',
