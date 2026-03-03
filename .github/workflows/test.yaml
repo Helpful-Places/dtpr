@@ -31,18 +31,15 @@ jobs:
           node-version: 20
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - name: Build Nuxt app
-        run: pnpm build
-        working-directory: app
-      - name: Start server and run API tests
+      - name: Start dev server and run API tests
         working-directory: app
         run: |
-          node .output/server/index.mjs &
+          pnpm dev --no-fork &
           SERVER_PID=$!
 
-          # Wait for server to be ready
-          for i in $(seq 1 30); do
-            if curl -s -o /dev/null -w '%{http_code}' http://localhost:3000/api/dtpr/v1/categories/ai | grep -q 200; then
+          # Wait for server to be ready (up to 60s)
+          for i in $(seq 1 60); do
+            if curl -s -o /dev/null -w '%{http_code}' http://localhost:3000/api/dtpr/v1/categories/ai 2>/dev/null | grep -q 200; then
               break
             fi
             sleep 1
