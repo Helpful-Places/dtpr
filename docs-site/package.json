@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@nuxt/ui": "^4.5.1",
+    "agents": "^0.7.2",
     "better-sqlite3": "^12.2.0",
     "docus": "latest",
     "nuxt": "^4.0.0"
