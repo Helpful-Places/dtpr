@@ -39,8 +39,8 @@ importers:
         specifier: 6.13.2
         version: 6.13.2(magicast@0.5.2)(yaml@2.8.2)
       h3:
-        specifier: 2.0.1-rc.14
-        version: 2.0.1-rc.14
+        specifier: 1.15.5
+        version: 1.15.5
       nuxt:
         specifier: ^4.1.0
         version: 4.3.1(@parcel/watcher@2.5.6)(@types/node@25.3.3)(@vue/compiler-sfc@3.5.29)(better-sqlite3@12.6.2)(cac@6.7.14)(db0@0.3.4(better-sqlite3@12.6.2))(eslint@10.0.2(jiti@1.21.7))(ioredis@5.10.0)(lightningcss@1.31.1)(magicast@0.5.2)(optionator@0.9.4)(rollup@4.59.0)(terser@5.46.0)(typescript@5.9.3)(vite@7.3.1(@types/node@25.3.3)(jiti@1.21.7)(lightningcss@1.31.1)(terser@5.46.0)(yaml@2.8.2))(yaml@2.8.2)
@@ -4572,16 +4572,6 @@ packages:
   h3@2.0.1-rc.11:
     resolution: {integrity: sha512-2myzjCqy32c1As9TjZW9fNZXtLqNedjFSrdFy2AjFBQQ3LzrnGoDdFDYfC0tV2e4vcyfJ2Sfo/F6NQhO2Ly/Mw==}
     engines: {node: '>=20.11.1'}
-    peerDependencies:
-      crossws: ^0.4.1
-    peerDependenciesMeta:
-      crossws:
-        optional: true
-
-  h3@2.0.1-rc.14:
-    resolution: {integrity: sha512-163qbGmTr/9rqQRNuqMqtgXnOUAkE4KTdauiC9y0E5iG1I65kte9NyfWvZw5RTDMt6eY+DtyoNzrQ9wA2BfvGQ==}
-    engines: {node: '>=20.11.1'}
-    hasBin: true
     peerDependencies:
       crossws: ^0.4.1
     peerDependenciesMeta:
@@ -12761,11 +12751,6 @@ snapshots:
     dependencies:
       rou3: 0.7.12
       srvx: 0.10.1
-
-  h3@2.0.1-rc.14:
-    dependencies:
-      rou3: 0.7.12
-      srvx: 0.11.8
 
   has-flag@4.0.0: {}
 
