@@ -14,6 +14,23 @@ const props = defineProps({
   }
 })
 
+// Context selector state
+const selectedContextValue = ref(null)
+
+// Look up a context value by its id
+const getContextValue = (valueId) => {
+  if (!props.category.context?.values) return null
+  return props.category.context.values.find(v => v.id === valueId) || null
+}
+
+// Returns the context color when matching the selected value, otherwise null
+const getIconColor = (element) => {
+  if (!selectedContextValue.value || !element.context_type_id) return null
+  if (element.context_type_id !== selectedContextValue.value) return null
+  const cv = getContextValue(element.context_type_id)
+  return cv?.color || null
+}
+
 // Filter elements that belong to this category
 const filteredElements = computed(() => {
   let elements = props.elements.filter(element => {
@@ -62,6 +79,13 @@ const getElementAnchorId = (element) => `element-${element.dtpr_id}`
       </UBadge>
     </div>
 
+    <!-- Context Selector -->
+    <ContextSelector
+      v-if="category.context?.values?.length"
+      :context="category.context"
+      v-model="selectedContextValue"
+    />
+
     <!-- Elements Grid -->
     <div v-if="filteredElements.length > 0" class="grid gap-4 md:grid-cols-1 lg:grid-cols-2">
       <UCard 
@@ -74,17 +98,33 @@ const getElementAnchorId = (element) => `element-${element.dtpr_id}`
           <!-- Element Header -->
           <div class="flex items-start items-center space-x-4">
             <div class="flex-shrink-0">
-              <NuxtImg 
-                :src="element.icon" 
-                :alt="element.name"
-                width="64" 
-                height="64"
+              <SvgIcon
+                :src="element.icon"
+                :color="getIconColor(element)"
+                :width="64"
+                :height="64"
                 class="rounded-lg"
               />
             </div>
+            <div class="flex flex-col gap-1">
               <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
                 {{ element.name }}
               </h3>
+              <span
+                v-if="element.context_type_id && getContextValue(element.context_type_id)"
+                class="inline-flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full w-fit"
+                :style="{
+                  backgroundColor: getContextValue(element.context_type_id).color + '20',
+                  color: getContextValue(element.context_type_id).color
+                }"
+              >
+                <span
+                  class="w-2 h-2 rounded-full flex-shrink-0"
+                  :style="{ backgroundColor: getContextValue(element.context_type_id).color }"
+                />
+                {{ getContextValue(element.context_type_id).name }}
+              </span>
+            </div>
           </div>
 
           <!-- Element Description -->
