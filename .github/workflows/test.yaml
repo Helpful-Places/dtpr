@@ -15,6 +15,8 @@ jobs:
           node-version: 20
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      - run: pnpm nuxt prepare
+        working-directory: app
       - run: pnpm test:unit
         working-directory: app
 
@@ -29,5 +31,7 @@ jobs:
           node-version: 20
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      - run: pnpm nuxt prepare
+        working-directory: app
       - run: pnpm test:api
         working-directory: app
