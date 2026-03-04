@@ -86,7 +86,7 @@ const localeCount = (el: any) => Object.keys(el.locales).length
         class="flex items-center gap-3 py-2 px-3 rounded-lg hover:bg-muted/10 transition-colors border border-transparent hover:border-default"
       >
         <div v-if="el.icon" class="w-8 h-8 flex items-center justify-center">
-          <img :src="el.icon" :alt="el.locales.en?.name" class="w-6 h-6" />
+          <img :src="useIconUrl(el.icon)" :alt="el.locales.en?.name" class="w-6 h-6" />
         </div>
         <div v-else class="w-8 h-8 flex items-center justify-center rounded bg-muted/20">
           <UIcon name="i-lucide-image-off" class="size-4 text-muted" />

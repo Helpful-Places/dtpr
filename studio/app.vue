@@ -53,7 +53,9 @@ const activeItems = computed(() =>
     </UDashboardSidebar>
 
     <UDashboardPanel>
-      <NuxtPage />
+      <template #body>
+        <NuxtPage />
+      </template>
     </UDashboardPanel>
   </UDashboardGroup>
 </template>

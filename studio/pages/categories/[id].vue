@@ -111,7 +111,7 @@ const localeData = computed(() => {
             class="flex items-center gap-3 py-2 px-3 rounded-lg hover:bg-muted/10 transition-colors"
           >
             <div v-if="el.icon" class="w-6 h-6 flex items-center justify-center">
-              <img :src="el.icon" :alt="el.name" class="w-5 h-5" />
+              <img :src="useIconUrl(el.icon)" :alt="el.name" class="w-5 h-5" />
             </div>
             <div v-else class="w-6 h-6 flex items-center justify-center rounded bg-muted/20">
               <UIcon name="i-lucide-image-off" class="size-3 text-muted" />

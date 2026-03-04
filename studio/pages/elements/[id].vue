@@ -95,7 +95,7 @@ const localeStatus = computed(() => {
         <div class="space-y-1">
           <div class="text-xs text-muted uppercase">Icon</div>
           <div v-if="(element as any).icon" class="flex items-center gap-2">
-            <img :src="(element as any).icon" class="w-8 h-8" />
+            <img :src="useIconUrl((element as any).icon)" class="w-8 h-8" />
             <span class="text-xs text-muted">{{ (element as any).icon }}</span>
           </div>
           <div v-else class="text-sm text-muted">No icon</div>
