@@ -65,7 +65,7 @@ const navigationItems = computed(() => {
       label: category?.name || categoryId,
       badge: getElementCount(categoryId),
       active: activeCategory.value === categoryId,
-      click: () => scrollToCategory(categoryId)
+      to: `#category-${categoryId}`
     }
   })
 })
