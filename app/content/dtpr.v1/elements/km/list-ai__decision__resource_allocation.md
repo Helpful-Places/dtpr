@@ -3,6 +3,7 @@ category:
   - ai__decision
 id: resource_allocation
 icon: /dtpr-icons/dm_allocation-of-resources.svg
+context_type_id: ai_decides_human_executes
 name: ការបែងចែកធនធាន
 description: >-
   ដំណើរការធ្វើការសម្រេចចិត្តដែល AI/algorithm កំណត់ពីរបៀបចែកចាយធនធានដែលមានកំណត់

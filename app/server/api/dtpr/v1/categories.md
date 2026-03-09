@@ -28,8 +28,8 @@ The API endpoint returns an array of category objects, each containing:
 "schema": {
   "name": "DTPR Category",
   "id": "dtpr_category",
-  "version": "0.1",
-  "namespace": "https://dtpr.io/schemas/category/v0.1"
+  "version": "0.2",
+  "namespace": "https://dtpr.io/schemas/category/v0.2"
 }
 ```
 
@@ -114,6 +114,42 @@ Categories can define variables that are available to all elements within the ca
 
 These variables can be referenced by elements in the category and used for customization when elements are instantiated.
 
+### Context
+
+Categories can optionally define a contextual dimension that classifies elements with color-coded meaning. For example, the AI Decision category uses context to indicate the level of autonomy (degree of human involvement).
+
+```json
+"context": {
+  "id": "level_of_autonomy",
+  "name": [{"locale": "en", "value": "Level of Autonomy"}],
+  "description": [{"locale": "en", "value": "Indicates the degree of human involvement in the AI decision process."}],
+  "values": [
+    {
+      "id": "ai_only",
+      "name": [{"locale": "en", "value": "AI decides and executes"}],
+      "description": [{"locale": "en", "value": "AI processes, decides, and executes without human involvement."}],
+      "color": "#F28C28"
+    }
+  ]
+}
+```
+
+#### Context Properties
+
+- **`id`** (string, required): Unique identifier for the contextual dimension
+- **`name`** (array, required): Localized display name for the context
+- **`description`** (array, required): Localized explanation of what this context measures
+- **`values`** (array, required): The available context values
+
+#### Context Value Properties
+
+- **`id`** (string, required): Unique identifier for the context value (referenced by elements via `context_type_id`)
+- **`name`** (array, required): Localized display name for the value
+- **`description`** (array, required): Localized explanation of what this value means
+- **`color`** (string, required): Hex color code for visual representation
+
+Categories without a context omit the field entirely (not null, not empty object).
+
 ## Response Structure
 
 The endpoint returns an array of category objects, sorted by the `order` field (categories without an order value appear at the end):
@@ -139,6 +175,8 @@ When the `locales` query parameter is provided, the API filters all localized co
 - `description` array is filtered
 - `prompt` array is filtered
 - `element_variables[].label` arrays are filtered
+- `context.name` and `context.description` arrays are filtered (if present)
+- `context.values[].name` and `context.values[].description` arrays are filtered (if present)
 
 ## Usage Notes
 

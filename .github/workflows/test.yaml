@@ -1,0 +1,52 @@
+name: Tests
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  unit:
+    name: Unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm nuxt prepare
+        working-directory: app
+      - run: pnpm test:unit
+        working-directory: app
+
+  api:
+    name: API tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Start dev server and run API tests
+        working-directory: app
+        run: |
+          pnpm dev --no-fork &
+          SERVER_PID=$!
+
+          # Wait for server to be ready (up to 60s)
+          for i in $(seq 1 60); do
+            if curl -s -o /dev/null -w '%{http_code}' http://localhost:3000/api/dtpr/v1/categories/ai 2>/dev/null | grep -q 200; then
+              break
+            fi
+            sleep 1
+          done
+
+          NUXT_TEST_HOST=http://localhost:3000 pnpm test:api
+          TEST_EXIT=$?
+
+          kill $SERVER_PID 2>/dev/null
+          exit $TEST_EXIT

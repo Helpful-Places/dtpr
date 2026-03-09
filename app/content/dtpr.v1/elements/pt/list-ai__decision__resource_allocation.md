@@ -3,6 +3,7 @@ category:
   - ai__decision
 id: resource_allocation
 icon: /dtpr-icons/dm_allocation-of-resources.svg
+context_type_id: ai_decides_human_executes
 name: Alocação de recursos
 description: >-
   Um processo de tomada de decisão em que a IA/algoritmo determina como

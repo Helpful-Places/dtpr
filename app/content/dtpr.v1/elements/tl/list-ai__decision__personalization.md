@@ -3,6 +3,7 @@ category:
   - ai__decision
 id: personalization
 icon: /dtpr-icons/dm_personalization.svg
+context_type_id: ai_only
 name: Personalization
 description: >-
   Isang proseso ng paggawa ng desisyon kung saan iniaangkop ng AI/algorithm ang

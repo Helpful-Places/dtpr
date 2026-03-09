@@ -83,19 +83,33 @@ Categories define the organizational structure and display order for elements wi
 - **`name`** (array, required): Localized display name for the category
 - **`prompt`** (array, required): Localized question or prompt for this category
 - **`description`** (array, required): Localized explanation of what elements in this category represent
-- **`context_types`** [TODO] (array, optional): Available context types for elements in this category
+- **`context_types`** (array, optional): Available context types for elements in this category. Defined via the `context` field in category content files.
 
 ### Context Types
 
-Context types provide visual and semantic indicators for elements within a category:
+Context types provide visual and semantic indicators for elements within a category. They are defined on the category and referenced by elements via `context_type_id`.
+
+Example from the AI Decision category (Level of Autonomy):
 
 ```json
 "context_types": [
   {
-    "id": "pii",
-    "name": [{"locale": "en", "value": "Personal Information"}],
-    "description": [{"locale": "en", "value": "Technologies that collect personally identifiable information"}],
-    "color": "#FFCC00"
+    "id": "ai_only",
+    "name": [{"locale": "en", "value": "AI decides and executes"}],
+    "description": [{"locale": "en", "value": "AI processes, decides, and executes without human involvement."}],
+    "color": "#F28C28"
+  },
+  {
+    "id": "ai_decides_human_executes",
+    "name": [{"locale": "en", "value": "AI decides, human executes"}],
+    "description": [{"locale": "en", "value": "AI processes and generates a decision, but humans are required to execute."}],
+    "color": "#FFD700"
+  },
+  {
+    "id": "ai_flags_human_decides",
+    "name": [{"locale": "en", "value": "AI flags, human decides"}],
+    "description": [{"locale": "en", "value": "AI flags information for humans to evaluate, decide, and take action."}],
+    "color": "#4A90D9"
   }
 ]
 ```

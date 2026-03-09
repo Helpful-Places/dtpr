@@ -1,7 +1,12 @@
 name = "dtpr-docs"
+account_id = "f978769622a3e15ad770688a80811aa8"
 main = ".output/server/index.mjs"
 compatibility_date = "2024-09-19"
 compatibility_flags = ["nodejs_compat"]
+
+routes = [
+  { pattern = "docs.dtpr.io", custom_domain = true }
+]
 
 [assets]
 directory = ".output/public"
@@ -9,4 +14,4 @@ directory = ".output/public"
 [[d1_databases]]
 binding = "DB"
 database_name = "dtpr-docs-content"
-database_id = "placeholder-create-via-wrangler-d1-create"
+database_id = "4bdcffe5-28b0-4af7-a8aa-928272da5dc8"

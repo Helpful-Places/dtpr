@@ -11,6 +11,20 @@ export interface Variable {
   required: boolean
 }
 
+export interface ContextValue {
+  id: string
+  name: LocaleValue[]
+  description: LocaleValue[]
+  color: string
+}
+
+export interface Context {
+  id: string
+  name: LocaleValue[]
+  description: LocaleValue[]
+  values: ContextValue[]
+}
+
 export interface SchemaMetadata {
   name: string
   id: string

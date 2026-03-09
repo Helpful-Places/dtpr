@@ -153,6 +153,7 @@ The `instance` section contains the specific instantiation of the element with a
 #### Properties
 
 - **`priority`** (integer, required): Display order within the category when used in a datachain (0-based, lower numbers display first)
+- **`context_type_id`** (string, optional): Identifier matching a context value `id` from the parent category's `context.values` array. Specifies which context classification applies to this instance. Only applicable for elements in categories that define a context.
 - **`variables`** (array, optional): Variable values for this specific instance
 
 #### Instance Variable Format
@@ -175,13 +176,19 @@ The element definition provides the reusable template with structure, constraint
 
 Elements are designed to be reusable across multiple datachains. The element definition provides the template, while specific instances (created in datachain instances) provide the variable values and contextual information.
 
+### Context Type Reference
+
+Categories can define a `context` with a set of named values (e.g., "AI Only", "Human + AI"). When an element is **instantiated** in a datachain, a `context_type_id` can be assigned to indicate which context value applies to that specific instance. The element definition itself does not include `context_type_id` — any element belonging to a context-aware category may be assigned any of that category's context values at the instance level.
+
+See the [Instance Section](#instance-section-deployment-only) for how `context_type_id` is used in practice.
+
 ### Extensibility
 
 The schema supports extension through:
 - Additional variable types as needed
 - New localization locales
 - Additional icon formats
-- Custom context types (defined at the category level)
+- Context types (defined at the category level, referenced by elements)
 
 ### Validation
 
@@ -199,26 +206,6 @@ Implementations should validate:
 4. **Access Control**: Elements in the "access" category define who can access collected data
 
 ## Future/Proposed Properties
-
-### Context Information
-
-Context provides visual and semantic cues about the element's characteristics (planned feature):
-
-```json
-"context": {
-  "type": "pii",
-  "color": "#FFCC00",
-  "label": [{"locale": "en", "value": "Collects Identifiable Information"}],
-  "description": [{"locale": "en", "value": "This technology can collect data that may identify individuals."}]
-}
-```
-
-#### Proposed Properties
-
-- **`type`** (string): Identifier that should match a context type defined in the parent category
-- **`color`** (string): Hex color code for visual representation
-- **`label`** (array): Localized short description of the context
-- **`description`** (array): Localized detailed explanation of what this context means
 
 ### Extended Variable Properties
 
@@ -241,8 +228,8 @@ Future versions may include additional variable properties:
   "schema": {
     "name": "DTPR Element",
     "id": "dtpr_element",
-    "version": "0.1",
-    "namespace": "https://dtpr.io/schemas/element/v0.1"
+    "version": "0.2",
+    "namespace": "https://dtpr.io/schemas/element/v0.2"
   },
   "element": {
     "id": "identifiable_video",
@@ -283,8 +270,8 @@ When deployed in a datachain, the element would include an instance section:
   "schema": {
     "name": "DTPR Element",
     "id": "dtpr_element",
-    "version": "0.1",
-    "namespace": "https://dtpr.io/schemas/element/v0.1"
+    "version": "0.2",
+    "namespace": "https://dtpr.io/schemas/element/v0.2"
   },
   "element": {
     "id": "identifiable_video",
@@ -316,6 +303,7 @@ When deployed in a datachain, the element would include an instance section:
   "instance": {
     "priority": 0,
     "category_id": "tech",
+    "context_type_id": "ai_only",
     "variables": {
       "additional_description": [
         {

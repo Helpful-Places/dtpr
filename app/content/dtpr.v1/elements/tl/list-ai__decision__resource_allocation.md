@@ -3,6 +3,7 @@ category:
   - ai__decision
 id: resource_allocation
 icon: /dtpr-icons/dm_allocation-of-resources.svg
+context_type_id: ai_decides_human_executes
 name: Paglalaan ng mga mapagkukunan
 description: >-
   Isang proseso ng paggawa ng desisyon kung saan tinutukoy ng AI/algorithm kung

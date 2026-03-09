@@ -3,6 +3,7 @@ category:
   - ai__decision
 id: anomaly_detection
 icon: /dtpr-icons/dm_anomay-detection.svg
+context_type_id: ai_flags_human_decides
 name: Detecção de anomalias
 description: >-
   Um processo de tomada de decisão em que a IA/algoritmo identifica padrões

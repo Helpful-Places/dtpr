@@ -2,7 +2,7 @@
   "name": "dtpr-docs",
   "private": true,
   "scripts": {
-    "build": "nuxt build",
+    "build": "NODE_OPTIONS=--max-old-space-size=4096 nuxt build",
     "dev": "nuxt dev",
     "preview": "nuxt preview"
   },

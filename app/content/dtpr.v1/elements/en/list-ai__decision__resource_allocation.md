@@ -10,5 +10,6 @@ description: A decision-making process where the AI/algorithm determines how to
   determining trash pickup routes, assigning staff schedules, or distributing
   public services across neighborhoods.
 icon: /dtpr-icons/dm_allocation-of-resources.svg
+context_type_id: ai_decides_human_executes
 updated_at: 2025-08-29T00:00:00Z
 ---

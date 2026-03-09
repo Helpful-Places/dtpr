@@ -18,6 +18,17 @@ export default defineContentConfig({
           label: z.string().optional(),
           required: z.boolean().optional()
         })).optional(),
+        context: z.object({
+          id: z.string(),
+          name: z.string(),
+          description: z.string(),
+          values: z.array(z.object({
+            id: z.string(),
+            name: z.string(),
+            description: z.string(),
+            color: z.string()
+          }))
+        }).optional(),
         datachain_type: z.string(),
         updated_at: z.string(),
         _locale: z.string()
@@ -41,6 +52,7 @@ export default defineContentConfig({
         description: z.string(),
         icon: z.string(),
         dtpr_id: z.string(),
+        context_type_id: z.string().optional(),
         updated_at: z.string(),
         _locale: z.string()
       })

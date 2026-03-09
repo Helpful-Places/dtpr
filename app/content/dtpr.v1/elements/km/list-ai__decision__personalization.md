@@ -3,6 +3,7 @@ category:
   - ai__decision
 id: personalization
 icon: /dtpr-icons/dm_personalization.svg
+context_type_id: ai_only
 name: ការកំណត់ផ្ទាល់ខ្លួន
 description: >-
   ដំណើរការធ្វើការសម្រេចចិត្តដែល AI/algorithm កែសម្រួលខ្លឹមសារ ការណែនាំ

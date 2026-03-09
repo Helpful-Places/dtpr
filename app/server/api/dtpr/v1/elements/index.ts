@@ -32,8 +32,8 @@ export default eventHandler(async event => {
         schema: {
           name: "DTPR Element",
           id: "dtpr_element",
-          version: "0.1",
-          namespace: "https://dtpr.io/schemas/element/v0.1"
+          version: "0.2",
+          namespace: "https://dtpr.io/schemas/element/v0.2"
         },
         element: {
           id: elementId,

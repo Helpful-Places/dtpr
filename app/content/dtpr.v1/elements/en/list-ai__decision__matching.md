@@ -9,5 +9,6 @@ description: A decision-making process where the AI/algorithm pairs entities
   connections. Examples include housing assistance placement, job applicant
   matching, or pairing service providers with community needs.
 icon: /dtpr-icons/dm_matching.svg
+context_type_id: ai_decides_human_executes
 updated_at: 2025-08-29T00:00:00Z
 ---

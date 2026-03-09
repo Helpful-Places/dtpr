@@ -3,6 +3,7 @@ category:
   - ai__decision
 id: matching
 icon: /dtpr-icons/dm_matching.svg
+context_type_id: ai_decides_human_executes
 name: A juego
 description: >-
   Un proceso de toma de decisiones en el que la IA/algoritmo empareja entidades

@@ -3,6 +3,7 @@ category:
   - ai__decision
 id: matching
 icon: /dtpr-icons/dm_matching.svg
+context_type_id: ai_decides_human_executes
 name: Pagtutugma
 description: >-
   Isang proseso ng paggawa ng desisyon kung saan ang AI/algorithm ay nagpapares

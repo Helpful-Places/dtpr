@@ -62,6 +62,12 @@ const getElementAnchorId = (element) => `element-${element.dtpr_id}`
       </UBadge>
     </div>
 
+    <!-- Context Info -->
+    <ContextSelector
+      v-if="category.context?.values?.length"
+      :context="category.context"
+    />
+
     <!-- Elements Grid -->
     <div v-if="filteredElements.length > 0" class="grid gap-4 md:grid-cols-1 lg:grid-cols-2">
       <UCard 
@@ -74,17 +80,19 @@ const getElementAnchorId = (element) => `element-${element.dtpr_id}`
           <!-- Element Header -->
           <div class="flex items-start items-center space-x-4">
             <div class="flex-shrink-0">
-              <NuxtImg 
-                :src="element.icon" 
+              <NuxtImg
+                :src="element.icon"
                 :alt="element.name"
-                width="64" 
+                width="64"
                 height="64"
                 class="rounded-lg"
               />
             </div>
+            <div class="flex flex-col gap-1">
               <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
                 {{ element.name }}
               </h3>
+            </div>
           </div>
 
           <!-- Element Description -->

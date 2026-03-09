@@ -3,6 +3,7 @@ category:
   - ai__decision
 id: anomaly_detection
 icon: /dtpr-icons/dm_anomay-detection.svg
+context_type_id: ai_flags_human_decides
 name: ការរកឃើញភាពមិនប្រក្រតី
 description: >-
   ដំណើរការធ្វើការសម្រេចចិត្តដែល AI/algorithm កំណត់លំនាំមិនធម្មតា

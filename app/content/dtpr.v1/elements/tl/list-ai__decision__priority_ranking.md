@@ -3,6 +3,7 @@ category:
   - ai__decision
 id: priority_ranking
 icon: /dtpr-icons/dm_priority-ranking.svg
+context_type_id: ai_flags_human_decides
 name: Priyoridad na ranggo
 description: >-
   Isang proseso ng paggawa ng desisyon kung saan sinusuri ng AI/algorithm ang
