@@ -80,7 +80,6 @@ export const ElementDataSchema = z.object({
     description: z.array(LocaleValueSchema),
     citation: z.array(LocaleValueSchema),
     variables: z.array(VariableSchema),
-    context_type_id: z.string().optional(),
   }),
 })
 
@@ -99,7 +98,6 @@ export const AllElementDataSchema = z.object({
     description: z.array(LocaleValueSchema),
     citation: z.array(LocaleValueSchema),
     variables: z.array(SimpleVariableSchema),
-    context_type_id: z.string().optional(),
   }),
 })
 

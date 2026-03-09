@@ -24,7 +24,6 @@ interface ElementContent {
   description: LocaleValue[]
   citation: LocaleValue[]
   variables: Variable[]
-  context_type_id?: string
 }
 
 interface ElementData {
@@ -125,8 +124,7 @@ export default eventHandler(async event => {
           title: [],
           description: [],
           citation: [],
-          variables: Array.from(variablesMap.values()),
-          ...(element.context_type_id && { context_type_id: element.context_type_id })
+          variables: Array.from(variablesMap.values())
         },
         _timestamps: timestamps // Temporarily store timestamps for later processing
       } as any // Temporary any for _timestamps field

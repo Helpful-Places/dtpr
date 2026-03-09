@@ -47,7 +47,6 @@ export default eventHandler(async event => {
           title: [],
           description: [],
           citation: [],
-          ...(element.context_type_id && { context_type_id: element.context_type_id }),
           variables: [
             {
               id: "additional_description",

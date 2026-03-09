@@ -153,6 +153,7 @@ The `instance` section contains the specific instantiation of the element with a
 #### Properties
 
 - **`priority`** (integer, required): Display order within the category when used in a datachain (0-based, lower numbers display first)
+- **`context_type_id`** (string, optional): Identifier matching a context value `id` from the parent category's `context.values` array. Specifies which context classification applies to this instance. Only applicable for elements in categories that define a context.
 - **`variables`** (array, optional): Variable values for this specific instance
 
 #### Instance Variable Format
@@ -177,15 +178,9 @@ Elements are designed to be reusable across multiple datachains. The element def
 
 ### Context Type Reference
 
-Elements can optionally reference a context type defined on their parent category via `context_type_id`. This provides visual and semantic cues about the element's classification within the category's contextual dimension.
+Categories can define a `context` with a set of named values (e.g., "AI Only", "Human + AI"). When an element is **instantiated** in a datachain, a `context_type_id` can be assigned to indicate which context value applies to that specific instance. The element definition itself does not include `context_type_id` — any element belonging to a context-aware category may be assigned any of that category's context values at the instance level.
 
-```json
-"context_type_id": "ai_only"
-```
-
-- **`context_type_id`** (string, optional): Identifier that matches a context value `id` defined in the parent category's `context.values` array. Only present for elements in categories that define a context.
-
-The color and labels for this context type are resolved from the parent category's context definition.
+See the [Instance Section](#instance-section-deployment-only) for how `context_type_id` is used in practice.
 
 ### Extensibility
 
@@ -308,6 +303,7 @@ When deployed in a datachain, the element would include an instance section:
   "instance": {
     "priority": 0,
     "category_id": "tech",
+    "context_type_id": "ai_only",
     "variables": {
       "additional_description": [
         {

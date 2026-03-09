@@ -10,14 +10,15 @@ defineProps({
 <template>
   <div class="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 mb-6">
     <!-- Context name + description -->
-    <div class="flex items-center gap-2 mb-3">
+    <div class="mb-2">
       <span class="text-sm font-medium text-gray-700 dark:text-gray-300">
         {{ context.name }}
       </span>
-      <UTooltip :text="context.description">
-        <UIcon name="i-heroicons-information-circle" class="w-4 h-4 text-gray-400" />
-      </UTooltip>
     </div>
+
+    <p class="text-xs text-gray-500 dark:text-gray-400 mb-3">
+      When used in a data chain, each element in this category can be assigned one of these context values:
+    </p>
 
     <!-- Context value pills (display only) -->
     <div class="flex flex-wrap gap-2">

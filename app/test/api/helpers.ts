@@ -27,7 +27,7 @@ export function categoriesFingerprint(data: CategoriesResponse) {
 
 /**
  * Extracts a structural fingerprint from elements response.
- * Captures IDs, schema metadata, category IDs, context_type_id, locale coverage, and variable IDs.
+ * Captures IDs, schema metadata, category IDs, locale coverage, and variable IDs.
  * Ignores content text and icon URLs so that editorial/domain changes
  * don't trigger snapshot failures.
  */
@@ -37,7 +37,6 @@ export function elementsFingerprint(data: ElementsResponse) {
       id: item.element.id,
       schema: item.schema,
       category_ids: [...item.element.category_ids].sort(),
-      context_type_id: item.element.context_type_id ?? null,
       locales: [...new Set(item.element.title.map((t) => t.locale))].sort(),
       variable_ids: item.element.variables.map((v) => v.id).sort(),
     }))

@@ -14,17 +14,6 @@ describe('GET /api/dtpr/v1/elements/:datachain_type', () => {
       expect(result.success).toBe(true)
     })
 
-    it('elements with context_type_id have valid values', async () => {
-      const data = await $fetch(`/api/dtpr/v1/elements/${type}`)
-      const parsed = ElementsResponseSchema.parse(data)
-      for (const item of parsed) {
-        if (item.element.context_type_id !== undefined) {
-          expect(typeof item.element.context_type_id).toBe('string')
-          expect(item.element.context_type_id.length).toBeGreaterThan(0)
-        }
-      }
-    })
-
     it('includes all 6 locales when no filter', async () => {
       const data = await $fetch(`/api/dtpr/v1/elements/${type}`)
       const parsed = ElementsResponseSchema.parse(data)

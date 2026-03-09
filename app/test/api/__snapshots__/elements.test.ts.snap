@@ -6,7 +6,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
     "category_ids": [
       "ai__decision",
     ],
-    "context_type_id": "ai_only",
     "id": "accept_deny",
     "locales": [
       "en",
@@ -31,7 +30,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "accessibility",
     "locales": [
       "en",
@@ -56,7 +54,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "agency_interaction",
     "locales": [
       "en",
@@ -80,7 +77,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
     "category_ids": [
       "ai__decision",
     ],
-    "context_type_id": "ai_flags_human_decides",
     "id": "anomaly_detection",
     "locales": [
       "en",
@@ -105,7 +101,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "arts_culture",
     "locales": [
       "en",
@@ -130,7 +125,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__access",
       "device__access",
     ],
-    "context_type_id": null,
     "id": "available_for_resale",
     "locales": [
       "en",
@@ -155,7 +149,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__access",
       "device__access",
     ],
-    "context_type_id": null,
     "id": "available_to_3rd_parties",
     "locales": [
       "en",
@@ -180,7 +173,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__access",
       "device__access",
     ],
-    "context_type_id": null,
     "id": "available_to_download",
     "locales": [
       "en",
@@ -205,7 +197,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__access",
       "device__access",
     ],
-    "context_type_id": null,
     "id": "available_to_me",
     "locales": [
       "en",
@@ -230,7 +221,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__access",
       "device__access",
     ],
-    "context_type_id": null,
     "id": "available_to_the_accountable_organization",
     "locales": [
       "en",
@@ -255,7 +245,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__access",
       "device__access",
     ],
-    "context_type_id": null,
     "id": "available_to_vendor",
     "locales": [
       "en",
@@ -280,7 +269,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__storage",
       "device__storage",
     ],
-    "context_type_id": null,
     "id": "backed_up_internationally",
     "locales": [
       "en",
@@ -306,7 +294,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__storage",
       "device__storage",
     ],
-    "context_type_id": null,
     "id": "backed_up_locally",
     "locales": [
       "en",
@@ -333,7 +320,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__output_dataset",
       "device__data",
     ],
-    "context_type_id": null,
     "id": "binary",
     "locales": [
       "en",
@@ -359,7 +345,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__output_dataset",
       "device__data",
     ],
-    "context_type_id": null,
     "id": "boolean",
     "locales": [
       "en",
@@ -384,7 +369,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "commerce",
     "locales": [
       "en",
@@ -408,7 +392,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
     "category_ids": [
       "ai__risks_mitigation",
     ],
-    "context_type_id": null,
     "id": "compromise_of_privacy",
     "locales": [
       "en",
@@ -433,7 +416,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "connectivity",
     "locales": [
       "en",
@@ -458,7 +440,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__retention",
       "device__retention",
     ],
-    "context_type_id": null,
     "id": "data_retained",
     "locales": [
       "en",
@@ -484,7 +465,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "dining",
     "locales": [
       "en",
@@ -509,7 +489,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "ecology",
     "locales": [
       "en",
@@ -534,7 +513,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "energy_efficiency",
     "locales": [
       "en",
@@ -559,7 +537,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "enforcement",
     "locales": [
       "en",
@@ -584,7 +561,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "entry",
     "locales": [
       "en",
@@ -609,7 +585,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "fire_emergency",
     "locales": [
       "en",
@@ -633,7 +608,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
     "category_ids": [
       "ai__risks_mitigation",
     ],
-    "context_type_id": null,
     "id": "function_creep",
     "locales": [
       "en",
@@ -658,7 +632,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "health",
     "locales": [
       "en",
@@ -683,7 +656,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "inform",
     "locales": [
       "en",
@@ -708,7 +680,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__accountable",
       "device__accountable",
     ],
-    "context_type_id": null,
     "id": "institution",
     "locales": [
       "en",
@@ -733,7 +704,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
     "category_ids": [
       "ai__processing",
     ],
-    "context_type_id": null,
     "id": "llm",
     "locales": [
       "en",
@@ -758,7 +728,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "logistics",
     "locales": [
       "en",
@@ -782,7 +751,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
     "category_ids": [
       "ai__decision",
     ],
-    "context_type_id": "ai_decides_human_executes",
     "id": "matching",
     "locales": [
       "en",
@@ -807,7 +775,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "mobility",
     "locales": [
       "en",
@@ -832,7 +799,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__retention",
       "device__retention",
     ],
-    "context_type_id": null,
     "id": "no_data_retained",
     "locales": [
       "en",
@@ -858,7 +824,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__access",
       "device__access",
     ],
-    "context_type_id": null,
     "id": "not_available_to_me",
     "locales": [
       "en",
@@ -883,7 +848,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__access",
       "device__access",
     ],
-    "context_type_id": null,
     "id": "not_available_to_the_accountable_organization",
     "locales": [
       "en",
@@ -908,7 +872,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__access",
       "device__access",
     ],
-    "context_type_id": null,
     "id": "not_available_to_vendor",
     "locales": [
       "en",
@@ -932,7 +895,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
     "category_ids": [
       "ai__risks_mitigation",
     ],
-    "context_type_id": null,
     "id": "opaque_decision_making",
     "locales": [
       "en",
@@ -956,7 +918,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
     "category_ids": [
       "ai__processing",
     ],
-    "context_type_id": null,
     "id": "optimization",
     "locales": [
       "en",
@@ -981,7 +942,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__accountable",
       "device__accountable",
     ],
-    "context_type_id": null,
     "id": "organization",
     "locales": [
       "en",
@@ -1006,7 +966,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
     "category_ids": [
       "ai__risks_mitigation",
     ],
-    "context_type_id": null,
     "id": "overreliance_automation_bias",
     "locales": [
       "en",
@@ -1032,7 +991,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__output_dataset",
       "device__data",
     ],
-    "context_type_id": null,
     "id": "personal",
     "locales": [
       "en",
@@ -1056,7 +1014,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
     "category_ids": [
       "ai__decision",
     ],
-    "context_type_id": "ai_only",
     "id": "personalization",
     "locales": [
       "en",
@@ -1082,7 +1039,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__output_dataset",
       "device__data",
     ],
-    "context_type_id": null,
     "id": "pixel_based_image",
     "locales": [
       "en",
@@ -1107,7 +1063,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "planning_decision_making",
     "locales": [
       "en",
@@ -1131,7 +1086,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
     "category_ids": [
       "ai__decision",
     ],
-    "context_type_id": "ai_flags_human_decides",
     "id": "priority_ranking",
     "locales": [
       "en",
@@ -1155,7 +1109,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
     "category_ids": [
       "ai__processing",
     ],
-    "context_type_id": null,
     "id": "privacy-preserving",
     "locales": [
       "en",
@@ -1179,7 +1132,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
     "category_ids": [
       "ai__processing",
     ],
-    "context_type_id": null,
     "id": "recommendation-systems",
     "locales": [
       "en",
@@ -1204,7 +1156,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "research_development",
     "locales": [
       "en",
@@ -1228,7 +1179,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
     "category_ids": [
       "ai__decision",
     ],
-    "context_type_id": "ai_decides_human_executes",
     "id": "resource_allocation",
     "locales": [
       "en",
@@ -1252,7 +1202,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
     "category_ids": [
       "ai__rights",
     ],
-    "context_type_id": null,
     "id": "right_access",
     "locales": [
       "en",
@@ -1276,7 +1225,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
     "category_ids": [
       "ai__rights",
     ],
-    "context_type_id": null,
     "id": "right_algorithmic_transparency",
     "locales": [
       "en",
@@ -1300,7 +1248,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
     "category_ids": [
       "ai__rights",
     ],
-    "context_type_id": null,
     "id": "right_be_forgotten",
     "locales": [
       "en",
@@ -1324,7 +1271,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
     "category_ids": [
       "ai__rights",
     ],
-    "context_type_id": null,
     "id": "right_contest",
     "locales": [
       "en",
@@ -1348,7 +1294,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
     "category_ids": [
       "ai__rights",
     ],
-    "context_type_id": null,
     "id": "right_non_discrimination",
     "locales": [
       "en",
@@ -1372,7 +1317,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
     "category_ids": [
       "ai__rights",
     ],
-    "context_type_id": null,
     "id": "right_purpose_limitation",
     "locales": [
       "en",
@@ -1397,7 +1341,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "safety_security",
     "locales": [
       "en",
@@ -1421,7 +1364,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
     "category_ids": [
       "ai__processing",
     ],
-    "context_type_id": null,
     "id": "sentiment-analysis",
     "locales": [
       "en",
@@ -1446,7 +1388,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__storage",
       "device__storage",
     ],
-    "context_type_id": null,
     "id": "shared_storage_and_governance",
     "locales": [
       "en",
@@ -1472,7 +1413,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "social",
     "locales": [
       "en",
@@ -1498,7 +1438,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__output_dataset",
       "device__data",
     ],
-    "context_type_id": null,
     "id": "spatial",
     "locales": [
       "en",
@@ -1523,7 +1462,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__storage",
       "device__storage",
     ],
-    "context_type_id": null,
     "id": "stored_locally",
     "locales": [
       "en",
@@ -1549,7 +1487,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__storage",
       "device__storage",
     ],
-    "context_type_id": null,
     "id": "stored_on_3rd_party_cloud",
     "locales": [
       "en",
@@ -1575,7 +1512,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__storage",
       "device__storage",
     ],
-    "context_type_id": null,
     "id": "stored_primarily_internationally",
     "locales": [
       "en",
@@ -1601,7 +1537,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__storage",
       "device__storage",
     ],
-    "context_type_id": null,
     "id": "stored_primarily_locally",
     "locales": [
       "en",
@@ -1627,7 +1562,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "switch",
     "locales": [
       "en",
@@ -1651,7 +1585,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
     "category_ids": [
       "ai__risks_mitigation",
     ],
-    "context_type_id": null,
     "id": "system_drift",
     "locales": [
       "en",
@@ -1677,7 +1610,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__output_dataset",
       "device__data",
     ],
-    "context_type_id": null,
     "id": "tabular",
     "locales": [
       "en",
@@ -1701,7 +1633,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
     "category_ids": [
       "ai__processing",
     ],
-    "context_type_id": null,
     "id": "text-to-speech",
     "locales": [
       "en",
@@ -1725,7 +1656,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
     "category_ids": [
       "ai__processing",
     ],
-    "context_type_id": null,
     "id": "time-series-forecasting",
     "locales": [
       "en",
@@ -1749,7 +1679,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
     "category_ids": [
       "ai__risks_mitigation",
     ],
-    "context_type_id": null,
     "id": "unequal_performance",
     "locales": [
       "en",
@@ -1775,7 +1704,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__output_dataset",
       "device__data",
     ],
-    "context_type_id": null,
     "id": "values_time",
     "locales": [
       "en",
@@ -1800,7 +1728,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "waste_management",
     "locales": [
       "en",
@@ -1825,7 +1752,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "water_efficiency",
     "locales": [
       "en",
@@ -1850,7 +1776,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > ai elements > structural fi
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "wayfinding_services",
     "locales": [
       "en",
@@ -1880,7 +1805,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "accessibility",
     "locales": [
       "en",
@@ -1903,7 +1827,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "agency_interaction",
     "locales": [
       "en",
@@ -1925,7 +1848,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__process",
     ],
-    "context_type_id": null,
     "id": "aggregated",
     "locales": [
       "en",
@@ -1947,7 +1869,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__process",
     ],
-    "context_type_id": null,
     "id": "ai_system",
     "locales": [
       "en",
@@ -1969,7 +1890,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "air_quality",
     "locales": [
       "en",
@@ -1992,7 +1912,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "arts_culture",
     "locales": [
       "en",
@@ -2014,7 +1933,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "assistance_station",
     "locales": [
       "en",
@@ -2036,7 +1954,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "augmented_reality",
     "locales": [
       "en",
@@ -2059,7 +1976,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__access",
       "device__access",
     ],
-    "context_type_id": null,
     "id": "available_for_resale",
     "locales": [
       "en",
@@ -2082,7 +1998,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__access",
       "device__access",
     ],
-    "context_type_id": null,
     "id": "available_to_3rd_parties",
     "locales": [
       "en",
@@ -2105,7 +2020,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__access",
       "device__access",
     ],
-    "context_type_id": null,
     "id": "available_to_download",
     "locales": [
       "en",
@@ -2128,7 +2042,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__access",
       "device__access",
     ],
-    "context_type_id": null,
     "id": "available_to_me",
     "locales": [
       "en",
@@ -2151,7 +2064,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__access",
       "device__access",
     ],
-    "context_type_id": null,
     "id": "available_to_the_accountable_organization",
     "locales": [
       "en",
@@ -2174,7 +2086,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__access",
       "device__access",
     ],
-    "context_type_id": null,
     "id": "available_to_vendor",
     "locales": [
       "en",
@@ -2197,7 +2108,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__storage",
       "device__storage",
     ],
-    "context_type_id": null,
     "id": "backed_up_internationally",
     "locales": [
       "en",
@@ -2220,7 +2130,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__storage",
       "device__storage",
     ],
-    "context_type_id": null,
     "id": "backed_up_locally",
     "locales": [
       "en",
@@ -2244,7 +2153,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__output_dataset",
       "device__data",
     ],
-    "context_type_id": null,
     "id": "binary",
     "locales": [
       "en",
@@ -2266,7 +2174,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "biometrics",
     "locales": [
       "en",
@@ -2288,7 +2195,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__process",
     ],
-    "context_type_id": null,
     "id": "bitmap_manipulation",
     "locales": [
       "en",
@@ -2312,7 +2218,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__output_dataset",
       "device__data",
     ],
-    "context_type_id": null,
     "id": "boolean",
     "locales": [
       "en",
@@ -2334,7 +2239,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "cellular",
     "locales": [
       "en",
@@ -2356,7 +2260,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "chatbot",
     "locales": [
       "en",
@@ -2378,7 +2281,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__process",
     ],
-    "context_type_id": null,
     "id": "code_signing",
     "locales": [
       "en",
@@ -2401,7 +2303,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "commerce",
     "locales": [
       "en",
@@ -2423,7 +2324,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__process",
     ],
-    "context_type_id": null,
     "id": "computer_vision",
     "locales": [
       "en",
@@ -2446,7 +2346,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "connectivity",
     "locales": [
       "en",
@@ -2468,7 +2367,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "contactless_payments",
     "locales": [
       "en",
@@ -2490,7 +2388,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__process",
     ],
-    "context_type_id": null,
     "id": "cryptonets",
     "locales": [
       "en",
@@ -2513,7 +2410,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__retention",
       "device__retention",
     ],
-    "context_type_id": null,
     "id": "data_retained",
     "locales": [
       "en",
@@ -2535,7 +2431,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__process",
     ],
-    "context_type_id": null,
     "id": "de_identified",
     "locales": [
       "en",
@@ -2557,7 +2452,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "de_identified_image",
     "locales": [
       "en",
@@ -2579,7 +2473,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "de_identified_video",
     "locales": [
       "en",
@@ -2601,7 +2494,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "de_identified_voice",
     "locales": [
       "en",
@@ -2623,7 +2515,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__process",
     ],
-    "context_type_id": null,
     "id": "differential_privacy",
     "locales": [
       "en",
@@ -2646,7 +2537,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "dining",
     "locales": [
       "en",
@@ -2668,7 +2558,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "dtpr_api",
     "locales": [
       "en",
@@ -2691,7 +2580,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "ecology",
     "locales": [
       "en",
@@ -2713,7 +2601,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "electric_vehicle_charger",
     "locales": [
       "en",
@@ -2735,7 +2622,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__process",
     ],
-    "context_type_id": null,
     "id": "encrypted",
     "locales": [
       "en",
@@ -2757,7 +2643,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__process",
     ],
-    "context_type_id": null,
     "id": "encrypted_at_rest",
     "locales": [
       "en",
@@ -2780,7 +2665,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "energy_efficiency",
     "locales": [
       "en",
@@ -2803,7 +2687,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "enforcement",
     "locales": [
       "en",
@@ -2826,7 +2709,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "entry",
     "locales": [
       "en",
@@ -2848,7 +2730,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "facial_characterization",
     "locales": [
       "en",
@@ -2870,7 +2751,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__process",
     ],
-    "context_type_id": null,
     "id": "federated_learning",
     "locales": [
       "en",
@@ -2893,7 +2773,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "fire_emergency",
     "locales": [
       "en",
@@ -2915,7 +2794,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "gps",
     "locales": [
       "en",
@@ -2937,7 +2815,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "hands_free",
     "locales": [
       "en",
@@ -2959,7 +2836,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__process",
     ],
-    "context_type_id": null,
     "id": "hardware_audits",
     "locales": [
       "en",
@@ -2982,7 +2858,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "health",
     "locales": [
       "en",
@@ -3004,7 +2879,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__process",
     ],
-    "context_type_id": null,
     "id": "homomorphic_encryption",
     "locales": [
       "en",
@@ -3026,7 +2900,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "identifiable_image",
     "locales": [
       "en",
@@ -3048,7 +2921,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "identifiable_nfc",
     "locales": [
       "en",
@@ -3070,7 +2942,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "identifiable_rfid",
     "locales": [
       "en",
@@ -3092,7 +2963,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "identifiable_video",
     "locales": [
       "en",
@@ -3114,7 +2984,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "identifiable_wifi_sensor",
     "locales": [
       "en",
@@ -3136,7 +3005,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "image",
     "locales": [
       "en",
@@ -3158,7 +3026,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "image_infrared",
     "locales": [
       "en",
@@ -3180,7 +3047,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__process",
     ],
-    "context_type_id": null,
     "id": "immutable_query_ledger",
     "locales": [
       "en",
@@ -3202,7 +3068,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "inclinometer",
     "locales": [
       "en",
@@ -3224,7 +3089,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "induction_loop",
     "locales": [
       "en",
@@ -3247,7 +3111,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "inform",
     "locales": [
       "en",
@@ -3270,7 +3133,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__accountable",
       "device__accountable",
     ],
-    "context_type_id": null,
     "id": "institution",
     "locales": [
       "en",
@@ -3292,7 +3154,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "intercom",
     "locales": [
       "en",
@@ -3314,7 +3175,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__process",
     ],
-    "context_type_id": null,
     "id": "k_anonymity",
     "locales": [
       "en",
@@ -3336,7 +3196,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "li_dar",
     "locales": [
       "en",
@@ -3358,7 +3217,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "location_beacon",
     "locales": [
       "en",
@@ -3381,7 +3239,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "logistics",
     "locales": [
       "en",
@@ -3403,7 +3260,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "microphone",
     "locales": [
       "en",
@@ -3426,7 +3282,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "mobility",
     "locales": [
       "en",
@@ -3448,7 +3303,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "motion_detector",
     "locales": [
       "en",
@@ -3470,7 +3324,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "nfc",
     "locales": [
       "en",
@@ -3493,7 +3346,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__retention",
       "device__retention",
     ],
-    "context_type_id": null,
     "id": "no_data_retained",
     "locales": [
       "en",
@@ -3515,7 +3367,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "non_identifiable_video",
     "locales": [
       "en",
@@ -3538,7 +3389,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__access",
       "device__access",
     ],
-    "context_type_id": null,
     "id": "not_available_to_me",
     "locales": [
       "en",
@@ -3561,7 +3411,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__access",
       "device__access",
     ],
-    "context_type_id": null,
     "id": "not_available_to_the_accountable_organization",
     "locales": [
       "en",
@@ -3584,7 +3433,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__access",
       "device__access",
     ],
-    "context_type_id": null,
     "id": "not_available_to_vendor",
     "locales": [
       "en",
@@ -3607,7 +3455,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__accountable",
       "device__accountable",
     ],
-    "context_type_id": null,
     "id": "organization",
     "locales": [
       "en",
@@ -3629,7 +3476,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "passive_infrared_sensor",
     "locales": [
       "en",
@@ -3651,7 +3497,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "person_detection",
     "locales": [
       "en",
@@ -3675,7 +3520,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__output_dataset",
       "device__data",
     ],
-    "context_type_id": null,
     "id": "personal",
     "locales": [
       "en",
@@ -3697,7 +3541,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "personal_device",
     "locales": [
       "en",
@@ -3719,7 +3562,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "piezoelectric_sensor",
     "locales": [
       "en",
@@ -3743,7 +3585,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__output_dataset",
       "device__data",
     ],
-    "context_type_id": null,
     "id": "pixel_based_image",
     "locales": [
       "en",
@@ -3766,7 +3607,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "planning_decision_making",
     "locales": [
       "en",
@@ -3788,7 +3628,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "radar",
     "locales": [
       "en",
@@ -3810,7 +3649,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__process",
     ],
-    "context_type_id": null,
     "id": "raw_data",
     "locales": [
       "en",
@@ -3832,7 +3670,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__process",
     ],
-    "context_type_id": null,
     "id": "rdua_approved",
     "locales": [
       "en",
@@ -3854,7 +3691,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__process",
     ],
-    "context_type_id": null,
     "id": "regulated",
     "locales": [
       "en",
@@ -3877,7 +3713,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "research_development",
     "locales": [
       "en",
@@ -3899,7 +3734,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__process",
     ],
-    "context_type_id": null,
     "id": "reviewed_internally",
     "locales": [
       "en",
@@ -3921,7 +3755,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "rfid",
     "locales": [
       "en",
@@ -3944,7 +3777,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "safety_security",
     "locales": [
       "en",
@@ -3966,7 +3798,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__process",
     ],
-    "context_type_id": null,
     "id": "secure_multi_party_computing",
     "locales": [
       "en",
@@ -3989,7 +3820,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__storage",
       "device__storage",
     ],
-    "context_type_id": null,
     "id": "shared_storage_and_governance",
     "locales": [
       "en",
@@ -4012,7 +3842,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "social",
     "locales": [
       "en",
@@ -4034,7 +3863,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "soil_moisture_sensor",
     "locales": [
       "en",
@@ -4056,7 +3884,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "sound_level_meter",
     "locales": [
       "en",
@@ -4080,7 +3907,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__output_dataset",
       "device__data",
     ],
-    "context_type_id": null,
     "id": "spatial",
     "locales": [
       "en",
@@ -4103,7 +3929,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__storage",
       "device__storage",
     ],
-    "context_type_id": null,
     "id": "stored_locally",
     "locales": [
       "en",
@@ -4126,7 +3951,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__storage",
       "device__storage",
     ],
-    "context_type_id": null,
     "id": "stored_on_3rd_party_cloud",
     "locales": [
       "en",
@@ -4149,7 +3973,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__storage",
       "device__storage",
     ],
-    "context_type_id": null,
     "id": "stored_primarily_internationally",
     "locales": [
       "en",
@@ -4172,7 +3995,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__storage",
       "device__storage",
     ],
-    "context_type_id": null,
     "id": "stored_primarily_locally",
     "locales": [
       "en",
@@ -4195,7 +4017,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "switch",
     "locales": [
       "en",
@@ -4217,7 +4038,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "system_screen",
     "locales": [
       "en",
@@ -4241,7 +4061,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__output_dataset",
       "device__data",
     ],
-    "context_type_id": null,
     "id": "tabular",
     "locales": [
       "en",
@@ -4263,7 +4082,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "thermometer",
     "locales": [
       "en",
@@ -4285,7 +4103,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__process",
     ],
-    "context_type_id": null,
     "id": "transport_layer_security",
     "locales": [
       "en",
@@ -4307,7 +4124,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__process",
     ],
-    "context_type_id": null,
     "id": "trusted_execution_environment",
     "locales": [
       "en",
@@ -4329,7 +4145,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "ultrasonic_level_sensor",
     "locales": [
       "en",
@@ -4351,7 +4166,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "unmanned_aircraft_system",
     "locales": [
       "en",
@@ -4375,7 +4189,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__output_dataset",
       "device__data",
     ],
-    "context_type_id": null,
     "id": "values_time",
     "locales": [
       "en",
@@ -4397,7 +4210,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "video_camera",
     "locales": [
       "en",
@@ -4419,7 +4231,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "video_camera_infrared",
     "locales": [
       "en",
@@ -4441,7 +4252,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "voice",
     "locales": [
       "en",
@@ -4464,7 +4274,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "waste_management",
     "locales": [
       "en",
@@ -4487,7 +4296,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "water_efficiency",
     "locales": [
       "en",
@@ -4509,7 +4317,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "water_quality",
     "locales": [
       "en",
@@ -4532,7 +4339,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
       "ai__purpose",
       "device__purpose",
     ],
-    "context_type_id": null,
     "id": "wayfinding_services",
     "locales": [
       "en",
@@ -4554,7 +4360,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "weather_station",
     "locales": [
       "en",
@@ -4576,7 +4381,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "weighing_scale",
     "locales": [
       "en",
@@ -4598,7 +4402,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "wireless_access_point",
     "locales": [
       "en",
@@ -4620,7 +4423,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__tech",
     ],
-    "context_type_id": null,
     "id": "wireless_charging_roadway",
     "locales": [
       "en",
@@ -4642,7 +4444,6 @@ exports[`GET /api/dtpr/v1/elements/:datachain_type > device elements > structura
     "category_ids": [
       "device__process",
     ],
-    "context_type_id": null,
     "id": "zero_knowledge_proofs",
     "locales": [
       "en",
