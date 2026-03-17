@@ -120,8 +120,7 @@ function extractSymbol(svgContent: string, elementId: string, fileName: string):
     result.pattern = 'shape-first'
     result.detectedShape = detectedFirst
     const symbolChildren = children.slice(1)
-    // Also need to include any mask definitions that precede the symbol content
-    result.symbolSvg = buildSymbolSvg(symbolChildren.map((c) => c.raw), 36)
+    result.symbolSvg = buildSymbolSvg(symbolChildren.map((c) => c.raw), 36, 'dark')
     return result
   }
 
@@ -132,7 +131,7 @@ function extractSymbol(svgContent: string, elementId: string, fileName: string):
     result.pattern = 'shape-last'
     result.detectedShape = detectedLast
     const symbolChildren = children.slice(0, -1)
-    result.symbolSvg = buildSymbolSvg(symbolChildren.map((c) => c.raw), 36)
+    result.symbolSvg = buildSymbolSvg(symbolChildren.map((c) => c.raw), 36, 'light')
     return result
   }
 
@@ -412,10 +411,10 @@ function detectShape(element: string): ShapeType | null {
   return null
 }
 
-function buildSymbolSvg(childElements: string[], viewBox: number): string {
+function buildSymbolSvg(childElements: string[], viewBox: number, variant: 'dark' | 'light' = 'dark'): string {
   // Replace fill colors with currentColor for theme-ability
   const content = childElements
-    .map((el) => recolorElement(el))
+    .map((el) => recolorElement(el, variant))
     .join('\n')
 
   return buildSymbolSvgRaw(content, viewBox)
@@ -428,11 +427,22 @@ ${content}
 `
 }
 
-function recolorElement(element: string): string {
-  // Replace fill="black", fill="white", fill="#000", etc. with currentColor
+function recolorElement(element: string, variant: 'dark' | 'light' = 'dark'): string {
   let result = element
-    .replace(/fill="(?:black|#000(?:000)?|white|#fff(?:fff)?)"/gi, 'fill="currentColor"')
-    .replace(/stroke="(?:black|#000(?:000)?|white|#fff(?:fff)?)"/gi, 'stroke="currentColor"')
+
+  if (variant === 'dark') {
+    // Dark variant: white fills are the symbol color → currentColor
+    result = result
+      .replace(/fill="(?:black|#000(?:000)?|white|#fff(?:fff)?)"/gi, 'fill="currentColor"')
+      .replace(/stroke="(?:black|#000(?:000)?|white|#fff(?:fff)?)"/gi, 'stroke="currentColor"')
+  } else {
+    // Light variant: black fills are the symbol, white fills are knockouts → none
+    result = result
+      .replace(/fill="(?:black|#000(?:000)?)"/gi, 'fill="currentColor"')
+      .replace(/fill="(?:white|#fff(?:fff)?)"/gi, 'fill="none"')
+      .replace(/stroke="(?:black|#000(?:000)?)"/gi, 'stroke="currentColor"')
+      .replace(/stroke="(?:white|#fff(?:fff)?)"/gi, 'stroke="none"')
+  }
 
   // For elements without any fill attribute, add fill="currentColor"
   // These come from Illustrator SVGs that rely on the default SVG fill (black)
