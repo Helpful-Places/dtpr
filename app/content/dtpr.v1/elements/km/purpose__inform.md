@@ -6,6 +6,6 @@ name: ផ្ដល់ដមនឹង
 id: inform
 description: គាំទ្រដល់ការផ្តល់ព័ត៌មានឧទាហរណ៍អំពីទីតាំងសេវាកម្មឬផ្តល់ជំនួយ
 icon: /dtpr-icons/inform.svg
-symbol: /dtpr-icons/symbols/inform.svg
+symbol: /dtpr-icons/symbols/light_waves.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

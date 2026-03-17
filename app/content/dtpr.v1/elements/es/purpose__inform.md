@@ -6,6 +6,6 @@ name: Informar
 id: inform
 description: Apoya la provisión de información, por ejemplo, sobre una ubicación, un servicio o para brindar asistencia
 icon: /dtpr-icons/inform.svg
-symbol: /dtpr-icons/symbols/inform.svg
+symbol: /dtpr-icons/symbols/light_waves.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

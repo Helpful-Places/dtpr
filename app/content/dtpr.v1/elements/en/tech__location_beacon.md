@@ -9,7 +9,7 @@ description: >-
   smartphones, tablets and other devices to perform actions when in close
   proximity to a beacon.
 icon: /dtpr-icons/location_beacon.svg
-symbol: /dtpr-icons/symbols/location_beacon.svg
+symbol: /dtpr-icons/symbols/signal.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 

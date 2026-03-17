@@ -6,6 +6,6 @@ id: piezoelectric_sensor
 description: Measures changes in pressure, acceleration, temperature, strain, or
   force by converting them to an electrical charge.
 icon: /dtpr-icons/inclinometer.svg
-symbol: /dtpr-icons/symbols/inclinometer.svg
+symbol: /dtpr-icons/symbols/weight.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

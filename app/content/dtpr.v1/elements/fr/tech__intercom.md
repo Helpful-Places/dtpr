@@ -7,7 +7,7 @@ description: >-
   petit ensemble de bâtiments. Il est distinct des autres réseaux de
   communication (tels que le systéme téléphonique).
 icon: /dtpr-icons/intercom.svg
-symbol: /dtpr-icons/symbols/intercom.svg
+symbol: /dtpr-icons/symbols/audio.svg
 id: intercom
 name: Intercom
 updated_at: 2025-08-29T00:00:00Z

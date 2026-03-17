@@ -9,7 +9,7 @@ description: >-
   na koleksyon ng mga gusali, at hiwalay sa iba pang mga network ng komunikasyon
   (tulad ng sistema ng telepono).
 icon: /dtpr-icons/intercom.svg
-symbol: /dtpr-icons/symbols/intercom.svg
+symbol: /dtpr-icons/symbols/audio.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 

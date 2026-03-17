@@ -8,7 +8,7 @@ description: >-
   Ciphertexts
   បង្កើតលទ្ធផលដែលបានអ៊ិនគ្រីបមួយដែលនៅពេលដែលបានឌិគ្រីបត្រូវនឹងលទ្ធផលនៃប្រតិបត្តិការដូចជាពួកគេត្រូវបានអនុវត្តលើអត្ថបទធម្មតា។
 icon: /dtpr-icons/homomorphic_encryption.svg
-symbol: /dtpr-icons/symbols/homomorphic_encryption.svg
+symbol: /dtpr-icons/symbols/encrypted.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 

@@ -6,6 +6,6 @@ name: សេវាកម្មនិងសេវាកម្ម
 id: wayfinding_services
 description: បើកដំណើរការក្នុងការធ្វើនាវាចរណ៍ទីតាំងនិងសេវាកម្មនិងសេវាកម្មនិងសេវាកម្មរបស់វា។
 icon: /dtpr-icons/wayfinding_services.svg
-symbol: /dtpr-icons/symbols/wayfinding_services.svg
+symbol: /dtpr-icons/symbols/light_waves.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
