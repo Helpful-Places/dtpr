@@ -6,7 +6,7 @@ description: Toutes les interactions avec les données tout au long de leur cycl
   un registre de requêtes immuable, créant ainsi une chaîne de responsabilité vérifiable,
   gérée par une base de données distribuée.
 icon: /dtpr-icons/immutable_query_ledger.svg
-symbol: /dtpr-icons/symbols/immutable_query_ledger.svg
+symbol: /dtpr-icons/symbols/encrypted.svg
 id: immutable_query_ledger
 name: Registre de requêtes immuables
 updated_at: 2025-08-29T00:00:00Z

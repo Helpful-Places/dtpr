@@ -6,6 +6,6 @@ id: secure_multi_party_computing
 description: ការគណនាពហុភាគីដែលមានសុវត្ថិភាពគឺជាការបញ្ចុះនៃការធ្វើគ្រីបជាមួយនឹងគោលដៅនៃការបង្កើតវិធីសាស្រ្តសម្រាប់ភាគីរួមគ្នាគណនាមុខងារលើធាតុចូលរបស់ពួកគេខណៈពេលដែលរក្សាធាតុចូលរបស់បុគ្គលឯកជន។
   វាអនុញ្ញាតឱ្យអ្នកចូលរួមបង្កើតការយល់ដឹងសរុបពីទិន្នន័យខណៈពេលដែលរក្សាធាតុនីមួយៗនៃអាថ៌កំបាំងទិន្នន័យ។
 icon: /dtpr-icons/secure_multi_party_computing.svg
-symbol: /dtpr-icons/symbols/secure_multi_party_computing.svg
+symbol: /dtpr-icons/symbols/encrypted.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

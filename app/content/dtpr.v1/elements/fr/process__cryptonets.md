@@ -10,7 +10,7 @@ description: >-
   l'application les clés de décryptage des données. Les Cryptonets sont une mise
   en œuvre du chiffrement homomorphique.
 icon: /dtpr-icons/cryptonets.svg
-symbol: /dtpr-icons/symbols/cryptonets.svg
+symbol: /dtpr-icons/symbols/encrypted.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 

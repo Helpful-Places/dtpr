@@ -10,7 +10,7 @@ description: >-
   the keys to decrypt the data. Cryptonets are an implementation of Homomorphic
   Encryption.
 icon: /dtpr-icons/cryptonets.svg
-symbol: /dtpr-icons/symbols/cryptonets.svg
+symbol: /dtpr-icons/symbols/encrypted.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 

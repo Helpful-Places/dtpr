@@ -10,7 +10,7 @@ description: >-
   na magbigay sa host ng application ng mga susi upang ma-decrypt ang datos. Ang
   mga cryptonet ay isang pagpapatupad ng homomorphic encryption.
 icon: /dtpr-icons/cryptonets.svg
-symbol: /dtpr-icons/symbols/cryptonets.svg
+symbol: /dtpr-icons/symbols/encrypted.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 
