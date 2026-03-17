@@ -11,7 +11,7 @@ description: >-
   pagkasira ng datos sa pamamagitan ng mga patakaran na binuo sa istraktura ng
   datos mismo.
 icon: /dtpr-icons/shared_storage_and_governance.svg
-symbol: /dtpr-icons/symbols/shared_storage_and_governance.svg
+symbol: /dtpr-icons/symbols/stored.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 

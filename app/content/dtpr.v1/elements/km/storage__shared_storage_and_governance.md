@@ -8,6 +8,6 @@ description: នៅក្នុងគំរូហាងទិន្នន័យ�
   ស្វែងយល់បន្ថែម
   [នៅទីនេះ](https://en.wikipedia.org/wiki/caroserative_storage_cloud)
 icon: /dtpr-icons/shared_storage_and_governance.svg
-symbol: /dtpr-icons/symbols/shared_storage_and_governance.svg
+symbol: /dtpr-icons/symbols/stored.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
