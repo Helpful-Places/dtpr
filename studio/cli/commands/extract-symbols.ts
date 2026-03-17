@@ -113,25 +113,27 @@ function extractSymbol(svgContent: string, elementId: string, fileName: string):
     }
   }
 
-  // Detect shape in first child (shape-first / dark variant)
+  // Detect shape and determine variant (dark vs light)
+  // Dark variant: shape has a fill (e.g., fill="black") — symbol is in white/light color
+  // Light variant: shape is outline only (stroke, no fill) — symbol is in black/dark color
   const firstChild = children[0]
-  const detectedFirst = detectShape(firstChild.raw)
-  if (detectedFirst) {
-    result.pattern = 'shape-first'
-    result.detectedShape = detectedFirst
-    const symbolChildren = children.slice(1)
-    result.symbolSvg = buildSymbolSvg(symbolChildren.map((c) => c.raw), 36, 'dark')
-    return result
-  }
-
-  // Detect shape in last child (shape-last / light variant)
   const lastChild = children[children.length - 1]
-  const detectedLast = detectShape(lastChild.raw)
-  if (detectedLast) {
-    result.pattern = 'shape-last'
-    result.detectedShape = detectedLast
-    const symbolChildren = children.slice(0, -1)
-    result.symbolSvg = buildSymbolSvg(symbolChildren.map((c) => c.raw), 36, 'light')
+  const detectedFirst = detectShape(firstChild.raw)
+  const detectedLast = children.length > 1 ? detectShape(lastChild.raw) : null
+
+  if (detectedFirst || detectedLast) {
+    const isShapeFirst = !!detectedFirst
+    const shapeChild = isShapeFirst ? firstChild : lastChild
+    const shapeType = (isShapeFirst ? detectedFirst : detectedLast)!
+    const symbolChildren = isShapeFirst ? children.slice(1) : children.slice(0, -1)
+
+    // Determine variant: does the shape have a fill attribute (not "none")?
+    const hasFill = /fill="(?!none)[^"]*"/.test(shapeChild.raw)
+    const variant = hasFill ? 'dark' : 'light'
+
+    result.pattern = isShapeFirst ? 'shape-first' : 'shape-last'
+    result.detectedShape = shapeType
+    result.symbolSvg = buildSymbolSvg(symbolChildren.map((c) => c.raw), 36, variant)
     return result
   }
 

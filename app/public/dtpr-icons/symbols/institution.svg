@@ -1,7 +1,7 @@
 <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M13.8334 16.3334H11.3334V22.1667H13.8334V16.3334Z" fill="var(--symbol-bg, white)"/>
-<path d="M19.25 16.3334H16.75V22.1667H19.25V16.3334Z" fill="var(--symbol-bg, white)"/>
-<path d="M26.3334 23.8334H9.66669V26.3334H26.3334V23.8334Z" fill="var(--symbol-bg, white)"/>
-<path d="M24.6667 16.3334H22.1667V22.1667H24.6667V16.3334Z" fill="var(--symbol-bg, white)"/>
-<path d="M18 8.83337L9.66669 13V14.6667H26.3334V13L18 8.83337Z" fill="var(--symbol-bg, white)"/>
+<path d="M13.8334 16.3334H11.3334V22.1667H13.8334V16.3334Z" fill="currentColor"/>
+<path d="M19.25 16.3334H16.75V22.1667H19.25V16.3334Z" fill="currentColor"/>
+<path d="M26.3334 23.8334H9.66669V26.3334H26.3334V23.8334Z" fill="currentColor"/>
+<path d="M24.6667 16.3334H22.1667V22.1667H24.6667V16.3334Z" fill="currentColor"/>
+<path d="M18 8.83337L9.66669 13V14.6667H26.3334V13L18 8.83337Z" fill="currentColor"/>
 </svg>

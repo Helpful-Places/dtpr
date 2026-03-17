@@ -1,7 +1,7 @@
 <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="7.20001" y="14.4" width="2.4" height="7.2" rx="1.2" fill="var(--symbol-bg, white)"/>
-<rect x="12" y="10.8" width="2.4" height="14.4" rx="1.2" fill="var(--symbol-bg, white)"/>
-<rect x="16.8" y="8.39999" width="2.4" height="19.2" rx="1.2" fill="var(--symbol-bg, white)"/>
-<rect x="21.6" y="10.8" width="2.4" height="14.4" rx="1.2" fill="var(--symbol-bg, white)"/>
-<rect x="26.4" y="14.4" width="2.4" height="7.2" rx="1.2" fill="var(--symbol-bg, white)"/>
+<rect x="7.20001" y="14.4" width="2.4" height="7.2" rx="1.2" fill="currentColor"/>
+<rect x="12" y="10.8" width="2.4" height="14.4" rx="1.2" fill="currentColor"/>
+<rect x="16.8" y="8.39999" width="2.4" height="19.2" rx="1.2" fill="currentColor"/>
+<rect x="21.6" y="10.8" width="2.4" height="14.4" rx="1.2" fill="currentColor"/>
+<rect x="26.4" y="14.4" width="2.4" height="7.2" rx="1.2" fill="currentColor"/>
 </svg>
