@@ -127,9 +127,10 @@ function extractSymbol(svgContent: string, elementId: string, fileName: string):
     const shapeType = (isShapeFirst ? detectedFirst : detectedLast)!
     const symbolChildren = isShapeFirst ? children.slice(1) : children.slice(0, -1)
 
-    // Determine variant: does the shape have a fill attribute (not "none")?
-    const hasFill = /fill="(?!none)[^"]*"/.test(shapeChild.raw)
-    const variant = hasFill ? 'dark' : 'light'
+    // Determine variant: does the shape have a dark fill (not "none", not "white")?
+    // A white fill on a shape is just a background, not a dark variant.
+    const hasDarkFill = /fill="(?!none|white|#fff)[^"]*"/.test(shapeChild.raw)
+    const variant = hasDarkFill ? 'dark' : 'light'
 
     result.pattern = isShapeFirst ? 'shape-first' : 'shape-last'
     result.detectedShape = shapeType
@@ -413,6 +414,31 @@ function detectShape(element: string): ShapeType | null {
   return null
 }
 
+function recolorMaskElement(element: string, variant: 'dark' | 'light'): string {
+  // For elements containing <mask>, preserve mask internals but recolor
+  // the content outside/after the mask (the visible drawing)
+  // Split on mask boundaries and only recolor non-mask parts
+  return element.replace(/(<mask[^>]*>[\s\S]*?<\/mask>)|(<[^>]+>)/g, (match, maskBlock) => {
+    if (maskBlock) return maskBlock // preserve mask content as-is
+    // Recolor non-mask elements
+    let result = match
+    if (variant === 'dark') {
+      result = result
+        .replace(/fill="(?:white|#fff(?:fff)?)"/gi, 'fill="currentColor"')
+        .replace(/fill="(?:black|#000(?:000)?)"/gi, 'fill="var(--symbol-bg, white)"')
+        .replace(/stroke="(?:white|#fff(?:fff)?)"/gi, 'stroke="currentColor"')
+        .replace(/stroke="(?:black|#000(?:000)?)"/gi, 'stroke="var(--symbol-bg, white)"')
+    } else {
+      result = result
+        .replace(/fill="(?:black|#000(?:000)?)"/gi, 'fill="currentColor"')
+        .replace(/fill="(?:white|#fff(?:fff)?)"/gi, 'fill="var(--symbol-bg, white)"')
+        .replace(/stroke="(?:black|#000(?:000)?)"/gi, 'stroke="currentColor"')
+        .replace(/stroke="(?:white|#fff(?:fff)?)"/gi, 'stroke="var(--symbol-bg, white)"')
+    }
+    return result
+  })
+}
+
 function buildSymbolSvg(childElements: string[], viewBox: number, variant: 'dark' | 'light' = 'dark'): string {
   // Replace fill colors with currentColor for theme-ability
   const content = childElements
@@ -430,6 +456,12 @@ ${content}
 }
 
 function recolorElement(element: string, variant: 'dark' | 'light' = 'dark'): string {
+  // Don't recolor content inside <mask> elements — mask fills (white/black)
+  // have special alpha semantics and must be preserved
+  if (/<mask[\s>]/.test(element)) {
+    return recolorMaskElement(element, variant)
+  }
+
   let result = element
 
   if (variant === 'dark') {
