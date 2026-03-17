@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { isTextUIPart } from 'ai'
+import { isTextUIPart, DefaultChatTransport } from 'ai'
 import { Chat } from '@ai-sdk/vue'
 
 const props = defineProps<{
@@ -19,13 +19,13 @@ const input = ref('')
 const generatingPrompt = ref(false)
 
 const chat = new Chat({
-  transport: {
+  transport: new DefaultChatTransport({
     api: '/api/icons/chat',
-    body: computed(() => ({
+    body: {
       elementId: props.elementId,
       referenceSymbols: props.referenceSymbols,
-    })).value,
-  },
+    },
+  }),
   onError(error) {
     toast.add({ title: 'Chat error', description: error.message, color: 'error' })
   },
