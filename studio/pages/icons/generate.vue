@@ -65,7 +65,8 @@ function getElementName(el: any): string {
 // Existing icons with images for reference context
 const existingIcons = computed(() => {
   if (!icons.value) return []
-  return (icons.value as any[]).filter((item) => item.hasIcon).slice(0, 12)
+  const elements = (icons.value as any).elements || icons.value
+  return (Array.isArray(elements) ? elements : []).filter((item: any) => item.hasIcon).slice(0, 12)
 })
 
 // Auto-populate shape and prompt when element changes
