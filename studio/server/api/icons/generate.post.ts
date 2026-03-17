@@ -13,14 +13,14 @@ export default defineEventHandler(async (event) => {
   }
 
   const body = await readBody(event)
-  const { elementId, save, variant, shape: shapeOverride, prompt: promptOverride, model, style } = body as {
+  const { elementId, save, variant, shape: shapeOverride, prompt: promptOverride, model, colors } = body as {
     elementId?: string
     save?: boolean
     variant?: ShapeVariant
     shape?: ShapeType
     prompt?: string
     model?: string
-    style?: string
+    colors?: [number, number, number][]
   }
 
   if (!elementId) {
@@ -34,7 +34,7 @@ export default defineEventHandler(async (event) => {
   const element = await provider.readFile('elements', 'en', elementId)
   const fm = element.frontmatter
 
-  // Generate inner icon via Recraft
+  // Generate inner icon via Recraft V4
   const innerSvg = await generateInnerIcon(config.recraftApiKey, {
     elementId: fm.id,
     elementName: fm.name,
@@ -43,7 +43,7 @@ export default defineEventHandler(async (event) => {
   }, {
     prompt: promptOverride,
     model,
-    style,
+    colors,
   })
 
   // Determine shape — use override if provided, otherwise derive from categories

@@ -8,8 +8,12 @@
     "cli": "tsx cli/index.ts"
   },
   "dependencies": {
+    "@ai-sdk/anthropic": "^3.0.58",
+    "@ai-sdk/vue": "^3.0.116",
     "@anthropic-ai/sdk": "^0.39.0",
     "@nuxt/ui": "^4.5.1",
+    "@nuxtjs/mdc": "^0.20.2",
+    "ai": "^6.0.116",
     "commander": "^13.1.0",
     "gray-matter": "^4.0.3",
     "nuxt": "^4.0.0",

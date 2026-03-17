@@ -7,7 +7,7 @@ import { buildDefaultPrompt } from './recraft-config'
 import type { IconGenerationRequest, RecraftOptions } from './recraft-config'
 
 // Re-export so existing server/CLI consumers don't need to change imports
-export { buildDefaultPrompt, RECRAFT_MODELS, RECRAFT_STYLES } from './recraft-config'
+export { buildDefaultPrompt, RECRAFT_MODELS } from './recraft-config'
 export type { IconGenerationRequest, RecraftOptions } from './recraft-config'
 
 export interface IconGenerationResult {
@@ -28,17 +28,24 @@ export async function generateInnerIcon(
   })
 
   const prompt = options?.prompt || buildDefaultPrompt(request)
-  const model = options?.model || 'recraftv3'
-  const style = options?.style || 'vector_illustration/line_art'
+  const model = options?.model || 'recraftv4_vector'
 
-  const response = await client.images.generate({
+  const generateParams: Record<string, any> = {
     model,
     prompt,
     n: 1,
     response_format: 'url',
-    style: style as any,
     size: '1024x1024',
-  })
+  }
+
+  // V4 supports controls for colors
+  if (options?.colors?.length) {
+    generateParams.controls = {
+      colors: options.colors.map(([r, g, b]) => ({ rgb: [r, g, b] })),
+    }
+  }
+
+  const response = await client.images.generate(generateParams as any)
 
   const imageUrl = response.data?.[0]?.url
   if (!imageUrl) {
