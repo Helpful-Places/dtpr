@@ -127,10 +127,12 @@ function extractSymbol(svgContent: string, elementId: string, fileName: string):
     const shapeType = (isShapeFirst ? detectedFirst : detectedLast)!
     const symbolChildren = isShapeFirst ? children.slice(1) : children.slice(0, -1)
 
-    // Determine variant: does the shape have a dark fill (not "none", not "white")?
-    // A white fill on a shape is just a background, not a dark variant.
-    const hasDarkFill = /fill="(?!none|white|#fff)[^"]*"/.test(shapeChild.raw)
-    const variant = hasDarkFill ? 'dark' : 'light'
+    // Determine variant by looking at what colors the symbol content uses.
+    // If symbol paths use fill="white", it's dark variant (white=foreground on dark shape).
+    // If symbol paths use fill="black" or no fill, it's light variant (black=foreground).
+    const symbolContent = symbolChildren.map((c) => c.raw).join('\n')
+    const hasWhiteSymbolFill = /fill="(?:white|#fff(?:fff)?)"/i.test(symbolContent)
+    const variant = hasWhiteSymbolFill ? 'dark' : 'light'
 
     result.pattern = isShapeFirst ? 'shape-first' : 'shape-last'
     result.detectedShape = shapeType
@@ -175,8 +177,10 @@ function extractForeign(svgContent: string, result: ExtractionResult): Extractio
     return result
   }
 
-  // Strategy 2: Direct shape detection in any child
+  // Strategy 2: Direct shape detection in any child (only for direct shape elements, not wrapper groups)
   for (let i = 0; i < children.length; i++) {
+    // Skip <g> wrapper elements — they contain nested content and would falsely match
+    if (children[i].tag === 'g') continue
     const shape = detectShape(children[i].raw)
     if (shape) {
       result.detectedShape = shape
@@ -186,28 +190,48 @@ function extractForeign(svgContent: string, result: ExtractionResult): Extractio
     }
   }
 
-  // Strategy 3: Sketch SVGs — search for container group by id pattern like "dtpr_icons-/-container-/-hexagon"
+  // Strategy 3: Sketch SVGs — search for container group by id pattern
   const containerMatch = svgContent.match(/id="dtpr_icons-\/-container-\/-(hexagon|circle|rounded-square|octagon)"/)
   if (containerMatch) {
     result.detectedShape = containerMatch[1] as ShapeType
-    // Remove the entire container group and extract the rest
-    // The container group and its content is the shape; everything else is the symbol
-    const containerGroupRegex = new RegExp(`<g[^>]*id="dtpr_icons-\\/-container-\\/-${containerMatch[1]}"[^>]*>[\\s\\S]*?</g>\\s*</g>`)
-    // For Sketch SVGs, the structure is: <g id="outer"><g id="symbol-content">...</g><g id="container">...</g></g>
-    // Extract symbol content groups (all <g> children except the container one)
-    const outerChildren = children.filter((c) => c.tag === 'g')
-    if (outerChildren.length === 1) {
-      // Single outer <g> wrapper — parse its children
-      const innerChildren = parseSvgChildren(`<svg>${outerChildren[0].raw.replace(/^<g[^>]*>/, '').replace(/<\/g>$/, '')}</svg>`)
-      const symbolParts: string[] = []
-      for (const inner of innerChildren) {
-        if (inner.raw.includes(`dtpr_icons-/-container-/`)) continue
-        symbolParts.push(inner.raw)
+
+    // Extract ALL graphic elements from the full SVG
+    // Match self-closing and open+close forms for each tag type
+    const tags = ['path', 'polygon', 'rect', 'circle', 'ellipse', 'line']
+    const allElements: string[] = []
+    for (const tag of tags) {
+      const regex = new RegExp(`<${tag}\\b[^>]*(?:\\/>|>[^<]*<\\/${tag}>)`, 'gs')
+      const matches = svgContent.match(regex)
+      if (matches) allElements.push(...matches)
+    }
+
+    // Filter: remove shape paths (detected by signature) and bounding-box polygons
+    const symbolElements = allElements.filter((el) => {
+      if (detectShape(el)) return false
+      if (/<polygon[^>]*points="0 0 \d+ 0 \d+ \d+ 0 \d+"/.test(el)) return false
+      return true
+    })
+
+    // Find transforms from wrapper <g> elements (excluding container and outer wrapper)
+    const transformMatches = svgContent.match(/<g[^>]*transform="([^"]*)"[^>]*>/g) || []
+    const transforms = transformMatches
+      .filter((g) => !g.includes('dtpr_icons'))
+      .map((g) => g.match(/transform="([^"]*)"/)?.[1])
+      .filter(Boolean) as string[]
+
+    if (symbolElements.length > 0) {
+      const symbolContent = symbolElements.join('\n')
+      const hasWhiteFill = /fill="(?:white|#fff)/i.test(symbolContent)
+      const variantForSketch = hasWhiteFill ? 'dark' : 'light'
+
+      let content = symbolElements.map((el) => recolorElement(el, variantForSketch)).join('\n')
+      if (transforms.length > 0) {
+        const combinedTransform = transforms.join(' ')
+        content = `<g transform="${combinedTransform}">\n${content}\n</g>`
       }
-      if (symbolParts.length > 0) {
-        result.symbolSvg = buildSymbolSvg(symbolParts, 36)
-        return result
-      }
+
+      result.symbolSvg = buildSymbolSvgRaw(content, 36)
+      return result
     }
   }
 
