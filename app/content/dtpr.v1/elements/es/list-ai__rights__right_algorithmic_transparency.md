@@ -3,6 +3,7 @@ category:
   - ai__rights
 id: right_algorithmic_transparency
 icon: /dtpr-icons/rights_algorithmic-transparency.svg
+symbol: /dtpr-icons/symbols/rights_algorithmic-transparency.svg
 name: Derecho a la transparencia algorítmica
 description: >-
   El derecho a entender cómo un sistema de IA toma decisiones que le afectan,

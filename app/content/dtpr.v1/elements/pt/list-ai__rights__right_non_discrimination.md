@@ -3,6 +3,7 @@ category:
   - ai__rights
 id: right_non_discrimination
 icon: /dtpr-icons/rights_non-discrimination.svg
+symbol: /dtpr-icons/symbols/rights_non-discrimination.svg
 name: Direito à não discriminação
 description: >-
   O direito de estar livre de tratamento discriminatório por sistemas de IA com

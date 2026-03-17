@@ -3,6 +3,7 @@ category:
   - ai__processing
 id: text-to-speech
 icon: /dtpr-icons/processing_text-to-speech.svg
+symbol: /dtpr-icons/symbols/processing_text-to-speech.svg
 name: អត្ថបទទៅការនិយាយ
 description: >-
   បច្ចេកវិទ្យាដែលបំប្លែងអត្ថបទដែលសរសេរទៅជាការបញ្ចេញសំឡេងនិយាយ។

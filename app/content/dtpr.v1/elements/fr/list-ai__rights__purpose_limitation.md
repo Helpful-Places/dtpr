@@ -3,6 +3,7 @@ category:
   - ai__rights
 id: right_purpose_limitation
 icon: /dtpr-icons/rights_purpose-limitation.svg
+symbol: /dtpr-icons/symbols/rights_purpose-limitation.svg
 name: Limitation du droit à l'objet
 description: >-
   Le droit de s'assurer que vos données ne sont utilisées qu'aux fins

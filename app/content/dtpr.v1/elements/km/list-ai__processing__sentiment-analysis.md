@@ -3,6 +3,7 @@ category:
   - ai__processing
 id: sentiment-analysis
 icon: /dtpr-icons/processing_sentiment-analysis.svg
+symbol: /dtpr-icons/symbols/processing_sentiment-analysis.svg
 name: ការវិភាគអារម្មណ៍
 description: >-
   បច្ចេកវិទ្យា​ដែល​វាយ​តម្លៃ​សំឡេង​អារម្មណ៍ និង​ព័ត៌មាន​ជា​ប្រធានបទ​ពី​អត្ថបទ

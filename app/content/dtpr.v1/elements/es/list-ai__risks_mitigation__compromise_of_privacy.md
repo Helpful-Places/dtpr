@@ -3,6 +3,7 @@ category:
   - ai__risks_mitigation
 id: compromise_of_privacy
 icon: /dtpr-icons/risks_compromise-of-privacy.svg
+symbol: /dtpr-icons/symbols/risks_compromise-of-privacy.svg
 name: Compromiso de la intimidad
 description: >-
   El riesgo de que el sistema de IA pueda acceder, exponer o deducir información

@@ -3,6 +3,7 @@ category:
   - ai__processing
 id: privacy-preserving
 icon: /dtpr-icons/processing_privacy-preservoing-transformation.svg
+symbol: /dtpr-icons/symbols/processing_privacy-preservoing-transformation.svg
 name: Pagbabagong Pagpapanatili ng Privacy
 description: >-
   Isang teknolohiya na nagbabago ng data upang alisin o itago ang impormasyong

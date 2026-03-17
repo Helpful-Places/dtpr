@@ -10,5 +10,6 @@ description: The risk that people place excessive trust in AI systems, leading
   about system limitations, training for users on appropriate reliance, and
   maintaining meaningful human involvement in critical decisions.
 icon: /dtpr-icons/risks_overreliance-and-automation.svg
+symbol: /dtpr-icons/symbols/risks_overreliance-and-automation.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

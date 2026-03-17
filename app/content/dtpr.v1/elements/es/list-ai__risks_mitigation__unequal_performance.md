@@ -3,6 +3,7 @@ category:
   - ai__risks_mitigation
 id: unequal_performance
 icon: /dtpr-icons/risks_unequal-performance.svg
+symbol: /dtpr-icons/symbols/risks_unequal-performance.svg
 name: Desigualdad de resultados entre grupos
 description: >-
   El riesgo de que el sistema de IA funcione de forma diferente (normalmente

@@ -3,6 +3,7 @@ category:
   - ai__risks_mitigation
 id: opaque_decision_making
 icon: /dtpr-icons/risks_opaque-decision-making.svg
+symbol: /dtpr-icons/symbols/risks_opaque-decision-making.svg
 name: Malabo ang paggawa ng desisyon
 description: >-
   Ang panganib na ang mga AI system ay gumawa ng mga desisyon sa pamamagitan ng

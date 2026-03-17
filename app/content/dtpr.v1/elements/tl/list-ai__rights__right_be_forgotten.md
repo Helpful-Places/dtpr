@@ -3,6 +3,7 @@ category:
   - ai__rights
 id: right_be_forgotten
 icon: /dtpr-icons/rights_forgotten.svg
+symbol: /dtpr-icons/symbols/rights_forgotten.svg
 name: Karapatang Makalimutan
 description: >-
   Ang karapatang humiling ng pagtanggal ng iyong personal na data mula sa isang

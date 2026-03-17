@@ -3,6 +3,7 @@ category:
   - ai__risks_mitigation
 id: compromise_of_privacy
 icon: /dtpr-icons/risks_compromise-of-privacy.svg
+symbol: /dtpr-icons/symbols/risks_compromise-of-privacy.svg
 name: Pagkompromiso sa privacy
 description: >-
   Ang panganib na maaaring ma-access, mailantad, o matukoy ng AI system ang

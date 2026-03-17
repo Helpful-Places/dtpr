@@ -3,6 +3,7 @@ category:
   - ai__risks_mitigation
 id: opaque_decision_making
 icon: /dtpr-icons/risks_opaque-decision-making.svg
+symbol: /dtpr-icons/symbols/risks_opaque-decision-making.svg
 name: ការសម្រេចចិត្តស្រអាប់
 description: >-
   ហានិភ័យដែលប្រព័ន្ធ AI ធ្វើការសម្រេចចិត្តតាមរយៈដំណើរការដែលពិបាក

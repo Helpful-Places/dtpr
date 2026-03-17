@@ -3,6 +3,7 @@ category:
   - ai__rights
 id: right_contest
 icon: /dtpr-icons/rights_contest.svg
+symbol: /dtpr-icons/symbols/rights_contest.svg
 name: Derecho de impugnación
 description: >-
   El derecho a impugnar las decisiones tomadas por un sistema de IA que le

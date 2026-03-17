@@ -3,6 +3,7 @@ category:
   - ai__rights
 id: right_purpose_limitation
 icon: /dtpr-icons/rights_purpose-limitation.svg
+symbol: /dtpr-icons/symbols/rights_purpose-limitation.svg
 name: Karapatan sa Limitasyon ng Layunin
 description: >-
   Ang karapatang matiyak na ang iyong data ay ginagamit lamang para sa mga

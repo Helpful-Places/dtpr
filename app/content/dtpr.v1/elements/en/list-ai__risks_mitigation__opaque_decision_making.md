@@ -10,5 +10,6 @@ description: The risk that AI systems make decisions through processes that are
   developing explanation methods, and maintaining documentation of system design
   and training processes.
 icon: /dtpr-icons/risks_opaque-decision-making.svg
+symbol: /dtpr-icons/symbols/risks_opaque-decision-making.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

@@ -3,6 +3,7 @@ category:
   - ai__risks_mitigation
 id: function_creep
 icon: /dtpr-icons/risks_unforseen-or-function-creep.svg
+symbol: /dtpr-icons/symbols/risks_unforseen-or-function-creep.svg
 name: Hindi inaasahang Paggamit o Function Creep
 description: >-
   Ang panganib na ang mga AI system na orihinal na na-deploy para sa mga

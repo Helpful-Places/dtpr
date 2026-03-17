@@ -3,6 +3,7 @@ category:
   - ai__processing
 id: recommendation-systems
 icon: /dtpr-icons/processing_recommendation-systems.svg
+symbol: /dtpr-icons/symbols/processing_recommendation-systems.svg
 name: ប្រព័ន្ធណែនាំ
 description: >-
   បច្ចេកវិទ្យាដែលណែនាំធាតុ សេវាកម្ម

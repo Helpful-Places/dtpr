@@ -3,6 +3,7 @@ category:
   - ai__rights
 id: right_be_forgotten
 icon: /dtpr-icons/rights_forgotten.svg
+symbol: /dtpr-icons/symbols/rights_forgotten.svg
 name: Derecho al olvido
 description: >-
   Derecho a solicitar la supresión de sus datos personales de un sistema de IA

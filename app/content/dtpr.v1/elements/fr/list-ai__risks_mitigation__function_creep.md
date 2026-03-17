@@ -3,6 +3,7 @@ category:
   - ai__risks_mitigation
 id: function_creep
 icon: /dtpr-icons/risks_unforseen-or-function-creep.svg
+symbol: /dtpr-icons/symbols/risks_unforseen-or-function-creep.svg
 name: Utilisation imprévue ou glissement de fonction
 description: >-
   Le risque que des systèmes d'IA déployés à l'origine pour des objectifs

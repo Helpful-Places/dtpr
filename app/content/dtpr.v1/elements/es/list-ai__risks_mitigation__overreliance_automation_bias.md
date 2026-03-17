@@ -3,6 +3,7 @@ category:
   - ai__risks_mitigation
 id: overreliance_automation_bias
 icon: /dtpr-icons/risks_overreliance-and-automation.svg
+symbol: /dtpr-icons/symbols/risks_overreliance-and-automation.svg
 name: Exceso de confianza y automatización
 description: >-
   El riesgo de que la gente deposite una confianza excesiva en los sistemas de

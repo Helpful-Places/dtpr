@@ -10,5 +10,6 @@ description: The risk that an AI system's performance degrades over time as
   include urban planning models that don't account for demographic shifts or
   transportation patterns that change seasonally or with new infrastructure.
 icon: /dtpr-icons/risks_system-drift-and-temporal-validity.svg
+symbol: /dtpr-icons/symbols/risks_system-drift-and-temporal-validity.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

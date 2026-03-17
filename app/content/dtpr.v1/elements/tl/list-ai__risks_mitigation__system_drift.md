@@ -3,6 +3,7 @@ category:
   - ai__risks_mitigation
 id: system_drift
 icon: /dtpr-icons/risks_system-drift-and-temporal-validity.svg
+symbol: /dtpr-icons/symbols/risks_system-drift-and-temporal-validity.svg
 name: System Drift at Temporal Validity
 description: >-
   Ang panganib na bumababa ang performance ng isang AI system sa paglipas ng

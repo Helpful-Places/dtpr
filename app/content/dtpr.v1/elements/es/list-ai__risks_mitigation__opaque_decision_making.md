@@ -3,6 +3,7 @@ category:
   - ai__risks_mitigation
 id: opaque_decision_making
 icon: /dtpr-icons/risks_opaque-decision-making.svg
+symbol: /dtpr-icons/symbols/risks_opaque-decision-making.svg
 name: Toma de decisiones opaca
 description: >-
   El riesgo de que los sistemas de IA tomen decisiones a través de procesos que

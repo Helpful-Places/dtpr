@@ -21,11 +21,12 @@ export const updateSymbolsCommand = new Command('update-symbols')
       process.exit(1)
     }
 
-    const symbolIds = new Set(symbolFiles.map((f) => f.replace('.svg', '')))
+    const symbolIds = new Set(symbolFiles)
     console.log(`Found ${symbolIds.size} symbols`)
 
     let updatedCount = 0
     let skippedCount = 0
+    let missingCount = 0
 
     for (const locale of LOCALES) {
       const elementsDir = join(opts.contentDir, 'elements', locale)
@@ -41,48 +42,42 @@ export const updateSymbolsCommand = new Command('update-symbols')
         const filePath = join(elementsDir, file)
         const content = await readFile(filePath, 'utf-8')
 
-        // Extract the element ID from frontmatter
-        const idMatch = content.match(/^id:\s*(.+)$/m)
-        if (!idMatch) {
-          console.log(`  ⚠️  ${locale}/${file}: no id field found`)
+        // Extract the icon path from frontmatter to derive the symbol filename
+        const iconMatch = content.match(/^icon:\s*(.+)$/m)
+        if (!iconMatch) {
+          missingCount++
           continue
         }
 
-        const elementId = idMatch[1].trim()
+        // The symbol filename matches the icon filename
+        const iconPath = iconMatch[1].trim()
+        const iconFileName = iconPath.split('/').pop() || ''
+        if (!iconFileName || !symbolIds.has(iconFileName)) {
+          missingCount++
+          continue
+        }
 
-        // Check if symbol exists for this element
-        if (!symbolIds.has(elementId)) {
+        const symbolPath = `/dtpr-icons/symbols/${iconFileName}`
+
+        // Check if symbol field already exists with correct value
+        const symbolRegex = /^symbol:\s*(.+)$/m
+        const existingSymbol = content.match(symbolRegex)
+        if (existingSymbol && existingSymbol[1].trim() === symbolPath) {
           skippedCount++
           continue
         }
 
-        // Check if symbol field already exists
-        if (/^symbol:/m.test(content)) {
-          skippedCount++
-          continue
-        }
-
-        // Add symbol field after the icon field
-        const symbolPath = `/dtpr-icons/symbols/${elementId}.svg`
         let updatedContent: string
 
-        if (/^icon:/m.test(content)) {
+        if (existingSymbol) {
+          // Update existing symbol field
+          updatedContent = content.replace(symbolRegex, `symbol: ${symbolPath}`)
+        } else {
           // Add symbol right after the icon line
           updatedContent = content.replace(
             /^(icon:\s*.+)$/m,
             `$1\nsymbol: ${symbolPath}`,
           )
-        } else {
-          // No icon field — add symbol before the closing ---
-          // Find the second --- (end of frontmatter)
-          const parts = content.split('---')
-          if (parts.length >= 3) {
-            parts[1] = parts[1].trimEnd() + `\nsymbol: ${symbolPath}\n`
-            updatedContent = parts.join('---')
-          } else {
-            console.log(`  ⚠️  ${locale}/${file}: could not parse frontmatter`)
-            continue
-          }
         }
 
         if (!opts.dryRun) {
@@ -95,7 +90,7 @@ export const updateSymbolsCommand = new Command('update-symbols')
       console.log(`  ${locale}: processed`)
     }
 
-    console.log(`\n📊 Results: ${updatedCount} files updated, ${skippedCount} skipped`)
+    console.log(`\n📊 Results: ${updatedCount} updated, ${skippedCount} already correct, ${missingCount} no matching symbol`)
     if (opts.dryRun) {
       console.log('  (dry run — no files written)')
     }

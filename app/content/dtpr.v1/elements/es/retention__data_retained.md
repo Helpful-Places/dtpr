@@ -4,6 +4,7 @@ category:
   - ai__retention
 id: data_retained
 icon: /dtpr-icons/is_retained.svg
+symbol: /dtpr-icons/symbols/is_retained.svg
 name: 'Retenido {{duration}}'
 description: >-
   Los datos se almacenan durante {{duration}}, y después de este período de tiempo

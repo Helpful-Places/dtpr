@@ -3,6 +3,7 @@ category:
   - ai__risks_mitigation
 id: compromise_of_privacy
 icon: /dtpr-icons/risks_compromise-of-privacy.svg
+symbol: /dtpr-icons/symbols/risks_compromise-of-privacy.svg
 name: ការសម្របសម្រួលនៃភាពឯកជន
 description: >-
   ហានិភ័យដែលប្រព័ន្ធ AI អាចចូលប្រើ លាតត្រដាង

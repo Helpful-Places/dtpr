@@ -3,6 +3,7 @@ category:
   - ai__rights
 id: right_access
 icon: /dtpr-icons/rights_access.svg
+symbol: /dtpr-icons/symbols/rights_access.svg
 name: Derecho de acceso
 description: >-
   Derecho a solicitar y recibir información sobre qué datos personales ha

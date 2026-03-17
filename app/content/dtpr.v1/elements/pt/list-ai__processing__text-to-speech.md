@@ -3,6 +3,7 @@ category:
   - ai__processing
 id: text-to-speech
 icon: /dtpr-icons/processing_text-to-speech.svg
+symbol: /dtpr-icons/symbols/processing_text-to-speech.svg
 name: Conversão de texto em fala
 description: >-
   Tecnologia que converte texto escrito em saída de voz falada. Esses sistemas

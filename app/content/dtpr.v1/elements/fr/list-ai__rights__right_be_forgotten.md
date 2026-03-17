@@ -3,6 +3,7 @@ category:
   - ai__rights
 id: right_be_forgotten
 icon: /dtpr-icons/rights_forgotten.svg
+symbol: /dtpr-icons/symbols/rights_forgotten.svg
 name: Droit à l'oubli
 description: >-
   Le droit de demander l'effacement de vos données à caractère personnel d'un

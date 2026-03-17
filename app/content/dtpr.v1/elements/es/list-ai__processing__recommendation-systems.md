@@ -3,6 +3,7 @@ category:
   - ai__processing
 id: recommendation-systems
 icon: /dtpr-icons/processing_recommendation-systems.svg
+symbol: /dtpr-icons/symbols/processing_recommendation-systems.svg
 name: Sistemas de recomendación
 description: >-
   Tecnología que sugiere artículos, servicios o acciones a los usuarios en

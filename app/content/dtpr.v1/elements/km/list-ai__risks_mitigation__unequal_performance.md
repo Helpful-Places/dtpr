@@ -3,6 +3,7 @@ category:
   - ai__risks_mitigation
 id: unequal_performance
 icon: /dtpr-icons/risks_unequal-performance.svg
+symbol: /dtpr-icons/symbols/risks_unequal-performance.svg
 name: ការសម្តែងមិនស្មើគ្នាក្នុងក្រុម
 description: >-
   ហានិភ័យដែលប្រព័ន្ធ AI ដំណើរការខុសគ្នា (ជាធម្មតាកាន់តែអាក្រក់)

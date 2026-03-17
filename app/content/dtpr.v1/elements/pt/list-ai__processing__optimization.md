@@ -3,6 +3,7 @@ category:
   - ai__processing
 id: optimization
 icon: /dtpr-icons/processing_optimization-algorithm.svg
+symbol: /dtpr-icons/symbols/processing_optimization-algorithm.svg
 name: Algoritmo de otimização
 description: >-
   Um processo matemático que encontra a melhor solução entre todas as soluções

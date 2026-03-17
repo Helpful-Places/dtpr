@@ -3,6 +3,7 @@ category:
   - ai__processing
 id: sentiment-analysis
 icon: /dtpr-icons/processing_sentiment-analysis.svg
+symbol: /dtpr-icons/symbols/processing_sentiment-analysis.svg
 name: Pagsusuri ng Sentimento
 description: >-
   Isang teknolohiya na sinusuri ang emosyonal na tono at pansariling impormasyon

@@ -3,6 +3,7 @@ category:
   - ai__risks_mitigation
 id: system_drift
 icon: /dtpr-icons/risks_system-drift-and-temporal-validity.svg
+symbol: /dtpr-icons/symbols/risks_system-drift-and-temporal-validity.svg
 name: Deriva del sistema y validez temporal
 description: >-
   El riesgo de que el rendimiento de un sistema de IA se degrade con el tiempo a
