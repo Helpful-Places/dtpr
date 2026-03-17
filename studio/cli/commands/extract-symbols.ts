@@ -130,8 +130,10 @@ function extractSymbol(svgContent: string, elementId: string, fileName: string):
     // Determine variant by looking at what colors the symbol content uses.
     // If symbol paths use fill="white", it's dark variant (white=foreground on dark shape).
     // If symbol paths use fill="black" or no fill, it's light variant (black=foreground).
+    // Exclude mask content from this check — mask fills have alpha semantics.
     const symbolContent = symbolChildren.map((c) => c.raw).join('\n')
-    const hasWhiteSymbolFill = /fill="(?:white|#fff(?:fff)?)"/i.test(symbolContent)
+    const contentWithoutMasks = symbolContent.replace(/<mask[\s\S]*?<\/mask>/g, '')
+    const hasWhiteSymbolFill = /fill="(?:white|#fff(?:fff)?)"/i.test(contentWithoutMasks)
     const variant = hasWhiteSymbolFill ? 'dark' : 'light'
 
     result.pattern = isShapeFirst ? 'shape-first' : 'shape-last'
