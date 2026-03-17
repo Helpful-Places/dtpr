@@ -110,6 +110,7 @@ function copyId(id: string) {
             v-if="viewMode !== 'icons'"
             class="w-12 h-12 flex items-center justify-center rounded"
             :class="item.hasSymbol ? 'bg-white' : 'bg-muted/10'"
+            :style="item.hasSymbol ? 'color: black; --symbol-bg: white' : ''"
           >
             <img
               v-if="item.hasSymbol"

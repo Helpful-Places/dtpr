@@ -431,17 +431,19 @@ function recolorElement(element: string, variant: 'dark' | 'light' = 'dark'): st
   let result = element
 
   if (variant === 'dark') {
-    // Dark variant: white fills are the symbol color → currentColor
+    // Dark variant: white is foreground (symbol), black is background
     result = result
-      .replace(/fill="(?:black|#000(?:000)?|white|#fff(?:fff)?)"/gi, 'fill="currentColor"')
-      .replace(/stroke="(?:black|#000(?:000)?|white|#fff(?:fff)?)"/gi, 'stroke="currentColor"')
+      .replace(/fill="(?:white|#fff(?:fff)?)"/gi, 'fill="currentColor"')
+      .replace(/fill="(?:black|#000(?:000)?)"/gi, 'fill="var(--symbol-bg, white)"')
+      .replace(/stroke="(?:white|#fff(?:fff)?)"/gi, 'stroke="currentColor"')
+      .replace(/stroke="(?:black|#000(?:000)?)"/gi, 'stroke="var(--symbol-bg, white)"')
   } else {
-    // Light variant: black fills are the symbol, white fills are knockouts → none
+    // Light variant: black is foreground (symbol), white is background
     result = result
       .replace(/fill="(?:black|#000(?:000)?)"/gi, 'fill="currentColor"')
-      .replace(/fill="(?:white|#fff(?:fff)?)"/gi, 'fill="none"')
+      .replace(/fill="(?:white|#fff(?:fff)?)"/gi, 'fill="var(--symbol-bg, white)"')
       .replace(/stroke="(?:black|#000(?:000)?)"/gi, 'stroke="currentColor"')
-      .replace(/stroke="(?:white|#fff(?:fff)?)"/gi, 'stroke="none"')
+      .replace(/stroke="(?:white|#fff(?:fff)?)"/gi, 'stroke="var(--symbol-bg, white)"')
   }
 
   // For elements without any fill attribute, add fill="currentColor"
