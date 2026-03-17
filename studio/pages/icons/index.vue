@@ -113,7 +113,7 @@ function copyId(id: string) {
           >
             <img
               v-if="item.hasSymbol"
-              :src="symbolUrl(item.id)"
+              :src="symbolUrl(item.iconFileName)"
               :alt="`${item.name} symbol`"
               class="w-10 h-10"
             />

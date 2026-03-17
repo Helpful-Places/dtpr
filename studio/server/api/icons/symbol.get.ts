@@ -11,7 +11,7 @@ export default defineEventHandler(async (event) => {
   }
 
   const symbolsDir = join(getIconsDir(), 'symbols')
-  const fileName = `${id}.svg`
+  const fileName = id.endsWith('.svg') ? id : `${id}.svg`
 
   try {
     const content = await readFile(join(symbolsDir, fileName), 'utf-8')
