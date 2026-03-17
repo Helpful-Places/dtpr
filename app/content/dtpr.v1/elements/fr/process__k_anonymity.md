@@ -6,7 +6,7 @@ description: 'L''anonymat K est utilisé pour garantir l''anonymat lors de la di
   supprimés ou généralisés jusqu''à ce que chaque ligne soit identique à au moins
   k-1 autres lignes. À ce stade, on dit que la base de données est k-anonyme. '
 icon: /dtpr-icons/k_anonymity.svg
-symbol: /dtpr-icons/symbols/k_anonymity.svg
+symbol: /dtpr-icons/symbols/privacy.svg
 id: k_anonymity
 name: K-Anonymat
 updated_at: 2025-08-29T00:00:00Z
