@@ -449,11 +449,17 @@ function recolorElement(element: string, variant: 'dark' | 'light' = 'dark'): st
   }
 
   // For elements without any fill attribute, add fill="currentColor"
-  // These come from Illustrator SVGs that rely on the default SVG fill (black)
-  result = result.replace(/<(path|rect|circle|ellipse|polygon)\b([^>]*?)\/?>/g, (fullMatch, tag, attrs) => {
-    if (/fill=/.test(attrs)) return fullMatch
-    return fullMatch.replace(`<${tag}`, `<${tag} fill="currentColor"`)
-  })
+  // BUT skip elements that:
+  // - already have a fill
+  // - have a stroke (they're intentionally unfilled outlines)
+  // - are inside <mask> elements (mask fills have special semantics)
+  if (!/<mask[\s>]/.test(result)) {
+    result = result.replace(/<(path|rect|circle|ellipse|polygon)\b([^>]*?)\/?>/g, (fullMatch, _tag, attrs) => {
+      if (/fill=/.test(attrs)) return fullMatch
+      if (/stroke=/.test(attrs)) return fullMatch
+      return fullMatch.replace(`<${_tag}`, `<${_tag} fill="currentColor"`)
+    })
+  }
 
   return result
 }
