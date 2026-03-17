@@ -6,7 +6,7 @@ description: >-
   couramment utilisés pour suivre les stocks dans les magasins (mais pas pour
   identifier des articles individuels).
 icon: /dtpr-icons/rfid.svg
-symbol: /dtpr-icons/symbols/rfid.svg
+symbol: /dtpr-icons/symbols/signal.svg
 id: rfid
 name: RFID
 updated_at: 2025-08-29T00:00:00Z

@@ -5,6 +5,6 @@ name: NFC identificável
 id: identifiable_nfc
 description: Um protocolo de comunicação sem fios para dispositivos electrónicos que se encontram a uma curta distância uns dos outros, normalmente utilizado em sistemas de bilhética ou de pagamento. Neste caso, é possível uma identificação única, por exemplo, se um determinado item estiver intimamente associado aos dados pessoais de uma pessoa.
 icon: /dtpr-icons/identifiable_nfc.svg
-symbol: /dtpr-icons/symbols/identifiable_nfc.svg
+symbol: /dtpr-icons/symbols/signal.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

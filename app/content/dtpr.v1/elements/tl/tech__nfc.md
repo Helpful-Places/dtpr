@@ -9,7 +9,7 @@ description: >-
   mga sistema ng pag -tiket o pagbabayad. Walang pagkilala ng data na nakolekta
   sa kasong ito.
 icon: /dtpr-icons/nfc.svg
-symbol: /dtpr-icons/symbols/nfc.svg
+symbol: /dtpr-icons/symbols/signal.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 

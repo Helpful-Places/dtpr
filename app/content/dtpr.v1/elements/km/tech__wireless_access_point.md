@@ -7,6 +7,6 @@ description: ផ្តល់នូវការចូលប្រើឥតខ្�
   ស្វែងយល់បន្ថែម
   [នៅទីនេះ](https://en.wikipedia.org/wiki/wireless_wiress_access_point)
 icon: /dtpr-icons/wireless_access_point.svg
-symbol: /dtpr-icons/symbols/wireless_access_point.svg
+symbol: /dtpr-icons/symbols/signal.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

@@ -9,7 +9,7 @@ description: >-
   kahit saan o malapit sa lupa kung saan mayroong isang hindi nababagabag na
   linya ng paningin sa apat o higit pang mga satellite ng GPS.
 icon: /dtpr-icons/gps.svg
-symbol: /dtpr-icons/symbols/gps.svg
+symbol: /dtpr-icons/symbols/signal.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 

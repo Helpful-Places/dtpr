@@ -9,7 +9,7 @@ description: >-
   possible, for example if a particular item is closely associated with an
   individual's personal data.
 icon: /dtpr-icons/identifiable_rfid.svg
-symbol: /dtpr-icons/symbols/identifiable_rfid.svg
+symbol: /dtpr-icons/symbols/signal.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 

@@ -3,7 +3,7 @@ id: identifiable_wifi_sensor
 category:
   - device__tech
 icon: /dtpr-icons/identifiable_wifi_sensor.svg
-symbol: /dtpr-icons/symbols/identifiable_wifi_sensor.svg
+symbol: /dtpr-icons/symbols/signal.svg
 name: Makikilalang WiFi Sensor
 description: >-
   Sinusukat ng mga WiFi sensor ang lakas ng mga wireless na signal mula sa mga
