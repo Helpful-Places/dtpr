@@ -430,8 +430,16 @@ ${content}
 
 function recolorElement(element: string): string {
   // Replace fill="black", fill="white", fill="#000", etc. with currentColor
-  // But preserve fill="none" and mask-related fills (fill="white" inside masks)
-  return element
+  let result = element
     .replace(/fill="(?:black|#000(?:000)?|white|#fff(?:fff)?)"/gi, 'fill="currentColor"')
     .replace(/stroke="(?:black|#000(?:000)?|white|#fff(?:fff)?)"/gi, 'stroke="currentColor"')
+
+  // For elements without any fill attribute, add fill="currentColor"
+  // These come from Illustrator SVGs that rely on the default SVG fill (black)
+  result = result.replace(/<(path|rect|circle|ellipse|polygon)\b([^>]*?)\/?>/g, (fullMatch, tag, attrs) => {
+    if (/fill=/.test(attrs)) return fullMatch
+    return fullMatch.replace(`<${tag}`, `<${tag} fill="currentColor"`)
+  })
+
+  return result
 }

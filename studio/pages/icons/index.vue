@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { data: icons, status } = useIcons()
+const toast = useToast()
 
 const search = ref('')
 const filterStatus = ref<string>('')
@@ -46,6 +47,11 @@ const symbolCount = computed(() => {
 
 function symbolUrl(id: string) {
   return `/api/icons/symbol?id=${encodeURIComponent(id)}`
+}
+
+function copyId(id: string) {
+  navigator.clipboard.writeText(id)
+  toast.add({ title: `Copied: ${id}`, color: 'neutral' })
 }
 </script>
 
@@ -120,6 +126,13 @@ function symbolUrl(id: string) {
         <div class="text-xs text-center line-clamp-2 w-full" :title="item.name">
           {{ item.name }}
         </div>
+        <button
+          class="text-[10px] text-muted hover:text-primary font-mono truncate w-full text-center cursor-pointer"
+          :title="`Click to copy: ${item.id}`"
+          @click="copyId(item.id)"
+        >
+          {{ item.id }}
+        </button>
       </div>
     </div>
   </div>
