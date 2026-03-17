@@ -8,6 +8,7 @@ description: >-
   possible, par exemple si un article particulier est étroitement associé aux
   données personnelles d'un individu.
 icon: /dtpr-icons/identifiable_nfc.svg
+symbol: /dtpr-icons/symbols/signal.svg
 id: identifiable_nfc
 name: NFC identifiable
 updated_at: 2025-08-29T00:00:00Z

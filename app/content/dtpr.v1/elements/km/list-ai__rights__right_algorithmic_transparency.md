@@ -3,6 +3,7 @@ category:
   - ai__rights
 id: right_algorithmic_transparency
 icon: /dtpr-icons/rights_algorithmic-transparency.svg
+symbol: /dtpr-icons/symbols/rights_algorithmic-transparency.svg
 name: សិទ្ធិចំពោះតម្លាភាពនៃក្បួនដោះស្រាយ
 description: >-
   សិទ្ធិក្នុងការយល់ពីរបៀបដែលប្រព័ន្ធ AI ធ្វើការសម្រេចចិត្តដែលប៉ះពាល់ដល់អ្នក

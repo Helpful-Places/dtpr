@@ -8,6 +8,7 @@ description: >-
   in a way that removes identifying characteristics before it is used or stored
   (known as *de-identified before first use* or *de-identified on device*).
 icon: /dtpr-icons/de_identified_voice.svg
+symbol: /dtpr-icons/symbols/audio.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 

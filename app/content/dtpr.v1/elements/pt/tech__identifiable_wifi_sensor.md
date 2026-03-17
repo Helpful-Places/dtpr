@@ -3,6 +3,7 @@ id: identifiable_wifi_sensor
 category:
   - device__tech
 icon: /dtpr-icons/identifiable_wifi_sensor.svg
+symbol: /dtpr-icons/symbols/signal.svg
 name: Sensor WiFi identificável
 description: >-
   Os sensores WiFi medem a intensidade dos sinais sem fio de telefones celulares

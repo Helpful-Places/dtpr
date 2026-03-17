@@ -8,6 +8,7 @@ description: >-
   na nagbibigay-daan sa pag-aaral ng makina na maganap sa isang malaking bahagi
   ng desentralisadong datos  na hindi kinilala.
 icon: /dtpr-icons/federated_learning.svg
+symbol: /dtpr-icons/symbols/privacy.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 

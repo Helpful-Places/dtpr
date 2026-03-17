@@ -8,5 +8,6 @@ description: O Transport Layer Security, ou TLS, é um protocolo de segurança
   dados nas comunicações através da Internet, encriptando os dados durante o seu
   percurso.
 icon: /dtpr-icons/transport_layer_security.svg
+symbol: /dtpr-icons/symbols/encrypted.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

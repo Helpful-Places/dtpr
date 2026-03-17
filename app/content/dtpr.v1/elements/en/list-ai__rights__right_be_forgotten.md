@@ -10,5 +10,6 @@ description: The right to request the deletion of your personal data from an AI
   have the system "unlearn" information derived from your data where technically
   feasible.
 icon: /dtpr-icons/rights_forgotten.svg
+symbol: /dtpr-icons/symbols/rights_forgotten.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

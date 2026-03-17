@@ -9,5 +9,6 @@ description: The right to be free from discriminatory treatment by AI systems
   demonstrate appropriate technical and organizational measures to prevent
   discriminatory outcomes from their AI systems.
 icon: /dtpr-icons/rights_non-discrimination.svg
+symbol: /dtpr-icons/symbols/rights_non-discrimination.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

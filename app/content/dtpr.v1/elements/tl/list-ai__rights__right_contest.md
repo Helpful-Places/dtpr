@@ -3,6 +3,7 @@ category:
   - ai__rights
 id: right_contest
 icon: /dtpr-icons/rights_contest.svg
+symbol: /dtpr-icons/symbols/rights_contest.svg
 name: Karapatan sa Paligsahan
 description: >-
   Ang karapatang hamunin ang mga desisyong ginawa ng isang AI system na

@@ -9,6 +9,7 @@ description: >-
   Medidas que se recogen a intervalos regulares durante un período de tiempo.
   Por ejemplo, ver datos de la serie temporal.
 icon: /dtpr-icons/values_time.svg
+symbol: /dtpr-icons/symbols/values_time.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 

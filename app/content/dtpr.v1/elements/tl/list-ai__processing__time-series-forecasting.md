@@ -3,6 +3,7 @@ category:
   - ai__processing
 id: time-series-forecasting
 icon: /dtpr-icons/processing_time-series-forecasting.svg
+symbol: /dtpr-icons/symbols/processing_time-series-forecasting.svg
 name: Pagtataya ng Serye ng Oras
 description: >-
   Isang paraan na sinusuri ang mga makasaysayang punto ng data na nakolekta sa

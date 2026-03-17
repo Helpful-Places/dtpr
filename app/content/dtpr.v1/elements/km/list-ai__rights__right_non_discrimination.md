@@ -3,6 +3,7 @@ category:
   - ai__rights
 id: right_non_discrimination
 icon: /dtpr-icons/rights_non-discrimination.svg
+symbol: /dtpr-icons/symbols/rights_non-discrimination.svg
 name: សិទ្ធិមិនរើសអើង
 description: >-
   សិទ្ធិ​ដើម្បី​រួច​ផុត​ពី​ការ​រើសអើង​ដោយ​ប្រព័ន្ធ AI

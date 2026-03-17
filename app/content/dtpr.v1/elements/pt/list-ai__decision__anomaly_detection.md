@@ -3,6 +3,7 @@ category:
   - ai__decision
 id: anomaly_detection
 icon: /dtpr-icons/dm_anomay-detection.svg
+symbol: /dtpr-icons/symbols/dm_anomay-detection.svg
 context_type_id: ai_flags_human_decides
 name: Detecção de anomalias
 description: >-

@@ -3,6 +3,7 @@ category:
   - ai__rights
 id: right_access
 icon: /dtpr-icons/rights_access.svg
+symbol: /dtpr-icons/symbols/rights_access.svg
 name: Karapatan sa Pag-access
 description: >-
   Ang karapatang humiling at tumanggap ng impormasyon tungkol sa kung anong

@@ -6,5 +6,6 @@ name: Not available to the accountable organization
 id: not_available_to_the_accountable_organization
 description: Data is not available to the accountable organization
 icon: /dtpr-icons/not_available_to_the_accountable_organization.svg
+symbol: /dtpr-icons/symbols/not_available.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

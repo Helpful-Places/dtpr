@@ -3,6 +3,7 @@ category:
   - ai__rights
 id: right_non_discrimination
 icon: /dtpr-icons/rights_non-discrimination.svg
+symbol: /dtpr-icons/symbols/rights_non-discrimination.svg
 name: Karapatan sa Walang Diskriminasyon
 description: >-
   Ang karapatang maging malaya sa diskriminasyong pagtrato ng mga AI system

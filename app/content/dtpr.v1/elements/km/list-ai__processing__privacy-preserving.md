@@ -3,6 +3,7 @@ category:
   - ai__processing
 id: privacy-preserving
 icon: /dtpr-icons/processing_privacy-preservoing-transformation.svg
+symbol: /dtpr-icons/symbols/processing_privacy-preservoing-transformation.svg
 name: ភាពឯកជន-ការរក្សាការផ្លាស់ប្តូរ
 description: >-
   បច្ចេកវិទ្យាដែលកែប្រែទិន្នន័យដើម្បីលុប

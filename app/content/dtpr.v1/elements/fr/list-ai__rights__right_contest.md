@@ -3,6 +3,7 @@ category:
   - ai__rights
 id: right_contest
 icon: /dtpr-icons/rights_contest.svg
+symbol: /dtpr-icons/symbols/rights_contest.svg
 name: Droit de contestation
 description: >-
   Le droit de contester les décisions prises par un système d'IA qui vous

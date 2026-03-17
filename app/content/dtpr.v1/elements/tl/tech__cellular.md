@@ -9,6 +9,7 @@ description: >-
   transceiver (hal., mga mobile phone) upang makipag-usap sa bawat isa at may
   mga nakapirming transceiver at telepono kahit saan sa network.
 icon: /dtpr-icons/cellular.svg
+symbol: /dtpr-icons/symbols/signal.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 

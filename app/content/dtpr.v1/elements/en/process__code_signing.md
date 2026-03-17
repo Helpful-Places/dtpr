@@ -9,6 +9,7 @@ description: >-
   or corrupted since it was signed. The process employs the use of a
   cryptographic hash to validate authenticity and integrity.
 icon: /dtpr-icons/code_signing.svg
+symbol: /dtpr-icons/symbols/encrypted.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 

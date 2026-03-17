@@ -3,6 +3,7 @@ category:
   - ai__processing
 id: text-to-speech
 icon: /dtpr-icons/processing_text-to-speech.svg
+symbol: /dtpr-icons/symbols/processing_text-to-speech.svg
 name: Text-to-Speech
 description: >-
   Teknolohiya na nagko-convert ng nakasulat na teksto sa pasalitang output ng

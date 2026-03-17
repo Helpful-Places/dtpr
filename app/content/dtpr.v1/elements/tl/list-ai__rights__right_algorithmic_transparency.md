@@ -3,6 +3,7 @@ category:
   - ai__rights
 id: right_algorithmic_transparency
 icon: /dtpr-icons/rights_algorithmic-transparency.svg
+symbol: /dtpr-icons/symbols/rights_algorithmic-transparency.svg
 name: Karapatan sa Algorithmic Transparency
 description: >-
   Ang karapatang maunawaan kung paano gumagawa ng mga desisyon ang AI system na

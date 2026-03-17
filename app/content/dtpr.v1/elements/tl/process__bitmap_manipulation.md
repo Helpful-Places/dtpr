@@ -5,5 +5,6 @@ name: Pagmamanipula ng bitmap
 id: bitmap_manipulation
 description: Ang bitmap na pagmamanipula ay ang proseso ng pagbabago ng mga pixel sa isang imahe na batay sa raster, tulad ng pagsasaayos (retouching) ng digital na larawan.
 icon: /dtpr-icons/bitmap_manipulation.svg
+symbol: /dtpr-icons/symbols/aggregated.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

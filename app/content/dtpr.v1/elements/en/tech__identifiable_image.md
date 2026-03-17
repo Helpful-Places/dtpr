@@ -10,6 +10,7 @@ description: >-
   through manual review of images by a person, or through computer vision
   techniques that derives information in the form of data from images.
 icon: /dtpr-icons/identifiable_image.svg
+symbol: /dtpr-icons/symbols/camera.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 

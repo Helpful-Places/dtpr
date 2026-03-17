@@ -5,6 +5,7 @@ category:
 description: L'entité qui est responsable et redevable de cette activité de collecte
   de données
 icon: /dtpr-icons/institution.svg
+symbol: /dtpr-icons/symbols/institution.svg
 id: institution
 name: Institution
 updated_at: 2025-08-29T00:00:00Z

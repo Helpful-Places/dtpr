@@ -11,5 +11,6 @@ description: The risk that AI systems originally deployed for specific, limited
   notification. This can undermine public trust and potentially lead to uses
   that weren't properly designed for or vetted.
 icon: /dtpr-icons/risks_unforseen-or-function-creep.svg
+symbol: /dtpr-icons/symbols/risks_unforseen-or-function-creep.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

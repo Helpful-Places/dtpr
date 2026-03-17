@@ -9,6 +9,7 @@ description: >-
   Earth where there is an unobstructed line of sight to four or more GPS
   satellites.
 icon: /dtpr-icons/gps.svg
+symbol: /dtpr-icons/symbols/signal.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 

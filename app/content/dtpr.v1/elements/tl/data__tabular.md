@@ -9,6 +9,7 @@ description: >-
   Ang mga datos na naka -imbak sa isang talahanayan, kung saan ang mga halaga ay
   naka -imbak sa mga hilera at haligi.
 icon: /dtpr-icons/tabular.svg
+symbol: /dtpr-icons/symbols/tabular.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 

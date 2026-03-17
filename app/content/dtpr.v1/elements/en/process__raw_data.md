@@ -8,6 +8,7 @@ description: >-
   data is effectively identical to how it was gathered from the original data
   source.
 icon: /dtpr-icons/raw_data.svg
+symbol: /dtpr-icons/symbols/raw_data.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 

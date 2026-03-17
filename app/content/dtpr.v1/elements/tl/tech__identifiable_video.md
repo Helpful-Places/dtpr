@@ -11,5 +11,6 @@ description: Bumubuo ng video footage ng sapat na resolution kung saan
   computer vision na kumukuha ng impormasyon sa anyo ng data mula sa video o mga
   imahe
 icon: /dtpr-icons/identifiable_video.svg
+symbol: /dtpr-icons/symbols/video.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

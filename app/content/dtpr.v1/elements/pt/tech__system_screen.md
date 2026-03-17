@@ -6,5 +6,6 @@ id: system_screen
 description: As pessoas podem interagir com este sistema digital utilizando o
   ecrã que é fornecido como parte da instalação do dispositivo.
 icon: /dtpr-icons/system_screen.svg
+symbol: /dtpr-icons/symbols/system_screen.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

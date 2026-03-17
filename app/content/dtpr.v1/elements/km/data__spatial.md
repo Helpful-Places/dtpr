@@ -7,5 +7,6 @@ name: នៃផសាយថា
 id: spatial
 description: ទិន្នន័យដែលតំណាងឱ្យទីតាំងដូចជាអាសយដ្ឋានឈ្មោះកន្លែងឬកូអរដោនេភូមិសាស្ត្រ
 icon: /dtpr-icons/spatial.svg
+symbol: /dtpr-icons/symbols/spatial.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

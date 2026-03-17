@@ -3,6 +3,7 @@ category:
   - ai__risks_mitigation
 id: compromise_of_privacy
 icon: /dtpr-icons/risks_compromise-of-privacy.svg
+symbol: /dtpr-icons/symbols/risks_compromise-of-privacy.svg
 name: Compromission de la vie privée
 description: >-
   Le risque que le système d'IA accède, expose ou déduise des informations

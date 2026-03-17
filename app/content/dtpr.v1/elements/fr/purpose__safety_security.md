@@ -7,6 +7,7 @@ description: >-
   sécurité incendie, de détection des intrusions ou pour assurer la sécurité du
   passage dans des lieux tels que les aéroports ou les routes.
 icon: /dtpr-icons/safety_security.svg
+symbol: /dtpr-icons/symbols/safety_security.svg
 id: safety_security
 name: Tranquillité Prévention
 updated_at: 2025-08-29T00:00:00Z

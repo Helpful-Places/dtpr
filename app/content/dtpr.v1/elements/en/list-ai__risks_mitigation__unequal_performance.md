@@ -10,5 +10,6 @@ description: The risk that the AI system performs differently (typically worse)
   Mitigations may include diverse training data, routine fairness audits, and
   regular performance monitoring across different demographic groups.
 icon: /dtpr-icons/risks_unequal-performance.svg
+symbol: /dtpr-icons/symbols/risks_unequal-performance.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

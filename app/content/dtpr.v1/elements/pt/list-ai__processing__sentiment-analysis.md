@@ -3,6 +3,7 @@ category:
   - ai__processing
 id: sentiment-analysis
 icon: /dtpr-icons/processing_sentiment-analysis.svg
+symbol: /dtpr-icons/symbols/processing_sentiment-analysis.svg
 name: Análise de sentimento
 description: >-
   Uma tecnologia que avalia o tom emocional e as informações subjetivas de

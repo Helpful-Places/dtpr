@@ -10,5 +10,6 @@ description: Dans un modéle de magasin de données partagé, le magasin de donn
   l'accés et de la destruction des données par des politiques intégrées à la
   structure des données elles-mêmes.
 icon: /dtpr-icons/shared_storage_and_governance.svg
+symbol: /dtpr-icons/symbols/stored.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

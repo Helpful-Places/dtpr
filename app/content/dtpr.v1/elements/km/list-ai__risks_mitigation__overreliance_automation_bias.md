@@ -3,6 +3,7 @@ category:
   - ai__risks_mitigation
 id: overreliance_automation_bias
 icon: /dtpr-icons/risks_overreliance-and-automation.svg
+symbol: /dtpr-icons/symbols/risks_overreliance-and-automation.svg
 name: ការពឹងផ្អែកហួសហេតុ និងការលំអៀងស្វ័យប្រវត្តិកម្ម
 description: >-
   ហានិភ័យដែលមនុស្សដាក់ការជឿទុកចិត្តលើសលប់លើប្រព័ន្ធ AI

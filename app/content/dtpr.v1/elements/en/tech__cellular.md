@@ -9,6 +9,7 @@ description: >-
   with each other and with fixed transceivers and telephones anywhere in the
   network.
 icon: /dtpr-icons/cellular.svg
+symbol: /dtpr-icons/symbols/signal.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 

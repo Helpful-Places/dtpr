@@ -8,6 +8,7 @@ description: >-
   radiofréquence (RFID) ou la communication en champ proche (NFC) pour effectuer
   des paiements sécurisés.
 icon: /dtpr-icons/contactless_payments.svg
+symbol: /dtpr-icons/symbols/signal.svg
 id: contactless_payments
 name: Paiements sans contact
 updated_at: 2025-08-29T00:00:00Z

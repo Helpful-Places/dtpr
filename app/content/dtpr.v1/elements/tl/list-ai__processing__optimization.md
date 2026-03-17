@@ -3,6 +3,7 @@ category:
   - ai__processing
 id: optimization
 icon: /dtpr-icons/processing_optimization-algorithm.svg
+symbol: /dtpr-icons/symbols/processing_optimization-algorithm.svg
 name: Algorithm ng Pag-optimize
 description: >-
   Isang prosesong matematikal na nakakahanap ng pinakamahusay na solusyon mula

@@ -7,5 +7,6 @@ description: Facial characterization allows a system to make inferences such as
   gender, facial expression, and age range, but does not identify individuals.
   The technology does not retain or use any personally identifiable information.
 icon: /dtpr-icons/facial_characterization.svg
+symbol: /dtpr-icons/symbols/facial_characterization.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

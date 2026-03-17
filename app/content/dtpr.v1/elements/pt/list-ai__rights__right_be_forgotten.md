@@ -3,6 +3,7 @@ category:
   - ai__rights
 id: right_be_forgotten
 icon: /dtpr-icons/rights_forgotten.svg
+symbol: /dtpr-icons/symbols/rights_forgotten.svg
 name: Direito de ser esquecido
 description: >-
   O direito de solicitar a exclusão de seus dados pessoais de um sistema de IA

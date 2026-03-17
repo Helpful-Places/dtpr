@@ -3,6 +3,7 @@ category:
   - ai__processing
 id: privacy-preserving
 icon: /dtpr-icons/processing_privacy-preservoing-transformation.svg
+symbol: /dtpr-icons/symbols/processing_privacy-preservoing-transformation.svg
 name: Transformation préservant la vie privée
 description: >-
   Technologie qui modifie les données afin de supprimer ou d'obscurcir les

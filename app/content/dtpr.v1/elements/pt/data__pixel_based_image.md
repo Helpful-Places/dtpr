@@ -7,5 +7,6 @@ name: Imagem baseada em pixels
 id: pixel_based_image
 description: Uma imagem digital é composta por uma grelha de pixéis individuais.
 icon: /dtpr-icons/pixel_based_image.svg
+symbol: /dtpr-icons/symbols/pixel_based_image.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

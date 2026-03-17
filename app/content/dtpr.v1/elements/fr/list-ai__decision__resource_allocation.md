@@ -3,6 +3,7 @@ category:
   - ai__decision
 id: resource_allocation
 icon: /dtpr-icons/dm_allocation-of-resources.svg
+symbol: /dtpr-icons/symbols/dm_allocation-of-resources.svg
 context_type_id: ai_decides_human_executes
 name: Allocation des ressources
 description: >-

@@ -3,6 +3,7 @@ category:
   - ai__processing
 id: time-series-forecasting
 icon: /dtpr-icons/processing_time-series-forecasting.svg
+symbol: /dtpr-icons/symbols/processing_time-series-forecasting.svg
 name: Prévision des séries temporelles
 description: >-
   Une méthode qui analyse les points de données historiques collectés au fil du

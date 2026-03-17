@@ -3,6 +3,7 @@ category:
   - ai__risks_mitigation
 id: overreliance_automation_bias
 icon: /dtpr-icons/risks_overreliance-and-automation.svg
+symbol: /dtpr-icons/symbols/risks_overreliance-and-automation.svg
 name: Sobrang pag-asa at pag-aautomat bias
 description: >-
   Ang panganib na ang mga tao ay naglalagay ng labis na pagtitiwala sa mga

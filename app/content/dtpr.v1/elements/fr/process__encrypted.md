@@ -6,6 +6,7 @@ description: >-
   puissent y accéder, ce qui peut réduire les risques liés à la manipulation
   d'informations privées ou sensibles.
 icon: /dtpr-icons/encrypted.svg
+symbol: /dtpr-icons/symbols/encrypted.svg
 id: encrypted
 name: Chiffré
 updated_at: 2025-08-29T00:00:00Z

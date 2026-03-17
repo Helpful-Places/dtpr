@@ -3,6 +3,7 @@ category:
   - ai__risks_mitigation
 id: unequal_performance
 icon: /dtpr-icons/risks_unequal-performance.svg
+symbol: /dtpr-icons/symbols/risks_unequal-performance.svg
 name: Hindi pantay na pagganap sa mga pangkat
 description: >-
   Ang panganib na iba ang pagganap ng AI system (karaniwang mas malala) para sa

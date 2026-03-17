@@ -9,6 +9,7 @@ description: >
   d'identification avant d'être utilisées ou stockées (*désidentification avant
   la premiére utilisation* ou *désidentifiées sur le dispositif*). 
 icon: /dtpr-icons/de_identified_voice.svg
+symbol: /dtpr-icons/symbols/audio.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 

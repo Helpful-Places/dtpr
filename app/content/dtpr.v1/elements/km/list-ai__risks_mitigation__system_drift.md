@@ -3,6 +3,7 @@ category:
   - ai__risks_mitigation
 id: system_drift
 icon: /dtpr-icons/risks_system-drift-and-temporal-validity.svg
+symbol: /dtpr-icons/symbols/risks_system-drift-and-temporal-validity.svg
 name: ប្រព័ន្ធរសាត់ និងសុពលភាពបណ្តោះអាសន្ន
 description: >-
   ហានិភ័យដែលដំណើរការរបស់ប្រព័ន្ធ AI ធ្លាក់ចុះតាមពេលវេលា

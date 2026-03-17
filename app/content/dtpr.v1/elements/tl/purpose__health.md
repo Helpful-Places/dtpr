@@ -13,6 +13,7 @@ description: >-
   [Occupational Health and
   Safety](https://en.wikipedia.org/wiki/occupat"&"ional_safety_and_health)")
 icon: /dtpr-icons/health.svg
+symbol: /dtpr-icons/symbols/health.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 

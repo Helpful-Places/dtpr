@@ -9,5 +9,6 @@ description: The right to ensure your data is only used for the specific
   knowledge or consent. The data collector must specify and document the
   intended purposes before collection begins, and adhere to these limitations.
 icon: /dtpr-icons/rights_purpose-limitation.svg
+symbol: /dtpr-icons/symbols/rights_purpose-limitation.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

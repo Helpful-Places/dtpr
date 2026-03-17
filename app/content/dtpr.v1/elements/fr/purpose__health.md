@@ -9,6 +9,7 @@ description: 'Permet la mesure ou la surveillance des aspects de l''environnemen
   [la surveillance de l''environnement](https://fr.wikipedia.org/wiki/Observatoire_de_l%27environnement)
   et [la santé et la sécurité au travail](https://fr.wikipedia.org/wiki/Santé_et_sécurité_au_travail) '
 icon: /dtpr-icons/health.svg
+symbol: /dtpr-icons/symbols/health.svg
 id: health
 name: Santé
 updated_at: 2025-08-29T00:00:00Z

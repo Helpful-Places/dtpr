@@ -2,6 +2,7 @@
 category:
   - ai__decision
 icon: /dtpr-icons/dm_accept-or-deny.svg
+symbol: /dtpr-icons/symbols/dm_accept-or-deny.svg
 context_type_id: ai_only
 name: Tanggapin o tanggihan
 id: accept_deny

@@ -7,6 +7,7 @@ description: >-
   caractéristiques des groupes au sein de l'ensemble de données tout en retenant
   des informations sur les individus de l'ensemble de données.
 icon: /dtpr-icons/differential_privacy.svg
+symbol: /dtpr-icons/symbols/privacy.svg
 id: differential_privacy
 name: Confidentialité différentielle
 updated_at: 2025-08-29T00:00:00Z

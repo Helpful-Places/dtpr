@@ -3,6 +3,7 @@ category:
   - ai__processing
 id: llm
 icon: /dtpr-icons/processing_llm.svg
+symbol: /dtpr-icons/symbols/processing_llm.svg
 name: Gran modelo lingüístico
 description: >-
   Un tipo de sistema de IA entrenado en grandes cantidades de datos de texto que

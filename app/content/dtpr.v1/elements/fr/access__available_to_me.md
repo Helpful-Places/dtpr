@@ -6,6 +6,7 @@ description: Disponible pour moi mais pas pour d'autres individus. Par exemple, 
   tant qu'individu, vous avez accés à tous vos enregistrements de péage électronique
   pour votre voiture, mais les autres individus n'y ont pas accés.
 icon: /dtpr-icons/available_to_me.svg
+symbol: /dtpr-icons/symbols/available.svg
 id: available_to_me
 name: Disponible pour moi
 updated_at: 2025-08-29T00:00:00Z

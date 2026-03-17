@@ -6,6 +6,7 @@ description: >-
   données sont effectivement identiques à la maniére dont elles ont été
   recueillies à partir de la source de données originale.
 icon: /dtpr-icons/raw_data.svg
+symbol: /dtpr-icons/symbols/raw_data.svg
 id: raw_data
 name: Données brutes
 updated_at: 2025-08-29T00:00:00Z

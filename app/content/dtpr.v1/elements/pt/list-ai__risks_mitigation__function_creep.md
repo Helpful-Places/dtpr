@@ -3,6 +3,7 @@ category:
   - ai__risks_mitigation
 id: function_creep
 icon: /dtpr-icons/risks_unforseen-or-function-creep.svg
+symbol: /dtpr-icons/symbols/risks_unforseen-or-function-creep.svg
 name: Uso imprevisto ou desvio de função
 description: >-
   O risco de que os sistemas de IA originalmente implantados para fins

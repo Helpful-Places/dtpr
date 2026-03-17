@@ -7,5 +7,6 @@ description: Genera imágenes de video incapaz de identificar a las personas
   debido a factores como la baja resolución, de modo que las caras o números
   únicos como las placas de vehículos no se pueden determinar.
 icon: /dtpr-icons/non_identifiable_video.svg
+symbol: /dtpr-icons/symbols/non_identifiable_video.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

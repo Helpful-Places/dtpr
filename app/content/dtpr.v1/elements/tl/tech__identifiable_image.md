@@ -11,5 +11,6 @@ description: Bumubuo ng mga still na larawan ng sapat na resolution kung saan
   computed vision techniques na kumukuha ng impormasyon sa anyo ng data mula sa
   mga imahe.
 icon: /dtpr-icons/identifiable_image.svg
+symbol: /dtpr-icons/symbols/camera.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

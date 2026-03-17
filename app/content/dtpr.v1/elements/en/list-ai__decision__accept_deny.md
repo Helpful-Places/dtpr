@@ -10,6 +10,7 @@ description: A binary decision-making process where the AI/algorithm evaluates
   approval. Examples include civil service applications, school admissions, loan
   approvals, or benefit eligibility determinations.
 icon: /dtpr-icons/dm_accept-or-deny.svg
+symbol: /dtpr-icons/symbols/dm_accept-or-deny.svg
 context_type_id: ai_only
 updated_at: 2025-08-29T00:00:00Z
 ---

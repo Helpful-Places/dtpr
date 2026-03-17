@@ -10,5 +10,6 @@ description: Le calcul multipartite sécurisé est un sous-domaine de la
   agrégées à partir de données tout en gardant secrets les éléments individuels
   des données.
 icon: /dtpr-icons/secure_multi_party_computing.svg
+symbol: /dtpr-icons/symbols/encrypted.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

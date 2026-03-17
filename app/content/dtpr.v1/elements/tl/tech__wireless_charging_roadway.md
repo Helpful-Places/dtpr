@@ -10,6 +10,7 @@ description: >-
   nilagyan ng isang natatanging receiver ay maaaring mag-charge habang
   nagmamaneho ito o naka-park sa kalsada.
 icon: /dtpr-icons/wireless_charging_roadway.svg
+symbol: /dtpr-icons/symbols/wireless_charging_roadway.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 

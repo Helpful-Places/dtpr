@@ -5,6 +5,7 @@ name: Wireless Access Point
 id: wireless_access_point
 description: 'Provides wireless access to a wired computer network, or to the internet.'
 icon: /dtpr-icons/wireless_access_point.svg
+symbol: /dtpr-icons/symbols/signal.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 
