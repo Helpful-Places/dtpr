@@ -6,6 +6,6 @@ name: មានសម្រាប់អង្គភាពគណនី
 id: available_to_the_accountable_organization
 description: ទិន្នន័យអាចរកបានសម្រាប់អង្គការដែលទទួលខុសត្រូវ
 icon: /dtpr-icons/available_to_the_accountable_organization.svg
-symbol: /dtpr-icons/symbols/available_to_the_accountable_organization.svg
+symbol: /dtpr-icons/symbols/available.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
