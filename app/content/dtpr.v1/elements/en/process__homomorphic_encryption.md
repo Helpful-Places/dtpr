@@ -8,6 +8,7 @@ description: >-
   ciphertexts, generating an encrypted result which, when decrypted, matches the
   result of the operations as if they had been performed on the plaintext.
 icon: /dtpr-icons/homomorphic_encryption.svg
+symbol: /dtpr-icons/symbols/homomorphic_encryption.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 

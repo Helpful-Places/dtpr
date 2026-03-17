@@ -8,6 +8,7 @@ description: >-
   Nagbibigay-daan sa iyo upang makontrol o makihalubilo sa mga aspeto ng isang
   puwang o isang teknolohiya.
 icon: /dtpr-icons/agency_interaction.svg
+symbol: /dtpr-icons/symbols/agency_interaction.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 

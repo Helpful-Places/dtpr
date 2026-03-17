@@ -3,6 +3,8 @@ import { gapsCommand } from './commands/gaps'
 import { validateCommand } from './commands/validate'
 import { translateCommand } from './commands/translate'
 import { iconsCommand } from './commands/icons'
+import { extractSymbolsCommand } from './commands/extract-symbols'
+import { updateSymbolsCommand } from './commands/update-symbols'
 
 const program = new Command()
 
@@ -15,5 +17,7 @@ program.addCommand(gapsCommand)
 program.addCommand(validateCommand)
 program.addCommand(translateCommand)
 program.addCommand(iconsCommand)
+program.addCommand(extractSymbolsCommand)
+program.addCommand(updateSymbolsCommand)
 
 program.parse()

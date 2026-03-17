@@ -7,6 +7,7 @@ description: >-
   n'importe où sur la Terre ou à proximité, lorsqu'il existe une ligne de visée
   dégagée vers quatre satellites GPS ou plus.
 icon: /dtpr-icons/gps.svg
+symbol: /dtpr-icons/symbols/gps.svg
 id: gps
 name: GPS
 updated_at: 2025-08-29T00:00:00Z

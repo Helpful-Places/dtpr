@@ -5,6 +5,7 @@ description: >-
   Mesure divers aspects de la qualité de l'eau, tels que la quantité d'oxygéne
   dissous dans l'eau, le pH et les nitrates.
 icon: /dtpr-icons/water_quality.svg
+symbol: /dtpr-icons/symbols/water_quality.svg
 id: water_quality
 name: Qualité de l'eau
 updated_at: 2025-08-29T00:00:00Z

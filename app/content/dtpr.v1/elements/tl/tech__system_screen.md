@@ -6,5 +6,6 @@ id: system_screen
 description: Ang mga tao ay maaaring makipag-ugnay sa digital system na ito
   gamit ang screen na ibinibigay bilang bahagi ng pag -install ng aparato.
 icon: /dtpr-icons/system_screen.svg
+symbol: /dtpr-icons/symbols/system_screen.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

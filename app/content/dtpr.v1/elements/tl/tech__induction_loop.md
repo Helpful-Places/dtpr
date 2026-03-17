@@ -10,6 +10,7 @@ description: >-
   kapaki-pakinabang para sa pagtuklas ng mga sasakyan o iba pang mga bagay na
   metal.
 icon: /dtpr-icons/induction_loop.svg
+symbol: /dtpr-icons/symbols/induction_loop.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 

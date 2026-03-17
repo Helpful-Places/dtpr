@@ -6,6 +6,7 @@ description: >-
   Aide à l'élaboration de plans futurs, ou à la mesure de l'impact d'une
   décision. Exemples : urbanisme
 icon: /dtpr-icons/planning_decision_making.svg
+symbol: /dtpr-icons/symbols/planning_decision_making.svg
 id: planning_decision_making
 name: Planification et prise de décision
 updated_at: 2025-08-29T00:00:00Z

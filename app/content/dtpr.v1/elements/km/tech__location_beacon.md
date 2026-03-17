@@ -9,5 +9,6 @@ description: Beacons គឺជាឧបករណ៍ការពារផ្ន�
   ស្វែងយល់បន្ថែម
   [នៅទីនេះ](https://en.wikipedia.org/wiki/bleuetooth_energ_energy_energy_beage_beace)
 icon: /dtpr-icons/location_beacon.svg
+symbol: /dtpr-icons/symbols/location_beacon.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

@@ -7,5 +7,6 @@ description: Una prueba de conocimiento cero es un método por el cual una parte
   puede demostrarle a otra parte que conoce un valor, sin transmitir ninguna
   información adicional, como el valor en sí.
 icon: /dtpr-icons/zero_knowledge_proofs.svg
+symbol: /dtpr-icons/symbols/zero_knowledge_proofs.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

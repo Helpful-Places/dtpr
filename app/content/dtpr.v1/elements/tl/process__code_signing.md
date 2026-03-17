@@ -10,6 +10,7 @@ description: >-
   nilagdaan. Ang proseso ay gumagamit ng paggamit ng isang cryptographic hash
   upang mapatunayan ang pagiging tunay at integridad.
 icon: /dtpr-icons/code_signing.svg
+symbol: /dtpr-icons/symbols/code_signing.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 

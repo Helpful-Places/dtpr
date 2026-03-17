@@ -6,6 +6,7 @@ description: Réduit la consommation d'eau et/ou contribue à sa conservation. P
   en savoir plus sur l'efficacité et la conservation de l'eau, ainsi que sur l'infrastructure
   verte.
 icon: /dtpr-icons/water_efficiency.svg
+symbol: /dtpr-icons/symbols/water_efficiency.svg
 id: water_efficiency
 name: Efficacité de l'eau
 updated_at: 2025-08-29T00:00:00Z

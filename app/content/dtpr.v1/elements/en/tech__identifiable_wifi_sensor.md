@@ -8,5 +8,6 @@ description: W﻿iFi sensors measure the strength of the wireless signals from
   the positions and movement of these devices in physical space. This may be
   associated with the hardware addresses of the devices themselves.
 icon: /dtpr-icons/identifiable_wifi_sensor.svg
+symbol: /dtpr-icons/symbols/identifiable_wifi_sensor.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

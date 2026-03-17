@@ -10,5 +10,6 @@ description: Generates video footage of a sufficient resolution where
   (known as *de-identified before first use* or *de-identified on device*), for
   example by blurring faces using computer vision.
 icon: /dtpr-icons/de_identified_video.svg
+symbol: /dtpr-icons/symbols/de_identified_video.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

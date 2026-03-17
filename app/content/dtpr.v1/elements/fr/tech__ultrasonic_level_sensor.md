@@ -8,5 +8,6 @@ description: Utilise des ondes ultrasoniques pour mesurer la distance entre des
   l'objet. La distance est calculée en utilisant le temps entre l'émission et la
   réception.
 icon: /dtpr-icons/ultrasonic_level_sensor.svg
+symbol: /dtpr-icons/symbols/ultrasonic_level_sensor.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

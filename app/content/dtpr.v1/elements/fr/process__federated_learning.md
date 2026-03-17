@@ -6,6 +6,7 @@ description: >-
   à un processus basé sur le cloud qui permet à l'apprentissage automatique de
   s'effectuer sur un grand nombre de données décentralisées et dépersonnalisées.
 icon: /dtpr-icons/federated_learning.svg
+symbol: /dtpr-icons/symbols/federated_learning.svg
 id: federated_learning
 name: Apprentissage fédéré
 updated_at: 2025-08-29T00:00:00Z

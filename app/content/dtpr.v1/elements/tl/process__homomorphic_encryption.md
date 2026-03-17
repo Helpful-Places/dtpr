@@ -9,6 +9,7 @@ description: >-
   kapag na-decrypt, ay tumutugma sa resulta ng mga operasyon na parang isinagawa
   sa simpleng text.
 icon: /dtpr-icons/homomorphic_encryption.svg
+symbol: /dtpr-icons/symbols/homomorphic_encryption.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 

@@ -7,6 +7,7 @@ name: Pixel-based Image
 id: pixel_based_image
 description: A digital image is composed of a grid of individual pixels.
 icon: /dtpr-icons/pixel_based_image.svg
+symbol: /dtpr-icons/symbols/pixel_based_image.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 

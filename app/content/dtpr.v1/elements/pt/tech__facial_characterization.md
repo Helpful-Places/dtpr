@@ -5,5 +5,6 @@ name: Caracterização facial
 id: facial_characterization
 description: A caraterização facial permite que um sistema faça inferências como o género, a expressão facial e a faixa etária, mas não identifica indivíduos. A tecnologia não retém nem utiliza quaisquer informações de identificação pessoal.
 icon: /dtpr-icons/facial_characterization.svg
+symbol: /dtpr-icons/symbols/facial_characterization.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

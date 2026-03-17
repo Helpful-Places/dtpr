@@ -10,5 +10,6 @@ description: ប្រព័ន្ធយន្ដហោះដែលគ្មា�
   [ទីនេះ](https://en.wikipedia.org/wiki/unmanned_aerial_vehlenial_vehleasestterminoology)
   ដើម្បីស្វែងយល់បន្ថែម។
 icon: /dtpr-icons/unmanned_aircraft_system.svg
+symbol: /dtpr-icons/symbols/unmanned_aircraft_system.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

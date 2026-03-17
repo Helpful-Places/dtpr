@@ -5,5 +5,6 @@ name: Qualidade da água
 id: water_quality
 description: Mede vários aspectos da qualidade da água, como a quantidade de oxigénio dissolvido na água, o pH, os nitratos e o oxigénio dissolvido.
 icon: /dtpr-icons/water_quality.svg
+symbol: /dtpr-icons/symbols/water_quality.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

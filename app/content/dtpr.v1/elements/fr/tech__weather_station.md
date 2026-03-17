@@ -6,6 +6,7 @@ description: >-
   telles que la température, les précipitations, la vitesse et la direction du
   vent et la pression barométrique.
 icon: /dtpr-icons/weather_station.svg
+symbol: /dtpr-icons/symbols/weather_station.svg
 id: weather_station
 name: Station météo
 updated_at: 2025-08-29T00:00:00Z

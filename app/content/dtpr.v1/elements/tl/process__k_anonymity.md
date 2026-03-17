@@ -10,6 +10,7 @@ description: >-
   magkapareho na may hindi bababa sa k-1 na iba pang mga hilera. Sa puntong ito
   ang database ay sinasabing k-anonymous.
 icon: /dtpr-icons/k_anonymity.svg
+symbol: /dtpr-icons/symbols/k_anonymity.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 

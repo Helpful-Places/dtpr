@@ -11,5 +11,6 @@ description: Bumubuo ng mga still na larawan ng sapat na resolution kung saan
   de-identified bago unang gamitin o de-identified sa device), halimbawa sa
   pamamagitan ng pag-blur ng mga mukha gamit ang computer vision.
 icon: /dtpr-icons/de_identified_image.svg
+symbol: /dtpr-icons/symbols/de_identified_image.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

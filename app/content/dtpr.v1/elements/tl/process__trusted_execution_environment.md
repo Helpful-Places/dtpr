@@ -10,5 +10,6 @@ description: Ang TEE ay isang nakahiwalay na kapaligiran na nilikha gamit ang
   ito nakikita sa anumang iba pang proseso sa processor, ang operating system o
   anumang iba pang uri ng pribilehiyong pag-access.
 icon: /dtpr-icons/trusted_execution_environment.svg
+symbol: /dtpr-icons/symbols/trusted_execution_environment.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

@@ -7,6 +7,7 @@ description: >-
   Augmented reality is a technology that combines both physical and digital
   content to create interactive experiences and content.
 icon: /dtpr-icons/augmented_reality.svg
+symbol: /dtpr-icons/symbols/augmented_reality.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 

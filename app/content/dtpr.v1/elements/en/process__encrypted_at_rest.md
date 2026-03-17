@@ -7,5 +7,6 @@ description: Encryption at Rest is the encryption of data when it is persisted
   to a storage medium like a drive or database. It protects the data against
   unauthorized access of the database itself.
 icon: /dtpr-icons/encrypted_at_rest.svg
+symbol: /dtpr-icons/symbols/encrypted_at_rest.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

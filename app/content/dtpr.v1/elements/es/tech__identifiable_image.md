@@ -11,5 +11,6 @@ description: Genera imágenes fijas de una resolución
   computadora que derivan
   información en forma de datos de imágenes.
 icon: /dtpr-icons/identifiable_image.svg
+symbol: /dtpr-icons/symbols/identifiable_image.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

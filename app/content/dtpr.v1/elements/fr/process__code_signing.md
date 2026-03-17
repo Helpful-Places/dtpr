@@ -7,6 +7,7 @@ description: >-
   le code n'a pas été modifié ou corrompu depuis sa signature. Le processus fait
   appel à un hachage cryptographique pour valider l'authenticité et l'intégrité.
 icon: /dtpr-icons/code_signing.svg
+symbol: /dtpr-icons/symbols/code_signing.svg
 id: code_signing
 name: Signature du code
 updated_at: 2025-08-29T00:00:00Z

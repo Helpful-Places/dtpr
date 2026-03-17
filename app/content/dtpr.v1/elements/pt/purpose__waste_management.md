@@ -6,5 +6,6 @@ name: Gestão de resíduos
 id: waste_management
 description: Apoia o manuseamento e a eliminação de resíduos, incluindo recicláveis, composto e materiais perigosos.
 icon: /dtpr-icons/waste_management.svg
+symbol: /dtpr-icons/symbols/waste_management.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

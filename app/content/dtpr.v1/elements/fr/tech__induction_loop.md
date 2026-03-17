@@ -3,6 +3,7 @@ category:
   - device__tech
 id: induction_loop
 icon: /dtpr-icons/induction_loop.svg
+symbol: /dtpr-icons/symbols/induction_loop.svg
 name: Boucle d'induction magnétique
 description: >-
   Une boucle d'induction magnétique utilise un aimant mobile pour générer un

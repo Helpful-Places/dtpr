@@ -7,6 +7,7 @@ description: >-
   identification unique est possible, par exemple si un article particulier est
   étroitement associé aux données personnelles d'un individu .
 icon: /dtpr-icons/identifiable_rfid.svg
+symbol: /dtpr-icons/symbols/identifiable_rfid.svg
 id: identifiable_rfid
 name: Identifiable RFID
 updated_at: 2025-08-29T00:00:00Z

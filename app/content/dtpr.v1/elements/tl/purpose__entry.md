@@ -8,6 +8,7 @@ description: >-
   Sinusuportahan ang pagpapatunay o pagpapatibay upang ma-access ang isang
   puwang o isang serbisyo.
 icon: /dtpr-icons/entry.svg
+symbol: /dtpr-icons/symbols/entry.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
 

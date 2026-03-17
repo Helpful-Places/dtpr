@@ -3,6 +3,7 @@ category:
   - device__tech
 id: identifiable_wifi_sensor
 icon: /dtpr-icons/identifiable_wifi_sensor.svg
+symbol: /dtpr-icons/symbols/identifiable_wifi_sensor.svg
 name: Identifiable WiFi Sensor
 description: >-
   Les capteurs WiFi mesurent l'intensité des signaux sans fil émis par les

@@ -9,5 +9,6 @@ description: Los segmentos de la bobina de cobre enterrados debajo de la
   con un receptor especial se pueden cargar mientras conduce o está estacionado
   sobre la carretera.
 icon: /dtpr-icons/wireless_charging_roadway.svg
+symbol: /dtpr-icons/symbols/wireless_charging_roadway.svg
 updated_at: 2025-08-29T00:00:00Z
 ---

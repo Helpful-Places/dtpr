@@ -6,6 +6,7 @@ description: Des spécialistes de l'audit tiers examinent périodiquement le mat
   en matiére de sécurité et/ou les lacunes en matiére de divulgation en ce qui concerne
   le type de données capturées par l'appareil et la maniére dont elles sont traitées.
 icon: /dtpr-icons/hardware_audits.svg
+symbol: /dtpr-icons/symbols/hardware_audits.svg
 id: hardware_audits
 name: Audits du matériel
 updated_at: 2025-08-29T00:00:00Z

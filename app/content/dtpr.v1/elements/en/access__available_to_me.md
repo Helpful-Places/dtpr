@@ -8,5 +8,6 @@ description: Available to me but not to other individuals. For example, as an
   individual you have access to all your electronic toll records for your car,
   but other individuals do not have access to that.
 icon: /dtpr-icons/available_to_me.svg
+symbol: /dtpr-icons/symbols/available_to_me.svg
 updated_at: 2025-08-29T00:00:00Z
 ---
