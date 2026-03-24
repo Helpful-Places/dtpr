@@ -12,6 +12,8 @@ export interface RecraftOptions {
   prompt?: string
   model?: string
   colors?: [number, number, number][]
+  n?: number
+  styleId?: string
 }
 
 export const RECRAFT_MODELS = [

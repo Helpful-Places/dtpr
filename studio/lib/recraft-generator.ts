@@ -17,11 +17,11 @@ export interface IconGenerationResult {
   filePath?: string
 }
 
-export async function generateInnerIcon(
+export async function generateInnerIcons(
   apiKey: string,
   request: IconGenerationRequest,
   options?: RecraftOptions,
-): Promise<string> {
+): Promise<string[]> {
   const client = new OpenAI({
     apiKey,
     baseURL: 'https://external.api.recraft.ai/v1',
@@ -29,11 +29,12 @@ export async function generateInnerIcon(
 
   const prompt = options?.prompt || buildDefaultPrompt(request)
   const model = options?.model || 'recraftv4_vector'
+  const n = Math.min(Math.max(options?.n ?? 3, 1), 6)
 
   const generateParams: Record<string, any> = {
     model,
     prompt,
-    n: 1,
+    n,
     response_format: 'url',
     size: '1024x1024',
   }
@@ -45,15 +46,37 @@ export async function generateInnerIcon(
     }
   }
 
-  const response = await client.images.generate(generateParams as any)
-
-  const imageUrl = response.data?.[0]?.url
-  if (!imageUrl) {
-    throw new Error('No image returned from Recraft API')
+  // Pass style_id if provided (created from reference symbols)
+  if (options?.styleId) {
+    generateParams.style_id = options.styleId
   }
 
-  const svgResponse = await fetch(imageUrl)
-  return await svgResponse.text()
+  const response = await client.images.generate(generateParams as any)
+
+  if (!response.data?.length) {
+    throw new Error('No images returned from Recraft API')
+  }
+
+  // Fetch all SVGs in parallel
+  const svgs = await Promise.all(
+    response.data.map(async (item) => {
+      if (!item.url) throw new Error('Missing URL in Recraft response')
+      const res = await fetch(item.url)
+      return res.text()
+    }),
+  )
+
+  return svgs
+}
+
+/** @deprecated Use generateInnerIcons for multiple results */
+export async function generateInnerIcon(
+  apiKey: string,
+  request: IconGenerationRequest,
+  options?: RecraftOptions,
+): Promise<string> {
+  const svgs = await generateInnerIcons(apiKey, request, { ...options, n: 1 })
+  return svgs[0]
 }
 
 export async function generateIcon(

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { ShapeType } from '~/lib/icon-shapes'
 import { RECRAFT_MODELS, buildDefaultPrompt } from '~/lib/recraft-config'
 
 const toast = useToast()
@@ -18,14 +19,30 @@ const generating = ref(false)
 const saving = ref(false)
 const brainstormOpen = ref(false)
 
-// Preview state
+// Multi-result preview state
+interface GeneratedResult {
+  innerSvg: string
+  light: string
+}
+const generatedResults = ref<GeneratedResult[]>([])
+const selectedResultIndex = ref(0)
+const previewShape = ref<ShapeType>('hexagon')
+const compositing = ref(false)
+
+// Full variant preview for the selected result
 const previewVariants = ref<{ light: string; dark: string; colored: string } | null>(null)
-const innerSvg = ref<string>('')
 
 const modelOptions = RECRAFT_MODELS.map((m) => ({
   label: m.label,
   value: m.id,
 }))
+
+const shapeOptions = [
+  { label: 'Hexagon', value: 'hexagon' as ShapeType },
+  { label: 'Circle', value: 'circle' as ShapeType },
+  { label: 'Rounded Square', value: 'rounded-square' as ShapeType },
+  { label: 'Octagon', value: 'octagon' as ShapeType },
+]
 
 // Sort elements alphabetically by English name
 const sortedElements = computed(() => {
@@ -61,13 +78,17 @@ const elementDescription = computed(() => {
 })
 
 // Auto-build default prompt when element changes
-watch(selectedElementId, async (id) => {
+watch(selectedElementId, async (id, oldId) => {
   if (!id) return
 
   // Reset state
+  generatedResults.value = []
+  selectedResultIndex.value = 0
   previewVariants.value = null
-  innerSvg.value = ''
   suggestedColors.value = []
+
+  // Clear old element's brainstorm chat
+  if (oldId) clearBrainstormChat(oldId)
 
   try {
     const el = await $fetch<any>(`/api/elements/${id}`)
@@ -102,13 +123,33 @@ async function generate() {
   }
 
   generating.value = true
+  generatedResults.value = []
+  selectedResultIndex.value = 0
   previewVariants.value = null
   try {
+    // Create a Recraft style from reference symbols if any are selected
+    let styleId: string | undefined
+    if (referenceSymbols.value.length > 0) {
+      try {
+        const styleResult = await $fetch<{ styleId: string }>('/api/icons/style', {
+          method: 'POST',
+          body: { symbolIds: referenceSymbols.value },
+        })
+        styleId = styleResult.styleId
+      } catch (e: any) {
+        toast.add({
+          title: 'Style creation failed',
+          description: `Generating without style reference. ${e.data?.message || e.message}`,
+          color: 'warning',
+        })
+      }
+    }
+
     const result = await $fetch<{
       success: boolean
       elementId: string
-      innerSvg: string
-      variants: { light: string; dark: string; colored: string }
+      shape: ShapeType
+      results: GeneratedResult[]
     }>('/api/icons/generate', {
       method: 'POST',
       body: {
@@ -116,17 +157,51 @@ async function generate() {
         model: selectedModel.value,
         prompt: prompt.value,
         colors: suggestedColors.value.length > 0 ? suggestedColors.value : undefined,
+        styleId,
       },
     })
 
-    innerSvg.value = result.innerSvg
-    previewVariants.value = result.variants
+    generatedResults.value = result.results
+    previewShape.value = result.shape
+
+    // Auto-select first and load full variants
+    if (result.results.length > 0) {
+      await selectResult(0)
+    }
   } catch (e: any) {
     toast.add({ title: 'Generation failed', description: e.data?.message || e.message, color: 'error' })
   } finally {
     generating.value = false
   }
 }
+
+async function selectResult(index: number) {
+  selectedResultIndex.value = index
+  await compositeWithShape(generatedResults.value[index].innerSvg, previewShape.value)
+}
+
+async function compositeWithShape(innerSvg: string, shape: ShapeType) {
+  compositing.value = true
+  try {
+    const result = await $fetch<{ light: string; dark: string; colored: string }>('/api/icons/composite', {
+      method: 'POST',
+      body: { innerSvg, shape },
+    })
+    previewVariants.value = result
+  } catch (e: any) {
+    toast.add({ title: 'Composite failed', description: e.message, color: 'error' })
+  } finally {
+    compositing.value = false
+  }
+}
+
+// Re-composite when shape changes
+watch(previewShape, async (shape) => {
+  const result = generatedResults.value[selectedResultIndex.value]
+  if (result) {
+    await compositeWithShape(result.innerSvg, shape)
+  }
+})
 
 async function approveAndSave() {
   if (!previewVariants.value || !selectedElementId.value) return
@@ -140,7 +215,6 @@ async function approveAndSave() {
       },
     })
     toast.add({ title: 'Icon saved', description: `Saved icon for ${elementName.value}`, color: 'success' })
-    previewVariants.value = null
   } catch (e: any) {
     toast.add({ title: 'Save failed', description: e.message, color: 'error' })
   } finally {
@@ -242,7 +316,7 @@ async function approveAndSave() {
 
           <!-- Generate button -->
           <UButton
-            label="Generate"
+            label="Generate 3 Variations"
             icon="i-lucide-sparkles"
             size="lg"
             :loading="generating"
@@ -254,27 +328,66 @@ async function approveAndSave() {
 
         <!-- Right: Preview -->
         <div class="space-y-4">
-          <div v-if="previewVariants" class="space-y-4">
-            <h3 class="text-sm font-medium">Preview</h3>
-            <div class="flex gap-4 justify-center py-4 rounded-lg border border-default">
-              <div class="flex flex-col items-center gap-2">
-                <div class="w-20 h-20 flex items-center justify-center rounded-lg border border-default bg-white">
-                  <img :src="svgToDataUrl(previewVariants.light)" class="w-16 h-16" />
+          <!-- Pick from 3 generated options -->
+          <div v-if="generatedResults.length > 0" class="space-y-4">
+            <h3 class="text-sm font-medium">Choose a Symbol</h3>
+            <div class="flex gap-3 justify-center">
+              <button
+                v-for="(result, i) in generatedResults"
+                :key="i"
+                type="button"
+                class="flex flex-col items-center gap-1.5 p-2 rounded-lg border-2 transition-all cursor-pointer"
+                :class="selectedResultIndex === i
+                  ? 'border-primary bg-primary/5'
+                  : 'border-default hover:border-muted-foreground/30'"
+                @click="selectResult(i)"
+              >
+                <div class="w-20 h-20 flex items-center justify-center rounded bg-white">
+                  <img :src="svgToDataUrl(result.light)" class="w-16 h-16" />
                 </div>
-                <span class="text-xs text-muted">Light</span>
-              </div>
-              <div class="flex flex-col items-center gap-2">
-                <div class="w-20 h-20 flex items-center justify-center rounded-lg border border-default bg-gray-900">
-                  <img :src="svgToDataUrl(previewVariants.dark)" class="w-16 h-16" />
+                <span class="text-xs text-muted">Option {{ i + 1 }}</span>
+              </button>
+            </div>
+
+            <!-- Shape selector for preview -->
+            <div class="space-y-1.5">
+              <label class="text-sm font-medium">Preview Shape</label>
+              <USelectMenu
+                v-model="previewShape"
+                :items="shapeOptions"
+                value-key="value"
+                class="w-full"
+              />
+            </div>
+
+            <!-- Full variant preview -->
+            <div v-if="previewVariants && !compositing" class="space-y-3">
+              <h3 class="text-sm font-medium">Variants</h3>
+              <div class="flex gap-4 justify-center py-4 rounded-lg border border-default">
+                <div class="flex flex-col items-center gap-2">
+                  <div class="w-20 h-20 flex items-center justify-center rounded-lg border border-default bg-white">
+                    <img :src="svgToDataUrl(previewVariants.light)" class="w-16 h-16" />
+                  </div>
+                  <span class="text-xs text-muted">Light</span>
                 </div>
-                <span class="text-xs text-muted">Dark</span>
-              </div>
-              <div class="flex flex-col items-center gap-2">
-                <div class="w-20 h-20 flex items-center justify-center rounded-lg border border-default bg-white">
-                  <img :src="svgToDataUrl(previewVariants.colored)" class="w-16 h-16" />
+                <div class="flex flex-col items-center gap-2">
+                  <div class="w-20 h-20 flex items-center justify-center rounded-lg border border-default bg-gray-900">
+                    <img :src="svgToDataUrl(previewVariants.dark)" class="w-16 h-16" />
+                  </div>
+                  <span class="text-xs text-muted">Dark</span>
                 </div>
-                <span class="text-xs text-muted">Colored</span>
+                <div class="flex flex-col items-center gap-2">
+                  <div class="w-20 h-20 flex items-center justify-center rounded-lg border border-default bg-white">
+                    <img :src="svgToDataUrl(previewVariants.colored)" class="w-16 h-16" />
+                  </div>
+                  <span class="text-xs text-muted">Colored</span>
+                </div>
               </div>
+            </div>
+
+            <div v-else-if="compositing" class="flex items-center justify-center py-8 text-muted">
+              <UIcon name="i-lucide-loader" class="size-4 animate-spin mr-2" />
+              Compositing...
             </div>
 
             <div class="flex gap-2">
@@ -292,6 +405,7 @@ async function approveAndSave() {
                 icon="i-lucide-check"
                 color="primary"
                 :loading="saving"
+                :disabled="!previewVariants"
                 class="flex-1"
                 @click="approveAndSave"
               />
@@ -300,7 +414,7 @@ async function approveAndSave() {
 
           <div v-else-if="generating" class="flex items-center justify-center py-16 text-muted">
             <UIcon name="i-lucide-loader" class="size-5 animate-spin mr-2" />
-            Generating with Recraft V4...
+            Generating 3 variations...
           </div>
 
           <div v-else class="flex items-center justify-center py-16 text-muted border border-dashed border-default rounded-lg">
@@ -316,16 +430,15 @@ async function approveAndSave() {
       title="Brainstorm with Claude"
       description="Chat with Claude to explore visual metaphors for this symbol."
       side="right"
-      :ui="{ content: 'sm:max-w-lg' }"
+      :ui="{ content: 'sm:max-w-lg', body: 'flex flex-col min-h-0 overflow-hidden' }"
     >
       <template #body>
         <IconsBrainstormChat
-          v-if="brainstormOpen && selectedElementId"
-          :key="`${selectedElementId}-${brainstormOpen}`"
+          v-if="selectedElementId"
+          :key="selectedElementId"
           :element-id="selectedElementId"
           :element-name="elementName"
           :element-description="elementDescription"
-          :shape-name="'symbol'"
           :reference-symbols="referenceSymbols"
           @prompt-ready="onPromptReady"
         />
