@@ -1,0 +1,12 @@
+dtpr_id: arts_culture
+category:
+  - purpose
+name:
+  en: Arts & Culture
+  fr: Arts et culture
+description:
+  en: Enables artistic and/or cultural expression.
+  fr: Permet l'expression artistique et/ou culturelle.
+icon: /dtpr-icons/arts_culture.svg
+symbol: /dtpr-icons/symbols/arts_culture.svg
+updated_at: 2025-08-29T00:00:00.000Z

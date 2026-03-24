@@ -1,0 +1,12 @@
+dtpr_id: enforcement
+category:
+  - purpose
+name:
+  en: Enforcement
+  fr: Cadre légal
+description:
+  en: Used for enforcement of rules or regulations.
+  fr: Utilisé pour l'application de lois ou de réglements.
+icon: /dtpr-icons/enforcement.svg
+symbol: /dtpr-icons/symbols/enforcement.svg
+updated_at: 2025-08-29T00:00:00.000Z

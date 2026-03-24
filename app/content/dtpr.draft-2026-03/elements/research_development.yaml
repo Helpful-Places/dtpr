@@ -1,0 +1,12 @@
+dtpr_id: research_development
+category:
+  - purpose
+name:
+  en: Research & Development
+  fr: Recherche et développement
+description:
+  en: Supports exploratory research and testing.
+  fr: Favorise la recherche exploratoire et les tests.
+icon: /dtpr-icons/research_development.svg
+symbol: /dtpr-icons/symbols/research_development.svg
+updated_at: 2025-08-29T00:00:00.000Z

@@ -1,0 +1,11 @@
+dtpr_id: perceptive_ai
+category:
+  - functional_modes
+name:
+  en: Perceptive AI
+  fr: IA perceptive
+description:
+  en: '"Senses" — perceives the environment via sensors, cameras, or other signals. Examples include computer vision, LiDAR processing, and environmental monitoring.'
+  fr: '"Perçoit" — perçoit l''environnement via des capteurs, des caméras ou d''autres signaux. Exemples : vision par ordinateur, traitement LiDAR et surveillance environnementale.'
+icon: /dtpr-icons/functional_modes__perceptive_ai.svg
+updated_at: "2025-08-29T00:00:00Z"

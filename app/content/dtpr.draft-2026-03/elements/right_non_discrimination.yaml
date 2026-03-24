@@ -1,0 +1,12 @@
+dtpr_id: right_non_discrimination
+category:
+  - rights
+name:
+  en: Right to Non-discrimination
+  fr: Droit à la non-discrimination
+description:
+  en: The right to be free from discriminatory treatment by AI systems based on protected characteristics such as race, gender, age, religion, disability, or sexual orientation. Organizations must implement and demonstrate appropriate technical and organizational measures to prevent discriminatory outcomes from their AI systems.
+  fr: Le droit de ne pas être traité de manière discriminatoire par les systèmes d'IA sur la base de caractéristiques protégées telles que la race, le sexe, l'âge, la religion, le handicap ou l'orientation sexuelle. Les organisations doivent mettre en œuvre et démontrer des mesures techniques et organisationnelles appropriées pour éviter que leurs systèmes d'IA ne produisent des résultats discriminatoires.
+icon: /dtpr-icons/rights_non-discrimination.svg
+symbol: /dtpr-icons/symbols/rights_non-discrimination.svg
+updated_at: 2025-08-29T00:00:00.000Z

@@ -1,0 +1,12 @@
+dtpr_id: no_data_retained
+category:
+  - retention
+name:
+  en: No data retained
+  fr: Aucune donnée conservée
+description:
+  en: No data is kept or stored
+  fr: Aucune donnée n'est conservée ou stockée
+icon: /dtpr-icons/no_data_retained.svg
+symbol: /dtpr-icons/symbols/no_data_retained.svg
+updated_at: 2025-08-29T00:00:00.000Z

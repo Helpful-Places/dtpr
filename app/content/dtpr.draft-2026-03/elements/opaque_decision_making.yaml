@@ -1,0 +1,12 @@
+dtpr_id: opaque_decision_making
+category:
+  - risks_mitigation
+name:
+  en: Opaque decision-making
+  fr: Prise de décision opaque
+description:
+  en: The risk that AI systems make decisions through processes that are difficult or impossible for humans to understand or explain. This lack of transparency makes it challenging to identify errors, biases, or other issues. Mitigations may include using interpretable AI models when possible, developing explanation methods, and maintaining documentation of system design and training processes.
+  fr: Le risque que les systèmes d'IA prennent des décisions par le biais de processus qu'il est difficile, voire impossible, pour les humains de comprendre ou d'expliquer. Ce manque de transparence rend difficile l'identification des erreurs, des biais ou d'autres problèmes. Les mesures d'atténuation peuvent comprendre l'utilisation de modèles d'IA interprétables lorsque cela est possible, l'élaboration de méthodes d'explication et la tenue d'une documentation sur la conception du système et les processus de formation.
+icon: /dtpr-icons/risks_opaque-decision-making.svg
+symbol: /dtpr-icons/symbols/risks_opaque-decision-making.svg
+updated_at: 2025-08-29T00:00:00.000Z

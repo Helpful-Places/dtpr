@@ -1,0 +1,11 @@
+dtpr_id: semantic_ai
+category:
+  - functional_modes
+name:
+  en: Semantic AI
+  fr: IA sémantique
+description:
+  en: '"Understands" — interprets meaning from text, speech, or images. Examples include natural language processing, sentiment analysis, and speech recognition.'
+  fr: '"Comprend" — interprète le sens à partir de textes, de la parole ou d''images. Exemples : traitement du langage naturel, analyse de sentiment et reconnaissance vocale.'
+icon: /dtpr-icons/functional_modes__semantic_ai.svg
+updated_at: "2025-08-29T00:00:00Z"

@@ -1,0 +1,12 @@
+dtpr_id: boolean
+category:
+  - data_flow
+name:
+  en: Boolean
+  fr: Booléen
+description:
+  en: Data that has one of two data values, for example true and false.
+  fr: Données qui ont l'une des deux valeurs suivantes, par exemple vrai et faux.
+icon: /dtpr-icons/boolean.svg
+symbol: /dtpr-icons/symbols/boolean.svg
+updated_at: 2025-08-29T00:00:00.000Z

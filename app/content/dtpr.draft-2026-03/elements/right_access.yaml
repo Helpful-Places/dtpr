@@ -1,0 +1,12 @@
+dtpr_id: right_access
+category:
+  - rights
+name:
+  en: Right to Access
+  fr: Droit d'accès
+description:
+  en: The right to request and receive information about what personal data an AI system has collected about you, how this data is being used, and what decisions have been made using this information. This includes the right to obtain a copy of your data in a readable format.
+  fr: Le droit de demander et de recevoir des informations sur les données à caractère personnel qu'un système d'IA a collectées à votre sujet, sur la manière dont ces données sont utilisées et sur les décisions qui ont été prises sur la base de ces informations. Cela inclut le droit d'obtenir une copie de vos données dans un format lisible.
+icon: /dtpr-icons/rights_access.svg
+symbol: /dtpr-icons/symbols/rights_access.svg
+updated_at: 2025-08-29T00:00:00.000Z

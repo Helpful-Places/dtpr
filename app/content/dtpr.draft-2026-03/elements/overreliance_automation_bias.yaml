@@ -1,0 +1,12 @@
+dtpr_id: overreliance_automation_bias
+category:
+  - risks_mitigation
+name:
+  en: Over-reliance and automation bias
+  fr: Dépendance excessive et biais d'automatisation
+description:
+  en: The risk that people place excessive trust in AI systems, leading to insufficient human oversight or inability to question algorithmic decisions. This can result in uncritical acceptance of AI outputs even when they are incorrect or harmful. Mitigations may include clear communication about system limitations, training for users on appropriate reliance, and maintaining meaningful human involvement in critical decisions.
+  fr: Le risque que les gens accordent une confiance excessive aux systèmes d'IA, conduisant à une surveillance humaine insuffisante ou à l'incapacité de remettre en question les décisions algorithmiques. Il peut en résulter une acceptation non critique des résultats de l'IA, même lorsqu'ils sont incorrects ou nuisibles. Les mesures d'atténuation peuvent inclure une communication claire sur les limites du système, la formation des utilisateurs à une confiance appropriée et le maintien d'une participation humaine significative dans les décisions critiques.
+icon: /dtpr-icons/risks_overreliance-and-automation.svg
+symbol: /dtpr-icons/symbols/risks_overreliance-and-automation.svg
+updated_at: 2025-08-29T00:00:00.000Z

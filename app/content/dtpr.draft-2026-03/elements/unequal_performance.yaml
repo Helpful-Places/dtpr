@@ -1,0 +1,12 @@
+dtpr_id: unequal_performance
+category:
+  - risks_mitigation
+name:
+  en: Unequal performance across groups
+  fr: Des performances inégales entre les groupes
+description:
+  en: The risk that the AI system performs differently (typically worse) for certain demographic groups based on characteristics such as race, gender, age, disability status, or socioeconomic background. This can lead to biased or unfair outcomes that disproportionately impact vulnerable communities. Mitigations may include diverse training data, routine fairness audits, and regular performance monitoring across different demographic groups.
+  fr: Le risque que le système d'IA fonctionne différemment (généralement moins bien) pour certains groupes démographiques sur la base de caractéristiques telles que la race, le sexe, l'âge, le statut de handicapé ou le contexte socio-économique. Cela peut conduire à des résultats biaisés ou injustes qui ont un impact disproportionné sur les communautés vulnérables. Les mesures d'atténuation peuvent inclure des données de formation diversifiées, des audits d'équité de routine et un contrôle régulier des performances au sein de différents groupes démographiques.
+icon: /dtpr-icons/risks_unequal-performance.svg
+symbol: /dtpr-icons/symbols/risks_unequal-performance.svg
+updated_at: 2025-08-29T00:00:00.000Z

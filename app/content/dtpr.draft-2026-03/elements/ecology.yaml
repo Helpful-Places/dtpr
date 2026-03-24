@@ -1,0 +1,12 @@
+dtpr_id: ecology
+category:
+  - purpose
+name:
+  en: Ecology
+  fr: Écologie
+description:
+  en: Supports the measurement or monitoring of the natural environment.
+  fr: Permet la mesure ou la surveillance de l'environnement naturel.
+icon: /dtpr-icons/ecology.svg
+symbol: /dtpr-icons/symbols/ecology.svg
+updated_at: 2025-08-29T00:00:00.000Z

@@ -1,0 +1,12 @@
+dtpr_id: waste_management
+category:
+  - purpose
+name:
+  en: Waste Management
+  fr: Gestion des déchets
+description:
+  en: Supports the handling and disposal of waste, including as recyclables, compost and hazardous materials.
+  fr: Contribue à la manipulation et l'élimination des déchets, y compris les matiéres recyclables, le compost et les matiéres dangereuses.
+icon: /dtpr-icons/waste_management.svg
+symbol: /dtpr-icons/symbols/waste_management.svg
+updated_at: 2025-08-29T00:00:00.000Z

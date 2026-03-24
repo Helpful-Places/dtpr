@@ -1,0 +1,12 @@
+dtpr_id: wayfinding_services
+category:
+  - purpose
+name:
+  en: Wayfinding & Services
+  fr: Signalisation et services
+description:
+  en: Enables navigation of a location and its amenities and services.
+  fr: Permet la navigation d'un lieu et de ses équipements et services.
+icon: /dtpr-icons/wayfinding_services.svg
+symbol: /dtpr-icons/symbols/light_waves.svg
+updated_at: 2025-08-29T00:00:00.000Z

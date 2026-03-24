@@ -1,0 +1,12 @@
+dtpr_id: tabular
+category:
+  - data_flow
+name:
+  en: Tabular
+  fr: Tabulaire
+description:
+  en: Data that is stored in a table, where values are stored in rows and columns.
+  fr: Données stockées dans un tableau, où les valeurs sont stockées en lignes et en colonnes.
+icon: /dtpr-icons/tabular.svg
+symbol: /dtpr-icons/symbols/tabular.svg
+updated_at: 2025-08-29T00:00:00.000Z

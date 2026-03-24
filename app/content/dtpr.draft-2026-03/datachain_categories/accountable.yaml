@@ -1,0 +1,24 @@
+dtpr_id: accountable
+name:
+  en: Accountable
+  fr: Responsable
+description:
+  en: The organization accountable for the deployment of this AI system.
+  fr: L'organisation responsable du déploiement de ce système d'IA.
+prompt:
+  en: Who is accountable for this AI system?
+  fr: Qui est responsable de ce système d’IA ?
+required: true
+order: 1
+element_variables:
+  - id: title
+    label:
+      en: Title
+      fr: Titre
+    required: true
+  - id: description
+    label:
+      en: Description
+      fr: Description
+    required: true
+updated_at: 2025-08-29T00:00:00.000Z

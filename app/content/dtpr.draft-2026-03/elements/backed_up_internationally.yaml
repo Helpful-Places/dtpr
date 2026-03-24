@@ -1,0 +1,12 @@
+dtpr_id: backed_up_internationally
+category:
+  - storage
+name:
+  en: Backed up internationally
+  fr: Sauvegardé à internationale
+description:
+  en: Data is backed up outside the jurisdiction where it was collected.
+  fr: Les données sont sauvegardées en dehors de la juridiction où elles ont été collectées.
+icon: /dtpr-icons/backed_up_internationally.svg
+symbol: /dtpr-icons/symbols/stored.svg
+updated_at: 2025-08-29T00:00:00.000Z

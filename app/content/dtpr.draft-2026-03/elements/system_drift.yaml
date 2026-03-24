@@ -1,0 +1,12 @@
+dtpr_id: system_drift
+category:
+  - risks_mitigation
+name:
+  en: System Drift and Temporal Validity
+  fr: Dérive du système et validité temporelle
+description:
+  en: The risk that an AI system's performance degrades over time as real-world conditions change from those present in training data. This occurs when the relationships between variables in the real world evolve, but the model remains static, leading to increasingly inaccurate outputs. Examples include urban planning models that don't account for demographic shifts or transportation patterns that change seasonally or with new infrastructure.
+  fr: Le risque que les performances d'un système d'IA se dégradent au fil du temps lorsque les conditions du monde réel changent par rapport à celles présentes dans les données d'apprentissage. Cela se produit lorsque les relations entre les variables du monde réel évoluent, mais que le modèle reste statique, ce qui conduit à des résultats de plus en plus imprécis. Parmi les exemples, citons les modèles de planification urbaine qui ne tiennent pas compte des changements démographiques ou des schémas de transport qui changent au fil des saisons ou avec l'arrivée de nouvelles infrastructures.
+icon: /dtpr-icons/risks_system-drift-and-temporal-validity.svg
+symbol: /dtpr-icons/symbols/risks_system-drift-and-temporal-validity.svg
+updated_at: 2025-08-29T00:00:00.000Z

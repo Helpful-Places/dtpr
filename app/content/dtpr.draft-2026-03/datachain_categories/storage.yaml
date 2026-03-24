@@ -1,0 +1,23 @@
+dtpr_id: storage
+name:
+  en: Data Storage
+  fr: Stockage de données
+description:
+  en: Where the data produced by the AI system is stored.
+  fr: Où sont stockées les données produites par le système d'IA.
+prompt:
+  en: Where is the data produced by the AI system stored?
+  fr: Où sont stockées les données produites par le système d’IA ?
+required: false
+order: 9
+element_variables:
+  - id: additional_description
+    label:
+      en: Description
+      fr: Description
+  - id: duration
+    label:
+      en: Duration
+      fr: Durée
+    required: true
+updated_at: 2025-08-29T00:00:00.000Z

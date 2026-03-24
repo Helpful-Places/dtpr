@@ -1,0 +1,18 @@
+dtpr_id: access
+name:
+  en: Access
+  fr: Accéder
+description:
+  en: The access controls and permissions for the data produced by the AI system.
+  fr: Les contrôles d’accès et les autorisations pour les données produites par le système d’IA.
+prompt:
+  en: Who has access to the data produced by the AI system?
+  fr: Qui a accès aux données produites par le système d’IA ?
+required: false
+order: 7
+element_variables:
+  - id: additional_description
+    label:
+      en: Description
+      fr: Description
+updated_at: 2025-08-29T00:00:00.000Z

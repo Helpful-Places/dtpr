@@ -1,0 +1,12 @@
+dtpr_id: organization
+category:
+  - accountable
+name:
+  en: Organization
+  fr: Organisation
+description:
+  en: The entity that is responsible and accountable for this data collection activity
+  fr: L'entité qui est responsable et redevable de cette activité de collecte de données
+icon: /dtpr-icons/organization.svg
+symbol: /dtpr-icons/symbols/organization.svg
+updated_at: 2025-08-29T00:00:00.000Z

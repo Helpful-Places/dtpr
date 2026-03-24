@@ -1,0 +1,12 @@
+dtpr_id: right_contest
+category:
+  - rights
+name:
+  en: Right to Contest
+  fr: Droit de contestation
+description:
+  en: The right to challenge decisions made by an AI system that affect you, particularly when these decisions have legal or similarly significant effects. This includes the right to request human review of automated decisions, provide additional information, express your point of view, and have the decision reconsidered based on your input.
+  fr: Le droit de contester les décisions prises par un système d'IA qui vous concernent, en particulier lorsque ces décisions ont des effets juridiques ou des effets similaires importants. Cela inclut le droit de demander un examen humain des décisions automatisées, de fournir des informations supplémentaires, d'exprimer votre point de vue et d'obtenir que la décision soit réexaminée sur la base de votre contribution.
+icon: /dtpr-icons/rights_contest.svg
+symbol: /dtpr-icons/symbols/rights_contest.svg
+updated_at: 2025-08-29T00:00:00.000Z

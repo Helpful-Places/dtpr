@@ -1,0 +1,12 @@
+dtpr_id: available_for_resale
+category:
+  - access
+name:
+  en: Available for resale
+  fr: Disponible à la revente
+description:
+  en: The data collected may be resold to other 3rd parties
+  fr: Les données collectées peuvent être revendues à d'autres tiers.
+icon: /dtpr-icons/available_for_resale.svg
+symbol: /dtpr-icons/symbols/available_for_resale.svg
+updated_at: 2025-08-29T00:00:00.000Z

@@ -1,0 +1,12 @@
+dtpr_id: planning_decision_making
+category:
+  - purpose
+name:
+  en: Planning & Decision-making
+  fr: Planification et prise de décision
+description:
+  en: Supports the development of future plans; or to enable or measure the impact of a decision.
+  fr: "Aide à l'élaboration de plans futurs, ou à la mesure de l'impact d'une décision. Exemples : urbanisme"
+icon: /dtpr-icons/planning_decision_making.svg
+symbol: /dtpr-icons/symbols/planning_decision_making.svg
+updated_at: 2025-08-29T00:00:00.000Z

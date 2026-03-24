@@ -1,0 +1,12 @@
+dtpr_id: right_purpose_limitation
+category:
+  - rights
+name:
+  en: Right to Purpose Limitation
+  fr: Limitation du droit à l'objet
+description:
+  en: The right to ensure your data is only used for the specific purposes that were clearly stated when it was collected. This prevents organizations from using your data for new, unrelated purposes without your knowledge or consent. The data collector must specify and document the intended purposes before collection begins, and adhere to these limitations.
+  fr: Le droit de s'assurer que vos données ne sont utilisées qu'aux fins spécifiques qui ont été clairement énoncées lors de leur collecte. Cela empêche les organisations d'utiliser vos données à des fins nouvelles et sans rapport avec celles-ci, sans que vous en soyez informé ou que vous y consentiez. Le collecteur de données doit préciser et documenter les finalités prévues avant le début de la collecte et respecter ces limitations.
+icon: /dtpr-icons/rights_purpose-limitation.svg
+symbol: /dtpr-icons/symbols/rights_purpose-limitation.svg
+updated_at: 2025-08-29T00:00:00.000Z

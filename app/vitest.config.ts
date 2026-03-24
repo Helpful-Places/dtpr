@@ -16,6 +16,7 @@ export default defineConfig({
           include: ['test/api/**/*.test.ts'],
           setupFiles: ['test/api/setup.ts'],
           testTimeout: 60_000,
+          fileParallelism: false,
         },
       },
     ],

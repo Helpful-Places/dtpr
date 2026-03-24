@@ -1,0 +1,12 @@
+dtpr_id: inform
+category:
+  - purpose
+name:
+  en: Inform
+  fr: Informer
+description:
+  en: Supports the provision of information, for example about a location, a service, or to provide assistance
+  fr: Permet de fournir des informations, par exemple sur un lieu ou un service, ou de fournir une assistance.
+icon: /dtpr-icons/inform.svg
+symbol: /dtpr-icons/symbols/light_waves.svg
+updated_at: 2025-08-29T00:00:00.000Z

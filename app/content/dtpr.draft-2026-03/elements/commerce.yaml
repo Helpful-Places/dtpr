@@ -1,0 +1,12 @@
+dtpr_id: commerce
+category:
+  - purpose
+name:
+  en: Commerce
+  fr: Commerce
+description:
+  en: Enables the buying and selling of goods and services.
+  fr: Permet l'achat et la vente de biens et de services.
+icon: /dtpr-icons/commerce.svg
+symbol: /dtpr-icons/symbols/commerce.svg
+updated_at: 2025-08-29T00:00:00.000Z

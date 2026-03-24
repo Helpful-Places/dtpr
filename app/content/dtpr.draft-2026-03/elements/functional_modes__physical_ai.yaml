@@ -1,0 +1,11 @@
+dtpr_id: physical_ai
+category:
+  - functional_modes
+name:
+  en: Physical AI
+  fr: IA physique
+description:
+  en: '"Moves" — controls physical movement, manipulation, or navigation in the real world. Examples include robotics, drone control, and automated manufacturing.'
+  fr: '"Bouge" — contrôle le mouvement physique, la manipulation ou la navigation dans le monde réel. Exemples : robotique, contrôle de drones et fabrication automatisée.'
+icon: /dtpr-icons/functional_modes__physical_ai.svg
+updated_at: "2025-08-29T00:00:00Z"

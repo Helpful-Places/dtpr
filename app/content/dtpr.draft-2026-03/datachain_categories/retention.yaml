@@ -1,0 +1,23 @@
+dtpr_id: retention
+name:
+  en: Retention
+  fr: Rétention
+description:
+  en: The policies and practices governing the retention of data produced by the AI system.
+  fr: Les politiques et pratiques régissant la conservation des données produites par le système d’IA.
+prompt:
+  en: How long is the data kept?
+  fr: Combien de temps les données sont-elles conservées ?
+required: false
+order: 8
+element_variables:
+  - id: additional_description
+    label:
+      en: Description
+      fr: Description
+  - id: duration
+    label:
+      en: Duration
+      fr: Durée
+    required: true
+updated_at: 2025-08-29T00:00:00.000Z

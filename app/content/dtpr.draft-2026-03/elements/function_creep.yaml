@@ -1,0 +1,12 @@
+dtpr_id: function_creep
+category:
+  - risks_mitigation
+name:
+  en: Unforeseen Use or Function Creep
+  fr: Utilisation imprévue ou glissement de fonction
+description:
+  en: The risk that AI systems originally deployed for specific, limited purposes gradually expand in scope or are repurposed for applications beyond their original intent without proper evaluation or transparency. What begins as a system for one purpose (e.g., traffic management) might expand to others (e.g., law enforcement) without adequate assessment of new risks or public notification. This can undermine public trust and potentially lead to uses that weren't properly designed for or vetted.
+  fr: Le risque que des systèmes d'IA déployés à l'origine pour des objectifs spécifiques et limités voient leur champ d'application s'étendre progressivement ou soient réaffectés à des applications dépassant leur objectif initial, sans évaluation ni transparence adéquates. Ce qui commence comme un système destiné à un objectif (par exemple, la gestion du trafic) peut s'étendre à d'autres (par exemple, l'application de la loi) sans évaluation adéquate des nouveaux risques ou sans notification au public. Cela peut saper la confiance du public et conduire à des utilisations qui n'ont pas été correctement conçues ou approuvées.
+icon: /dtpr-icons/risks_unforseen-or-function-creep.svg
+symbol: /dtpr-icons/symbols/risks_unforseen-or-function-creep.svg
+updated_at: 2025-08-29T00:00:00.000Z

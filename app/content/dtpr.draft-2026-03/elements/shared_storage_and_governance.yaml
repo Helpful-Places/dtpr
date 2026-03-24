@@ -1,0 +1,12 @@
+dtpr_id: shared_storage_and_governance
+category:
+  - storage
+name:
+  en: Shared storage and governance
+  fr: Stockage et gouvernance partagés
+description:
+  en: In a shared data store model the data store is shared across multiple parties and because the infrastructure is shared it becomes possible to enforce governance around the retention, access and destruction of the data by policies built into the structure of the data itself.
+  fr: Dans un modéle de magasin de données partagé, le magasin de données est partagé entre plusieurs parties et, comme l'infrastructure est partagée, il devient possible d'appliquer la gouvernance autour de la conservation, de l'accés et de la destruction des données par des politiques intégrées à la structure des données elles-mêmes.
+icon: /dtpr-icons/shared_storage_and_governance.svg
+symbol: /dtpr-icons/symbols/stored.svg
+updated_at: 2025-08-29T00:00:00.000Z

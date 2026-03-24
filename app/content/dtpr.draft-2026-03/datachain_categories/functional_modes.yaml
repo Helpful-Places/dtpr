@@ -1,0 +1,70 @@
+dtpr_id: functional_modes
+name:
+  en: Functional Modes
+  fr: Modes fonctionnels
+description:
+  en: The functional mode of the AI system, describing what the system fundamentally does.
+  fr: Le mode fonctionnel du système d'IA, décrivant ce que le système fait fondamentalement.
+prompt:
+  en: What does this AI system fundamentally do?
+  fr: Que fait fondamentalement ce système d'IA ?
+required: true
+order: 3
+context:
+  id: functional_mode
+  name:
+    en: Functional Mode
+    fr: Mode fonctionnel
+  description:
+    en: Indicates the primary way in which the AI system operates.
+    fr: Indique le mode principal de fonctionnement du système d'IA.
+  values:
+    - id: analytical
+      name:
+        en: Analytical AI
+        fr: IA analytique
+      description:
+        en: Analyzes data for decisions and predictions.
+        fr: Analyse les données pour les décisions et les prédictions.
+      color: "#4A90D9"
+    - id: semantic
+      name:
+        en: Semantic AI
+        fr: IA sémantique
+      description:
+        en: Interprets meaning from text, speech, or images.
+        fr: Interprète le sens à partir de textes, de la parole ou d'images.
+      color: "#7B61FF"
+    - id: generative
+      name:
+        en: Generative AI
+        fr: IA générative
+      description:
+        en: Generates new content such as text, images, or code.
+        fr: Génère du nouveau contenu tel que du texte, des images ou du code.
+      color: "#F28C28"
+    - id: agentic
+      name:
+        en: Agentic AI
+        fr: IA agentique
+      description:
+        en: Takes autonomous actions on behalf of users or systems.
+        fr: Prend des actions autonomes au nom des utilisateurs ou des systèmes.
+      color: "#E74C3C"
+    - id: perceptive
+      name:
+        en: Perceptive AI
+        fr: IA perceptive
+      description:
+        en: Perceives the environment via sensors and signals.
+        fr: Perçoit l'environnement via des capteurs et des signaux.
+      color: "#2ECC71"
+    - id: physical
+      name:
+        en: Physical AI
+        fr: IA physique
+      description:
+        en: Controls physical movement and manipulation.
+        fr: Contrôle le mouvement physique et la manipulation.
+      color: "#95A5A6"
+updated_at: "2025-08-29T00:00:00Z"

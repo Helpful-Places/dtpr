@@ -1,0 +1,12 @@
+dtpr_id: fire_emergency
+category:
+  - purpose
+name:
+  en: Fire & Emergency
+  fr: Incendie et urgence
+description:
+  en: Supports services that ensure public safety and health related to emergencies.
+  fr: Contribue au fonctionnement des services qui assurent la sécurité et la santé publiques en cas d'urgences.
+icon: /dtpr-icons/fire_emergency.svg
+symbol: /dtpr-icons/symbols/fire_emergency.svg
+updated_at: 2025-08-29T00:00:00.000Z

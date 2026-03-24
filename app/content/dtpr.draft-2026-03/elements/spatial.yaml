@@ -1,0 +1,12 @@
+dtpr_id: spatial
+category:
+  - data_flow
+name:
+  en: Spatial
+  fr: Spatial
+description:
+  en: Data that represents a location, such as an address, a place name or geographic coordinates; or a structure, such as a floorplan.
+  fr: Données qui représentent un emplacement, comme une adresse, un nom de lieu ou des coordonnées géographiques ou encore une structure, comme un plan d'étage.
+icon: /dtpr-icons/spatial.svg
+symbol: /dtpr-icons/symbols/spatial.svg
+updated_at: 2025-08-29T00:00:00.000Z

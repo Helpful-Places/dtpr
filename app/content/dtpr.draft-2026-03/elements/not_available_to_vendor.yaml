@@ -1,0 +1,12 @@
+dtpr_id: not_available_to_vendor
+category:
+  - access
+name:
+  en: Not available to vendor
+  fr: Non disponible pour le vendeur
+description:
+  en: Data is not available to the data collection or technology provider.
+  fr: Les données ne sont pas disponibles pour le fournisseur de la collecte de données ou de la technologie.
+icon: /dtpr-icons/not_available_to_vendor.svg
+symbol: /dtpr-icons/symbols/not_available.svg
+updated_at: 2025-08-29T00:00:00.000Z

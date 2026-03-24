@@ -1,0 +1,12 @@
+dtpr_id: binary
+category:
+  - data_flow
+name:
+  en: Binary
+  fr: Binaire
+description:
+  en: Compressed data into a binary format.
+  fr: Compression de données dans un format binaire.
+icon: /dtpr-icons/binary.svg
+symbol: /dtpr-icons/symbols/binary.svg
+updated_at: 2025-08-29T00:00:00.000Z

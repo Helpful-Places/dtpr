@@ -1,0 +1,12 @@
+dtpr_id: dining
+category:
+  - purpose
+name:
+  en: Dining
+  fr: Restauration
+description:
+  en: For providing food or meal services.
+  fr: Pour la fourniture de services de restauration ou de repas.
+icon: /dtpr-icons/dining.svg
+symbol: /dtpr-icons/symbols/dining.svg
+updated_at: 2025-08-29T00:00:00.000Z

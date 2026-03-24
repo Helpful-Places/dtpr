@@ -1,0 +1,12 @@
+dtpr_id: safety_security
+category:
+  - purpose
+name:
+  en: Safety & Security
+  fr: Tranquillité Prévention
+description:
+  en: Enables a safe and/or secure environment, for example for the purposes of fire safety, home security or ensuring safe passage in places such as airports or roads
+  fr: Permet de créer un environnement sór et/ou sécurisé, par exemple à des fins de sécurité incendie, de détection des intrusions ou pour assurer la sécurité du passage dans des lieux tels que les aéroports ou les routes.
+icon: /dtpr-icons/safety_security.svg
+symbol: /dtpr-icons/symbols/safety_security.svg
+updated_at: 2025-08-29T00:00:00.000Z

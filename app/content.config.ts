@@ -79,5 +79,51 @@ export default defineContentConfig({
         _locale: z.string()
       })
     }),
+
+    // Draft 2026-03 collections (experimental — RFC #260)
+    draft_2026_03_datachain_categories: defineCollection({
+      type: 'data',
+      source: 'dtpr.draft-2026-03/datachain_categories/*.yaml',
+      schema: z.object({
+        dtpr_id: z.string(),
+        name: z.record(z.string()),
+        description: z.record(z.string()),
+        prompt: z.record(z.string()),
+        required: z.boolean().optional(),
+        order: z.number().min(0).optional(),
+        element_variables: z.array(z.object({
+          id: z.string(),
+          label: z.record(z.string()).optional(),
+          required: z.boolean().optional(),
+          type: z.enum(['text', 'select', 'multiselect']).optional(),
+        })).optional(),
+        context: z.object({
+          id: z.string(),
+          name: z.record(z.string()),
+          description: z.record(z.string()),
+          values: z.array(z.object({
+            id: z.string(),
+            name: z.record(z.string()),
+            description: z.record(z.string()),
+            color: z.string(),
+          })),
+        }).optional(),
+        updated_at: z.string(),
+      })
+    }),
+
+    draft_2026_03_elements: defineCollection({
+      type: 'data',
+      source: 'dtpr.draft-2026-03/elements/*.yaml',
+      schema: z.object({
+        dtpr_id: z.string(),
+        category: z.array(z.string()),
+        name: z.record(z.string()),
+        description: z.record(z.string()),
+        icon: z.string(),
+        symbol: z.string().optional(),
+        updated_at: z.string(),
+      })
+    }),
   }
 })

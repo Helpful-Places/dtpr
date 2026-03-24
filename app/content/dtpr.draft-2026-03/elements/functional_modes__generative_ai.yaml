@@ -1,0 +1,11 @@
+dtpr_id: generative_ai
+category:
+  - functional_modes
+name:
+  en: Generative AI
+  fr: IA générative
+description:
+  en: '"Creates" — generates new content such as text, images, audio, or code. Examples include large language models, image generators, and code assistants.'
+  fr: '"Crée" — génère du nouveau contenu tel que du texte, des images, de l''audio ou du code. Exemples : grands modèles de langage, générateurs d''images et assistants de code.'
+icon: /dtpr-icons/functional_modes__generative_ai.svg
+updated_at: "2025-08-29T00:00:00Z"

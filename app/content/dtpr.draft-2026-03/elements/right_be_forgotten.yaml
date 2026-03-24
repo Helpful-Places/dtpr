@@ -1,0 +1,12 @@
+dtpr_id: right_be_forgotten
+category:
+  - rights
+name:
+  en: Right to Be Forgotten
+  fr: Droit à l'oubli
+description:
+  en: The right to request the deletion of your personal data from an AI system under certain conditions, such as when the data is no longer necessary for its original purpose, when you withdraw consent, or when there is no legitimate interest in continuing to process it. This includes the right to have the system "unlearn" information derived from your data where technically feasible.
+  fr: Le droit de demander l'effacement de vos données à caractère personnel d'un système d'IA dans certaines conditions, par exemple lorsque les données ne sont plus nécessaires à leur finalité initiale, lorsque vous retirez votre consentement ou lorsqu'il n'y a pas d'intérêt légitime à continuer de les traiter. Cela inclut le droit de demander au système de "désapprendre" les informations dérivées de vos données lorsque cela est techniquement possible.
+icon: /dtpr-icons/rights_forgotten.svg
+symbol: /dtpr-icons/symbols/rights_forgotten.svg
+updated_at: 2025-08-29T00:00:00.000Z

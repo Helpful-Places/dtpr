@@ -1,0 +1,12 @@
+dtpr_id: available_to_the_accountable_organization
+category:
+  - access
+name:
+  en: Available to the accountable organization
+  fr: Données mises à la disposition de l’organisation responsable
+description:
+  en: Data is available to the accountable organization
+  fr: Les données sont mises à disposition de l’organisation responsable
+icon: /dtpr-icons/available_to_the_accountable_organization.svg
+symbol: /dtpr-icons/symbols/available.svg
+updated_at: 2025-08-29T00:00:00.000Z

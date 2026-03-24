@@ -1,0 +1,12 @@
+dtpr_id: logistics
+category:
+  - purpose
+name:
+  en: Logistics
+  fr: Logistique
+description:
+  en: Supports the movements of goods or materials.
+  fr: Favorise la circulation des marchandises ou des matériaux.
+icon: /dtpr-icons/logistics.svg
+symbol: /dtpr-icons/symbols/logistics.svg
+updated_at: 2025-08-29T00:00:00.000Z

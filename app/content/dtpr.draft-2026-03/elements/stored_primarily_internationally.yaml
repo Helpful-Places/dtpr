@@ -1,0 +1,12 @@
+dtpr_id: stored_primarily_internationally
+category:
+  - storage
+name:
+  en: Stored primarily internationally
+  fr: Stockés principalement à l'international
+description:
+  en: Data is stored outside the jurisdiction where it was collected.
+  fr: Les données sont stockées en dehors de la juridiction où elles ont été collectées.
+icon: /dtpr-icons/stored_primarily_internationally.svg
+symbol: /dtpr-icons/symbols/stored.svg
+updated_at: 2025-08-29T00:00:00.000Z

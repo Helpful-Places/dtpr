@@ -1,0 +1,11 @@
+dtpr_id: agentic_ai
+category:
+  - functional_modes
+name:
+  en: Agentic AI
+  fr: IA agentique
+description:
+  en: '"Acts" — takes autonomous actions on behalf of users or systems, often chaining multiple steps. Examples include autonomous agents, workflow automation, and self-driving systems.'
+  fr: '"Agit" — prend des actions autonomes au nom des utilisateurs ou des systèmes, enchaînant souvent plusieurs étapes. Exemples : agents autonomes, automatisation de flux de travail et systèmes de conduite autonome.'
+icon: /dtpr-icons/functional_modes__agentic_ai.svg
+updated_at: "2025-08-29T00:00:00Z"

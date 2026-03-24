@@ -1,0 +1,18 @@
+dtpr_id: data_flow
+name:
+  en: Data Flow
+  fr: Flux de données
+description:
+  en: The types of data that flow into and out of the AI system.
+  fr: Les types de données qui entrent et sortent du système d'IA.
+prompt:
+  en: What data flows into and out of this AI system?
+  fr: Quelles données entrent et sortent de ce système d'IA ?
+required: false
+order: 4
+element_variables:
+  - id: additional_description
+    label:
+      en: Description
+      fr: Description
+updated_at: "2025-08-29T00:00:00Z"

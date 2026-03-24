@@ -1,0 +1,19 @@
+dtpr_id: rights
+name:
+  en: Rights
+  fr: Droits
+description:
+  en: The user's rights in relation to the AI system.
+  fr: Les droits de l'utilisateur par rapport au système d'IA.
+prompt:
+  en: What are the user's rights in relation to the AI system?
+  fr: Quels sont les droits de l’utilisateur par rapport au système d’IA ?
+required: false
+order: 11
+element_variables:
+  - id: rights
+    label:
+      en: Description of Rights
+      fr: Description des droits
+    required: true
+updated_at: 2025-08-29T00:00:00.000Z

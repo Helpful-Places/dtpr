@@ -1,0 +1,12 @@
+dtpr_id: mobility
+category:
+  - purpose
+name:
+  en: Mobility
+  fr: Mobilité
+description:
+  en: Supports how people and materials move around.
+  fr: Contribue à la maniére dont les personnes et les matériaux se déplacent.
+icon: /dtpr-icons/mobility.svg
+symbol: /dtpr-icons/symbols/mobility.svg
+updated_at: 2025-08-29T00:00:00.000Z

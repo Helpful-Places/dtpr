@@ -1,0 +1,12 @@
+dtpr_id: connectivity
+category:
+  - purpose
+name:
+  en: Connectivity
+  fr: Accés à internet
+description:
+  en: Enables connectivity of devices to a digital network.
+  fr: Permettre la connexion à internet.
+icon: /dtpr-icons/connectivity.svg
+symbol: /dtpr-icons/symbols/connectivity.svg
+updated_at: 2025-08-29T00:00:00.000Z

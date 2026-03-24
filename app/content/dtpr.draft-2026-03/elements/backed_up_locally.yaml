@@ -1,0 +1,12 @@
+dtpr_id: backed_up_locally
+category:
+  - storage
+name:
+  en: Backed up locally
+  fr: Sauvegardé localement
+description:
+  en: Data is backed up with the jurisdiction where it was collected.
+  fr: Les données sont sauvegardées dans la juridiction où elles ont été collectées.
+icon: /dtpr-icons/backed_up_locally.svg
+symbol: /dtpr-icons/symbols/stored.svg
+updated_at: 2025-08-29T00:00:00.000Z

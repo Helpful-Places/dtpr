@@ -1,0 +1,12 @@
+dtpr_id: social
+category:
+  - purpose
+name:
+  en: Social
+  fr: Social
+description:
+  en: For interacting with another person or a group.
+  fr: Pour interagir avec une autre personne ou un groupe.
+icon: /dtpr-icons/social.svg
+symbol: /dtpr-icons/symbols/social.svg
+updated_at: 2025-08-29T00:00:00.000Z

@@ -1,0 +1,12 @@
+dtpr_id: not_available_to_me
+category:
+  - access
+name:
+  en: Not available to me
+  fr: Non disponible pour moi
+description:
+  en: Not available to me or other individuals. As an individual, there isn't a way for you to access this data.
+  fr: Non disponible pour moi ou d'autres individus. En tant qu'individu, il n'y a aucun moyen pour vous d'accéder à ces données.
+icon: /dtpr-icons/not_available_to_me.svg
+symbol: /dtpr-icons/symbols/not_available.svg
+updated_at: 2025-08-29T00:00:00.000Z

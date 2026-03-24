@@ -1,0 +1,12 @@
+dtpr_id: data_retained
+category:
+  - retention
+name:
+  en: Retained {{duration}}
+  fr: Retenu {{duration}}
+description:
+  en: Data is stored for {{duration}}, and after this time period is deleted
+  fr: Les données sont stockées pendant {{duration}} et sont supprimées après cette période.
+icon: /dtpr-icons/is_retained.svg
+symbol: /dtpr-icons/symbols/is_retained.svg
+updated_at: 2025-08-29T00:00:00.000Z

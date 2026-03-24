@@ -1,0 +1,18 @@
+dtpr_id: purpose
+name:
+  en: Purpose
+  fr: But
+description:
+  en: The purpose of this AI system.
+  fr: Le but de ce système d’IA.
+prompt:
+  en: What is the purpose of this AI system?
+  fr: Quel est le but de ce système d’IA ?
+required: true
+order: 2
+element_variables:
+  - id: additional_description
+    label:
+      en: Description
+      fr: Description
+updated_at: 2025-08-29T00:00:00.000Z

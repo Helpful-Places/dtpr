@@ -1,0 +1,11 @@
+dtpr_id: analytical_ai
+category:
+  - functional_modes
+name:
+  en: Analytical AI
+  fr: IA analytique
+description:
+  en: '"Decides" — analyzes data to produce decisions, predictions, or classifications. Examples include risk scoring, demand forecasting, and anomaly detection.'
+  fr: '"Décide" — analyse les données pour produire des décisions, des prédictions ou des classifications. Exemples : évaluation des risques, prévision de la demande et détection d''anomalies.'
+icon: /dtpr-icons/functional_modes__analytical_ai.svg
+updated_at: "2025-08-29T00:00:00Z"
