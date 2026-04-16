@@ -1,0 +1,46 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "dtpr-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-04-16",
+  "compatibility_flags": ["nodejs_compat"],
+  "account_id": "f978769622a3e15ad770688a80811aa8",
+  "routes": [
+    {
+      "pattern": "api.dtpr.io",
+      "custom_domain": true
+    }
+  ],
+  "limits": {
+    "cpu_ms": 500
+  },
+  "observability": {
+    "enabled": true
+  },
+  "r2_buckets": [
+    {
+      "binding": "CONTENT",
+      "bucket_name": "dtpr-content-prod"
+    }
+  ],
+  "env": {
+    "preview": {
+      "name": "dtpr-api-preview",
+      "routes": [
+        {
+          "pattern": "api-preview.dtpr.io",
+          "custom_domain": true
+        }
+      ],
+      "limits": {
+        "cpu_ms": 500
+      },
+      "r2_buckets": [
+        {
+          "binding": "CONTENT",
+          "bucket_name": "dtpr-content-preview"
+        }
+      ]
+    }
+  }
+}
