@@ -1,0 +1,47 @@
+id: available_to_the_accountable_organization
+category_ids:
+  - ai__access
+title:
+  - locale: en
+    value: Available to the accountable organization
+  - locale: es
+    value: Disponible para la organización responsable
+  - locale: fr
+    value: Données mises à la disposition de l’organisation responsable
+  - locale: km
+    value: មានសម្រាប់អង្គភាពគណនី
+  - locale: pt
+    value: Disponível para a organização responsável
+  - locale: tl
+    value: Magagamit sa accountable na organisasyon
+description:
+  - locale: en
+    value: Data is available to the accountable organization
+  - locale: es
+    value: Los datos están disponibles para la organización responsable
+  - locale: fr
+    value: Les données sont mises à disposition de l’organisation responsable
+  - locale: km
+    value: ទិន្នន័យអាចរកបានសម្រាប់អង្គការដែលទទួលខុសត្រូវ
+  - locale: pt
+    value: Os dados estão disponíveis para a organização responsável
+  - locale: tl
+    value: Magagamit ang datos sa organisasyon na may pananagutan
+citation: []
+icon:
+  url: /dtpr-icons/available_to_the_accountable_organization.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Available to the accountable organization icon
+    - locale: es
+      value: Disponible para la organización responsable icon
+    - locale: fr
+      value: Données mises à la disposition de l’organisation responsable icon
+    - locale: km
+      value: មានសម្រាប់អង្គភាពគណនី icon
+    - locale: pt
+      value: Disponível para a organização responsável icon
+    - locale: tl
+      value: Magagamit sa accountable na organisasyon icon
+variables: []

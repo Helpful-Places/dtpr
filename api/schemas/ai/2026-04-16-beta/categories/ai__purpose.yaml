@@ -1,0 +1,59 @@
+id: ai__purpose
+name:
+  - locale: en
+    value: Purpose
+  - locale: es
+    value: Objetivo
+  - locale: fr
+    value: But
+  - locale: km
+    value: គោលបំណង
+  - locale: pt
+    value: Propósito
+  - locale: tl
+    value: Layunin
+description:
+  - locale: en
+    value: The purpose of this AI system.
+  - locale: es
+    value: El propósito de este sistema de IA.
+  - locale: fr
+    value: Le but de ce système d’IA.
+  - locale: km
+    value: គោលបំណងនៃប្រព័ន្ធ AI នេះ។
+  - locale: pt
+    value: O propósito deste sistema de IA.
+  - locale: tl
+    value: Ang layunin ng AI system na ito.
+prompt:
+  - locale: en
+    value: What is the purpose of this AI system?
+  - locale: es
+    value: ¿Cuál es el propósito de este sistema de IA?
+  - locale: fr
+    value: Quel est le but de ce système d’IA ?
+  - locale: km
+    value: តើប្រព័ន្ធ AI នេះមានគោលបំណងអ្វី?
+  - locale: pt
+    value: Qual é o propósito deste sistema de IA?
+  - locale: tl
+    value: Ano ang layunin ng AI system na ito?
+required: true
+order: 2
+datachain_type: ai
+element_variables:
+  - id: additional_description
+    label:
+      - locale: en
+        value: Description
+      - locale: es
+        value: Descripción
+      - locale: fr
+        value: Description
+      - locale: km
+        value: ការពិពណ៌នា
+      - locale: pt
+        value: Descrição
+      - locale: tl
+        value: Paglalarawan
+    required: false

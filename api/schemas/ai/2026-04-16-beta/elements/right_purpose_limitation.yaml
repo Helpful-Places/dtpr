@@ -1,0 +1,71 @@
+id: right_purpose_limitation
+category_ids:
+  - ai__rights
+title:
+  - locale: en
+    value: Right to Purpose Limitation
+  - locale: es
+    value: Limitación del derecho a la finalidad
+  - locale: fr
+    value: Limitation du droit à l'objet
+  - locale: km
+    value: សិទ្ធិក្នុងការកំណត់គោលបំណង
+  - locale: pt
+    value: Direito à limitação de finalidade
+  - locale: tl
+    value: Karapatan sa Limitasyon ng Layunin
+description:
+  - locale: en
+    value: >-
+      The right to ensure your data is only used for the specific purposes that were clearly stated when it was
+      collected. This prevents organizations from using your data for new, unrelated purposes without your knowledge or
+      consent. The data collector must specify and document the intended purposes before collection begins, and adhere
+      to these limitations.
+  - locale: es
+    value: >-
+      El derecho a garantizar que sus datos sólo se utilicen para los fines específicos que se indicaron claramente
+      cuando se recopilaron. Esto impide que las organizaciones utilicen sus datos para nuevos fines no relacionados sin
+      su conocimiento o consentimiento. El recopilador de datos debe especificar y documentar los fines previstos antes
+      de iniciar la recopilación, y atenerse a estas limitaciones.
+  - locale: fr
+    value: >-
+      Le droit de s'assurer que vos données ne sont utilisées qu'aux fins spécifiques qui ont été clairement énoncées
+      lors de leur collecte. Cela empêche les organisations d'utiliser vos données à des fins nouvelles et sans rapport
+      avec celles-ci, sans que vous en soyez informé ou que vous y consentiez. Le collecteur de données doit préciser et
+      documenter les finalités prévues avant le début de la collecte et respecter ces limitations.
+  - locale: km
+    value: >-
+      សិទ្ធិក្នុងការធានាថាទិន្នន័យរបស់អ្នកត្រូវបានប្រើប្រាស់សម្រាប់គោលបំណងជាក់លាក់ដែលត្រូវបានបញ្ជាក់យ៉ាងច្បាស់នៅពេលដែលវាត្រូវបានប្រមូល។
+      សកម្មភាពនេះរារាំងស្ថាប័ននានាពីការប្រើប្រាស់ទិន្នន័យរបស់អ្នកសម្រាប់គោលបំណងថ្មី ដែលមិនពាក់ព័ន្ធដោយមិនមានចំណេះដឹង
+      ឬការយល់ព្រមពីអ្នក។ អ្នកប្រមូលទិន្នន័យត្រូវតែបញ្ជាក់ និងចងក្រងឯកសារគោលបំណងដែលបានគ្រោងទុក មុនពេលការប្រមូលចាប់ផ្តើម
+      ហើយប្រកាន់ខ្ជាប់នូវដែនកំណត់ទាំងនេះ។
+  - locale: pt
+    value: >-
+      O direito de garantir que seus dados sejam usados somente para os fins específicos que foram claramente declarados
+      quando foram coletados. Isso impede que as organizações usem seus dados para finalidades novas e não relacionadas
+      sem seu conhecimento ou consentimento. O coletor de dados deve especificar e documentar as finalidades pretendidas
+      antes do início da coleta e aderir a essas limitações.
+  - locale: tl
+    value: >-
+      Ang karapatang matiyak na ang iyong data ay ginagamit lamang para sa mga partikular na layunin na malinaw na
+      nakasaad noong ito ay nakolekta. Pinipigilan nito ang mga organisasyon na gamitin ang iyong data para sa bago,
+      hindi nauugnay na mga layunin nang hindi mo alam o pahintulot. Dapat tukuyin at idokumento ng tagakolekta ng data
+      ang mga nilalayon na layunin bago magsimula ang pangongolekta, at sumunod sa mga limitasyong ito.
+citation: []
+icon:
+  url: /dtpr-icons/rights_purpose-limitation.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Right to Purpose Limitation icon
+    - locale: es
+      value: Limitación del derecho a la finalidad icon
+    - locale: fr
+      value: Limitation du droit à l'objet icon
+    - locale: km
+      value: សិទ្ធិក្នុងការកំណត់គោលបំណង icon
+    - locale: pt
+      value: Direito à limitação de finalidade icon
+    - locale: tl
+      value: Karapatan sa Limitasyon ng Layunin icon
+variables: []

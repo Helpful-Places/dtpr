@@ -1,0 +1,49 @@
+id: enforcement
+category_ids:
+  - ai__purpose
+title:
+  - locale: en
+    value: Enforcement
+  - locale: es
+    value: Aplicación
+  - locale: fr
+    value: Cadre légal
+  - locale: km
+    value: សហវណ្ណមុខងារ
+  - locale: pt
+    value: Aplicação da lei
+  - locale: tl
+    value: Pagpapatupad
+description:
+  - locale: en
+    value: Used for enforcement of rules or regulations.
+  - locale: es
+    value: Utilizado para la aplicación de reglas o regulaciones.
+  - locale: fr
+    value: Utilisé pour l'application de lois ou de réglements.
+  - locale: km
+    value: >-
+      ប្រើសម្រាប់ការអនុវត្តច្បាប់ឬបទប្បញ្ញត្តិ។ ស្វែងយល់បន្ថែម
+      [នៅទីនេះ](https://en.wikipedia.org/wiki/law_enforcorcorce)
+  - locale: pt
+    value: Utilizado para a aplicação de regras ou regulamentos.
+  - locale: tl
+    value: Ginamit para sa pagpapatupad ng mga patakaran o regulasyon.
+citation: []
+icon:
+  url: /dtpr-icons/enforcement.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Enforcement icon
+    - locale: es
+      value: Aplicación icon
+    - locale: fr
+      value: Cadre légal icon
+    - locale: km
+      value: សហវណ្ណមុខងារ icon
+    - locale: pt
+      value: Aplicação da lei icon
+    - locale: tl
+      value: Pagpapatupad icon
+variables: []

@@ -1,0 +1,172 @@
+id: ai__decision
+name:
+  - locale: en
+    value: Decision Type
+  - locale: es
+    value: Tipo de decisión
+  - locale: fr
+    value: Type de décision
+  - locale: km
+    value: ប្រភេទការសម្រេចចិត្ត
+  - locale: pt
+    value: Tipo de decisão
+  - locale: tl
+    value: Uri ng Desisyon
+description:
+  - locale: en
+    value: The type of decision being made by the AI system.
+  - locale: es
+    value: El tipo de decisión que toma el sistema de IA.
+  - locale: fr
+    value: Le type de décision prise par le système d’IA.
+  - locale: km
+    value: ប្រភេទនៃការសម្រេចចិត្តត្រូវបានធ្វើឡើងដោយប្រព័ន្ធ AI ។
+  - locale: pt
+    value: O tipo de decisão tomada pelo sistema de IA.
+  - locale: tl
+    value: Ang uri ng desisyon na ginagawa ng AI system.
+prompt:
+  - locale: en
+    value: What is the type of decision being made by this AI system?
+  - locale: es
+    value: ¿Qué tipo de decisión toma este sistema de IA?
+  - locale: fr
+    value: Quel est le type de décision prise par ce système d’IA ?
+  - locale: km
+    value: តើអ្វីទៅជាប្រភេទនៃការសម្រេចចិត្តដែលត្រូវបានធ្វើឡើងដោយប្រព័ន្ធ AI នេះ?
+  - locale: pt
+    value: Que tipo de decisão está sendo tomada por este sistema de IA?
+  - locale: tl
+    value: Ano ang uri ng desisyon na ginagawa ng AI system na ito?
+required: true
+order: 3
+datachain_type: ai
+element_variables:
+  - id: additional_description
+    label:
+      - locale: en
+        value: Description
+      - locale: es
+        value: Descripción
+      - locale: fr
+        value: Description
+      - locale: km
+        value: ការពិពណ៌នា
+      - locale: pt
+        value: Descrição
+      - locale: tl
+        value: Paglalarawan
+    required: false
+context:
+  id: level_of_autonomy
+  name:
+    - locale: en
+      value: Level of Autonomy
+    - locale: es
+      value: Nivel de autonomía
+    - locale: fr
+      value: Niveau d'autonomie
+    - locale: km
+      value: កម្រិតនៃស្វ័យភាព
+    - locale: pt
+      value: Nível de autonomia
+    - locale: tl
+      value: Antas ng Awtonomiya
+  description:
+    - locale: en
+      value: Indicates the degree of human involvement in the AI decision process.
+    - locale: es
+      value: Indica el grado de participación humana en el proceso de decisión de la IA.
+    - locale: fr
+      value: Indique le degré d'implication humaine dans le processus de décision de l'IA.
+    - locale: km
+      value: បង្ហាញពីកម្រិតនៃការចូលរួមរបស់មនុស្សក្នុងដំណើរការសម្រេចចិត្តរបស់ AI។
+    - locale: pt
+      value: Indica o grau de envolvimento humano no processo de decisão da IA.
+    - locale: tl
+      value: Ipinapahiwatig ang antas ng paglahok ng tao sa proseso ng desisyon ng AI.
+  values:
+    - id: ai_only
+      color: "#F28C28"
+      name:
+        - locale: en
+          value: AI decides and executes
+        - locale: es
+          value: La IA decide y ejecuta
+        - locale: fr
+          value: L'IA décide et exécute
+        - locale: km
+          value: AI សម្រេចចិត្តនិងប្រតិបត្តិ
+        - locale: pt
+          value: A IA decide e executa
+        - locale: tl
+          value: Ang AI ang nagpapasya at nagpapatupad
+      description:
+        - locale: en
+          value: AI processes, decides, and executes without human involvement.
+        - locale: es
+          value: La IA procesa, decide y ejecuta sin participación humana.
+        - locale: fr
+          value: L'IA traite, décide et exécute sans intervention humaine.
+        - locale: km
+          value: AI ដំណើរការ សម្រេចចិត្ត និងប្រតិបត្តិដោយគ្មានការចូលរួមរបស់មនុស្ស។
+        - locale: pt
+          value: A IA processa, decide e executa sem envolvimento humano.
+        - locale: tl
+          value: Ang AI ang nagpoproseso, nagpapasya, at nagpapatupad nang walang paglahok ng tao.
+    - id: ai_decides_human_executes
+      color: "#FFD700"
+      name:
+        - locale: en
+          value: AI decides, human executes
+        - locale: es
+          value: La IA decide, el humano ejecuta
+        - locale: fr
+          value: L'IA décide, l'humain exécute
+        - locale: km
+          value: AI សម្រេចចិត្ត មនុស្សប្រតិបត្តិ
+        - locale: pt
+          value: A IA decide, o humano executa
+        - locale: tl
+          value: Ang AI ang nagpapasya, ang tao ang nagpapatupad
+      description:
+        - locale: en
+          value: AI processes and generates a decision, but humans are required to execute.
+        - locale: es
+          value: La IA procesa y genera una decisión, pero los humanos deben ejecutarla.
+        - locale: fr
+          value: L'IA traite et génère une décision, mais les humains doivent l'exécuter.
+        - locale: km
+          value: AI ដំណើរការនិងបង្កើតការសម្រេចចិត្ត ប៉ុន្តែមនុស្សត្រូវការដើម្បីប្រតិបត្តិ។
+        - locale: pt
+          value: A IA processa e gera uma decisão, mas os humanos são necessários para executar.
+        - locale: tl
+          value: Ang AI ang nagpoproseso at bumubuo ng desisyon, ngunit kailangan ng mga tao para ipatupad.
+    - id: ai_flags_human_decides
+      color: "#4A90D9"
+      name:
+        - locale: en
+          value: AI flags, human decides
+        - locale: es
+          value: La IA señala, el humano decide
+        - locale: fr
+          value: L'IA signale, l'humain décide
+        - locale: km
+          value: AI រាយការណ៍ មនុស្ org សម្រេចចិត្ត
+        - locale: pt
+          value: A IA sinaliza, o humano decide
+        - locale: tl
+          value: Ang AI ang nagba-flag, ang tao ang nagpapasya
+      description:
+        - locale: en
+          value: AI flags information for humans to evaluate, decide, and take action.
+        - locale: es
+          value: La IA señala información para que los humanos evalúen, decidan y actúen.
+        - locale: fr
+          value: L'IA signale des informations pour que les humains évaluent, décident et agissent.
+        - locale: km
+          value: AI រាយការណ៍ព័ត៌មានសម្រាប់មនុស្សវាយតម្លៃ សម្រេចចិត្ត និងចាត់វិធានការ។
+        - locale: pt
+          value: A IA sinaliza informações para os humanos avaliarem, decidirem e agirem.
+        - locale: tl
+          value: Ang AI ang nagba-flag ng impormasyon para sa mga tao na suriin, magpasya, at kumilos.

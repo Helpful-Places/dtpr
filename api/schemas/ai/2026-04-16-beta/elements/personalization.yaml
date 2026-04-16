@@ -1,0 +1,72 @@
+id: personalization
+category_ids:
+  - ai__decision
+title:
+  - locale: en
+    value: Personalization
+  - locale: es
+    value: Personalización
+  - locale: fr
+    value: Personnalisation
+  - locale: km
+    value: ការកំណត់ផ្ទាល់ខ្លួន
+  - locale: pt
+    value: Personalização
+  - locale: tl
+    value: Personalization
+description:
+  - locale: en
+    value: >-
+      A decision-making process where the AI/algorithm tailors content, recommendations, or services to specific
+      individuals based on their preferences, behaviors, or characteristics. The system analyzes personal data to
+      customize experiences. Examples include content recommendations, personalized learning paths, or targeted
+      communications from public services.
+  - locale: es
+    value: >-
+      Proceso de toma de decisiones en el que la IA/algoritmo adapta contenidos, recomendaciones o servicios a personas
+      concretas en función de sus preferencias, comportamientos o características. El sistema analiza los datos
+      personales para personalizar las experiencias. Algunos ejemplos son las recomendaciones de contenidos, los
+      itinerarios de aprendizaje personalizados o las comunicaciones específicas de los servicios públicos.
+  - locale: fr
+    value: >-
+      Processus décisionnel dans lequel l'IA/l'algorithme adapte le contenu, les recommandations ou les services à des
+      personnes spécifiques en fonction de leurs préférences, de leurs comportements ou de leurs caractéristiques. Le
+      système analyse les données personnelles pour personnaliser les expériences. Les exemples incluent des
+      recommandations de contenu, des parcours d'apprentissage personnalisés ou des communications ciblées de la part
+      des services publics.
+  - locale: km
+    value: >-
+      ដំណើរការធ្វើការសម្រេចចិត្តដែល AI/algorithm កែសម្រួលខ្លឹមសារ ការណែនាំ
+      ឬសេវាកម្មដល់បុគ្គលជាក់លាក់ដោយផ្អែកលើចំណូលចិត្ត អាកប្បកិរិយា ឬលក្ខណៈរបស់ពួកគេ។
+      ប្រព័ន្ធ​វិភាគ​ទិន្នន័យ​ផ្ទាល់ខ្លួន​ដើម្បី​ប្ដូរ​បទពិសោធន៍។ ឧទាហរណ៍រួមមានការណែនាំអំពីខ្លឹមសារ
+      ផ្លូវសិក្សាផ្ទាល់ខ្លួន ឬការទំនាក់ទំនងដែលមានគោលដៅពីសេវាកម្មសាធារណៈ។
+  - locale: pt
+    value: >-
+      Um processo de tomada de decisão em que a IA/algoritmo adapta conteúdo, recomendações ou serviços a indivíduos
+      específicos com base em suas preferências, comportamentos ou características. O sistema analisa dados pessoais
+      para personalizar experiências. Os exemplos incluem recomendações de conteúdo, caminhos de aprendizado
+      personalizados ou comunicações direcionadas de serviços públicos.
+  - locale: tl
+    value: >-
+      Isang proseso ng paggawa ng desisyon kung saan iniaangkop ng AI/algorithm ang nilalaman, rekomendasyon, o serbisyo
+      sa mga partikular na indibidwal batay sa kanilang mga kagustuhan, gawi, o katangian. Sinusuri ng system ang
+      personal na data upang i-customize ang mga karanasan. Kasama sa mga halimbawa ang mga rekomendasyon sa nilalaman,
+      mga personalized na landas sa pag-aaral, o mga naka-target na komunikasyon mula sa mga pampublikong serbisyo.
+citation: []
+icon:
+  url: /dtpr-icons/dm_personalization.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Personalization icon
+    - locale: es
+      value: Personalización icon
+    - locale: fr
+      value: Personnalisation icon
+    - locale: km
+      value: ការកំណត់ផ្ទាល់ខ្លួន icon
+    - locale: pt
+      value: Personalização icon
+    - locale: tl
+      value: Personalization icon
+variables: []

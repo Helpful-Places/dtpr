@@ -1,0 +1,47 @@
+id: commerce
+category_ids:
+  - ai__purpose
+title:
+  - locale: en
+    value: Commerce
+  - locale: es
+    value: Comercio
+  - locale: fr
+    value: Commerce
+  - locale: km
+    value: ហនិច្ជកម្ផ
+  - locale: pt
+    value: Comércio
+  - locale: tl
+    value: Komersyo
+description:
+  - locale: en
+    value: Enables the buying and selling of goods and services.
+  - locale: es
+    value: Habilita la compra y venta de bienes y servicios.
+  - locale: fr
+    value: Permet l'achat et la vente de biens et de services.
+  - locale: km
+    value: អនុញ្ញាតឱ្យការទិញនិងលក់ទំនិញនិងសេវាកម្ម។ ស្វែងយល់បន្ថែម [នៅទីនេះ](https://en.wikipedia.org/wiki/commmerce)
+  - locale: pt
+    value: Permite a compra e venda de bens e serviços.
+  - locale: tl
+    value: Para sa pagbili at pagbebenta ng mga kalakal at serbisyo.
+citation: []
+icon:
+  url: /dtpr-icons/commerce.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Commerce icon
+    - locale: es
+      value: Comercio icon
+    - locale: fr
+      value: Commerce icon
+    - locale: km
+      value: ហនិច្ជកម្ផ icon
+    - locale: pt
+      value: Comércio icon
+    - locale: tl
+      value: Komersyo icon
+variables: []

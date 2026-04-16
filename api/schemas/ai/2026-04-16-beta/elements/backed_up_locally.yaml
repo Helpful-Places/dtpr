@@ -1,0 +1,49 @@
+id: backed_up_locally
+category_ids:
+  - ai__storage
+title:
+  - locale: en
+    value: Backed up locally
+  - locale: es
+    value: Respaldado localmente
+  - locale: fr
+    value: Sauvegardé localement
+  - locale: km
+    value: បានបម្រុងទុកក្នុងមូលដ្ឋាន
+  - locale: pt
+    value: Cópia de segurança local
+  - locale: tl
+    value: Naka -back up sa lokal
+description:
+  - locale: en
+    value: Data is backed up with the jurisdiction where it was collected.
+  - locale: es
+    value: Los datos están respaldados con la jurisdicción donde se recopiló.
+  - locale: fr
+    value: Les données sont sauvegardées dans la juridiction où elles ont été collectées.
+  - locale: km
+    value: >-
+      ទិន្នន័យត្រូវបានគាំទ្រដោយយុត្តាធិការដែលវាត្រូវបានប្រមូល។ ស្វែងយល់បន្ថែម
+      [នៅទីនេះ](https://en.wikipedia.org/wiki/data_sovereignty)
+  - locale: pt
+    value: Os dados são salvaguardados com a jurisdição onde foram recolhidos.
+  - locale: tl
+    value: Ang datos ay nai-back up sa hurisdiksyon kung saan nakolekta ito.
+citation: []
+icon:
+  url: /dtpr-icons/backed_up_locally.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Backed up locally icon
+    - locale: es
+      value: Respaldado localmente icon
+    - locale: fr
+      value: Sauvegardé localement icon
+    - locale: km
+      value: បានបម្រុងទុកក្នុងមូលដ្ឋាន icon
+    - locale: pt
+      value: Cópia de segurança local icon
+    - locale: tl
+      value: Naka -back up sa lokal icon
+variables: []

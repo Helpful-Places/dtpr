@@ -1,0 +1,62 @@
+id: safety_security
+category_ids:
+  - ai__purpose
+title:
+  - locale: en
+    value: Safety & Security
+  - locale: es
+    value: Seguridad Seguridad
+  - locale: fr
+    value: Tranquillité Prévention
+  - locale: km
+    value: សុវត្ថិភាពនិងសន្តិសុខ
+  - locale: pt
+    value: Segurança e proteção
+  - locale: tl
+    value: Kaligtasan at Seguridad
+description:
+  - locale: en
+    value: >-
+      Enables a safe and/or secure environment, for example for the purposes of fire safety, home security or ensuring
+      safe passage in places such as airports or roads
+  - locale: es
+    value: >-
+      Habilita un entorno seguro y/o seguro, por ejemplo, para los fines de seguridad contra incendios, Home Security o
+      garantizar un paso seguro en lugares como aeropuertos o carreteras
+  - locale: fr
+    value: >-
+      Permet de créer un environnement sór et/ou sécurisé, par exemple à des fins de sécurité incendie, de détection des
+      intrusions ou pour assurer la sécurité du passage dans des lieux tels que les aéroports ou les routes.
+  - locale: km
+    value: >-
+      បើកដំណើរការបរិស្ថានដែលមានសុវត្ថិភាព និង/ឬសុវត្ថិភាព ឧទាហរណ៍សម្រាប់គោលបំណងនៃ
+      [សុវត្ថិភាពអគ្គីភ័យ](https://en.wikipedia.org/wiki/Fire_safety),
+      [សុវត្ថិភាពផ្ទះ](https://en.wikipedia.org/wiki/Home_security) ឬធានាការឆ្លងកាត់ប្រកបដោយសុវត្ថិភាពនៅកន្លែងដូចជា
+      [ព្រលានយន្តហោះ](https://en.wikipedia.org/wiki/Airport_security) ឬ
+      [roads](https://en.wikipedia.org/wiki/Road_traffic_safety)
+  - locale: pt
+    value: >-
+      Permite um ambiente seguro e/ou protegido, por exemplo, para efeitos de [egurança contra incêndios, segurança
+      doméstica ou para garantir uma passagem segura em locais como aeroportos ou estradas.
+  - locale: tl
+    value: >-
+      Nagbibigay-daan sa isang ligtas at/o secure na kapaligiran, halimbawa para sa mga layunin ng kaligtasan sa sunog,
+      seguridad sa tahanan o pagtiyak ng ligtas na daan sa mga lugar tulad ng mga paliparan o mga kalsada
+citation: []
+icon:
+  url: /dtpr-icons/safety_security.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Safety & Security icon
+    - locale: es
+      value: Seguridad Seguridad icon
+    - locale: fr
+      value: Tranquillité Prévention icon
+    - locale: km
+      value: សុវត្ថិភាពនិងសន្តិសុខ icon
+    - locale: pt
+      value: Segurança e proteção icon
+    - locale: tl
+      value: Kaligtasan at Seguridad icon
+variables: []

@@ -1,0 +1,70 @@
+id: optimization
+category_ids:
+  - ai__processing
+title:
+  - locale: en
+    value: Optimization Algorithm
+  - locale: es
+    value: Algoritmo de optimización
+  - locale: fr
+    value: Algorithme d'optimisation
+  - locale: km
+    value: ក្បួនដោះស្រាយការបង្កើនប្រសិទ្ធភាព
+  - locale: pt
+    value: Algoritmo de otimização
+  - locale: tl
+    value: Algorithm ng Pag-optimize
+description:
+  - locale: en
+    value: >-
+      A mathematical process that finds the best solution from all possible solutions for a given problem, such as
+      determining the most efficient route, schedule, or resource allocation. These algorithms work by systematically
+      evaluating different possibilities to maximize or minimize specific outcomes like cost, time, or resources.
+  - locale: es
+    value: >-
+      Proceso matemático que encuentra la mejor solución entre todas las posibles para un problema dado, como determinar
+      la ruta, el horario o la asignación de recursos más eficientes. Estos algoritmos funcionan evaluando
+      sistemáticamente distintas posibilidades para maximizar o minimizar resultados específicos como el coste, el
+      tiempo o los recursos.
+  - locale: fr
+    value: >-
+      Un processus mathématique qui trouve la meilleure solution parmi toutes les solutions possibles pour un problème
+      donné, tel que la détermination de l'itinéraire, du calendrier ou de l'allocation des ressources les plus
+      efficaces. Ces algorithmes fonctionnent en évaluant systématiquement différentes possibilités pour maximiser ou
+      minimiser des résultats spécifiques tels que le coût, le temps ou les ressources.
+  - locale: km
+    value: >-
+      ដំណើរការគណិតវិទ្យាដែលស្វែងរកដំណោះស្រាយដ៏ល្អបំផុតពីដំណោះស្រាយដែលអាចធ្វើបានទាំងអស់សម្រាប់បញ្ហាដែលបានផ្តល់ឱ្យ
+      ដូចជាការកំណត់ផ្លូវដែលមានប្រសិទ្ធភាពបំផុត កាលវិភាគ ឬការបែងចែកធនធាន។
+      ក្បួនដោះស្រាយទាំងនេះដំណើរការដោយការវាយតម្លៃជាប្រព័ន្ធនូវលទ្ធភាពផ្សេងៗ ដើម្បីបង្កើន
+      ឬកាត់បន្ថយលទ្ធផលជាក់លាក់ដូចជាការចំណាយ ពេលវេលា ឬធនធានជាដើម។
+  - locale: pt
+    value: >-
+      Um processo matemático que encontra a melhor solução entre todas as soluções possíveis para um determinado
+      problema, como determinar a rota, o cronograma ou a alocação de recursos mais eficiente. Esses algoritmos
+      funcionam avaliando sistematicamente diferentes possibilidades para maximizar ou minimizar resultados específicos,
+      como custo, tempo ou recursos.
+  - locale: tl
+    value: >-
+      Isang prosesong matematikal na nakakahanap ng pinakamahusay na solusyon mula sa lahat ng posibleng solusyon para
+      sa isang partikular na problema, tulad ng pagtukoy sa pinakamabisang ruta, iskedyul, o paglalaan ng mapagkukunan.
+      Gumagana ang mga algorithm na ito sa pamamagitan ng sistematikong pagsusuri ng iba't ibang mga posibilidad upang
+      i-maximize o i-minimize ang mga partikular na resulta tulad ng gastos, oras, o mga mapagkukunan.
+citation: []
+icon:
+  url: /dtpr-icons/processing_optimization-algorithm.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Optimization Algorithm icon
+    - locale: es
+      value: Algoritmo de optimización icon
+    - locale: fr
+      value: Algorithme d'optimisation icon
+    - locale: km
+      value: ក្បួនដោះស្រាយការបង្កើនប្រសិទ្ធភាព icon
+    - locale: pt
+      value: Algoritmo de otimização icon
+    - locale: tl
+      value: Algorithm ng Pag-optimize icon
+variables: []

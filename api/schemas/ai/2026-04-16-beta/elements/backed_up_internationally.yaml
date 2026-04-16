@@ -1,0 +1,49 @@
+id: backed_up_internationally
+category_ids:
+  - ai__storage
+title:
+  - locale: en
+    value: Backed up internationally
+  - locale: es
+    value: Respaldado internacionalmente
+  - locale: fr
+    value: Sauvegardé à internationale
+  - locale: km
+    value: បានគាំទ្រជាអន្តរជាតិ
+  - locale: pt
+    value: Apoio internacional
+  - locale: tl
+    value: Naka -back up sa buong mundo
+description:
+  - locale: en
+    value: Data is backed up outside the jurisdiction where it was collected.
+  - locale: es
+    value: Los datos están respaldados fuera de la jurisdicción donde se recopiló.
+  - locale: fr
+    value: Les données sont sauvegardées en dehors de la juridiction où elles ont été collectées.
+  - locale: km
+    value: >-
+      ទិន្នន័យត្រូវបានបម្រុងទុកនៅខាងក្រៅដែនសមត្ថកិច្ចដែលវាត្រូវបានប្រមូល។ ស្វែងយល់បន្ថែម
+      [នៅទីនេះ](https://en.wikipedia.org/wiki/data_sovereignty)
+  - locale: pt
+    value: A cópia de segurança dos dados é efectuada fora da jurisdição onde foram recolhidos.
+  - locale: tl
+    value: Ang datos ay nai-back up sa labas ng hurisdiksyon kung saan nakolekta ito.
+citation: []
+icon:
+  url: /dtpr-icons/backed_up_internationally.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Backed up internationally icon
+    - locale: es
+      value: Respaldado internacionalmente icon
+    - locale: fr
+      value: Sauvegardé à internationale icon
+    - locale: km
+      value: បានគាំទ្រជាអន្តរជាតិ icon
+    - locale: pt
+      value: Apoio internacional icon
+    - locale: tl
+      value: Naka -back up sa buong mundo icon
+variables: []

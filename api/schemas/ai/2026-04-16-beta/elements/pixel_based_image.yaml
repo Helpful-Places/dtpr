@@ -1,0 +1,48 @@
+id: pixel_based_image
+category_ids:
+  - ai__input_dataset
+  - ai__output_dataset
+title:
+  - locale: en
+    value: Pixel-based Image
+  - locale: es
+    value: Imagen basada en píxeles
+  - locale: fr
+    value: Image basée sur les pixels
+  - locale: km
+    value: រូបភាពផ្អែកលើភីកសែល
+  - locale: pt
+    value: Imagem baseada em pixels
+  - locale: tl
+    value: Imaheng nakabatay sa pixel
+description:
+  - locale: en
+    value: A digital image is composed of a grid of individual pixels.
+  - locale: es
+    value: Una imagen digital se compone de una cuadrícula de píxeles individuales.
+  - locale: fr
+    value: Une image numérique est composée d'une grille de pixels individuels.
+  - locale: km
+    value: រូបភាពឌីជីថលមួយត្រូវបានផ្សំឡើងដោយក្រឡាចត្រង្គនៃភីកសែលនីមួយៗ។
+  - locale: pt
+    value: Uma imagem digital é composta por uma grelha de pixéis individuais.
+  - locale: tl
+    value: Ang isang digital na imahe ay binubuo ng isang grid ng mga indibidwal na mga pixel.
+citation: []
+icon:
+  url: /dtpr-icons/pixel_based_image.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Pixel-based Image icon
+    - locale: es
+      value: Imagen basada en píxeles icon
+    - locale: fr
+      value: Image basée sur les pixels icon
+    - locale: km
+      value: រូបភាពផ្អែកលើភីកសែល icon
+    - locale: pt
+      value: Imagem baseada em pixels icon
+    - locale: tl
+      value: Imaheng nakabatay sa pixel icon
+variables: []

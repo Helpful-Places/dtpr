@@ -1,0 +1,79 @@
+id: sentiment-analysis
+category_ids:
+  - ai__processing
+title:
+  - locale: en
+    value: Sentiment Analysis
+  - locale: es
+    value: Análisis del sentimiento
+  - locale: fr
+    value: Analyse des sentiments
+  - locale: km
+    value: ការវិភាគអារម្មណ៍
+  - locale: pt
+    value: Análise de sentimento
+  - locale: tl
+    value: Pagsusuri ng Sentimento
+description:
+  - locale: en
+    value: >-
+      A technology that evaluates emotional tone and subjective information from text, images, or video. These systems
+      analyze input data to determine whether the expressed sentiment is positive, negative, or neutral. In public
+      spaces, sentiment analysis can be used to assess crowd mood, evaluate public response to services, or detect
+      rising tensions. The technology typically works by identifying emotional indicators and comparing them against
+      trained models of sentiment patterns.
+  - locale: es
+    value: >-
+      Tecnología que evalúa el tono emocional y la información subjetiva de textos, imágenes o vídeos. Estos sistemas
+      analizan los datos de entrada para determinar si el sentimiento expresado es positivo, negativo o neutro. En los
+      espacios públicos, el análisis de sentimientos puede utilizarse para evaluar el estado de ánimo de la multitud,
+      valorar la respuesta del público a los servicios o detectar tensiones crecientes. La tecnología suele funcionar
+      identificando indicadores emocionales y comparándolos con modelos entrenados de patrones de sentimientos.
+  - locale: fr
+    value: >-
+      Technologie qui évalue le ton émotionnel et les informations subjectives d'un texte, d'une image ou d'une vidéo.
+      Ces systèmes analysent les données d'entrée pour déterminer si le sentiment exprimé est positif, négatif ou
+      neutre. Dans les espaces publics, l'analyse des sentiments peut être utilisée pour évaluer l'humeur de la foule,
+      évaluer la réaction du public aux services ou détecter les tensions croissantes. La technologie fonctionne
+      généralement en identifiant des indicateurs émotionnels et en les comparant à des modèles de sentiments formés.
+  - locale: km
+    value: >-
+      បច្ចេកវិទ្យា​ដែល​វាយ​តម្លៃ​សំឡេង​អារម្មណ៍ និង​ព័ត៌មាន​ជា​ប្រធានបទ​ពី​អត្ថបទ រូបភាព ឬ​វីដេអូ។
+      ប្រព័ន្ធទាំងនេះវិភាគទិន្នន័យបញ្ចូលដើម្បីកំណត់ថាតើអារម្មណ៍ដែលបានបង្ហាញគឺវិជ្ជមាន អវិជ្ជមាន ឬអព្យាក្រឹត។
+      នៅកន្លែងសាធារណៈ ការវិភាគអារម្មណ៍អាចត្រូវបានប្រើដើម្បីវាយតម្លៃអារម្មណ៍ហ្វូងមនុស្ស
+      វាយតម្លៃការឆ្លើយតបជាសាធារណៈចំពោះសេវាកម្ម ឬរកឃើញភាពតានតឹងកើនឡើង។
+      បច្ចេកវិទ្យាជាធម្មតាដំណើរការដោយកំណត់អត្តសញ្ញាណសូចនាករអារម្មណ៍
+      និងប្រៀបធៀបពួកវាប្រឆាំងនឹងគំរូនៃអារម្មណ៍ដែលបានទទួលការបណ្តុះបណ្តាល។
+  - locale: pt
+    value: >-
+      Uma tecnologia que avalia o tom emocional e as informações subjetivas de textos, imagens ou vídeos. Esses sistemas
+      analisam os dados de entrada para determinar se o sentimento expresso é positivo, negativo ou neutro. Em espaços
+      públicos, a análise de sentimentos pode ser usada para avaliar o humor da multidão, avaliar a resposta do público
+      aos serviços ou detectar tensões crescentes. Normalmente, a tecnologia funciona identificando indicadores
+      emocionais e comparando-os com modelos treinados de padrões de sentimento.
+  - locale: tl
+    value: >-
+      Isang teknolohiya na sinusuri ang emosyonal na tono at pansariling impormasyon mula sa teksto, mga larawan, o
+      video. Sinusuri ng mga system na ito ang data ng input upang matukoy kung positibo, negatibo, o neutral ang
+      ipinahayag na damdamin. Sa mga pampublikong espasyo, maaaring gamitin ang pagsusuri ng sentimento upang masuri ang
+      mood ng karamihan, suriin ang tugon ng publiko sa mga serbisyo, o makita ang tumataas na tensyon. Karaniwang
+      gumagana ang teknolohiya sa pamamagitan ng pagtukoy ng mga emosyonal na tagapagpahiwatig at paghahambing ng mga
+      ito sa mga sinanay na modelo ng mga pattern ng damdamin.
+citation: []
+icon:
+  url: /dtpr-icons/processing_sentiment-analysis.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Sentiment Analysis icon
+    - locale: es
+      value: Análisis del sentimiento icon
+    - locale: fr
+      value: Analyse des sentiments icon
+    - locale: km
+      value: ការវិភាគអារម្មណ៍ icon
+    - locale: pt
+      value: Análise de sentimento icon
+    - locale: tl
+      value: Pagsusuri ng Sentimento icon
+variables: []

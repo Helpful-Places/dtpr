@@ -1,0 +1,47 @@
+id: institution
+category_ids:
+  - ai__accountable
+title:
+  - locale: en
+    value: Institution
+  - locale: es
+    value: Institución
+  - locale: fr
+    value: Institution
+  - locale: km
+    value: ការបង្កាត់
+  - locale: pt
+    value: Instituição
+  - locale: tl
+    value: Institusyon
+description:
+  - locale: en
+    value: The entity that is responsible and accountable for this data collection activity
+  - locale: es
+    value: La entidad responsable y responsable de esta actividad de recopilación de datos
+  - locale: fr
+    value: L'entité qui est responsable et redevable de cette activité de collecte de données
+  - locale: km
+    value: អង្គភាពដែលទទួលខុសត្រូវនិងទទួលខុសត្រូវចំពោះសកម្មភាពប្រមូលទិន្នន័យនេះ
+  - locale: pt
+    value: A entidade que é responsável por esta atividade de recolha de dados
+  - locale: tl
+    value: Ang entidad na responsible at may pananagutan para sa aktibidad sa koleksyon ng datos na ito
+citation: []
+icon:
+  url: /dtpr-icons/institution.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Institution icon
+    - locale: es
+      value: Institución icon
+    - locale: fr
+      value: Institution icon
+    - locale: km
+      value: ការបង្កាត់ icon
+    - locale: pt
+      value: Instituição icon
+    - locale: tl
+      value: Institusyon icon
+variables: []

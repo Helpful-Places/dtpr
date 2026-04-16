@@ -1,0 +1,54 @@
+id: waste_management
+category_ids:
+  - ai__purpose
+title:
+  - locale: en
+    value: Waste Management
+  - locale: es
+    value: Gestión de residuos
+  - locale: fr
+    value: Gestion des déchets
+  - locale: km
+    value: ការគ្រប់គ្រងសំរាម
+  - locale: pt
+    value: Gestão de resíduos
+  - locale: tl
+    value: Pamamahala ng basura
+description:
+  - locale: en
+    value: Supports the handling and disposal of waste, including as recyclables, compost and hazardous materials.
+  - locale: es
+    value: Apoya el manejo y la eliminación de residuos, incluidos los reciclables, compost y materiales peligrosos.
+  - locale: fr
+    value: >-
+      Contribue à la manipulation et l'élimination des déchets, y compris les matiéres recyclables, le compost et les
+      matiéres dangereuses.
+  - locale: km
+    value: >-
+      គាំទ្រការចាត់ចែង និងការចោលកាកសំណល់ រួមទាំងជាសំណល់ដែលអាចកែច្នៃបាន ជីកំប៉ុស និង
+      [សម្ភារៈគ្រោះថ្នាក់](https://en.wikipedia.org/wiki/Hazardous_waste)។ ស្វែងយល់បន្ថែមអំពី
+      [ការគ្រប់គ្រងកាកសំណល់](https://en.wikipedia.org/wiki/Waste_management)
+  - locale: pt
+    value: Apoia o manuseamento e a eliminação de resíduos, incluindo recicláveis, composto e materiais perigosos.
+  - locale: tl
+    value: >-
+      Sinusuportahan ang paghawak at pagtatapon ng basura, kabilang ang mga recyclable, compost at mga mapanganib na
+      materyales. Alamin ang higit pa tungkol sa [pamamahala ng basura](https://en.wikipedia.org/wiki/Waste_management)
+citation: []
+icon:
+  url: /dtpr-icons/waste_management.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Waste Management icon
+    - locale: es
+      value: Gestión de residuos icon
+    - locale: fr
+      value: Gestion des déchets icon
+    - locale: km
+      value: ការគ្រប់គ្រងសំរាម icon
+    - locale: pt
+      value: Gestão de resíduos icon
+    - locale: tl
+      value: Pamamahala ng basura icon
+variables: []

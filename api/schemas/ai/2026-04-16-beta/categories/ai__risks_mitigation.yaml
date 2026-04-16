@@ -1,0 +1,59 @@
+id: ai__risks_mitigation
+name:
+  - locale: en
+    value: Risks & Mitigation
+  - locale: es
+    value: Riesgos y mitigación
+  - locale: fr
+    value: Risques et atténuation
+  - locale: km
+    value: ហានិភ័យ និងការកាត់បន្ថយ
+  - locale: pt
+    value: Riscos e Mitigação
+  - locale: tl
+    value: Mga Panganib at Pagbabawas
+description:
+  - locale: en
+    value: The risks associated with this AI system and the mitigation strategies in place.
+  - locale: es
+    value: Los riesgos asociados a este sistema de IA y las estrategias de mitigación implementadas.
+  - locale: fr
+    value: Les risques associés à ce système d’IA et les stratégies d’atténuation en place.
+  - locale: km
+    value: ហានិភ័យដែលទាក់ទងនឹងប្រព័ន្ធ AI នេះ និងយុទ្ធសាស្ត្រកាត់បន្ថយ។
+  - locale: pt
+    value: Os riscos associados a este sistema de IA e as estratégias de mitigação implementadas.
+  - locale: tl
+    value: Ang mga panganib na nauugnay sa AI system na ito at ang mga diskarte sa pagpapagaan sa lugar.
+prompt:
+  - locale: en
+    value: What are the risks associated with this AI system and what mitigation strategies are in place?
+  - locale: es
+    value: ¿Cuáles son los riesgos asociados con este sistema de IA y qué estrategias de mitigación existen?
+  - locale: fr
+    value: Quels sont les risques associés à ce système d’IA et quelles stratégies d’atténuation sont en place ?
+  - locale: km
+    value: តើហានិភ័យអ្វីខ្លះដែលទាក់ទងនឹងប្រព័ន្ធ AI នេះ ហើយតើមានយុទ្ធសាស្ត្រកាត់បន្ថយអ្វីខ្លះ?
+  - locale: pt
+    value: Quais são os riscos associados a este sistema de IA e quais estratégias de mitigação estão em vigor?
+  - locale: tl
+    value: Ano ang mga panganib na nauugnay sa AI system na ito at anong mga diskarte sa pagpapagaan ang nasa lugar?
+required: false
+order: 10
+datachain_type: ai
+element_variables:
+  - id: mitigation
+    label:
+      - locale: en
+        value: Description of Risks & Mitigations
+      - locale: es
+        value: Descripción de riesgos y mitigaciones
+      - locale: fr
+        value: Description des risques et des mesures d'atténuation
+      - locale: km
+        value: ការពិពណ៌នាអំពីហានិភ័យ និងការកាត់បន្ថយ
+      - locale: pt
+        value: Descrição de Riscos e Mitigações
+      - locale: tl
+        value: Paglalarawan ng Mga Panganib at Pagbabawas
+    required: true

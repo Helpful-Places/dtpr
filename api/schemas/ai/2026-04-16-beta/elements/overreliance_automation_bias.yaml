@@ -1,0 +1,79 @@
+id: overreliance_automation_bias
+category_ids:
+  - ai__risks_mitigation
+title:
+  - locale: en
+    value: Over-reliance and automation bias
+  - locale: es
+    value: Exceso de confianza y automatización
+  - locale: fr
+    value: Dépendance excessive et biais d'automatisation
+  - locale: km
+    value: ការពឹងផ្អែកហួសហេតុ និងការលំអៀងស្វ័យប្រវត្តិកម្ម
+  - locale: pt
+    value: Excesso de confiança e tendência à automação
+  - locale: tl
+    value: Sobrang pag-asa at pag-aautomat bias
+description:
+  - locale: en
+    value: >-
+      The risk that people place excessive trust in AI systems, leading to insufficient human oversight or inability to
+      question algorithmic decisions. This can result in uncritical acceptance of AI outputs even when they are
+      incorrect or harmful. Mitigations may include clear communication about system limitations, training for users on
+      appropriate reliance, and maintaining meaningful human involvement in critical decisions.
+  - locale: es
+    value: >-
+      El riesgo de que la gente deposite una confianza excesiva en los sistemas de IA, lo que lleva a una supervisión
+      humana insuficiente o a la incapacidad de cuestionar las decisiones algorítmicas. Esto puede dar lugar a una
+      aceptación acrítica de los resultados de la IA, incluso cuando son incorrectos o perjudiciales. Las medidas de
+      mitigación pueden incluir una comunicación clara sobre las limitaciones del sistema, la formación de los usuarios
+      sobre la confianza adecuada y el mantenimiento de una participación humana significativa en las decisiones
+      críticas.
+  - locale: fr
+    value: >-
+      Le risque que les gens accordent une confiance excessive aux systèmes d'IA, conduisant à une surveillance humaine
+      insuffisante ou à l'incapacité de remettre en question les décisions algorithmiques. Il peut en résulter une
+      acceptation non critique des résultats de l'IA, même lorsqu'ils sont incorrects ou nuisibles. Les mesures
+      d'atténuation peuvent inclure une communication claire sur les limites du système, la formation des utilisateurs à
+      une confiance appropriée et le maintien d'une participation humaine significative dans les décisions critiques.
+  - locale: km
+    value: >-
+      ហានិភ័យដែលមនុស្សដាក់ការជឿទុកចិត្តលើសលប់លើប្រព័ន្ធ AI ដែលនាំឱ្យមានការត្រួតពិនិត្យរបស់មនុស្សមិនគ្រប់គ្រាន់
+      ឬអសមត្ថភាពក្នុងការចោទសួរការសម្រេចចិត្តតាមក្បួនដោះស្រាយ។ នេះអាចបណ្តាលឱ្យមានការទទួលយកលទ្ធផល AI ដោយមិនយកចិត្តទុកដាក់
+      ទោះបីជាវាមិនត្រឹមត្រូវ ឬមានគ្រោះថ្នាក់ក៏ដោយ។
+      ការបន្ធូរបន្ថយអាចរួមបញ្ចូលការប្រាស្រ័យទាក់ទងច្បាស់លាស់អំពីការកំណត់ប្រព័ន្ធ
+      ការបណ្តុះបណ្តាលសម្រាប់អ្នកប្រើប្រាស់លើការពឹងផ្អែកសមស្រប
+      និងការរក្សាការចូលរួមរបស់មនុស្សប្រកបដោយអត្ថន័យក្នុងការសម្រេចចិត្តសំខាន់ៗ។
+  - locale: pt
+    value: >-
+      O risco de as pessoas confiarem excessivamente nos sistemas de IA, levando a uma supervisão humana insuficiente ou
+      à incapacidade de questionar as decisões algorítmicas. Isso pode resultar na aceitação acrítica dos resultados da
+      IA, mesmo quando estiverem incorretos ou forem prejudiciais. As mitigações podem incluir uma comunicação clara
+      sobre as limitações do sistema, treinamento para os usuários sobre a confiança adequada e manutenção de um
+      envolvimento humano significativo em decisões críticas.
+  - locale: tl
+    value: >-
+      Ang panganib na ang mga tao ay naglalagay ng labis na pagtitiwala sa mga sistema ng AI, na humahantong sa hindi
+      sapat na pangangasiwa ng tao o kawalan ng kakayahang magtanong ng mga algorithmic na desisyon. Maaari itong
+      magresulta sa hindi kritikal na pagtanggap sa mga output ng AI kahit na mali o nakakapinsala ang mga ito. Maaaring
+      kabilang sa mga pagpapagaan ang malinaw na komunikasyon tungkol sa mga limitasyon ng system, pagsasanay para sa
+      mga user sa naaangkop na pagtitiwala, at pagpapanatili ng makabuluhang pakikilahok ng tao sa mga kritikal na
+      desisyon.
+citation: []
+icon:
+  url: /dtpr-icons/risks_overreliance-and-automation.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Over-reliance and automation bias icon
+    - locale: es
+      value: Exceso de confianza y automatización icon
+    - locale: fr
+      value: Dépendance excessive et biais d'automatisation icon
+    - locale: km
+      value: ការពឹងផ្អែកហួសហេតុ និងការលំអៀងស្វ័យប្រវត្តិកម្ម icon
+    - locale: pt
+      value: Excesso de confiança e tendência à automação icon
+    - locale: tl
+      value: Sobrang pag-asa at pag-aautomat bias icon
+variables: []

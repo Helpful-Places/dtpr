@@ -1,0 +1,69 @@
+id: anomaly_detection
+category_ids:
+  - ai__decision
+title:
+  - locale: en
+    value: Anomaly Detection
+  - locale: es
+    value: Detección de anomalías
+  - locale: fr
+    value: Détection des anomalies
+  - locale: km
+    value: ការរកឃើញភាពមិនប្រក្រតី
+  - locale: pt
+    value: Detecção de anomalias
+  - locale: tl
+    value: Pagtuklas ng Anomalya
+description:
+  - locale: en
+    value: >-
+      A decision-making process where the AI/algorithm identifies unusual patterns or outliers that deviate from
+      expected behavior. The system establishes a baseline of normal activity and flags significant deviations. Examples
+      include fraud detection, infrastructure monitoring, or public health surveillance systems.
+  - locale: es
+    value: >-
+      Un proceso de toma de decisiones en el que la IA/algoritmo identifica patrones inusuales o valores atípicos que se
+      desvían del comportamiento esperado. El sistema establece una línea de base de actividad normal y señala las
+      desviaciones significativas. Algunos ejemplos son la detección de fraudes, la supervisión de infraestructuras o
+      los sistemas de vigilancia de la salud pública.
+  - locale: fr
+    value: >-
+      Processus décisionnel dans lequel l'IA/l'algorithme identifie des modèles inhabituels ou des valeurs aberrantes
+      qui s'écartent du comportement attendu. Le système établit une base d'activité normale et signale les écarts
+      importants. Les exemples incluent la détection des fraudes, la surveillance des infrastructures ou les systèmes de
+      surveillance de la santé publique.
+  - locale: km
+    value: >-
+      ដំណើរការធ្វើការសម្រេចចិត្តដែល AI/algorithm កំណត់លំនាំមិនធម្មតា ឬផ្នែកខាងក្រៅដែលខុសពីអាកប្បកិរិយារំពឹងទុក។
+      ប្រព័ន្ធបង្កើតបន្ទាត់មូលដ្ឋាននៃសកម្មភាពធម្មតា និងសម្គាល់គម្លាតសំខាន់ៗ។ ឧទាហរណ៍រួមមានការរកឃើញការក្លែងបន្លំ
+      ការត្រួតពិនិត្យហេដ្ឋារចនាសម្ព័ន្ធ ឬប្រព័ន្ធតាមដានសុខភាពសាធារណៈ។
+  - locale: pt
+    value: >-
+      Um processo de tomada de decisão em que a IA/algoritmo identifica padrões incomuns ou discrepâncias que se desviam
+      do comportamento esperado. O sistema estabelece uma linha de base de atividade normal e sinaliza desvios
+      significativos. Os exemplos incluem detecção de fraudes, monitoramento de infraestrutura ou sistemas de vigilância
+      de saúde pública.
+  - locale: tl
+    value: >-
+      Isang proseso ng paggawa ng desisyon kung saan tinutukoy ng AI/algorithm ang mga hindi pangkaraniwang pattern o
+      outlier na lumilihis sa inaasahang gawi. Ang system ay nagtatatag ng baseline ng normal na aktibidad at nagba-flag
+      ng mga makabuluhang deviation. Kasama sa mga halimbawa ang pagtuklas ng panloloko, pagsubaybay sa imprastraktura,
+      o mga sistema ng pagsubaybay sa kalusugan ng publiko.
+citation: []
+icon:
+  url: /dtpr-icons/dm_anomay-detection.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Anomaly Detection icon
+    - locale: es
+      value: Detección de anomalías icon
+    - locale: fr
+      value: Détection des anomalies icon
+    - locale: km
+      value: ការរកឃើញភាពមិនប្រក្រតី icon
+    - locale: pt
+      value: Detecção de anomalias icon
+    - locale: tl
+      value: Pagtuklas ng Anomalya icon
+variables: []

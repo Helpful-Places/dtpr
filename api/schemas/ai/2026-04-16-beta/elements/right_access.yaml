@@ -1,0 +1,65 @@
+id: right_access
+category_ids:
+  - ai__rights
+title:
+  - locale: en
+    value: Right to Access
+  - locale: es
+    value: Derecho de acceso
+  - locale: fr
+    value: Droit d'accès
+  - locale: km
+    value: សិទ្ធិចូលប្រើ
+  - locale: pt
+    value: Direito de acesso
+  - locale: tl
+    value: Karapatan sa Pag-access
+description:
+  - locale: en
+    value: >-
+      The right to request and receive information about what personal data an AI system has collected about you, how
+      this data is being used, and what decisions have been made using this information. This includes the right to
+      obtain a copy of your data in a readable format.
+  - locale: es
+    value: >-
+      Derecho a solicitar y recibir información sobre qué datos personales ha recopilado un sistema de IA sobre usted,
+      cómo se están utilizando estos datos y qué decisiones se han tomado utilizando esta información. Esto incluye el
+      derecho a obtener una copia de sus datos en un formato legible.
+  - locale: fr
+    value: >-
+      Le droit de demander et de recevoir des informations sur les données à caractère personnel qu'un système d'IA a
+      collectées à votre sujet, sur la manière dont ces données sont utilisées et sur les décisions qui ont été prises
+      sur la base de ces informations. Cela inclut le droit d'obtenir une copie de vos données dans un format lisible.
+  - locale: km
+    value: >-
+      សិទ្ធិក្នុងការស្នើសុំ និងទទួលព័ត៌មានអំពីទិន្នន័យផ្ទាល់ខ្លួនដែលប្រព័ន្ធ AI បានប្រមូលអំពីអ្នក
+      របៀបដែលទិន្នន័យនេះកំពុងត្រូវបានប្រើប្រាស់ និងការសម្រេចចិត្តអ្វីខ្លះត្រូវបានធ្វើឡើងដោយប្រើព័ត៌មាននេះ។
+      នេះរួមបញ្ចូលទាំងសិទ្ធិក្នុងការទទួលបានច្បាប់ចម្លងនៃទិន្នន័យរបស់អ្នកក្នុងទម្រង់ដែលអាចអានបាន។
+  - locale: pt
+    value: >-
+      O direito de solicitar e receber informações sobre quais dados pessoais um sistema de IA coletou sobre você, como
+      esses dados estão sendo usados e quais decisões foram tomadas com base nessas informações. Isso inclui o direito
+      de obter uma cópia de seus dados em um formato legível.
+  - locale: tl
+    value: >-
+      Ang karapatang humiling at tumanggap ng impormasyon tungkol sa kung anong personal na data ang nakolekta ng AI
+      system tungkol sa iyo, kung paano ginagamit ang data na ito, at kung anong mga desisyon ang ginawa gamit ang
+      impormasyong ito. Kabilang dito ang karapatang makakuha ng kopya ng iyong data sa isang nababasang format.
+citation: []
+icon:
+  url: /dtpr-icons/rights_access.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Right to Access icon
+    - locale: es
+      value: Derecho de acceso icon
+    - locale: fr
+      value: Droit d'accès icon
+    - locale: km
+      value: សិទ្ធិចូលប្រើ icon
+    - locale: pt
+      value: Direito de acesso icon
+    - locale: tl
+      value: Karapatan sa Pag-access icon
+variables: []

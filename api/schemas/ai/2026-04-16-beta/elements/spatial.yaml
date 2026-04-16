@@ -1,0 +1,58 @@
+id: spatial
+category_ids:
+  - ai__input_dataset
+  - ai__output_dataset
+title:
+  - locale: en
+    value: Spatial
+  - locale: es
+    value: Espacial
+  - locale: fr
+    value: Spatial
+  - locale: km
+    value: នៃផសាយថា
+  - locale: pt
+    value: Espacial
+  - locale: tl
+    value: Spatial
+description:
+  - locale: en
+    value: >-
+      Data that represents a location, such as an address, a place name or geographic coordinates; or a structure, such
+      as a floorplan.
+  - locale: es
+    value: >-
+      Datos que representan una ubicación, como una dirección, un nombre de lugar o coordenadas geográficas; o una
+      estructura, como un plano de piso.
+  - locale: fr
+    value: >-
+      Données qui représentent un emplacement, comme une adresse, un nom de lieu ou des coordonnées géographiques ou
+      encore une structure, comme un plan d'étage.
+  - locale: km
+    value: ទិន្នន័យដែលតំណាងឱ្យទីតាំងដូចជាអាសយដ្ឋានឈ្មោះកន្លែងឬកូអរដោនេភូមិសាស្ត្រ
+  - locale: pt
+    value: >-
+      Dados que representam uma localização, como um endereço, um nome de local ou coordenadas geográficas; ou uma
+      estrutura, como uma planta baixa.
+  - locale: tl
+    value: >-
+      Datos na kumakatawan sa isang lokasyon, tulad ng address,  pangalan ng lugar o mga coordinate ng heograpiya; o
+      istraktura, tulad ng floor plan.
+citation: []
+icon:
+  url: /dtpr-icons/spatial.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Spatial icon
+    - locale: es
+      value: Espacial icon
+    - locale: fr
+      value: Spatial icon
+    - locale: km
+      value: នៃផសាយថា icon
+    - locale: pt
+      value: Espacial icon
+    - locale: tl
+      value: Spatial icon
+variables: []

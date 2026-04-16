@@ -1,0 +1,77 @@
+id: compromise_of_privacy
+category_ids:
+  - ai__risks_mitigation
+title:
+  - locale: en
+    value: Compromise of privacy
+  - locale: es
+    value: Compromiso de la intimidad
+  - locale: fr
+    value: Compromission de la vie privée
+  - locale: km
+    value: ការសម្របសម្រួលនៃភាពឯកជន
+  - locale: pt
+    value: Comprometimento da privacidade
+  - locale: tl
+    value: Pagkompromiso sa privacy
+description:
+  - locale: en
+    value: >-
+      The risk that the AI system could access, expose, or deduce private information about individuals without their
+      consent. This includes risks of data breaches, misuse of collected data, or the system's ability to infer
+      sensitive characteristics from seemingly non-sensitive inputs. Mitigations may include data minimization
+      practices, robust security measures, differential privacy techniques, and rigorous access controls.
+  - locale: es
+    value: >-
+      El riesgo de que el sistema de IA pueda acceder, exponer o deducir información privada sobre las personas sin su
+      consentimiento. Esto incluye riesgos de violación de datos, uso indebido de los datos recopilados o capacidad del
+      sistema para deducir características sensibles a partir de datos aparentemente no sensibles. Las medidas de
+      mitigación pueden incluir prácticas de minimización de datos, medidas de seguridad sólidas, técnicas de privacidad
+      diferencial y controles de acceso rigurosos.
+  - locale: fr
+    value: >-
+      Le risque que le système d'IA accède, expose ou déduise des informations privées sur des personnes sans leur
+      consentement. Il s'agit notamment des risques de violation des données, d'utilisation abusive des données
+      collectées ou de la capacité du système à déduire des caractéristiques sensibles à partir d'entrées apparemment
+      non sensibles. Les mesures d'atténuation peuvent inclure des pratiques de minimisation des données, des mesures de
+      sécurité robustes, des techniques de protection différentielle de la vie privée et des contrôles d'accès
+      rigoureux.
+  - locale: km
+    value: >-
+      ហានិភ័យដែលប្រព័ន្ធ AI អាចចូលប្រើ លាតត្រដាង ឬកាត់បន្ថយព័ត៌មានឯកជនអំពីបុគ្គលដោយគ្មានការយល់ព្រមពីពួកគេ។
+      នេះរាប់បញ្ចូលទាំងហានិភ័យនៃការបំពានទិន្នន័យ ការប្រើប្រាស់ទិន្នន័យដែលបានប្រមូលខុស
+      ឬសមត្ថភាពរបស់ប្រព័ន្ធក្នុងការសន្និដ្ឋានអំពីលក្ខណៈរសើបពីការបញ្ចូលដែលហាក់ដូចជាមិនរសើប។
+      ការបន្ធូរបន្ថយអាចរួមមានការអនុវត្តកាត់បន្ថយទិន្នន័យ វិធានការសុវត្ថិភាពដ៏រឹងមាំ បច្ចេកទេសឯកជនភាពឌីផេរ៉ង់ស្យែល
+      និងការគ្រប់គ្រងការចូលប្រើប្រាស់យ៉ាងម៉ត់ចត់។
+  - locale: pt
+    value: >-
+      O risco de que o sistema de IA possa acessar, expor ou deduzir informações privadas sobre indivíduos sem o
+      consentimento deles. Isso inclui riscos de violações de dados, uso indevido de dados coletados ou a capacidade do
+      sistema de inferir características sensíveis a partir de entradas aparentemente não sensíveis. As atenuações podem
+      incluir práticas de minimização de dados, medidas de segurança robustas, técnicas de privacidade diferenciadas e
+      controles de acesso rigorosos.
+  - locale: tl
+    value: >-
+      Ang panganib na maaaring ma-access, mailantad, o matukoy ng AI system ang pribadong impormasyon tungkol sa mga
+      indibidwal nang walang pahintulot nila. Kabilang dito ang mga panganib ng mga paglabag sa data, maling paggamit ng
+      nakolektang data, o kakayahan ng system na maghinuha ng mga sensitibong katangian mula sa tila hindi sensitibong
+      mga input. Maaaring kabilang sa mga mitigations ang mga kasanayan sa pag-minimize ng data, matatag na mga hakbang
+      sa seguridad, differential privacy techniques, at mahigpit na mga kontrol sa pag-access.
+citation: []
+icon:
+  url: /dtpr-icons/risks_compromise-of-privacy.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Compromise of privacy icon
+    - locale: es
+      value: Compromiso de la intimidad icon
+    - locale: fr
+      value: Compromission de la vie privée icon
+    - locale: km
+      value: ការសម្របសម្រួលនៃភាពឯកជន icon
+    - locale: pt
+      value: Comprometimento da privacidade icon
+    - locale: tl
+      value: Pagkompromiso sa privacy icon
+variables: []

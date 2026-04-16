@@ -1,0 +1,50 @@
+id: energy_efficiency
+category_ids:
+  - ai__purpose
+title:
+  - locale: en
+    value: Energy Efficiency
+  - locale: es
+    value: Eficiencia energética
+  - locale: fr
+    value: Efficacité énergétique
+  - locale: km
+    value: ប្រសិទ្ធភាពថាមពល
+  - locale: pt
+    value: Eficiência energética
+  - locale: tl
+    value: Kahusayan ng enerhiya
+description:
+  - locale: en
+    value: Reduces energy use and/or helps conserve energy.
+  - locale: es
+    value: Reduce el uso de energía y/o ayuda a conservar energía.
+  - locale: fr
+    value: Réduit la consommation d'énergie et/ou aide à conserver l'énergie.
+  - locale: km
+    value: >-
+      កាត់បន្ថយការប្រើប្រាស់ថាមពល និង/ឬជួយសន្សំសំចៃថាមពល។ ស្វែងយល់បន្ថែមអំពី
+      [ប្រសិទ្ធភាពថាមពល](https://en.wikipedia.org/wiki/Efficient_energy_use) និង
+      [ការអភិរក្សថាមពល](https://en.wikipedia.org/wiki/Energy_conservation)
+  - locale: pt
+    value: Reduz a utilização de energia e/ou ajuda a conservar energia.
+  - locale: tl
+    value: Binabawasan ang paggamit ng enerhiya at/o tumutulong na makatipid ng enerhiya.
+citation: []
+icon:
+  url: /dtpr-icons/energy_efficiency.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Energy Efficiency icon
+    - locale: es
+      value: Eficiencia energética icon
+    - locale: fr
+      value: Efficacité énergétique icon
+    - locale: km
+      value: ប្រសិទ្ធភាពថាមពល icon
+    - locale: pt
+      value: Eficiência energética icon
+    - locale: tl
+      value: Kahusayan ng enerhiya icon
+variables: []

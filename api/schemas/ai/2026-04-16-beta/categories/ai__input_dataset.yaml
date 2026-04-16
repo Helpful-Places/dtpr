@@ -1,0 +1,59 @@
+id: ai__input_dataset
+name:
+  - locale: en
+    value: Input Dataset
+  - locale: es
+    value: Conjunto de datos de entrada
+  - locale: fr
+    value: Ensemble de données d'entrée
+  - locale: km
+    value: បញ្ចូលសំណុំទិន្នន័យ
+  - locale: pt
+    value: Conjunto de dados de entrada
+  - locale: tl
+    value: Input ang Dataset
+description:
+  - locale: en
+    value: The dataset(s) used to train this AI system.
+  - locale: es
+    value: Los conjuntos de datos utilizados para entrenar este sistema de IA.
+  - locale: fr
+    value: Le(s) ensemble(s) de données utilisé(s) pour former ce système d'IA.
+  - locale: km
+    value: សំណុំទិន្នន័យដែលប្រើដើម្បីបណ្តុះបណ្តាលប្រព័ន្ធ AI នេះ។
+  - locale: pt
+    value: O(s) conjunto(s) de dados usados para treinar este sistema de IA.
+  - locale: tl
+    value: Ang (mga) dataset na ginamit upang sanayin ang AI system na ito.
+prompt:
+  - locale: en
+    value: What dataset(s) were used to train this AI system?
+  - locale: es
+    value: ¿Qué conjunto(s) de datos se utilizaron para entrenar este sistema de IA?
+  - locale: fr
+    value: "Quels ensembles de données ont été utilisés pour former ce système d’IA\_?"
+  - locale: km
+    value: តើ​សំណុំ​ទិន្នន័យ​អ្វី​ខ្លះ​ត្រូវ​បាន​ប្រើ​ដើម្បី​បណ្តុះបណ្តាល​ប្រព័ន្ធ AI នេះ?
+  - locale: pt
+    value: Quais conjuntos de dados foram usados para treinar este sistema de IA?
+  - locale: tl
+    value: Anong (mga) dataset ang ginamit upang sanayin ang AI system na ito?
+required: false
+order: 4
+datachain_type: ai
+element_variables:
+  - id: additional_description
+    label:
+      - locale: en
+        value: Description
+      - locale: es
+        value: Descripción
+      - locale: fr
+        value: Description
+      - locale: km
+        value: ការពិពណ៌នា
+      - locale: pt
+        value: Descrição
+      - locale: tl
+        value: Paglalarawan
+    required: true
