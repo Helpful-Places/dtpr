@@ -1,0 +1,10 @@
+id: ai
+name:
+  - locale: en
+    value: AI / Algorithm
+description: []
+categories:
+  - ai__decision
+  - ai__storage
+locales:
+  - en

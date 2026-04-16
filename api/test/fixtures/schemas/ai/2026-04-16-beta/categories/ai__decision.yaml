@@ -1,0 +1,29 @@
+id: ai__decision
+name:
+  - locale: en
+    value: Decision Type
+description:
+  - locale: en
+    value: The type of decision being made by the AI system.
+prompt: []
+required: true
+order: 1
+datachain_type: ai
+element_variables: []
+context:
+  id: level_of_autonomy
+  name:
+    - locale: en
+      value: Level of Autonomy
+  description:
+    - locale: en
+      value: Human involvement level.
+  values:
+    - id: ai_only
+      name:
+        - locale: en
+          value: AI decides and executes
+      description:
+        - locale: en
+          value: No human in loop.
+      color: "#F28C28"

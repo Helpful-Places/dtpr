@@ -1,0 +1,17 @@
+id: ai__storage
+name:
+  - locale: en
+    value: Storage
+description:
+  - locale: en
+    value: Where data is held.
+prompt: []
+required: false
+order: 2
+datachain_type: ai
+element_variables:
+  - id: retention_period
+    label:
+      - locale: en
+        value: Retention period
+    required: true
