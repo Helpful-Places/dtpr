@@ -1,0 +1,71 @@
+id: time-series-forecasting
+category_ids:
+  - ai__processing
+title:
+  - locale: en
+    value: Time Series Forecasting
+  - locale: es
+    value: Previsión de series temporales
+  - locale: fr
+    value: Prévision des séries temporelles
+  - locale: km
+    value: ការព្យាករណ៍ស៊េរីពេលវេលា
+  - locale: pt
+    value: Previsão de séries temporais
+  - locale: tl
+    value: Pagtataya ng Serye ng Oras
+description:
+  - locale: en
+    value: >-
+      A method that analyzes historical data points collected over time to predict future values. This technology
+      identifies patterns and trends in time-ordered data to make predictions about future events or behaviors. Common
+      applications include weather forecasting, stock market prediction, demand planning, and resource management.
+  - locale: es
+    value: >-
+      Método que analiza puntos de datos históricos recogidos a lo largo del tiempo para predecir valores futuros. Esta
+      tecnología identifica patrones y tendencias en datos ordenados en el tiempo para hacer predicciones sobre
+      acontecimientos o comportamientos futuros. Sus aplicaciones más comunes son la previsión meteorológica, la
+      predicción bursátil, la planificación de la demanda y la gestión de recursos.
+  - locale: fr
+    value: >-
+      Une méthode qui analyse les points de données historiques collectés au fil du temps pour prédire les valeurs
+      futures. Cette technologie identifie des modèles et des tendances dans des données ordonnées dans le temps afin de
+      faire des prédictions sur des événements ou des comportements futurs. Les applications courantes comprennent les
+      prévisions météorologiques, les prévisions boursières, la planification de la demande et la gestion des
+      ressources.
+  - locale: km
+    value: >-
+      វិធីសាស្រ្តដែលវិភាគចំណុចទិន្នន័យប្រវត្តិសាស្រ្តដែលប្រមូលបានតាមពេលវេលាដើម្បីទស្សន៍ទាយតម្លៃនាពេលអនាគត។
+      បច្ចេកវិទ្យានេះកំណត់អត្តសញ្ញាណគំរូ និងនិន្នាការនៅក្នុងទិន្នន័យតាមលំដាប់ពេលវេលា
+      ដើម្បីធ្វើការព្យាករណ៍អំពីព្រឹត្តិការណ៍ ឬអាកប្បកិរិយានាពេលអនាគត។ កម្មវិធីទូទៅរួមមានការព្យាករណ៍អាកាសធាតុ
+      ការព្យាករណ៍ទីផ្សារភាគហ៊ុន ផែនការតម្រូវការ និងការគ្រប់គ្រងធនធាន។
+  - locale: pt
+    value: >-
+      Um método que analisa pontos de dados históricos coletados ao longo do tempo para prever valores futuros. Essa
+      tecnologia identifica padrões e tendências em dados ordenados no tempo para fazer previsões sobre eventos ou
+      comportamentos futuros. As aplicações comuns incluem previsão do tempo, previsão do mercado de ações, planejamento
+      de demanda e gerenciamento de recursos.
+  - locale: tl
+    value: >-
+      Isang paraan na sinusuri ang mga makasaysayang punto ng data na nakolekta sa paglipas ng panahon upang mahulaan
+      ang mga halaga sa hinaharap. Tinutukoy ng teknolohiyang ito ang mga pattern at trend sa data na nakaayos sa oras
+      upang makagawa ng mga hula tungkol sa mga kaganapan o gawi sa hinaharap. Kasama sa mga karaniwang application ang
+      pagtataya ng panahon, paghula sa stock market, pagpaplano ng demand, at pamamahala ng mapagkukunan.
+citation: []
+icon:
+  url: /dtpr-icons/processing_time-series-forecasting.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Time Series Forecasting icon
+    - locale: es
+      value: Previsión de series temporales icon
+    - locale: fr
+      value: Prévision des séries temporelles icon
+    - locale: km
+      value: ការព្យាករណ៍ស៊េរីពេលវេលា icon
+    - locale: pt
+      value: Previsão de séries temporais icon
+    - locale: tl
+      value: Pagtataya ng Serye ng Oras icon
+variables: []

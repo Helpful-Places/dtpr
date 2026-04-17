@@ -1,0 +1,47 @@
+id: available_to_vendor
+category_ids:
+  - ai__access
+title:
+  - locale: en
+    value: Available to vendor
+  - locale: es
+    value: Disponible para el proveedor
+  - locale: fr
+    value: Disponible pour le vendeur
+  - locale: km
+    value: មានសម្រាប់អ្នកលក់
+  - locale: pt
+    value: Disponível para o fornecedor
+  - locale: tl
+    value: Magagamit sa Vendor
+description:
+  - locale: en
+    value: Data is available to the data collection or technology provider
+  - locale: es
+    value: Los datos están disponibles para la recopilación de datos o el proveedor de tecnología
+  - locale: fr
+    value: Les données sont disponibles pour le fournisseur de la collecte de données ou de la technologie
+  - locale: km
+    value: ទិន្នន័យអាចរកបានសម្រាប់ការប្រមូលទិន្នន័យឬអ្នកផ្តល់បច្ចេកវិទ្យា
+  - locale: pt
+    value: Os dados estão disponíveis para o fornecedor de recolha de dados ou de tecnologia
+  - locale: tl
+    value: Magagamit ang datos sa tagapagkolekta ng datos o tagapagbigay ng teknolohiya
+citation: []
+icon:
+  url: /dtpr-icons/available_to_vendor.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Available to vendor icon
+    - locale: es
+      value: Disponible para el proveedor icon
+    - locale: fr
+      value: Disponible pour le vendeur icon
+    - locale: km
+      value: មានសម្រាប់អ្នកលក់ icon
+    - locale: pt
+      value: Disponível para o fornecedor icon
+    - locale: tl
+      value: Magagamit sa Vendor icon
+variables: []

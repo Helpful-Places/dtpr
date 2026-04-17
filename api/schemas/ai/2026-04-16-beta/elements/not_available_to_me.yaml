@@ -1,0 +1,53 @@
+id: not_available_to_me
+category_ids:
+  - ai__access
+title:
+  - locale: en
+    value: Not available to me
+  - locale: es
+    value: No disponible para mi
+  - locale: fr
+    value: Non disponible pour moi
+  - locale: km
+    value: មិនមានសម្រាប់ខ្ញុំទេ
+  - locale: pt
+    value: Não disponível para mim
+  - locale: tl
+    value: Hindi magagamit sa akin
+description:
+  - locale: en
+    value: Not available to me or other individuals. As an individual, there isn't a way for you to access this data.
+  - locale: es
+    value: No está disponible para mí u otras personas. Como individuo, no hay una manera de acceder a estos datos.
+  - locale: fr
+    value: >-
+      Non disponible pour moi ou d'autres individus. En tant qu'individu, il n'y a aucun moyen pour vous d'accéder à ces
+      données.
+  - locale: km
+    value: មិនមានសម្រាប់ខ្ញុំឬបុគ្គលផ្សេងទៀតទេ។ ក្នុងនាមជាបុគ្គលម្នាក់មិនមានវិធីសម្រាប់អ្នកដើម្បីទទួលបានទិន្នន័យនេះទេ។
+  - locale: pt
+    value: >-
+      Não disponível para mim ou para outros indivíduos. Enquanto indivíduo, não existe uma forma de aceder a estes
+      dados.
+  - locale: tl
+    value: >-
+      Hindi magagamit sa akin o sa iba pang mga indibidwal. Bilang indibidwal, walang paraan para ma-access mo ang datos
+      na ito.
+citation: []
+icon:
+  url: /dtpr-icons/not_available_to_me.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Not available to me icon
+    - locale: es
+      value: No disponible para mi icon
+    - locale: fr
+      value: Non disponible pour moi icon
+    - locale: km
+      value: មិនមានសម្រាប់ខ្ញុំទេ icon
+    - locale: pt
+      value: Não disponível para mim icon
+    - locale: tl
+      value: Hindi magagamit sa akin icon
+variables: []

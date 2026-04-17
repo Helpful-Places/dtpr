@@ -1,0 +1,69 @@
+id: text-to-speech
+category_ids:
+  - ai__processing
+title:
+  - locale: en
+    value: Text-to-Speech
+  - locale: es
+    value: Texto a voz
+  - locale: fr
+    value: Synthèse vocale
+  - locale: km
+    value: អត្ថបទទៅការនិយាយ
+  - locale: pt
+    value: Conversão de texto em fala
+  - locale: tl
+    value: Text-to-Speech
+description:
+  - locale: en
+    value: >-
+      Technology that converts written text into spoken voice output. These systems analyze text and generate synthetic
+      speech that mimics human voice patterns, intonations, and pronunciations. Text-to-Speech is commonly used in
+      accessibility tools, virtual assistants, and automated customer service systems.
+  - locale: es
+    value: >-
+      Tecnología que convierte texto escrito en voz hablada. Estos sistemas analizan el texto y generan voz sintética
+      que imita los patrones, entonaciones y pronunciaciones de la voz humana. La conversión de texto a voz se utiliza
+      habitualmente en herramientas de accesibilidad, asistentes virtuales y sistemas automatizados de atención al
+      cliente.
+  - locale: fr
+    value: >-
+      Technologie qui convertit un texte écrit en une sortie vocale. Ces systèmes analysent le texte et génèrent une
+      parole synthétique qui imite les modèles, les intonations et les prononciations de la voix humaine. La synthèse
+      vocale est couramment utilisée dans les outils d'accessibilité, les assistants virtuels et les systèmes
+      automatisés de service à la clientèle.
+  - locale: km
+    value: >-
+      បច្ចេកវិទ្យាដែលបំប្លែងអត្ថបទដែលសរសេរទៅជាការបញ្ចេញសំឡេងនិយាយ។ ប្រព័ន្ធទាំងនេះវិភាគអត្ថបទ
+      និងបង្កើតការនិយាយសំយោគដែលធ្វើត្រាប់តាមគំរូសំឡេងរបស់មនុស្ស ការបញ្ចេញសំឡេង និងការបញ្ចេញសំឡេង។
+      អត្ថបទទៅការនិយាយត្រូវបានប្រើប្រាស់ជាទូទៅនៅក្នុងឧបករណ៍ភាពងាយស្រួល ជំនួយនិម្មិត
+      និងប្រព័ន្ធសេវាកម្មអតិថិជនស្វ័យប្រវត្តិ។
+  - locale: pt
+    value: >-
+      Tecnologia que converte texto escrito em saída de voz falada. Esses sistemas analisam o texto e geram uma fala
+      sintética que imita os padrões, as entonações e as pronúncias da voz humana. O Text-to-Speech é comumente usado em
+      ferramentas de acessibilidade, assistentes virtuais e sistemas automatizados de atendimento ao cliente.
+  - locale: tl
+    value: >-
+      Teknolohiya na nagko-convert ng nakasulat na teksto sa pasalitang output ng boses. Sinusuri ng mga system na ito
+      ang teksto at bumubuo ng sintetikong pananalita na ginagaya ang mga pattern ng boses, intonasyon, at pagbigkas ng
+      tao. Ang Text-to-Speech ay karaniwang ginagamit sa mga tool sa accessibility, virtual assistant, at mga automated
+      na customer service system.
+citation: []
+icon:
+  url: /dtpr-icons/processing_text-to-speech.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Text-to-Speech icon
+    - locale: es
+      value: Texto a voz icon
+    - locale: fr
+      value: Synthèse vocale icon
+    - locale: km
+      value: អត្ថបទទៅការនិយាយ icon
+    - locale: pt
+      value: Conversão de texto em fala icon
+    - locale: tl
+      value: Text-to-Speech icon
+variables: []

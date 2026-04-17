@@ -1,0 +1,47 @@
+id: wayfinding_services
+category_ids:
+  - ai__purpose
+title:
+  - locale: en
+    value: Wayfinding & Services
+  - locale: es
+    value: Wayfinding & Services
+  - locale: fr
+    value: Signalisation et services
+  - locale: km
+    value: សេវាកម្មនិងសេវាកម្ម
+  - locale: pt
+    value: Serviços e sinalética
+  - locale: tl
+    value: Paghahanap ng Lugar at mga Serbisyo
+description:
+  - locale: en
+    value: Enables navigation of a location and its amenities and services.
+  - locale: es
+    value: Permite la navegación de una ubicación y sus servicios y servicios.
+  - locale: fr
+    value: Permet la navigation d'un lieu et de ses équipements et services.
+  - locale: km
+    value: បើកដំណើរការក្នុងការធ្វើនាវាចរណ៍ទីតាំងនិងសេវាកម្មនិងសេវាកម្មនិងសេវាកម្មរបស់វា។
+  - locale: pt
+    value: Permite a navegação de um local e das suas comodidades e serviços.
+  - locale: tl
+    value: Pinapayagan ang nabigasyon ng isang lokasyon at mga amenity at serbisyo nito.
+citation: []
+icon:
+  url: /dtpr-icons/wayfinding_services.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Wayfinding & Services icon
+    - locale: es
+      value: Wayfinding & Services icon
+    - locale: fr
+      value: Signalisation et services icon
+    - locale: km
+      value: សេវាកម្មនិងសេវាកម្ម icon
+    - locale: pt
+      value: Serviços e sinalética icon
+    - locale: tl
+      value: Paghahanap ng Lugar at mga Serbisyo icon
+variables: []

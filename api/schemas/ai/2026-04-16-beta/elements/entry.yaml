@@ -1,0 +1,49 @@
+id: entry
+category_ids:
+  - ai__purpose
+title:
+  - locale: en
+    value: Entry
+  - locale: es
+    value: Entrada
+  - locale: fr
+    value: Entrée
+  - locale: km
+    value: ការចុល
+  - locale: pt
+    value: Entrada
+  - locale: tl
+    value: Pagpasok
+description:
+  - locale: en
+    value: Supports authentication or validation in order to access a space or a service.
+  - locale: es
+    value: Admite autenticación o validación para acceder a un espacio o un servicio.
+  - locale: fr
+    value: Permet l'authentification ou la validation afin d'accéder à un espace ou à un service.
+  - locale: km
+    value: >-
+      គាំទ្រការផ្ទៀងផ្ទាត់ភាពត្រឹមត្រូវឬសុពលភាពក្នុងគោលបំណងដើម្បីចូលប្រើចន្លោះឬសេវាកម្ម។ ស្វែងយល់បន្ថែម
+      [នៅទីនេះ](https://en.wikipedia.org/wiki/access_control)
+  - locale: pt
+    value: Suporta a autenticação ou validação para aceder a um espaço ou serviço.
+  - locale: tl
+    value: Sinusuportahan ang pagpapatunay o pagpapatibay upang ma-access ang isang puwang o isang serbisyo.
+citation: []
+icon:
+  url: /dtpr-icons/entry.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Entry icon
+    - locale: es
+      value: Entrada icon
+    - locale: fr
+      value: Entrée icon
+    - locale: km
+      value: ការចុល icon
+    - locale: pt
+      value: Entrada icon
+    - locale: tl
+      value: Pagpasok icon
+variables: []

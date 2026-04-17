@@ -1,0 +1,74 @@
+id: resource_allocation
+category_ids:
+  - ai__decision
+title:
+  - locale: en
+    value: Allocation of resources
+  - locale: es
+    value: Asignación de recursos
+  - locale: fr
+    value: Allocation des ressources
+  - locale: km
+    value: ការបែងចែកធនធាន
+  - locale: pt
+    value: Alocação de recursos
+  - locale: tl
+    value: Paglalaan ng mga mapagkukunan
+description:
+  - locale: en
+    value: >-
+      A decision-making process where the AI/algorithm determines how to distribute limited resources (such as time,
+      money, personnel, or materials) across different needs or requests. The system analyzes factors like availability,
+      demand, and priority to optimize distribution. Examples include determining trash pickup routes, assigning staff
+      schedules, or distributing public services across neighborhoods.
+  - locale: es
+    value: >-
+      Proceso de toma de decisiones en el que la IA/algoritmo determina cómo distribuir recursos limitados (como tiempo,
+      dinero, personal o materiales) entre distintas necesidades o peticiones. El sistema analiza factores como la
+      disponibilidad, la demanda y la prioridad para optimizar la distribución. Algunos ejemplos son la determinación de
+      las rutas de recogida de basura, la asignación de horarios al personal o la distribución de los servicios públicos
+      por barrios.
+  - locale: fr
+    value: >-
+      Processus décisionnel dans lequel l'IA/l'algorithme détermine comment répartir des ressources limitées (telles que
+      le temps, l'argent, le personnel ou le matériel) entre différents besoins ou demandes. Le système analyse des
+      facteurs tels que la disponibilité, la demande et la priorité afin d'optimiser la distribution. Les exemples
+      incluent la détermination des itinéraires de ramassage des ordures, l'affectation des horaires du personnel ou la
+      distribution des services publics dans les quartiers.
+  - locale: km
+    value: >-
+      ដំណើរការធ្វើការសម្រេចចិត្តដែល AI/algorithm កំណត់ពីរបៀបចែកចាយធនធានដែលមានកំណត់ (ដូចជាពេលវេលា ប្រាក់ បុគ្គលិក
+      ឬសម្ភារៈ) ឆ្លងកាត់តម្រូវការ ឬសំណើផ្សេងៗ។ ប្រព័ន្ធវិភាគកត្តាដូចជាភាពអាចរកបាន តម្រូវការ
+      និងអាទិភាពដើម្បីបង្កើនប្រសិទ្ធភាពការចែកចាយ។ ឧទាហរណ៍រួមមានការកំណត់ផ្លូវទៅយកសំរាម កំណត់កាលវិភាគបុគ្គលិក
+      ឬការចែកចាយសេវាសាធារណៈនៅទូទាំងសង្កាត់។
+  - locale: pt
+    value: >-
+      Um processo de tomada de decisão em que a IA/algoritmo determina como distribuir recursos limitados (como tempo,
+      dinheiro, pessoal ou materiais) entre diferentes necessidades ou solicitações. O sistema analisa fatores como
+      disponibilidade, demanda e prioridade para otimizar a distribuição. Os exemplos incluem a determinação de rotas de
+      coleta de lixo, a atribuição de horários para a equipe ou a distribuição de serviços públicos entre bairros.
+  - locale: tl
+    value: >-
+      Isang proseso ng paggawa ng desisyon kung saan tinutukoy ng AI/algorithm kung paano ipamahagi ang mga limitadong
+      mapagkukunan (gaya ng oras, pera, tauhan, o materyales) sa iba't ibang pangangailangan o kahilingan. Sinusuri ng
+      system ang mga salik tulad ng availability, demand, at priyoridad para ma-optimize ang pamamahagi. Kasama sa mga
+      halimbawa ang pagtukoy sa mga ruta ng pagkuha ng basura, pagtatalaga ng mga iskedyul ng kawani, o pamamahagi ng
+      mga pampublikong serbisyo sa mga kapitbahayan.
+citation: []
+icon:
+  url: /dtpr-icons/dm_allocation-of-resources.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Allocation of resources icon
+    - locale: es
+      value: Asignación de recursos icon
+    - locale: fr
+      value: Allocation des ressources icon
+    - locale: km
+      value: ការបែងចែកធនធាន icon
+    - locale: pt
+      value: Alocação de recursos icon
+    - locale: tl
+      value: Paglalaan ng mga mapagkukunan icon
+variables: []

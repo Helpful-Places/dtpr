@@ -3,8 +3,13 @@
   "scripts": {
     "dev:app": "pnpm --filter ./app dev",
     "dev:docs": "pnpm --filter ./docs-site dev",
+    "dev:api": "pnpm --filter ./api dev",
     "build:app": "pnpm --filter ./app build",
     "build:docs": "pnpm --filter ./docs-site build",
+    "build:api": "pnpm --filter ./api build",
+    "deploy:api": "pnpm --filter ./api deploy",
+    "test:api": "pnpm --filter ./api test",
+    "types:api": "pnpm --filter ./api types",
     "dev:studio": "pnpm --filter ./studio dev",
     "build:studio": "pnpm --filter ./studio build"
   },

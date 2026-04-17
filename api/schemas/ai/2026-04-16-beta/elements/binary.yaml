@@ -1,0 +1,48 @@
+id: binary
+category_ids:
+  - ai__input_dataset
+  - ai__output_dataset
+title:
+  - locale: en
+    value: Binary
+  - locale: es
+    value: Binario
+  - locale: fr
+    value: Binaire
+  - locale: km
+    value: ខេស
+  - locale: pt
+    value: Binário
+  - locale: tl
+    value: Binary
+description:
+  - locale: en
+    value: Compressed data into a binary format.
+  - locale: es
+    value: Datos comprimidos en un formato binario.
+  - locale: fr
+    value: Compression de données dans un format binaire.
+  - locale: km
+    value: ទិន្នន័យដែលបានបង្រួមទៅជាទ្រង់ទ្រាយគោលពីរ។
+  - locale: pt
+    value: Dados comprimidos num formato binário.
+  - locale: tl
+    value: Naka -compress na data sa isang format na binary.
+citation: []
+icon:
+  url: /dtpr-icons/binary.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Binary icon
+    - locale: es
+      value: Binario icon
+    - locale: fr
+      value: Binaire icon
+    - locale: km
+      value: ខេស icon
+    - locale: pt
+      value: Binário icon
+    - locale: tl
+      value: Binary icon
+variables: []

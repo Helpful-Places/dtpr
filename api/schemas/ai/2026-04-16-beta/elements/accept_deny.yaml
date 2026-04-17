@@ -1,0 +1,77 @@
+id: accept_deny
+category_ids:
+  - ai__decision
+title:
+  - locale: en
+    value: Accept or deny
+  - locale: es
+    value: Aceptar o denegar
+  - locale: fr
+    value: Accepter ou refuser
+  - locale: km
+    value: ទទួលយកឬបដិសេធ
+  - locale: pt
+    value: Aceitar ou negar
+  - locale: tl
+    value: Tanggapin o tanggihan
+description:
+  - locale: en
+    value: >-
+      A binary decision-making process where the AI/algorithm evaluates information against specific criteria to produce
+      a yes/no outcome. The system processes inputs through predetermined rules or learned patterns to determine if a
+      request, application, or condition meets the required threshold for approval. Examples include civil service
+      applications, school admissions, loan approvals, or benefit eligibility determinations.
+  - locale: es
+    value: >-
+      Proceso binario de toma de decisiones en el que la IA/algoritmo evalúa la información en función de criterios
+      específicos para producir un resultado de sí/no. El sistema procesa las entradas mediante reglas predeterminadas o
+      patrones aprendidos para determinar si una petición, solicitud o condición cumple el umbral requerido para su
+      aprobación. Algunos ejemplos son las solicitudes de empleo público, las admisiones escolares, las aprobaciones de
+      préstamos o las determinaciones de elegibilidad para prestaciones.
+  - locale: fr
+    value: >-
+      Processus décisionnel binaire dans lequel l'IA/l'algorithme évalue les informations par rapport à des critères
+      spécifiques pour produire un résultat oui/non. Le système traite les entrées à l'aide de règles prédéterminées ou
+      de modèles appris afin de déterminer si une requête, une demande ou une condition atteint le seuil requis pour
+      être approuvée. Les exemples incluent les demandes de la fonction publique, les admissions dans les écoles, les
+      approbations de prêts ou les déterminations d'éligibilité aux prestations.
+  - locale: km
+    value: >-
+      ដំណើរការធ្វើការសម្រេចចិត្តប្រព័ន្ធគោលពីរដែល AI/algorithm
+      វាយតម្លៃព័ត៌មានប្រឆាំងនឹងលក្ខណៈវិនិច្ឆ័យជាក់លាក់ដើម្បីបង្កើតលទ្ធផលបាទ/ចាស។
+      ប្រព័ន្ធដំណើរការធាតុចូលតាមរយៈច្បាប់ដែលបានកំណត់ទុកជាមុន ឬលំនាំដែលបានសិក្សា ដើម្បីកំណត់ថាតើសំណើ កម្មវិធី
+      ឬលក្ខខណ្ឌត្រូវនឹងកម្រិតដែលត្រូវការសម្រាប់ការអនុម័ត។ ឧទាហរណ៍រួមមាន ពាក្យស្នើសុំសេវាស៊ីវិល ការចូលរៀននៅសាលា
+      ការអនុម័តប្រាក់កម្ចី ឬការកំណត់សិទ្ធិទទួលបានអត្ថប្រយោជន៍។
+  - locale: pt
+    value: >-
+      Um processo binário de tomada de decisão em que a IA/algoritmo avalia as informações em relação a critérios
+      específicos para produzir um resultado sim/não. O sistema processa as entradas por meio de regras predeterminadas
+      ou padrões aprendidos para determinar se uma solicitação, aplicativo ou condição atende ao limite necessário para
+      aprovação. Os exemplos incluem solicitações de serviço civil, admissões em escolas, aprovações de empréstimos ou
+      determinações de elegibilidade de benefícios.
+  - locale: tl
+    value: >-
+      Isang binary na proseso ng paggawa ng desisyon kung saan sinusuri ng AI/algorithm ang impormasyon laban sa mga
+      partikular na pamantayan upang makagawa ng oo/hindi resulta. Pinoproseso ng system ang mga input sa pamamagitan ng
+      paunang natukoy na mga panuntunan o mga natutunang pattern upang matukoy kung ang isang kahilingan, aplikasyon, o
+      kundisyon ay nakakatugon sa kinakailangang threshold para sa pag-apruba. Kasama sa mga halimbawa ang mga
+      aplikasyon para sa serbisyong sibil, pagpasok sa paaralan, pag-apruba ng pautang, o pagpapasiya sa pagiging
+      karapat-dapat sa benepisyo.
+citation: []
+icon:
+  url: /dtpr-icons/dm_accept-or-deny.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Accept or deny icon
+    - locale: es
+      value: Aceptar o denegar icon
+    - locale: fr
+      value: Accepter ou refuser icon
+    - locale: km
+      value: ទទួលយកឬបដិសេធ icon
+    - locale: pt
+      value: Aceitar ou negar icon
+    - locale: tl
+      value: Tanggapin o tanggihan icon
+variables: []

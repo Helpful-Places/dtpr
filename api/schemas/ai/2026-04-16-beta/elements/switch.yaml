@@ -1,0 +1,57 @@
+id: switch
+category_ids:
+  - ai__purpose
+title:
+  - locale: en
+    value: Switch
+  - locale: es
+    value: Cambiar
+  - locale: fr
+    value: Interrupteur
+  - locale: km
+    value: ការបិត
+  - locale: pt
+    value: Interruptor
+  - locale: tl
+    value: Lumipat
+description:
+  - locale: en
+    value: >-
+      Supports a mechanical function - such as turning a device on or off, opening or closing, or adjusting brightness
+      and intensity.
+  - locale: es
+    value: >-
+      Admite una función mecánica, como encender o desactivar un dispositivo, abrir o cerrar, o ajustar el brillo y la
+      intensidad.
+  - locale: fr
+    value: >-
+      Prend en charge une fonction mécanique - comme la mise en marche ou l'arrêt d'un appareil, son ouverture ou sa
+      fermeture, ou le réglage de la luminosité et de l'intensité.
+  - locale: km
+    value: គាំទ្រមុខងារមេកានិច - ដូចជាការបិទឬបិទឧបករណ៍បើកឬបិទឬកែតម្រូវពន្លឺនិងអាំងតង់ស៊ីតេ។
+  - locale: pt
+    value: >-
+      Suporta uma função mecânica - como ligar ou desligar um dispositivo, abrir ou fechar, ou ajustar o brilho e a
+      intensidade.
+  - locale: tl
+    value: >-
+      Sinusuportahan ang isang mekanikal na paggana - tulad ng pagpaandar o pagpatay ng isang aparato, pagbubukas o
+      pagsasara, o pag-aayos ng ningning at lakas.
+citation: []
+icon:
+  url: /dtpr-icons/switch_tech.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Switch icon
+    - locale: es
+      value: Cambiar icon
+    - locale: fr
+      value: Interrupteur icon
+    - locale: km
+      value: ការបិត icon
+    - locale: pt
+      value: Interruptor icon
+    - locale: tl
+      value: Lumipat icon
+variables: []

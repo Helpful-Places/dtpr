@@ -1,0 +1,59 @@
+id: ai__output_dataset
+name:
+  - locale: en
+    value: Output Dataset
+  - locale: es
+    value: Conjunto de datos de salida
+  - locale: fr
+    value: Ensemble de données de sortie
+  - locale: km
+    value: សំណុំទិន្នន័យលទ្ធផល
+  - locale: pt
+    value: Conjunto de dados de saída
+  - locale: tl
+    value: Output Dataset
+description:
+  - locale: en
+    value: The dataset(s) produced by this AI system.
+  - locale: es
+    value: El conjunto o los conjuntos de datos producidos por este sistema de IA.
+  - locale: fr
+    value: L'ensemble(s) de données produit(s) par ce système d'IA.
+  - locale: km
+    value: សំណុំទិន្នន័យដែលផលិតដោយប្រព័ន្ធ AI នេះ។
+  - locale: pt
+    value: O(s) conjunto(s) de dados produzidos por este sistema de IA.
+  - locale: tl
+    value: Ang (mga) dataset na ginawa ng AI system na ito.
+prompt:
+  - locale: en
+    value: What dataset(s) are produced by this AI system?
+  - locale: es
+    value: ¿Qué conjunto(s) de datos produce este sistema de IA?
+  - locale: fr
+    value: "Quels ensembles de données sont produits par ce système d’IA\_?"
+  - locale: km
+    value: តើសំណុំទិន្នន័យអ្វីខ្លះត្រូវបានផលិតដោយប្រព័ន្ធ AI នេះ?
+  - locale: pt
+    value: Que conjunto(s) de dados são produzidos por este sistema de IA?
+  - locale: tl
+    value: Anong (mga) dataset ang ginawa ng AI system na ito?
+required: false
+order: 6
+datachain_type: ai
+element_variables:
+  - id: additional_description
+    label:
+      - locale: en
+        value: Description
+      - locale: es
+        value: Descripción
+      - locale: fr
+        value: Description
+      - locale: km
+        value: ការពិពណ៌នា
+      - locale: pt
+        value: Descrição
+      - locale: tl
+        value: Paglalarawan
+    required: true

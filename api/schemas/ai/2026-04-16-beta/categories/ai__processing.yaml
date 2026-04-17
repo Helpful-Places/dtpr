@@ -1,0 +1,59 @@
+id: ai__processing
+name:
+  - locale: en
+    value: Processing Algorithm or AI
+  - locale: es
+    value: Algoritmo de procesamiento o IA
+  - locale: fr
+    value: Algorithme de traitement ou IA
+  - locale: km
+    value: ក្បួនដោះស្រាយដំណើរការ ឬ AI
+  - locale: pt
+    value: Algoritmo de Processamento ou IA
+  - locale: tl
+    value: Processing Algorithm o AI
+description:
+  - locale: en
+    value: The algorithm or AI model used for processing data in this system.
+  - locale: es
+    value: El algoritmo o modelo de IA utilizado para procesar datos en este sistema.
+  - locale: fr
+    value: L'algorithme ou le modèle d'IA utilisé pour traiter les données dans ce système.
+  - locale: km
+    value: ក្បួនដោះស្រាយ ឬគំរូ AI ដែលប្រើសម្រាប់ដំណើរការទិន្នន័យនៅក្នុងប្រព័ន្ធនេះ។
+  - locale: pt
+    value: O algoritmo ou modelo de IA usado para processar dados neste sistema.
+  - locale: tl
+    value: Ang algorithm o AI model na ginagamit para sa pagproseso ng data sa system na ito.
+prompt:
+  - locale: en
+    value: What algorithm or AI model is used for processing data in this system?
+  - locale: es
+    value: ¿Qué algoritmo o modelo de IA se utiliza para procesar datos en este sistema?
+  - locale: fr
+    value: "Quel algorithme ou modèle d’IA est utilisé pour traiter les données dans ce système\_?"
+  - locale: km
+    value: តើ​ក្បួន​ដោះស្រាយ ឬ​គំរូ AI អ្វី​ដែល​ត្រូវ​បាន​ប្រើ​សម្រាប់​ដំណើរការ​ទិន្នន័យ​ក្នុង​ប្រព័ន្ធ​នេះ?
+  - locale: pt
+    value: Qual algoritmo ou modelo de IA é usado para processar dados neste sistema?
+  - locale: tl
+    value: Anong algorithm o AI model ang ginagamit para sa pagproseso ng data sa system na ito?
+required: false
+order: 5
+datachain_type: ai
+element_variables:
+  - id: additional_description
+    label:
+      - locale: en
+        value: Description
+      - locale: es
+        value: Descripción
+      - locale: fr
+        value: Description
+      - locale: km
+        value: ការពិពណ៌នា
+      - locale: pt
+        value: Descrição
+      - locale: tl
+        value: Paglalarawan
+    required: false

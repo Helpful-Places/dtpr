@@ -1,0 +1,74 @@
+id: ai__accountable
+name:
+  - locale: en
+    value: Accountable
+  - locale: es
+    value: Responsable
+  - locale: fr
+    value: Responsable
+  - locale: km
+    value: ទទួលខុសត្រូវ
+  - locale: pt
+    value: Responsável
+  - locale: tl
+    value: Pananagutan
+description:
+  - locale: en
+    value: The organization accountable for the deployment of this AI system.
+  - locale: es
+    value: La organización responsable de la implementación de este sistema de IA.
+  - locale: fr
+    value: L'organisation responsable du déploiement de ce système d'IA.
+  - locale: km
+    value: អង្គការទទួលខុសត្រូវចំពោះការដាក់ពង្រាយប្រព័ន្ធ AI នេះ។
+  - locale: pt
+    value: A organização responsável pela implantação deste sistema de IA.
+  - locale: tl
+    value: Ang organisasyon ay may pananagutan para sa pag-deploy ng AI system na ito.
+prompt:
+  - locale: en
+    value: Who is accountable for this AI system?
+  - locale: es
+    value: ¿Quién es responsable de este sistema de IA?
+  - locale: fr
+    value: Qui est responsable de ce système d’IA ?
+  - locale: km
+    value: តើអ្នកណាជាអ្នកទទួលខុសត្រូវចំពោះប្រព័ន្ធ AI នេះ?
+  - locale: pt
+    value: Quem é responsável por este sistema de IA?
+  - locale: tl
+    value: Sino ang may pananagutan para sa AI system na ito?
+required: true
+order: 1
+datachain_type: ai
+element_variables:
+  - id: title
+    label:
+      - locale: en
+        value: Title
+      - locale: es
+        value: Título
+      - locale: fr
+        value: Titre
+      - locale: km
+        value: ចំណងជើង
+      - locale: pt
+        value: Título
+      - locale: tl
+        value: Titulo
+    required: true
+  - id: description
+    label:
+      - locale: en
+        value: Description
+      - locale: es
+        value: Descripción
+      - locale: fr
+        value: Description
+      - locale: km
+        value: ការពិពណ៌នា
+      - locale: pt
+        value: Descrição
+      - locale: tl
+        value: Paglalarawan
+    required: true

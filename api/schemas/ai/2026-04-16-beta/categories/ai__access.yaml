@@ -1,0 +1,59 @@
+id: ai__access
+name:
+  - locale: en
+    value: Access
+  - locale: es
+    value: Acceso
+  - locale: fr
+    value: Accéder
+  - locale: km
+    value: ការចូលប្រើ
+  - locale: pt
+    value: Acesso
+  - locale: tl
+    value: Access
+description:
+  - locale: en
+    value: The access controls and permissions for the data produced by the AI system.
+  - locale: es
+    value: Los controles de acceso y permisos para los datos producidos por el sistema de IA.
+  - locale: fr
+    value: Les contrôles d’accès et les autorisations pour les données produites par le système d’IA.
+  - locale: km
+    value: ការគ្រប់គ្រងការចូលប្រើ និងការអនុញ្ញាតសម្រាប់ទិន្នន័យដែលផលិតដោយប្រព័ន្ធ AI ។
+  - locale: pt
+    value: Os controles de acesso e permissões para os dados produzidos pelo sistema de IA.
+  - locale: tl
+    value: Ang mga kontrol sa pag-access at mga pahintulot para sa data na ginawa ng AI system.
+prompt:
+  - locale: en
+    value: Who has access to the data produced by the AI system?
+  - locale: es
+    value: ¿Quién tiene acceso a los datos producidos por el sistema de IA?
+  - locale: fr
+    value: Qui a accès aux données produites par le système d’IA ?
+  - locale: km
+    value: តើអ្នកណាអាចចូលប្រើទិន្នន័យដែលផលិតដោយប្រព័ន្ធ AI?
+  - locale: pt
+    value: Quem tem acesso aos dados produzidos pelo sistema de IA?
+  - locale: tl
+    value: Sino ang may access sa data na ginawa ng AI system?
+required: false
+order: 7
+datachain_type: ai
+element_variables:
+  - id: additional_description
+    label:
+      - locale: en
+        value: Description
+      - locale: es
+        value: Descripción
+      - locale: fr
+        value: Description
+      - locale: km
+        value: ការពិពណ៌នា
+      - locale: pt
+        value: Descrição
+      - locale: tl
+        value: Paglalarawan
+    required: false

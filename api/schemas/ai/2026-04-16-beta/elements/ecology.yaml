@@ -1,0 +1,51 @@
+id: ecology
+category_ids:
+  - ai__purpose
+title:
+  - locale: en
+    value: Ecology
+  - locale: es
+    value: Ecología
+  - locale: fr
+    value: Écologie
+  - locale: km
+    value: បរិស្ថានវិត្យា
+  - locale: pt
+    value: Ecologia
+  - locale: tl
+    value: Ekolohiya
+description:
+  - locale: en
+    value: Supports the measurement or monitoring of the natural environment.
+  - locale: es
+    value: Apoya la medición o monitoreo del entorno natural.
+  - locale: fr
+    value: Permet la mesure ou la surveillance de l'environnement naturel.
+  - locale: km
+    value: >-
+      គាំទ្រការវាស់វែង ឬការត្រួតពិនិត្យបរិស្ថានធម្មជាតិ។ ស្វែងយល់បន្ថែមអំពី
+      [បរិស្ថានធម្មជាតិ](https://en.wikipedia.org/wiki/Natural_environment),
+      [បរិស្ថានវិទ្យា](https://en.wikipedia.org/wiki/Ecology) និង
+      [វិទ្យាសាស្ត្របរិស្ថាន](https://en.wikipedia.org/wiki/Environmental_science)
+  - locale: pt
+    value: Apoia a medição ou o controlo do ambiente natural.
+  - locale: tl
+    value: Sinusuportahan ang pagsukat o pagsubaybay sa natural na kapaligiran.
+citation: []
+icon:
+  url: /dtpr-icons/ecology.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Ecology icon
+    - locale: es
+      value: Ecología icon
+    - locale: fr
+      value: Écologie icon
+    - locale: km
+      value: បរិស្ថានវិត្យា icon
+    - locale: pt
+      value: Ecologia icon
+    - locale: tl
+      value: Ekolohiya icon
+variables: []

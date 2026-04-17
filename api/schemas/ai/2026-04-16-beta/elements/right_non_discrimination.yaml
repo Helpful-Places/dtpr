@@ -1,0 +1,69 @@
+id: right_non_discrimination
+category_ids:
+  - ai__rights
+title:
+  - locale: en
+    value: Right to Non-discrimination
+  - locale: es
+    value: Derecho a la no discriminación
+  - locale: fr
+    value: Droit à la non-discrimination
+  - locale: km
+    value: សិទ្ធិមិនរើសអើង
+  - locale: pt
+    value: Direito à não discriminação
+  - locale: tl
+    value: Karapatan sa Walang Diskriminasyon
+description:
+  - locale: en
+    value: >-
+      The right to be free from discriminatory treatment by AI systems based on protected characteristics such as race,
+      gender, age, religion, disability, or sexual orientation. Organizations must implement and demonstrate appropriate
+      technical and organizational measures to prevent discriminatory outcomes from their AI systems.
+  - locale: es
+    value: >-
+      El derecho a no recibir un trato discriminatorio por parte de los sistemas de IA basado en características
+      protegidas como la raza, el sexo, la edad, la religión, la discapacidad o la orientación sexual. Las
+      organizaciones deben aplicar y demostrar las medidas técnicas y organizativas adecuadas para evitar resultados
+      discriminatorios de sus sistemas de IA.
+  - locale: fr
+    value: >-
+      Le droit de ne pas être traité de manière discriminatoire par les systèmes d'IA sur la base de caractéristiques
+      protégées telles que la race, le sexe, l'âge, la religion, le handicap ou l'orientation sexuelle. Les
+      organisations doivent mettre en œuvre et démontrer des mesures techniques et organisationnelles appropriées pour
+      éviter que leurs systèmes d'IA ne produisent des résultats discriminatoires.
+  - locale: km
+    value: >-
+      សិទ្ធិ​ដើម្បី​រួច​ផុត​ពី​ការ​រើសអើង​ដោយ​ប្រព័ន្ធ AI ដោយ​ផ្អែក​លើ​លក្ខណៈ​ដែល​ត្រូវ​បាន​ការពារ​ដូច​ជា ពូជសាសន៍ ភេទ
+      អាយុ សាសនា ពិការភាព ឬ​និន្នាការ​ផ្លូវ​ភេទ។ អង្គការត្រូវតែអនុវត្ត និងបង្ហាញវិធានការបច្ចេកទេស និងអង្គការសមស្រប
+      ដើម្បីការពារលទ្ធផលរើសអើងពីប្រព័ន្ធ AI របស់ពួកគេ។
+  - locale: pt
+    value: >-
+      O direito de estar livre de tratamento discriminatório por sistemas de IA com base em características protegidas,
+      como raça, gênero, idade, religião, deficiência ou orientação sexual. As organizações devem implementar e
+      demonstrar medidas técnicas e organizacionais adequadas para evitar resultados discriminatórios de seus sistemas
+      de IA.
+  - locale: tl
+    value: >-
+      Ang karapatang maging malaya sa diskriminasyong pagtrato ng mga AI system batay sa mga protektadong katangian gaya
+      ng lahi, kasarian, edad, relihiyon, kapansanan, o oryentasyong sekswal. Ang mga organisasyon ay dapat magpatupad
+      at magpakita ng naaangkop na teknikal at pang-organisasyon na mga hakbang upang maiwasan ang mga diskriminasyong
+      resulta mula sa kanilang mga AI system.
+citation: []
+icon:
+  url: /dtpr-icons/rights_non-discrimination.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Right to Non-discrimination icon
+    - locale: es
+      value: Derecho a la no discriminación icon
+    - locale: fr
+      value: Droit à la non-discrimination icon
+    - locale: km
+      value: សិទ្ធិមិនរើសអើង icon
+    - locale: pt
+      value: Direito à não discriminação icon
+    - locale: tl
+      value: Karapatan sa Walang Diskriminasyon icon
+variables: []

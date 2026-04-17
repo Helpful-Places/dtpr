@@ -1,0 +1,52 @@
+id: fire_emergency
+category_ids:
+  - ai__purpose
+title:
+  - locale: en
+    value: Fire & Emergency
+  - locale: es
+    value: Fuego y emergencia
+  - locale: fr
+    value: Incendie et urgence
+  - locale: km
+    value: អគ្គិភ័យនិងអាសន្ន
+  - locale: pt
+    value: Incêndio e emergência
+  - locale: tl
+    value: Sunog at Emergency
+description:
+  - locale: en
+    value: Supports services that ensure public safety and health related to emergencies.
+  - locale: es
+    value: Apoya los servicios que aseguran la seguridad pública y la salud relacionadas con emergencias.
+  - locale: fr
+    value: Contribue au fonctionnement des services qui assurent la sécurité et la santé publiques en cas d'urgences.
+  - locale: km
+    value: >-
+      គាំទ្រសេវាកម្មដែលធានាសុវត្ថិភាពសាធារណៈ និងសុខភាពទាក់ទងនឹង [គ្រាអាសន្ន](https://en.wikipedia.org/wiki/Emergency)។
+      ស្វែងយល់បន្ថែមអំពី [សេវាសង្គ្រោះបន្ទាន់](https://en.wikipedia.org/wiki/Emergency_service)។
+  - locale: pt
+    value: Apoia os serviços que garantem a segurança e a saúde públicas relacionadas com emergências.
+  - locale: tl
+    value: >-
+      Sinusuportahan ang mga serbisyo na nagtitiyak sa kaligtasan ng publiko at kalusugan na may kaugnayan sa
+      emerhensiya. Alamin ang higit pa tungkol sa [mga serbisyong
+      pang-emerhensiya](https://en.wikipedia.org/wiki/Emergency_service).
+citation: []
+icon:
+  url: /dtpr-icons/fire_emergency.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Fire & Emergency icon
+    - locale: es
+      value: Fuego y emergencia icon
+    - locale: fr
+      value: Incendie et urgence icon
+    - locale: km
+      value: អគ្គិភ័យនិងអាសន្ន icon
+    - locale: pt
+      value: Incêndio e emergência icon
+    - locale: tl
+      value: Sunog at Emergency icon
+variables: []

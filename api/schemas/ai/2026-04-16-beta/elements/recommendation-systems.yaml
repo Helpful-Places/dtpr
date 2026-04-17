@@ -1,0 +1,82 @@
+id: recommendation-systems
+category_ids:
+  - ai__processing
+title:
+  - locale: en
+    value: Recommendation Systems
+  - locale: es
+    value: Sistemas de recomendación
+  - locale: fr
+    value: Systèmes de recommandation
+  - locale: km
+    value: ប្រព័ន្ធណែនាំ
+  - locale: pt
+    value: Sistemas de recomendação
+  - locale: tl
+    value: Mga Sistema ng Rekomendasyon
+description:
+  - locale: en
+    value: >-
+      A technology that suggests items, services, or actions to users based on their preferences, behavior patterns, or
+      similarities to other users. These systems analyze historical data to predict what might be most relevant or
+      useful to a specific individual or group. In public spaces, recommendation systems can personalize information
+      delivery, improve wayfinding, or enhance service efficiency. They typically employ filtering techniques that
+      balance individual preferences with broader usage patterns.
+  - locale: es
+    value: >-
+      Tecnología que sugiere artículos, servicios o acciones a los usuarios en función de sus preferencias, patrones de
+      comportamiento o similitudes con otros usuarios. Estos sistemas analizan datos históricos para predecir lo que
+      podría ser más relevante o útil para un individuo o grupo específico. En los espacios públicos, los sistemas de
+      recomendación pueden personalizar el suministro de información, mejorar la orientación o aumentar la eficacia de
+      los servicios. Suelen emplear técnicas de filtrado que equilibran las preferencias individuales con patrones de
+      uso más amplios.
+  - locale: fr
+    value: >-
+      Technologie qui suggère des articles, des services ou des actions aux utilisateurs en fonction de leurs
+      préférences, de leurs modèles de comportement ou de leurs similitudes avec d'autres utilisateurs. Ces systèmes
+      analysent les données historiques pour prédire ce qui pourrait être le plus pertinent ou le plus utile pour un
+      individu ou un groupe spécifique. Dans les espaces publics, les systèmes de recommandation peuvent personnaliser
+      la fourniture d'informations, améliorer l'orientation ou l'efficacité des services. Ils utilisent généralement des
+      techniques de filtrage qui équilibrent les préférences individuelles avec des modèles d'utilisation plus larges.
+  - locale: km
+    value: >-
+      បច្ចេកវិទ្យាដែលណែនាំធាតុ សេវាកម្ម ឬសកម្មភាពដល់អ្នកប្រើប្រាស់ដោយផ្អែកលើចំណូលចិត្ត គំរូអាកប្បកិរិយា
+      ឬភាពស្រដៀងគ្នាទៅនឹងអ្នកប្រើប្រាស់ផ្សេងទៀត។ ប្រព័ន្ធទាំងនេះវិភាគទិន្នន័យប្រវត្តិសាស្ត្រ
+      ដើម្បីទស្សន៍ទាយអ្វីដែលអាចពាក់ព័ន្ធ ឬមានប្រយោជន៍បំផុតចំពោះបុគ្គល ឬក្រុមជាក់លាក់ណាមួយ។ នៅកន្លែងសាធារណៈ
+      ប្រព័ន្ធណែនាំអាចកំណត់ការចែកចាយព័ត៌មានផ្ទាល់ខ្លួន កែលម្អការស្វែងរកផ្លូវ ឬបង្កើនប្រសិទ្ធភាពសេវាកម្ម។ ជាធម្មតា
+      ពួកវាប្រើបច្ចេកទេសត្រងដែលធ្វើឲ្យមានតុល្យភាពរវាងចំណូលចិត្តបុគ្គលជាមួយនឹងទម្រង់ការប្រើប្រាស់ទូលំទូលាយ។
+  - locale: pt
+    value: >-
+      Uma tecnologia que sugere itens, serviços ou ações aos usuários com base em suas preferências, padrões de
+      comportamento ou semelhanças com outros usuários. Esses sistemas analisam dados históricos para prever o que pode
+      ser mais relevante ou útil para um indivíduo ou grupo específico. Em espaços públicos, os sistemas de recomendação
+      podem personalizar o fornecimento de informações, melhorar a orientação ou aumentar a eficiência do serviço. Em
+      geral, eles empregam técnicas de filtragem que equilibram as preferências individuais com padrões de uso mais
+      amplos.
+  - locale: tl
+    value: >-
+      Isang teknolohiya na nagmumungkahi ng mga item, serbisyo, o pagkilos sa mga user batay sa kanilang mga kagustuhan,
+      pattern ng pag-uugali, o pagkakatulad sa ibang mga user. Sinusuri ng mga system na ito ang makasaysayang data
+      upang mahulaan kung ano ang maaaring pinaka-nauugnay o kapaki-pakinabang sa isang partikular na indibidwal o
+      grupo. Sa mga pampublikong espasyo, maaaring i-personalize ng mga system ng rekomendasyon ang paghahatid ng
+      impormasyon, pahusayin ang paghahanap ng daan, o pahusayin ang kahusayan ng serbisyo. Karaniwan silang gumagamit
+      ng mga diskarte sa pag-filter na nagbabalanse ng mga indibidwal na kagustuhan sa mas malawak na mga pattern ng
+      paggamit.
+citation: []
+icon:
+  url: /dtpr-icons/processing_recommendation-systems.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Recommendation Systems icon
+    - locale: es
+      value: Sistemas de recomendación icon
+    - locale: fr
+      value: Systèmes de recommandation icon
+    - locale: km
+      value: ប្រព័ន្ធណែនាំ icon
+    - locale: pt
+      value: Sistemas de recomendação icon
+    - locale: tl
+      value: Mga Sistema ng Rekomendasyon icon
+variables: []

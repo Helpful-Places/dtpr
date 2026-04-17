@@ -1,0 +1,57 @@
+id: available_to_3rd_parties
+category_ids:
+  - ai__access
+title:
+  - locale: en
+    value: Available to 3rd parties
+  - locale: es
+    value: Disponible para terceros
+  - locale: fr
+    value: Données mise à la disposition de tiers
+  - locale: km
+    value: មានដល់ភាគីទី 3
+  - locale: pt
+    value: Disponível para terceiros
+  - locale: tl
+    value: Magagamit sa mga 3rd party
+description:
+  - locale: en
+    value: >-
+      Data is available to 3rd parties not involved in the data activity. This does not always mean that data is being
+      resold.
+  - locale: es
+    value: >-
+      Los datos están disponibles para terceros que no están involucrados en la actividad de datos. Esto no siempre
+      significa que los datos se revendan.
+  - locale: fr
+    value: Les données sont disponibles pour des tiers non impliqués dans l'activité de données
+  - locale: km
+    value: >-
+      ទិន្នន័យអាចរកបានសម្រាប់ភាគីទី 3 មិនចូលរួមក្នុងសកម្មភាពទិន្នន័យទេ។
+      នេះមិនតែងតែមានន័យថាទិន្នន័យកំពុងត្រូវបានលក់បន្តទេ។
+  - locale: pt
+    value: >-
+      Os dados estão disponíveis para terceiros não envolvidos na atividade de dados. Isto nem sempre significa que os
+      dados estão a ser revendidos.
+  - locale: tl
+    value: >-
+      Magagamit ang data sa mga 3rd party na hindi kasangkot sa aktibidad ng data. Hindi ito palaging nangangahulugang
+      ang data ay ibinebenta.
+citation: []
+icon:
+  url: /dtpr-icons/available_to_3rd_parties.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Available to 3rd parties icon
+    - locale: es
+      value: Disponible para terceros icon
+    - locale: fr
+      value: Données mise à la disposition de tiers icon
+    - locale: km
+      value: មានដល់ភាគីទី 3 icon
+    - locale: pt
+      value: Disponível para terceiros icon
+    - locale: tl
+      value: Magagamit sa mga 3rd party icon
+variables: []

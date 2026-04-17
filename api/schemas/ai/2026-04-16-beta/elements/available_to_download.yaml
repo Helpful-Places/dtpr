@@ -1,0 +1,47 @@
+id: available_to_download
+category_ids:
+  - ai__access
+title:
+  - locale: en
+    value: Available to download
+  - locale: es
+    value: Disponible para descargar
+  - locale: fr
+    value: Disponible pour le téléchargement
+  - locale: km
+    value: មានដើម្បីទាញយក
+  - locale: pt
+    value: Disponível para descarregar
+  - locale: tl
+    value: Magagamit upang i -download
+description:
+  - locale: en
+    value: Data that can be accessed and downloaded online, either for free or for a fee
+  - locale: es
+    value: Datos a los que se puede acceder y descargar en línea, ya sea de forma gratuita o por una tarifa
+  - locale: fr
+    value: Des données qui peuvent être consultées et téléchargées en ligne.
+  - locale: km
+    value: ទិន្នន័យដែលអាចចូលបាននិងទាញយកតាមអ៊ិនធរណេតទាំងឥតគិតថ្លៃឬសម្រាប់ថ្លៃសេវា
+  - locale: pt
+    value: Dados que podem ser acedidos e descarregados em linha, gratuitamente ou mediante pagamento
+  - locale: tl
+    value: Datos na maaaring ma-access at mai-download online, maging libre man o may bayad
+citation: []
+icon:
+  url: /dtpr-icons/available_to_download.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Available to download icon
+    - locale: es
+      value: Disponible para descargar icon
+    - locale: fr
+      value: Disponible pour le téléchargement icon
+    - locale: km
+      value: មានដើម្បីទាញយក icon
+    - locale: pt
+      value: Disponível para descarregar icon
+    - locale: tl
+      value: Magagamit upang i -download icon
+variables: []

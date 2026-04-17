@@ -1,0 +1,71 @@
+id: matching
+category_ids:
+  - ai__decision
+title:
+  - locale: en
+    value: Matching
+  - locale: es
+    value: A juego
+  - locale: fr
+    value: Correspondance
+  - locale: km
+    value: ការផ្គូផ្គង
+  - locale: pt
+    value: Correspondência
+  - locale: tl
+    value: Pagtutugma
+description:
+  - locale: en
+    value: >-
+      A decision-making process where the AI/algorithm pairs entities (people, resources, opportunities) based on
+      compatibility or optimal fit. The system evaluates multiple variables to determine the most appropriate
+      connections. Examples include housing assistance placement, job applicant matching, or pairing service providers
+      with community needs.
+  - locale: es
+    value: >-
+      Un proceso de toma de decisiones en el que la IA/algoritmo empareja entidades (personas, recursos, oportunidades)
+      basándose en la compatibilidad o el ajuste óptimo. El sistema evalúa múltiples variables para determinar las
+      conexiones más adecuadas. Algunos ejemplos son la colocación de ayuda para la vivienda, el emparejamiento de
+      solicitantes de empleo o el emparejamiento de proveedores de servicios con las necesidades de la comunidad.
+  - locale: fr
+    value: >-
+      Processus décisionnel dans lequel l'IA/l'algorithme associe des entités (personnes, ressources, opportunités) sur
+      la base de la compatibilité ou de l'adéquation optimale. Le système évalue de multiples variables pour déterminer
+      les connexions les plus appropriées. Les exemples incluent le placement de l'aide au logement, l'appariement des
+      candidats à l'emploi ou l'appariement des prestataires de services avec les besoins de la communauté.
+  - locale: km
+    value: >-
+      ដំណើរការធ្វើការសម្រេចចិត្តដែល AI/algorithm ផ្គូផ្គងអង្គភាព (មនុស្ស ធនធាន ឱកាស) ដោយផ្អែកលើភាពឆបគ្នា ឬសមល្អបំផុត។
+      ប្រព័ន្ធវាយតម្លៃអថេរច្រើនដើម្បីកំណត់ការតភ្ជាប់ដែលសមស្របបំផុត។ ឧទាហរណ៍រួមមាន ការដាក់ជំនួយផ្នែកលំនៅដ្ឋាន
+      ការផ្គូផ្គងអ្នកដាក់ពាក្យការងារ ឬការផ្គូផ្គងអ្នកផ្តល់សេវាជាមួយនឹងតម្រូវការសហគមន៍។
+  - locale: pt
+    value: >-
+      Um processo de tomada de decisão em que a IA/algoritmo emparelha entidades (pessoas, recursos, oportunidades) com
+      base na compatibilidade ou no ajuste ideal. O sistema avalia diversas variáveis para determinar as conexões mais
+      adequadas. Entre os exemplos estão a colocação de assistência habitacional, a correspondência de candidatos a
+      emprego ou o emparelhamento de prestadores de serviços com as necessidades da comunidade.
+  - locale: tl
+    value: >-
+      Isang proseso ng paggawa ng desisyon kung saan ang AI/algorithm ay nagpapares ng mga entity (mga tao,
+      mapagkukunan, mga pagkakataon) batay sa compatibility o pinakamainam na akma. Sinusuri ng system ang maraming
+      variable upang matukoy ang pinakaangkop na mga koneksyon. Kasama sa mga halimbawa ang paglalagay ng tulong sa
+      pabahay, pagtutugma ng aplikante sa trabaho, o pagpapares ng mga tagapagbigay ng serbisyo sa mga pangangailangan
+      ng komunidad.
+citation: []
+icon:
+  url: /dtpr-icons/dm_matching.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Matching icon
+    - locale: es
+      value: A juego icon
+    - locale: fr
+      value: Correspondance icon
+    - locale: km
+      value: ការផ្គូផ្គង icon
+    - locale: pt
+      value: Correspondência icon
+    - locale: tl
+      value: Pagtutugma icon
+variables: []

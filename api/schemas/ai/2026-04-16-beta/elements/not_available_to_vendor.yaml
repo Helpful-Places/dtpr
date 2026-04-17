@@ -1,0 +1,47 @@
+id: not_available_to_vendor
+category_ids:
+  - ai__access
+title:
+  - locale: en
+    value: Not available to vendor
+  - locale: es
+    value: No disponible para el proveedor
+  - locale: fr
+    value: Non disponible pour le vendeur
+  - locale: km
+    value: មិនមានសម្រាប់អ្នកលក់ទេ
+  - locale: pt
+    value: Não disponível para o fornecedor
+  - locale: tl
+    value: Hindi magagamit sa vendor
+description:
+  - locale: en
+    value: Data is not available to the data collection or technology provider.
+  - locale: es
+    value: Los datos no están disponibles para la recopilación de datos o el proveedor de tecnología.
+  - locale: fr
+    value: Les données ne sont pas disponibles pour le fournisseur de la collecte de données ou de la technologie.
+  - locale: km
+    value: ទិន្នន័យមិនមានសម្រាប់ការប្រមូលទិន្នន័យឬអ្នកផ្តល់បច្ចេកវិទ្យាទេ។
+  - locale: pt
+    value: Os dados não estão disponíveis para o fornecedor de recolha de dados ou de tecnologia.
+  - locale: tl
+    value: Ang datos ay hindi magagamit sa tagapagkolekta ng datos o tagapagbigay ng teknolohiya.
+citation: []
+icon:
+  url: /dtpr-icons/not_available_to_vendor.svg
+  format: svg
+  alt_text:
+    - locale: en
+      value: Not available to vendor icon
+    - locale: es
+      value: No disponible para el proveedor icon
+    - locale: fr
+      value: Non disponible pour le vendeur icon
+    - locale: km
+      value: មិនមានសម្រាប់អ្នកលក់ទេ icon
+    - locale: pt
+      value: Não disponível para o fornecedor icon
+    - locale: tl
+      value: Hindi magagamit sa vendor icon
+variables: []
