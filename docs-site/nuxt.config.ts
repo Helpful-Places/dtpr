@@ -7,7 +7,10 @@ export default defineNuxtConfig({
 
   $production: {
     nitro: {
-      preset: 'cloudflare-module'
+      preset: 'cloudflare-module',
+      rollupConfig: {
+        external: ['agents/mcp']
+      }
     }
   },
 
