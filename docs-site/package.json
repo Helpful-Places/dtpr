@@ -10,7 +10,8 @@
     "@nuxt/ui": "^4.5.1",
     "better-sqlite3": "^12.2.0",
     "docus": "latest",
-    "nuxt": "^4.0.0"
+    "nuxt": "^4.0.0",
+    "nuxt-studio": "^1.6.0"
   },
   "devDependencies": {
     "wrangler": "^4.83.0"

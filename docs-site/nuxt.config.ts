@@ -1,8 +1,20 @@
 export default defineNuxtConfig({
   extends: ['docus'],
 
+  modules: ['nuxt-studio'],
+
   site: {
     name: 'Digital Trust for Places & Routines',
+  },
+
+  studio: {
+    repository: {
+      provider: 'github',
+      owner: 'helpful-places',
+      repo: 'dtpr',
+      branch: 'main',
+      rootDir: 'docs-site'
+    }
   },
 
   $production: {
