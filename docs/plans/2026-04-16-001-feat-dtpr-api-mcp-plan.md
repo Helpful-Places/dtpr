@@ -426,9 +426,9 @@ YAML source (api/schemas/ai/<version>/)
 
 ### Implementation Status
 
-_Last updated: 2026-04-16._
+_Last updated: 2026-04-17._
 
-**Complete:** Units 1–5 (all of Phase P1 except Unit 6 CI deploy). Branch `feat/dtpr-schema-mcp`.
+**Complete:** Units 1–6 (all of Phase P1). Branch `feat/dtpr-schema-mcp`.
 
 | Unit | Status | Notes |
 |------|--------|-------|
@@ -437,28 +437,17 @@ _Last updated: 2026-04-16._
 | 3: Semantic validator (18 rules) | ✅ Done | All rules implemented; rule 18 as warning-only per plan. Errors collect without short-circuit. Every error carries `fix_hint`. 24 passing tests. |
 | 4: `schema:build` + `schema:validate` CLI | ✅ Done | Pure-function libs (version parser, content hash, MiniSearch builder, JSON emitter) + fs wrapper (yaml-reader) + Node-bin entry. End-to-end tested against a committed 2-cat / 2-el fixture. |
 | 5: AI migration | ✅ Done | **11 categories + 75 elements × 6 locales** ported from `app/content/dtpr.v1/` to `api/schemas/ai/2026-04-16-beta/`. Validation clean (0 errors, 0 warnings). Idempotent. ~441 KB bundle (well under R10b's 512 KB inline threshold). `app/content/dtpr.v1/README.md` documents the freeze. |
+| 6: CI deploy workflow | ✅ Done | Workers `dtpr-api` (`api.dtpr.io`) + `dtpr-api-preview` (`api-preview.dtpr.io`) deployed manually on 2026-04-17 against R2 buckets `dtpr-api` / `dtpr-api-preview` (renamed from plan's `dtpr-content-{prod,preview}` to match user's existing bucket). `.github/workflows/api-{test,deploy}.yaml` + `api/scripts/r2-upload.ts` + `api/docs/deploy-tokens.md` landed. CI itself runs once GitHub Actions secrets are populated (see deploy-tokens.md). Account upgraded to Workers Paid 2026-04-17; `limits.cpu_ms: 500` re-enabled in `wrangler.jsonc` (next deploy after CF plan-flag propagation will accept it). |
 
 **Test totals:** 94 passing (79 workers-pool + 15 Node-pool for fs-touching CLI / migration tests). Typecheck clean.
 
-**Commits on branch (main → HEAD):**
-
-```
-9db51b7 feat(api): port AI datachain from v1 markdown to YAML (Unit 5)
-de0304b feat(api): schema:build + schema:validate CLI (Unit 4)
-d4426fc feat(api): semantic rule validator with 18 rules (Unit 3)
-f2d7346 feat(api): Zod schemas + JSON Schema emission (Unit 2)
-c00b796 feat(api): scaffold api/ workspace for DTPR REST + MCP (Unit 1)
-```
+**Commits on branch (main → HEAD):** see `git log main..HEAD`. Unit 6 lands as a single commit.
 
 **Deviations from plan worth knowing:**
 
 - **Test pool split.** `@cloudflare/vitest-pool-workers` (workerd) cannot load `node:os` via its module fallback, so CLI end-to-end tests and the migration characterization test run under a second `vitest.cli.config.ts` on the plain Node pool. Plan's `test/unit/*` vs `test/api/*` split is preserved for Worker-pool tests; added `test/cli/*` for Node-pool tests.
 - **Installed workerd lags the targeted compat date.** `wrangler.jsonc` pins `compatibility_date: "2026-04-16"`; the vitest-pool-workers shim installed here maxes out at `2025-09-06` and falls back with a warning (not an error). Will clear when `@cloudflare/vitest-pool-workers` ships a newer workerd.
 - **`list_elements` fixture-expectation adjustment.** Plan said the first port would contain an empty `tech__facial_recognition.md`; the actual source has **no such file** (closest name is `tech__facial_characterization.md`, which ports cleanly). No warnings were emitted by the migration. If the plan's author wants the missing tile re-added, that's a separate authoring task.
-
-**Next up — Phase P1 remainder:**
-
-- **Unit 6: CI deploy workflow** — blocked on you provisioning Cloudflare account tokens (prod + preview), the two R2 buckets (`dtpr-content-prod`, `dtpr-content-preview`), and the custom domain routes. Once those exist, Unit 6 writes `.github/workflows/api-{test,deploy}.yaml` and the atomic R2 upload helper.
 
 **Next up — Phase P2 (REST + MCP read path):**
 
@@ -747,7 +736,7 @@ c00b796 feat(api): scaffold api/ workspace for DTPR REST + MCP (Unit 1)
 
 ---
 
-- [ ] **Unit 6: CI deploy workflow**
+- [x] **Unit 6: CI deploy workflow**
 
 **Goal:** GitHub Actions workflow that builds schema bundles, deploys the Worker to Cloudflare, and atomically updates R2 content on merge to `main`. Separate token scoping for production vs preview.
 

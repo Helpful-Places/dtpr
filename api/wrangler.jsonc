@@ -20,7 +20,7 @@
   "r2_buckets": [
     {
       "binding": "CONTENT",
-      "bucket_name": "dtpr-content-prod"
+      "bucket_name": "dtpr-api"
     }
   ],
   "env": {
@@ -38,7 +38,7 @@
       "r2_buckets": [
         {
           "binding": "CONTENT",
-          "bucket_name": "dtpr-content-preview"
+          "bucket_name": "dtpr-api-preview"
         }
       ]
     }

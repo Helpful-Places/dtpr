@@ -1,0 +1,91 @@
+name: API deploy
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'api/**'
+      - '.github/workflows/api-deploy.yaml'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Schema version to upload (e.g. ai@2026-04-16-beta)'
+        required: true
+        default: 'ai@2026-04-16-beta'
+
+concurrency:
+  group: api-deploy-prod
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy worker + atomic R2 upload
+    runs-on: ubuntu-latest
+    env:
+      SCHEMA_VERSION: ${{ inputs.version || 'ai@2026-04-16-beta' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      # Re-run the test suite on the exact deploy artifact to catch any
+      # path-filter slippage (e.g. a non-api/ change that affects api/).
+      - run: pnpm --filter ./api typecheck
+      - run: pnpm --filter ./api test
+
+      # Validate + build the bundle that we're about to publish.
+      - run: pnpm --filter ./api schema:build "$SCHEMA_VERSION"
+
+      - name: Deploy worker (production)
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN_PROD }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: api
+          command: deploy --env=""
+
+      - name: Atomic R2 upload (production)
+        working-directory: api
+        env:
+          R2_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID_PROD }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY_PROD }}
+          R2_BUCKET: dtpr-api
+        run: pnpm tsx scripts/r2-upload.ts "$SCHEMA_VERSION"
+
+      - name: Post-deploy smoke tests
+        env:
+          ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+
+          echo "::group::healthz"
+          curl -fsS https://api.dtpr.io/healthz | tee /tmp/healthz
+          grep -q '"ok":true' /tmp/healthz
+          echo "::endgroup::"
+
+          # Cache API check (R2 endpoint becomes meaningful once Unit 9
+          # ships /api/v2/schemas; until then we just verify the worker
+          # handles the request without 5xx).
+          echo "::group::cache check"
+          first=$(curl -sS -o /dev/null -w '%{http_code}' https://api.dtpr.io/api/v2/schemas || true)
+          second_status=$(curl -sS -D - -o /dev/null https://api.dtpr.io/api/v2/schemas | tr -d '\r' || true)
+          echo "first=$first"
+          echo "$second_status" | head -10
+          echo "::endgroup::"
+
+          # Direct R2 public URL must NOT serve the bundle. The bucket
+          # should never be publicly accessible — Worker is the gatekeeper.
+          echo "::group::r2 public access"
+          public_status=$(curl -sS -o /dev/null -w '%{http_code}' \
+            "https://pub-${ACCOUNT_ID}.r2.dev/schemas/index.json" || true)
+          echo "public_status=$public_status"
+          if [ "$public_status" = "200" ]; then
+            echo "::error::R2 bucket is publicly readable — bypasses Worker middleware. Disable r2.dev public access."
+            exit 1
+          fi
+          echo "::endgroup::"

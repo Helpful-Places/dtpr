@@ -42,18 +42,26 @@ api/
 
 ## Cloudflare prerequisites
 
-Before the first deploy, the following must be provisioned in the Helpful Places Cloudflare account (one-time, manual):
+The Helpful Places Cloudflare account already has:
 
-- R2 buckets `dtpr-content-prod` and `dtpr-content-preview`
-- Custom domain routes for `api.dtpr.io` and `api-preview.dtpr.io`
-- API tokens `CLOUDFLARE_API_TOKEN_PROD` and `CLOUDFLARE_API_TOKEN_PREVIEW` with deploy + R2-write scope (stored as GitHub Actions secrets)
-- R2 S3-compatible access keys for `api/scripts/r2-upload.ts` (see `docs/deploy-tokens.md` when added)
+- Workers `dtpr-api` (production, `api.dtpr.io`) and `dtpr-api-preview` (preview, `api-preview.dtpr.io`) — first deploy was 2026-04-17
+- R2 buckets `dtpr-api` (production) and `dtpr-api-preview` (preview)
+- Custom domain routes for both hostnames
+
+Before CI can deploy, set the following GitHub Actions secrets on `Helpful-Places/dtpr` (see `docs/deploy-tokens.md` for exact scopes):
+
+- `CLOUDFLARE_ACCOUNT_ID` — `f978769622a3e15ad770688a80811aa8`
+- `CLOUDFLARE_API_TOKEN_PROD` — Workers Scripts: Edit (scoped to `dtpr-api`) + Workers R2 Storage: Edit (scoped to `dtpr-api`)
+- `CLOUDFLARE_API_TOKEN_PREVIEW` — same scopes against `dtpr-api-preview`
+- `R2_ACCESS_KEY_ID_PROD` / `R2_SECRET_ACCESS_KEY_PROD` — R2 S3 keys, Object Read & Write scoped to `dtpr-api`
+- `R2_ACCESS_KEY_ID_PREVIEW` / `R2_SECRET_ACCESS_KEY_PREVIEW` — same against `dtpr-api-preview`
+
 
 ## Infrastructure spike — pending verification
 
 The plan flagged these capabilities as needing verification against a real Cloudflare account before Units 7/9/10/11 can commit downstream patterns. None of these can be validated from the local workspace alone; they require a preview custom domain (Cache API does not work on `*.workers.dev`).
 
-- [ ] `wrangler.jsonc` parses and deploys with `compatibility_flags: ["nodejs_compat"]` + `limits.cpu_ms: 500`
+- [x] `wrangler.jsonc` parses and deploys with `compatibility_flags: ["nodejs_compat"]` (verified 2026-04-17; `limits.cpu_ms` blocked on paid plan)
 - [ ] Workers Rate Limiting API binding syntax in wrangler 4.x (`[[ratelimit]]` vs `[[unsafe.bindings]]`) — confirm current form, update `wrangler.jsonc` before Unit 11
 - [ ] `caches.default.put` / `match` returns `cf-cache-status: HIT` on second request against `api-preview.dtpr.io`
 - [ ] R2 binding serves `get()` / `head()` calls from Worker code
