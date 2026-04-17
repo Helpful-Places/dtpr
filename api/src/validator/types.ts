@@ -18,6 +18,13 @@ export interface SchemaVersionSource {
    * step materializes afterward.
    */
   elements: Element[]
+  /**
+   * Per-symbol SVG source, keyed by `symbol_id` (filename stem under
+   * `<version.dir>/symbols/`). UTF-8 text, author-controlled input —
+   * the build pipeline validates wrapper shape and rejects active
+   * content before composing.
+   */
+  symbols: Record<string, string>
 }
 
 export type Severity = 'error' | 'warning'

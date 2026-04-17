@@ -182,7 +182,7 @@ export function createRestApp() {
       throw apiErrors.notFound(`Datachain type for ${version.canonical} missing.`)
     }
     const result = validateInstance(
-      { manifest, datachainType, categories, elements },
+      { manifest, datachainType, categories, elements, symbols: {} },
       parsed,
     )
     setVersionHeaders(c, manifest)

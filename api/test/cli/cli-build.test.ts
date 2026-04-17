@@ -79,6 +79,60 @@ describe('CLI build (end-to-end)', () => {
     expect(searchIndex).toBeTruthy()
   })
 
+  it('emits symbol SVGs to <version>/symbols/', async () => {
+    const dir = resolve(outDir, 'ai/2026-04-16-beta')
+    const accept = await readFile(join(dir, 'symbols', 'accept_deny.svg'), 'utf8')
+    expect(accept).toContain('<svg')
+    const cloud = await readFile(join(dir, 'symbols', 'cloud.svg'), 'utf8')
+    expect(cloud).toContain('<svg')
+  })
+
+  it('pre-bakes (element × variant) composed icons to <version>/icons/', async () => {
+    const dir = resolve(outDir, 'ai/2026-04-16-beta')
+    // ai__decision has a context with one value (ai_only); accept_deny gets
+    // 3 variants total.
+    const iconDefault = await readFile(
+      join(dir, 'icons', 'accept_deny', 'default.svg'),
+      'utf8',
+    )
+    expect(iconDefault).toMatch(/^<svg /)
+    const iconDark = await readFile(
+      join(dir, 'icons', 'accept_deny', 'dark.svg'),
+      'utf8',
+    )
+    expect(iconDark).toContain('#000')
+    const iconContext = await readFile(
+      join(dir, 'icons', 'accept_deny', 'ai_only.svg'),
+      'utf8',
+    )
+    expect(iconContext).toContain('#F28C28')
+
+    // cloud_storage is in ai__storage (no context) → 2 variants.
+    const cloudDefault = await readFile(
+      join(dir, 'icons', 'cloud_storage', 'default.svg'),
+      'utf8',
+    )
+    expect(cloudDefault).toMatch(/^<svg /)
+  })
+
+  it('elements.json entries include symbol_id, shape, icon_variants', async () => {
+    const dir = resolve(outDir, 'ai/2026-04-16-beta')
+    const elements = JSON.parse(
+      await readFile(join(dir, 'elements.json'), 'utf8'),
+    ) as Array<{ id: string; symbol_id: string; shape: string; icon_variants: string[] }>
+    const accept = elements.find((e) => e.id === 'accept_deny')!
+    expect(accept.symbol_id).toBe('accept_deny')
+    expect(accept.shape).toBe('hexagon')
+    expect(accept.icon_variants).toContain('default')
+    expect(accept.icon_variants).toContain('dark')
+    expect(accept.icon_variants).toContain('ai_only')
+
+    const cloud = elements.find((e) => e.id === 'cloud_storage')!
+    expect(cloud.symbol_id).toBe('cloud')
+    expect(cloud.shape).toBe('rounded-square')
+    expect(cloud.icon_variants).toEqual(['default', 'dark'])
+  })
+
   it('build output is a superset of validate output', async () => {
     // validate produces only log messages; build produces logs + files.
     const validateLogs: string[] = []

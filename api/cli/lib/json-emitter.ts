@@ -1,24 +1,52 @@
 import { emitAllContentSchemas } from '../../src/schema/emit-json-schema.ts'
-import type { Category } from '../../src/schema/category.ts'
+import type { Category, ShapeType } from '../../src/schema/category.ts'
 import type { DatachainType } from '../../src/schema/datachain-type.ts'
 import type { Element } from '../../src/schema/element.ts'
 import type { LocaleCode } from '../../src/schema/locale.ts'
 import type { SchemaManifest } from '../../src/schema/manifest.ts'
 import type { Variable } from '../../src/schema/variable.ts'
+import { composeIcon, type ComposeVariant } from '../../src/icons/compositor.ts'
 import type { SchemaVersionSource } from '../../src/validator/types.ts'
 import { contentHash } from './content-hash.ts'
+import { createHash } from 'node:crypto'
 import { buildSearchIndexesByLocale } from './search-index-builder.ts'
+
+/**
+ * Variant tokens the compositor treats as reserved. The `icon_variants`
+ * list starts with these, then appends every `ContextValue.id` for the
+ * element's category (guarded by the RESERVED_VARIANT_TOKEN rule).
+ */
+const RESERVED_VARIANTS = ['default', 'dark'] as const
+
+/**
+ * Emitted element shape. The source `Element` type stays author-facing;
+ * at emit time we materialize three build-time fields so agents see a
+ * flat view without needing to cross-reference the category.
+ */
+export interface MaterializedElement extends Element {
+  /** Shape primitive inherited from the element's category. */
+  shape: ShapeType
+  /**
+   * Variant keys the pre-bake step emits composed SVGs for:
+   * `['default', 'dark', ...category.context?.values.map(v => v.id) ?? []]`.
+   */
+  icon_variants: string[]
+}
 
 export interface EmittedBundle {
   manifest: SchemaManifest
   datachainType: DatachainType
   categories: Category[]
-  /** Elements with inherited `variables` materialized onto each entry. */
-  elements: Element[]
+  /** Elements with `variables`, `shape`, and `icon_variants` materialized. */
+  elements: MaterializedElement[]
   /** JSON Schema documents keyed by schema name (Element, Category, etc.). */
   schemaJson: Record<string, Record<string, unknown>>
   /** Serialized MiniSearch index per locale. */
   searchIndexesByLocale: Record<LocaleCode, string>
+  /** Per-symbol SVG source, keyed by `symbol_id`. */
+  symbols: Record<string, string>
+  /** Pre-baked composed icons keyed by `"<element_id>/<variant>"`. */
+  composedIcons: Record<string, string>
   /** Size in bytes of the largest emitted artifact's JSON representation. */
   approximateBundleBytes: number
 }
@@ -41,22 +69,135 @@ export function materializeVariables(element: Element, categories: Category[]): 
 }
 
 /**
+ * Build the list of variant keys for an element given its category.
+ * Reserved tokens come first in stable order, followed by any context
+ * value ids. Callers should have run the `RESERVED_VARIANT_TOKEN` rule
+ * first so collisions are surfaced as errors, not silently dropped.
+ */
+export function iconVariantsFor(category: Category | undefined): string[] {
+  const extras = category?.context?.values.map((v) => v.id) ?? []
+  return [...RESERVED_VARIANTS, ...extras]
+}
+
+/**
+ * Materialize the full `(element + shape + icon_variants + variables)`
+ * view ready for emission.
+ */
+function materializeElement(element: Element, categories: Category[]): MaterializedElement {
+  const catById = new Map(categories.map((c) => [c.id, c] as const))
+  const cat = catById.get(element.category_id)
+  if (!cat) {
+    // Validation (category-refs rule) should catch this upstream. If it
+    // somehow slips through, fail loudly rather than emit broken JSON.
+    throw new Error(
+      `materializeElement: element '${element.id}' references unknown category '${element.category_id}'`,
+    )
+  }
+  return {
+    ...element,
+    variables: materializeVariables(element, categories),
+    shape: cat.shape,
+    icon_variants: iconVariantsFor(cat),
+  }
+}
+
+/**
+ * Convert a variant token (entry in `icon_variants`) into the
+ * `ComposeVariant` discriminated union. The reserved `'default'` and
+ * `'dark'` tokens map through directly; any other token is looked up
+ * in the category's context values and emitted as a colored variant.
+ */
+function toComposeVariant(variant: string, category: Category): ComposeVariant {
+  if (variant === 'default' || variant === 'dark') return variant
+  const ctx = category.context
+  const hit = ctx?.values.find((v) => v.id === variant)
+  if (!hit) {
+    // Guarded by iconVariantsFor + RESERVED_VARIANT_TOKEN rule; hitting
+    // this means someone passed a hand-built variant list.
+    throw new Error(
+      `toComposeVariant: variant '${variant}' not found in category '${category.id}'`,
+    )
+  }
+  return { kind: 'colored', color: hit.color }
+}
+
+/**
+ * Compose every `(element × variant)` SVG. Returned map is keyed by
+ * `"<element_id>/<variant>"` — the same path used to write pre-baked
+ * icons to disk. Identical inputs produce byte-identical output.
+ */
+export function bundleComposedIcons(
+  source: SchemaVersionSource,
+  elements: MaterializedElement[],
+): Record<string, string> {
+  const catById = new Map(source.categories.map((c) => [c.id, c] as const))
+  const composed: Record<string, string> = {}
+  for (const el of elements) {
+    const cat = catById.get(el.category_id)
+    if (!cat) {
+      // Validation should catch this; if not, fail loudly.
+      throw new Error(
+        `bundleComposedIcons: element '${el.id}' references unknown category '${el.category_id}'`,
+      )
+    }
+    const symbolSvg = source.symbols[el.symbol_id]
+    if (symbolSvg === undefined) {
+      throw new Error(
+        `bundleComposedIcons: element '${el.id}' references unknown symbol '${el.symbol_id}'`,
+      )
+    }
+    for (const variant of el.icon_variants) {
+      const key = `${el.id}/${variant}`
+      composed[key] = composeIcon({
+        shape: el.shape,
+        symbolSvg,
+        variant: toComposeVariant(variant, cat),
+      })
+    }
+  }
+  return composed
+}
+
+/**
+ * Sha256 hex digest of a UTF-8 string — used for per-symbol and
+ * per-composed-icon hashes in the content-hash payload.
+ */
+function sha256Hex(input: string): string {
+  return createHash('sha256').update(input, 'utf8').digest('hex')
+}
+
+/**
  * Build the in-memory emitted bundle from a parsed schema version.
- * Computes the content hash over the canonicalized bundle and stamps
- * it back onto the manifest.
+ * Computes the content hash over the canonicalized bundle — including
+ * per-symbol and per-composed-icon hashes — and stamps it back onto
+ * the manifest.
  */
 export function buildBundle(source: SchemaVersionSource): EmittedBundle {
-  // Materialize variables from categories onto elements.
-  const materializedElements: Element[] = source.elements.map((el) => ({
-    ...el,
-    variables: materializeVariables(el, source.categories),
-  }))
+  const materializedElements: MaterializedElement[] = source.elements.map((el) =>
+    materializeElement(el, source.categories),
+  )
+
+  const composedIcons = bundleComposedIcons(source, materializedElements)
 
   const schemaJson = emitAllContentSchemas()
   const searchIndexesByLocale = buildSearchIndexesByLocale(
     materializedElements,
     source.manifest.locales,
   )
+
+  // Per-symbol hashes (sorted by id). Editing a symbol SVG without any
+  // YAML change should still bump `content_hash`.
+  const symbolHashes: Record<string, string> = {}
+  for (const id of Object.keys(source.symbols).sort()) {
+    symbolHashes[id] = sha256Hex(source.symbols[id]!)
+  }
+
+  // Per-composed-icon hashes (sorted by key). Changing a context color
+  // or the compositor algorithm should bump `content_hash`.
+  const composedIconHashes: Record<string, string> = {}
+  for (const key of Object.keys(composedIcons).sort()) {
+    composedIconHashes[key.replace('/', '__')] = sha256Hex(composedIcons[key]!)
+  }
 
   // Compute the content hash over the canonicalized data (hash excludes
   // itself — we replace content_hash in the manifest with a sentinel
@@ -72,6 +213,8 @@ export function buildBundle(source: SchemaVersionSource): EmittedBundle {
     elements: materializedElements,
     schemaJson,
     searchIndexesByLocale,
+    symbolHashes,
+    composedIconHashes,
   }
   const hash = contentHash(payloadForHash)
   const manifest: SchemaManifest = { ...source.manifest, content_hash: hash }
@@ -90,6 +233,8 @@ export function buildBundle(source: SchemaVersionSource): EmittedBundle {
     elements: materializedElements,
     schemaJson,
     searchIndexesByLocale,
+    symbols: source.symbols,
+    composedIcons,
     approximateBundleBytes,
   }
 }
@@ -111,6 +256,16 @@ export function bundleToFiles(bundle: EmittedBundle): Record<string, string> {
   }
   for (const [locale, serialized] of Object.entries(bundle.searchIndexesByLocale)) {
     files[`search-index.${locale}.json`] = serialized
+  }
+  // Copy symbol SVGs verbatim into the emitted tree so a release bundle
+  // is self-contained (no need to reach back into `schemas/` at serve
+  // time).
+  for (const [id, svg] of Object.entries(bundle.symbols)) {
+    files[`symbols/${id}.svg`] = svg
+  }
+  // Pre-baked composed icons, one per `(element × variant)` pair.
+  for (const [key, svg] of Object.entries(bundle.composedIcons)) {
+    files[`icons/${key}.svg`] = svg
   }
   return files
 }

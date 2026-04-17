@@ -87,6 +87,10 @@ function baseSource(): SchemaVersionSource {
         variables: [],
       },
     ],
+    symbols: {
+      accept_deny: '<svg viewBox="0 0 36 36"><path d="M4 4h28v28H4z"/></svg>',
+      cloud: '<svg viewBox="0 0 36 36"><path d="M10 10h16v16H10z"/></svg>',
+    },
   }
 }
 
@@ -225,6 +229,138 @@ describe('validateVersion — version-level rules', () => {
       expect(e.fix_hint).toBeTruthy()
       expect(e.fix_hint!.length).toBeGreaterThan(5)
     }
+  })
+})
+
+// -------- Unit 3: symbol, variant, and contrast rules --------
+
+describe('validateVersion — symbol-refs rule', () => {
+  it('SYMBOL_NOT_FOUND: element references a missing symbol', () => {
+    const src = baseSource()
+    src.elements[0]!.symbol_id = 'not_a_real_symbol'
+    const r = validateVersion(src)
+    const e = r.errors.find((x) => x.code === 'SYMBOL_NOT_FOUND')
+    expect(e).toBeDefined()
+    expect(e!.path).toBe('elements[0].symbol_id')
+  })
+
+  it('SYMBOL_NOT_FOUND fix_hint suggests nearest ids', () => {
+    const src = baseSource()
+    // Similar to `cloud`; should suggest it.
+    src.elements[1]!.symbol_id = 'cloudy'
+    const r = validateVersion(src)
+    const e = r.errors.find((x) => x.code === 'SYMBOL_NOT_FOUND')
+    expect(e).toBeDefined()
+    expect(e!.fix_hint).toContain('cloud')
+  })
+
+  it('SYMBOL_MALFORMED_WRAPPER: XML prolog', () => {
+    const src = baseSource()
+    src.symbols.accept_deny = '<?xml version="1.0"?>\n<svg viewBox="0 0 36 36"><path/></svg>'
+    const r = validateVersion(src)
+    expect(r.errors.some((e) => e.code === 'SYMBOL_MALFORMED_WRAPPER')).toBe(true)
+  })
+
+  it('SYMBOL_MALFORMED_WRAPPER: UTF-8 BOM', () => {
+    const src = baseSource()
+    src.symbols.accept_deny = '\uFEFF<svg viewBox="0 0 36 36"><path/></svg>'
+    const r = validateVersion(src)
+    expect(r.errors.some((e) => e.code === 'SYMBOL_MALFORMED_WRAPPER')).toBe(true)
+  })
+
+  it('SYMBOL_MALFORMED_WRAPPER: leading comment', () => {
+    const src = baseSource()
+    src.symbols.accept_deny = '<!-- edit note --><svg viewBox="0 0 36 36"><path/></svg>'
+    const r = validateVersion(src)
+    expect(r.errors.some((e) => e.code === 'SYMBOL_MALFORMED_WRAPPER')).toBe(true)
+  })
+
+  it('SYMBOL_ACTIVE_CONTENT: <script> tag', () => {
+    const src = baseSource()
+    src.symbols.accept_deny = '<svg viewBox="0 0 36 36"><script>alert(1)</script></svg>'
+    const r = validateVersion(src)
+    expect(r.errors.some((e) => e.code === 'SYMBOL_ACTIVE_CONTENT')).toBe(true)
+  })
+
+  it('SYMBOL_ACTIVE_CONTENT: event-handler attribute', () => {
+    const src = baseSource()
+    src.symbols.accept_deny = '<svg viewBox="0 0 36 36"><path onclick="x()" d="M0 0"/></svg>'
+    const r = validateVersion(src)
+    expect(r.errors.some((e) => e.code === 'SYMBOL_ACTIVE_CONTENT')).toBe(true)
+  })
+
+  it('SYMBOL_ACTIVE_CONTENT: <use xlink:href> pointing outside the document', () => {
+    const src = baseSource()
+    src.symbols.accept_deny =
+      '<svg viewBox="0 0 36 36"><use xlink:href="https://evil/x.svg#id"/></svg>'
+    const r = validateVersion(src)
+    expect(r.errors.some((e) => e.code === 'SYMBOL_ACTIVE_CONTENT')).toBe(true)
+  })
+
+  it('SYMBOL_ACTIVE_CONTENT: <foreignObject>', () => {
+    const src = baseSource()
+    src.symbols.accept_deny =
+      '<svg viewBox="0 0 36 36"><foreignObject><span>x</span></foreignObject></svg>'
+    const r = validateVersion(src)
+    expect(r.errors.some((e) => e.code === 'SYMBOL_ACTIVE_CONTENT')).toBe(true)
+  })
+
+  it('allows in-document <use href="#id"> fragment refs', () => {
+    const src = baseSource()
+    src.symbols.accept_deny =
+      '<svg viewBox="0 0 36 36"><defs><path id="p" d="M0 0"/></defs><use href="#p"/></svg>'
+    const r = validateVersion(src)
+    expect(r.errors.some((e) => e.code === 'SYMBOL_ACTIVE_CONTENT')).toBe(false)
+  })
+})
+
+describe('validateVersion — variant-reserved rule', () => {
+  it('RESERVED_VARIANT_TOKEN: context value id "dark"', () => {
+    const src = baseSource()
+    src.categories[0]!.context!.values.push({
+      id: 'dark',
+      name: [loc('en', 'Dark')],
+      description: [loc('en', 'Dark')],
+      color: '#000000',
+    })
+    const r = validateVersion(src)
+    expect(r.errors.some((e) => e.code === 'RESERVED_VARIANT_TOKEN')).toBe(true)
+  })
+
+  it('RESERVED_VARIANT_TOKEN: context value id "default"', () => {
+    const src = baseSource()
+    src.categories[0]!.context!.values.push({
+      id: 'default',
+      name: [loc('en', 'Default')],
+      description: [loc('en', 'Default')],
+      color: '#000000',
+    })
+    const r = validateVersion(src)
+    expect(r.errors.some((e) => e.code === 'RESERVED_VARIANT_TOKEN')).toBe(true)
+  })
+})
+
+describe('validateVersion — color-contrast rule', () => {
+  // NOTE: `innerColorForShape` picks the inner color (#000 / #FFF) that
+  // maximizes contrast against the shape color, so in practice the
+  // computed ratio is always ≥ ~4.58. The warning code exists as a
+  // defensive guard against future threshold tweaks — these tests
+  // verify it is wired up without attempting to force a ratio below
+  // 4.5 against the current luminance threshold.
+
+  it('skips non-hex colors (rule 13 reports them)', () => {
+    const src = baseSource()
+    src.categories[0]!.context!.values[0]!.color = 'not-a-hex'
+    const r = validateVersion(src)
+    expect(r.warnings.some((w) => w.code === 'LOW_CONTRAST_CONTEXT_COLOR')).toBe(false)
+  })
+
+  it('no warning for high-contrast colors', () => {
+    const src = baseSource()
+    // Default fixture color #F28C28 — luminance ~0.33 picks black;
+    // contrast ~7.5. Should not warn.
+    const r = validateVersion(src)
+    expect(r.warnings.some((w) => w.code === 'LOW_CONTRAST_CONTEXT_COLOR')).toBe(false)
   })
 })
 

@@ -534,7 +534,7 @@ function validateDatachainTool(ctx: LoadContext): ToolDef {
           )
         }
         const result = validateInstance(
-          { manifest, datachainType, categories, elements },
+          { manifest, datachainType, categories, elements, symbols: {} },
           parsed,
         )
         if (result.ok) {
