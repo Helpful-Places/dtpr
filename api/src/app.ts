@@ -10,6 +10,7 @@ import {
   DEFAULT_VALIDATE_BUDGET_MS,
   timeout,
 } from './middleware/timeout.ts'
+import { handleMcpRequest } from './mcp/server.ts'
 import { createRestApp } from './rest/routes.ts'
 
 export type { AppEnv, AppVariables } from './app-types.ts'
@@ -53,6 +54,7 @@ export function createApp(options: CreateAppOptions = {}) {
 
   app.get('/healthz', (c) => c.json({ ok: true, service: 'dtpr-api' }))
   app.route('/api/v2', createRestApp())
+  app.all('/mcp', (c) => handleMcpRequest(c))
 
   registerErrorHandler(app)
   return app
