@@ -1,2 +1,2 @@
-// Public exports — populated in Unit 5.
-export {}
+export { renderDatachainDocument } from './document.js'
+export type { RenderedSection, RenderDatachainOptions } from './document.js'
