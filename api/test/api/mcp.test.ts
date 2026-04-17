@@ -127,6 +127,7 @@ describe('MCP: handshake + tools/list', () => {
       [
         'get_element',
         'get_elements',
+        'get_icon_url',
         'get_schema',
         'list_categories',
         'list_elements',
@@ -210,7 +211,7 @@ describe('MCP: get_schema', () => {
 })
 
 describe('MCP: list_elements', () => {
-  it('default projection returns id, title, category_id', async () => {
+  it('default projection returns id, title, category_id (icon_variants NOT included)', async () => {
     const client = createMcpClient()
     await client.initialize()
     const res = await client.callTool<ToolCallResult<ListElementsPayload>>('list_elements', {
@@ -219,6 +220,29 @@ describe('MCP: list_elements', () => {
     const env = structured(res)
     const fields = Object.keys(env.data.elements[0] ?? {}).sort()
     expect(fields).toEqual(['category_id', 'id', 'title'])
+    // icon_variants is emitted by the build step but NOT part of the
+    // compact default projection; callers must opt in.
+    for (const el of env.data.elements) {
+      expect(Object.prototype.hasOwnProperty.call(el, 'icon_variants')).toBe(false)
+    }
+  })
+
+  it('returns icon_variants when requested via explicit fields', async () => {
+    const client = createMcpClient()
+    await client.initialize()
+    const res = await client.callTool<ToolCallResult<ListElementsPayload>>('list_elements', {
+      version: SAMPLE_VERSION.canonical,
+      fields: ['id', 'icon_variants'],
+    })
+    const env = structured(res)
+    expect(env.data.elements.length).toBeGreaterThan(0)
+    for (const el of env.data.elements) {
+      const variants = (el as { icon_variants?: unknown }).icon_variants
+      expect(Array.isArray(variants)).toBe(true)
+      expect(variants as string[]).toEqual(
+        expect.arrayContaining(['default', 'dark']),
+      )
+    }
   })
 
   it('search ranks identifiable_video first for "video"', async () => {
@@ -273,6 +297,27 @@ describe('MCP: get_element', () => {
     })
     const env = structured(res)
     expect((env.data?.element as { id: string }).id).toBe('accept_deny')
+  })
+
+  it('surfaces symbol_id, shape, and icon_variants on a full projection', async () => {
+    const client = createMcpClient()
+    await client.initialize()
+    const res = await client.callTool<ToolCallResult<SingleElementPayload>>('get_element', {
+      version: SAMPLE_VERSION.canonical,
+      element_id: 'accept_deny',
+      fields: 'all',
+    })
+    const env = structured(res)
+    const element = env.data?.element as {
+      symbol_id?: string
+      shape?: string
+      icon_variants?: string[]
+    }
+    expect(element.symbol_id).toBe('accept_deny')
+    expect(element.shape).toBe('hexagon')
+    expect(element.icon_variants).toEqual(
+      expect.arrayContaining(['default', 'dark']),
+    )
   })
 
   it('unknown id returns isError with element_not_found', async () => {
@@ -405,5 +450,126 @@ describe('MCP: validate_datachain', () => {
     const env = structured(res)
     expect(env.ok).toBe(false)
     expect(env.errors?.every((e) => e.code === 'parse_error')).toBe(true)
+  })
+})
+
+interface IconUrlPayload {
+  ok: boolean
+  data?: {
+    url: string
+    content_type: string
+    variant: string
+    valid_variants?: string[]
+  }
+  errors?: Array<{ code: string; message: string; fix_hint?: string }>
+}
+
+describe('MCP: get_icon_url', () => {
+  it('omitted variant defaults to `default` and the bare icon.svg URL', async () => {
+    const client = createMcpClient()
+    await client.initialize()
+    const res = await client.callTool<ToolCallResult<IconUrlPayload>>('get_icon_url', {
+      version: SAMPLE_VERSION.canonical,
+      element_id: 'accept_deny',
+    })
+    const env = structured(res)
+    expect(env.ok).toBe(true)
+    expect(env.data?.variant).toBe('default')
+    expect(env.data?.content_type).toBe('image/svg+xml')
+    expect(env.data?.url).toBe(
+      `/api/v2/schemas/${SAMPLE_VERSION.canonical}/elements/accept_deny/icon.svg`,
+    )
+  })
+
+  it('dark variant produces icon.dark.svg', async () => {
+    const client = createMcpClient()
+    await client.initialize()
+    const res = await client.callTool<ToolCallResult<IconUrlPayload>>('get_icon_url', {
+      version: SAMPLE_VERSION.canonical,
+      element_id: 'accept_deny',
+      variant: 'dark',
+    })
+    const env = structured(res)
+    expect(env.ok).toBe(true)
+    expect(env.data?.variant).toBe('dark')
+    expect(env.data?.url).toBe(
+      `/api/v2/schemas/${SAMPLE_VERSION.canonical}/elements/accept_deny/icon.dark.svg`,
+    )
+  })
+
+  it('context-value variant (ai_only) produces icon.ai_only.svg', async () => {
+    const client = createMcpClient()
+    await client.initialize()
+    const res = await client.callTool<ToolCallResult<IconUrlPayload>>('get_icon_url', {
+      version: SAMPLE_VERSION.canonical,
+      element_id: 'accept_deny',
+      variant: 'ai_only',
+    })
+    const env = structured(res)
+    expect(env.ok).toBe(true)
+    expect(env.data?.variant).toBe('ai_only')
+    expect(env.data?.url).toBe(
+      `/api/v2/schemas/${SAMPLE_VERSION.canonical}/elements/accept_deny/icon.ai_only.svg`,
+    )
+  })
+
+  it('emits the canonical (unencoded) version in the URL', async () => {
+    const client = createMcpClient()
+    await client.initialize()
+    const res = await client.callTool<ToolCallResult<IconUrlPayload>>('get_icon_url', {
+      version: SAMPLE_VERSION.canonical,
+      element_id: 'accept_deny',
+    })
+    const env = structured(res)
+    // Canonical form contains `@`; the URL should carry it through
+    // verbatim rather than percent-encoding it. The REST routes accept
+    // both forms (covered in icons.test.ts), so the friendlier form
+    // wins.
+    expect(env.data?.url).toContain(`ai@${SAMPLE_VERSION.date}`)
+    expect(env.data?.url).not.toContain('ai%40')
+  })
+
+  it('unknown variant returns unknown_variant with valid_variants listed', async () => {
+    const client = createMcpClient()
+    await client.initialize()
+    const res = await client.callTool<ToolCallResult<IconUrlPayload>>('get_icon_url', {
+      version: SAMPLE_VERSION.canonical,
+      element_id: 'accept_deny',
+      variant: 'nope',
+    })
+    const env = structured(res)
+    expect(env.ok).toBe(false)
+    expect(env.errors?.[0]?.code).toBe('unknown_variant')
+    const hint = env.errors?.[0]?.fix_hint ?? ''
+    expect(hint).toMatch(/default/)
+    expect(hint).toMatch(/dark/)
+    expect(hint).toMatch(/ai_only/)
+    expect(res.result?.isError).toBe(true)
+  })
+
+  it('unknown element returns element_not_found', async () => {
+    const client = createMcpClient()
+    await client.initialize()
+    const res = await client.callTool<ToolCallResult<IconUrlPayload>>('get_icon_url', {
+      version: SAMPLE_VERSION.canonical,
+      element_id: 'nope',
+    })
+    const env = structured(res)
+    expect(env.ok).toBe(false)
+    expect(env.errors?.[0]?.code).toBe('element_not_found')
+    expect(env.errors?.[0]?.fix_hint).toContain('list_elements')
+    expect(res.result?.isError).toBe(true)
+  })
+
+  it('unknown version returns not_found', async () => {
+    const client = createMcpClient()
+    await client.initialize()
+    const res = await client.callTool<ToolCallResult<IconUrlPayload>>('get_icon_url', {
+      version: 'ai@2099-12-31',
+      element_id: 'accept_deny',
+    })
+    const env = structured(res)
+    expect(env.ok).toBe(false)
+    expect(env.errors?.[0]?.code).toBe('not_found')
   })
 })

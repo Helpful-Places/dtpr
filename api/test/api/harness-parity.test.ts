@@ -48,9 +48,11 @@ describe('harness parity: response shape + fingerprint', () => {
     expect(categoriesFingerprint(parsed)).toMatchInlineSnapshot(`
       [
         {
-          "context_value_ids": [],
+          "context_value_ids": [
+            "ai_only",
+          ],
           "datachain_type": "ai",
-          "has_context": false,
+          "has_context": true,
           "id": "ai__decision",
           "locales": [
             "en",

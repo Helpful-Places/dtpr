@@ -4,15 +4,11 @@ import { validateInstance } from '@dtpr/api/validator'
 
 const validElement = {
   id: 'test-element',
-  category_ids: ['cat-1'],
+  category_id: 'cat-1',
   title: [{ locale: 'en', value: 'Test Element' }],
   description: [{ locale: 'en', value: 'Description' }],
   citation: [],
-  icon: {
-    url: '/icons/test.svg',
-    format: 'svg',
-    alt_text: [{ locale: 'en', value: 'alt' }],
-  },
+  symbol_id: 'signal',
   variables: [],
 }
 

@@ -11,6 +11,7 @@ import type { Element } from '../../src/schema/element.ts'
 import type { LocaleCode } from '../../src/schema/locale.ts'
 import type { SchemaManifest } from '../../src/schema/manifest.ts'
 import type { ParsedVersion } from '../../cli/lib/version-parser.ts'
+import type { MaterializedElement } from '../../cli/lib/json-emitter.ts'
 import {
   categoriesKey,
   datachainTypeKey,
@@ -78,11 +79,39 @@ export function makeCategories(): Category[] {
       datachain_type: 'ai',
       shape: 'hexagon',
       element_variables: [],
+      context: {
+        id: 'actor',
+        name: [loc('en', 'Actor'), loc('fr', 'Acteur')],
+        description: [
+          loc('en', 'Who made the decision.'),
+          loc('fr', 'Qui a pris la décision.'),
+        ],
+        values: [
+          {
+            id: 'ai_only',
+            name: [loc('en', 'AI only'), loc('fr', 'IA seule')],
+            description: [
+              loc('en', 'Autonomous decision.'),
+              loc('fr', 'Décision autonome.'),
+            ],
+            color: '#F28C28',
+          },
+        ],
+      },
     },
   ]
 }
 
-export function makeElements(): Element[] {
+/**
+ * Elements emitted to R2 carry the `shape` + `icon_variants` build-time
+ * fields materialized from the parent category (see
+ * `MaterializedElement` in `cli/lib/json-emitter.ts`). Seed fixtures
+ * mirror that shape so MCP/REST read paths see the same JSON shape
+ * they'd see in production.
+ */
+export function makeElements(): MaterializedElement[] {
+  const shape = 'hexagon' as const
+  const iconVariants = ['default', 'dark', 'ai_only']
   return [
     {
       id: 'accept_deny',
@@ -95,6 +124,8 @@ export function makeElements(): Element[] {
       citation: [],
       symbol_id: 'accept_deny',
       variables: [],
+      shape,
+      icon_variants: iconVariants,
     },
     {
       id: 'identifiable_video',
@@ -107,6 +138,8 @@ export function makeElements(): Element[] {
       citation: [],
       symbol_id: 'identifiable_video',
       variables: [],
+      shape,
+      icon_variants: iconVariants,
     },
     {
       id: 'anomaly_detection',
@@ -119,6 +152,8 @@ export function makeElements(): Element[] {
       citation: [],
       symbol_id: 'anomaly',
       variables: [],
+      shape,
+      icon_variants: iconVariants,
     },
   ]
 }
@@ -143,7 +178,7 @@ export interface SeedOptions {
   manifest?: SchemaManifest
   datachainType?: DatachainType
   categories?: Category[]
-  elements?: Element[]
+  elements?: Element[] | MaterializedElement[]
   /** When true, also write `schemas/index.json` so the version is discoverable. */
   registerInIndex?: boolean
 }

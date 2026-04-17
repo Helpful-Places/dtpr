@@ -46,7 +46,7 @@ describe('schema:new', () => {
     const newDir = join(scratch, 'ai', '2026-05-01-beta')
     const entries = await readdir(newDir)
     expect(entries.sort()).toEqual(
-      ['categories', 'datachain-type.yaml', 'elements', 'meta.yaml'].sort(),
+      ['categories', 'datachain-type.yaml', 'elements', 'meta.yaml', 'symbols'].sort(),
     )
 
     const metaRaw = await readFile(join(newDir, 'meta.yaml'), 'utf8')
