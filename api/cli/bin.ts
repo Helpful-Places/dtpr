@@ -1,5 +1,7 @@
 #!/usr/bin/env -S tsx
 import { build, validateCmd } from './commands/build.ts'
+import { schemaNew } from './commands/new.ts'
+import { schemaPromote } from './commands/promote.ts'
 
 /**
  * DTPR API CLI entry point. Single binary (`pnpm api <command>`) with
@@ -50,13 +52,27 @@ const commands: Record<string, Command> = {
     const result = await validateCmd(version, flags)
     return result.ok ? 0 : 1
   },
-  new: async () => {
-    console.error('api new: not yet implemented (Unit 13)')
-    return 2
+  new: async (args) => {
+    const { positional, flags } = parseCommonFlags(args)
+    const [type, newVersion] = positional
+    if (!type || !newVersion) {
+      console.error(
+        'usage: api new <type> <YYYY-MM-DD-beta> [--source-root DIR]',
+      )
+      return 2
+    }
+    const result = await schemaNew(type, newVersion, flags)
+    return result.ok ? 0 : 2
   },
-  promote: async () => {
-    console.error('api promote: not yet implemented (Unit 13)')
-    return 2
+  promote: async (args) => {
+    const { positional, flags } = parseCommonFlags(args)
+    const version = positional[0]
+    if (!version) {
+      console.error('usage: api promote <type>@<YYYY-MM-DD>-beta [--source-root DIR]')
+      return 2
+    }
+    const result = await schemaPromote(version, flags)
+    return result.ok ? 0 : 2
   },
   '--help': async () => {
     printHelp()
@@ -78,10 +94,10 @@ function printHelp(): void {
 Usage: api <command> [args...]
 
 Commands:
-  build <version>     Validate and emit JSON bundles for a schema version
-  validate <version>  Validate a schema version (no emit)
-  new                 Draft a new beta version (Unit 13 — not yet implemented)
-  promote             Promote a beta version to stable (Unit 13 — not yet implemented)
+  build <version>                Validate and emit JSON bundles for a schema version
+  validate <version>             Validate a schema version (no emit)
+  new <type> <YYYY-MM-DD-beta>   Draft a new beta by copying the newest existing version
+  promote <type>@<date>-beta     Promote a beta version to stable (writes a branch ready for PR)
 
 Version strings: '<type>@<YYYY-MM-DD>[-beta]' (e.g. 'ai@2026-04-16-beta')
 `)
