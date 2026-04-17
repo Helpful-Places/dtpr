@@ -4,6 +4,7 @@ import { configuredCors } from './middleware/cors.ts'
 import { registerErrorHandler } from './middleware/error-handler.ts'
 import { logging } from './middleware/logging.ts'
 import { payloadLimits } from './middleware/payload-limits.ts'
+import { rateLimit } from './middleware/rate-limit.ts'
 import { configuredRequestId } from './middleware/request-id.ts'
 import {
   DEFAULT_READ_BUDGET_MS,
@@ -51,6 +52,13 @@ export function createApp(options: CreateAppOptions = {}) {
   // else (including the MCP read paths) uses the read budget.
   app.use('/api/v2/schemas/:version/validate', timeout({ budgetMs: validateBudget }))
   app.use('*', timeout({ budgetMs: readBudget }))
+
+  // Rate limits (two buckets — validate is tighter). Middleware is a
+  // no-op when the bindings are absent, so dev / test / preview
+  // builds don't need to provision them.
+  app.use('/api/v2/schemas/:version/validate', rateLimit({ binding: 'RL_VALIDATE' }))
+  app.use('/api/v2/*', rateLimit({ binding: 'RL_READ' }))
+  app.use('/mcp', rateLimit({ binding: 'RL_READ' }))
 
   app.get('/healthz', (c) => c.json({ ok: true, service: 'dtpr-api' }))
   app.route('/api/v2', createRestApp())
