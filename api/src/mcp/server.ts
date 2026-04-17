@@ -5,6 +5,7 @@ import { buildToolRegistry, type ToolRegistry, type ToolResult } from './tools.t
 import {
   DATACHAIN_RESOURCE_MIME,
   DATACHAIN_RESOURCE_URI,
+  DEFAULT_SESSION_KEY,
   datachainResourceDescriptor,
   getDatachainHtml,
 } from './resources/datachain_resource.ts'
@@ -72,6 +73,7 @@ function rpcSuccess(id: number | string, result: unknown): JsonRpcResponse {
 
 async function dispatch(
   registry: ToolRegistry,
+  sessionId: string,
   body: JsonRpcRequest,
 ): Promise<JsonRpcResponse | null> {
   const { id, method, params } = body
@@ -145,7 +147,7 @@ async function dispatch(
       if (uri !== DATACHAIN_RESOURCE_URI) {
         return rpcError(reqId, ERR.METHOD_NOT_FOUND, `Resource not found: ${uri}`)
       }
-      const text = await getDatachainHtml()
+      const text = await getDatachainHtml(sessionId)
       return rpcSuccess(reqId, {
         contents: [{ uri, mimeType: DATACHAIN_RESOURCE_MIME, text }],
       })
@@ -184,16 +186,23 @@ export async function handleMcpRequest(c: Context<AppEnv>): Promise<Response> {
     return c.json(res as Record<string, unknown>, 400)
   }
 
-  const registry = buildToolRegistry({
-    bucket: c.env.CONTENT,
-    ctx: c.executionCtx,
-  })
+  // `mcp-session-id` isolates the render_datachain → resources/read
+  // sequence across concurrent sessions in the same Worker isolate.
+  // Requests without the header share DEFAULT_SESSION_KEY and can still
+  // bleed into each other — documented fallback for clients that do
+  // not set the header.
+  const sessionId = c.req.header('mcp-session-id') ?? DEFAULT_SESSION_KEY
+
+  const registry = buildToolRegistry(
+    { bucket: c.env.CONTENT, ctx: c.executionCtx },
+    sessionId,
+  )
 
   // Single request or batch.
   if (Array.isArray(body)) {
     const responses: JsonRpcResponse[] = []
     for (const entry of body) {
-      const resp = await dispatch(registry, entry as JsonRpcRequest)
+      const resp = await dispatch(registry, sessionId, entry as JsonRpcRequest)
       if (resp) responses.push(resp)
     }
     // JSON-RPC 2.0 §6: when a batch contains only notifications, the
@@ -204,7 +213,7 @@ export async function handleMcpRequest(c: Context<AppEnv>): Promise<Response> {
     }
     return c.json(responses as unknown as Record<string, unknown>)
   }
-  const resp = await dispatch(registry, body as JsonRpcRequest)
+  const resp = await dispatch(registry, sessionId, body as JsonRpcRequest)
   if (!resp) {
     // Notification with no response — 204 per JSON-RPC convention.
     return new Response(null, { status: 204 })

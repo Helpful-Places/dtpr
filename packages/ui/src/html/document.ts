@@ -7,6 +7,22 @@ import DtprElementGrid from '../vue/DtprElementGrid.vue'
 import { stylesCss } from './styles.js'
 import { accordionScript } from './script.js'
 
+// Nominal brand for HTML strings the caller has vouched for as safe to
+// inject raw. Any API boundary that embeds unescaped HTML requires
+// `SafeHtml`, so passing a plain string fails type-checking — callers
+// must opt in via `trustAsHtml(...)`. This surfaces the trust decision
+// at every call site instead of hiding it behind a prose contract.
+declare const __dtpr_safe_html: unique symbol
+export type SafeHtml = string & { readonly [__dtpr_safe_html]: true }
+
+// Wrap a string the caller has already sanitized (or knows is safe —
+// e.g. a static constant) for insertion as raw HTML. Use this at the
+// boundary where sanitization happens; do NOT call on user input that
+// has not passed through a sanitizer.
+export function trustAsHtml(html: string): SafeHtml {
+  return html as SafeHtml
+}
+
 export interface RenderedSection {
   id: string
   title: string
@@ -16,10 +32,12 @@ export interface RenderedSection {
 export interface RenderDatachainOptions {
   locale?: string
   title?: string
-  // Optional sanitized HTML for the empty state. When omitted and no sections
-  // are passed, the body contains an empty `<p class="dtpr-empty" role="status">`
-  // placeholder.
-  emptyHtml?: string
+  // Optional HTML for the empty state, inserted unescaped. Declare trust
+  // via `trustAsHtml(...)` — the brand prevents raw user input from
+  // reaching the v-html boundary. When omitted and no sections are
+  // passed, the body contains an empty
+  // `<p class="dtpr-empty" role="status">` placeholder.
+  emptyHtml?: SafeHtml
 }
 
 const ATTR_ESCAPES: Record<string, string> = {

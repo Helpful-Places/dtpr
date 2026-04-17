@@ -96,9 +96,12 @@ function schemaToJson(schema: ZodType): Record<string, unknown> {
 /**
  * Build a tool registry bound to a specific request context. Each
  * call to `/mcp` builds one of these; tool handlers close over the
- * provided `LoadContext` for R2 + caches.
+ * provided `LoadContext` for R2 + caches. `sessionId` (from the
+ * `mcp-session-id` request header) lets tools that persist state
+ * across sub-requests (render_datachain → resources/read) key that
+ * state per session.
  */
-export function buildToolRegistry(ctx: LoadContext): ToolRegistry {
+export function buildToolRegistry(ctx: LoadContext, sessionId: string): ToolRegistry {
   const tools: ToolDef[] = [
     listSchemaVersionsTool(ctx),
     getSchemaTool(ctx),
@@ -107,7 +110,7 @@ export function buildToolRegistry(ctx: LoadContext): ToolRegistry {
     getElementTool(ctx),
     getElementsTool(ctx),
     validateDatachainTool(ctx),
-    renderDatachainTool(ctx),
+    renderDatachainTool(ctx, sessionId),
   ]
   const byName = new Map(tools.map((t) => [t.descriptor.name, t]))
   return {

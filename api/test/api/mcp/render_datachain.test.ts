@@ -27,13 +27,18 @@ function validInstance() {
   }
 }
 
-async function postMcp(payload: unknown): Promise<{ status: number; body: Record<string, unknown> }> {
+async function postMcp(
+  payload: unknown,
+  sessionId?: string,
+): Promise<{ status: number; body: Record<string, unknown> }> {
+  const headers: Record<string, string> = {
+    'Content-Type': 'application/json',
+    Accept: 'application/json, text/event-stream',
+  }
+  if (sessionId) headers['mcp-session-id'] = sessionId
   const res = await SELF.fetch('https://example.com/mcp', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json, text/event-stream',
-    },
+    headers,
     body: JSON.stringify(payload),
   })
   const body = (await res.json()) as Record<string, unknown>
@@ -148,6 +153,73 @@ describe('render_datachain tool (end-to-end via /mcp)', () => {
     })
     expect(body.error).toBeDefined()
     expect((body.error as { message: string }).message).toContain('Resource not found')
+  })
+
+  it('isolates rendered HTML by mcp-session-id across concurrent sessions', async () => {
+    // Session A renders a single-element instance; session B renders a
+    // two-element instance. Each session's resources/read must return
+    // the document rendered inside that session, not the other.
+    const singleElement = {
+      id: 'session-a',
+      schema_version: VERSION,
+      created_at: '2026-04-16T00:00:00.000Z',
+      elements: [{ element_id: 'accept_deny', priority: 0, variables: [] }],
+    }
+    const twoElements = validInstance()
+
+    await postMcp(
+      {
+        jsonrpc: '2.0',
+        id: 200,
+        method: 'tools/call',
+        params: {
+          name: 'render_datachain',
+          arguments: { version: VERSION, datachain: singleElement },
+        },
+      },
+      'session-a',
+    )
+    await postMcp(
+      {
+        jsonrpc: '2.0',
+        id: 201,
+        method: 'tools/call',
+        params: {
+          name: 'render_datachain',
+          arguments: { version: VERSION, datachain: twoElements },
+        },
+      },
+      'session-b',
+    )
+
+    const readA = await postMcp(
+      {
+        jsonrpc: '2.0',
+        id: 202,
+        method: 'resources/read',
+        params: { uri: 'ui://dtpr/datachain/view.html' },
+      },
+      'session-a',
+    )
+    const readB = await postMcp(
+      {
+        jsonrpc: '2.0',
+        id: 203,
+        method: 'resources/read',
+        params: { uri: 'ui://dtpr/datachain/view.html' },
+      },
+      'session-b',
+    )
+
+    const htmlA = (readA.body.result as { contents: Array<{ text: string }> })
+      .contents[0]!.text
+    const htmlB = (readB.body.result as { contents: Array<{ text: string }> })
+      .contents[0]!.text
+
+    expect(htmlA).toContain('Accept / Deny')
+    expect(htmlA).not.toContain('Identifiable video')
+    expect(htmlB).toContain('Accept / Deny')
+    expect(htmlB).toContain('Identifiable video')
   })
 
   it('error: invalid version string → bad_request envelope', async () => {

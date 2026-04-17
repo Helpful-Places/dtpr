@@ -8,32 +8,38 @@ export const DATACHAIN_RESOURCE_URI = 'ui://dtpr/datachain/view.html'
 // MCP Apps spec (SEP-1865) content type for iframe-renderable HTML.
 export const DATACHAIN_RESOURCE_MIME = 'text/html;profile=mcp-app'
 
-// Module-level HTML slot — last rendered datachain wins.
-//
-// TODO: per-session isolation deferred. Module-level state is acceptable
-// in v1 because the hand-rolled /mcp handler is stateless per request.
-// The HTML needs to persist across a render_datachain call and a
-// subsequent resources/read, and a module slot is the smallest thing
-// that survives that boundary. Under concurrent sessions this introduces
-// cross-session bleed; follow-up keys by session id once transport
-// supports it.
-let currentHtml: string | undefined
+// Fallback key for requests that arrive without an mcp-session-id
+// header. Clients that follow the protocol set this after `initialize`;
+// we key by it so two concurrent sessions in the same Worker isolate do
+// not read each other's last-rendered HTML. Clients that omit the header
+// share this fallback key and can still bleed — by design, since we
+// cannot identify them.
+export const DEFAULT_SESSION_KEY = '__dtpr_default_session__'
 
-export function setDatachainHtml(html: string): void {
-  currentHtml = html
+// Rendered HTML keyed by mcp-session-id. A render_datachain call in
+// session A and its subsequent resources/read in session A return the
+// same document even while session B is rendering something else.
+// Cross-isolate persistence (Durable Objects, KV) is still out of scope
+// — the guarantee is same-isolate, same-session.
+const htmlSlots = new Map<string, string>()
+
+export function setDatachainHtml(sessionId: string, html: string): void {
+  htmlSlots.set(sessionId, html)
 }
 
-// Returns the last rendered HTML, or a placeholder document when the
-// resource is read before any tool call has populated it.
-export async function getDatachainHtml(): Promise<string> {
-  if (currentHtml !== undefined) return currentHtml
+// Returns the last rendered HTML for this session, or a neutral
+// placeholder when the resource is read before any tool call has
+// populated it in this session.
+export async function getDatachainHtml(sessionId: string): Promise<string> {
+  const existing = htmlSlots.get(sessionId)
+  if (existing !== undefined) return existing
   return renderDatachainDocument([], {
     title: 'DTPR datachain (awaiting tool call)',
   })
 }
 
 export function __resetDatachainResourceStateForTest(): void {
-  currentHtml = undefined
+  htmlSlots.clear()
 }
 
 export interface ResourceDescriptor {

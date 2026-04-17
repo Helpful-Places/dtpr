@@ -134,8 +134,10 @@ function buildSections(
 
 // Tool descriptor + handler factory. Fits main's `buildToolRegistry`
 // pattern: each call to /mcp builds one registry bound to the request's
-// LoadContext (R2 bucket + execution ctx).
-export function renderDatachainTool(ctx: LoadContext): ToolDef {
+// LoadContext (R2 bucket + execution ctx). `sessionId` scopes the
+// rendered-HTML resource slot so concurrent sessions never read each
+// other's output.
+export function renderDatachainTool(ctx: LoadContext, sessionId: string): ToolDef {
   return {
     descriptor: {
       name: 'render_datachain',
@@ -209,7 +211,7 @@ export function renderDatachainTool(ctx: LoadContext): ToolDef {
 
         const sections = buildSections(parsedInstance, categories, elements, args.locale)
         const html = await renderDatachainDocument(sections, { locale: args.locale })
-        setDatachainHtml(html)
+        setDatachainHtml(sessionId, html)
 
         const summary = buildAgentSummary(sections, DATACHAIN_RESOURCE_URI)
         return {
