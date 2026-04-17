@@ -1,0 +1,246 @@
+/* @dtpr/ui default stylesheet — tokens, layout, and primitive styles. */
+/* All rules live inside @layer dtpr so consumer layers can win by default. */
+
+:where(html) {
+  --dtpr-color-accent: #0f5153;
+  --dtpr-color-accent-contrast: #ffffff;
+  --dtpr-color-border: rgba(0, 0, 0, 0.1);
+  --dtpr-color-text: #111111;
+  --dtpr-color-text-muted: #555555;
+  --dtpr-color-surface: #ffffff;
+  --dtpr-color-warning: #f04a4a;
+  --dtpr-font-heading: 'Red Hat Text', sans-serif;
+  --dtpr-font-body: 'Red Hat Text', sans-serif;
+  --dtpr-space-xs: 0.25rem;
+  --dtpr-space-sm: 0.5rem;
+  --dtpr-space-md: 1rem;
+  --dtpr-space-lg: 1.5rem;
+  --dtpr-space-xl: 2rem;
+  --dtpr-radius-sm: 0.25rem;
+  --dtpr-radius-md: 0.5rem;
+  --dtpr-radius-lg: 1rem;
+}
+
+@layer dtpr {
+  .dtpr-icon {
+    display: inline-block;
+    object-fit: contain;
+    border-radius: var(--dtpr-radius-sm);
+  }
+
+  .dtpr-element {
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--dtpr-space-sm);
+    padding: var(--dtpr-space-md);
+    border: 1px solid var(--dtpr-color-border);
+    border-radius: var(--dtpr-radius-md);
+    background: var(--dtpr-color-surface);
+    font-family: var(--dtpr-font-body);
+    color: var(--dtpr-color-text);
+  }
+
+  .dtpr-element__icon {
+    flex-shrink: 0;
+  }
+
+  .dtpr-element__title {
+    margin: 0;
+    font-family: var(--dtpr-font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  @container (min-width: 480px) {
+    .dtpr-element {
+      flex-direction: row;
+      align-items: center;
+      gap: var(--dtpr-space-md);
+    }
+  }
+
+  .dtpr-element-detail {
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+    gap: var(--dtpr-space-md);
+    padding: var(--dtpr-space-lg);
+    border: 1px solid var(--dtpr-color-border);
+    border-radius: var(--dtpr-radius-md);
+    background: var(--dtpr-color-surface);
+    font-family: var(--dtpr-font-body);
+    color: var(--dtpr-color-text);
+  }
+
+  .dtpr-element-detail__header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--dtpr-space-sm);
+  }
+
+  .dtpr-element-detail__title {
+    margin: 0;
+    font-family: var(--dtpr-font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .dtpr-element-detail__description {
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .dtpr-element-detail__variables {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--dtpr-space-sm);
+  }
+
+  .dtpr-element-detail__variable {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dtpr-space-xs);
+    padding: var(--dtpr-space-sm);
+    border: 1px solid var(--dtpr-color-border);
+    border-radius: var(--dtpr-radius-sm);
+  }
+
+  .dtpr-element-detail__variable-label {
+    font-size: 0.875rem;
+    color: var(--dtpr-color-text-muted);
+  }
+
+  .dtpr-element-detail__citation {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--dtpr-color-text-muted);
+  }
+
+  .dtpr-element-detail__warning {
+    color: var(--dtpr-color-warning);
+    font-size: 0.875rem;
+  }
+
+  .dtpr-variable-highlight {
+    background: rgba(15, 81, 83, 0.08);
+    color: var(--dtpr-color-accent);
+    padding: 0 0.15em;
+    border-radius: var(--dtpr-radius-sm);
+  }
+
+  .dtpr-variable-missing {
+    color: var(--dtpr-color-warning);
+    font-style: italic;
+  }
+
+  .dtpr-variable-url {
+    color: var(--dtpr-color-accent);
+    text-decoration: underline;
+  }
+
+  .dtpr-variable-bool[data-value='true'] {
+    color: var(--dtpr-color-accent);
+  }
+
+  .dtpr-variable-bool[data-value='false'] {
+    color: var(--dtpr-color-text-muted);
+  }
+
+  @container (min-width: 600px) {
+    .dtpr-element-detail__header {
+      flex-direction: row;
+      align-items: center;
+      gap: var(--dtpr-space-md);
+    }
+  }
+
+  .dtpr-category-section {
+    container-type: inline-size;
+    border: 1px solid var(--dtpr-color-border);
+    border-radius: var(--dtpr-radius-md);
+    background: var(--dtpr-color-surface);
+    font-family: var(--dtpr-font-body);
+    color: var(--dtpr-color-text);
+  }
+
+  .dtpr-category-section__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--dtpr-space-sm);
+    width: 100%;
+    min-height: 44px;
+    padding: var(--dtpr-space-md);
+    background: transparent;
+    border: 0;
+    border-radius: inherit;
+    font: inherit;
+    font-family: var(--dtpr-font-heading);
+    font-weight: 600;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .dtpr-category-section__header:focus-visible {
+    outline: 2px solid var(--dtpr-color-accent);
+    outline-offset: 2px;
+  }
+
+  .dtpr-category-section__title {
+    margin: 0;
+    font-size: 1.125rem;
+  }
+
+  .dtpr-category-section__panel {
+    padding: var(--dtpr-space-md);
+    border-top: 1px solid var(--dtpr-color-border);
+  }
+
+  .dtpr-category-section--static .dtpr-category-section__panel {
+    border-top: 1px solid var(--dtpr-color-border);
+  }
+
+  .dtpr-category-section--static .dtpr-category-section__title {
+    padding: var(--dtpr-space-md);
+    font-family: var(--dtpr-font-heading);
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .dtpr-datachain {
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+    gap: var(--dtpr-space-md);
+    font-family: var(--dtpr-font-body);
+    color: var(--dtpr-color-text);
+  }
+
+  .dtpr-element-grid {
+    container-type: inline-size;
+    display: grid;
+    gap: var(--dtpr-space-md);
+    grid-template-columns: 1fr;
+  }
+
+  @container (min-width: 480px) {
+    .dtpr-element-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @container (min-width: 768px) {
+    .dtpr-element-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

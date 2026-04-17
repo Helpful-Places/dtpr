@@ -1,0 +1,51 @@
+{
+  "name": "@dtpr/ui",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "DTPR presentation library (core + vue + html)",
+  "exports": {
+    "./core": {
+      "types": "./dist/core/index.d.ts",
+      "import": "./dist/core/index.js"
+    },
+    "./vue": {
+      "types": "./dist/vue/index.d.ts",
+      "import": "./dist/vue/index.js"
+    },
+    "./vue/styles.css": "./dist/vue/styles.css",
+    "./html": {
+      "types": "./dist/html/index.d.ts",
+      "import": "./dist/html/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "test": "vitest run --passWithNoTests",
+    "test:watch": "vitest",
+    "typecheck": "vue-tsc --noEmit",
+    "check:neutrality": "node scripts/check-neutrality.mjs"
+  },
+  "dependencies": {
+    "@dtpr/api": "workspace:*",
+    "@vue/server-renderer": "^3.5"
+  },
+  "peerDependencies": {
+    "vue": "^3.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.1.0",
+    "@vue/test-utils": "^2.4.6",
+    "happy-dom": "^15.11.0",
+    "jsdom": "^25.0.1",
+    "vite": "^5.4.0",
+    "vite-plugin-dts": "^4.2.0",
+    "vitest": "^3.0.0",
+    "vue": "^3.5",
+    "vue-tsc": "^2.1.0"
+  }
+}

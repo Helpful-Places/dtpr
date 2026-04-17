@@ -117,7 +117,7 @@ describe('MCP: handshake + tools/list', () => {
     expect((res.result as { serverInfo: { name: string } }).serverInfo.name).toBe('dtpr-api')
   })
 
-  it('tools/list returns the seven read-side tools', async () => {
+  it('tools/list returns every registered tool', async () => {
     const client = createMcpClient()
     await client.initialize()
     const res = await client.listTools()
@@ -131,6 +131,7 @@ describe('MCP: handshake + tools/list', () => {
         'list_categories',
         'list_elements',
         'list_schema_versions',
+        'render_datachain',
         'validate_datachain',
       ].sort(),
     )

@@ -4,6 +4,24 @@
   "type": "module",
   "version": "0.0.1",
   "description": "DTPR standalone API (REST + MCP) on Cloudflare Workers",
+  "exports": {
+    "./schema": {
+      "types": "./dist/schema/index.d.ts",
+      "import": "./dist/schema/index.js",
+      "require": "./dist/schema/index.cjs"
+    },
+    "./validator": {
+      "types": "./dist/validator/index.d.ts",
+      "import": "./dist/validator/index.js",
+      "require": "./dist/validator/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src",
+    "cli"
+  ],
   "bin": {
     "api": "./cli/bin.ts"
   },
@@ -20,14 +38,18 @@
     "schema:build": "tsx cli/bin.ts build",
     "schema:validate": "tsx cli/bin.ts validate",
     "schema:new": "tsx cli/bin.ts new",
-    "schema:promote": "tsx cli/bin.ts promote"
+    "schema:promote": "tsx cli/bin.ts promote",
+    "build:schema": "tsup --config tsup.schema.config.ts"
   },
   "dependencies": {
+    "@dtpr/ui": "workspace:*",
     "@hono/zod-validator": "^0.7.6",
+    "@vue/server-renderer": "^3.5",
     "hono": "^4.12.14",
     "hono-rate-limiter": "^0.4.0",
     "js-yaml": "^4.1.0",
     "minisearch": "^7.1.0",
+    "vue": "^3.5",
     "zod": "^4.3.6"
   },
   "devDependencies": {
@@ -35,6 +57,7 @@
     "@cloudflare/vitest-pool-workers": "^0.8.0",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^22.10.0",
+    "tsup": "^8.3.0",
     "tsx": "^4.19.0",
     "typescript": "^5.7.0",
     "vitest": "^3.0.0",

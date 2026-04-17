@@ -8,6 +8,6 @@ import { defineConfig } from 'vitest/config'
  */
 export default defineConfig({
   test: {
-    include: ['test/cli/**/*.test.ts'],
+    include: ['test/cli/**/*.test.ts', 'test/schema/**/*.test.ts'],
   },
 })
