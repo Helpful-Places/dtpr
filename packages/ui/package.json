@@ -1,0 +1,31 @@
+{
+  "name": "@dtpr/ui",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "description": "DTPR presentation library (spike scaffold — Unit 0.5 toolchain smoke)",
+  "exports": {
+    "./core": {
+      "types": "./dist/core/index.d.ts",
+      "import": "./dist/core/index.js"
+    },
+    "./vue": {
+      "types": "./dist/vue/index.d.ts",
+      "import": "./dist/vue/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "vite build"
+  },
+  "peerDependencies": {
+    "vue": "^3.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.1.0",
+    "vite": "^5.4.0",
+    "vite-plugin-dts": "^4.2.0",
+    "vue": "^3.5",
+    "vue-tsc": "^2.1.0"
+  }
+}

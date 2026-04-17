@@ -33,11 +33,14 @@
   "devDependencies": {
     "@aws-sdk/client-s3": "^3.700.0",
     "@cloudflare/vitest-pool-workers": "^0.8.0",
+    "@modelcontextprotocol/ext-apps": "^1.6",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^22.10.0",
+    "@vue/server-renderer": "^3.5",
     "tsx": "^4.19.0",
     "typescript": "^5.7.0",
     "vitest": "^3.0.0",
+    "vue": "^3.5",
     "wrangler": "^4.83.0"
   }
 }
