@@ -428,7 +428,7 @@ YAML source (api/schemas/ai/<version>/)
 
 _Last updated: 2026-04-17._
 
-**Complete:** Units 1–6 (all of Phase P1). Branch `feat/dtpr-schema-mcp`.
+**Complete:** Units 1–12 (Phase P1 + Phase P2). Branch `feat/dtpr-ai-docs`.
 
 | Unit | Status | Notes |
 |------|--------|-------|
@@ -438,8 +438,14 @@ _Last updated: 2026-04-17._
 | 4: `schema:build` + `schema:validate` CLI | ✅ Done | Pure-function libs (version parser, content hash, MiniSearch builder, JSON emitter) + fs wrapper (yaml-reader) + Node-bin entry. End-to-end tested against a committed 2-cat / 2-el fixture. |
 | 5: AI migration | ✅ Done | **11 categories + 75 elements × 6 locales** ported from `app/content/dtpr.v1/` to `api/schemas/ai/2026-04-16-beta/`. Validation clean (0 errors, 0 warnings). Idempotent. ~441 KB bundle (well under R10b's 512 KB inline threshold). `app/content/dtpr.v1/README.md` documents the freeze. |
 | 6: CI deploy workflow | ✅ Done | Workers `dtpr-api` (`api.dtpr.io`) + `dtpr-api-preview` (`api-preview.dtpr.io`) deployed manually on 2026-04-17 against R2 buckets `dtpr-api` / `dtpr-api-preview` (renamed from plan's `dtpr-content-{prod,preview}` to match user's existing bucket). `.github/workflows/api-{test,deploy}.yaml` + `api/scripts/r2-upload.ts` + `api/docs/deploy-tokens.md` landed. CI itself runs once GitHub Actions secrets are populated (see deploy-tokens.md). Account upgraded to Workers Paid 2026-04-17; `limits.cpu_ms: 500` re-enabled in `wrangler.jsonc` (next deploy after CF plan-flag propagation will accept it). |
+| 7: R2 loader + Cache API wrapper | ✅ Done | `api/src/store/{r2-loader,cache-wrapper,index-loader,inline-bundles,keys,index}.ts`. Stable versions cached for 24h; beta is no-store. Null results never cached. Inline-bundle hook wired for R10b (empty registry at P1). 20 new tests against Miniflare R2 + Cache API. |
+| 8: Hono middleware stack | ✅ Done | CORS (allow-list + preview-subdomain regex), request-id (wraps `hono/request-id`), logging (one JSON line per req), payload-limits (64 KB), timeout (AbortController, signal exposed on `c.var`), typed error envelope with R2LoadError → 502 mapping. 23 tests. |
+| 9: REST v2 endpoints | ✅ Done | `api/src/rest/{routes,responses,pagination,search,version-resolver}.ts`. Full route set under `/api/v2`; version @/%40 normalization; locale filter; projection (default vs `all`); opaque cursor pagination; BM25 search via MiniSearch; content-hash header; cache-control by stability. 36 tests. |
+| 10: MCP server + 7 tools | ✅ Done | **Plan fallback path taken**: hand-rolled JSON-RPC dispatcher in `api/src/mcp/server.ts` (replaces `@hono/mcp` + `@modelcontextprotocol/sdk`, which pull CJS-only Ajv that workerd's vitest-pool-workers loader can't handle). See `api/docs/mcp-fallback.md`. Seven tools registered through `buildToolRegistry(ctx)`; inputSchema emitted via `z.toJSONSchema` (draft-2020-12, io:'input'). `validate_datachain` and per-id `get_elements` misses return `ok:false, isError:false` (soft failure). 22 tests. |
+| 11: Rate limiting + DTPR-Client header | ✅ Done | `RL_READ` (300/min) + `RL_VALIDATE` (30/min) bindings in `wrangler.jsonc`; middleware keys on `(cf-connecting-ip, DTPR-Client)` tuple, no-ops when binding is absent (dev/test/preview). `api/docs/waf-rules.md` documents the tier-1 WAF rules for manual provisioning. 8 tests. |
+| 12: E2E test suite + harness parity | ✅ Done | `api/test/api/{schemas,helpers,seed,mcp-client,harness-parity,rate-limit,locale-filtering,rest,mcp}.ts`. Fingerprint snapshots (ported from `app/test/api/helpers.ts`); response-shape Zod conformance; full MCP flow integration test (initialize → tools/list → versions → schema → search → bulk → validate); session timing canary (log-only). |
 
-**Test totals:** 94 passing (79 workers-pool + 15 Node-pool for fs-touching CLI / migration tests). Typecheck clean.
+**Test totals:** 208 passing (193 workers-pool + 15 Node-pool for fs-touching CLI / migration tests). Typecheck clean.
 
 **Commits on branch (main → HEAD):** see `git log main..HEAD`. Unit 6 lands as a single commit.
 
@@ -449,14 +455,15 @@ _Last updated: 2026-04-17._
 - **Installed workerd lags the targeted compat date.** `wrangler.jsonc` pins `compatibility_date: "2026-04-16"`; the vitest-pool-workers shim installed here maxes out at `2025-09-06` and falls back with a warning (not an error). Will clear when `@cloudflare/vitest-pool-workers` ships a newer workerd.
 - **`list_elements` fixture-expectation adjustment.** Plan said the first port would contain an empty `tech__facial_recognition.md`; the actual source has **no such file** (closest name is `tech__facial_characterization.md`, which ports cleanly). No warnings were emitted by the migration. If the plan's author wants the missing tile re-added, that's a separate authoring task.
 
-**Next up — Phase P2 (REST + MCP read path):**
-
-- **Unit 7: R2 loader + Cache API wrapper** — gated on the Cloudflare infrastructure spike from Unit 1. Once verified, implements `src/store/*` with R2 binding + `caches.default` per-version cache.
-- **Units 8–12:** Hono middleware stack, REST `/api/v2/*`, MCP server + 7 tools, two-tier rate limiting, E2E test harness.
-
 **Next up — Phase P3 (Drafting + demo):**
 
 - **Units 13–15:** `schema:new` / `schema:promote` CLI, preview deployments, wow-factor agent demo.
+
+**Phase P2 deviations from plan worth knowing:**
+
+- **MCP transport: hand-rolled JSON-RPC instead of `@hono/mcp` + `@modelcontextprotocol/sdk`.** The SDK pulls Ajv 8 (CJS-only) which workerd's vitest-pool-workers loader rejects (`?mf_vitest_no_cjs_esm_shim` skips the CJS shim and Ajv's `require('./refs/data.json')` fails). The plan anticipated this fallback; documented in `api/docs/mcp-fallback.md`. The wire format is identical (JSON-RPC 2.0, methods: initialize / tools/list / tools/call / ping), so MCP clients see no difference. Removed `@hono/mcp` and `@modelcontextprotocol/sdk` from the worker bundle.
+- **Rate-limit middleware tolerates absent bindings.** In dev/test/preview the `RL_READ` / `RL_VALIDATE` bindings may not be provisioned; the middleware no-ops in that case so non-prod environments don't 500. Production still enforces.
+- **`LoadContext.ctx` is structurally typed** (just `{ waitUntil }`) rather than the full `ExecutionContext` so Hono's slightly different `ExecutionContext` type doesn't require a cast at every call site.
 
 ### Phase P1 — Foundation
 
@@ -787,7 +794,7 @@ _Last updated: 2026-04-17._
 
 ### Phase P2 — REST v2 + MCP read
 
-- [ ] **Unit 7: R2 loader + Cache API wrapper**
+- [x] **Unit 7: R2 loader + Cache API wrapper**
 
 **Goal:** A typed loader that reads schema version bundles from R2 with Cloudflare Cache API in front for hot reads. Transparent to callers; returns decoded objects.
 
@@ -836,7 +843,7 @@ _Last updated: 2026-04-17._
 
 ---
 
-- [ ] **Unit 8: Hono app skeleton (middleware stack)**
+- [x] **Unit 8: Hono app skeleton (middleware stack)**
 
 **Goal:** Mount the Hono app with cross-cutting middleware: CORS, request-id, error envelope, payload caps, wall-clock timeout (AbortController), and structured logging.
 
@@ -881,7 +888,7 @@ _Last updated: 2026-04-17._
 
 ---
 
-- [ ] **Unit 9: REST v2 endpoints**
+- [x] **Unit 9: REST v2 endpoints**
 
 **Goal:** REST routes at `/api/v2/...` serving schema version list, manifest, categories, elements, single element, validate. Version-pinned paths; `@` / `%40` normalization; locale filtering; content hash headers.
 
@@ -937,7 +944,7 @@ _Last updated: 2026-04-17._
 
 ---
 
-- [ ] **Unit 10: MCP server + 7 tools**
+- [x] **Unit 10: MCP server + 7 tools**
 
 **Goal:** MCP server mounted at `/mcp` via `@hono/mcp`. Seven tools: `list_schema_versions`, `get_schema`, `list_categories`, `list_elements`, `get_element`, **`get_elements` (bulk)**, `validate_datachain`. Structured content + text fallback, opaque cursor pagination, fix_hint error envelopes, provenance-tagged element content.
 
@@ -1012,7 +1019,7 @@ _Last updated: 2026-04-17._
 
 ---
 
-- [ ] **Unit 11: Rate limiting + client-identification header**
+- [x] **Unit 11: Rate limiting + client-identification header**
 
 **Goal:** Two-tier rate limiting — WAF rules (absolute, per-IP) + Workers Rate Limit API binding (per-endpoint quotas, keyed on `(IP, DTPR-Client)` tuple). Document `DTPR-Client` header convention.
 
@@ -1061,7 +1068,7 @@ _Last updated: 2026-04-17._
 
 ---
 
-- [ ] **Unit 12: E2E test suite + API harness parity**
+- [x] **Unit 12: E2E test suite + API harness parity**
 
 **Goal:** Vitest-pool-workers-based test suite mirroring the existing `app/test/api/` patterns — schema conformance, structural fingerprint snapshots, locale filtering, rate-limit, error envelopes. Binds a Miniflare R2 with seeded bundles.
 
