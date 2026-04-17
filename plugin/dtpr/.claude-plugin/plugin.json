@@ -1,0 +1,11 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "dtpr",
+  "description": "Digital Trust for Places and Routines — describe AI systems as DTPR datachains and brainstorm the DTPR taxonomy itself. Wraps the remote MCP at api.dtpr.io/mcp.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Helpful Places",
+    "url": "https://helpfulplaces.com"
+  },
+  "homepage": "https://dtpr.io"
+}

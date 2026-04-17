@@ -1,0 +1,9 @@
+{
+  "dtpr": {
+    "type": "http",
+    "url": "https://api.dtpr.io/mcp",
+    "headers": {
+      "User-Agent": "dtpr-claude-plugin/0.1.0"
+    }
+  }
+}
