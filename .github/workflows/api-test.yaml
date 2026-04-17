@@ -4,11 +4,13 @@ on:
     branches: [main]
     paths:
       - 'api/**'
+      - 'packages/**'
       - '.github/workflows/api-test.yaml'
   push:
     branches: [main]
     paths:
       - 'api/**'
+      - 'packages/**'
       - '.github/workflows/api-test.yaml'
 
 jobs:
@@ -23,6 +25,12 @@ jobs:
           node-version: 20
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      # @dtpr/api/schema + @dtpr/api/validator ship via tsup-compiled dist/;
+      # @dtpr/ui's three subpaths ship via Vite library mode. Both must be
+      # built before `tsc --noEmit` can resolve the subpath imports.
+      - run: pnpm --filter ./api build:schema
+      - run: pnpm --filter @dtpr/ui build
+      - run: pnpm --filter @dtpr/ui test
       - run: pnpm --filter ./api typecheck
       - run: pnpm --filter ./api test
       - run: pnpm --filter ./api schema:validate ai@2026-04-16-beta
