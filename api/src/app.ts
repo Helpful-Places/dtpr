@@ -86,12 +86,14 @@ export function createApp(options: CreateAppOptions = {}) {
     '/api/v2/schemas/:version/symbols/:symbol_id.svg',
     timeout({ budgetMs: readBudget }),
   )
+  // Composed icon routes mount as a single `:icon_variant` pattern
+  // that captures `icon.svg`, `icon.dark.svg`, `icon.<ctx>.svg`, etc.
+  // — see the comment at the mount site in `rest/routes.ts` for why
+  // Hono's literal-dot-before-param form doesn't work here. The
+  // timeout mount pattern must mirror the route pattern exactly, or
+  // the wall-clock budget is silently skipped on the affected route.
   app.use(
-    '/api/v2/schemas/:version/elements/:element_id/icon.svg',
-    timeout({ budgetMs: readBudget }),
-  )
-  app.use(
-    '/api/v2/schemas/:version/elements/:element_id/icon.:variant.svg',
+    '/api/v2/schemas/:version/elements/:element_id/:icon_variant',
     timeout({ budgetMs: readBudget }),
   )
   app.use('/mcp', timeout({ budgetMs: readBudget }))
