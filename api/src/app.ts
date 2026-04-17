@@ -10,6 +10,7 @@ import {
   DEFAULT_VALIDATE_BUDGET_MS,
   timeout,
 } from './middleware/timeout.ts'
+import { createRestApp } from './rest/routes.ts'
 
 export type { AppEnv, AppVariables } from './app-types.ts'
 
@@ -42,13 +43,16 @@ export function createApp(options: CreateAppOptions = {}) {
   app.use('*', logging())
   app.use('*', payloadLimits(options.maxPayloadBytes))
 
-  // Read routes (everything except POST .../validate and MCP validate tool)
-  app.use(
-    '/healthz',
-    timeout({ budgetMs: options.readBudgetMs ?? DEFAULT_READ_BUDGET_MS }),
-  )
+  const readBudget = options.readBudgetMs ?? DEFAULT_READ_BUDGET_MS
+  const validateBudget = options.validateBudgetMs ?? DEFAULT_VALIDATE_BUDGET_MS
+
+  // POST .../validate gets the longer wall-clock budget; everything
+  // else (including the MCP read paths) uses the read budget.
+  app.use('/api/v2/schemas/:version/validate', timeout({ budgetMs: validateBudget }))
+  app.use('*', timeout({ budgetMs: readBudget }))
 
   app.get('/healthz', (c) => c.json({ ok: true, service: 'dtpr-api' }))
+  app.route('/api/v2', createRestApp())
 
   registerErrorHandler(app)
   return app

@@ -19,13 +19,18 @@
  *    `<type>/<date>-beta/` predecessor.
  */
 
+/** Subset of ExecutionContext we use; see `LoadContext` rationale. */
+interface ExecutionLike {
+  waitUntil(promise: Promise<unknown>): void
+}
+
 export interface CacheOptions {
   /** Cache TTL in seconds. Used in the synthesized Cache-Control. */
   ttl: number
   /** When false, bypass cache entirely (read + write). */
   enabled: boolean
   /** Worker execution context for non-blocking cache writes. */
-  ctx?: ExecutionContext
+  ctx?: ExecutionLike
 }
 
 const CACHE_BASE = 'https://cache.internal.dtpr-api/'

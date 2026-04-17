@@ -35,16 +35,26 @@ export class R2LoadError extends Error {
 }
 
 /**
+ * Subset of `ExecutionContext` that the cache wrapper actually uses.
+ * Declared structurally so callers can pass the value Hono exposes on
+ * its Context (`c.executionCtx`) without a type cast — Hono's type and
+ * the Cloudflare-generated type differ on optional fields.
+ */
+export interface ExecutionLike {
+  waitUntil(promise: Promise<unknown>): void
+}
+
+/**
  * Per-call context for the loaders. Bundling the bucket + execution
  * context here means routes pass one object instead of three positional
  * arguments to every loader call.
  */
 export interface LoadContext {
   bucket: R2Bucket
-  ctx?: ExecutionContext
+  ctx?: ExecutionLike
 }
 
-function cacheOptionsFor(version: ParsedVersion, ctx?: ExecutionContext): CacheOptions {
+function cacheOptionsFor(version: ParsedVersion, ctx?: ExecutionLike): CacheOptions {
   // Beta versions are never cached — content is mutable and we want
   // consumers to see fresh bytes on every fetch. Stable versions are
   // immutable, so cache for the full TTL.
