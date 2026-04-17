@@ -151,6 +151,26 @@ describe('schema:promote', () => {
     await access(join(sourceRoot, 'ai', '2026-04-16-beta'))
   })
 
+  it('refuses when the target branch already exists (leftover from a prior partial run)', async () => {
+    initGitRepo(scratch)
+    // Simulate a leftover branch from a prior partial promote.
+    execFileSync('git', ['branch', 'schema/promote-ai-2026-04-16'], {
+      cwd: scratch,
+      stdio: 'ignore',
+    })
+
+    const result = await schemaPromote('ai@2026-04-16-beta', {
+      sourceRoot,
+      gitRoot: scratch,
+      log: captureLog,
+    })
+    expect(result.ok).toBe(false)
+    expect(logs.some((l) => l.includes('already exists'))).toBe(true)
+    // Rename and meta rewrite must not have run — this is the rollback guarantee.
+    await access(join(sourceRoot, 'ai', '2026-04-16-beta'))
+    await expect(access(join(sourceRoot, 'ai', '2026-04-16'))).rejects.toThrow()
+  })
+
   it('refuses when gitRoot is not a git repo', async () => {
     const result = await schemaPromote('ai@2026-04-16-beta', {
       sourceRoot,

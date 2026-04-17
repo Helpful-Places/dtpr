@@ -15,8 +15,6 @@ jobs:
     name: Deploy preview worker + atomic R2 upload
     if: contains(github.event.pull_request.labels.*.name, 'schema:preview')
     runs-on: ubuntu-latest
-    env:
-      SCHEMA_VERSION: ai@2026-04-16-beta
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
@@ -27,6 +25,25 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
+      # Resolve the newest beta version in the repo. Preview deploys
+      # always target the in-flight draft, so hardcoding a version
+      # would go stale the first time the current beta is promoted.
+      # Directory layout is <type>/<YYYY-MM-DD>-beta; lexicographic
+      # sort equals date sort.
+      - name: Resolve newest beta schema version
+        id: schema
+        working-directory: api/schemas
+        run: |
+          set -euo pipefail
+          dir=$(find . -maxdepth 2 -type d -name '*-beta' | sort | tail -1 | sed 's|^\./||')
+          if [ -z "$dir" ]; then
+            echo "::error::No beta schema version found under api/schemas/"
+            exit 1
+          fi
+          version=$(echo "$dir" | sed 's|/|@|')
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "Using schema version: $version"
+
       # Re-run the test + typecheck on the deploy artifact. The preview
       # path is label-gated, so slipping a broken artifact through here
       # would still surface as a PR-blocking signal before the deploy.
@@ -34,7 +51,7 @@ jobs:
       - run: pnpm --filter ./api test
 
       # Validate + build the bundle that we're about to publish.
-      - run: pnpm --filter ./api schema:build "$SCHEMA_VERSION"
+      - run: pnpm --filter ./api schema:build "${{ steps.schema.outputs.version }}"
 
       - name: Deploy worker (preview)
         uses: cloudflare/wrangler-action@v3
@@ -51,7 +68,7 @@ jobs:
           R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID_PREVIEW }}
           R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY_PREVIEW }}
           R2_BUCKET: dtpr-api-preview
-        run: pnpm tsx scripts/r2-upload.ts "$SCHEMA_VERSION"
+        run: pnpm tsx scripts/r2-upload.ts "${{ steps.schema.outputs.version }}"
 
       - name: Post-deploy smoke tests
         run: |

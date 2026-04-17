@@ -83,7 +83,7 @@ function verifySkill(skillDir) {
   return { path: skillPath, body }
 }
 
-function verifyEvalSet(evalFile) {
+function verifyEvalSet(evalFile, skillDirNames) {
   const evalPath = join(EVALS_DIR, evalFile)
   let data
   try {
@@ -91,6 +91,12 @@ function verifyEvalSet(evalFile) {
   } catch (e) {
     fail(`${evalPath}: invalid JSON (${e.message}).`)
     return
+  }
+  // Orphaned eval set — the skill it's associated with was renamed or deleted.
+  if (typeof data.skill === 'string' && !skillDirNames.has(data.skill)) {
+    fail(
+      `${evalPath}: 'skill' field '${data.skill}' does not match any skill directory in ${SKILLS_DIR}.`,
+    )
   }
   for (const key of ['should_trigger', 'should_not_trigger']) {
     const arr = data[key]
@@ -174,9 +180,11 @@ function verifyToolReferences(skills, toolNames) {
 }
 
 function main() {
-  const skillDirs = readdirSync(SKILLS_DIR, { withFileTypes: true })
-    .filter((d) => d.isDirectory())
-    .map((d) => join(SKILLS_DIR, d.name))
+  const skillDirents = readdirSync(SKILLS_DIR, { withFileTypes: true }).filter(
+    (d) => d.isDirectory(),
+  )
+  const skillDirNames = new Set(skillDirents.map((d) => d.name))
+  const skillDirs = skillDirents.map((d) => join(SKILLS_DIR, d.name))
 
   if (skillDirs.length === 0) {
     fail(`${SKILLS_DIR}: no skill directories found.`)
@@ -188,7 +196,7 @@ function main() {
   if (evalFiles.length === 0) {
     fail(`${EVALS_DIR}: no *.evals.json files found.`)
   }
-  for (const f of evalFiles) verifyEvalSet(f)
+  for (const f of evalFiles) verifyEvalSet(f, skillDirNames)
 
   const toolNames = loadMcpToolNames()
   verifyToolReferences(skills, toolNames)

@@ -90,8 +90,12 @@ export async function schemaPromote(
     return { ok: false, betaVersion: beta.canonical }
   }
 
+  const branch = `schema/promote-${beta.type}-${beta.date}`
+
   // Git prereqs. Run `rev-parse` first so a non-git dir fails fast
   // with a clear message instead of a surprising status failure.
+  // Every git precondition must be checked here — the rename below
+  // is the point of no return.
   if (!options.skipGit) {
     const isRepo = await gitOk(['rev-parse', '--is-inside-work-tree'], gitRoot)
     if (!isRepo) {
@@ -102,6 +106,20 @@ export async function schemaPromote(
     if (status.trim().length > 0) {
       err(
         `error: git working tree is dirty. Commit or stash your changes before promoting.`,
+      )
+      return { ok: false, betaVersion: beta.canonical }
+    }
+    // Refuse to run if the target branch already exists (e.g. leftover
+    // from a prior partial promote). `git checkout -b` would otherwise
+    // fail *after* the rename, leaving the tree in a half-promoted state.
+    const branchExists = await gitOk(
+      ['rev-parse', '--verify', `refs/heads/${branch}`],
+      gitRoot,
+    )
+    if (branchExists) {
+      err(
+        `error: branch '${branch}' already exists. Delete it ` +
+          `with 'git branch -D ${branch}' before re-promoting.`,
       )
       return { ok: false, betaVersion: beta.canonical }
     }
@@ -126,7 +144,6 @@ export async function schemaPromote(
   SchemaManifestSchema.parse(manifest)
   await writeFile(metaPath, toYaml(manifest), 'utf8')
 
-  const branch = `schema/promote-${beta.type}-${beta.date}`
   if (!options.skipGit) {
     // Create the branch, stage the rename, commit.
     await gitRun(['checkout', '-b', branch], gitRoot)
