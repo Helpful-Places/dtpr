@@ -3,6 +3,7 @@ import type { AppEnv } from './app-types.ts'
 import { configuredCors } from './middleware/cors.ts'
 import { registerErrorHandler } from './middleware/error-handler.ts'
 import { logging } from './middleware/logging.ts'
+import { noindex } from './middleware/noindex.ts'
 import { payloadLimits } from './middleware/payload-limits.ts'
 import { rateLimit } from './middleware/rate-limit.ts'
 import { configuredRequestId } from './middleware/request-id.ts'
@@ -42,6 +43,7 @@ export function createApp(options: CreateAppOptions = {}) {
 
   app.use('*', configuredCors())
   app.use('*', configuredRequestId())
+  app.use('*', noindex())
   app.use('*', logging())
   app.use('*', payloadLimits(options.maxPayloadBytes))
 
