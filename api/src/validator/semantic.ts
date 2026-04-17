@@ -1,7 +1,6 @@
 import type { DatachainInstance } from '../schema/datachain-instance.ts'
 import { checkCategoryRefs } from './rules/category-refs.ts'
 import { checkColors } from './rules/colors.ts'
-import { checkIcons } from './rules/icons.ts'
 import { checkInstance } from './rules/instance.ts'
 import { checkLocales } from './rules/locales.ts'
 import { checkUniqueness } from './rules/uniqueness.ts'
@@ -21,7 +20,6 @@ export function validateVersion(source: SchemaVersionSource): ValidationResult {
     ...checkLocales(source),
     ...checkVariables(source),
     ...checkColors(source),
-    ...checkIcons(source),
   ]
   return toResult(findings)
 }

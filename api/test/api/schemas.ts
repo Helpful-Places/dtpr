@@ -16,12 +16,6 @@ export const LocaleValueSchema = z.object({
   value: z.string(),
 })
 
-export const IconSchema = z.object({
-  url: z.string(),
-  format: z.string(),
-  alt_text: z.array(LocaleValueSchema),
-})
-
 export const VariableSchema = z.object({
   id: z.string(),
   label: z.array(LocaleValueSchema),
@@ -47,6 +41,7 @@ export const CategorySchema = z.object({
   order: z.number().optional(),
   required: z.boolean().optional(),
   datachain_type: z.string(),
+  shape: z.enum(['hexagon', 'circle', 'rounded-square', 'octagon']),
   name: z.array(LocaleValueSchema),
   description: z.array(LocaleValueSchema),
   prompt: z.array(LocaleValueSchema),
@@ -56,11 +51,11 @@ export const CategorySchema = z.object({
 
 export const ElementSchema = z.object({
   id: z.string(),
-  category_ids: z.array(z.string()),
+  category_id: z.string(),
   title: z.array(LocaleValueSchema),
   description: z.array(LocaleValueSchema),
   citation: z.array(LocaleValueSchema),
-  icon: IconSchema,
+  symbol_id: z.string(),
   variables: z.array(VariableSchema),
 })
 

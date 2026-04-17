@@ -87,7 +87,7 @@ describe('locale filtering: end-to-end through REST', () => {
     expect(body.categories[0]?.name.map((n) => n.locale).sort()).toEqual(['en', 'fr'])
   })
 
-  it('?locales filters element title and description through nested icon alt_text', async () => {
+  it('?locales filters element title and description', async () => {
     const res = await SELF.fetch(
       `https://example.com/api/v2/schemas/${SAMPLE_VERSION.canonical}/elements/accept_deny?locales=en`,
     )
@@ -95,11 +95,9 @@ describe('locale filtering: end-to-end through REST', () => {
       element: {
         title: { locale: string }[]
         description: { locale: string }[]
-        icon: { alt_text: { locale: string }[] }
       }
     }
     expect(body.element.title.map((t) => t.locale)).toEqual(['en'])
     expect(body.element.description.map((t) => t.locale)).toEqual(['en'])
-    expect(body.element.icon.alt_text.map((t) => t.locale)).toEqual(['en'])
   })
 })

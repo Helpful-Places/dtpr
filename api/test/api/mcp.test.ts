@@ -210,7 +210,7 @@ describe('MCP: get_schema', () => {
 })
 
 describe('MCP: list_elements', () => {
-  it('default projection returns id, title, category_ids', async () => {
+  it('default projection returns id, title, category_id', async () => {
     const client = createMcpClient()
     await client.initialize()
     const res = await client.callTool<ToolCallResult<ListElementsPayload>>('list_elements', {
@@ -218,7 +218,7 @@ describe('MCP: list_elements', () => {
     })
     const env = structured(res)
     const fields = Object.keys(env.data.elements[0] ?? {}).sort()
-    expect(fields).toEqual(['category_ids', 'id', 'title'])
+    expect(fields).toEqual(['category_id', 'id', 'title'])
   })
 
   it('search ranks identifiable_video first for "video"', async () => {

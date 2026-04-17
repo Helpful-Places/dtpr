@@ -6,11 +6,6 @@ import type { LocaleCode, LocaleValue } from '../../src/schema/locale.ts'
 // -------- test fixture helpers --------
 
 const loc = (locale: LocaleCode, value: string): LocaleValue => ({ locale, value })
-const icon = () => ({
-  url: '/dtpr-icons/foo.svg',
-  format: 'svg',
-  alt_text: [loc('en', 'icon')],
-})
 
 function baseSource(): SchemaVersionSource {
   return {
@@ -38,6 +33,7 @@ function baseSource(): SchemaVersionSource {
         required: true,
         order: 1,
         datachain_type: 'ai',
+        shape: 'hexagon',
         element_variables: [],
         context: {
           id: 'level_of_autonomy',
@@ -61,6 +57,7 @@ function baseSource(): SchemaVersionSource {
         required: false,
         order: 2,
         datachain_type: 'ai',
+        shape: 'rounded-square',
         element_variables: [
           {
             id: 'retention_period',
@@ -73,20 +70,20 @@ function baseSource(): SchemaVersionSource {
     elements: [
       {
         id: 'accept_deny',
-        category_ids: ['ai__decision'],
+        category_id: 'ai__decision',
         title: [loc('en', 'Accept or deny')],
         description: [loc('en', 'Binary yes/no decision.')],
         citation: [],
-        icon: icon(),
+        symbol_id: 'accept_deny',
         variables: [],
       },
       {
         id: 'cloud_storage',
-        category_ids: ['ai__storage'],
+        category_id: 'ai__storage',
         title: [loc('en', 'Cloud storage')],
         description: [loc('en', 'Data held for {{retention_period}}.')],
         citation: [],
-        icon: icon(),
+        symbol_id: 'cloud',
         variables: [],
       },
     ],
@@ -104,7 +101,7 @@ describe('validateVersion — version-level rules', () => {
 
   it('Rule 1 (category_ref_missing): element references unknown category', () => {
     const src = baseSource()
-    src.elements[0]!.category_ids = ['ai__phantom']
+    src.elements[0]!.category_id = 'ai__phantom'
     const r = validateVersion(src)
     expect(r.errors.some((e) => e.code === 'CATEGORY_REF_MISSING')).toBe(true)
     expect(r.errors[0]?.fix_hint).toBeTruthy()
@@ -172,28 +169,13 @@ describe('validateVersion — version-level rules', () => {
     expect(r.errors.some((e) => e.code === 'CONTEXT_VALUE_COLOR_INVALID')).toBe(true)
   })
 
-  it('Rule 14 (icon_url_empty): empty icon url', () => {
-    const src = baseSource()
-    src.elements[0]!.icon = { ...src.elements[0]!.icon, url: '' }
-    const r = validateVersion(src)
-    expect(r.errors.some((e) => e.code === 'ICON_URL_EMPTY')).toBe(true)
-  })
+  // Rule 14 (icon.url/format non-empty) was removed when IconSchema was
+  // dropped from ElementSchema. Symbol-ref validation replaces it in a
+  // later unit; its absence here is deliberate.
 
-  it('Rule 16 (variable_conflict): shared element inherits conflicting variable defs', () => {
-    const src = baseSource()
-    // Make `cloud_storage` belong to both storage AND decision, and put a
-    // conflicting `retention_period` variable on decision.
-    src.categories[0]!.element_variables = [
-      {
-        id: 'retention_period',
-        label: [loc('en', 'DIFFERENT LABEL')],
-        required: false,
-      },
-    ]
-    src.elements[1]!.category_ids = ['ai__storage', 'ai__decision']
-    const r = validateVersion(src)
-    expect(r.errors.some((e) => e.code === 'VARIABLE_CONFLICT')).toBe(true)
-  })
+  // Rule 16 (cross-category variable conflict) no longer applies now
+  // that `category_id` is singular — an element can only inherit from
+  // one category, so there is no conflict to detect.
 
   it('Rule 17 (category_order_ref_missing): datachain-type references undefined category', () => {
     const src = baseSource()
@@ -224,20 +206,20 @@ describe('validateVersion — version-level rules', () => {
 
   it('collects multiple errors in one pass (no short-circuit)', () => {
     const src = baseSource()
-    src.elements[0]!.category_ids = ['ai__phantom']
-    src.elements[1]!.icon = { ...src.elements[1]!.icon, url: '' }
+    src.elements[0]!.category_id = 'ai__phantom'
+    src.elements[1]!.title = []
     src.categories[0]!.context!.values[0]!.color = 'red'
     const r = validateVersion(src)
     const codes = new Set(r.errors.map((e) => e.code))
     expect(codes.has('CATEGORY_REF_MISSING')).toBe(true)
-    expect(codes.has('ICON_URL_EMPTY')).toBe(true)
+    expect(codes.has('LOCALE_FIELD_EMPTY')).toBe(true)
     expect(codes.has('CONTEXT_VALUE_COLOR_INVALID')).toBe(true)
   })
 
   it('every error carries a non-empty fix_hint', () => {
     const src = baseSource()
-    src.elements[0]!.category_ids = ['ai__phantom']
-    src.elements[1]!.icon = { ...src.elements[1]!.icon, url: '' }
+    src.elements[0]!.category_id = 'ai__phantom'
+    src.elements[1]!.title = []
     const r = validateVersion(src)
     for (const e of r.errors) {
       expect(e.fix_hint).toBeTruthy()

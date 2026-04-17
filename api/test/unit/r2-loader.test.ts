@@ -47,16 +47,17 @@ const sampleCategory = {
   required: true,
   order: 1,
   datachain_type: 'ai',
+  shape: 'hexagon',
   element_variables: [],
 }
 
 const sampleElement = {
   id: 'accept_deny',
-  category_ids: ['ai__decision'],
+  category_id: 'ai__decision',
   title: [{ locale: 'en', value: 'Accept / Deny' }],
   description: [{ locale: 'en', value: 'Binary outcome.' }],
   citation: [],
-  icon: { url: '/i/accept_deny.svg', format: 'svg', alt_text: [{ locale: 'en', value: 'icon' }] },
+  symbol_id: 'accept_deny',
   variables: [],
 }
 

@@ -59,11 +59,10 @@ export function checkLocales(source: SchemaVersionSource): SemanticError[] {
     }
   }
 
-  // Elements: title, description (required non-empty); alt_text (required non-empty)
+  // Elements: title, description (required non-empty)
   for (const [ei, el] of source.elements.entries()) {
     check(el.title, `elements[${ei}].title`, 'title')
     check(el.description, `elements[${ei}].description`, 'description')
-    check(el.icon.alt_text, `elements[${ei}].icon.alt_text`, 'icon.alt_text')
   }
 
   // Datachain type name (required non-empty); description optional so only check locale membership if present

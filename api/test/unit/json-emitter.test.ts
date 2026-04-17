@@ -6,11 +6,6 @@ import type { LocaleCode, LocaleValue } from '../../src/schema/locale.ts'
 import type { SchemaVersionSource } from '../../src/validator/types.ts'
 
 const loc = (locale: LocaleCode, value: string): LocaleValue => ({ locale, value })
-const icon = () => ({
-  url: '/dtpr-icons/foo.svg',
-  format: 'svg',
-  alt_text: [loc('en', 'icon')],
-})
 
 function makeSource(): SchemaVersionSource {
   const categories: Category[] = [
@@ -22,6 +17,7 @@ function makeSource(): SchemaVersionSource {
       required: false,
       order: 1,
       datachain_type: 'ai',
+      shape: 'rounded-square',
       element_variables: [
         { id: 'retention_period', label: [loc('en', 'Retention')], required: true },
       ],
@@ -34,26 +30,27 @@ function makeSource(): SchemaVersionSource {
       required: true,
       order: 2,
       datachain_type: 'ai',
+      shape: 'hexagon',
       element_variables: [],
     },
   ]
   const elements: Element[] = [
     {
       id: 'cloud_storage',
-      category_ids: ['ai__storage'],
+      category_id: 'ai__storage',
       title: [loc('en', 'Cloud storage'), loc('es', 'Almacenamiento en la nube')],
       description: [loc('en', 'Held for {{retention_period}}.')],
       citation: [],
-      icon: icon(),
+      symbol_id: 'cloud',
       variables: [],
     },
     {
       id: 'accept_deny',
-      category_ids: ['ai__decision'],
+      category_id: 'ai__decision',
       title: [loc('en', 'Accept or deny')],
       description: [loc('en', 'Binary yes/no.')],
       citation: [],
-      icon: icon(),
+      symbol_id: 'accept_deny',
       variables: [],
     },
   ]

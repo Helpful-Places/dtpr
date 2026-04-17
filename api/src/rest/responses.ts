@@ -106,7 +106,7 @@ export function projectFields<T extends { id: string }>(
  * Parse a `?fields=a,b,c` query param. Returns `'all'` when the param
  * value is the literal `'all'`. Returns null for missing — the caller
  * picks an endpoint-appropriate default (e.g. `['id', 'title',
- * 'category_ids']` for `/elements`).
+ * 'category_id']` for `/elements`).
  */
 export function parseFieldsParam(raw?: string | null): readonly string[] | 'all' | null {
   if (raw === undefined || raw === null) return null

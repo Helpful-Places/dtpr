@@ -12,23 +12,14 @@ function extractVariableRefs(text: string): string[] {
   return ids
 }
 
-function variablesAreEqual(a: Variable, b: Variable): boolean {
-  if (a.id !== b.id) return false
-  if (a.required !== b.required) return false
-  if (a.label.length !== b.label.length) return false
-  const aSorted = [...a.label].sort((x, y) => x.locale.localeCompare(y.locale))
-  const bSorted = [...b.label].sort((x, y) => x.locale.localeCompare(y.locale))
-  return aSorted.every((entry, i) => {
-    const other = bSorted[i]
-    return !!other && entry.locale === other.locale && entry.value === other.value
-  })
-}
-
 /**
  * Rule 8: Every {{var}} in an element description references a variable
- * declared on the element or one of its categories.
- * Rule 16: If a shared element belongs to multiple categories, variable
- * definitions across those categories must match exactly.
+ * declared on the element or its category.
+ * Rule 16: (Historically: conflict check across multiple categories.) With
+ * the structural-schema change to a single `category_id`, an element can
+ * no longer inherit conflicting definitions — kept here as a no-op
+ * comment so readers know the rule number is intentionally not
+ * exercised by this pass.
  * Rule 18 (warning-only at P1): variable references in the `en` description
  * must also appear in non-English descriptions for the same element.
  */
@@ -37,29 +28,13 @@ export function checkVariables(source: SchemaVersionSource): SemanticError[] {
   const categoryById = new Map(source.categories.map((c) => [c.id, c] as const))
 
   for (const [ei, el] of source.elements.entries()) {
-    // Gather variables from all parent categories; check for conflicts (rule 16).
+    // Gather variables from the element's category.
     const merged = new Map<string, { variable: Variable; fromCategory: string }>()
-    for (const catId of el.category_ids) {
-      const cat = categoryById.get(catId)
-      if (!cat) continue // rule 1 already handles missing refs; avoid double-reporting
+    const cat = categoryById.get(el.category_id)
+    // rule 1 already handles missing refs; avoid double-reporting
+    if (cat) {
       for (const v of cat.element_variables) {
-        const existing = merged.get(v.id)
-        if (existing) {
-          if (!variablesAreEqual(existing.variable, v)) {
-            findings.push(
-              err(
-                'VARIABLE_CONFLICT',
-                `Element '${el.id}' inherits conflicting definitions for variable '${v.id}' from categories '${existing.fromCategory}' and '${catId}'`,
-                {
-                  path: `elements[${ei}].variables[${v.id}]`,
-                  fix_hint: `Align the variable '${v.id}' definition (label, required) across categories '${existing.fromCategory}' and '${catId}'.`,
-                },
-              ),
-            )
-          }
-        } else {
-          merged.set(v.id, { variable: v, fromCategory: catId })
-        }
+        merged.set(v.id, { variable: v, fromCategory: el.category_id })
       }
     }
 

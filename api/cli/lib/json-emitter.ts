@@ -24,16 +24,15 @@ export interface EmittedBundle {
 }
 
 /**
- * Merge element_variables from every category an element belongs to.
- * First-seen wins when ids duplicate (rule 16 at the build step would
- * have already failed on conflicting defs).
+ * Merge element_variables from the element's category. First-seen wins
+ * when an element author duplicates an id already declared on the
+ * category.
  */
 export function materializeVariables(element: Element, categories: Category[]): Variable[] {
   const byId = new Map<string, Variable>(element.variables.map((v) => [v.id, v] as const))
   const catById = new Map(categories.map((c) => [c.id, c] as const))
-  for (const catId of element.category_ids) {
-    const cat = catById.get(catId)
-    if (!cat) continue
+  const cat = catById.get(element.category_id)
+  if (cat) {
     for (const v of cat.element_variables) {
       if (!byId.has(v.id)) byId.set(v.id, v)
     }

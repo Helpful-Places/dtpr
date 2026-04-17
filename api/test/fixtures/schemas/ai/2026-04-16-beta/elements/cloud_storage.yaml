@@ -1,6 +1,5 @@
 id: cloud_storage
-category_ids:
-  - ai__storage
+category_id: ai__storage
 title:
   - locale: en
     value: Cloud storage
@@ -8,9 +7,4 @@ description:
   - locale: en
     value: Data retained for {{retention_period}}.
 citation: []
-icon:
-  url: /dtpr-icons/cloud_storage.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Cloud storage icon
+symbol_id: cloud

@@ -25,6 +25,7 @@ export function categoriesFingerprint(data: CategoriesResponse) {
       has_context: !!category.context,
       order: category.order ?? null,
       required: category.required ?? false,
+      shape: category.shape,
       locales: [...new Set(category.name.map((n) => n.locale))].sort(),
       variable_ids: category.element_variables.map((v) => v.id).sort(),
       context_value_ids: category.context
@@ -38,11 +39,11 @@ export function elementsFingerprint(data: ElementsResponse) {
   return data.elements
     .map((element) => {
       const title = element.title ?? []
-      const categoryIds = element.category_ids ?? []
+      const categoryId = element.category_id ?? ''
       const variables = element.variables ?? []
       return {
         id: element.id,
-        category_ids: [...categoryIds].sort(),
+        category_id: categoryId,
         locales: [...new Set(title.map((t) => t.locale))].sort(),
         variable_ids: variables.map((v) => v.id).sort(),
       }

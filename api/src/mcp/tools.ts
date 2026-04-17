@@ -45,7 +45,7 @@ export const GET_ELEMENTS_MAX = 100
 /** Per-id length cap inside `get_elements`. Enforced by the input schema. */
 const ELEMENT_ID_MAX_LEN = 128
 
-const DEFAULT_LIST_FIELDS = ['id', 'title', 'category_ids'] as const
+const DEFAULT_LIST_FIELDS = ['id', 'title', 'category_id'] as const
 
 /** Tool result envelope as serialized to MCP clients. */
 export interface ToolResult {
@@ -251,7 +251,7 @@ function listElementsTool(ctx: LoadContext): ToolDef {
     locales: z.array(LocaleCodeSchema).optional(),
     query: z.string().optional().describe('BM25 search across title (boost 3) + description.'),
     fields: FieldsParam.optional().describe(
-      'Field projection. Default: ["id","title","category_ids"]. Pass "all" for full elements.',
+      'Field projection. Default: ["id","title","category_id"]. Pass "all" for full elements.',
     ),
     limit: z
       .number()
@@ -283,7 +283,7 @@ function listElementsTool(ctx: LoadContext): ToolDef {
         }
         let elements = (await loadElements(ctx, version)) ?? []
         if (args.category_id) {
-          elements = elements.filter((e) => e.category_ids.includes(args.category_id!))
+          elements = elements.filter((e) => e.category_id === args.category_id!)
         }
         if (args.query && args.query.trim().length > 0) {
           const ids = await searchElementIds({

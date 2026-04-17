@@ -9,7 +9,7 @@ import type { ContentfulStatusCode } from 'hono/utils/http-status'
 export interface ApiErrorShape {
   code: string
   message: string
-  /** JSON path inside the caller's payload, e.g. `elements[3].category_ids[1]`. */
+  /** JSON path inside the caller's payload, e.g. `elements[3].category_id`. */
   path?: string
   /** Short actionable instruction for a caller (agent or human). */
   fix_hint?: string

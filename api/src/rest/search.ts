@@ -12,7 +12,7 @@ import { loadSearchIndex, type LoadContext } from '../store/index.ts'
  */
 const REHYDRATE_OPTIONS = {
   fields: ['title', 'description'],
-  storeFields: ['id', 'title', 'category_ids'],
+  storeFields: ['id', 'title', 'category_id'],
   searchOptions: {
     boost: { title: 3 },
     fuzzy: 0.2,

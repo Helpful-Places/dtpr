@@ -28,7 +28,7 @@ import {
 import { reorderByIds, searchElementIds } from './search.ts'
 import { resolveKnownVersion } from './version-resolver.ts'
 
-const DEFAULT_ELEMENT_FIELDS = ['id', 'title', 'category_ids'] as const
+const DEFAULT_ELEMENT_FIELDS = ['id', 'title', 'category_id'] as const
 
 function loadCtx(c: { env: Env; executionCtx?: { waitUntil(p: Promise<unknown>): void } }): LoadContext {
   return { bucket: c.env.CONTENT, ctx: c.executionCtx }
@@ -91,7 +91,7 @@ export function createRestApp() {
 
     let elements = (await loadElements(ctx, version)) ?? []
     if (categoryFilter) {
-      elements = elements.filter((el) => el.category_ids.includes(categoryFilter))
+      elements = elements.filter((el) => el.category_id === categoryFilter)
     }
 
     if (query && query.trim().length > 0) {

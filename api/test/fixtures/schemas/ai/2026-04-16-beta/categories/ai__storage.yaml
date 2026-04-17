@@ -9,6 +9,7 @@ prompt: []
 required: false
 order: 2
 datachain_type: ai
+shape: rounded-square
 element_variables:
   - id: retention_period
     label:

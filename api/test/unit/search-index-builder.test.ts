@@ -3,29 +3,23 @@ import MiniSearch from 'minisearch'
 import { buildSearchIndex, serializeIndex } from '../../cli/lib/search-index-builder.ts'
 import type { Element } from '../../src/schema/element.ts'
 
-const icon = () => ({
-  url: '/dtpr-icons/foo.svg',
-  format: 'svg',
-  alt_text: [{ locale: 'en' as const, value: 'icon' }],
-})
-
 const elements: Element[] = [
   {
     id: 'facial_recognition',
-    category_ids: ['ai__input_dataset'],
+    category_id: 'ai__input_dataset',
     title: [{ locale: 'en', value: 'Facial recognition' }],
     description: [{ locale: 'en', value: 'Video camera identifies people.' }],
     citation: [],
-    icon: icon(),
+    symbol_id: 'face',
     variables: [],
   },
   {
     id: 'accept_deny',
-    category_ids: ['ai__decision'],
+    category_id: 'ai__decision',
     title: [{ locale: 'en', value: 'Accept or deny' }],
     description: [{ locale: 'en', value: 'Binary yes/no decision.' }],
     citation: [],
-    icon: icon(),
+    symbol_id: 'accept_deny',
     variables: [],
   },
 ]
@@ -48,20 +42,20 @@ describe('buildSearchIndex', () => {
       ...elements,
       {
         id: 'decision_log',
-        category_ids: ['ai__decision'],
+        category_id: 'ai__decision',
         title: [{ locale: 'en', value: 'Decision log' }],
         description: [{ locale: 'en', value: 'Record of past decisions.' }],
         citation: [],
-        icon: icon(),
+        symbol_id: 'log',
         variables: [],
       },
       {
         id: 'retention_schedule',
-        category_ids: ['ai__storage'],
+        category_id: 'ai__storage',
         title: [{ locale: 'en', value: 'Retention schedule' }],
         description: [{ locale: 'en', value: 'How long decision metadata persists.' }],
         citation: [],
-        icon: icon(),
+        symbol_id: 'clock',
         variables: [],
       },
     ]
@@ -79,7 +73,7 @@ describe('serializeIndex', () => {
     const serialized = serializeIndex(index)
     const rehydrated = MiniSearch.loadJSON(serialized, {
       fields: ['title', 'description'],
-      storeFields: ['id', 'title', 'category_ids'],
+      storeFields: ['id', 'title', 'category_id'],
     })
     expect(rehydrated.search('facial')[0]?.id).toBe('facial_recognition')
   })

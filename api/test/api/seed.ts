@@ -76,6 +76,7 @@ export function makeCategories(): Category[] {
       required: true,
       order: 1,
       datachain_type: 'ai',
+      shape: 'hexagon',
       element_variables: [],
     },
   ]
@@ -85,50 +86,38 @@ export function makeElements(): Element[] {
   return [
     {
       id: 'accept_deny',
-      category_ids: ['ai__decision'],
+      category_id: 'ai__decision',
       title: [loc('en', 'Accept / Deny'), loc('fr', 'Accepter / Refuser')],
       description: [
         loc('en', 'Binary outcome: yes or no.'),
         loc('fr', 'Résultat binaire: oui ou non.'),
       ],
       citation: [],
-      icon: {
-        url: '/dtpr-icons/accept_deny.svg',
-        format: 'svg',
-        alt_text: [loc('en', 'Accept / Deny icon'), loc('fr', 'Icône Accepter / Refuser')],
-      },
+      symbol_id: 'accept_deny',
       variables: [],
     },
     {
       id: 'identifiable_video',
-      category_ids: ['ai__decision'],
+      category_id: 'ai__decision',
       title: [loc('en', 'Identifiable video'), loc('fr', 'Vidéo identifiable')],
       description: [
         loc('en', 'Video that can identify a person.'),
         loc('fr', 'Vidéo qui peut identifier une personne.'),
       ],
       citation: [],
-      icon: {
-        url: '/dtpr-icons/identifiable_video.svg',
-        format: 'svg',
-        alt_text: [loc('en', 'video icon'), loc('fr', 'icône vidéo')],
-      },
+      symbol_id: 'identifiable_video',
       variables: [],
     },
     {
       id: 'anomaly_detection',
-      category_ids: ['ai__decision'],
+      category_id: 'ai__decision',
       title: [loc('en', 'Anomaly detection'), loc('fr', 'Détection d\'anomalies')],
       description: [
         loc('en', 'Flagging unusual patterns.'),
         loc('fr', 'Signaler des modèles inhabituels.'),
       ],
       citation: [],
-      icon: {
-        url: '/dtpr-icons/anomaly.svg',
-        format: 'svg',
-        alt_text: [loc('en', 'anomaly icon'), loc('fr', 'icône anomalie')],
-      },
+      symbol_id: 'anomaly',
       variables: [],
     },
   ]

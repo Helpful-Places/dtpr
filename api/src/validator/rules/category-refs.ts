@@ -2,7 +2,7 @@ import type { SchemaVersionSource, SemanticError } from '../types.ts'
 import { err } from '../types.ts'
 
 /**
- * Rule 1: Every element.category_ids entry references a defined category.
+ * Rule 1: Every element.category_id references a defined category.
  * Rule 2: Each category.datachain_type matches the datachain-type's id.
  * Rule 17: datachain-type.categories references defined categories with no duplicates.
  */
@@ -12,15 +12,13 @@ export function checkCategoryRefs(source: SchemaVersionSource): SemanticError[] 
 
   // Rule 1
   for (const [ei, el] of source.elements.entries()) {
-    for (const [ci, catId] of el.category_ids.entries()) {
-      if (!categoryIds.has(catId)) {
-        findings.push(
-          err('CATEGORY_REF_MISSING', `Element '${el.id}' references unknown category '${catId}'`, {
-            path: `elements[${ei}].category_ids[${ci}]`,
-            fix_hint: `Remove category_id '${catId}' from element '${el.id}', or define the category in datachain-type.yaml and categories/.`,
-          }),
-        )
-      }
+    if (!categoryIds.has(el.category_id)) {
+      findings.push(
+        err('CATEGORY_REF_MISSING', `Element '${el.id}' references unknown category '${el.category_id}'`, {
+          path: `elements[${ei}].category_id`,
+          fix_hint: `Set element '${el.id}' category_id to an existing category, or define category '${el.category_id}' in datachain-type.yaml and categories/.`,
+        }),
+      )
     }
   }
 

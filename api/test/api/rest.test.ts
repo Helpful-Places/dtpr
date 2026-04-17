@@ -121,7 +121,7 @@ describe('REST: GET .../elements', () => {
     await seedVersion()
   })
 
-  it('default projection returns id, title, category_ids only', async () => {
+  it('default projection returns id, title, category_id only', async () => {
     const res = await SELF.fetch(
       `https://example.com/api/v2/schemas/${SAMPLE_VERSION.canonical}/elements`,
     )
@@ -133,7 +133,7 @@ describe('REST: GET .../elements', () => {
     expect(body.meta.total).toBe(3)
     expect(body.meta.returned).toBe(3)
     const fields = Object.keys(body.elements[0] ?? {}).sort()
-    expect(fields).toEqual(['category_ids', 'id', 'title'])
+    expect(fields).toEqual(['category_id', 'id', 'title'])
   })
 
   it('?fields=id,description returns only those fields (id always included)', async () => {
@@ -151,7 +151,7 @@ describe('REST: GET .../elements', () => {
     )
     const body = (await res.json()) as { elements: Array<Record<string, unknown>> }
     expect(Object.keys(body.elements[0] ?? {})).toEqual(
-      expect.arrayContaining(['id', 'title', 'description', 'icon', 'category_ids', 'variables']),
+      expect.arrayContaining(['id', 'title', 'description', 'symbol_id', 'category_id', 'variables']),
     )
   })
 
