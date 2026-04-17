@@ -1,6 +1,5 @@
 id: right_access
-category_ids:
-  - ai__rights
+category_id: ai__rights
 title:
   - locale: en
     value: Right to Access
@@ -46,20 +45,5 @@ description:
       system tungkol sa iyo, kung paano ginagamit ang data na ito, at kung anong mga desisyon ang ginawa gamit ang
       impormasyong ito. Kabilang dito ang karapatang makakuha ng kopya ng iyong data sa isang nababasang format.
 citation: []
-icon:
-  url: /dtpr-icons/rights_access.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Right to Access icon
-    - locale: es
-      value: Derecho de acceso icon
-    - locale: fr
-      value: Droit d'accès icon
-    - locale: km
-      value: សិទ្ធិចូលប្រើ icon
-    - locale: pt
-      value: Direito de acesso icon
-    - locale: tl
-      value: Karapatan sa Pag-access icon
+symbol_id: rights_access
 variables: []

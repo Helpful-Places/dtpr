@@ -1,7 +1,30 @@
-import type { Category } from '../../src/schema/category.ts'
+import type { Category, ShapeType } from '../../src/schema/category.ts'
 import type { LocaleValue } from '../../src/schema/locale.ts'
 import { mergeCategoryContext, mergeCategoryElementVariables } from './transform-element.ts'
 import { MIGRATION_LOCALES, type LocaleBundle, type MigrationWarning } from './types.ts'
+
+/**
+ * Category id → icon shape primitive. Copied and filtered from
+ * `studio/lib/icon-shapes.ts` (the studio-side renderer's source of
+ * truth). Only `ai__*` keys are relevant to this release; device keys
+ * are retained as comments for provenance but not migrated here.
+ *
+ * Adding a new `ai__*` category? Add its shape here first, then
+ * re-run the migration.
+ */
+export const AI_CATEGORY_SHAPE_MAP: Record<string, ShapeType> = {
+  ai__purpose: 'hexagon',
+  ai__processing: 'hexagon',
+  ai__decision: 'hexagon',
+  ai__input_dataset: 'circle',
+  ai__output_dataset: 'circle',
+  ai__access: 'rounded-square',
+  ai__storage: 'rounded-square',
+  ai__retention: 'rounded-square',
+  ai__accountable: 'rounded-square',
+  ai__rights: 'octagon',
+  ai__risks_mitigation: 'octagon',
+}
 
 function buildField(bundle: LocaleBundle, field: string): LocaleValue[] {
   const out: LocaleValue[] = []
@@ -51,6 +74,14 @@ export function transformCategory(
   const description = buildField(bundle, 'description')
   const prompt = buildField(bundle, 'prompt')
 
+  const shape = AI_CATEGORY_SHAPE_MAP[id]
+  if (!shape) {
+    throw new Error(
+      `Category '${id}' (${filename}) has no entry in AI_CATEGORY_SHAPE_MAP. ` +
+        `Add a mapping in api/migrations/lib/transform-category.ts, then re-run the migration.`,
+    )
+  }
+
   return {
     id,
     name,
@@ -59,6 +90,7 @@ export function transformCategory(
     required,
     order,
     datachain_type,
+    shape,
     element_variables: mergeCategoryElementVariables(bundle),
     context: mergeCategoryContext(bundle),
   }

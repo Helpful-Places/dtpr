@@ -1,6 +1,5 @@
 id: health
-category_ids:
-  - ai__purpose
+category_id: ai__purpose
 title:
   - locale: en
     value: Health
@@ -49,20 +48,5 @@ description:
       higit pa tungkol sa [pagsubaybay sa kapaligiran](https://en.wikipedia.org/wiki/environmental_monitoring) at
       [Occupational Health and Safety](https://en.wikipedia.org/wiki/occupat"&"ional_safety_and_health)")
 citation: []
-icon:
-  url: /dtpr-icons/health.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Health icon
-    - locale: es
-      value: Salud icon
-    - locale: fr
-      value: Santé icon
-    - locale: km
-      value: សុខផាប icon
-    - locale: pt
-      value: Saúde icon
-    - locale: tl
-      value: Kalusugan icon
+symbol_id: health
 variables: []

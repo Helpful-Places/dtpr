@@ -1,6 +1,5 @@
 id: no_data_retained
-category_ids:
-  - ai__retention
+category_id: ai__retention
 title:
   - locale: en
     value: No data retained
@@ -28,20 +27,5 @@ description:
   - locale: tl
     value: Walang data na itinatago o iniimbak
 citation: []
-icon:
-  url: /dtpr-icons/no_data_retained.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: No data retained icon
-    - locale: es
-      value: No se conservan datos icon
-    - locale: fr
-      value: Aucune donnée conservée icon
-    - locale: km
-      value: មិនមានទិន្នន័យត្រូវបានរក្សាទុកទេ។ icon
-    - locale: pt
-      value: Nenhum dado retido icon
-    - locale: tl
-      value: Walang data na napanatili icon
+symbol_id: no_data_retained
 variables: []

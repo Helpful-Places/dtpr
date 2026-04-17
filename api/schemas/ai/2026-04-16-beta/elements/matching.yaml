@@ -1,6 +1,5 @@
 id: matching
-category_ids:
-  - ai__decision
+category_id: ai__decision
 title:
   - locale: en
     value: Matching
@@ -52,20 +51,5 @@ description:
       pabahay, pagtutugma ng aplikante sa trabaho, o pagpapares ng mga tagapagbigay ng serbisyo sa mga pangangailangan
       ng komunidad.
 citation: []
-icon:
-  url: /dtpr-icons/dm_matching.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Matching icon
-    - locale: es
-      value: A juego icon
-    - locale: fr
-      value: Correspondance icon
-    - locale: km
-      value: ការផ្គូផ្គង icon
-    - locale: pt
-      value: Correspondência icon
-    - locale: tl
-      value: Pagtutugma icon
+symbol_id: dm_matching
 variables: []

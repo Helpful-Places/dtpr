@@ -1,6 +1,5 @@
 id: agency_interaction
-category_ids:
-  - ai__purpose
+category_id: ai__purpose
 title:
   - locale: en
     value: Agency & Interaction
@@ -30,20 +29,5 @@ description:
   - locale: tl
     value: Nagbibigay-daan sa iyo upang makontrol o makihalubilo sa mga aspeto ng isang puwang o isang teknolohiya.
 citation: []
-icon:
-  url: /dtpr-icons/agency_interaction.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Agency & Interaction icon
-    - locale: es
-      value: Agencia e interacción icon
-    - locale: fr
-      value: Capacité à agir & Interaction icon
-    - locale: km
-      value: សិទ្ធិជ្រើសរើសនិងអន្តរកម្ម icon
-    - locale: pt
-      value: Agência e Interação icon
-    - locale: tl
-      value: Ahensya at Pakikipag-ugnayan icon
+symbol_id: agency_interaction
 variables: []

@@ -1,6 +1,5 @@
 id: energy_efficiency
-category_ids:
-  - ai__purpose
+category_id: ai__purpose
 title:
   - locale: en
     value: Energy Efficiency
@@ -31,20 +30,5 @@ description:
   - locale: tl
     value: Binabawasan ang paggamit ng enerhiya at/o tumutulong na makatipid ng enerhiya.
 citation: []
-icon:
-  url: /dtpr-icons/energy_efficiency.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Energy Efficiency icon
-    - locale: es
-      value: Eficiencia energética icon
-    - locale: fr
-      value: Efficacité énergétique icon
-    - locale: km
-      value: ប្រសិទ្ធភាពថាមពល icon
-    - locale: pt
-      value: Eficiência energética icon
-    - locale: tl
-      value: Kahusayan ng enerhiya icon
+symbol_id: energy_efficiency
 variables: []

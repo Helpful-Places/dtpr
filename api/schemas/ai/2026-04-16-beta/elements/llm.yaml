@@ -1,6 +1,5 @@
 id: llm
-category_ids:
-  - ai__processing
+category_id: ai__processing
 title:
   - locale: en
     value: Large Language Model
@@ -49,20 +48,5 @@ description:
       mga tanong, pagbubuod ng nilalaman, at pagsasalin ng mga wika. Gumagana ang mga ito sa pamamagitan ng paghula kung
       anong mga salita ang malamang na susunod sa isang pagkakasunod-sunod.
 citation: []
-icon:
-  url: /dtpr-icons/processing_llm.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Large Language Model icon
-    - locale: es
-      value: Gran modelo lingüístico icon
-    - locale: fr
-      value: Grand modèle linguistique icon
-    - locale: km
-      value: គំរូភាសាធំ icon
-    - locale: pt
-      value: Modelo de idioma grande icon
-    - locale: tl
-      value: Malaking Modelo ng Wika icon
+symbol_id: processing_llm
 variables: []

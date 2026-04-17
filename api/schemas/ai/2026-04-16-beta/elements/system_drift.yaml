@@ -1,6 +1,5 @@
 id: system_drift
-category_ids:
-  - ai__risks_mitigation
+category_id: ai__risks_mitigation
 title:
   - locale: en
     value: System Drift and Temporal Validity
@@ -59,20 +58,5 @@ description:
       isinasaalang-alang ang mga pagbabago sa demograpiko o mga pattern ng transportasyon na nagbabago sa pana-panahon o
       sa bagong imprastraktura.
 citation: []
-icon:
-  url: /dtpr-icons/risks_system-drift-and-temporal-validity.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: System Drift and Temporal Validity icon
-    - locale: es
-      value: Deriva del sistema y validez temporal icon
-    - locale: fr
-      value: Dérive du système et validité temporelle icon
-    - locale: km
-      value: ប្រព័ន្ធរសាត់ និងសុពលភាពបណ្តោះអាសន្ន icon
-    - locale: pt
-      value: Desvio do sistema e validade temporal icon
-    - locale: tl
-      value: System Drift at Temporal Validity icon
+symbol_id: risks_system-drift-and-temporal-validity
 variables: []

@@ -1,6 +1,5 @@
 id: available_to_vendor
-category_ids:
-  - ai__access
+category_id: ai__access
 title:
   - locale: en
     value: Available to vendor
@@ -28,20 +27,5 @@ description:
   - locale: tl
     value: Magagamit ang datos sa tagapagkolekta ng datos o tagapagbigay ng teknolohiya
 citation: []
-icon:
-  url: /dtpr-icons/available_to_vendor.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Available to vendor icon
-    - locale: es
-      value: Disponible para el proveedor icon
-    - locale: fr
-      value: Disponible pour le vendeur icon
-    - locale: km
-      value: មានសម្រាប់អ្នកលក់ icon
-    - locale: pt
-      value: Disponível para o fornecedor icon
-    - locale: tl
-      value: Magagamit sa Vendor icon
+symbol_id: available
 variables: []

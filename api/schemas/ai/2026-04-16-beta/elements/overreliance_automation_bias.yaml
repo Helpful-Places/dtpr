@@ -1,6 +1,5 @@
 id: overreliance_automation_bias
-category_ids:
-  - ai__risks_mitigation
+category_id: ai__risks_mitigation
 title:
   - locale: en
     value: Over-reliance and automation bias
@@ -60,20 +59,5 @@ description:
       mga user sa naaangkop na pagtitiwala, at pagpapanatili ng makabuluhang pakikilahok ng tao sa mga kritikal na
       desisyon.
 citation: []
-icon:
-  url: /dtpr-icons/risks_overreliance-and-automation.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Over-reliance and automation bias icon
-    - locale: es
-      value: Exceso de confianza y automatización icon
-    - locale: fr
-      value: Dépendance excessive et biais d'automatisation icon
-    - locale: km
-      value: ការពឹងផ្អែកហួសហេតុ និងការលំអៀងស្វ័យប្រវត្តិកម្ម icon
-    - locale: pt
-      value: Excesso de confiança e tendência à automação icon
-    - locale: tl
-      value: Sobrang pag-asa at pag-aautomat bias icon
+symbol_id: risks_overreliance-and-automation
 variables: []

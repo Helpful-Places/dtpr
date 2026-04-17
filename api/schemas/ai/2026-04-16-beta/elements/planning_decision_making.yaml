@@ -1,6 +1,5 @@
 id: planning_decision_making
-category_ids:
-  - ai__purpose
+category_id: ai__purpose
 title:
   - locale: en
     value: Planning & Decision-making
@@ -32,20 +31,5 @@ description:
   - locale: tl
     value: Sinusuportahan ang pagbuo ng mga plano sa hinaharap; o upang paganahin o masukat ang epekto ng isang desisyon.
 citation: []
-icon:
-  url: /dtpr-icons/planning_decision_making.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Planning & Decision-making icon
-    - locale: es
-      value: Planificación y toma de decisiones icon
-    - locale: fr
-      value: Planification et prise de décision icon
-    - locale: km
-      value: ការរៀបចំផែនការនិងការសម្រេចចិត្ត icon
-    - locale: pt
-      value: Planeamento e tomada de decisões icon
-    - locale: tl
-      value: Pagpaplano at paggawa ng desisyon icon
+symbol_id: planning_decision_making
 variables: []

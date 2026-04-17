@@ -1,6 +1,5 @@
 id: right_non_discrimination
-category_ids:
-  - ai__rights
+category_id: ai__rights
 title:
   - locale: en
     value: Right to Non-discrimination
@@ -50,20 +49,5 @@ description:
       at magpakita ng naaangkop na teknikal at pang-organisasyon na mga hakbang upang maiwasan ang mga diskriminasyong
       resulta mula sa kanilang mga AI system.
 citation: []
-icon:
-  url: /dtpr-icons/rights_non-discrimination.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Right to Non-discrimination icon
-    - locale: es
-      value: Derecho a la no discriminación icon
-    - locale: fr
-      value: Droit à la non-discrimination icon
-    - locale: km
-      value: សិទ្ធិមិនរើសអើង icon
-    - locale: pt
-      value: Direito à não discriminação icon
-    - locale: tl
-      value: Karapatan sa Walang Diskriminasyon icon
+symbol_id: rights_non-discrimination
 variables: []

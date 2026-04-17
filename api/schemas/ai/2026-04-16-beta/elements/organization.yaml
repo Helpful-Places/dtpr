@@ -1,6 +1,5 @@
 id: organization
-category_ids:
-  - ai__accountable
+category_id: ai__accountable
 title:
   - locale: en
     value: Organization
@@ -28,20 +27,5 @@ description:
   - locale: tl
     value: Ang entidad na responsable at may pananagutan para sa aktibidad sa koleksyon ng datos na ito
 citation: []
-icon:
-  url: /dtpr-icons/organization.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Organization icon
-    - locale: es
-      value: Organización icon
-    - locale: fr
-      value: Organisation icon
-    - locale: km
-      value: សមាកម icon
-    - locale: pt
-      value: Organização icon
-    - locale: tl
-      value: Organisasyon icon
+symbol_id: organization
 variables: []

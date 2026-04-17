@@ -41,6 +41,7 @@ prompt:
 required: true
 order: 1
 datachain_type: ai
+shape: rounded-square
 element_variables:
   - id: title
     label:

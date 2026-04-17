@@ -1,6 +1,5 @@
 id: backed_up_internationally
-category_ids:
-  - ai__storage
+category_id: ai__storage
 title:
   - locale: en
     value: Backed up internationally
@@ -30,20 +29,5 @@ description:
   - locale: tl
     value: Ang datos ay nai-back up sa labas ng hurisdiksyon kung saan nakolekta ito.
 citation: []
-icon:
-  url: /dtpr-icons/backed_up_internationally.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Backed up internationally icon
-    - locale: es
-      value: Respaldado internacionalmente icon
-    - locale: fr
-      value: Sauvegardé à internationale icon
-    - locale: km
-      value: បានគាំទ្រជាអន្តរជាតិ icon
-    - locale: pt
-      value: Apoio internacional icon
-    - locale: tl
-      value: Naka -back up sa buong mundo icon
+symbol_id: stored
 variables: []

@@ -1,6 +1,5 @@
 id: enforcement
-category_ids:
-  - ai__purpose
+category_id: ai__purpose
 title:
   - locale: en
     value: Enforcement
@@ -30,20 +29,5 @@ description:
   - locale: tl
     value: Ginamit para sa pagpapatupad ng mga patakaran o regulasyon.
 citation: []
-icon:
-  url: /dtpr-icons/enforcement.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Enforcement icon
-    - locale: es
-      value: Aplicación icon
-    - locale: fr
-      value: Cadre légal icon
-    - locale: km
-      value: សហវណ្ណមុខងារ icon
-    - locale: pt
-      value: Aplicação da lei icon
-    - locale: tl
-      value: Pagpapatupad icon
+symbol_id: enforcement
 variables: []

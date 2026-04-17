@@ -1,6 +1,5 @@
 id: right_contest
-category_ids:
-  - ai__rights
+category_id: ai__rights
 title:
   - locale: en
     value: Right to Contest
@@ -52,20 +51,5 @@ description:
       tao sa mga awtomatikong desisyon, magbigay ng karagdagang impormasyon, ipahayag ang iyong pananaw, at muling
       isaalang-alang ang desisyon batay sa iyong input.
 citation: []
-icon:
-  url: /dtpr-icons/rights_contest.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Right to Contest icon
-    - locale: es
-      value: Derecho de impugnación icon
-    - locale: fr
-      value: Droit de contestation icon
-    - locale: km
-      value: សិទ្ធិក្នុងការប្រលង icon
-    - locale: pt
-      value: Direito de contestação icon
-    - locale: tl
-      value: Karapatan sa Paligsahan icon
+symbol_id: rights_contest
 variables: []

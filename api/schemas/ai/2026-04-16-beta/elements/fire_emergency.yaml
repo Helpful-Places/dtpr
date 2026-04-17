@@ -1,6 +1,5 @@
 id: fire_emergency
-category_ids:
-  - ai__purpose
+category_id: ai__purpose
 title:
   - locale: en
     value: Fire & Emergency
@@ -33,20 +32,5 @@ description:
       emerhensiya. Alamin ang higit pa tungkol sa [mga serbisyong
       pang-emerhensiya](https://en.wikipedia.org/wiki/Emergency_service).
 citation: []
-icon:
-  url: /dtpr-icons/fire_emergency.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Fire & Emergency icon
-    - locale: es
-      value: Fuego y emergencia icon
-    - locale: fr
-      value: Incendie et urgence icon
-    - locale: km
-      value: អគ្គិភ័យនិងអាសន្ន icon
-    - locale: pt
-      value: Incêndio e emergência icon
-    - locale: tl
-      value: Sunog at Emergency icon
+symbol_id: fire_emergency
 variables: []

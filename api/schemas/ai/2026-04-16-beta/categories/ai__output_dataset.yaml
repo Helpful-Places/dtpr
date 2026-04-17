@@ -41,6 +41,7 @@ prompt:
 required: false
 order: 6
 datachain_type: ai
+shape: circle
 element_variables:
   - id: additional_description
     label:

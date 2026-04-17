@@ -1,6 +1,5 @@
 id: commerce
-category_ids:
-  - ai__purpose
+category_id: ai__purpose
 title:
   - locale: en
     value: Commerce
@@ -28,20 +27,5 @@ description:
   - locale: tl
     value: Para sa pagbili at pagbebenta ng mga kalakal at serbisyo.
 citation: []
-icon:
-  url: /dtpr-icons/commerce.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Commerce icon
-    - locale: es
-      value: Comercio icon
-    - locale: fr
-      value: Commerce icon
-    - locale: km
-      value: ហនិច្ជកម្ផ icon
-    - locale: pt
-      value: Comércio icon
-    - locale: tl
-      value: Komersyo icon
+symbol_id: commerce
 variables: []

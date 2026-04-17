@@ -1,6 +1,5 @@
 id: ecology
-category_ids:
-  - ai__purpose
+category_id: ai__purpose
 title:
   - locale: en
     value: Ecology
@@ -32,20 +31,5 @@ description:
   - locale: tl
     value: Sinusuportahan ang pagsukat o pagsubaybay sa natural na kapaligiran.
 citation: []
-icon:
-  url: /dtpr-icons/ecology.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Ecology icon
-    - locale: es
-      value: Ecología icon
-    - locale: fr
-      value: Écologie icon
-    - locale: km
-      value: បរិស្ថានវិត្យា icon
-    - locale: pt
-      value: Ecologia icon
-    - locale: tl
-      value: Ekolohiya icon
+symbol_id: ecology
 variables: []

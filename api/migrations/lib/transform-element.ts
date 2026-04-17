@@ -1,4 +1,4 @@
-import type { LocaleCode, LocaleValue } from '../../src/schema/locale.ts'
+import type { LocaleValue } from '../../src/schema/locale.ts'
 import type { Element } from '../../src/schema/element.ts'
 import { MIGRATION_LOCALES, type LocaleBundle, type MigrationWarning } from './types.ts'
 
@@ -35,13 +35,15 @@ function asStringArray(v: unknown): string[] {
  *
  * Field transformations applied:
  *  - name → title (trimmed)
- *  - category list: device__* references stripped on shared elements
- *  - updated_at, symbol, element-level context_type_id: dropped
- *  - icon: `'/foo.svg'` string → `{ url, format: 'svg', alt_text }`
+ *  - category list (plural `category_ids`) → singular `category_id`,
+ *    picking the first `ai__*` entry (device__* references are skipped)
+ *  - updated_at, element-level context_type_id, legacy `icon` block: dropped
+ *  - v1 `symbol: /dtpr-icons/symbols/<name>.svg` → `symbol_id: <name>`
+ *    (basename without extension)
  *  - citation: seeded as empty array (optional authored field)
  *
  * Returns `null` when the element has no `ai__*` category reference or
- * lacks required fields (e.g. missing id/title).
+ * lacks required fields (e.g. missing id/title/symbol).
  */
 export function transformElement(
   filename: string,
@@ -84,35 +86,34 @@ export function transformElement(
 
   const description = buildLocaleValues(bundle, 'description', (s) => s.trim())
 
-  // Icon: legacy `icon: /path/to.svg` → structured object. Extract the
-  // extension as `format`. alt_text = per-locale `<title> icon` (matches
-  // current v1 accessibility convention).
-  const rawIcon = enFm.icon
-  if (typeof rawIcon !== 'string' || rawIcon.length === 0) {
+  // Symbol: v1 carries `symbol: /dtpr-icons/symbols/<name>.svg`. Derive
+  // the library id as the basename without extension. No symbol = skip.
+  const rawSymbol = enFm.symbol
+  if (typeof rawSymbol !== 'string' || rawSymbol.length === 0) {
     warnings.push({
-      code: 'ELEMENT_NO_ICON',
+      code: 'ELEMENT_NO_SYMBOL',
       filename,
-      message: `Element '${id}' has no 'icon' path; skipped.`,
+      message: `Element '${id}' has no 'symbol' path; skipped.`,
     })
     return null
   }
-  const format = rawIcon.split('.').pop() || 'svg'
-  const altText: LocaleValue[] = title.map((t) => ({
-    locale: t.locale,
-    value: `${t.value} icon`,
-  }))
+  const symbolId = rawSymbol.replace(/^.*\//, '').replace(/\.svg$/, '')
+  if (symbolId.length === 0) {
+    warnings.push({
+      code: 'ELEMENT_NO_SYMBOL',
+      filename,
+      message: `Element '${id}' has empty symbol id derived from '${rawSymbol}'; skipped.`,
+    })
+    return null
+  }
 
   return {
     id,
-    category_ids: aiCategories,
+    category_id: aiCategories[0]!,
     title,
     description,
     citation: [],
-    icon: {
-      url: rawIcon,
-      format,
-      alt_text: altText,
-    },
+    symbol_id: symbolId,
     variables: [],
   }
 }

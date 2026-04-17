@@ -1,6 +1,5 @@
 id: available_to_download
-category_ids:
-  - ai__access
+category_id: ai__access
 title:
   - locale: en
     value: Available to download
@@ -28,20 +27,5 @@ description:
   - locale: tl
     value: Datos na maaaring ma-access at mai-download online, maging libre man o may bayad
 citation: []
-icon:
-  url: /dtpr-icons/available_to_download.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Available to download icon
-    - locale: es
-      value: Disponible para descargar icon
-    - locale: fr
-      value: Disponible pour le téléchargement icon
-    - locale: km
-      value: មានដើម្បីទាញយក icon
-    - locale: pt
-      value: Disponível para descarregar icon
-    - locale: tl
-      value: Magagamit upang i -download icon
+symbol_id: available_to_download
 variables: []

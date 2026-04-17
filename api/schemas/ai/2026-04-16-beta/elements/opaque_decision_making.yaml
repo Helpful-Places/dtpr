@@ -1,6 +1,5 @@
 id: opaque_decision_making
-category_ids:
-  - ai__risks_mitigation
+category_id: ai__risks_mitigation
 title:
   - locale: en
     value: Opaque decision-making
@@ -55,20 +54,5 @@ description:
       nabibigyang-kahulugan na mga modelo ng AI kung posible, pagbuo ng mga paraan ng pagpapaliwanag, at pagpapanatili
       ng dokumentasyon ng disenyo ng system at mga proseso ng pagsasanay.
 citation: []
-icon:
-  url: /dtpr-icons/risks_opaque-decision-making.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Opaque decision-making icon
-    - locale: es
-      value: Toma de decisiones opaca icon
-    - locale: fr
-      value: Prise de décision opaque icon
-    - locale: km
-      value: ការសម្រេចចិត្តស្រអាប់ icon
-    - locale: pt
-      value: Tomada de decisões opacas icon
-    - locale: tl
-      value: Malabo ang paggawa ng desisyon icon
+symbol_id: risks_opaque-decision-making
 variables: []

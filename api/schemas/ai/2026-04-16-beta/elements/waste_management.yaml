@@ -1,6 +1,5 @@
 id: waste_management
-category_ids:
-  - ai__purpose
+category_id: ai__purpose
 title:
   - locale: en
     value: Waste Management
@@ -35,20 +34,5 @@ description:
       Sinusuportahan ang paghawak at pagtatapon ng basura, kabilang ang mga recyclable, compost at mga mapanganib na
       materyales. Alamin ang higit pa tungkol sa [pamamahala ng basura](https://en.wikipedia.org/wiki/Waste_management)
 citation: []
-icon:
-  url: /dtpr-icons/waste_management.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Waste Management icon
-    - locale: es
-      value: Gestión de residuos icon
-    - locale: fr
-      value: Gestion des déchets icon
-    - locale: km
-      value: ការគ្រប់គ្រងសំរាម icon
-    - locale: pt
-      value: Gestão de resíduos icon
-    - locale: tl
-      value: Pamamahala ng basura icon
+symbol_id: waste_management
 variables: []

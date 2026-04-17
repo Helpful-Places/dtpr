@@ -1,6 +1,5 @@
 id: anomaly_detection
-category_ids:
-  - ai__decision
+category_id: ai__decision
 title:
   - locale: en
     value: Anomaly Detection
@@ -50,20 +49,5 @@ description:
       ng mga makabuluhang deviation. Kasama sa mga halimbawa ang pagtuklas ng panloloko, pagsubaybay sa imprastraktura,
       o mga sistema ng pagsubaybay sa kalusugan ng publiko.
 citation: []
-icon:
-  url: /dtpr-icons/dm_anomay-detection.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Anomaly Detection icon
-    - locale: es
-      value: Detección de anomalías icon
-    - locale: fr
-      value: Détection des anomalies icon
-    - locale: km
-      value: ការរកឃើញភាពមិនប្រក្រតី icon
-    - locale: pt
-      value: Detecção de anomalias icon
-    - locale: tl
-      value: Pagtuklas ng Anomalya icon
+symbol_id: dm_anomay-detection
 variables: []

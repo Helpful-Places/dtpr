@@ -1,6 +1,5 @@
 id: shared_storage_and_governance
-category_ids:
-  - ai__storage
+category_id: ai__storage
 title:
   - locale: en
     value: Shared storage and governance
@@ -45,20 +44,5 @@ description:
       dahil ibinahagi ang imprastraktura posible na ipatupad ang pamamahala sa paligid ng pagpapanatili, pag-access at
       pagkasira ng datos sa pamamagitan ng mga patakaran na binuo sa istraktura ng datos mismo.
 citation: []
-icon:
-  url: /dtpr-icons/shared_storage_and_governance.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Shared storage and governance icon
-    - locale: es
-      value: Almacenamiento y gobierno compartidos icon
-    - locale: fr
-      value: Stockage et gouvernance partagés icon
-    - locale: km
-      value: ការផ្ទុកនិងអភិបាលកិច្ចរួមគ្នា icon
-    - locale: pt
-      value: Armazenamendo e governando de forma partilhada icon
-    - locale: tl
-      value: Ibinahaging imbakan at pamamahala icon
+symbol_id: stored
 variables: []

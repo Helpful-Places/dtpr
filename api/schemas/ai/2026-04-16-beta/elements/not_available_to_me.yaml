@@ -1,6 +1,5 @@
 id: not_available_to_me
-category_ids:
-  - ai__access
+category_id: ai__access
 title:
   - locale: en
     value: Not available to me
@@ -34,20 +33,5 @@ description:
       Hindi magagamit sa akin o sa iba pang mga indibidwal. Bilang indibidwal, walang paraan para ma-access mo ang datos
       na ito.
 citation: []
-icon:
-  url: /dtpr-icons/not_available_to_me.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Not available to me icon
-    - locale: es
-      value: No disponible para mi icon
-    - locale: fr
-      value: Non disponible pour moi icon
-    - locale: km
-      value: មិនមានសម្រាប់ខ្ញុំទេ icon
-    - locale: pt
-      value: Não disponível para mim icon
-    - locale: tl
-      value: Hindi magagamit sa akin icon
+symbol_id: not_available
 variables: []

@@ -1,6 +1,5 @@
 id: available_to_the_accountable_organization
-category_ids:
-  - ai__access
+category_id: ai__access
 title:
   - locale: en
     value: Available to the accountable organization
@@ -28,20 +27,5 @@ description:
   - locale: tl
     value: Magagamit ang datos sa organisasyon na may pananagutan
 citation: []
-icon:
-  url: /dtpr-icons/available_to_the_accountable_organization.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Available to the accountable organization icon
-    - locale: es
-      value: Disponible para la organización responsable icon
-    - locale: fr
-      value: Données mises à la disposition de l’organisation responsable icon
-    - locale: km
-      value: មានសម្រាប់អង្គភាពគណនី icon
-    - locale: pt
-      value: Disponível para a organização responsável icon
-    - locale: tl
-      value: Magagamit sa accountable na organisasyon icon
+symbol_id: available
 variables: []

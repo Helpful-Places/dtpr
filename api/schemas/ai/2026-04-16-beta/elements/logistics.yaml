@@ -1,6 +1,5 @@
 id: logistics
-category_ids:
-  - ai__purpose
+category_id: ai__purpose
 title:
   - locale: en
     value: Logistics
@@ -28,20 +27,5 @@ description:
   - locale: tl
     value: Sinusuportahan ang paggalaw ng mga kalakal o materyales.
 citation: []
-icon:
-  url: /dtpr-icons/logistics.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Logistics icon
-    - locale: es
-      value: Logística icon
-    - locale: fr
-      value: Logistique icon
-    - locale: km
-      value: ផស្ថ icon
-    - locale: pt
-      value: Logística icon
-    - locale: tl
-      value: Logistik icon
+symbol_id: logistics
 variables: []

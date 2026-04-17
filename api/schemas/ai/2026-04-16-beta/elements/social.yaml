@@ -1,6 +1,5 @@
 id: social
-category_ids:
-  - ai__purpose
+category_id: ai__purpose
 title:
   - locale: en
     value: Social
@@ -28,20 +27,5 @@ description:
   - locale: tl
     value: Para sa pakikipag -ugnay sa ibang tao o isang pangkat.
 citation: []
-icon:
-  url: /dtpr-icons/social.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Social icon
-    - locale: es
-      value: Social icon
-    - locale: fr
-      value: Social icon
-    - locale: km
-      value: ឯនសង្គម icon
-    - locale: pt
-      value: Social icon
-    - locale: tl
-      value: Panlipunan icon
+symbol_id: social
 variables: []

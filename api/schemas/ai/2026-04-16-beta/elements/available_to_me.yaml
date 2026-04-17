@@ -1,6 +1,5 @@
 id: available_to_me
-category_ids:
-  - ai__access
+category_id: ai__access
 title:
   - locale: en
     value: Available to me
@@ -41,20 +40,5 @@ description:
       lahat ng iyong mga talaan ng electronic toll para sa iyong kotse, ngunit ang ibang mga indibidwal ay walang access
       sa mga ito
 citation: []
-icon:
-  url: /dtpr-icons/available_to_me.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Available to me icon
-    - locale: es
-      value: Disponible para mi icon
-    - locale: fr
-      value: Disponible pour moi icon
-    - locale: km
-      value: មានសម្រាប់ខ្ញុំ icon
-    - locale: pt
-      value: Disponível para mim icon
-    - locale: tl
-      value: Magagamit sa akin icon
+symbol_id: available
 variables: []

@@ -1,6 +1,5 @@
 id: not_available_to_vendor
-category_ids:
-  - ai__access
+category_id: ai__access
 title:
   - locale: en
     value: Not available to vendor
@@ -28,20 +27,5 @@ description:
   - locale: tl
     value: Ang datos ay hindi magagamit sa tagapagkolekta ng datos o tagapagbigay ng teknolohiya.
 citation: []
-icon:
-  url: /dtpr-icons/not_available_to_vendor.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Not available to vendor icon
-    - locale: es
-      value: No disponible para el proveedor icon
-    - locale: fr
-      value: Non disponible pour le vendeur icon
-    - locale: km
-      value: មិនមានសម្រាប់អ្នកលក់ទេ icon
-    - locale: pt
-      value: Não disponível para o fornecedor icon
-    - locale: tl
-      value: Hindi magagamit sa vendor icon
+symbol_id: not_available
 variables: []

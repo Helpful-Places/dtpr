@@ -1,6 +1,5 @@
 id: available_to_3rd_parties
-category_ids:
-  - ai__access
+category_id: ai__access
 title:
   - locale: en
     value: Available to 3rd parties
@@ -38,20 +37,5 @@ description:
       Magagamit ang data sa mga 3rd party na hindi kasangkot sa aktibidad ng data. Hindi ito palaging nangangahulugang
       ang data ay ibinebenta.
 citation: []
-icon:
-  url: /dtpr-icons/available_to_3rd_parties.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Available to 3rd parties icon
-    - locale: es
-      value: Disponible para terceros icon
-    - locale: fr
-      value: Données mise à la disposition de tiers icon
-    - locale: km
-      value: មានដល់ភាគីទី 3 icon
-    - locale: pt
-      value: Disponível para terceiros icon
-    - locale: tl
-      value: Magagamit sa mga 3rd party icon
+symbol_id: available_to_3rd_parties
 variables: []

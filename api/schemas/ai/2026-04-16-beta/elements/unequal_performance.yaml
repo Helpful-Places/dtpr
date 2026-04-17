@@ -1,6 +1,5 @@
 id: unequal_performance
-category_ids:
-  - ai__risks_mitigation
+category_id: ai__risks_mitigation
 title:
   - locale: en
     value: Unequal performance across groups
@@ -58,20 +57,5 @@ description:
       komunidad. Maaaring kabilang sa mga mitigations ang magkakaibang data ng pagsasanay, regular na pag-audit sa
       pagiging patas, at regular na pagsubaybay sa pagganap sa iba't ibang demograpikong grupo.
 citation: []
-icon:
-  url: /dtpr-icons/risks_unequal-performance.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Unequal performance across groups icon
-    - locale: es
-      value: Desigualdad de resultados entre grupos icon
-    - locale: fr
-      value: Des performances inégales entre les groupes icon
-    - locale: km
-      value: ការសម្តែងមិនស្មើគ្នាក្នុងក្រុម icon
-    - locale: pt
-      value: Desempenho desigual entre os grupos icon
-    - locale: tl
-      value: Hindi pantay na pagganap sa mga pangkat icon
+symbol_id: risks_unequal-performance
 variables: []

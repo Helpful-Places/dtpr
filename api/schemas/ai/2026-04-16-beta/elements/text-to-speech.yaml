@@ -1,6 +1,5 @@
 id: text-to-speech
-category_ids:
-  - ai__processing
+category_id: ai__processing
 title:
   - locale: en
     value: Text-to-Speech
@@ -50,20 +49,5 @@ description:
       tao. Ang Text-to-Speech ay karaniwang ginagamit sa mga tool sa accessibility, virtual assistant, at mga automated
       na customer service system.
 citation: []
-icon:
-  url: /dtpr-icons/processing_text-to-speech.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Text-to-Speech icon
-    - locale: es
-      value: Texto a voz icon
-    - locale: fr
-      value: Synthèse vocale icon
-    - locale: km
-      value: អត្ថបទទៅការនិយាយ icon
-    - locale: pt
-      value: Conversão de texto em fala icon
-    - locale: tl
-      value: Text-to-Speech icon
+symbol_id: processing_text-to-speech
 variables: []

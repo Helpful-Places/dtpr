@@ -6,11 +6,16 @@
  *
  * Field transformations (per plan Key Technical Decisions and R25/R26):
  *  - element `name` → `title` (trimmed)
- *  - element `category_ids`: device__* references stripped on shared elements
- *  - Drop `updated_at` (R8), `symbol`, element-level `context_type_id` (R25b)
+ *  - element plural `category_ids` → singular `category_id`, first `ai__*` entry
+ *  - Drop `updated_at` (R8), element-level `context_type_id` (R25b),
+ *    legacy `icon:` block
  *  - Add `citation: []` to every element
- *  - `icon: /path.svg` → `{ url, format: 'svg', alt_text }`
+ *  - v1 `symbol: /dtpr-icons/symbols/<name>.svg` → `symbol_id: <name>`
  *  - Categories keep `element_variables` as source; elements inherit at build
+ *  - Categories get a `shape:` (hexagon/circle/rounded-square/octagon)
+ *    from a static map mirroring `studio/lib/icon-shapes.ts`
+ *  - Unique symbol SVGs are copied from `app/public/dtpr-icons/symbols/`
+ *    into `<release>/symbols/`
  *  - Version tagged `ai@2026-04-16-beta` (port-as-beta per R26)
  *
  * Script is idempotent: the target dir is wiped before writing so
@@ -18,7 +23,7 @@
  * schema:validate which checks no git diff).
  */
 
-import { mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises'
+import { copyFile, mkdir, readFile, readdir, rm, stat, writeFile } from 'node:fs/promises'
 import { join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import yaml from 'js-yaml'
@@ -32,6 +37,7 @@ import type { LocaleCode } from '../src/schema/locale.ts'
 
 const REPO_ROOT = fileURLToPath(new URL('../..', import.meta.url))
 const V1_CONTENT = join(REPO_ROOT, 'app', 'content', 'dtpr.v1')
+const V1_SYMBOL_SOURCE_DIR = join(REPO_ROOT, 'app', 'public', 'dtpr-icons', 'symbols')
 const OUT_ROOT = join(REPO_ROOT, 'api', 'schemas')
 const VERSION_DIR = 'ai/2026-04-16-beta'
 
@@ -96,6 +102,7 @@ async function main(): Promise<void> {
   await rm(versionOutDir, { recursive: true, force: true })
   await mkdir(join(versionOutDir, 'categories'), { recursive: true })
   await mkdir(join(versionOutDir, 'elements'), { recursive: true })
+  await mkdir(join(versionOutDir, 'symbols'), { recursive: true })
 
   // ---- Categories ----
   const categoryFiles = await listAiCategoryFiles()
@@ -117,6 +124,7 @@ async function main(): Promise<void> {
   const elementFiles = await listAiTouchingElementFiles()
   let elementCount = 0
   const usedFilenames = new Set<string>()
+  const symbolIds = new Set<string>()
   for (const filename of elementFiles) {
     const bundle = await readLocaleBundle(['elements'], filename)
     const el = transformElement(filename, bundle, warnings)
@@ -130,10 +138,38 @@ async function main(): Promise<void> {
       continue
     }
     usedFilenames.add(`${el.id}.yaml`)
+    symbolIds.add(el.symbol_id)
     await writeFile(join(versionOutDir, 'elements', `${el.id}.yaml`), toYaml(el), 'utf8')
     elementCount++
   }
   console.log(`Wrote ${elementCount} elements (from ${elementFiles.length} AI-touching files)`)
+
+  // ---- Symbol SVGs ----
+  // Copy unique `symbol_id`.svg files from the v1 symbol library into
+  // the release's `symbols/` directory. Fail the migration if any
+  // referenced source file is missing (listing all misses at once).
+  const missingSymbols: Array<{ symbolId: string; sourcePath: string }> = []
+  const sortedSymbolIds = [...symbolIds].sort()
+  for (const symbolId of sortedSymbolIds) {
+    const src = join(V1_SYMBOL_SOURCE_DIR, `${symbolId}.svg`)
+    try {
+      await stat(src)
+    } catch {
+      missingSymbols.push({ symbolId, sourcePath: src })
+      continue
+    }
+    const dest = join(versionOutDir, 'symbols', `${symbolId}.svg`)
+    await copyFile(src, dest)
+  }
+  if (missingSymbols.length > 0) {
+    const lines = missingSymbols
+      .map((m) => `  - symbol_id '${m.symbolId}' (expected at ${m.sourcePath})`)
+      .join('\n')
+    throw new Error(
+      `${missingSymbols.length} referenced symbol file(s) missing from ${V1_SYMBOL_SOURCE_DIR}:\n${lines}`,
+    )
+  }
+  console.log(`Copied ${sortedSymbolIds.length} unique symbol SVGs`)
 
   // ---- Datachain type ----
   // Preserve v1 category order: sort by (order, id) — older v1 order values exist on the per-category YAML.
