@@ -1,0 +1,26 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "dtpr-ai",
+  "account_id": "f978769622a3e15ad770688a80811aa8",
+  "main": ".output/server/index.mjs",
+  "compatibility_date": "2024-09-19",
+  "compatibility_flags": ["nodejs_compat"],
+  "routes": [
+    {
+      "pattern": "dtpr.ai",
+      "custom_domain": true
+    }
+  ],
+  "assets": {
+    "directory": ".output/public"
+  },
+  "d1_databases": [
+    {
+      // @nuxt/content auto-switches to D1 on the cloudflare-module preset
+      // and expects the binding to be named "DB".
+      "binding": "DB",
+      "database_name": "dtpr-ai-content",
+      "database_id": "27036ee8-bdae-4183-b5a7-d751dc0bac96"
+    }
+  ]
+}
