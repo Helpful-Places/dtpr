@@ -91,6 +91,22 @@ describe('MCP: jsonrpc version validation', () => {
     expect(ok?.result).toBeDefined()
     expect((bad?.error as { code: number } | undefined)?.code).toBe(-32600)
   })
+
+  it('all-notification batch returns 204, not an empty array (JSON-RPC §6)', async () => {
+    const res = await SELF.fetch('https://example.com/mcp', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json, text/event-stream',
+      },
+      body: JSON.stringify([
+        { jsonrpc: '2.0', method: 'notifications/initialized' },
+        { jsonrpc: '2.0', method: 'initialized' },
+      ]),
+    })
+    expect(res.status).toBe(204)
+    expect(await res.text()).toBe('')
+  })
 })
 
 describe('MCP: handshake + tools/list', () => {

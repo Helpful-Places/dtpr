@@ -171,6 +171,12 @@ export async function handleMcpRequest(c: Context<AppEnv>): Promise<Response> {
       const resp = await dispatch(registry, entry as JsonRpcRequest)
       if (resp) responses.push(resp)
     }
+    // JSON-RPC 2.0 §6: when a batch contains only notifications, the
+    // server MUST NOT return an empty Array — it returns nothing.
+    // Mirror the single-notification branch below.
+    if (responses.length === 0) {
+      return new Response(null, { status: 204 })
+    }
     return c.json(responses as unknown as Record<string, unknown>)
   }
   const resp = await dispatch(registry, body as JsonRpcRequest)

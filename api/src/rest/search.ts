@@ -22,8 +22,12 @@ const REHYDRATE_OPTIONS = {
 
 /**
  * Run the BM25 query against the version's per-locale index and return
- * the matching element ids in rank order. Returns the input order if
- * no index has been built for that locale (degraded but working).
+ * the matching element ids in rank order.
+ *
+ * Returns `null` when no index exists for the requested locale —
+ * callers treat this as "no search available, fall back to the
+ * unfiltered natural order" rather than as "zero matches". An empty
+ * `string[]` (vs `null`) means the index ran and returned no hits.
  *
  * The full elements list is passed in as the source of truth: the
  * search index only stores the projection fields; the route still
@@ -34,10 +38,10 @@ export async function searchElementIds(opts: {
   version: ParsedVersion
   locale: LocaleCode
   query: string
-}): Promise<string[]> {
+}): Promise<string[] | null> {
   const { ctx, version, locale, query } = opts
   const serialized = await loadSearchIndex(ctx, version, locale)
-  if (!serialized) return []
+  if (!serialized) return null
   const index = MiniSearch.loadJSON(serialized, REHYDRATE_OPTIONS)
   return index.search(query).map((hit) => hit.id as string)
 }

@@ -287,7 +287,11 @@ function listElementsTool(ctx: LoadContext): ToolDef {
             locale: args.locale,
             query: args.query,
           })
-          elements = reorderByIds(elements, ids)
+          // `null` means no index for this locale — leave elements in
+          // natural order rather than zeroing them out.
+          if (ids !== null) {
+            elements = reorderByIds(elements, ids)
+          }
         }
         const offset = decodeCursor(args.cursor)
         const limit = parseLimitParam(args.limit?.toString())

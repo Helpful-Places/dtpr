@@ -8,7 +8,7 @@ import {
   makeManifest,
   seedVersion,
 } from './seed.ts'
-import { INDEX_KEY } from '../../src/store/keys.ts'
+import { INDEX_KEY, searchIndexKey } from '../../src/store/keys.ts'
 import { _resetInlineBundles } from '../../src/store/inline-bundles.ts'
 
 beforeEach(() => {
@@ -212,6 +212,19 @@ describe('REST: GET .../elements', () => {
     )
     const body = (await res.json()) as { elements: Array<{ id: string }> }
     expect(body.elements[0]?.id).toBe('identifiable_video')
+  })
+
+  it('?query without a built index for the requested locale falls back to natural order, not zero results', async () => {
+    // Re-seed and remove the search index for the queried locale so
+    // we can exercise the no-index path.
+    await seedVersion()
+    await env.CONTENT.delete(searchIndexKey(SAMPLE_VERSION, 'fr'))
+    const res = await SELF.fetch(
+      `https://example.com/api/v2/schemas/${SAMPLE_VERSION.canonical}/elements?query=video&locale=fr&fields=id`,
+    )
+    expect(res.status).toBe(200)
+    const body = (await res.json()) as { elements: unknown[]; meta: { returned: number } }
+    expect(body.meta.returned).toBeGreaterThan(0)
   })
 })
 

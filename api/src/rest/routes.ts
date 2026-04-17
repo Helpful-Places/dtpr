@@ -97,7 +97,11 @@ export function createRestApp() {
     if (query && query.trim().length > 0) {
       const searchLocale = (c.req.query('locale') ?? 'en') as 'en'
       const ids = await searchElementIds({ ctx, version, locale: searchLocale, query })
-      elements = reorderByIds(elements, ids)
+      // `null` means no index for this locale — leave elements in
+      // natural order rather than zeroing them out.
+      if (ids !== null) {
+        elements = reorderByIds(elements, ids)
+      }
     }
 
     const { page, nextCursor } = paginate(elements, offset, limit)
