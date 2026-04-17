@@ -1,492 +1,203 @@
-import { describe, it, expect, beforeEach } from 'vitest'
-import { createApp } from '../../../src/app.ts'
+import { describe, it, expect, beforeAll, beforeEach } from 'vitest'
+import { SELF } from 'cloudflare:test'
+import { SAMPLE_VERSION, seedVersion } from '../seed.ts'
 import { __resetDatachainResourceStateForTest } from '../../../src/mcp/resources/datachain_resource.ts'
-import type { Category } from '../../../src/schema/category.ts'
-import type { Element } from '../../../src/schema/element.ts'
-import type { DatachainInstance } from '../../../src/schema/datachain-instance.ts'
+import { createMcpClient, type McpResponse } from '../mcp-client.ts'
 
-// Module-level rendered HTML slot bleeds across tests (see
-// `src/mcp/resources/datachain_resource.ts`). Reset between cases so
-// the empty-placeholder test sees a clean slate regardless of order.
+// Module-level HTML slot bleeds across tests — reset between cases.
 beforeEach(() => {
   __resetDatachainResourceStateForTest()
 })
 
-// -------- test fixture helpers --------
+beforeAll(async () => {
+  await seedVersion()
+})
 
-const VERSION = 'ai@2026-04-16-beta'
+const VERSION = SAMPLE_VERSION.canonical
 
-function makeCategories(): Category[] {
-  return [
-    {
-      id: 'ai__decision',
-      name: [{ locale: 'en', value: 'Decision Type' }],
-      description: [{ locale: 'en', value: 'Type of decision.' }],
-      prompt: [],
-      required: true,
-      order: 1,
-      datachain_type: 'ai',
-      element_variables: [],
-    },
-    {
-      id: 'ai__storage',
-      name: [{ locale: 'en', value: 'Storage' }],
-      description: [{ locale: 'en', value: 'Where data is held.' }],
-      prompt: [],
-      required: false,
-      order: 2,
-      datachain_type: 'ai',
-      element_variables: [
-        {
-          id: 'retention_period',
-          label: [{ locale: 'en', value: 'Retention period' }],
-          required: true,
-        },
-      ],
-    },
-  ]
-}
-
-function makeElements(): Element[] {
-  return [
-    {
-      id: 'accept_deny',
-      category_ids: ['ai__decision'],
-      title: [{ locale: 'en', value: 'Accept or deny' }],
-      description: [{ locale: 'en', value: 'Binary yes/no decision.' }],
-      citation: [],
-      icon: {
-        url: '/dtpr-icons/accept-deny.svg',
-        format: 'svg',
-        alt_text: [{ locale: 'en', value: 'accept/deny icon' }],
-      },
-      variables: [],
-    },
-    {
-      id: 'cloud_storage',
-      category_ids: ['ai__storage'],
-      title: [{ locale: 'en', value: 'Cloud storage' }],
-      description: [{ locale: 'en', value: 'Data held for {{retention_period}}.' }],
-      citation: [],
-      icon: {
-        url: '/dtpr-icons/cloud.svg',
-        format: 'svg',
-        alt_text: [{ locale: 'en', value: 'cloud icon' }],
-      },
-      variables: [
-        {
-          id: 'retention_period',
-          label: [{ locale: 'en', value: 'Retention period' }],
-          required: true,
-        },
-      ],
-    },
-  ]
-}
-
-function makeInstance(): DatachainInstance {
+function validInstance() {
   return {
-    id: 'worcester-lpr',
+    id: 'test-chain-1',
     schema_version: VERSION,
     created_at: '2026-04-16T00:00:00.000Z',
     elements: [
       { element_id: 'accept_deny', priority: 0, variables: [] },
-      {
-        element_id: 'cloud_storage',
-        priority: 1,
-        variables: [{ id: 'retention_period', value: '30 days' }],
-      },
+      { element_id: 'identifiable_video', priority: 1, variables: [] },
     ],
   }
 }
 
-// -------- MCP protocol helpers --------
-
-// Parse an MCP JSON-RPC response. The StreamableHTTPTransport may
-// respond with either `application/json` (single message) or
-// `text/event-stream` (SSE wrapping a single `data:` line). Both
-// shapes show up in the spike; handle both so tests are transport-shape
-// agnostic.
-async function parseMcpResponse(res: Response): Promise<any> {
-  const contentType = res.headers.get('content-type') ?? ''
-  const body = await res.text()
-  if (contentType.includes('application/json')) {
-    return JSON.parse(body)
-  }
-  if (contentType.includes('text/event-stream')) {
-    // Pull out the first `data: ...` line and parse it as JSON.
-    const dataLine = body
-      .split('\n')
-      .find((l) => l.startsWith('data: '))
-    if (!dataLine) throw new Error(`SSE body had no data line: ${body}`)
-    return JSON.parse(dataLine.slice('data: '.length))
-  }
-  throw new Error(`unexpected content-type: ${contentType} body=${body}`)
-}
-
-async function callMcp(body: unknown, sessionId?: string): Promise<{
-  response: Response
-  message: any
-  sessionId: string | null
-}> {
-  const app = createApp()
-  const headers: Record<string, string> = {
-    'Content-Type': 'application/json',
-    Accept: 'application/json, text/event-stream',
-  }
-  if (sessionId) headers['mcp-session-id'] = sessionId
-  const response = await app.request('/mcp', {
+async function postMcp(payload: unknown): Promise<{ status: number; body: Record<string, unknown> }> {
+  const res = await SELF.fetch('https://example.com/mcp', {
     method: 'POST',
-    headers,
-    body: JSON.stringify(body),
-  })
-  const message = await parseMcpResponse(response.clone())
-  return {
-    response,
-    message,
-    sessionId: response.headers.get('mcp-session-id'),
-  }
-}
-
-async function initAndCall(
-  toolName: string,
-  args: Record<string, unknown>,
-): Promise<any> {
-  // Each `app.request` call is a fresh Hono request — but since
-  // createApp() constructs a new Hono app each time AND the /mcp route
-  // constructs a fresh McpServer each time, we cannot rely on session
-  // persistence. The StreamableHTTPTransport in per-request mode still
-  // handles a single initialize + tools/call inside one request batch
-  // if we chain calls with the session id it returns. Here we rely on
-  // the SDK's per-request stateless handling: initialize is implicit
-  // when the server hasn't seen this session id.
-  //
-  // In practice, with `@hono/mcp` the transport expects a session id
-  // from initialize; we pipeline via a single app instance to share
-  // the transport's internal state.
-  const app = createApp()
-
-  const doPost = async (payload: unknown, sessionId?: string) => {
-    const headers: Record<string, string> = {
+    headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json, text/event-stream',
-    }
-    if (sessionId) headers['mcp-session-id'] = sessionId
-    return app.request('/mcp', {
-      method: 'POST',
-      headers,
-      body: JSON.stringify(payload),
-    })
-  }
-
-  const initRes = await doPost({
-    jsonrpc: '2.0',
-    id: 1,
-    method: 'initialize',
-    params: {
-      protocolVersion: '2025-06-18',
-      capabilities: {},
-      clientInfo: { name: 'test', version: '0' },
     },
+    body: JSON.stringify(payload),
   })
-  const sessionId = initRes.headers.get('mcp-session-id')
-  const initMsg = await parseMcpResponse(initRes.clone())
-  expect(initMsg.error, `initialize failed: ${JSON.stringify(initMsg.error)}`).toBeUndefined()
+  const body = (await res.json()) as Record<string, unknown>
+  return { status: res.status, body }
+}
 
-  // `notifications/initialized` per the protocol — not strictly required
-  // by @hono/mcp but harmless.
-  await doPost(
-    { jsonrpc: '2.0', method: 'notifications/initialized' },
-    sessionId ?? undefined,
-  )
-
-  const callRes = await doPost(
-    {
-      jsonrpc: '2.0',
-      id: 2,
-      method: 'tools/call',
-      params: { name: toolName, arguments: args },
-    },
-    sessionId ?? undefined,
-  )
-  return {
-    app,
-    sessionId,
-    call: await parseMcpResponse(callRes),
-    doPost,
+interface RenderResult {
+  structuredContent?: {
+    ok?: boolean
+    data?: {
+      resource_uri?: string
+      section_count?: number
+      element_count?: number
+    }
+    errors?: Array<{ code: string; message: string }>
+  }
+  content?: Array<{ type: string; text: string }>
+  isError?: boolean
+  _meta?: {
+    ui?: {
+      resourceUri?: string
+      csp?: { resourceDomains: string[]; connectDomains: string[] }
+    }
   }
 }
 
-// -------- tests --------
-
-describe('render_datachain tool (end-to-end via Hono /mcp)', () => {
-  it('happy path: valid datachain -> _meta.ui.resourceUri present', async () => {
-    const { call } = await initAndCall('render_datachain', {
-      version: VERSION,
-      datachain: makeInstance(),
-      categories: makeCategories(),
-      elements: makeElements(),
-      locale: 'en',
-    })
-    expect(call.error).toBeUndefined()
-    expect(call.result).toBeDefined()
-    expect(call.result.isError).not.toBe(true)
-    expect(call.result._meta?.ui?.resourceUri).toBe('ui://dtpr/datachain/view.html')
-    // CSP declares no external origins.
-    const csp = call.result._meta?.ui?.csp
-    expect(csp).toBeDefined()
-    expect(csp.resourceDomains).toEqual([])
-    expect(csp.connectDomains).toEqual([])
-  })
-
-  it('text summary enumerates categories and element counts', async () => {
-    const { call } = await initAndCall('render_datachain', {
-      version: VERSION,
-      datachain: makeInstance(),
-      categories: makeCategories(),
-      elements: makeElements(),
-    })
-    const text = call.result.content[0].text as string
-    expect(text).toContain('2 categories')
-    expect(text).toContain('2 total elements')
-    expect(text).toContain('Decision Type')
-    expect(text).toContain('Storage')
-    expect(text).toContain('Accept or deny')
-    expect(text).toContain('Cloud storage')
-    // Agent-supplied variable value is XML-wrapped.
-    expect(text).toContain('<dtpr_variable_value>30 days</dtpr_variable_value>')
-  })
-
-  it('resources/read returns full <!doctype html> with MCP-App mime type', async () => {
-    const { doPost, sessionId } = await initAndCall('render_datachain', {
-      version: VERSION,
-      datachain: makeInstance(),
-      categories: makeCategories(),
-      elements: makeElements(),
-    })
-    const res = await doPost(
-      {
-        jsonrpc: '2.0',
-        id: 3,
-        method: 'resources/read',
-        params: { uri: 'ui://dtpr/datachain/view.html' },
-      },
-      sessionId ?? undefined,
-    )
-    const msg = await parseMcpResponse(res)
-    expect(msg.error).toBeUndefined()
-    const contents = msg.result.contents
-    expect(contents).toHaveLength(1)
-    expect(contents[0].mimeType).toBe('text/html;profile=mcp-app')
-    expect(contents[0].uri).toBe('ui://dtpr/datachain/view.html')
-    const html = contents[0].text as string
-    expect(html.startsWith('<!doctype html>')).toBe(true)
-    expect(html).toContain('ai__decision')
-    expect(html).toContain('Accept or deny')
-  })
-
-  it('resources/list reports the datachain resource', async () => {
-    const app = createApp()
-    const doPost = async (payload: unknown, sessionId?: string) => {
-      const headers: Record<string, string> = {
-        'Content-Type': 'application/json',
-        Accept: 'application/json, text/event-stream',
-      }
-      if (sessionId) headers['mcp-session-id'] = sessionId
-      return app.request('/mcp', {
-        method: 'POST',
-        headers,
-        body: JSON.stringify(payload),
-      })
-    }
-    const initRes = await doPost({
-      jsonrpc: '2.0',
-      id: 1,
-      method: 'initialize',
-      params: {
-        protocolVersion: '2025-06-18',
-        capabilities: {},
-        clientInfo: { name: 'test', version: '0' },
-      },
-    })
-    const sessionId = initRes.headers.get('mcp-session-id')
-    await doPost(
-      { jsonrpc: '2.0', method: 'notifications/initialized' },
-      sessionId ?? undefined,
-    )
-    const listRes = await doPost(
-      { jsonrpc: '2.0', id: 2, method: 'resources/list', params: {} },
-      sessionId ?? undefined,
-    )
-    const msg = await parseMcpResponse(listRes)
-    expect(msg.error).toBeUndefined()
-    const resources = msg.result.resources
-    expect(resources.some((r: any) => r.uri === 'ui://dtpr/datachain/view.html')).toBe(true)
-  })
-
-  it('tools/list exposes render_datachain', async () => {
-    const app = createApp()
-    const doPost = async (payload: unknown, sessionId?: string) => {
-      const headers: Record<string, string> = {
-        'Content-Type': 'application/json',
-        Accept: 'application/json, text/event-stream',
-      }
-      if (sessionId) headers['mcp-session-id'] = sessionId
-      return app.request('/mcp', {
-        method: 'POST',
-        headers,
-        body: JSON.stringify(payload),
-      })
-    }
-    const initRes = await doPost({
-      jsonrpc: '2.0',
-      id: 1,
-      method: 'initialize',
-      params: {
-        protocolVersion: '2025-06-18',
-        capabilities: {},
-        clientInfo: { name: 'test', version: '0' },
-      },
-    })
-    const sessionId = initRes.headers.get('mcp-session-id')
-    await doPost(
-      { jsonrpc: '2.0', method: 'notifications/initialized' },
-      sessionId ?? undefined,
-    )
-    const listRes = await doPost(
-      { jsonrpc: '2.0', id: 2, method: 'tools/list', params: {} },
-      sessionId ?? undefined,
-    )
-    const msg = await parseMcpResponse(listRes)
-    expect(msg.error).toBeUndefined()
-    const tools = msg.result.tools
-    const tool = tools.find((t: any) => t.name === 'render_datachain')
+describe('render_datachain tool (end-to-end via /mcp)', () => {
+  it('appears in tools/list', async () => {
+    const client = createMcpClient()
+    await client.initialize()
+    const list = await client.listTools()
+    const tool = list.result?.tools.find((t) => t.name === 'render_datachain')
     expect(tool).toBeDefined()
-    // _meta.ui.resourceUri present on the tool descriptor so a host can
-    // pre-fetch before first invocation.
-    expect(tool._meta?.ui?.resourceUri).toBe('ui://dtpr/datachain/view.html')
+    expect(tool?.description).toMatch(/datachain/i)
   })
 
-  it('error path: invalid version regex -> INVALID_VERSION typed error', async () => {
-    const { call } = await initAndCall('render_datachain', {
-      version: 'not-a-version',
-      datachain: makeInstance(),
-      categories: makeCategories(),
-      elements: makeElements(),
-    })
-    expect(call.result.isError).toBe(true)
-    expect(call.result._meta?.error?.code).toBe('INVALID_VERSION')
-    expect(call.result.content[0].text).toContain('Validation failed')
-  })
-
-  it('error path: datachain fails Zod -> INVALID_DATACHAIN', async () => {
-    const { call } = await initAndCall('render_datachain', {
+  it('happy path: returns _meta.ui.resourceUri + structured summary', async () => {
+    const client = createMcpClient()
+    await client.initialize()
+    const res = (await client.callTool<RenderResult>('render_datachain', {
       version: VERSION,
-      datachain: { id: 'x' }, // missing schema_version, created_at, elements
-      categories: makeCategories(),
-      elements: makeElements(),
-    })
-    expect(call.result.isError).toBe(true)
-    expect(call.result._meta?.error?.code).toBe('INVALID_DATACHAIN')
-    expect(call.result._meta?.error?.details?.issues).toBeDefined()
+      datachain: validInstance(),
+    })) as McpResponse<RenderResult>
+
+    expect(res.error).toBeUndefined()
+    expect(res.result?.isError).toBeUndefined()
+    expect(res.result?._meta?.ui?.resourceUri).toBe('ui://dtpr/datachain/view.html')
+    expect(res.result?._meta?.ui?.csp).toEqual({ resourceDomains: [], connectDomains: [] })
+    expect(res.result?.structuredContent?.ok).toBe(true)
+    expect(res.result?.structuredContent?.data?.section_count).toBe(1)
+    expect(res.result?.structuredContent?.data?.element_count).toBe(2)
+    const summary = res.result?.content?.[0]?.text
+    expect(summary).toContain('Decision')
+    expect(summary).toContain('Accept / Deny')
   })
 
-  it('error path: missing categories -> MISSING_CATEGORIES', async () => {
-    const { call } = await initAndCall('render_datachain', {
-      version: VERSION,
-      datachain: makeInstance(),
-      elements: makeElements(),
-    })
-    expect(call.result.isError).toBe(true)
-    expect(call.result._meta?.error?.code).toBe('MISSING_CATEGORIES')
-  })
-
-  it('error path: missing elements -> MISSING_ELEMENTS', async () => {
-    const { call } = await initAndCall('render_datachain', {
-      version: VERSION,
-      datachain: makeInstance(),
-      categories: makeCategories(),
-    })
-    expect(call.result.isError).toBe(true)
-    expect(call.result._meta?.error?.code).toBe('MISSING_ELEMENTS')
-  })
-
-  it('error path: semantic validation failure -> SEMANTIC_VALIDATION_FAILED', async () => {
-    const instance = makeInstance()
-    // cloud_storage requires `retention_period` but we drop it — semantic
-    // rule 10 fires.
-    instance.elements[1]!.variables = []
-    const { call } = await initAndCall('render_datachain', {
-      version: VERSION,
-      datachain: instance,
-      categories: makeCategories(),
-      elements: makeElements(),
-    })
-    expect(call.result.isError).toBe(true)
-    expect(call.result._meta?.error?.code).toBe('SEMANTIC_VALIDATION_FAILED')
-  })
-
-  it('edge: empty datachain -> schema rejects min(1); returns INVALID_DATACHAIN', async () => {
-    // The DatachainInstanceSchema enforces `.min(1)` on elements, so a
-    // zero-element instance is structurally invalid. We exercise the
-    // empty-render path via the placeholder resource read (see below).
-    const { call } = await initAndCall('render_datachain', {
-      version: VERSION,
-      datachain: {
-        id: 'empty',
-        schema_version: VERSION,
-        created_at: '2026-04-16T00:00:00.000Z',
-        elements: [],
-      },
-      categories: makeCategories(),
-      elements: makeElements(),
-    })
-    expect(call.result.isError).toBe(true)
-    expect(call.result._meta?.error?.code).toBe('INVALID_DATACHAIN')
-  })
-
-  it('edge: placeholder resource read before any tool call returns empty-state doc', async () => {
-    const app = createApp()
-    const doPost = async (payload: unknown, sessionId?: string) => {
-      const headers: Record<string, string> = {
-        'Content-Type': 'application/json',
-        Accept: 'application/json, text/event-stream',
-      }
-      if (sessionId) headers['mcp-session-id'] = sessionId
-      return app.request('/mcp', {
-        method: 'POST',
-        headers,
-        body: JSON.stringify(payload),
-      })
-    }
-    const initRes = await doPost({
+  it('resources/list advertises the datachain view resource', async () => {
+    const { body } = await postMcp({
       jsonrpc: '2.0',
       id: 1,
-      method: 'initialize',
-      params: {
-        protocolVersion: '2025-06-18',
-        capabilities: {},
-        clientInfo: { name: 'test', version: '0' },
-      },
+      method: 'resources/list',
     })
-    const sessionId = initRes.headers.get('mcp-session-id')
-    await doPost(
-      { jsonrpc: '2.0', method: 'notifications/initialized' },
-      sessionId ?? undefined,
-    )
-    const readRes = await doPost(
-      {
-        jsonrpc: '2.0',
-        id: 2,
-        method: 'resources/read',
-        params: { uri: 'ui://dtpr/datachain/view.html' },
-      },
-      sessionId ?? undefined,
-    )
-    const msg = await parseMcpResponse(readRes)
-    expect(msg.error).toBeUndefined()
-    const html = msg.result.contents[0].text as string
-    expect(html.startsWith('<!doctype html>')).toBe(true)
-    expect(html).toContain('dtpr-empty')
+    const result = body.result as { resources?: Array<{ uri: string; mimeType: string }> }
+    expect(result?.resources?.[0]?.uri).toBe('ui://dtpr/datachain/view.html')
+    expect(result?.resources?.[0]?.mimeType).toBe('text/html;profile=mcp-app')
+  })
+
+  it('resources/read returns the full HTML document with mcp-app mime', async () => {
+    const client = createMcpClient()
+    await client.initialize()
+    await client.callTool('render_datachain', {
+      version: VERSION,
+      datachain: validInstance(),
+    })
+
+    const { body } = await postMcp({
+      jsonrpc: '2.0',
+      id: 99,
+      method: 'resources/read',
+      params: { uri: 'ui://dtpr/datachain/view.html' },
+    })
+    const result = body.result as {
+      contents?: Array<{ uri: string; mimeType: string; text: string }>
+    }
+    const content = result?.contents?.[0]
+    expect(content?.uri).toBe('ui://dtpr/datachain/view.html')
+    expect(content?.mimeType).toBe('text/html;profile=mcp-app')
+    expect(content?.text?.startsWith('<!doctype html>')).toBe(true)
+    expect(content?.text).toContain('ai__decision')
+    expect(content?.text).toContain('data-dtpr-collapsible')
+  })
+
+  it('resources/read returns a placeholder when no tool call has populated the slot', async () => {
+    const { body } = await postMcp({
+      jsonrpc: '2.0',
+      id: 100,
+      method: 'resources/read',
+      params: { uri: 'ui://dtpr/datachain/view.html' },
+    })
+    const result = body.result as { contents?: Array<{ text: string }> }
+    const html = result?.contents?.[0]?.text
+    expect(html?.startsWith('<!doctype html>')).toBe(true)
+    expect(html).toContain('awaiting tool call')
+  })
+
+  it('resources/read rejects an unknown URI', async () => {
+    const { body } = await postMcp({
+      jsonrpc: '2.0',
+      id: 101,
+      method: 'resources/read',
+      params: { uri: 'ui://dtpr/unknown.html' },
+    })
+    expect(body.error).toBeDefined()
+    expect((body.error as { message: string }).message).toContain('Resource not found')
+  })
+
+  it('error: invalid version string → bad_request envelope', async () => {
+    const client = createMcpClient()
+    await client.initialize()
+    const res = (await client.callTool<RenderResult>('render_datachain', {
+      version: 'not-a-version',
+      datachain: validInstance(),
+    })) as McpResponse<RenderResult>
+    expect(res.result?.structuredContent?.ok).toBe(false)
+    const codes = res.result?.structuredContent?.errors?.map((e) => e.code) ?? []
+    expect(codes).toContain('bad_request')
+  })
+
+  it('error: datachain missing required fields → ok:false envelope', async () => {
+    const client = createMcpClient()
+    await client.initialize()
+    const res = (await client.callTool<RenderResult>('render_datachain', {
+      version: VERSION,
+      datachain: { id: 'x' },
+    })) as McpResponse<RenderResult>
+    expect(res.result?.structuredContent?.ok).toBe(false)
+    expect(res.result?.structuredContent?.errors?.length).toBeGreaterThan(0)
+  })
+
+  it('error: unknown version → not_found envelope', async () => {
+    const client = createMcpClient()
+    await client.initialize()
+    const res = (await client.callTool<RenderResult>('render_datachain', {
+      version: 'ai@2099-01-01',
+      datachain: validInstance(),
+    })) as McpResponse<RenderResult>
+    expect(res.result?.structuredContent?.ok).toBe(false)
+    const codes = res.result?.structuredContent?.errors?.map((e) => e.code) ?? []
+    expect(codes).toContain('not_found')
+  })
+
+  it('error: semantic validation failure renders as soft-failure envelope', async () => {
+    const client = createMcpClient()
+    await client.initialize()
+    const bad = {
+      id: 'test-chain-bad',
+      schema_version: VERSION,
+      created_at: '2026-04-16T00:00:00.000Z',
+      elements: [{ element_id: 'does_not_exist', priority: 0, variables: [] }],
+    }
+    const res = (await client.callTool<RenderResult>('render_datachain', {
+      version: VERSION,
+      datachain: bad,
+    })) as McpResponse<RenderResult>
+    expect(res.result?.structuredContent?.ok).toBe(false)
   })
 })

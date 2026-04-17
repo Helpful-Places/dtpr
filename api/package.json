@@ -42,16 +42,9 @@
     "build:schema": "tsup --config tsup.schema.config.ts"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "@hono/zod-validator": "^0.7.6",
-=======
     "@dtpr/ui": "workspace:*",
-    "@hono/mcp": "^0.2.5",
     "@hono/zod-validator": "^0.7.6",
-    "@modelcontextprotocol/ext-apps": "^1.6",
-    "@modelcontextprotocol/sdk": "^1.29.0",
     "@vue/server-renderer": "^3.5",
->>>>>>> 7b68fb6 (feat(api): Unit 6 — render_datachain MCP tool + self-contained server bootstrap)
     "hono": "^4.12.14",
     "hono-rate-limiter": "^0.4.0",
     "js-yaml": "^4.1.0",

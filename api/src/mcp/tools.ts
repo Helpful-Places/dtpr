@@ -38,6 +38,7 @@ import {
   toSoftFailureResult,
   toToolResult,
 } from './envelope.ts'
+import { renderDatachainTool } from './tools/render_datachain.ts'
 
 /** Cap on bulk `get_elements` requests. Keeps the corpus shippable in one call. */
 export const GET_ELEMENTS_MAX = 100
@@ -61,7 +62,7 @@ export interface ToolDescriptor {
   outputSchema?: Record<string, unknown>
 }
 
-interface ToolDef {
+export interface ToolDef {
   descriptor: ToolDescriptor
   handler: (args: Record<string, unknown>) => Promise<ToolResult>
 }
@@ -106,6 +107,7 @@ export function buildToolRegistry(ctx: LoadContext): ToolRegistry {
     getElementTool(ctx),
     getElementsTool(ctx),
     validateDatachainTool(ctx),
+    renderDatachainTool(ctx),
   ]
   const byName = new Map(tools.map((t) => [t.descriptor.name, t]))
   return {

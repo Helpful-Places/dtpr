@@ -2,6 +2,12 @@ import type { Context } from 'hono'
 import type { AppEnv } from '../app-types.ts'
 import { errEnvelope, toToolResult } from './envelope.ts'
 import { buildToolRegistry, type ToolRegistry, type ToolResult } from './tools.ts'
+import {
+  DATACHAIN_RESOURCE_MIME,
+  DATACHAIN_RESOURCE_URI,
+  datachainResourceDescriptor,
+  getDatachainHtml,
+} from './resources/datachain_resource.ts'
 
 /**
  * Hand-rolled MCP-over-JSON-RPC handler (plan fallback per
@@ -29,6 +35,7 @@ export const SERVER_INFO = {
 
 export const SERVER_CAPABILITIES = {
   tools: {},
+  resources: {},
 }
 
 interface JsonRpcRequest {
@@ -124,6 +131,24 @@ async function dispatch(
     case 'ping': {
       if (reqId === null) return null
       return rpcSuccess(reqId, {})
+    }
+    case 'resources/list': {
+      if (reqId === null) return null
+      return rpcSuccess(reqId, { resources: [datachainResourceDescriptor()] })
+    }
+    case 'resources/read': {
+      if (reqId === null) return null
+      const uri = params?.['uri']
+      if (typeof uri !== 'string') {
+        return rpcError(reqId, ERR.INVALID_PARAMS, '`uri` is required')
+      }
+      if (uri !== DATACHAIN_RESOURCE_URI) {
+        return rpcError(reqId, ERR.METHOD_NOT_FOUND, `Resource not found: ${uri}`)
+      }
+      const text = await getDatachainHtml()
+      return rpcSuccess(reqId, {
+        contents: [{ uri, mimeType: DATACHAIN_RESOURCE_MIME, text }],
+      })
     }
     default: {
       if (reqId === null) return null
