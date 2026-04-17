@@ -50,6 +50,18 @@ export async function loadCategories(
   return r2.loadCategories(ctx, version)
 }
 
+export async function loadCategory(
+  ctx: r2.LoadContext,
+  version: ParsedVersion,
+  categoryId: string,
+): Promise<Category | null> {
+  const inline = getInlineBundle(version.canonical)
+  if (inline) return inline.categories.find((c) => c.id === categoryId) ?? null
+  // No per-category R2 key exists today — derive from the full list.
+  const all = await r2.loadCategories(ctx, version)
+  return all ? (all.find((c) => c.id === categoryId) ?? null) : null
+}
+
 export async function loadElements(
   ctx: r2.LoadContext,
   version: ParsedVersion,
@@ -86,4 +98,25 @@ export async function loadSchemaJson(
   const inline = getInlineBundle(version.canonical)
   if (inline) return inline.schemaJson
   return r2.loadSchemaJson(ctx, version)
+}
+
+export async function loadSymbolSvg(
+  ctx: r2.LoadContext,
+  version: ParsedVersion,
+  symbolId: string,
+): Promise<string | null> {
+  const inline = getInlineBundle(version.canonical)
+  if (inline) return inline.symbols[symbolId] ?? null
+  return r2.loadSymbolSvg(ctx, version, symbolId)
+}
+
+export async function loadComposedIconSvg(
+  ctx: r2.LoadContext,
+  version: ParsedVersion,
+  elementId: string,
+  variant: string,
+): Promise<string | null> {
+  const inline = getInlineBundle(version.canonical)
+  if (inline) return inline.composedIcons[`${elementId}/${variant}`] ?? null
+  return r2.loadComposedIconSvg(ctx, version, elementId, variant)
 }

@@ -3,6 +3,8 @@ import { env } from 'cloudflare:test'
 import { parseVersion } from '../../cli/lib/version-parser.ts'
 import {
   loadCategories,
+  loadCategory,
+  loadComposedIconSvg,
   loadDatachainType,
   loadElement,
   loadElements,
@@ -10,18 +12,21 @@ import {
   loadSchemaJson,
   loadSearchIndex,
   loadSchemaIndex,
+  loadSymbolSvg,
   registerInlineBundle,
   _resetInlineBundles,
   type SchemaIndex,
 } from '../../src/store/index.ts'
 import {
   categoriesKey,
+  composedIconKey,
   datachainTypeKey,
   elementKey,
   elementsKey,
   manifestKey,
   schemaJsonKey,
   searchIndexKey,
+  symbolKey,
   INDEX_KEY,
 } from '../../src/store/keys.ts'
 
@@ -200,6 +205,8 @@ describe('inline-bundle fallback', () => {
       elements: [sampleElement] as never,
       schemaJson: { Inline: true },
       searchIndexesByLocale: { en: '{"inline":1}' },
+      symbols: {},
+      composedIcons: {},
     })
     // Note: bucket is empty. If routing is correct, every loader returns
     // inline data without a single R2 call.
@@ -212,5 +219,184 @@ describe('inline-bundle fallback', () => {
     expect(missing).toBeNull()
     const search = await loadSearchIndex({ bucket: env.CONTENT }, STABLE_VERSION, 'en')
     expect(search).toBe('{"inline":1}')
+  })
+})
+
+describe('keys: symbolKey / composedIconKey', () => {
+  it('symbolKey builds schemas/<dir>/symbols/<id>.svg', () => {
+    const v = parseVersion('ai@2026-04-16-beta')
+    expect(symbolKey(v, 'signal')).toBe('schemas/ai/2026-04-16-beta/symbols/signal.svg')
+  })
+
+  it('composedIconKey builds schemas/<dir>/icons/<element>/<variant>.svg', () => {
+    const v = parseVersion('ai@2026-04-16-beta')
+    expect(composedIconKey(v, 'accept_deny', 'dark')).toBe(
+      'schemas/ai/2026-04-16-beta/icons/accept_deny/dark.svg',
+    )
+  })
+
+  it('symbolKey / composedIconKey for stable version directory', () => {
+    const v = parseVersion('ai@2026-04-16')
+    expect(symbolKey(v, 'anomaly')).toBe('schemas/ai/2026-04-16/symbols/anomaly.svg')
+    expect(composedIconKey(v, 'accept_deny', 'default')).toBe(
+      'schemas/ai/2026-04-16/icons/accept_deny/default.svg',
+    )
+  })
+})
+
+describe('r2-loader: loadSymbolSvg / loadComposedIconSvg', () => {
+  it('loadSymbolSvg returns the raw SVG text from R2', async () => {
+    const svg = '<svg xmlns="http://www.w3.org/2000/svg"><path d="M0 0" /></svg>'
+    await env.CONTENT.put(symbolKey(STABLE_VERSION, 'signal'), svg)
+    const r = await loadSymbolSvg({ bucket: env.CONTENT }, STABLE_VERSION, 'signal')
+    expect(r).toBe(svg)
+  })
+
+  it('loadSymbolSvg returns null for a missing symbol', async () => {
+    const r = await loadSymbolSvg({ bucket: env.CONTENT }, STABLE_VERSION, 'missing')
+    expect(r).toBeNull()
+  })
+
+  it('loadComposedIconSvg returns the raw SVG text from R2', async () => {
+    const svg = '<svg><g></g></svg>'
+    await env.CONTENT.put(composedIconKey(STABLE_VERSION, 'accept_deny', 'dark'), svg)
+    const r = await loadComposedIconSvg(
+      { bucket: env.CONTENT },
+      STABLE_VERSION,
+      'accept_deny',
+      'dark',
+    )
+    expect(r).toBe(svg)
+  })
+
+  it('loadComposedIconSvg returns null for a missing composed icon', async () => {
+    const r = await loadComposedIconSvg(
+      { bucket: env.CONTENT },
+      STABLE_VERSION,
+      'accept_deny',
+      'nope',
+    )
+    expect(r).toBeNull()
+  })
+})
+
+describe('inline-bundle: symbols + composedIcons', () => {
+  it('loadSymbolSvg returns inline SVG when registered', async () => {
+    registerInlineBundle(STABLE_VERSION.canonical, {
+      manifest: sampleManifest as never,
+      datachainType: { id: 'ai' } as never,
+      categories: [sampleCategory] as never,
+      elements: [sampleElement] as never,
+      schemaJson: {},
+      searchIndexesByLocale: {},
+      symbols: { signal: '<svg data-inline="signal"/>' },
+      composedIcons: {},
+    })
+    const r = await loadSymbolSvg({ bucket: env.CONTENT }, STABLE_VERSION, 'signal')
+    expect(r).toBe('<svg data-inline="signal"/>')
+  })
+
+  it('loadSymbolSvg returns null for an unknown inline symbol id', async () => {
+    registerInlineBundle(STABLE_VERSION.canonical, {
+      manifest: sampleManifest as never,
+      datachainType: { id: 'ai' } as never,
+      categories: [sampleCategory] as never,
+      elements: [sampleElement] as never,
+      schemaJson: {},
+      searchIndexesByLocale: {},
+      symbols: {},
+      composedIcons: {},
+    })
+    const r = await loadSymbolSvg({ bucket: env.CONTENT }, STABLE_VERSION, 'missing')
+    expect(r).toBeNull()
+  })
+
+  it('loadComposedIconSvg returns inline SVG keyed by <element>/<variant>', async () => {
+    registerInlineBundle(STABLE_VERSION.canonical, {
+      manifest: sampleManifest as never,
+      datachainType: { id: 'ai' } as never,
+      categories: [sampleCategory] as never,
+      elements: [sampleElement] as never,
+      schemaJson: {},
+      searchIndexesByLocale: {},
+      symbols: {},
+      composedIcons: { 'accept_deny/dark': '<svg data-inline="ad-dark"/>' },
+    })
+    const r = await loadComposedIconSvg(
+      { bucket: env.CONTENT },
+      STABLE_VERSION,
+      'accept_deny',
+      'dark',
+    )
+    expect(r).toBe('<svg data-inline="ad-dark"/>')
+  })
+
+  it('loadComposedIconSvg returns null for an unknown inline (element, variant) pair', async () => {
+    registerInlineBundle(STABLE_VERSION.canonical, {
+      manifest: sampleManifest as never,
+      datachainType: { id: 'ai' } as never,
+      categories: [sampleCategory] as never,
+      elements: [sampleElement] as never,
+      schemaJson: {},
+      searchIndexesByLocale: {},
+      symbols: {},
+      composedIcons: {},
+    })
+    const r = await loadComposedIconSvg(
+      { bucket: env.CONTENT },
+      STABLE_VERSION,
+      'accept_deny',
+      'dark',
+    )
+    expect(r).toBeNull()
+  })
+})
+
+describe('store: loadCategory singular loader', () => {
+  it('returns the category by id from R2 when no inline bundle is registered', async () => {
+    await putJson(env.CONTENT, categoriesKey(STABLE_VERSION), [sampleCategory])
+    const r = await loadCategory({ bucket: env.CONTENT }, STABLE_VERSION, 'ai__decision')
+    expect(r?.id).toBe('ai__decision')
+  })
+
+  it('returns null for an unknown category id (R2 path)', async () => {
+    await putJson(env.CONTENT, categoriesKey(STABLE_VERSION), [sampleCategory])
+    const r = await loadCategory({ bucket: env.CONTENT }, STABLE_VERSION, 'nope')
+    expect(r).toBeNull()
+  })
+
+  it('returns null when categories are missing entirely', async () => {
+    const r = await loadCategory({ bucket: env.CONTENT }, STABLE_VERSION, 'ai__decision')
+    expect(r).toBeNull()
+  })
+
+  it('returns the category by id from an inline bundle', async () => {
+    registerInlineBundle(STABLE_VERSION.canonical, {
+      manifest: sampleManifest as never,
+      datachainType: { id: 'ai' } as never,
+      categories: [sampleCategory] as never,
+      elements: [sampleElement] as never,
+      schemaJson: {},
+      searchIndexesByLocale: {},
+      symbols: {},
+      composedIcons: {},
+    })
+    const r = await loadCategory({ bucket: env.CONTENT }, STABLE_VERSION, 'ai__decision')
+    expect(r?.id).toBe('ai__decision')
+  })
+
+  it('returns null from inline bundle for unknown id', async () => {
+    registerInlineBundle(STABLE_VERSION.canonical, {
+      manifest: sampleManifest as never,
+      datachainType: { id: 'ai' } as never,
+      categories: [sampleCategory] as never,
+      elements: [sampleElement] as never,
+      schemaJson: {},
+      searchIndexesByLocale: {},
+      symbols: {},
+      composedIcons: {},
+    })
+    const r = await loadCategory({ bucket: env.CONTENT }, STABLE_VERSION, 'nope')
+    expect(r).toBeNull()
   })
 })

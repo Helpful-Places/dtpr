@@ -67,12 +67,15 @@ interface UploadOptions {
 
 const CONTENT_TYPE_BY_EXT: Record<string, string> = {
   '.json': 'application/json',
+  '.svg': 'image/svg+xml',
 }
 
-function contentTypeFor(filename: string): string {
+export function contentTypeFor(filename: string): string {
   const ext = filename.slice(filename.lastIndexOf('.'))
   return CONTENT_TYPE_BY_EXT[ext] ?? 'application/octet-stream'
 }
+
+export { walkFiles }
 
 async function walkFiles(root: string): Promise<string[]> {
   const out: string[] = []
