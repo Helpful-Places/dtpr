@@ -60,6 +60,19 @@ The Data Chain is a hierarchical information model that uses the taxonomy to pre
 
 To accompany the downloadable assets in this GitHub repository, the [**DTPR Standard Guide**](https://helpful-places.gitbook.io/a-guide-to-dtpr) was created to assist those looking to deploy this open-source standard in public spaces by explaining how the standard works, and the underlying research and rationale for its design.
 
+## Claude Code plugin
+
+A Claude Code plugin ships in this repository under [`plugin/dtpr/`](plugin/dtpr/README.md). It bundles two agent skills (describing an AI system as a DTPR datachain; brainstorming the DTPR taxonomy itself) and auto-registers the remote DTPR MCP at `https://api.dtpr.io/mcp`.
+
+Install with:
+
+```
+/plugin marketplace add Helpful-Places/dtpr
+/plugin install dtpr
+```
+
+See [`plugin/dtpr/README.md`](plugin/dtpr/README.md) for the skill summaries and troubleshooting notes.
+
 ## Original Co-Design Session Materials
 
 The DTPR standard was created through an open development process, including co-design and consultation sessions with global experts and with the general public. The materials and facilitation guide created to run those co-design sessions can be found [here](https://github.com/Helpful-Places/dtpr/tree/main/resources/codesignkit).

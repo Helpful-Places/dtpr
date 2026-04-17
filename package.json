@@ -9,6 +9,7 @@
     "build:api": "pnpm --filter ./api build",
     "deploy:api": "pnpm --filter ./api deploy",
     "test:api": "pnpm --filter ./api test",
+    "test:plugin": "node plugin/dtpr/evals/verify.mjs",
     "types:api": "pnpm --filter ./api types",
     "dev:studio": "pnpm --filter ./studio dev",
     "build:studio": "pnpm --filter ./studio build"

@@ -1,0 +1,89 @@
+name: API preview deploy
+on:
+  pull_request:
+    types: [labeled, synchronize]
+
+# Only run when the PR carries the `schema:preview` label. The job-level
+# `if` guard is also copied on every job so an unlabeled `synchronize`
+# event does not waste a runner.
+concurrency:
+  group: api-deploy-preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Deploy preview worker + atomic R2 upload
+    if: contains(github.event.pull_request.labels.*.name, 'schema:preview')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      # Resolve the newest beta version in the repo. Preview deploys
+      # always target the in-flight draft, so hardcoding a version
+      # would go stale the first time the current beta is promoted.
+      # Directory layout is <type>/<YYYY-MM-DD>-beta; lexicographic
+      # sort equals date sort.
+      - name: Resolve newest beta schema version
+        id: schema
+        working-directory: api/schemas
+        run: |
+          set -euo pipefail
+          dir=$(find . -maxdepth 2 -type d -name '*-beta' | sort | tail -1 | sed 's|^\./||')
+          if [ -z "$dir" ]; then
+            echo "::error::No beta schema version found under api/schemas/"
+            exit 1
+          fi
+          version=$(echo "$dir" | sed 's|/|@|')
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "Using schema version: $version"
+
+      # Re-run the test + typecheck on the deploy artifact. The preview
+      # path is label-gated, so slipping a broken artifact through here
+      # would still surface as a PR-blocking signal before the deploy.
+      - run: pnpm --filter ./api typecheck
+      - run: pnpm --filter ./api test
+
+      # Validate + build the bundle that we're about to publish.
+      - run: pnpm --filter ./api schema:build "${{ steps.schema.outputs.version }}"
+
+      - name: Deploy worker (preview)
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN_PREVIEW }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: api
+          command: deploy --env preview
+
+      - name: Atomic R2 upload (preview)
+        working-directory: api
+        env:
+          R2_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID_PREVIEW }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY_PREVIEW }}
+          R2_BUCKET: dtpr-api-preview
+        run: pnpm tsx scripts/r2-upload.ts "${{ steps.schema.outputs.version }}"
+
+      - name: Post-deploy smoke tests
+        run: |
+          set -euo pipefail
+
+          echo "::group::healthz"
+          curl -fsS https://api-preview.dtpr.io/healthz | tee /tmp/healthz
+          grep -q '"ok":true' /tmp/healthz
+          echo "::endgroup::"
+
+          echo "::group::noindex header"
+          headers=$(curl -sSI https://api-preview.dtpr.io/healthz)
+          echo "$headers"
+          if ! printf '%s\n' "$headers" | tr -d '\r' | grep -i -q '^x-robots-tag: noindex, nofollow$'; then
+            echo "::error::Preview response missing X-Robots-Tag: noindex, nofollow"
+            exit 1
+          fi
+          echo "::endgroup::"

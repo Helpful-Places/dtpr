@@ -48,6 +48,9 @@
           "custom_domain": true
         }
       ],
+      "vars": {
+        "ENVIRONMENT": "preview"
+      },
       "limits": {
         "cpu_ms": 500
       },

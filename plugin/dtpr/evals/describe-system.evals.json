@@ -1,0 +1,48 @@
+{
+  "skill": "dtpr-describe-system",
+  "description": "Baseline eval prompts. should_trigger entries must invoke the skill; should_not_trigger entries must not. Compatible with skill-creator's run_loop.py.",
+  "should_trigger": [
+    {
+      "id": "parking-kiosk",
+      "prompt": "Describe our facial-recognition parking kiosk at the downtown garage as a DTPR datachain."
+    },
+    {
+      "id": "library-checkout",
+      "prompt": "We're deploying a library self-checkout kiosk that scans library cards and photographs items. Make a DTPR datachain for it."
+    },
+    {
+      "id": "311-chatbot",
+      "prompt": "Document our 311 chatbot — it uses an LLM to triage citizen complaints and route them to a department. I need a transparency artifact."
+    },
+    {
+      "id": "resume-screener",
+      "prompt": "Our HR team is piloting an AI resume screener. What would DTPR say about this system?"
+    },
+    {
+      "id": "gunshot-detector",
+      "prompt": "City contracted with a vendor that streams microphone data through a classifier to detect gunshots. I need to disclose how it works to the public."
+    }
+  ],
+  "should_not_trigger": [
+    {
+      "id": "refactor-ts",
+      "prompt": "Help me refactor this TypeScript function to use Result types."
+    },
+    {
+      "id": "fix-ci",
+      "prompt": "My GitHub Actions workflow is failing on the lint step. Help me debug it."
+    },
+    {
+      "id": "explain-regex",
+      "prompt": "What does this regex do: ^[a-z]+(?:-[a-z]+)*$ ?"
+    },
+    {
+      "id": "sql-query",
+      "prompt": "Write a SQL query to find the top 10 customers by order total in the last quarter."
+    },
+    {
+      "id": "brainstorm-taxonomy",
+      "prompt": "DTPR doesn't have a good category for LLM hallucination disclosure — help me think through whether we should add one."
+    }
+  ]
+}
