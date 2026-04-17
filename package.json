@@ -12,7 +12,9 @@
     "test:plugin": "node plugin/dtpr/evals/verify.mjs",
     "types:api": "pnpm --filter ./api types",
     "dev:studio": "pnpm --filter ./studio dev",
-    "build:studio": "pnpm --filter ./studio build"
+    "build:studio": "pnpm --filter ./studio build",
+    "build:ui": "pnpm --filter @dtpr/ui build",
+    "test:ui": "pnpm --filter @dtpr/ui test"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
