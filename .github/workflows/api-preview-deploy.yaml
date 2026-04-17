@@ -25,6 +25,12 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
+      # @dtpr/api/schema + @dtpr/api/validator ship via tsup-compiled dist/;
+      # @dtpr/ui's three subpaths ship via Vite library mode. Both must be
+      # built before `tsc --noEmit` can resolve the subpath imports.
+      - run: pnpm --filter ./api build:schema
+      - run: pnpm --filter @dtpr/ui build
+
       # Resolve the newest beta version in the repo. Preview deploys
       # always target the in-flight draft, so hardcoding a version
       # would go stale the first time the current beta is promoted.
