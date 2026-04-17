@@ -68,6 +68,32 @@ export function createApp(options: CreateAppOptions = {}) {
   app.use('/api/v2/schemas/:version/categories', timeout({ budgetMs: readBudget }))
   app.use('/api/v2/schemas/:version/elements', timeout({ budgetMs: readBudget }))
   app.use('/api/v2/schemas/:version/elements/:element_id', timeout({ budgetMs: readBudget }))
+  // Icon-serving routes — enumerated explicitly for the same reason
+  // the JSON routes above are: the read-budget timeout is mounted
+  // per-route rather than on `'*'` to keep it from racing the longer
+  // validate budget. The composed-icon routes (Unit 8) are pre-wired
+  // here so mounting them later doesn't require an app.ts edit.
+  // `.svg`-suffix routes. Hono's default param regex allows dots, so
+  // a segment like `:shape.svg` binds a single param whose value is
+  // `hexagon.svg`; the `rest/routes.ts` handlers strip the suffix in
+  // code rather than relying on the router. These mount patterns
+  // mirror the route patterns in `rest/routes.ts` exactly — drifting
+  // one from the other silently disables the wall-clock budget on the
+  // affected route. The composed-icon variants (Unit 8) are
+  // pre-mounted here so Unit 8 doesn't have to touch `app.ts`.
+  app.use('/api/v2/shapes/:shape.svg', timeout({ budgetMs: readBudget }))
+  app.use(
+    '/api/v2/schemas/:version/symbols/:symbol_id.svg',
+    timeout({ budgetMs: readBudget }),
+  )
+  app.use(
+    '/api/v2/schemas/:version/elements/:element_id/icon.svg',
+    timeout({ budgetMs: readBudget }),
+  )
+  app.use(
+    '/api/v2/schemas/:version/elements/:element_id/icon.:variant.svg',
+    timeout({ budgetMs: readBudget }),
+  )
   app.use('/mcp', timeout({ budgetMs: readBudget }))
 
   // Rate limits (two buckets — validate is tighter). Middleware is a
