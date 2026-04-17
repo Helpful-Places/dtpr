@@ -1,4 +1,5 @@
 import { describe, it, expect, beforeAll } from 'vitest'
+import { SELF } from 'cloudflare:test'
 import { SAMPLE_VERSION, seedVersion } from './seed.ts'
 import { createMcpClient, structured, type ToolCallResult } from './mcp-client.ts'
 
@@ -46,6 +47,50 @@ interface BulkPayload {
 
 beforeAll(async () => {
   await seedVersion()
+})
+
+describe('MCP: jsonrpc version validation', () => {
+  async function postRaw(payload: unknown): Promise<{ status: number; body: Record<string, unknown> }> {
+    const res = await SELF.fetch('https://example.com/mcp', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json, text/event-stream',
+      },
+      body: JSON.stringify(payload),
+    })
+    const body = (await res.json()) as Record<string, unknown>
+    return { status: res.status, body }
+  }
+
+  it('rejects jsonrpc:"1.0" with INVALID_REQUEST', async () => {
+    const { body } = await postRaw({ jsonrpc: '1.0', id: 1, method: 'initialize' })
+    const err = body.error as { code: number; message: string } | undefined
+    expect(err?.code).toBe(-32600)
+    expect(err?.message).toMatch(/jsonrpc/i)
+    expect(body.id).toBe(1)
+  })
+
+  it('rejects requests missing the jsonrpc field with INVALID_REQUEST', async () => {
+    const { body } = await postRaw({ id: 2, method: 'initialize' })
+    const err = body.error as { code: number; message: string } | undefined
+    expect(err?.code).toBe(-32600)
+    expect(err?.message).toMatch(/jsonrpc/i)
+    expect(body.id).toBe(2)
+  })
+
+  it('rejects per-entry in batch requests', async () => {
+    const { body } = await postRaw([
+      { jsonrpc: '2.0', id: 10, method: 'ping' },
+      { jsonrpc: '1.0', id: 11, method: 'ping' },
+    ])
+    const arr = body as unknown as Array<Record<string, unknown>>
+    expect(Array.isArray(arr)).toBe(true)
+    const ok = arr.find((r) => r.id === 10)
+    const bad = arr.find((r) => r.id === 11)
+    expect(ok?.result).toBeDefined()
+    expect((bad?.error as { code: number } | undefined)?.code).toBe(-32600)
+  })
 })
 
 describe('MCP: handshake + tools/list', () => {

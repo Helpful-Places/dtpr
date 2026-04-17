@@ -50,8 +50,23 @@ export function createApp(options: CreateAppOptions = {}) {
 
   // POST .../validate gets the longer wall-clock budget; everything
   // else (including the MCP read paths) uses the read budget.
+  //
+  // Important: the read-budget timeout is mounted on each non-validate
+  // route explicitly rather than on `'*'`. Hono runs middleware in
+  // mount order, and the two timeouts do not nest cleanly — both
+  // `Promise.race` timers run concurrently, so the shorter (read)
+  // budget would always fire first if it also matched validate,
+  // silently capping validate at 2 s instead of 5 s. A cold-cache
+  // validate request hitting several R2 reads could then trip a
+  // spurious 504 before its real budget expired.
   app.use('/api/v2/schemas/:version/validate', timeout({ budgetMs: validateBudget }))
-  app.use('*', timeout({ budgetMs: readBudget }))
+  app.use('/healthz', timeout({ budgetMs: readBudget }))
+  app.use('/api/v2/schemas', timeout({ budgetMs: readBudget }))
+  app.use('/api/v2/schemas/:version/manifest', timeout({ budgetMs: readBudget }))
+  app.use('/api/v2/schemas/:version/categories', timeout({ budgetMs: readBudget }))
+  app.use('/api/v2/schemas/:version/elements', timeout({ budgetMs: readBudget }))
+  app.use('/api/v2/schemas/:version/elements/:element_id', timeout({ budgetMs: readBudget }))
+  app.use('/mcp', timeout({ budgetMs: readBudget }))
 
   // Rate limits (two buckets — validate is tighter). Middleware is a
   // no-op when the bindings are absent, so dev / test / preview

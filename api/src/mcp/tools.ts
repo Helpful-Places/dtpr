@@ -41,8 +41,8 @@ import {
 
 /** Cap on bulk `get_elements` requests. Keeps the corpus shippable in one call. */
 export const GET_ELEMENTS_MAX = 100
-/** Per-id length cap inside `get_elements`. */
-export const ELEMENT_ID_MAX_LEN = 128
+/** Per-id length cap inside `get_elements`. Enforced by the input schema. */
+const ELEMENT_ID_MAX_LEN = 128
 
 const DEFAULT_LIST_FIELDS = ['id', 'title', 'category_ids'] as const
 
@@ -393,19 +393,6 @@ function getElementsTool(ctx: LoadContext): ToolDef {
     handler: async (raw) => {
       try {
         const args = inputSchema.parse(raw)
-        for (const id of args.element_ids) {
-          if (id.length > ELEMENT_ID_MAX_LEN) {
-            return toToolResult(
-              errEnvelope([
-                {
-                  code: 'element_id_too_long',
-                  message: `element_id '${id.slice(0, 32)}…' exceeds ${ELEMENT_ID_MAX_LEN} chars.`,
-                  fix_hint: `Provide ids ≤${ELEMENT_ID_MAX_LEN} chars.`,
-                },
-              ]),
-            )
-          }
-        }
         const dedup = Array.from(new Set(args.element_ids))
         if (dedup.length > GET_ELEMENTS_MAX) {
           return toToolResult(

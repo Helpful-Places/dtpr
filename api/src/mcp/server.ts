@@ -68,6 +68,11 @@ async function dispatch(
   body: JsonRpcRequest,
 ): Promise<JsonRpcResponse | null> {
   const { id, method, params } = body
+  // Per JSON-RPC 2.0 spec, the `jsonrpc` member MUST be exactly "2.0".
+  // Reject requests that omit it or send a different version (e.g. "1.0").
+  if (body.jsonrpc !== '2.0') {
+    return rpcError(id ?? null, ERR.INVALID_REQUEST, 'Invalid or missing `jsonrpc` version; must be "2.0"')
+  }
   if (typeof method !== 'string' || method.length === 0) {
     return rpcError(id ?? null, ERR.INVALID_REQUEST, 'Missing method')
   }
