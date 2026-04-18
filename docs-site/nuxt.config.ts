@@ -7,6 +7,8 @@ export default defineNuxtConfig({
     name: 'Digital Trust for Places & Routines',
   },
 
+  ogImage: { enabled: false },
+
   studio: {
     repository: {
       provider: 'github',

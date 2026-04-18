@@ -5,6 +5,8 @@ export default defineNuxtConfig({
     name: 'DTPR for AI',
   },
 
+  ogImage: { enabled: false },
+
   $production: {
     nitro: {
       preset: 'cloudflare-module',
