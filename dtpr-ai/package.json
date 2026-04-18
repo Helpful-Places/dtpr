@@ -1,0 +1,17 @@
+{
+  "name": "dtpr-ai",
+  "private": true,
+  "scripts": {
+    "build": "NODE_OPTIONS=--max-old-space-size=4096 nuxt build",
+    "dev": "nuxt dev",
+    "preview": "nuxt preview"
+  },
+  "dependencies": {
+    "@nuxt/ui": "^4.5.1",
+    "docus": "latest",
+    "nuxt": "^4.0.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.83.0"
+  }
+}

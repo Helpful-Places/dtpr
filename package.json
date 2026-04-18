@@ -3,9 +3,11 @@
   "scripts": {
     "dev:app": "pnpm --filter ./app dev",
     "dev:docs": "pnpm --filter ./docs-site dev",
+    "dev:dtpr-ai": "pnpm --filter ./dtpr-ai dev",
     "dev:api": "pnpm --filter ./api dev",
     "build:app": "pnpm --filter ./app build",
     "build:docs": "pnpm --filter ./docs-site build",
+    "build:dtpr-ai": "pnpm --filter ./dtpr-ai build",
     "build:api": "pnpm --filter ./api build",
     "deploy:api": "pnpm --filter ./api deploy",
     "test:api": "pnpm --filter ./api test",
