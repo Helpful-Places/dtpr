@@ -5,21 +5,33 @@ import { HEXAGON_FALLBACK_DATA_URI } from './icons.js'
 import type { ElementDisplay, ElementDisplayVariable, VariableType } from './types.js'
 
 /**
- * Options for `deriveElementDisplay`. Reserved for future extension
- * (e.g. custom fallback icon, custom fallback locale). Currently
- * accepts `fallbackLocale` to override the default `'en'` chain.
+ * Options for `deriveElementDisplay`.
+ *
+ *  - `fallbackLocale` overrides the default `'en'` fallback chain used
+ *    when the requested locale has no entry.
+ *  - `iconUrl` supplies the composed-icon URL (resolved externally — see
+ *    the `/elements/:id/icon.svg` REST route or MCP `get_icon_url` tool).
+ *    The element schema no longer carries an icon field; consumers that
+ *    do not supply one get `HEXAGON_FALLBACK_DATA_URI` so tiles always
+ *    render something.
+ *  - `iconAlt` overrides the default alt text. Defaults to the resolved
+ *    element title, which screen readers already hear adjacent to the
+ *    icon in both `<DtprElement>` and `<DtprElementDetail>`.
  */
 export interface DeriveElementDisplayOptions {
   fallbackLocale?: string
+  iconUrl?: string
+  iconAlt?: string
 }
 
 /**
  * Merge an element definition with an optional datachain-instance
  * placement and a locale, yielding display-ready strings + variables
  * for the presentation layer. All localized fields (title, description,
- * citation, icon.alt_text) are resolved via `extract`. `icon.url` falls
- * back to `HEXAGON_FALLBACK_DATA_URI` when empty/missing so consumers
- * always render a visible tile.
+ * citation) are resolved via `extract`. Icons are resolved externally
+ * — callers pass `options.iconUrl` (e.g. the URL returned by the REST
+ * `/elements/:id/icon.svg` route) and fall back to
+ * `HEXAGON_FALLBACK_DATA_URI` when none is supplied.
  *
  * `variables` merges the element's declared variables with the values
  * supplied by `instance`. Each entry preserves `required` from the
@@ -40,10 +52,11 @@ export function deriveElementDisplay(
   const title = extract(element.title, locale, fallbackLocale)
   const citation = extract(element.citation, locale, fallbackLocale)
   const rawDescription = extract(element.description, locale, fallbackLocale)
-  const iconAlt = extract(element.icon?.alt_text, locale, fallbackLocale)
-  const iconUrl = element.icon?.url && element.icon.url.length > 0
-    ? element.icon.url
-    : HEXAGON_FALLBACK_DATA_URI
+  const iconUrl =
+    options.iconUrl && options.iconUrl.length > 0
+      ? options.iconUrl
+      : HEXAGON_FALLBACK_DATA_URI
+  const iconAlt = options.iconAlt ?? title
 
   const instanceVarValues = new Map<string, string>()
   const instanceVariables = instance?.variables ?? []

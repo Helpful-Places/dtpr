@@ -31,6 +31,7 @@ function baseSource(): SchemaVersionSource {
         required: true,
         order: 1,
         datachain_type: 'ai',
+        shape: 'hexagon',
         element_variables: [],
       },
       {
@@ -41,6 +42,7 @@ function baseSource(): SchemaVersionSource {
         required: false,
         order: 2,
         datachain_type: 'ai',
+        shape: 'circle',
         element_variables: [
           {
             id: 'retention_period',
@@ -53,23 +55,27 @@ function baseSource(): SchemaVersionSource {
     elements: [
       {
         id: 'accept_deny',
-        category_ids: ['ai__decision'],
+        category_id: 'ai__decision',
         title: [loc('en', 'Accept or deny')],
         description: [loc('en', 'Binary yes/no decision.')],
         citation: [],
-        icon: { url: '/icons/a.svg', format: 'svg', alt_text: [loc('en', 'icon')] },
+        symbol_id: 'accept_deny',
         variables: [],
       },
       {
         id: 'cloud_storage',
-        category_ids: ['ai__storage'],
+        category_id: 'ai__storage',
         title: [loc('en', 'Cloud storage')],
         description: [loc('en', 'Data held for {{retention_period}}.')],
         citation: [],
-        icon: { url: '/icons/b.svg', format: 'svg', alt_text: [loc('en', 'icon')] },
+        symbol_id: 'cloud',
         variables: [],
       },
     ],
+    symbols: {
+      accept_deny: '<svg xmlns="http://www.w3.org/2000/svg"/>',
+      cloud: '<svg xmlns="http://www.w3.org/2000/svg"/>',
+    },
   }
 }
 
