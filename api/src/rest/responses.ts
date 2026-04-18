@@ -80,6 +80,57 @@ export function setVersionHeaders(c: Context, manifest: SchemaManifest): void {
   c.header('Cache-Control', cacheControlFor(manifest))
 }
 
+export interface IconCacheHeaderOptions {
+  /**
+   * Whether the response body is a pre-baked asset (R2 point-read hit)
+   * or a freshly composed fallback. Defaults to `true`.
+   *
+   * For beta versions, pre-baked hits cache for an hour while on-the-
+   * fly composition caches for only 60 s so iteration on symbol or
+   * shape content stays cheap to roll out. Stable releases are
+   * immutable regardless — the miss path should not even fire for a
+   * promoted version in steady state.
+   */
+  prebaked?: boolean
+}
+
+/**
+ * Cache-Control + hash headers for icon-serving routes (shape
+ * primitives, symbols, composed icons).
+ *
+ *  - No `manifest` (shape primitives): always `immutable`; shapes are
+ *    bundled with the worker code and only change with a deploy.
+ *  - Stable release: `immutable` — content_hash is part of the
+ *    version string so the cache key is implicitly invalidated on
+ *    promotion.
+ *  - Beta release, pre-baked hit: `max-age=3600` — long enough to
+ *    amortize R2 reads under a CDN, short enough that an authoring
+ *    iteration propagates within an hour without a cache purge.
+ *  - Beta release, fallback (miss): `max-age=60` — production traffic
+ *    on this path indicates a stale build or an invalid variant, so a
+ *    short TTL keeps the blast radius small.
+ *
+ * Also stamps `DTPR-Content-Hash` so clients that pin on the hash can
+ * detect content drift without re-fetching the manifest.
+ */
+export function setIconCacheHeaders(
+  c: Context,
+  manifest?: SchemaManifest,
+  opts: IconCacheHeaderOptions = {},
+): void {
+  if (!manifest) {
+    c.header('Cache-Control', 'public, max-age=31536000, immutable')
+    return
+  }
+  c.header('DTPR-Content-Hash', manifest.content_hash)
+  if (manifest.status === 'stable') {
+    c.header('Cache-Control', 'public, max-age=31536000, immutable')
+    return
+  }
+  const prebaked = opts.prebaked ?? true
+  c.header('Cache-Control', prebaked ? 'public, max-age=3600' : 'public, max-age=60')
+}
+
 /**
  * Project an object down to a subset of its top-level fields. `id` is
  * always retained so callers can correlate compact rows with the full
@@ -106,7 +157,7 @@ export function projectFields<T extends { id: string }>(
  * Parse a `?fields=a,b,c` query param. Returns `'all'` when the param
  * value is the literal `'all'`. Returns null for missing — the caller
  * picks an endpoint-appropriate default (e.g. `['id', 'title',
- * 'category_ids']` for `/elements`).
+ * 'category_id']` for `/elements`).
  */
 export function parseFieldsParam(raw?: string | null): readonly string[] | 'all' | null {
   if (raw === undefined || raw === null) return null

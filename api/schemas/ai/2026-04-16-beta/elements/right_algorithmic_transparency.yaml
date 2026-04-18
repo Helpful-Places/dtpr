@@ -1,6 +1,5 @@
 id: right_algorithmic_transparency
-category_ids:
-  - ai__rights
+category_id: ai__rights
 title:
   - locale: en
     value: Right to Algorithmic Transparency
@@ -52,20 +51,5 @@ description:
       kahihinatnan. Ang impormasyong ito ay dapat ibigay sa malinaw at simpleng wika na nagbibigay-daan sa iyong
       maunawaan kung paano gumagana ang system at kung paano ito nakarating sa isang partikular na desisyon.
 citation: []
-icon:
-  url: /dtpr-icons/rights_algorithmic-transparency.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Right to Algorithmic Transparency icon
-    - locale: es
-      value: Derecho a la transparencia algorítmica icon
-    - locale: fr
-      value: Droit à la transparence algorithmique icon
-    - locale: km
-      value: សិទ្ធិចំពោះតម្លាភាពនៃក្បួនដោះស្រាយ icon
-    - locale: pt
-      value: Direito à transparência algorítmica icon
-    - locale: tl
-      value: Karapatan sa Algorithmic Transparency icon
+symbol_id: rights_algorithmic-transparency
 variables: []

@@ -1,6 +1,5 @@
 id: time-series-forecasting
-category_ids:
-  - ai__processing
+category_id: ai__processing
 title:
   - locale: en
     value: Time Series Forecasting
@@ -52,20 +51,5 @@ description:
       upang makagawa ng mga hula tungkol sa mga kaganapan o gawi sa hinaharap. Kasama sa mga karaniwang application ang
       pagtataya ng panahon, paghula sa stock market, pagpaplano ng demand, at pamamahala ng mapagkukunan.
 citation: []
-icon:
-  url: /dtpr-icons/processing_time-series-forecasting.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Time Series Forecasting icon
-    - locale: es
-      value: Previsión de series temporales icon
-    - locale: fr
-      value: Prévision des séries temporelles icon
-    - locale: km
-      value: ការព្យាករណ៍ស៊េរីពេលវេលា icon
-    - locale: pt
-      value: Previsão de séries temporais icon
-    - locale: tl
-      value: Pagtataya ng Serye ng Oras icon
+symbol_id: processing_time-series-forecasting
 variables: []

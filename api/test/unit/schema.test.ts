@@ -9,11 +9,6 @@ import {
 } from '../../src/schema/index.ts'
 
 const loc = (locale: string, value: string) => ({ locale, value })
-const icon = () => ({
-  url: '/dtpr-icons/foo.svg',
-  format: 'svg',
-  alt_text: [loc('en', 'Foo icon')],
-})
 
 describe('LocaleValueSchema', () => {
   it('accepts a supported locale code', () => {
@@ -32,20 +27,29 @@ describe('LocaleValueSchema', () => {
 describe('ElementSchema', () => {
   const base = {
     id: 'accept_deny',
-    category_ids: ['ai__decision'],
+    category_id: 'ai__decision',
     title: [loc('en', 'Accept or deny')],
     description: [loc('en', 'Binary yes/no decision.')],
-    icon: icon(),
+    symbol_id: 'signal',
   }
 
   it('parses a minimal element with defaults', () => {
     const el = ElementSchema.parse(base)
     expect(el.citation).toEqual([])
     expect(el.variables).toEqual([])
+    expect(el.symbol_id).toBe('signal')
+    expect(el.category_id).toBe('ai__decision')
   })
 
-  it('rejects an element with 0 category_ids', () => {
-    const result = ElementSchema.safeParse({ ...base, category_ids: [] })
+  it('rejects an element with an empty category_id', () => {
+    const result = ElementSchema.safeParse({ ...base, category_id: '' })
+    expect(result.success).toBe(false)
+  })
+
+  it('rejects an element carrying a legacy category_ids array', () => {
+    const { category_id: _discard, ...rest } = base
+    const result = ElementSchema.safeParse({ ...rest, category_ids: ['ai__decision'] })
+    // Missing the required singular `category_id`; Zod fails.
     expect(result.success).toBe(false)
   })
 
@@ -60,9 +64,33 @@ describe('ElementSchema', () => {
     expect(result.success).toBe(false)
   })
 
-  it('rejects element with invalid icon (empty url)', () => {
-    const result = ElementSchema.safeParse({ ...base, icon: { ...icon(), url: '' } })
+  it('rejects element missing symbol_id', () => {
+    const { symbol_id: _symbol, ...noSymbol } = base
+    const result = ElementSchema.safeParse(noSymbol)
     expect(result.success).toBe(false)
+  })
+
+  it('rejects symbol_id with invalid chars like "/"', () => {
+    const result = ElementSchema.safeParse({ ...base, symbol_id: 'symbols/signal' })
+    expect(result.success).toBe(false)
+  })
+
+  it('rejects symbol_id with an extension like ".svg"', () => {
+    const result = ElementSchema.safeParse({ ...base, symbol_id: 'signal.svg' })
+    expect(result.success).toBe(false)
+  })
+
+  it('ignores a stray icon field rather than failing (non-strict schema)', () => {
+    // The schema does not use .strict(), so unknown fields (including a
+    // legacy `icon:` object) parse through and are silently dropped.
+    const parsed = ElementSchema.safeParse({
+      ...base,
+      icon: { url: '/dtpr-icons/foo.svg', format: 'svg', alt_text: [loc('en', 'x')] },
+    })
+    expect(parsed.success).toBe(true)
+    if (parsed.success) {
+      expect((parsed.data as Record<string, unknown>).icon).toBeUndefined()
+    }
   })
 })
 
@@ -72,6 +100,7 @@ describe('CategorySchema', () => {
     name: [loc('en', 'Decision Type')],
     description: [loc('en', 'Type of decision being made.')],
     datachain_type: 'ai',
+    shape: 'hexagon',
   }
 
   it('parses a minimal category with defaults', () => {
@@ -81,6 +110,26 @@ describe('CategorySchema', () => {
     expect(cat.element_variables).toEqual([])
     expect(cat.prompt).toEqual([])
     expect(cat.context).toBeUndefined()
+    expect(cat.shape).toBe('hexagon')
+  })
+
+  it('rejects a category missing shape', () => {
+    const { shape: _shape, ...noShape } = base
+    const result = CategorySchema.safeParse(noShape)
+    expect(result.success).toBe(false)
+  })
+
+  it('rejects an unknown shape with valid-values surfaced by Zod', () => {
+    const result = CategorySchema.safeParse({ ...base, shape: 'triangle' })
+    expect(result.success).toBe(false)
+    if (!result.success) {
+      const msg = result.error.issues.map((i) => i.message).join(' ')
+      // Zod's enum error includes the list of valid options.
+      expect(msg).toMatch(/hexagon/)
+      expect(msg).toMatch(/circle/)
+      expect(msg).toMatch(/rounded-square/)
+      expect(msg).toMatch(/octagon/)
+    }
   })
 
   it('accepts an optional context block with values', () => {

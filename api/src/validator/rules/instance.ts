@@ -8,7 +8,7 @@ import { err } from '../types.ts'
  * context of its pinned SchemaVersionSource.
  *
  * Rule 4: context_type_id on an instance element must be a value defined
- *         on one of the parent category's context.values.
+ *         on the parent category's context.values.
  * Rule 7: required categories must have at least one element in the instance.
  * Rule 9: each instance variable id must be declared on the element's
  *         category element_variables.
@@ -23,17 +23,15 @@ export function checkInstance(
   const categoryById = new Map(source.categories.map((c) => [c.id, c] as const))
   const elementById = new Map(source.elements.map((e) => [e.id, e] as const))
 
-  // Helper: collected variable definitions for an element (from all its categories, deduped).
+  // Helper: collected variable definitions for an element (from its category).
   const variablesForElement = (elementId: string): Map<string, Variable> => {
     const out = new Map<string, Variable>()
     const el = elementById.get(elementId)
     if (!el) return out
-    for (const catId of el.category_ids) {
-      const cat = categoryById.get(catId)
-      if (!cat) continue
-      for (const v of cat.element_variables) {
-        if (!out.has(v.id)) out.set(v.id, v)
-      }
+    const cat = categoryById.get(el.category_id)
+    if (!cat) return out
+    for (const v of cat.element_variables) {
+      if (!out.has(v.id)) out.set(v.id, v)
     }
     return out
   }
@@ -42,7 +40,7 @@ export function checkInstance(
   const instanceCategoryIds = new Set<string>()
   for (const ie of instance.elements) {
     const el = elementById.get(ie.element_id)
-    if (el) for (const cid of el.category_ids) instanceCategoryIds.add(cid)
+    if (el) instanceCategoryIds.add(el.category_id)
   }
   for (const [ci, cat] of source.categories.entries()) {
     if (cat.required && !instanceCategoryIds.has(cat.id)) {
@@ -51,8 +49,8 @@ export function checkInstance(
           'REQUIRED_CATEGORY_MISSING',
           `Instance is missing at least one element from required category '${cat.id}'`,
           {
-            path: `instance.elements[].category_ids`,
-            fix_hint: `Add at least one element whose category_ids include '${cat.id}' (category defined at categories[${ci}]).`,
+            path: `instance.elements[].category_id`,
+            fix_hint: `Add at least one element whose category_id is '${cat.id}' (category defined at categories[${ci}]).`,
           },
         ),
       )
@@ -86,25 +84,18 @@ export function checkInstance(
       )
     }
 
-    // Rule 4: context_type_id must match a value defined on one of the parent categories.
+    // Rule 4: context_type_id must match a value defined on the parent category.
     if (ie.context_type_id) {
-      let matched = false
-      for (const catId of el.category_ids) {
-        const cat = categoryById.get(catId)
-        if (!cat?.context) continue
-        if (cat.context.values.some((v) => v.id === ie.context_type_id)) {
-          matched = true
-          break
-        }
-      }
+      const cat = categoryById.get(el.category_id)
+      const matched = !!cat?.context?.values.some((v) => v.id === ie.context_type_id)
       if (!matched) {
         findings.push(
           err(
             'CONTEXT_TYPE_UNKNOWN',
-            `Element '${el.id}' context_type_id '${ie.context_type_id}' is not defined on any of its categories' contexts`,
+            `Element '${el.id}' context_type_id '${ie.context_type_id}' is not defined on its category '${el.category_id}' context`,
             {
               path: `instance.elements[${ii}].context_type_id`,
-              fix_hint: `Pick a context value defined on one of '${el.category_ids.join(", ")}' (see get_element).`,
+              fix_hint: `Pick a context value defined on '${el.category_id}' (see get_element).`,
             },
           ),
         )
@@ -119,10 +110,10 @@ export function checkInstance(
         findings.push(
           err(
             'INSTANCE_VARIABLE_UNKNOWN',
-            `Element '${el.id}' instance variable '${iv.id}' is not declared on any of its categories`,
+            `Element '${el.id}' instance variable '${iv.id}' is not declared on its category`,
             {
               path: `instance.elements[${ii}].variables[${vi}].id`,
-              fix_hint: `Remove the variable or declare it on one of this element's categories (${el.category_ids.join(", ")}).`,
+              fix_hint: `Remove the variable or declare it on this element's category (${el.category_id}).`,
             },
           ),
         )

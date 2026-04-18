@@ -1,7 +1,5 @@
 id: values_time
-category_ids:
-  - ai__input_dataset
-  - ai__output_dataset
+category_id: ai__input_dataset
 title:
   - locale: en
     value: Values / Time
@@ -31,20 +29,5 @@ description:
   - locale: tl
     value: Ang mga pagsukat na nakolekta sa mga regular na agwat sa loob ng isang panahon.
 citation: []
-icon:
-  url: /dtpr-icons/values_time.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Values / Time icon
-    - locale: es
-      value: Valores / tiempo icon
-    - locale: fr
-      value: Valeurs / Temps icon
-    - locale: km
-      value: តម្លៃ / ពេលវេលា icon
-    - locale: pt
-      value: Valores / Tempo icon
-    - locale: tl
-      value: Mga halaga / oras icon
+symbol_id: values_time
 variables: []

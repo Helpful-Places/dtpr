@@ -37,3 +37,15 @@ export function searchIndexKey(version: ParsedVersion, locale: LocaleCode): stri
 export function schemaJsonKey(version: ParsedVersion): string {
   return `schemas/${version.dir}/schema.json`
 }
+
+export function symbolKey(version: ParsedVersion, symbolId: string): string {
+  return `schemas/${version.dir}/symbols/${symbolId}.svg`
+}
+
+export function composedIconKey(
+  version: ParsedVersion,
+  elementId: string,
+  variant: string,
+): string {
+  return `schemas/${version.dir}/icons/${elementId}/${variant}.svg`
+}

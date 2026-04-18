@@ -1,7 +1,5 @@
 id: binary
-category_ids:
-  - ai__input_dataset
-  - ai__output_dataset
+category_id: ai__input_dataset
 title:
   - locale: en
     value: Binary
@@ -29,20 +27,5 @@ description:
   - locale: tl
     value: Naka -compress na data sa isang format na binary.
 citation: []
-icon:
-  url: /dtpr-icons/binary.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Binary icon
-    - locale: es
-      value: Binario icon
-    - locale: fr
-      value: Binaire icon
-    - locale: km
-      value: ខេស icon
-    - locale: pt
-      value: Binário icon
-    - locale: tl
-      value: Binary icon
+symbol_id: binary
 variables: []

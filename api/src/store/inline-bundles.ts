@@ -28,6 +28,10 @@ export interface InlineBundle {
   schemaJson: Record<string, unknown>
   /** Serialized MiniSearch index per locale (raw JSON strings). */
   searchIndexesByLocale: Partial<Record<LocaleCode, string>>
+  /** Symbol SVGs keyed by `symbol_id`. */
+  symbols: Record<string, string>
+  /** Composed icon SVGs keyed by `<element_id>/<variant>`. */
+  composedIcons: Record<string, string>
 }
 
 const REGISTRY = new Map<string, InlineBundle>()

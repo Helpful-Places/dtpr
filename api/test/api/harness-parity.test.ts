@@ -48,9 +48,11 @@ describe('harness parity: response shape + fingerprint', () => {
     expect(categoriesFingerprint(parsed)).toMatchInlineSnapshot(`
       [
         {
-          "context_value_ids": [],
+          "context_value_ids": [
+            "ai_only",
+          ],
           "datachain_type": "ai",
-          "has_context": false,
+          "has_context": true,
           "id": "ai__decision",
           "locales": [
             "en",
@@ -58,6 +60,7 @@ describe('harness parity: response shape + fingerprint', () => {
           ],
           "order": 1,
           "required": true,
+          "shape": "hexagon",
           "variable_ids": [],
         },
       ]
@@ -72,9 +75,7 @@ describe('harness parity: response shape + fingerprint', () => {
     expect(elementsFingerprint(parsed)).toMatchInlineSnapshot(`
       [
         {
-          "category_ids": [
-            "ai__decision",
-          ],
+          "category_id": "ai__decision",
           "id": "accept_deny",
           "locales": [
             "en",
@@ -83,9 +84,7 @@ describe('harness parity: response shape + fingerprint', () => {
           "variable_ids": [],
         },
         {
-          "category_ids": [
-            "ai__decision",
-          ],
+          "category_id": "ai__decision",
           "id": "anomaly_detection",
           "locales": [
             "en",
@@ -94,9 +93,7 @@ describe('harness parity: response shape + fingerprint', () => {
           "variable_ids": [],
         },
         {
-          "category_ids": [
-            "ai__decision",
-          ],
+          "category_id": "ai__decision",
           "id": "identifiable_video",
           "locales": [
             "en",

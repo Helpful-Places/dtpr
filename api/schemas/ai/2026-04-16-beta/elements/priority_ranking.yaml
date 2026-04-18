@@ -1,6 +1,5 @@
 id: priority_ranking
-category_ids:
-  - ai__decision
+category_id: ai__decision
 title:
   - locale: en
     value: Priority ranking
@@ -55,20 +54,5 @@ description:
       mga halimbawa ang pagsubok sa pagtugon sa emerhensiya, pag-order ng tiket sa serbisyo sa customer, pag-iskedyul ng
       kahilingan sa pagpapanatili, o mga priyoridad sa pagpopondo ng pampublikong proyekto.
 citation: []
-icon:
-  url: /dtpr-icons/dm_priority-ranking.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Priority ranking icon
-    - locale: es
-      value: Clasificación prioritaria icon
-    - locale: fr
-      value: Classement des priorités icon
-    - locale: km
-      value: ចំណាត់ថ្នាក់អាទិភាព icon
-    - locale: pt
-      value: Classificação de prioridades icon
-    - locale: tl
-      value: Priyoridad na ranggo icon
+symbol_id: dm_priority-ranking
 variables: []

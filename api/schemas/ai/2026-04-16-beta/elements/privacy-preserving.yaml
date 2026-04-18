@@ -1,6 +1,5 @@
 id: privacy-preserving
-category_ids:
-  - ai__processing
+category_id: ai__processing
 title:
   - locale: en
     value: Privacy-Preserving Transformation
@@ -63,20 +62,5 @@ description:
       teknolohiya ay karaniwang lumilikha ng isang hadlang sa pagitan ng hilaw na nakolektang data at ang impormasyong
       ginagamit para sa paggawa ng desisyon.
 citation: []
-icon:
-  url: /dtpr-icons/processing_privacy-preservoing-transformation.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Privacy-Preserving Transformation icon
-    - locale: es
-      value: Transformación para preservar la intimidad icon
-    - locale: fr
-      value: Transformation préservant la vie privée icon
-    - locale: km
-      value: ភាពឯកជន-ការរក្សាការផ្លាស់ប្តូរ icon
-    - locale: pt
-      value: Transformação com preservação da privacidade icon
-    - locale: tl
-      value: Pagbabagong Pagpapanatili ng Privacy icon
+symbol_id: processing_privacy-preservoing-transformation
 variables: []

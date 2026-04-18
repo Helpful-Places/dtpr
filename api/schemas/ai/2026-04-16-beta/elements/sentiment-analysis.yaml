@@ -1,6 +1,5 @@
 id: sentiment-analysis
-category_ids:
-  - ai__processing
+category_id: ai__processing
 title:
   - locale: en
     value: Sentiment Analysis
@@ -60,20 +59,5 @@ description:
       gumagana ang teknolohiya sa pamamagitan ng pagtukoy ng mga emosyonal na tagapagpahiwatig at paghahambing ng mga
       ito sa mga sinanay na modelo ng mga pattern ng damdamin.
 citation: []
-icon:
-  url: /dtpr-icons/processing_sentiment-analysis.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Sentiment Analysis icon
-    - locale: es
-      value: Análisis del sentimiento icon
-    - locale: fr
-      value: Analyse des sentiments icon
-    - locale: km
-      value: ការវិភាគអារម្មណ៍ icon
-    - locale: pt
-      value: Análise de sentimento icon
-    - locale: tl
-      value: Pagsusuri ng Sentimento icon
+symbol_id: processing_sentiment-analysis
 variables: []

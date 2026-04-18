@@ -1,6 +1,5 @@
 id: arts_culture
-category_ids:
-  - ai__purpose
+category_id: ai__purpose
 title:
   - locale: en
     value: Arts & Culture
@@ -30,20 +29,5 @@ description:
   - locale: tl
     value: Nagbibigay-daan sa pagiging malikhain at/o pagpapahayag ng kultura.
 citation: []
-icon:
-  url: /dtpr-icons/arts_culture.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Arts & Culture icon
-    - locale: es
-      value: Artes y cultura icon
-    - locale: fr
-      value: Arts et culture icon
-    - locale: km
-      value: សិល្បៈនិងវប្បធម៌ icon
-    - locale: pt
-      value: Artes e cultura icon
-    - locale: tl
-      value: Sining at Kultura icon
+symbol_id: arts_culture
 variables: []

@@ -1,7 +1,5 @@
 id: personal
-category_ids:
-  - ai__input_dataset
-  - ai__output_dataset
+category_id: ai__input_dataset
 title:
   - locale: en
     value: Personal
@@ -29,20 +27,5 @@ description:
   - locale: tl
     value: Impormasyon tungkol sa mga nakikilalang indibidwal.
 citation: []
-icon:
-  url: /dtpr-icons/personal.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Personal icon
-    - locale: es
-      value: Personal icon
-    - locale: fr
-      value: Personnel icon
-    - locale: km
-      value: សេនាធិការ icon
-    - locale: pt
-      value: Pessoal icon
-    - locale: tl
-      value: Personal icon
+symbol_id: personal
 variables: []

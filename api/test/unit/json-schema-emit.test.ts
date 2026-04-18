@@ -24,7 +24,7 @@ describe('emitJsonSchema', () => {
     // Top-level description from .describe() on ElementSchema itself.
     expect(emitted.description).toContain('DTPR element tile')
     // Nested field descriptions propagate.
-    expect(emitted.properties?.category_ids?.description).toMatch(/Category ids/i)
+    expect(emitted.properties?.category_id?.description).toMatch(/Category id/i)
   })
 
   it('emitAllContentSchemas returns every top-level schema', () => {

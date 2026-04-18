@@ -1,6 +1,5 @@
 id: institution
-category_ids:
-  - ai__accountable
+category_id: ai__accountable
 title:
   - locale: en
     value: Institution
@@ -28,20 +27,5 @@ description:
   - locale: tl
     value: Ang entidad na responsible at may pananagutan para sa aktibidad sa koleksyon ng datos na ito
 citation: []
-icon:
-  url: /dtpr-icons/institution.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Institution icon
-    - locale: es
-      value: Institución icon
-    - locale: fr
-      value: Institution icon
-    - locale: km
-      value: ការបង្កាត់ icon
-    - locale: pt
-      value: Instituição icon
-    - locale: tl
-      value: Institusyon icon
+symbol_id: institution
 variables: []

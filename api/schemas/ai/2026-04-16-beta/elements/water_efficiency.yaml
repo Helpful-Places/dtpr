@@ -1,6 +1,5 @@
 id: water_efficiency
-category_ids:
-  - ai__purpose
+category_id: ai__purpose
 title:
   - locale: en
     value: Water Efficiency
@@ -36,20 +35,5 @@ description:
       Binabawasan ang paggamit ng tubig at/o tumutulong sa pag-iingat ng tubig. Alamin ang higit pa tungkol sa kahusayan
       ng tubig at pag-iingat, at berdeng imprastraktura.
 citation: []
-icon:
-  url: /dtpr-icons/water_efficiency.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Water Efficiency icon
-    - locale: es
-      value: Eficiencia de agua icon
-    - locale: fr
-      value: Efficacité de l'eau icon
-    - locale: km
-      value: ប្រសិទ្ធភាពទឹក icon
-    - locale: pt
-      value: Eficiência hídrica icon
-    - locale: tl
-      value: Kahusayan ng tubig icon
+symbol_id: water_efficiency
 variables: []

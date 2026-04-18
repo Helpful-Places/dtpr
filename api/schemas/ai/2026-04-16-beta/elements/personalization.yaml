@@ -1,6 +1,5 @@
 id: personalization
-category_ids:
-  - ai__decision
+category_id: ai__decision
 title:
   - locale: en
     value: Personalization
@@ -53,20 +52,5 @@ description:
       personal na data upang i-customize ang mga karanasan. Kasama sa mga halimbawa ang mga rekomendasyon sa nilalaman,
       mga personalized na landas sa pag-aaral, o mga naka-target na komunikasyon mula sa mga pampublikong serbisyo.
 citation: []
-icon:
-  url: /dtpr-icons/dm_personalization.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Personalization icon
-    - locale: es
-      value: Personalización icon
-    - locale: fr
-      value: Personnalisation icon
-    - locale: km
-      value: ការកំណត់ផ្ទាល់ខ្លួន icon
-    - locale: pt
-      value: Personalização icon
-    - locale: tl
-      value: Personalization icon
+symbol_id: dm_personalization
 variables: []

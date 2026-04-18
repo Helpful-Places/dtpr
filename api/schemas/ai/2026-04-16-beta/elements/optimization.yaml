@@ -1,6 +1,5 @@
 id: optimization
-category_ids:
-  - ai__processing
+category_id: ai__processing
 title:
   - locale: en
     value: Optimization Algorithm
@@ -51,20 +50,5 @@ description:
       Gumagana ang mga algorithm na ito sa pamamagitan ng sistematikong pagsusuri ng iba't ibang mga posibilidad upang
       i-maximize o i-minimize ang mga partikular na resulta tulad ng gastos, oras, o mga mapagkukunan.
 citation: []
-icon:
-  url: /dtpr-icons/processing_optimization-algorithm.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Optimization Algorithm icon
-    - locale: es
-      value: Algoritmo de optimización icon
-    - locale: fr
-      value: Algorithme d'optimisation icon
-    - locale: km
-      value: ក្បួនដោះស្រាយការបង្កើនប្រសិទ្ធភាព icon
-    - locale: pt
-      value: Algoritmo de otimização icon
-    - locale: tl
-      value: Algorithm ng Pag-optimize icon
+symbol_id: processing_optimization-algorithm
 variables: []

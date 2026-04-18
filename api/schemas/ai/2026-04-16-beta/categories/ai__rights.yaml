@@ -41,6 +41,7 @@ prompt:
 required: false
 order: 11
 datachain_type: ai
+shape: octagon
 element_variables:
   - id: rights
     label:

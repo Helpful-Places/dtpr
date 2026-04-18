@@ -87,37 +87,75 @@ function bundle(enRaw: string, esRaw?: string): LocaleBundle {
 // ---- Element transform tests ----
 
 describe('transformElement — characterization', () => {
-  it('AI-only element: ports with categories intact', () => {
+  it('AI-only element: ports with singular category_id intact', () => {
     const warnings: MigrationWarning[] = []
     const el = transformElement('list-ai__decision__accept_deny.md', bundle(aiOnlyEn, aiOnlyEs), warnings)
     expect(el).not.toBeNull()
     expect(el!.id).toBe('accept_deny')
-    expect(el!.category_ids).toEqual(['ai__decision'])
+    expect(el!.category_id).toBe('ai__decision')
     expect(el!.title).toEqual([
       { locale: 'en', value: 'Accept or deny' },
       { locale: 'es', value: 'Aceptar o denegar' },
     ])
     expect(el!.citation).toEqual([]) // seeded empty
-    expect(el!.icon.url).toBe('/dtpr-icons/dm_accept-or-deny.svg')
-    expect(el!.icon.format).toBe('svg')
     expect(warnings).toEqual([])
   })
 
-  it('AI-only element: drops element-level context_type_id, symbol, updated_at', () => {
+  it('AI-only element: derives symbol_id from v1 symbol path basename', () => {
     const warnings: MigrationWarning[] = []
     const el = transformElement('list-ai__decision__accept_deny.md', bundle(aiOnlyEn), warnings)
-    // The emitted element shape has no context_type_id / symbol / updated_at fields at all.
+    expect(el!.symbol_id).toBe('dm_accept-or-deny')
+  })
+
+  it('simple signal.svg symbol path → symbol_id "signal"', () => {
+    const en = `---
+category:
+  - ai__processing
+name: Wireless access
+id: wireless_access
+description: Signal-based element.
+icon: /dtpr-icons/signal.svg
+symbol: /dtpr-icons/symbols/signal.svg
+---
+`
+    const warnings: MigrationWarning[] = []
+    const el = transformElement('tech__wireless_access_point.md', bundle(en), warnings)
+    expect(el!.symbol_id).toBe('signal')
+  })
+
+  it('AI-only element: emits no legacy icon / category_ids / context_type_id / symbol / updated_at keys', () => {
+    const warnings: MigrationWarning[] = []
+    const el = transformElement('list-ai__decision__accept_deny.md', bundle(aiOnlyEn), warnings)
     const keys = Object.keys(el as unknown as Record<string, unknown>)
+    expect(keys).not.toContain('icon')
+    expect(keys).not.toContain('category_ids')
     expect(keys).not.toContain('context_type_id')
     expect(keys).not.toContain('symbol')
     expect(keys).not.toContain('updated_at')
   })
 
-  it('shared element: strips device__* from category_ids', () => {
+  it('shared element: collapses category list to first ai__* entry', () => {
     const warnings: MigrationWarning[] = []
     const el = transformElement('access__available_for_resale.md', bundle(sharedEn, sharedEs), warnings)
     expect(el).not.toBeNull()
-    expect(el!.category_ids).toEqual(['ai__access'])
+    expect(el!.category_id).toBe('ai__access')
+  })
+
+  it('element with [device__data, ai__input_dataset]: picks ai__input_dataset', () => {
+    const en = `---
+category:
+  - device__data
+  - ai__input_dataset
+name: Sensor data
+id: sensor_data
+description: Shared element.
+icon: /dtpr-icons/sensor.svg
+symbol: /dtpr-icons/symbols/sensor.svg
+---
+`
+    const warnings: MigrationWarning[] = []
+    const el = transformElement('data__sensor_data.md', bundle(en), warnings)
+    expect(el!.category_id).toBe('ai__input_dataset')
   })
 
   it('shared element: trims trailing whitespace on title values', () => {
@@ -141,20 +179,29 @@ describe('transformElement — characterization', () => {
   })
 
   it('missing title (0-byte source for all locales): emits warning, returns null', () => {
-    const emptyFm = parseFrontmatter('---\nid: foo\ncategory:\n  - ai__decision\nicon: /x.svg\n---\n')
+    const emptyFm = parseFrontmatter(
+      '---\nid: foo\ncategory:\n  - ai__decision\nicon: /x.svg\nsymbol: /dtpr-icons/symbols/x.svg\n---\n',
+    )
     const warnings: MigrationWarning[] = []
     const el = transformElement('empty.md', { en: emptyFm }, warnings)
     expect(el).toBeNull()
     expect(warnings.some((w) => w.code === 'ELEMENT_NO_TITLE')).toBe(true)
   })
 
-  it('icon alt_text is built per-locale from the title with " icon" suffix', () => {
+  it('missing v1 symbol field: emits ELEMENT_NO_SYMBOL warning and returns null', () => {
+    const en = `---
+category:
+  - ai__decision
+name: No symbol here
+id: no_symbol
+description: Has no symbol path.
+icon: /dtpr-icons/no_symbol.svg
+---
+`
     const warnings: MigrationWarning[] = []
-    const el = transformElement('list-ai__decision__accept_deny.md', bundle(aiOnlyEn, aiOnlyEs), warnings)
-    expect(el!.icon.alt_text).toEqual([
-      { locale: 'en', value: 'Accept or deny icon' },
-      { locale: 'es', value: 'Aceptar o denegar icon' },
-    ])
+    const el = transformElement('no_symbol.md', bundle(en), warnings)
+    expect(el).toBeNull()
+    expect(warnings.some((w) => w.code === 'ELEMENT_NO_SYMBOL')).toBe(true)
   })
 })
 
@@ -238,6 +285,65 @@ describe('transformCategory — characterization', () => {
       { locale: 'en', value: 'Description' },
       { locale: 'es', value: 'Descripción' },
     ])
+  })
+
+  it('ai__decision: emits shape "hexagon" from AI_CATEGORY_SHAPE_MAP', () => {
+    const warnings: MigrationWarning[] = []
+    const cat = transformCategory('ai__decision.md', bundle(decisionCategoryEn, decisionCategoryEs), warnings)
+    expect(cat!.shape).toBe('hexagon')
+  })
+
+  it('ai__input_dataset: emits shape "circle"', () => {
+    const en = `---
+id: ai__input_dataset
+name: Input Dataset
+description: The data used as input.
+datachain_type: ai
+---
+`
+    const warnings: MigrationWarning[] = []
+    const cat = transformCategory('ai__input_dataset.md', bundle(en), warnings)
+    expect(cat!.shape).toBe('circle')
+  })
+
+  it('ai__rights: emits shape "octagon"', () => {
+    const en = `---
+id: ai__rights
+name: Rights
+description: User rights over AI.
+datachain_type: ai
+---
+`
+    const warnings: MigrationWarning[] = []
+    const cat = transformCategory('ai__rights.md', bundle(en), warnings)
+    expect(cat!.shape).toBe('octagon')
+  })
+
+  it('ai__access: emits shape "rounded-square"', () => {
+    const en = `---
+id: ai__access
+name: Access
+description: Access patterns.
+datachain_type: ai
+---
+`
+    const warnings: MigrationWarning[] = []
+    const cat = transformCategory('ai__access.md', bundle(en), warnings)
+    expect(cat!.shape).toBe('rounded-square')
+  })
+
+  it('unknown ai__* category: throws with an actionable message', () => {
+    const en = `---
+id: ai__unknown_new_category
+name: Brand New Category
+description: Not yet mapped.
+datachain_type: ai
+---
+`
+    const warnings: MigrationWarning[] = []
+    expect(() => transformCategory('ai__unknown_new_category.md', bundle(en), warnings)).toThrow(
+      /AI_CATEGORY_SHAPE_MAP/,
+    )
   })
 })
 

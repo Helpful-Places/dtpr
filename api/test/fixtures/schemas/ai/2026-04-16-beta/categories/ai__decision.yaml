@@ -9,6 +9,7 @@ prompt: []
 required: true
 order: 1
 datachain_type: ai
+shape: hexagon
 element_variables: []
 context:
   id: level_of_autonomy

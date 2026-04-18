@@ -1,6 +1,5 @@
 id: backed_up_locally
-category_ids:
-  - ai__storage
+category_id: ai__storage
 title:
   - locale: en
     value: Backed up locally
@@ -30,20 +29,5 @@ description:
   - locale: tl
     value: Ang datos ay nai-back up sa hurisdiksyon kung saan nakolekta ito.
 citation: []
-icon:
-  url: /dtpr-icons/backed_up_locally.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Backed up locally icon
-    - locale: es
-      value: Respaldado localmente icon
-    - locale: fr
-      value: Sauvegardé localement icon
-    - locale: km
-      value: បានបម្រុងទុកក្នុងមូលដ្ឋាន icon
-    - locale: pt
-      value: Cópia de segurança local icon
-    - locale: tl
-      value: Naka -back up sa lokal icon
+symbol_id: stored
 variables: []

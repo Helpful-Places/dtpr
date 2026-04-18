@@ -1,6 +1,5 @@
 id: safety_security
-category_ids:
-  - ai__purpose
+category_id: ai__purpose
 title:
   - locale: en
     value: Safety & Security
@@ -43,20 +42,5 @@ description:
       Nagbibigay-daan sa isang ligtas at/o secure na kapaligiran, halimbawa para sa mga layunin ng kaligtasan sa sunog,
       seguridad sa tahanan o pagtiyak ng ligtas na daan sa mga lugar tulad ng mga paliparan o mga kalsada
 citation: []
-icon:
-  url: /dtpr-icons/safety_security.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Safety & Security icon
-    - locale: es
-      value: Seguridad Seguridad icon
-    - locale: fr
-      value: Tranquillité Prévention icon
-    - locale: km
-      value: សុវត្ថិភាពនិងសន្តិសុខ icon
-    - locale: pt
-      value: Segurança e proteção icon
-    - locale: tl
-      value: Kaligtasan at Seguridad icon
+symbol_id: safety_security
 variables: []

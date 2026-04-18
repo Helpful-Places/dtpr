@@ -1,6 +1,5 @@
 id: accept_deny
-category_ids:
-  - ai__decision
+category_id: ai__decision
 title:
   - locale: en
     value: Accept or deny
@@ -8,9 +7,4 @@ description:
   - locale: en
     value: Binary yes/no decision evaluating inputs against criteria.
 citation: []
-icon:
-  url: /dtpr-icons/dm_accept-or-deny.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Accept or deny icon
+symbol_id: accept_deny

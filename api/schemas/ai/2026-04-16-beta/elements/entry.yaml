@@ -1,6 +1,5 @@
 id: entry
-category_ids:
-  - ai__purpose
+category_id: ai__purpose
 title:
   - locale: en
     value: Entry
@@ -30,20 +29,5 @@ description:
   - locale: tl
     value: Sinusuportahan ang pagpapatunay o pagpapatibay upang ma-access ang isang puwang o isang serbisyo.
 citation: []
-icon:
-  url: /dtpr-icons/entry.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Entry icon
-    - locale: es
-      value: Entrada icon
-    - locale: fr
-      value: Entrée icon
-    - locale: km
-      value: ការចុល icon
-    - locale: pt
-      value: Entrada icon
-    - locale: tl
-      value: Pagpasok icon
+symbol_id: entry
 variables: []

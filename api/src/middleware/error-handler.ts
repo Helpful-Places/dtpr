@@ -22,6 +22,7 @@ export function registerErrorHandler(app: Hono<AppEnv>): void {
     const requestId = c.get('requestId')
     if (err instanceof ApiError) {
       return c.json(errorEnvelope(err.errors), err.status, {
+        'Cache-Control': 'no-store',
         ...(requestId ? { 'X-Request-Id': requestId } : {}),
       })
     }
@@ -29,12 +30,14 @@ export function registerErrorHandler(app: Hono<AppEnv>): void {
       logUnhandled(c, err, 'r2_load_error')
       const e = apiErrors.upstreamError(err.key)
       return c.json(errorEnvelope(e.errors), e.status, {
+        'Cache-Control': 'no-store',
         ...(requestId ? { 'X-Request-Id': requestId } : {}),
       })
     }
     logUnhandled(c, err, 'unhandled')
     const e = apiErrors.internal()
     return c.json(errorEnvelope(e.errors), e.status, {
+      'Cache-Control': 'no-store',
       ...(requestId ? { 'X-Request-Id': requestId } : {}),
     })
   })
@@ -43,6 +46,7 @@ export function registerErrorHandler(app: Hono<AppEnv>): void {
     const requestId = c.get('requestId')
     const err = apiErrors.notFound('Route not found.')
     return c.json(errorEnvelope(err.errors), err.status, {
+      'Cache-Control': 'no-store',
       ...(requestId ? { 'X-Request-Id': requestId } : {}),
     })
   })

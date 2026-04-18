@@ -1,6 +1,5 @@
 id: available_for_resale
-category_ids:
-  - ai__access
+category_id: ai__access
 title:
   - locale: en
     value: Available for resale
@@ -28,20 +27,5 @@ description:
   - locale: tl
     value: Ang data na nakolekta ay maaaring ibenta sa iba pang mga 3rd party
 citation: []
-icon:
-  url: /dtpr-icons/available_for_resale.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Available for resale icon
-    - locale: es
-      value: Disponible para reventa icon
-    - locale: fr
-      value: Disponible à la revente icon
-    - locale: km
-      value: អាចប្រើបានសម្រាប់ការប៉ាន់ស្មាន icon
-    - locale: pt
-      value: Disponível para revenda icon
-    - locale: tl
-      value: Magagamit para sa muling pagbebenta icon
+symbol_id: available_for_resale
 variables: []

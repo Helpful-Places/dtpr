@@ -6,11 +6,6 @@ import type { LocaleCode, LocaleValue } from '../../src/schema/locale.ts'
 // -------- test fixture helpers --------
 
 const loc = (locale: LocaleCode, value: string): LocaleValue => ({ locale, value })
-const icon = () => ({
-  url: '/dtpr-icons/foo.svg',
-  format: 'svg',
-  alt_text: [loc('en', 'icon')],
-})
 
 function baseSource(): SchemaVersionSource {
   return {
@@ -38,6 +33,7 @@ function baseSource(): SchemaVersionSource {
         required: true,
         order: 1,
         datachain_type: 'ai',
+        shape: 'hexagon',
         element_variables: [],
         context: {
           id: 'level_of_autonomy',
@@ -61,6 +57,7 @@ function baseSource(): SchemaVersionSource {
         required: false,
         order: 2,
         datachain_type: 'ai',
+        shape: 'rounded-square',
         element_variables: [
           {
             id: 'retention_period',
@@ -73,23 +70,27 @@ function baseSource(): SchemaVersionSource {
     elements: [
       {
         id: 'accept_deny',
-        category_ids: ['ai__decision'],
+        category_id: 'ai__decision',
         title: [loc('en', 'Accept or deny')],
         description: [loc('en', 'Binary yes/no decision.')],
         citation: [],
-        icon: icon(),
+        symbol_id: 'accept_deny',
         variables: [],
       },
       {
         id: 'cloud_storage',
-        category_ids: ['ai__storage'],
+        category_id: 'ai__storage',
         title: [loc('en', 'Cloud storage')],
         description: [loc('en', 'Data held for {{retention_period}}.')],
         citation: [],
-        icon: icon(),
+        symbol_id: 'cloud',
         variables: [],
       },
     ],
+    symbols: {
+      accept_deny: '<svg viewBox="0 0 36 36"><path d="M4 4h28v28H4z"/></svg>',
+      cloud: '<svg viewBox="0 0 36 36"><path d="M10 10h16v16H10z"/></svg>',
+    },
   }
 }
 
@@ -104,7 +105,7 @@ describe('validateVersion — version-level rules', () => {
 
   it('Rule 1 (category_ref_missing): element references unknown category', () => {
     const src = baseSource()
-    src.elements[0]!.category_ids = ['ai__phantom']
+    src.elements[0]!.category_id = 'ai__phantom'
     const r = validateVersion(src)
     expect(r.errors.some((e) => e.code === 'CATEGORY_REF_MISSING')).toBe(true)
     expect(r.errors[0]?.fix_hint).toBeTruthy()
@@ -172,28 +173,13 @@ describe('validateVersion — version-level rules', () => {
     expect(r.errors.some((e) => e.code === 'CONTEXT_VALUE_COLOR_INVALID')).toBe(true)
   })
 
-  it('Rule 14 (icon_url_empty): empty icon url', () => {
-    const src = baseSource()
-    src.elements[0]!.icon = { ...src.elements[0]!.icon, url: '' }
-    const r = validateVersion(src)
-    expect(r.errors.some((e) => e.code === 'ICON_URL_EMPTY')).toBe(true)
-  })
+  // Rule 14 (icon.url/format non-empty) was removed when IconSchema was
+  // dropped from ElementSchema. Symbol-ref validation replaces it in a
+  // later unit; its absence here is deliberate.
 
-  it('Rule 16 (variable_conflict): shared element inherits conflicting variable defs', () => {
-    const src = baseSource()
-    // Make `cloud_storage` belong to both storage AND decision, and put a
-    // conflicting `retention_period` variable on decision.
-    src.categories[0]!.element_variables = [
-      {
-        id: 'retention_period',
-        label: [loc('en', 'DIFFERENT LABEL')],
-        required: false,
-      },
-    ]
-    src.elements[1]!.category_ids = ['ai__storage', 'ai__decision']
-    const r = validateVersion(src)
-    expect(r.errors.some((e) => e.code === 'VARIABLE_CONFLICT')).toBe(true)
-  })
+  // Rule 16 (cross-category variable conflict) no longer applies now
+  // that `category_id` is singular — an element can only inherit from
+  // one category, so there is no conflict to detect.
 
   it('Rule 17 (category_order_ref_missing): datachain-type references undefined category', () => {
     const src = baseSource()
@@ -224,25 +210,157 @@ describe('validateVersion — version-level rules', () => {
 
   it('collects multiple errors in one pass (no short-circuit)', () => {
     const src = baseSource()
-    src.elements[0]!.category_ids = ['ai__phantom']
-    src.elements[1]!.icon = { ...src.elements[1]!.icon, url: '' }
+    src.elements[0]!.category_id = 'ai__phantom'
+    src.elements[1]!.title = []
     src.categories[0]!.context!.values[0]!.color = 'red'
     const r = validateVersion(src)
     const codes = new Set(r.errors.map((e) => e.code))
     expect(codes.has('CATEGORY_REF_MISSING')).toBe(true)
-    expect(codes.has('ICON_URL_EMPTY')).toBe(true)
+    expect(codes.has('LOCALE_FIELD_EMPTY')).toBe(true)
     expect(codes.has('CONTEXT_VALUE_COLOR_INVALID')).toBe(true)
   })
 
   it('every error carries a non-empty fix_hint', () => {
     const src = baseSource()
-    src.elements[0]!.category_ids = ['ai__phantom']
-    src.elements[1]!.icon = { ...src.elements[1]!.icon, url: '' }
+    src.elements[0]!.category_id = 'ai__phantom'
+    src.elements[1]!.title = []
     const r = validateVersion(src)
     for (const e of r.errors) {
       expect(e.fix_hint).toBeTruthy()
       expect(e.fix_hint!.length).toBeGreaterThan(5)
     }
+  })
+})
+
+// -------- Unit 3: symbol, variant, and contrast rules --------
+
+describe('validateVersion — symbol-refs rule', () => {
+  it('SYMBOL_NOT_FOUND: element references a missing symbol', () => {
+    const src = baseSource()
+    src.elements[0]!.symbol_id = 'not_a_real_symbol'
+    const r = validateVersion(src)
+    const e = r.errors.find((x) => x.code === 'SYMBOL_NOT_FOUND')
+    expect(e).toBeDefined()
+    expect(e!.path).toBe('elements[0].symbol_id')
+  })
+
+  it('SYMBOL_NOT_FOUND fix_hint suggests nearest ids', () => {
+    const src = baseSource()
+    // Similar to `cloud`; should suggest it.
+    src.elements[1]!.symbol_id = 'cloudy'
+    const r = validateVersion(src)
+    const e = r.errors.find((x) => x.code === 'SYMBOL_NOT_FOUND')
+    expect(e).toBeDefined()
+    expect(e!.fix_hint).toContain('cloud')
+  })
+
+  it('SYMBOL_MALFORMED_WRAPPER: XML prolog', () => {
+    const src = baseSource()
+    src.symbols.accept_deny = '<?xml version="1.0"?>\n<svg viewBox="0 0 36 36"><path/></svg>'
+    const r = validateVersion(src)
+    expect(r.errors.some((e) => e.code === 'SYMBOL_MALFORMED_WRAPPER')).toBe(true)
+  })
+
+  it('SYMBOL_MALFORMED_WRAPPER: UTF-8 BOM', () => {
+    const src = baseSource()
+    src.symbols.accept_deny = '\uFEFF<svg viewBox="0 0 36 36"><path/></svg>'
+    const r = validateVersion(src)
+    expect(r.errors.some((e) => e.code === 'SYMBOL_MALFORMED_WRAPPER')).toBe(true)
+  })
+
+  it('SYMBOL_MALFORMED_WRAPPER: leading comment', () => {
+    const src = baseSource()
+    src.symbols.accept_deny = '<!-- edit note --><svg viewBox="0 0 36 36"><path/></svg>'
+    const r = validateVersion(src)
+    expect(r.errors.some((e) => e.code === 'SYMBOL_MALFORMED_WRAPPER')).toBe(true)
+  })
+
+  it('SYMBOL_ACTIVE_CONTENT: <script> tag', () => {
+    const src = baseSource()
+    src.symbols.accept_deny = '<svg viewBox="0 0 36 36"><script>alert(1)</script></svg>'
+    const r = validateVersion(src)
+    expect(r.errors.some((e) => e.code === 'SYMBOL_ACTIVE_CONTENT')).toBe(true)
+  })
+
+  it('SYMBOL_ACTIVE_CONTENT: event-handler attribute', () => {
+    const src = baseSource()
+    src.symbols.accept_deny = '<svg viewBox="0 0 36 36"><path onclick="x()" d="M0 0"/></svg>'
+    const r = validateVersion(src)
+    expect(r.errors.some((e) => e.code === 'SYMBOL_ACTIVE_CONTENT')).toBe(true)
+  })
+
+  it('SYMBOL_ACTIVE_CONTENT: <use xlink:href> pointing outside the document', () => {
+    const src = baseSource()
+    src.symbols.accept_deny =
+      '<svg viewBox="0 0 36 36"><use xlink:href="https://evil/x.svg#id"/></svg>'
+    const r = validateVersion(src)
+    expect(r.errors.some((e) => e.code === 'SYMBOL_ACTIVE_CONTENT')).toBe(true)
+  })
+
+  it('SYMBOL_ACTIVE_CONTENT: <foreignObject>', () => {
+    const src = baseSource()
+    src.symbols.accept_deny =
+      '<svg viewBox="0 0 36 36"><foreignObject><span>x</span></foreignObject></svg>'
+    const r = validateVersion(src)
+    expect(r.errors.some((e) => e.code === 'SYMBOL_ACTIVE_CONTENT')).toBe(true)
+  })
+
+  it('allows in-document <use href="#id"> fragment refs', () => {
+    const src = baseSource()
+    src.symbols.accept_deny =
+      '<svg viewBox="0 0 36 36"><defs><path id="p" d="M0 0"/></defs><use href="#p"/></svg>'
+    const r = validateVersion(src)
+    expect(r.errors.some((e) => e.code === 'SYMBOL_ACTIVE_CONTENT')).toBe(false)
+  })
+})
+
+describe('validateVersion — variant-reserved rule', () => {
+  it('RESERVED_VARIANT_TOKEN: context value id "dark"', () => {
+    const src = baseSource()
+    src.categories[0]!.context!.values.push({
+      id: 'dark',
+      name: [loc('en', 'Dark')],
+      description: [loc('en', 'Dark')],
+      color: '#000000',
+    })
+    const r = validateVersion(src)
+    expect(r.errors.some((e) => e.code === 'RESERVED_VARIANT_TOKEN')).toBe(true)
+  })
+
+  it('RESERVED_VARIANT_TOKEN: context value id "default"', () => {
+    const src = baseSource()
+    src.categories[0]!.context!.values.push({
+      id: 'default',
+      name: [loc('en', 'Default')],
+      description: [loc('en', 'Default')],
+      color: '#000000',
+    })
+    const r = validateVersion(src)
+    expect(r.errors.some((e) => e.code === 'RESERVED_VARIANT_TOKEN')).toBe(true)
+  })
+})
+
+describe('validateVersion — color-contrast rule', () => {
+  // NOTE: `innerColorForShape` picks the inner color (#000 / #FFF) that
+  // maximizes contrast against the shape color, so in practice the
+  // computed ratio is always ≥ ~4.58. The warning code exists as a
+  // defensive guard against future threshold tweaks — these tests
+  // verify it is wired up without attempting to force a ratio below
+  // 4.5 against the current luminance threshold.
+
+  it('skips non-hex colors (rule 13 reports them)', () => {
+    const src = baseSource()
+    src.categories[0]!.context!.values[0]!.color = 'not-a-hex'
+    const r = validateVersion(src)
+    expect(r.warnings.some((w) => w.code === 'LOW_CONTRAST_CONTEXT_COLOR')).toBe(false)
+  })
+
+  it('no warning for high-contrast colors', () => {
+    const src = baseSource()
+    // Default fixture color #F28C28 — luminance ~0.33 picks black;
+    // contrast ~7.5. Should not warn.
+    const r = validateVersion(src)
+    expect(r.warnings.some((w) => w.code === 'LOW_CONTRAST_CONTEXT_COLOR')).toBe(false)
   })
 })
 

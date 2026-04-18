@@ -7,12 +7,14 @@ import type { ParsedVersion } from '../../cli/lib/version-parser.ts'
 import { cached, cachedText, type CacheOptions } from './cache-wrapper.ts'
 import {
   categoriesKey,
+  composedIconKey,
   datachainTypeKey,
   elementKey,
   elementsKey,
   manifestKey,
   schemaJsonKey,
   searchIndexKey,
+  symbolKey,
 } from './keys.ts'
 
 /** Default per-version cache TTL for stable versions. 24 hours. */
@@ -148,6 +150,34 @@ export function loadSearchIndex(
   locale: LocaleCode,
 ): Promise<string | null> {
   const key = searchIndexKey(version, locale)
+  return cachedText(key, () => getText(ctx.bucket, key), cacheOptionsFor(version, ctx.ctx))
+}
+
+/**
+ * Load a single symbol SVG as text. Returns the raw UTF-8 string so
+ * callers can stream it straight into a `Response` or pass it to the
+ * composition helper. Returns `null` on R2 miss (caller handles fallback).
+ */
+export function loadSymbolSvg(
+  ctx: LoadContext,
+  version: ParsedVersion,
+  symbolId: string,
+): Promise<string | null> {
+  const key = symbolKey(version, symbolId)
+  return cachedText(key, () => getText(ctx.bucket, key), cacheOptionsFor(version, ctx.ctx))
+}
+
+/**
+ * Load a pre-composed icon SVG as text. Returns `null` on R2 miss so
+ * the route layer can trigger on-the-fly composition fallback.
+ */
+export function loadComposedIconSvg(
+  ctx: LoadContext,
+  version: ParsedVersion,
+  elementId: string,
+  variant: string,
+): Promise<string | null> {
+  const key = composedIconKey(version, elementId, variant)
   return cachedText(key, () => getText(ctx.bucket, key), cacheOptionsFor(version, ctx.ctx))
 }
 

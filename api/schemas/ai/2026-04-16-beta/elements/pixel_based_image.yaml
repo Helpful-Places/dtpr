@@ -1,7 +1,5 @@
 id: pixel_based_image
-category_ids:
-  - ai__input_dataset
-  - ai__output_dataset
+category_id: ai__input_dataset
 title:
   - locale: en
     value: Pixel-based Image
@@ -29,20 +27,5 @@ description:
   - locale: tl
     value: Ang isang digital na imahe ay binubuo ng isang grid ng mga indibidwal na mga pixel.
 citation: []
-icon:
-  url: /dtpr-icons/pixel_based_image.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Pixel-based Image icon
-    - locale: es
-      value: Imagen basada en píxeles icon
-    - locale: fr
-      value: Image basée sur les pixels icon
-    - locale: km
-      value: រូបភាពផ្អែកលើភីកសែល icon
-    - locale: pt
-      value: Imagem baseada em pixels icon
-    - locale: tl
-      value: Imaheng nakabatay sa pixel icon
+symbol_id: pixel_based_image
 variables: []

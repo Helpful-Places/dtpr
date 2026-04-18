@@ -1,6 +1,5 @@
 id: accessibility
-category_ids:
-  - ai__purpose
+category_id: ai__purpose
 title:
   - locale: en
     value: Accessibility
@@ -31,20 +30,5 @@ description:
   - locale: tl
     value: Tinitiyak na ang bawat isa ay may pantay na pag-access sa isang puwang o isang serbisyo.
 citation: []
-icon:
-  url: /dtpr-icons/accessibility.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Accessibility icon
-    - locale: es
-      value: Accesibilidad icon
-    - locale: fr
-      value: Accessibilité icon
-    - locale: km
-      value: ផាបតេមើលចីបហ្ជី icon
-    - locale: pt
-      value: Acessibilidade icon
-    - locale: tl
-      value: Pag -access icon
+symbol_id: accessibility
 variables: []

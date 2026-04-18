@@ -1,6 +1,5 @@
 id: dining
-category_ids:
-  - ai__purpose
+category_id: ai__purpose
 title:
   - locale: en
     value: Dining
@@ -30,20 +29,5 @@ description:
   - locale: tl
     value: Para sa pagbibigay ng mga serbisyo sa pagkain o pagkain.
 citation: []
-icon:
-  url: /dtpr-icons/dining.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Dining icon
-    - locale: es
-      value: Comida icon
-    - locale: fr
-      value: Restauration icon
-    - locale: km
-      value: តុយតុង icon
-    - locale: pt
-      value: Jantar icon
-    - locale: tl
-      value: Kainan icon
+symbol_id: dining
 variables: []

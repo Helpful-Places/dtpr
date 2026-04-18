@@ -1,6 +1,5 @@
 id: right_be_forgotten
-category_ids:
-  - ai__rights
+category_id: ai__rights
 title:
   - locale: en
     value: Right to Be Forgotten
@@ -54,20 +53,5 @@ description:
       karapatang magkaroon ng impormasyon na "hindi matutunan" ng system na hango sa iyong data kung saan posible sa
       teknikal.
 citation: []
-icon:
-  url: /dtpr-icons/rights_forgotten.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Right to Be Forgotten icon
-    - locale: es
-      value: Derecho al olvido icon
-    - locale: fr
-      value: Droit à l'oubli icon
-    - locale: km
-      value: សិទ្ធិ​ត្រូវ​បំភ្លេច icon
-    - locale: pt
-      value: Direito de ser esquecido icon
-    - locale: tl
-      value: Karapatang Makalimutan icon
+symbol_id: rights_forgotten
 variables: []

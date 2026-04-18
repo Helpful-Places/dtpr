@@ -11,7 +11,7 @@ import type { LocaleCode } from '../../src/schema/locale.ts'
 export function buildSearchIndex(elements: Element[], locale: LocaleCode): MiniSearch {
   const index = new MiniSearch({
     fields: ['title', 'description'],
-    storeFields: ['id', 'title', 'category_ids'],
+    storeFields: ['id', 'title', 'category_id'],
     searchOptions: {
       boost: { title: 3 },
       fuzzy: 0.2,
@@ -22,7 +22,7 @@ export function buildSearchIndex(elements: Element[], locale: LocaleCode): MiniS
     id: el.id,
     title: el.title.find((t) => t.locale === locale)?.value ?? '',
     description: el.description.find((d) => d.locale === locale)?.value ?? '',
-    category_ids: el.category_ids,
+    category_id: el.category_id,
   }))
   index.addAll(docs)
   return index

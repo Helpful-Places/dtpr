@@ -41,6 +41,7 @@ prompt:
 required: false
 order: 10
 datachain_type: ai
+shape: octagon
 element_variables:
   - id: mitigation
     label:

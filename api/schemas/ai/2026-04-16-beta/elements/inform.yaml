@@ -1,6 +1,5 @@
 id: inform
-category_ids:
-  - ai__purpose
+category_id: ai__purpose
 title:
   - locale: en
     value: Inform
@@ -30,20 +29,5 @@ description:
       Sinusuportahan ang pagkakaloob ng impormasyon, halimbawa tungkol sa isang lokasyon, isang serbisyo, o upang
       magbigay ng tulong
 citation: []
-icon:
-  url: /dtpr-icons/inform.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Inform icon
-    - locale: es
-      value: Informar icon
-    - locale: fr
-      value: Informer icon
-    - locale: km
-      value: ផ្ដល់ដមនឹង icon
-    - locale: pt
-      value: Informar icon
-    - locale: tl
-      value: Ipagbigay -alam icon
+symbol_id: light_waves
 variables: []

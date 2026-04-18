@@ -1,6 +1,5 @@
 id: wayfinding_services
-category_ids:
-  - ai__purpose
+category_id: ai__purpose
 title:
   - locale: en
     value: Wayfinding & Services
@@ -28,20 +27,5 @@ description:
   - locale: tl
     value: Pinapayagan ang nabigasyon ng isang lokasyon at mga amenity at serbisyo nito.
 citation: []
-icon:
-  url: /dtpr-icons/wayfinding_services.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Wayfinding & Services icon
-    - locale: es
-      value: Wayfinding & Services icon
-    - locale: fr
-      value: Signalisation et services icon
-    - locale: km
-      value: សេវាកម្មនិងសេវាកម្ម icon
-    - locale: pt
-      value: Serviços e sinalética icon
-    - locale: tl
-      value: Paghahanap ng Lugar at mga Serbisyo icon
+symbol_id: light_waves
 variables: []

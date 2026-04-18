@@ -1,6 +1,5 @@
 id: recommendation-systems
-category_ids:
-  - ai__processing
+category_id: ai__processing
 title:
   - locale: en
     value: Recommendation Systems
@@ -63,20 +62,5 @@ description:
       ng mga diskarte sa pag-filter na nagbabalanse ng mga indibidwal na kagustuhan sa mas malawak na mga pattern ng
       paggamit.
 citation: []
-icon:
-  url: /dtpr-icons/processing_recommendation-systems.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Recommendation Systems icon
-    - locale: es
-      value: Sistemas de recomendación icon
-    - locale: fr
-      value: Systèmes de recommandation icon
-    - locale: km
-      value: ប្រព័ន្ធណែនាំ icon
-    - locale: pt
-      value: Sistemas de recomendação icon
-    - locale: tl
-      value: Mga Sistema ng Rekomendasyon icon
+symbol_id: processing_recommendation-systems
 variables: []

@@ -1,6 +1,5 @@
 id: accept_deny
-category_ids:
-  - ai__decision
+category_id: ai__decision
 title:
   - locale: en
     value: Accept or deny
@@ -58,20 +57,5 @@ description:
       aplikasyon para sa serbisyong sibil, pagpasok sa paaralan, pag-apruba ng pautang, o pagpapasiya sa pagiging
       karapat-dapat sa benepisyo.
 citation: []
-icon:
-  url: /dtpr-icons/dm_accept-or-deny.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Accept or deny icon
-    - locale: es
-      value: Aceptar o denegar icon
-    - locale: fr
-      value: Accepter ou refuser icon
-    - locale: km
-      value: ទទួលយកឬបដិសេធ icon
-    - locale: pt
-      value: Aceitar ou negar icon
-    - locale: tl
-      value: Tanggapin o tanggihan icon
+symbol_id: dm_accept-or-deny
 variables: []

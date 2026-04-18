@@ -41,6 +41,7 @@ prompt:
 required: false
 order: 8
 datachain_type: ai
+shape: rounded-square
 element_variables:
   - id: additional_description
     label:

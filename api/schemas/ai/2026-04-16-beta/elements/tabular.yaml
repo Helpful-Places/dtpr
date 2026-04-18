@@ -1,7 +1,5 @@
 id: tabular
-category_ids:
-  - ai__input_dataset
-  - ai__output_dataset
+category_id: ai__input_dataset
 title:
   - locale: en
     value: Tabular
@@ -31,20 +29,5 @@ description:
       Ang mga datos na naka -imbak sa isang talahanayan, kung saan ang mga halaga ay naka -imbak sa mga hilera at
       haligi.
 citation: []
-icon:
-  url: /dtpr-icons/tabular.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Tabular icon
-    - locale: es
-      value: Tabular icon
-    - locale: fr
-      value: Tabulaire icon
-    - locale: km
-      value: តុររយម icon
-    - locale: pt
-      value: Tabular icon
-    - locale: tl
-      value: Tabular icon
+symbol_id: tabular
 variables: []

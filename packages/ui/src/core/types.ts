@@ -10,7 +10,6 @@
 
 export type {
   Element,
-  Icon,
   Category,
   LocaleValue,
   Variable,

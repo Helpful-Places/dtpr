@@ -1,6 +1,5 @@
 id: function_creep
-category_ids:
-  - ai__risks_mitigation
+category_id: ai__risks_mitigation
 title:
   - locale: en
     value: Unforeseen Use or Function Creep
@@ -62,20 +61,5 @@ description:
       mga bagong panganib o pampublikong abiso. Maaari nitong sirain ang tiwala ng publiko at posibleng humantong sa mga
       paggamit na hindi maayos na idinisenyo para sa o nasuri.
 citation: []
-icon:
-  url: /dtpr-icons/risks_unforseen-or-function-creep.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Unforeseen Use or Function Creep icon
-    - locale: es
-      value: Uso imprevisto o aumento de funciones icon
-    - locale: fr
-      value: Utilisation imprévue ou glissement de fonction icon
-    - locale: km
-      value: ការប្រើប្រាស់ដែលមិនបានមើលឃើញទុកជាមុន ឬមុខងារ Creep icon
-    - locale: pt
-      value: Uso imprevisto ou desvio de função icon
-    - locale: tl
-      value: Hindi inaasahang Paggamit o Function Creep icon
+symbol_id: risks_unforseen-or-function-creep
 variables: []

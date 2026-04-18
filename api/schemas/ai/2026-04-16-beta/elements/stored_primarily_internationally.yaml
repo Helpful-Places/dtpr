@@ -1,6 +1,5 @@
 id: stored_primarily_internationally
-category_ids:
-  - ai__storage
+category_id: ai__storage
 title:
   - locale: en
     value: Stored primarily internationally
@@ -30,20 +29,5 @@ description:
   - locale: tl
     value: Ang datos ay naka-imbak sa labas ng hurisdiksyon kung saan nakolekta ito.
 citation: []
-icon:
-  url: /dtpr-icons/stored_primarily_internationally.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Stored primarily internationally icon
-    - locale: es
-      value: Almacenado principalmente internacionalmente icon
-    - locale: fr
-      value: Stockés principalement à l'international icon
-    - locale: km
-      value: រក្សាទុកជាចម្បងអន្តរជាតិ icon
-    - locale: pt
-      value: Armazenados principalmente a nível internacional icon
-    - locale: tl
-      value: Pangunahing nakaimbak sa buong mundo icon
+symbol_id: stored
 variables: []

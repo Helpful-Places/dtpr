@@ -1,6 +1,5 @@
 id: right_purpose_limitation
-category_ids:
-  - ai__rights
+category_id: ai__rights
 title:
   - locale: en
     value: Right to Purpose Limitation
@@ -52,20 +51,5 @@ description:
       hindi nauugnay na mga layunin nang hindi mo alam o pahintulot. Dapat tukuyin at idokumento ng tagakolekta ng data
       ang mga nilalayon na layunin bago magsimula ang pangongolekta, at sumunod sa mga limitasyong ito.
 citation: []
-icon:
-  url: /dtpr-icons/rights_purpose-limitation.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Right to Purpose Limitation icon
-    - locale: es
-      value: Limitación del derecho a la finalidad icon
-    - locale: fr
-      value: Limitation du droit à l'objet icon
-    - locale: km
-      value: សិទ្ធិក្នុងការកំណត់គោលបំណង icon
-    - locale: pt
-      value: Direito à limitação de finalidade icon
-    - locale: tl
-      value: Karapatan sa Limitasyon ng Layunin icon
+symbol_id: rights_purpose-limitation
 variables: []

@@ -1,6 +1,5 @@
 id: resource_allocation
-category_ids:
-  - ai__decision
+category_id: ai__decision
 title:
   - locale: en
     value: Allocation of resources
@@ -55,20 +54,5 @@ description:
       halimbawa ang pagtukoy sa mga ruta ng pagkuha ng basura, pagtatalaga ng mga iskedyul ng kawani, o pamamahagi ng
       mga pampublikong serbisyo sa mga kapitbahayan.
 citation: []
-icon:
-  url: /dtpr-icons/dm_allocation-of-resources.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Allocation of resources icon
-    - locale: es
-      value: Asignación de recursos icon
-    - locale: fr
-      value: Allocation des ressources icon
-    - locale: km
-      value: ការបែងចែកធនធាន icon
-    - locale: pt
-      value: Alocação de recursos icon
-    - locale: tl
-      value: Paglalaan ng mga mapagkukunan icon
+symbol_id: dm_allocation-of-resources
 variables: []

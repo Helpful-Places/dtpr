@@ -47,6 +47,7 @@ async function parseYamlFile<T>(path: string, schema: { parse: (v: unknown) => T
  *   <rootDir>/<version.dir>/datachain-type.yaml
  *   <rootDir>/<version.dir>/categories/*.yaml
  *   <rootDir>/<version.dir>/elements/*.yaml
+ *   <rootDir>/<version.dir>/symbols/*.svg
  */
 export async function readSchemaVersion(
   rootDir: string,
@@ -66,7 +67,40 @@ export async function readSchemaVersion(
   const elementsDir = join(versionDir, 'elements')
   const elements = await readAllInDir(elementsDir, ElementSchema)
 
-  return { manifest, datachainType, categories, elements }
+  const symbolsDir = join(versionDir, 'symbols')
+  const symbols = await readSymbolsDir(symbolsDir)
+
+  return { manifest, datachainType, categories, elements, symbols }
+}
+
+/**
+ * Load every `*.svg` under `<version.dir>/symbols/` as UTF-8 text,
+ * keyed by filename stem (`symbol_id`). Returns an empty map if the
+ * directory is missing — the `symbol-refs` rule will then surface a
+ * `SYMBOL_NOT_FOUND` per element that references a symbol, which is
+ * better feedback than a generic "missing directory" error.
+ */
+async function readSymbolsDir(dir: string): Promise<Record<string, string>> {
+  let entries: string[]
+  try {
+    entries = await readdir(dir)
+  } catch {
+    return {}
+  }
+  const svgFiles = entries.filter((f) => f.endsWith('.svg')).sort()
+  const symbols: Record<string, string> = {}
+  for (const file of svgFiles) {
+    const id = file.slice(0, -'.svg'.length)
+    try {
+      symbols[id] = await readFile(join(dir, file), 'utf8')
+    } catch (e) {
+      throw new YamlReadError(
+        `Failed to read ${join(dir, file)}: ${(e as Error).message}`,
+        join(dir, file),
+      )
+    }
+  }
+  return symbols
 }
 
 async function readAllInDir<T>(

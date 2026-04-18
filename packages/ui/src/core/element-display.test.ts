@@ -13,18 +13,14 @@ const loc = (locale: string, value: string) => ({ locale, value }) as LocaleValu
 function makeElement(overrides: Partial<Element> = {}): Element {
   return {
     id: 'cloud_storage',
-    category_ids: ['ai__storage'],
+    category_id: 'ai__storage',
     title: [loc('en', 'Cloud storage'), loc('es', 'Almacenamiento en la nube')],
     description: [
       loc('en', 'Data held for {{retention_period}}.'),
       loc('es', 'Datos almacenados durante {{retention_period}}.'),
     ],
     citation: [loc('en', 'See RFC 1234'), loc('es', 'Véase RFC 1234')],
-    icon: {
-      url: '/icons/cloud.svg',
-      format: 'svg',
-      alt_text: [loc('en', 'Cloud'), loc('es', 'Nube')],
-    },
+    symbol_id: 'cloud',
     variables: [
       {
         id: 'retention_period',
@@ -47,7 +43,10 @@ function makeInstanceElement(overrides: Partial<InstanceElement> = {}): Instance
 
 describe('deriveElementDisplay', () => {
   it('returns fully locale-resolved display data for a happy-path fixture', () => {
-    const result = deriveElementDisplay(makeElement(), makeInstanceElement(), 'en')
+    const result = deriveElementDisplay(makeElement(), makeInstanceElement(), 'en', {
+      iconUrl: '/icons/cloud.svg',
+      iconAlt: 'Cloud',
+    })
     expect(result.title).toBe('Cloud storage')
     expect(result.description).toBe('Data held for 30 days.')
     expect(result.citation).toBe('See RFC 1234')
@@ -68,19 +67,23 @@ describe('deriveElementDisplay', () => {
     const result = deriveElementDisplay(makeElement(), makeInstanceElement(), 'es')
     expect(result.title).toBe('Almacenamiento en la nube')
     expect(result.description).toBe('Datos almacenados durante 30 days.')
-    expect(result.icon.alt).toBe('Nube')
+    // Alt defaults to the resolved title when no override is supplied.
+    expect(result.icon.alt).toBe('Almacenamiento en la nube')
     expect(result.variables[0]?.label).toBe('Periodo de retención')
   })
 
-  it('falls back to HEXAGON_FALLBACK_DATA_URI when the icon url is missing or empty', () => {
-    const el = makeElement({
-      icon: {
-        url: '',
-        format: 'svg',
-        alt_text: [loc('en', 'Missing')],
-      },
+  it('falls back to HEXAGON_FALLBACK_DATA_URI when no iconUrl option is supplied', () => {
+    const result = deriveElementDisplay(makeElement(), makeInstanceElement(), 'en')
+    expect(result.icon.url).toBe(HEXAGON_FALLBACK_DATA_URI)
+    // Defaults to the resolved title for a sensible, descriptive alt.
+    expect(result.icon.alt).toBe('Cloud storage')
+  })
+
+  it('falls back to HEXAGON_FALLBACK_DATA_URI when iconUrl is the empty string', () => {
+    const result = deriveElementDisplay(makeElement(), makeInstanceElement(), 'en', {
+      iconUrl: '',
+      iconAlt: 'Missing',
     })
-    const result = deriveElementDisplay(el, makeInstanceElement(), 'en')
     expect(result.icon.url).toBe(HEXAGON_FALLBACK_DATA_URI)
     expect(result.icon.alt).toBe('Missing')
   })

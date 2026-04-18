@@ -45,7 +45,7 @@ export const GET_ELEMENTS_MAX = 100
 /** Per-id length cap inside `get_elements`. Enforced by the input schema. */
 const ELEMENT_ID_MAX_LEN = 128
 
-const DEFAULT_LIST_FIELDS = ['id', 'title', 'category_ids'] as const
+const DEFAULT_LIST_FIELDS = ['id', 'title', 'category_id'] as const
 
 /** Tool result envelope as serialized to MCP clients. */
 export interface ToolResult {
@@ -111,6 +111,7 @@ export function buildToolRegistry(ctx: LoadContext, sessionId: string): ToolRegi
     getElementsTool(ctx),
     validateDatachainTool(ctx),
     renderDatachainTool(ctx, sessionId),
+    getIconUrlTool(ctx),
   ]
   const byName = new Map(tools.map((t) => [t.descriptor.name, t]))
   return {
@@ -251,7 +252,7 @@ function listElementsTool(ctx: LoadContext): ToolDef {
     locales: z.array(LocaleCodeSchema).optional(),
     query: z.string().optional().describe('BM25 search across title (boost 3) + description.'),
     fields: FieldsParam.optional().describe(
-      'Field projection. Default: ["id","title","category_ids"]. Pass "all" for full elements.',
+      'Field projection. Default: ["id","title","category_id"]. Pass "all" for full elements.',
     ),
     limit: z
       .number()
@@ -283,7 +284,7 @@ function listElementsTool(ctx: LoadContext): ToolDef {
         }
         let elements = (await loadElements(ctx, version)) ?? []
         if (args.category_id) {
-          elements = elements.filter((e) => e.category_ids.includes(args.category_id!))
+          elements = elements.filter((e) => e.category_id === args.category_id!)
         }
         if (args.query && args.query.trim().length > 0) {
           const ids = await searchElementIds({
@@ -534,7 +535,7 @@ function validateDatachainTool(ctx: LoadContext): ToolDef {
           )
         }
         const result = validateInstance(
-          { manifest, datachainType, categories, elements },
+          { manifest, datachainType, categories, elements, symbols: {} },
           parsed,
         )
         if (result.ok) {
@@ -554,6 +555,96 @@ function validateDatachainTool(ctx: LoadContext): ToolDef {
         )
       } catch (e) {
         return toToolResult(errEnvelope(apiErrorToErrors(e)))
+      }
+    },
+  }
+}
+
+// ------------------------------------------------------------------ get_icon_url
+function getIconUrlTool(ctx: LoadContext): ToolDef {
+  const inputSchema = z.object({
+    version: VersionString,
+    element_id: ElementId,
+    variant: z
+      .string()
+      .min(1)
+      .optional()
+      .describe(
+        'Variant key. Omit for the default icon. Valid values are the element\'s `icon_variants`.',
+      ),
+  })
+  return {
+    descriptor: {
+      name: 'get_icon_url',
+      description:
+        'Resolve a composed-icon URL for an element and optional variant. Returns the REST URL clients should GET, the content type, and the resolved variant. Use list_elements or get_element to discover the variant list (icon_variants field).',
+      inputSchema: schemaToJson(inputSchema),
+    },
+    handler: async (raw) => {
+      try {
+        const args = inputSchema.parse(raw)
+        const version = await resolveKnownVersion(ctx, args.version)
+        const manifest = await loadManifest(ctx, version)
+        if (!manifest) {
+          return toToolResult(
+            errEnvelope([
+              { code: 'unknown_version', message: `Manifest for ${version.canonical} missing.` },
+            ]),
+          )
+        }
+        const element = await loadElement(ctx, version, args.element_id)
+        if (!element) {
+          return toToolResult(
+            errEnvelope([
+              {
+                code: 'element_not_found',
+                message: `Element '${args.element_id}' not found in ${version.canonical}.`,
+                fix_hint: 'Use list_elements to enumerate available elements.',
+              },
+            ]),
+          )
+        }
+        const variant = args.variant ?? 'default'
+        // `icon_variants` is materialized onto every element by the
+        // build step (see cli/lib/json-emitter.ts:MaterializedElement).
+        const iconVariants =
+          (element as { icon_variants?: unknown }).icon_variants
+        const validVariants =
+          Array.isArray(iconVariants) && iconVariants.every((v) => typeof v === 'string')
+            ? (iconVariants as string[])
+            : ['default', 'dark']
+        if (!validVariants.includes(variant)) {
+          return toToolResult(
+            errEnvelope(
+              [
+                {
+                  code: 'unknown_variant',
+                  message: `Variant '${variant}' is not defined for element '${args.element_id}'.`,
+                  fix_hint: `Pick one of: ${validVariants.join(', ')}.`,
+                },
+              ],
+              { content_hash: manifest.content_hash, version: version.canonical },
+            ),
+          )
+        }
+        // The REST icon routes accept either canonical or URL-encoded
+        // versions. Emit the canonical form so the URL is
+        // human-readable; clients can re-encode if they need to.
+        const suffix = variant === 'default' ? 'svg' : `${variant}.svg`
+        const url = `/api/v2/schemas/${version.canonical}/elements/${args.element_id}/icon.${suffix}`
+        return toToolResult(
+          okEnvelope(
+            {
+              url,
+              content_type: 'image/svg+xml' as const,
+              variant,
+              valid_variants: validVariants,
+            },
+            { content_hash: manifest.content_hash, version: version.canonical },
+          ),
+        )
+      } catch (e) {
+        return toToolResult(errEnvelope(zodOrApiErrors(e)))
       }
     },
   }

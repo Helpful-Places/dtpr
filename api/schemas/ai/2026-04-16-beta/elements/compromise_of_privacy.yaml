@@ -1,6 +1,5 @@
 id: compromise_of_privacy
-category_ids:
-  - ai__risks_mitigation
+category_id: ai__risks_mitigation
 title:
   - locale: en
     value: Compromise of privacy
@@ -58,20 +57,5 @@ description:
       mga input. Maaaring kabilang sa mga mitigations ang mga kasanayan sa pag-minimize ng data, matatag na mga hakbang
       sa seguridad, differential privacy techniques, at mahigpit na mga kontrol sa pag-access.
 citation: []
-icon:
-  url: /dtpr-icons/risks_compromise-of-privacy.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Compromise of privacy icon
-    - locale: es
-      value: Compromiso de la intimidad icon
-    - locale: fr
-      value: Compromission de la vie privée icon
-    - locale: km
-      value: ការសម្របសម្រួលនៃភាពឯកជន icon
-    - locale: pt
-      value: Comprometimento da privacidade icon
-    - locale: tl
-      value: Pagkompromiso sa privacy icon
+symbol_id: risks_compromise-of-privacy
 variables: []

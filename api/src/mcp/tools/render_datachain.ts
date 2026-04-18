@@ -116,10 +116,8 @@ function buildSections(
     const def = elementById.get(placement.element_id)
     if (!def) continue
     const display = deriveElementDisplay(def, placement, locale)
-    for (const catId of def.category_ids) {
-      const bucket = byCategory.get(catId)
-      if (bucket) bucket.push(display)
-    }
+    const bucket = byCategory.get(def.category_id)
+    if (bucket) bucket.push(display)
   }
 
   return categories.map((c) => {
@@ -196,7 +194,7 @@ export function renderDatachainTool(ctx: LoadContext, sessionId: string): ToolDe
         }
 
         const semantic = validateInstance(
-          { manifest, datachainType, categories, elements },
+          { manifest, datachainType, categories, elements, symbols: {} },
           parsedInstance,
         )
         if (!semantic.ok) {

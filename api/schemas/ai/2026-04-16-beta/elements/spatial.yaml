@@ -1,7 +1,5 @@
 id: spatial
-category_ids:
-  - ai__input_dataset
-  - ai__output_dataset
+category_id: ai__input_dataset
 title:
   - locale: en
     value: Spatial
@@ -39,20 +37,5 @@ description:
       Datos na kumakatawan sa isang lokasyon, tulad ng address,  pangalan ng lugar o mga coordinate ng heograpiya; o
       istraktura, tulad ng floor plan.
 citation: []
-icon:
-  url: /dtpr-icons/spatial.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Spatial icon
-    - locale: es
-      value: Espacial icon
-    - locale: fr
-      value: Spatial icon
-    - locale: km
-      value: នៃផសាយថា icon
-    - locale: pt
-      value: Espacial icon
-    - locale: tl
-      value: Spatial icon
+symbol_id: spatial
 variables: []

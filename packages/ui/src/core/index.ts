@@ -31,7 +31,6 @@ export { HEXAGON_FALLBACK_DATA_URI } from './icons.js'
 
 export type {
   Element,
-  Icon,
   Category,
   LocaleValue,
   Variable,

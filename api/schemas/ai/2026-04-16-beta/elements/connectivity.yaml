@@ -1,6 +1,5 @@
 id: connectivity
-category_ids:
-  - ai__purpose
+category_id: ai__purpose
 title:
   - locale: en
     value: Connectivity
@@ -28,20 +27,5 @@ description:
   - locale: tl
     value: Sumusuporta sa pagsukat o pagsubaybay sa natural na kapaligiran.
 citation: []
-icon:
-  url: /dtpr-icons/connectivity.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Connectivity icon
-    - locale: es
-      value: Conectividad icon
-    - locale: fr
-      value: Accés à internet icon
-    - locale: km
-      value: ការតភ្ជាប់ icon
-    - locale: pt
-      value: Conectividade icon
-    - locale: tl
-      value: Pagkakakonekta icon
+symbol_id: connectivity
 variables: []

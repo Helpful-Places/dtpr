@@ -1,6 +1,5 @@
 id: research_development
-category_ids:
-  - ai__purpose
+category_id: ai__purpose
 title:
   - locale: en
     value: Research & Development
@@ -30,20 +29,5 @@ description:
   - locale: tl
     value: Sinusuportahan ang exploratory na pananaliksik at pagsubok.
 citation: []
-icon:
-  url: /dtpr-icons/research_development.svg
-  format: svg
-  alt_text:
-    - locale: en
-      value: Research & Development icon
-    - locale: es
-      value: Investigación y desarrollo icon
-    - locale: fr
-      value: Recherche et développement icon
-    - locale: km
-      value: ស្រាវជ្រាវនិងអភិវឌ្ឍន៍ icon
-    - locale: pt
-      value: Investigação e desenvolvimento icon
-    - locale: tl
-      value: Pananaliksik at Pag -unlad icon
+symbol_id: research_development
 variables: []
