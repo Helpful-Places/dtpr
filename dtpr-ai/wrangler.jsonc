@@ -9,6 +9,10 @@
     {
       "pattern": "dtpr.ai",
       "custom_domain": true
+    },
+    {
+      "pattern": "www.dtpr.ai",
+      "custom_domain": true
     }
   ],
   "assets": {
