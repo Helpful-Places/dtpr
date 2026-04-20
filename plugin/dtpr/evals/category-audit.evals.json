@@ -1,0 +1,64 @@
+{
+  "skill": "dtpr-category-audit",
+  "description": "Baseline eval prompts. should_trigger entries must invoke the skill; should_not_trigger entries must not. Compatible with skill-creator's run_loop.py.",
+  "should_trigger": [
+    {
+      "id": "accountable-deep-dive",
+      "prompt": "Walk me through the accountable category for a library self-checkout kiosk — does the schema capture multi-party responsibility?"
+    },
+    {
+      "id": "storage-overlap",
+      "prompt": "Two elements in ai__storage feel redundant to me — can you audit the category and tell me if they overlap?"
+    },
+    {
+      "id": "risks-generative-complete",
+      "prompt": "Is ai__risks_mitigation complete for a generative AI system, or are there risk classes we don't cover yet?"
+    },
+    {
+      "id": "audit-decision-category",
+      "prompt": "Audit the ai__decision category for us — I want a coverage map, any overlaps, and anything we're missing."
+    },
+    {
+      "id": "rights-missing-appeals",
+      "prompt": "What's ai__rights missing for modern appeals processes? The elements feel dated when I try to map a 2026 recourse flow onto them."
+    },
+    {
+      "id": "data-category-gaps",
+      "prompt": "Does DTPR cover third-party training data provenance inside the ai__data category, or is there a gap we should close?"
+    }
+  ],
+  "should_not_trigger": [
+    {
+      "id": "refactor-python",
+      "prompt": "Refactor this Python function to use a dataclass instead of a dict."
+    },
+    {
+      "id": "explain-docker",
+      "prompt": "What's the difference between a Docker image and a container?"
+    },
+    {
+      "id": "describe-kiosk-system",
+      "prompt": "Describe our facial-recognition parking kiosk at the downtown garage as a DTPR datachain."
+    },
+    {
+      "id": "draft-new-element",
+      "prompt": "Draft a new element called model_transparency with a title, description, and symbol direction — I want to add it to the schema."
+    },
+    {
+      "id": "retire-datachain-type-category",
+      "prompt": "Should the ai datachain-type retire the ai__location category entirely and fold it into ai__data? Critique the overall shape."
+    },
+    {
+      "id": "comprehension-only-grade",
+      "prompt": "Grade the element accept_deny against the comprehension rubric — I just want a readability check, no schema changes."
+    },
+    {
+      "id": "translate-category",
+      "prompt": "Translate the ai__risks_mitigation category name and description into Khmer for our pilot in Phnom Penh."
+    },
+    {
+      "id": "generate-svg-icon",
+      "prompt": "Generate an SVG icon for a new element I'm thinking about adding to the risks category."
+    }
+  ]
+}
