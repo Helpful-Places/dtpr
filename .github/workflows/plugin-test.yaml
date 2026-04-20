@@ -20,6 +20,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Full history so verify.mjs can compute `git merge-base origin/main HEAD`
+          # for the INDEX.md append-only check.
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 20
