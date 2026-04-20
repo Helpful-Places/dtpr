@@ -92,6 +92,10 @@ The corpus ships with the plugin but is **not pre-seeded**. Every entry comes fr
 - A writer for the taxonomy itself — the schema-tier skills produce **proposals**. Applying them runs through `pnpm --filter ./api schema:new` and a standard PR review.
 - A translator — locale coverage is graded by the comprehension rubric, but actual translation is out of scope for every skill.
 
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for release notes. 0.2.0 retires `dtpr-schema-brainstorm` in favor of the three schema-tier skills.
+
 ## Related links
 
 - DTPR standard: <https://dtpr.io>
