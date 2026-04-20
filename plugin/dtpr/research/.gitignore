@@ -1,0 +1,3 @@
+# Entries prefixed with `_` are treated as privacy-sensitive and are not
+# committed to the plugin payload. See research/README.md for the convention.
+_*
