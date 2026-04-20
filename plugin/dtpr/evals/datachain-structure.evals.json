@@ -1,0 +1,68 @@
+{
+  "skill": "dtpr-datachain-structure",
+  "description": "Baseline eval prompts. should_trigger entries must invoke the skill; should_not_trigger entries must not. Compatible with skill-creator's run_loop.py.",
+  "should_trigger": [
+    {
+      "id": "generative-output",
+      "prompt": "How should DTPR handle generative AI that produces synthetic images in a public-facing kiosk? Brainstorm what's missing."
+    },
+    {
+      "id": "missing-required-category",
+      "prompt": "Our new agentic decisioning system has an autonomy dimension that no DTPR category captures. Does the datachain-type need a new required category, or should autonomy be folded into an existing one?"
+    },
+    {
+      "id": "retire-whole-category",
+      "prompt": "The ai__storage category feels like it duplicates what ai__data already covers. Propose whether to retire ai__storage entirely and how we would migrate its elements."
+    },
+    {
+      "id": "new-system-class-rethink",
+      "prompt": "We are piloting a city-wide synthetic-media disclosure regime and I think DTPR's current 11 categories do not fit. Help me rethink the datachain-type shape for this class of system."
+    },
+    {
+      "id": "critique-taxonomy-holistically",
+      "prompt": "Critique the taxonomy at the shape level — are 11 categories the right cut, or is the required-set miscalibrated for most real AI systems cities are deploying?"
+    },
+    {
+      "id": "restructure-for-eu-ai-act",
+      "prompt": "Restructure DTPR so a datachain-type aligns cleanly with EU AI Act risk tiers. Which categories should be added, split, or merged?"
+    }
+  ],
+  "should_not_trigger": [
+    {
+      "id": "cross-sibling:dtpr-element-design:llm-hallucination",
+      "prompt": "Propose a new element for LLM hallucination disclosure inside the ai__risks_mitigation category."
+    },
+    {
+      "id": "cross-sibling:dtpr-category-audit:accountable-deep-dive",
+      "prompt": "Walk me through the ai__accountable category for a kiosk — do the elements inside it cover multi-party responsibility without overlap?"
+    },
+    {
+      "id": "cross-sibling:dtpr-describe-system:parking-kiosk",
+      "prompt": "Describe our facial-recognition parking kiosk at the downtown garage as a DTPR datachain."
+    },
+    {
+      "id": "cross-sibling:dtpr-comprehension-audit:grade-accept-deny-element",
+      "prompt": "Grade the accept_deny element for comprehension — would a commuter understand it on first read?"
+    },
+    {
+      "id": "refactor-typescript",
+      "prompt": "Refactor this TypeScript function to return a Result type instead of throwing."
+    },
+    {
+      "id": "sql-query",
+      "prompt": "Write a SQL query that returns the top 10 customers by revenue in the last quarter."
+    },
+    {
+      "id": "fix-github-actions",
+      "prompt": "My GitHub Actions workflow is failing on the lint step. Help me debug it."
+    },
+    {
+      "id": "explain-regex",
+      "prompt": "What does this regex match: ^[a-z]+(?:-[a-z]+)*$ ?"
+    },
+    {
+      "id": "general-ai-ethics",
+      "prompt": "What's the difference between utilitarian and deontological AI ethics?"
+    }
+  ]
+}

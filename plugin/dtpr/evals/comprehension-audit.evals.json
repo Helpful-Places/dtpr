@@ -1,0 +1,72 @@
+{
+  "skill": "dtpr-comprehension-audit",
+  "description": "Baseline eval prompts. should_trigger entries must invoke the skill; should_not_trigger entries must not. Compatible with skill-creator's run_loop.py.",
+  "should_trigger": [
+    {
+      "id": "grade-accept-deny-element",
+      "prompt": "Grade the accept_deny element for comprehension — would a commuter at a transit kiosk understand it on first read?"
+    },
+    {
+      "id": "category-clear-to-public",
+      "prompt": "Is the ai__risks_mitigation category clear to the public? Walk through its elements and tell me what a non-expert would miss."
+    },
+    {
+      "id": "comprehension-audit-datachain-instance",
+      "prompt": "Here is the datachain JSON we are about to publish for our facial-recognition parking kiosk — please run a comprehension audit against it before it ships."
+    },
+    {
+      "id": "grade-pasted-yaml",
+      "prompt": "I drafted this element YAML for a new disclosure about automated appeals. Can you check how readable it is for a non-technical reader?\n\n```yaml\nid: automated_appeal_decision\ncategory_id: ai__rights\ntitle:\n  en: \"Automated appeal decision\"\ndescription:\n  en: \"When you contest a decision, the adjudication may be resolved by an algorithmic system without direct human adjudicator involvement.\"\n```"
+    },
+    {
+      "id": "how-readable-draft-sign",
+      "prompt": "How readable is this sign copy for a commuter? 'This node operates biometric inference via a vendor-hosted ML pipeline; data subjects retain statutory rights under applicable frameworks.'"
+    },
+    {
+      "id": "comprehension-check-category-audit",
+      "prompt": "Comprehension check on the ai__accountable category — does the language land for a citizen who has never heard the word 'accountable organization' before?"
+    }
+  ],
+  "should_not_trigger": [
+    {
+      "id": "refactor-typescript",
+      "prompt": "Refactor this TypeScript function to return a Result type instead of throwing."
+    },
+    {
+      "id": "sql-query",
+      "prompt": "Write a SQL query that returns the top 10 customers by revenue in the last quarter."
+    },
+    {
+      "id": "cross-sibling:dtpr-describe-system:parking-kiosk",
+      "prompt": "Describe our facial-recognition parking kiosk at the downtown garage as a DTPR datachain."
+    },
+    {
+      "id": "cross-sibling:dtpr-datachain-structure:generative-output",
+      "prompt": "How should DTPR handle generative AI that produces synthetic images in a public-facing kiosk? Brainstorm what's missing from the datachain-type shape."
+    },
+    {
+      "id": "cross-sibling:dtpr-category-audit:accountable-deep-dive",
+      "prompt": "Walk me through the `ai__accountable` category for a library self-checkout kiosk — does the schema capture multi-party responsibility?"
+    },
+    {
+      "id": "cross-sibling:dtpr-element-design:llm-hallucination",
+      "prompt": "DTPR doesn't say anything about LLM hallucination disclosure. Propose a new element to cover that."
+    },
+    {
+      "id": "generate-svg-icon",
+      "prompt": "Generate an SVG icon for the accept_deny element — something that reads at sign scale."
+    },
+    {
+      "id": "fix-github-actions",
+      "prompt": "My GitHub Actions workflow is failing on the lint step. Help me debug it."
+    },
+    {
+      "id": "general-ai-ethics",
+      "prompt": "What's the difference between utilitarian and deontological AI ethics?"
+    },
+    {
+      "id": "explain-regex",
+      "prompt": "What does this regex match: ^[a-z]+(?:-[a-z]+)*$ ?"
+    }
+  ]
+}

@@ -21,6 +21,26 @@
     {
       "id": "gunshot-detector",
       "prompt": "City contracted with a vendor that streams microphone data through a classifier to detect gunshots. I need to disclose how it works to the public."
+    },
+    {
+      "id": "pdf-aia",
+      "prompt": "I've attached a 12-page AIA PDF for our facial-recognition kiosk. Please describe it as a DTPR datachain."
+    },
+    {
+      "id": "url-policy",
+      "prompt": "Here's a URL to our company's AI policy — can you turn it into a DTPR datachain? https://example.com/ai-policy"
+    },
+    {
+      "id": "mixed-artifact-verbal",
+      "prompt": "I have a PDF of our resume-screener's spec and also want to verbally describe a post-launch observation about false negatives — combine both into a datachain."
+    },
+    {
+      "id": "long-pdf-over-budget",
+      "prompt": "I'm attaching a 60-page consultant report about our ShotSpotter-style audio classifier. Please describe it as a DTPR datachain."
+    },
+    {
+      "id": "password-pdf",
+      "prompt": "This encrypted PDF describes our ML-based patient triage system. Please produce a DTPR datachain from it."
     }
   ],
   "should_not_trigger": [
@@ -41,8 +61,20 @@
       "prompt": "Write a SQL query to find the top 10 customers by order total in the last quarter."
     },
     {
-      "id": "brainstorm-taxonomy",
+      "id": "cross-sibling:dtpr-element-design:llm-hallucination",
       "prompt": "DTPR doesn't have a good category for LLM hallucination disclosure — help me think through whether we should add one."
+    },
+    {
+      "id": "cross-sibling:dtpr-comprehension-audit:grade-accept-deny-element",
+      "prompt": "Can you grade the `accept_deny` element for public comprehension? I want to know if a commuter would understand it."
+    },
+    {
+      "id": "cross-sibling:dtpr-category-audit:risks-generative-complete",
+      "prompt": "Audit the `ai__risks_mitigation` category for coherence — are the elements mutually exhaustive and non-overlapping?"
+    },
+    {
+      "id": "cross-sibling:dtpr-datachain-structure:generative-output",
+      "prompt": "How should DTPR's datachain-type itself handle generative AI in public-facing kiosks? Does the current shape need a new required category?"
     }
   ]
 }
