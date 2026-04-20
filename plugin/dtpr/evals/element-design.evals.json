@@ -41,19 +41,19 @@
       "prompt": "My GitHub Actions workflow is failing on the lint step. Help me debug it."
     },
     {
-      "id": "describe-kiosk-system",
+      "id": "cross-sibling:dtpr-describe-system:parking-kiosk",
       "prompt": "Describe our facial-recognition parking kiosk at the downtown garage as a DTPR datachain."
     },
     {
-      "id": "audit-whole-category",
-      "prompt": "Audit the whole ai__risks_mitigation category — walk every element, flag overlaps, and tell me what's missing."
+      "id": "cross-sibling:dtpr-category-audit:accountable-deep-dive",
+      "prompt": "Audit the whole ai__accountable category — walk every element, flag overlaps, and tell me what's missing."
     },
     {
-      "id": "critique-datachain-type",
+      "id": "cross-sibling:dtpr-datachain-structure:critique-taxonomy-holistically",
       "prompt": "Critique the shape of the ai datachain-type itself — which categories should be required, which should be optional, and should any category be retired?"
     },
     {
-      "id": "grade-element-readability",
+      "id": "cross-sibling:dtpr-comprehension-audit:grade-accept-deny-element",
       "prompt": "Grade the accept_deny element for public comprehension — I just want a readability audit, not a proposal."
     },
     {

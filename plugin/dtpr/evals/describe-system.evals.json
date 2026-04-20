@@ -61,16 +61,20 @@
       "prompt": "Write a SQL query to find the top 10 customers by order total in the last quarter."
     },
     {
-      "id": "brainstorm-taxonomy",
+      "id": "cross-sibling:dtpr-element-design:llm-hallucination",
       "prompt": "DTPR doesn't have a good category for LLM hallucination disclosure — help me think through whether we should add one."
     },
     {
-      "id": "grade-element-clarity",
+      "id": "cross-sibling:dtpr-comprehension-audit:grade-accept-deny-element",
       "prompt": "Can you grade the `accept_deny` element for public comprehension? I want to know if a commuter would understand it."
     },
     {
-      "id": "audit-risks-category",
+      "id": "cross-sibling:dtpr-category-audit:risks-generative-complete",
       "prompt": "Audit the `ai__risks_mitigation` category for coherence — are the elements mutually exhaustive and non-overlapping?"
+    },
+    {
+      "id": "cross-sibling:dtpr-datachain-structure:generative-output",
+      "prompt": "How should DTPR's datachain-type itself handle generative AI in public-facing kiosks? Does the current shape need a new required category?"
     }
   ]
 }

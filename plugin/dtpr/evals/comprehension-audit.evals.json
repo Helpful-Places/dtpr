@@ -37,12 +37,20 @@
       "prompt": "Write a SQL query that returns the top 10 customers by revenue in the last quarter."
     },
     {
-      "id": "describe-kiosk-system",
+      "id": "cross-sibling:dtpr-describe-system:parking-kiosk",
       "prompt": "Describe our facial-recognition parking kiosk at the downtown garage as a DTPR datachain."
     },
     {
-      "id": "document-311-chatbot",
-      "prompt": "Document our 311 chatbot — it uses an LLM to triage citizen complaints. I need a transparency artifact for it."
+      "id": "cross-sibling:dtpr-datachain-structure:generative-output",
+      "prompt": "How should DTPR handle generative AI that produces synthetic images in a public-facing kiosk? Brainstorm what's missing from the datachain-type shape."
+    },
+    {
+      "id": "cross-sibling:dtpr-category-audit:accountable-deep-dive",
+      "prompt": "Walk me through the `ai__accountable` category for a library self-checkout kiosk — does the schema capture multi-party responsibility?"
+    },
+    {
+      "id": "cross-sibling:dtpr-element-design:llm-hallucination",
+      "prompt": "DTPR doesn't say anything about LLM hallucination disclosure. Propose a new element to cover that."
     },
     {
       "id": "generate-svg-icon",

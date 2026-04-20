@@ -29,19 +29,19 @@
   ],
   "should_not_trigger": [
     {
-      "id": "element-proposal",
+      "id": "cross-sibling:dtpr-element-design:llm-hallucination",
       "prompt": "Propose a new element for LLM hallucination disclosure inside the ai__risks_mitigation category."
     },
     {
-      "id": "category-deep-dive",
+      "id": "cross-sibling:dtpr-category-audit:accountable-deep-dive",
       "prompt": "Walk me through the ai__accountable category for a kiosk — do the elements inside it cover multi-party responsibility without overlap?"
     },
     {
-      "id": "describe-kiosk-system",
+      "id": "cross-sibling:dtpr-describe-system:parking-kiosk",
       "prompt": "Describe our facial-recognition parking kiosk at the downtown garage as a DTPR datachain."
     },
     {
-      "id": "grade-element-comprehension",
+      "id": "cross-sibling:dtpr-comprehension-audit:grade-accept-deny-element",
       "prompt": "Grade the accept_deny element for comprehension — would a commuter understand it on first read?"
     },
     {

@@ -37,19 +37,19 @@
       "prompt": "What's the difference between a Docker image and a container?"
     },
     {
-      "id": "describe-kiosk-system",
+      "id": "cross-sibling:dtpr-describe-system:parking-kiosk",
       "prompt": "Describe our facial-recognition parking kiosk at the downtown garage as a DTPR datachain."
     },
     {
-      "id": "draft-new-element",
-      "prompt": "Draft a new element called model_transparency with a title, description, and symbol direction — I want to add it to the schema."
+      "id": "cross-sibling:dtpr-element-design:llm-hallucination",
+      "prompt": "Draft a new element for LLM hallucination disclosure with a title, description, and symbol direction — I want to add it to the schema."
     },
     {
-      "id": "retire-datachain-type-category",
-      "prompt": "Should the ai datachain-type retire the ai__location category entirely and fold it into ai__data? Critique the overall shape."
+      "id": "cross-sibling:dtpr-datachain-structure:retire-whole-category",
+      "prompt": "Should the ai datachain-type retire the ai__storage category entirely and fold it into ai__retention? Critique the overall shape."
     },
     {
-      "id": "comprehension-only-grade",
+      "id": "cross-sibling:dtpr-comprehension-audit:grade-accept-deny-element",
       "prompt": "Grade the element accept_deny against the comprehension rubric — I just want a readability check, no schema changes."
     },
     {
