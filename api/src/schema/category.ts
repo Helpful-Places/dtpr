@@ -16,7 +16,18 @@ export const ShapeTypeEnum = z
 export type ShapeType = z.infer<typeof ShapeTypeEnum>
 
 /**
- * A DTPR category — a bucket of elements (e.g. `ai__decision`). Categories
+ * Category id whitelist: alphanumerics, underscores, and hyphens.
+ * Symmetric with the Element id pattern. The legacy
+ * `<datachain_type>__<slug>` prefix is being phased out — new schema
+ * versions use bare slugs (e.g. `accountable`, `functional_modes`).
+ * The `__`-forbid refinement is intentionally omitted at the
+ * structural layer so existing beta versions still load; the new
+ * v2 convention is enforced by content, not schema.
+ */
+const SLUG_PATTERN = /^[a-zA-Z0-9_-]+$/
+
+/**
+ * A DTPR category — a bucket of elements (e.g. `accountable`). Categories
  * own the `element_variables` that their elements inherit and optionally
  * an authored `context` dimension that instances select a value from.
  *
@@ -31,7 +42,11 @@ export type ShapeType = z.infer<typeof ShapeTypeEnum>
  */
 export const CategorySchema = z
   .object({
-    id: z.string().min(1).describe('Category id, conventionally `<datachain_type>__<slug>`'),
+    id: z
+      .string()
+      .min(1)
+      .regex(SLUG_PATTERN)
+      .describe('Category id (bare slug), whitelisted to [a-zA-Z0-9_-]'),
     name: LocaleValueArraySchema,
     description: LocaleValueArraySchema,
     prompt: LocaleValueArraySchema.default([]).describe(
