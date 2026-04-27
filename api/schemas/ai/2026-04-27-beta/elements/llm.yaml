@@ -1,0 +1,52 @@
+id: llm
+category_id: processing
+title:
+  - locale: en
+    value: Large Language Model
+  - locale: es
+    value: Gran modelo lingüístico
+  - locale: fr
+    value: Grand modèle linguistique
+  - locale: km
+    value: គំរូភាសាធំ
+  - locale: pt
+    value: Modelo de idioma grande
+  - locale: tl
+    value: Malaking Modelo ng Wika
+description:
+  - locale: en
+    value: >-
+      A type of AI system trained on vast amounts of text data that can understand, generate, and manipulate human
+      language. These models can perform tasks like writing text, answering questions, summarizing content, and
+      translating languages. They work by predicting what words are likely to come next in a sequence.
+  - locale: es
+    value: >-
+      Un tipo de sistema de IA entrenado en grandes cantidades de datos de texto que puede comprender, generar y
+      manipular el lenguaje humano. Estos modelos pueden realizar tareas como escribir textos, responder preguntas,
+      resumir contenidos y traducir idiomas. Funcionan prediciendo qué palabras es probable que vengan a continuación en
+      una secuencia.
+  - locale: fr
+    value: >-
+      Type de système d'IA formé sur de grandes quantités de données textuelles et capable de comprendre, de générer et
+      de manipuler le langage humain. Ces modèles peuvent effectuer des tâches telles que rédiger des textes, répondre à
+      des questions, résumer des contenus et traduire des langues. Ils fonctionnent en prédisant quels mots sont
+      susceptibles de suivre dans une séquence.
+  - locale: km
+    value: >-
+      ប្រភេទនៃប្រព័ន្ធ AI ដែលត្រូវបានបណ្តុះបណ្តាលលើទិន្នន័យអត្ថបទដ៏ច្រើន ដែលអាចយល់ បង្កើត និងរៀបចំភាសាមនុស្ស។
+      ម៉ូដែលទាំងនេះអាចបំពេញភារកិច្ចដូចជាការសរសេរអត្ថបទ ឆ្លើយសំណួរ សង្ខេបខ្លឹមសារ និងបកប្រែភាសា។
+      ពួកគេធ្វើការដោយការទស្សន៍ទាយពាក្យណាដែលទំនងជានឹងមកបន្ទាប់ក្នុងលំដាប់មួយ។
+  - locale: pt
+    value: >-
+      Um tipo de sistema de IA treinado em grandes quantidades de dados de texto que pode entender, gerar e manipular a
+      linguagem humana. Esses modelos podem executar tarefas como escrever textos, responder a perguntas, resumir
+      conteúdo e traduzir idiomas. Eles funcionam prevendo quais palavras provavelmente virão a seguir em uma sequência.
+  - locale: tl
+    value: >-
+      Isang uri ng AI system na sinanay sa napakaraming data ng text na maaaring umunawa, makabuo, at mamanipula ang
+      wika ng tao. Ang mga modelong ito ay maaaring magsagawa ng mga gawain tulad ng pagsusulat ng teksto, pagsagot sa
+      mga tanong, pagbubuod ng nilalaman, at pagsasalin ng mga wika. Gumagana ang mga ito sa pamamagitan ng paghula kung
+      anong mga salita ang malamang na susunod sa isang pagkakasunod-sunod.
+citation: []
+symbol_id: processing_llm
+variables: []

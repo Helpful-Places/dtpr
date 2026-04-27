@@ -1,0 +1,53 @@
+id: ai
+name:
+  - locale: en
+    value: AI / Algorithm
+  - locale: es
+    value: AI / Algoritmo
+  - locale: fr
+    value: IA / Algorithme
+  - locale: km
+    value: AI / ក្បួនដោះស្រាយ
+  - locale: pt
+    value: IA / Algoritmo
+  - locale: tl
+    value: AI / Algorithm
+description: []
+categories:
+  - purpose
+  - accountable
+  - functional_modes
+  - risks_mitigation
+  - rights
+  - input_dataset
+  - processing
+  - output_dataset
+  - access
+  - retention
+  - storage
+subchains:
+  - id: data_flow
+    name:
+      - locale: en
+        value: Data Flow
+      - locale: es
+        value: Flujo de datos
+      - locale: fr
+        value: Flux de données
+      - locale: km
+        value: លំហូរទិន្នន័យ
+      - locale: pt
+        value: Fluxo de dados
+      - locale: tl
+        value: Daloy ng Data
+    categories:
+      - input_dataset
+      - processing
+      - output_dataset
+locales:
+  - en
+  - es
+  - fr
+  - km
+  - pt
+  - tl

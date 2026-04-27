@@ -1,0 +1,31 @@
+id: organization
+category_id: accountable
+title:
+  - locale: en
+    value: Organization
+  - locale: es
+    value: Organización
+  - locale: fr
+    value: Organisation
+  - locale: km
+    value: សមាកម
+  - locale: pt
+    value: Organização
+  - locale: tl
+    value: Organisasyon
+description:
+  - locale: en
+    value: The entity that is responsible and accountable for this data collection activity
+  - locale: es
+    value: La entidad responsable y responsable de esta actividad de recopilación de datos
+  - locale: fr
+    value: L'entité qui est responsable et redevable de cette activité de collecte de données
+  - locale: km
+    value: អង្គភាពដែលទទួលខុសត្រូវនិងទទួលខុសត្រូវចំពោះសកម្មភាពប្រមូលទិន្នន័យនេះ
+  - locale: pt
+    value: A entidade que é responsável por esta atividade de recolha de dados
+  - locale: tl
+    value: Ang entidad na responsable at may pananagutan para sa aktibidad sa koleksyon ng datos na ito
+citation: []
+symbol_id: organization
+variables: []

@@ -1,0 +1,60 @@
+id: rights
+name:
+  - locale: en
+    value: Rights
+  - locale: es
+    value: Derechos
+  - locale: fr
+    value: Droits
+  - locale: km
+    value: សិទ្ធិ
+  - locale: pt
+    value: Direitos
+  - locale: tl
+    value: Mga karapatan
+description:
+  - locale: en
+    value: The user's rights in relation to the AI system.
+  - locale: es
+    value: Los derechos del usuario en relación con el sistema de IA.
+  - locale: fr
+    value: Les droits de l'utilisateur par rapport au système d'IA.
+  - locale: km
+    value: សិទ្ធិរបស់អ្នកប្រើប្រាស់ទាក់ទងនឹងប្រព័ន្ធ AI ។
+  - locale: pt
+    value: Os direitos do usuário em relação ao sistema de IA.
+  - locale: tl
+    value: Mga karapatan ng gumagamit kaugnay ng AI system.
+prompt:
+  - locale: en
+    value: What are the user's rights in relation to the AI system?
+  - locale: es
+    value: ¿Cuáles son los derechos del usuario en relación con el sistema de IA?
+  - locale: fr
+    value: Quels sont les droits de l’utilisateur par rapport au système d’IA ?
+  - locale: km
+    value: តើសិទ្ធិរបស់អ្នកប្រើប្រាស់ទាក់ទងនឹងប្រព័ន្ធ AI មានអ្វីខ្លះ?
+  - locale: pt
+    value: Quais são os direitos do usuário em relação ao sistema de IA?
+  - locale: tl
+    value: Ano ang mga karapatan ng gumagamit kaugnay ng AI system?
+required: false
+order: 5
+datachain_type: ai
+shape: octagon
+element_variables:
+  - id: rights
+    label:
+      - locale: en
+        value: Description of Rights
+      - locale: es
+        value: Descripción de derechos
+      - locale: fr
+        value: Description des droits
+      - locale: km
+        value: ការពិពណ៌នាអំពីសិទ្ធិ
+      - locale: pt
+        value: Descrição dos Direitos
+      - locale: tl
+        value: Paglalarawan ng Mga Karapatan
+    required: true

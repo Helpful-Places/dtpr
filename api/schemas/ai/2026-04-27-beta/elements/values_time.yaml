@@ -1,0 +1,33 @@
+id: values_time
+category_id: input_dataset
+title:
+  - locale: en
+    value: Values / Time
+  - locale: es
+    value: Valores / tiempo
+  - locale: fr
+    value: Valeurs / Temps
+  - locale: km
+    value: តម្លៃ / ពេលវេលា
+  - locale: pt
+    value: Valores / Tempo
+  - locale: tl
+    value: Mga halaga / oras
+description:
+  - locale: en
+    value: Measurements that are collected at regular intervals over a period of time.
+  - locale: es
+    value: >-
+      Medidas que se recogen a intervalos regulares durante un período de tiempo. Por ejemplo, ver datos de la serie
+      temporal.
+  - locale: fr
+    value: Mesures recueillies à intervalles réguliers sur une période de temps donnée.
+  - locale: km
+    value: ការវាស់វែងដែលត្រូវបានប្រមូលនៅចន្លោះពេលទៀងទាត់ក្នុងរយៈពេលមួយ។
+  - locale: pt
+    value: Medições que são recolhidas em intervalos regulares durante um período de tempo.
+  - locale: tl
+    value: Ang mga pagsukat na nakolekta sa mga regular na agwat sa loob ng isang panahon.
+citation: []
+symbol_id: values_time
+variables: []

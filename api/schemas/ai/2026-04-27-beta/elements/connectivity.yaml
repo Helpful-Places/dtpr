@@ -1,0 +1,31 @@
+id: connectivity
+category_id: purpose
+title:
+  - locale: en
+    value: Connectivity
+  - locale: es
+    value: Conectividad
+  - locale: fr
+    value: Accés à internet
+  - locale: km
+    value: ការតភ្ជាប់
+  - locale: pt
+    value: Conectividade
+  - locale: tl
+    value: Pagkakakonekta
+description:
+  - locale: en
+    value: Enables connectivity of devices to a digital network.
+  - locale: es
+    value: Permite la conectividad de los dispositivos a una red digital.
+  - locale: fr
+    value: Permettre la connexion à internet.
+  - locale: km
+    value: បើកដំណើរការការភ្ជាប់ឧបករណ៍ទៅបណ្តាញឌីជីថល។ ស្វែងយល់បន្ថែម [នៅទីនេះ](https://en.wikipedia.org/wiki/Computer_network)
+  - locale: pt
+    value: Permite a conetividade de dispositivos a uma rede digital.
+  - locale: tl
+    value: Sumusuporta sa pagsukat o pagsubaybay sa natural na kapaligiran.
+citation: []
+symbol_id: connectivity
+variables: []

@@ -1,0 +1,31 @@
+id: binary
+category_id: input_dataset
+title:
+  - locale: en
+    value: Binary
+  - locale: es
+    value: Binario
+  - locale: fr
+    value: Binaire
+  - locale: km
+    value: ខេស
+  - locale: pt
+    value: Binário
+  - locale: tl
+    value: Binary
+description:
+  - locale: en
+    value: Compressed data into a binary format.
+  - locale: es
+    value: Datos comprimidos en un formato binario.
+  - locale: fr
+    value: Compression de données dans un format binaire.
+  - locale: km
+    value: ទិន្នន័យដែលបានបង្រួមទៅជាទ្រង់ទ្រាយគោលពីរ។
+  - locale: pt
+    value: Dados comprimidos num formato binário.
+  - locale: tl
+    value: Naka -compress na data sa isang format na binary.
+citation: []
+symbol_id: binary
+variables: []

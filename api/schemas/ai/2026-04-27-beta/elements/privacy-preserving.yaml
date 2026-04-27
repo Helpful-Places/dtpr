@@ -1,0 +1,66 @@
+id: privacy-preserving
+category_id: processing
+title:
+  - locale: en
+    value: Privacy-Preserving Transformation
+  - locale: es
+    value: Transformación para preservar la intimidad
+  - locale: fr
+    value: Transformation préservant la vie privée
+  - locale: km
+    value: ភាពឯកជន-ការរក្សាការផ្លាស់ប្តូរ
+  - locale: pt
+    value: Transformação com preservação da privacidade
+  - locale: tl
+    value: Pagbabagong Pagpapanatili ng Privacy
+description:
+  - locale: en
+    value: >-
+      A technology that modifies data to remove or obscure personally identifiable information while preserving the
+      underlying patterns needed for analysis. These systems apply techniques such as masking, tokenization, or
+      aggregation to protect individual privacy. In public spaces, de-identification processing enables valuable
+      insights from data collection without compromising personal information. The technology typically creates a
+      barrier between raw collected data and the information used for decision-making.
+  - locale: es
+    value: >-
+      Tecnología que modifica los datos para eliminar u ocultar la información personal identificable, conservando al
+      mismo tiempo los patrones subyacentes necesarios para el análisis. Estos sistemas aplican técnicas como el
+      enmascaramiento, la tokenización o la agregación para proteger la privacidad individual. En los espacios públicos,
+      el tratamiento de la desidentificación permite obtener información valiosa de la recogida de datos sin comprometer
+      la información personal. La tecnología suele crear una barrera entre los datos en bruto recogidos y la información
+      utilizada para la toma de decisiones.
+  - locale: fr
+    value: >-
+      Technologie qui modifie les données afin de supprimer ou d'obscurcir les informations personnellement
+      identifiables tout en préservant les modèles sous-jacents nécessaires à l'analyse. Ces systèmes appliquent des
+      techniques telles que le masquage, la symbolisation ou l'agrégation pour protéger la vie privée des individus.
+      Dans les espaces publics, le traitement de dépersonnalisation permet d'obtenir des informations précieuses à
+      partir de la collecte de données sans compromettre les informations personnelles. La technologie crée généralement
+      une barrière entre les données brutes collectées et les informations utilisées pour la prise de décision.
+  - locale: km
+    value: >-
+      បច្ចេកវិទ្យាដែលកែប្រែទិន្នន័យដើម្បីលុប ឬបិទបាំងព័ត៌មានដែលអាចកំណត់អត្តសញ្ញាណផ្ទាល់ខ្លួន
+      ខណៈពេលដែលរក្សានូវលំនាំមូលដ្ឋានដែលត្រូវការសម្រាប់ការវិភាគ។ ប្រព័ន្ធទាំងនេះអនុវត្តបច្ចេកទេសដូចជាការបិទបាំង
+      សញ្ញាសម្ងាត់ ឬការប្រមូលផ្តុំដើម្បីការពារឯកជនភាពបុគ្គល។ នៅកន្លែងសាធារណៈ ដំណើរការ de-identification
+      អនុញ្ញាតឱ្យមានការយល់ដឹងដ៏មានតម្លៃពីការប្រមូលទិន្នន័យដោយមិនប៉ះពាល់ដល់ព័ត៌មានផ្ទាល់ខ្លួន។
+      បច្ចេកវិទ្យាជាធម្មតាបង្កើតរបាំងរវាងទិន្នន័យដែលប្រមូលបានឆៅ និងព័ត៌មានដែលប្រើសម្រាប់ធ្វើការសម្រេចចិត្ត។
+  - locale: pt
+    value: >-
+      Uma tecnologia que modifica os dados para remover ou ocultar informações de identificação pessoal e, ao mesmo
+      tempo, preservar os padrões subjacentes necessários para a análise. Esses sistemas aplicam técnicas como
+      mascaramento, tokenização ou agregação para proteger a privacidade individual. Em espaços públicos, o
+      processamento de desidentificação permite insights valiosos da coleta de dados sem comprometer as informações
+      pessoais. Normalmente, a tecnologia cria uma barreira entre os dados brutos coletados e as informações usadas para
+      a tomada de decisões.
+  - locale: tl
+    value: >-
+      Isang teknolohiya na nagbabago ng data upang alisin o itago ang impormasyong nagbibigay ng personal na
+      pagkakakilanlan habang pinapanatili ang mga pinagbabatayan na pattern na kailangan para sa pagsusuri. Naglalapat
+      ang mga system na ito ng mga diskarte gaya ng masking, tokenization, o pagsasama-sama upang protektahan ang
+      indibidwal na privacy. Sa mga pampublikong espasyo, ang pagpoproseso ng de-identification ay nagbibigay-daan sa
+      mga mahahalagang insight mula sa pangongolekta ng data nang hindi kinokompromiso ang personal na impormasyon. Ang
+      teknolohiya ay karaniwang lumilikha ng isang hadlang sa pagitan ng hilaw na nakolektang data at ang impormasyong
+      ginagamit para sa paggawa ng desisyon.
+citation: []
+symbol_id: processing_privacy-preservoing-transformation
+variables: []

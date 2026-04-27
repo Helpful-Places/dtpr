@@ -1,0 +1,60 @@
+id: functional_modes
+name:
+  - locale: en
+    value: Functional Modes
+  - locale: es
+    value: Modos funcionales
+  - locale: fr
+    value: Modes fonctionnels
+  - locale: km
+    value: របៀបមុខងារ
+  - locale: pt
+    value: Modos funcionais
+  - locale: tl
+    value: Mga Functional Mode
+description:
+  - locale: en
+    value: How this AI system operates — the functional modes (e.g. analytical, semantic, generative, agentic, perceptive, physical) it composes.
+  - locale: es
+    value: Cómo opera este sistema de IA — los modos funcionales (por ejemplo, analítico, semántico, generativo, agentico, perceptivo, físico) que compone.
+  - locale: fr
+    value: Comment ce système d’IA fonctionne — les modes fonctionnels (par exemple, analytique, sémantique, génératif, agentique, perceptif, physique) qu’il compose.
+  - locale: km
+    value: របៀបដែលប្រព័ន្ធ AI នេះដំណើរការ — របៀបមុខងារ (ឧ. វិភាគ វាក្យសព្ទ បង្កើត ភ្នាក់ងារ យល់ឃើញ រាងកាយ) ដែលវាបង្កើត។
+  - locale: pt
+    value: Como este sistema de IA opera — os modos funcionais (por exemplo, analítico, semântico, generativo, agentico, perceptivo, físico) que compõe.
+  - locale: tl
+    value: Paano gumagana ang AI system na ito — ang mga functional mode (hal. analytical, semantic, generative, agentic, perceptive, physical) na binubuo nito.
+prompt:
+  - locale: en
+    value: What does this AI system do? Pick one or more functional modes.
+  - locale: es
+    value: ¿Qué hace este sistema de IA? Selecciona uno o más modos funcionales.
+  - locale: fr
+    value: Que fait ce système d’IA ? Choisissez un ou plusieurs modes fonctionnels.
+  - locale: km
+    value: តើប្រព័ន្ធ AI នេះធ្វើអ្វី? ជ្រើសរើសរបៀបមុខងារមួយ ឬច្រើន។
+  - locale: pt
+    value: O que este sistema de IA faz? Escolha um ou mais modos funcionais.
+  - locale: tl
+    value: Ano ang ginagawa ng AI system na ito? Pumili ng isa o higit pang functional mode.
+required: true
+order: 3
+datachain_type: ai
+shape: hexagon
+element_variables:
+  - id: additional_description
+    label:
+      - locale: en
+        value: Description
+      - locale: es
+        value: Descripción
+      - locale: fr
+        value: Description
+      - locale: km
+        value: ការពិពណ៌នា
+      - locale: pt
+        value: Descrição
+      - locale: tl
+        value: Paglalarawan
+    required: false

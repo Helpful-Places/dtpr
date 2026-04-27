@@ -1,0 +1,33 @@
+id: dining
+category_id: purpose
+title:
+  - locale: en
+    value: Dining
+  - locale: es
+    value: Comida
+  - locale: fr
+    value: Restauration
+  - locale: km
+    value: តុយតុង
+  - locale: pt
+    value: Jantar
+  - locale: tl
+    value: Kainan
+description:
+  - locale: en
+    value: For providing food or meal services.
+  - locale: es
+    value: Para proporcionar servicios de comida o comida.
+  - locale: fr
+    value: Pour la fourniture de services de restauration ou de repas.
+  - locale: km
+    value: >-
+      សម្រាប់ការផ្តល់សេវាកម្មអាហារឬអាហារ។ ស្វែងយល់បន្ថែម [នៅទីនេះ](https://en.wikipedia.org/wiki/restaurant) ឬ
+      [នេះ](https://en.wikipedia.org/wiki/katering)
+  - locale: pt
+    value: Para o fornecimento de serviços de alimentação ou de refeições.
+  - locale: tl
+    value: Para sa pagbibigay ng mga serbisyo sa pagkain o pagkain.
+citation: []
+symbol_id: dining
+variables: []

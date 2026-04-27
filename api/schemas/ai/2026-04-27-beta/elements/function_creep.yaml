@@ -1,0 +1,65 @@
+id: function_creep
+category_id: risks_mitigation
+title:
+  - locale: en
+    value: Unforeseen Use or Function Creep
+  - locale: es
+    value: Uso imprevisto o aumento de funciones
+  - locale: fr
+    value: Utilisation imprévue ou glissement de fonction
+  - locale: km
+    value: ការប្រើប្រាស់ដែលមិនបានមើលឃើញទុកជាមុន ឬមុខងារ Creep
+  - locale: pt
+    value: Uso imprevisto ou desvio de função
+  - locale: tl
+    value: Hindi inaasahang Paggamit o Function Creep
+description:
+  - locale: en
+    value: >-
+      The risk that AI systems originally deployed for specific, limited purposes gradually expand in scope or are
+      repurposed for applications beyond their original intent without proper evaluation or transparency. What begins as
+      a system for one purpose (e.g., traffic management) might expand to others (e.g., law enforcement) without
+      adequate assessment of new risks or public notification. This can undermine public trust and potentially lead to
+      uses that weren't properly designed for or vetted.
+  - locale: es
+    value: >-
+      El riesgo de que los sistemas de IA desplegados originalmente para fines específicos y limitados amplíen
+      gradualmente su alcance o sean reutilizados para aplicaciones que van más allá de su propósito original sin la
+      debida evaluación o transparencia. Lo que comienza como un sistema para un fin (por ejemplo, la gestión del
+      tráfico) puede ampliarse a otros (por ejemplo, el cumplimiento de la ley) sin una evaluación adecuada de los
+      nuevos riesgos o la notificación pública. Esto puede socavar la confianza del público y conducir potencialmente a
+      usos para los que no se diseñaron o investigaron adecuadamente.
+  - locale: fr
+    value: >-
+      Le risque que des systèmes d'IA déployés à l'origine pour des objectifs spécifiques et limités voient leur champ
+      d'application s'étendre progressivement ou soient réaffectés à des applications dépassant leur objectif initial,
+      sans évaluation ni transparence adéquates. Ce qui commence comme un système destiné à un objectif (par exemple, la
+      gestion du trafic) peut s'étendre à d'autres (par exemple, l'application de la loi) sans évaluation adéquate des
+      nouveaux risques ou sans notification au public. Cela peut saper la confiance du public et conduire à des
+      utilisations qui n'ont pas été correctement conçues ou approuvées.
+  - locale: km
+    value: >-
+      ហានិភ័យដែលប្រព័ន្ធ AI ដើមឡើយត្រូវបានដាក់ឱ្យប្រើប្រាស់សម្រាប់គោលបំណងជាក់លាក់ និងកំណត់ពង្រីកបន្តិចម្តងៗក្នុងវិសាលភាព
+      ឬត្រូវបានប្រើប្រាស់ឡើងវិញសម្រាប់កម្មវិធីលើសពីចេតនាដើមរបស់ពួកគេ ដោយគ្មានការវាយតម្លៃត្រឹមត្រូវ ឬតម្លាភាព។
+      អ្វីដែលចាប់ផ្តើមជាប្រព័ន្ធសម្រាប់គោលបំណងមួយ (ឧ. ការគ្រប់គ្រងចរាចរណ៍) អាចនឹងពង្រីកដល់អ្នកដទៃ (ឧ. ការអនុវត្តច្បាប់)
+      ដោយមិនមានការវាយតម្លៃគ្រប់គ្រាន់នៃហានិភ័យថ្មី ឬការជូនដំណឹងជាសាធារណៈ។ នេះអាចបំផ្លាញទំនុកចិត្តសាធារណៈ
+      និងអាចនាំឱ្យមានការប្រើប្រាស់ដែលមិនត្រូវបានរចនាត្រឹមត្រូវសម្រាប់ ឬត្រួតពិនិត្យ។
+  - locale: pt
+    value: >-
+      O risco de que os sistemas de IA originalmente implantados para fins específicos e limitados expandam gradualmente
+      seu escopo ou sejam reaproveitados para aplicações além de sua intenção original sem a devida avaliação ou
+      transparência. O que começa como um sistema para uma finalidade (por exemplo, gerenciamento de tráfego) pode se
+      expandir para outras (por exemplo, aplicação da lei) sem a avaliação adequada de novos riscos ou notificação
+      pública. Isso pode minar a confiança do público e, potencialmente, levar a usos que não foram adequadamente
+      projetados ou examinados.
+  - locale: tl
+    value: >-
+      Ang panganib na ang mga AI system na orihinal na na-deploy para sa mga partikular, limitadong layunin ay
+      unti-unting lumalawak sa saklaw o na-repurpose para sa mga application na lampas sa kanilang orihinal na layunin
+      nang walang wastong pagsusuri o transparency. Ang nagsisimula bilang isang sistema para sa isang layunin (hal.,
+      pamamahala sa trapiko) ay maaaring lumawak sa iba (hal., pagpapatupad ng batas) nang walang sapat na pagtatasa ng
+      mga bagong panganib o pampublikong abiso. Maaari nitong sirain ang tiwala ng publiko at posibleng humantong sa mga
+      paggamit na hindi maayos na idinisenyo para sa o nasuri.
+citation: []
+symbol_id: risks_unforseen-or-function-creep
+variables: []

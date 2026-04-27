@@ -1,0 +1,35 @@
+id: planning_decision_making
+category_id: purpose
+title:
+  - locale: en
+    value: Planning & Decision-making
+  - locale: es
+    value: Planificación y toma de decisiones
+  - locale: fr
+    value: Planification et prise de décision
+  - locale: km
+    value: ការរៀបចំផែនការនិងការសម្រេចចិត្ត
+  - locale: pt
+    value: Planeamento e tomada de decisões
+  - locale: tl
+    value: Pagpaplano at paggawa ng desisyon
+description:
+  - locale: en
+    value: Supports the development of future plans; or to enable or measure the impact of a decision.
+  - locale: es
+    value: >-
+      Apoya el desarrollo de planes futuros; o para habilitar o medir el impacto de una decisión. Los ejemplos incluyen
+      Urban Planning
+  - locale: fr
+    value: "Aide à l'élaboration de plans futurs, ou à la mesure de l'impact d'une décision. Exemples : urbanisme"
+  - locale: km
+    value: >-
+      គាំទ្រដល់ការអភិវឌ្ឍផែនការអនាគត ឬដើម្បីបើកដំណើរការឬវាស់វែងពីផលប៉ះពាល់នៃការសម្រេចចិត្ត។ ឧទាហរណ៍រួមមាន
+      [ការធ្វើផែនការទីក្រុង](https://en.wikipedia.org/wiki/urnanning)
+  - locale: pt
+    value: Apoia o desenvolvimento de planos futuros; ou para permitir ou medir o impacto de uma decisão.
+  - locale: tl
+    value: Sinusuportahan ang pagbuo ng mga plano sa hinaharap; o upang paganahin o masukat ang epekto ng isang desisyon.
+citation: []
+symbol_id: planning_decision_making
+variables: []

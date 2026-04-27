@@ -1,0 +1,33 @@
+id: stored_primarily_internationally
+category_id: storage
+title:
+  - locale: en
+    value: Stored primarily internationally
+  - locale: es
+    value: Almacenado principalmente internacionalmente
+  - locale: fr
+    value: Stockés principalement à l'international
+  - locale: km
+    value: រក្សាទុកជាចម្បងអន្តរជាតិ
+  - locale: pt
+    value: Armazenados principalmente a nível internacional
+  - locale: tl
+    value: Pangunahing nakaimbak sa buong mundo
+description:
+  - locale: en
+    value: Data is stored outside the jurisdiction where it was collected.
+  - locale: es
+    value: Los datos se almacenan fuera de la jurisdicción donde se recopiló.
+  - locale: fr
+    value: Les données sont stockées en dehors de la juridiction où elles ont été collectées.
+  - locale: km
+    value: >-
+      ទិន្នន័យត្រូវបានរក្សាទុកនៅខាងក្រៅយុត្តាធិការដែលវាត្រូវបានប្រមូល។ ស្វែងយល់បន្ថែម
+      [នៅទីនេះ](https://en.wikipedia.org/wiki/data_sovereignty)
+  - locale: pt
+    value: Os dados são armazenados fora da jurisdição onde foram recolhidos.
+  - locale: tl
+    value: Ang datos ay naka-imbak sa labas ng hurisdiksyon kung saan nakolekta ito.
+citation: []
+symbol_id: stored
+variables: []
