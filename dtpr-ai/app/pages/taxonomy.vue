@@ -67,7 +67,44 @@ const aiVersions = computed<SchemaVersion[]>(() => {
     })
 })
 
-const activeVersion = computed(() => aiVersions.value[0]?.id ?? '')
+const route = useRoute()
+const router = useRouter()
+
+const requestedVersion = computed(() => {
+  const raw = route.query.v
+  if (typeof raw !== 'string' || raw.length === 0) return null
+  return raw
+})
+
+const latestVersion = computed(() => aiVersions.value[0]?.id ?? '')
+
+const versionMissing = computed(() => {
+  const r = requestedVersion.value
+  if (!r) return false
+  return !aiVersions.value.some((v) => v.id === r)
+})
+
+const activeVersion = computed(() => {
+  const r = requestedVersion.value
+  if (r && !versionMissing.value) return r
+  return latestVersion.value
+})
+
+const versionItems = computed(() =>
+  aiVersions.value.map((v) => ({
+    label: v.id,
+    description: v.status === 'stable' ? 'stable' : 'beta',
+    value: v.id,
+  })),
+)
+
+const selectedVersion = computed({
+  get: () => activeVersion.value,
+  set: (next: string) => {
+    if (!next || next === activeVersion.value) return
+    router.replace({ query: { ...route.query, v: next } })
+  },
+})
 
 const { data: catsData } = await useAsyncData(
   'dtpr-categories',
@@ -309,6 +346,14 @@ async function copyHash(hash: string, label: string) {
             </template>
           </UInput>
         </div>
+        <USelectMenu
+          v-if="versionItems.length > 1"
+          v-model="selectedVersion"
+          :items="versionItems"
+          value-key="value"
+          class="taxonomy-page__version"
+          aria-label="Schema version"
+        />
         <UButton
           class="taxonomy-page__sidebar-toggle"
           color="neutral"
@@ -318,6 +363,15 @@ async function copyHash(hash: string, label: string) {
           @click="toggleSidebar"
         />
       </div>
+      <UAlert
+        v-if="versionMissing"
+        class="taxonomy-page__alert"
+        color="warning"
+        variant="subtle"
+        icon="i-heroicons-exclamation-triangle"
+        title="Unknown schema version"
+        :description="`The version &quot;${requestedVersion}&quot; is not registered. Showing &quot;${latestVersion}&quot; instead.`"
+      />
     </header>
 
     <div
@@ -443,6 +497,15 @@ async function copyHash(hash: string, label: string) {
   flex: 1 1 16rem;
   min-width: 12rem;
   max-width: 28rem;
+}
+
+.taxonomy-page__version {
+  flex: 0 0 auto;
+  min-width: 14rem;
+}
+
+.taxonomy-page__alert {
+  margin-top: 0.75rem;
 }
 
 .taxonomy-page__sidebar-toggle {
