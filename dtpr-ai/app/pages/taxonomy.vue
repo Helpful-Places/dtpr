@@ -184,11 +184,14 @@ onMounted(() => {
     scrollToTarget(initial)
   }
   window.addEventListener('hashchange', onHashChange)
+  window.addEventListener('scroll', handleScroll, { passive: true })
+  handleScroll()
 })
 
 onBeforeUnmount(() => {
   if (typeof window !== 'undefined') {
     window.removeEventListener('hashchange', onHashChange)
+    window.removeEventListener('scroll', handleScroll)
   }
 })
 
@@ -203,6 +206,50 @@ const toast = useToast()
 function buildHashUrl(hash: string): string {
   if (typeof window === 'undefined') return `#${hash}`
   return `${window.location.origin}${window.location.pathname}${window.location.search}#${hash}`
+}
+
+const activeCategory = ref<string | null>(null)
+
+const sidebarItems = computed(() => {
+  return filteredSortedCategories.value.map((cat) => ({
+    label: categoryTitle(cat.id),
+    badge: cat.elements.length,
+    to: `#category-${cat.id}`,
+    active: activeCategory.value === cat.id,
+    onSelect: (e: Event) => {
+      e.preventDefault()
+      const id = `category-${cat.id}`
+      activeCategory.value = cat.id
+      // Update history without reload so the URL is shareable.
+      if (typeof window !== 'undefined' && window.location.hash !== `#${id}`) {
+        history.replaceState(null, '', `#${id}`)
+        targetId.value = id
+      }
+      scrollToTarget(id)
+    },
+  }))
+})
+
+function handleScroll() {
+  if (typeof document === 'undefined') return
+  const candidates = filteredSortedCategories.value
+    .map((c) => ({ id: c.id, el: document.getElementById(`category-${c.id}`) }))
+    .filter((c): c is { id: string; el: HTMLElement } => c.el !== null)
+
+  const scrollPosition = window.scrollY + 100
+  for (let i = candidates.length - 1; i >= 0; i--) {
+    if (candidates[i].el.offsetTop <= scrollPosition) {
+      activeCategory.value = candidates[i].id
+      return
+    }
+  }
+  activeCategory.value = candidates[0]?.id ?? null
+}
+
+const sidebarOpen = ref(false)
+
+function toggleSidebar() {
+  sidebarOpen.value = !sidebarOpen.value
 }
 
 async function copyHash(hash: string, label: string) {
@@ -262,10 +309,40 @@ async function copyHash(hash: string, label: string) {
             </template>
           </UInput>
         </div>
+        <UButton
+          class="taxonomy-page__sidebar-toggle"
+          color="neutral"
+          variant="ghost"
+          :icon="sidebarOpen ? 'i-heroicons-x-mark' : 'i-heroicons-bars-3'"
+          aria-label="Toggle category navigation"
+          @click="toggleSidebar"
+        />
       </div>
     </header>
 
-    <main class="taxonomy-page__main">
+    <div
+      v-if="sidebarOpen"
+      class="taxonomy-page__overlay"
+      @click="sidebarOpen = false"
+    />
+
+    <div class="taxonomy-page__layout">
+      <aside
+        class="taxonomy-page__sidebar"
+        :class="{ 'taxonomy-page__sidebar--open': sidebarOpen }"
+      >
+        <div class="taxonomy-page__sidebar-inner">
+          <h2 class="taxonomy-page__sidebar-heading">Categories</h2>
+          <UNavigationMenu
+            v-if="sidebarItems.length > 0"
+            :items="sidebarItems"
+            orientation="vertical"
+          />
+          <p v-else class="taxonomy-page__sidebar-empty">No categories match.</p>
+        </div>
+      </aside>
+
+      <main class="taxonomy-page__main">
       <section
         v-for="cat in filteredSortedCategories"
         :key="cat.id"
@@ -306,12 +383,13 @@ async function copyHash(hash: string, label: string) {
         </DtprCategorySection>
       </section>
 
-      <div v-if="searchQuery && !hasResults" class="taxonomy-empty">
-        <UIcon name="i-heroicons-magnifying-glass" class="taxonomy-empty__icon" />
-        <h2 class="taxonomy-empty__title">No results found</h2>
-        <p class="taxonomy-empty__hint">Try adjusting your search terms.</p>
-      </div>
-    </main>
+        <div v-if="searchQuery && !hasResults" class="taxonomy-empty">
+          <UIcon name="i-heroicons-magnifying-glass" class="taxonomy-empty__icon" />
+          <h2 class="taxonomy-empty__title">No results found</h2>
+          <p class="taxonomy-empty__hint">Try adjusting your search terms.</p>
+        </div>
+      </main>
+    </div>
   </div>
 </template>
 
@@ -367,10 +445,97 @@ async function copyHash(hash: string, label: string) {
   max-width: 28rem;
 }
 
-.taxonomy-page__main {
+.taxonomy-page__sidebar-toggle {
+  flex: 0 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .taxonomy-page__sidebar-toggle {
+    display: none;
+  }
+}
+
+.taxonomy-page__layout {
   max-width: 80rem;
   margin: 0 auto;
   padding: 2rem 1.5rem;
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.taxonomy-page__sidebar {
+  flex: 0 0 16rem;
+  position: sticky;
+  top: calc(var(--ui-header-height, 0) + 6rem);
+  align-self: flex-start;
+}
+
+.taxonomy-page__sidebar-inner {
+  max-height: calc(100vh - var(--ui-header-height, 0) - 7rem);
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.taxonomy-page__sidebar-heading {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ui-text-dimmed, rgb(107, 114, 128));
+  margin: 0 0 0.75rem 0;
+  padding-left: 0.75rem;
+}
+
+.taxonomy-page__sidebar-empty {
+  margin: 0;
+  padding: 0.5rem 0.75rem;
+  color: var(--ui-text-dimmed, rgb(107, 114, 128));
+  font-size: 0.8125rem;
+}
+
+.taxonomy-page__overlay {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .taxonomy-page__sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 18rem;
+    max-width: 80vw;
+    background: var(--ui-bg, white);
+    z-index: 50;
+    padding: 1.25rem;
+    border-right: 1px solid var(--ui-border, rgb(229, 231, 235));
+    transform: translateX(-100%);
+    transition: transform 0.2s ease;
+    overflow-y: auto;
+  }
+
+  .taxonomy-page__sidebar--open {
+    transform: translateX(0);
+  }
+
+  .taxonomy-page__sidebar-inner {
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  .taxonomy-page__overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgb(0 0 0 / 0.4);
+    z-index: 40;
+  }
+}
+
+.taxonomy-page__main {
+  flex: 1 1 auto;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
