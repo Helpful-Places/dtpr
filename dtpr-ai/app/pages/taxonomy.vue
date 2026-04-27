@@ -105,9 +105,6 @@ const elements = computed<Array<Element & { category_ids: string[] }>>(() => {
   })
 })
 
-const grouped = computed(() => groupElementsByCategory(elements.value, categories.value))
-const sortedCategories = computed(() => sortCategoriesByOrder(grouped.value, categories.value))
-
 function categoryTitle(id: string): string {
   const cat = categories.value.find((c) => c.id === id)
   if (!cat) return id
@@ -118,23 +115,91 @@ function iconUrlFor(elementId: string): string {
   if (!activeVersion.value) return ''
   return `${API_BASE}/schemas/${activeVersion.value}/elements/${elementId}/icon.svg`
 }
+
+// Pre-resolve display strings for every element so search matches what
+// the visitor actually sees (locale fallbacks applied) and so renders
+// don't recompute per row.
+const decoratedElements = computed(() => {
+  return elements.value.map((el) => ({
+    raw: el,
+    display: deriveElementDisplay(el, undefined, 'en', { iconUrl: iconUrlFor(el.id) }),
+  }))
+})
+
+const searchQuery = ref('')
+
+const filteredDecorated = computed(() => {
+  const q = searchQuery.value.trim().toLowerCase()
+  if (!q) return decoratedElements.value
+  return decoratedElements.value.filter(({ display }) => {
+    const haystack = `${display.title}\n${display.description}`.toLowerCase()
+    return haystack.includes(q)
+  })
+})
+
+const filteredGrouped = computed(() =>
+  groupElementsByCategory(
+    filteredDecorated.value.map((d) => d.raw),
+    categories.value,
+  ),
+)
+
+const filteredSortedCategories = computed(() =>
+  sortCategoriesByOrder(filteredGrouped.value, categories.value).filter(
+    (c) => c.elements.length > 0,
+  ),
+)
+
+const displayById = computed(() => {
+  const map = new Map<string, ReturnType<typeof deriveElementDisplay>>()
+  for (const d of decoratedElements.value) map.set(d.raw.id, d.display)
+  return map
+})
+
+const hasResults = computed(() => filteredDecorated.value.length > 0)
+
+function clearSearch() {
+  searchQuery.value = ''
+}
 </script>
 
 <template>
   <div class="taxonomy-page">
     <header class="taxonomy-page__header">
       <div class="taxonomy-page__header-inner">
-        <h1 class="taxonomy-page__title">Taxonomy</h1>
-        <p class="taxonomy-page__subtitle">
-          Browse every element in the
-          <code>{{ activeVersion || 'ai' }}</code> schema, grouped by category.
-        </p>
+        <div class="taxonomy-page__heading">
+          <h1 class="taxonomy-page__title">Taxonomy</h1>
+          <p class="taxonomy-page__subtitle">
+            Browse every element in the
+            <code>{{ activeVersion || 'ai' }}</code> schema.
+          </p>
+        </div>
+        <div class="taxonomy-page__search">
+          <UInput
+            v-model="searchQuery"
+            placeholder="Search elements…"
+            icon="i-heroicons-magnifying-glass"
+            size="md"
+            class="w-full"
+          >
+            <template #trailing>
+              <UButton
+                v-show="searchQuery"
+                color="neutral"
+                variant="link"
+                icon="i-heroicons-x-mark-20-solid"
+                aria-label="Clear search"
+                @click="clearSearch"
+              />
+            </template>
+          </UInput>
+        </div>
       </div>
     </header>
 
     <main class="taxonomy-page__main">
       <section
-        v-for="cat in sortedCategories"
+        v-for="cat in filteredSortedCategories"
         :key="cat.id"
         :id="`category-${cat.id}`"
         class="taxonomy-category"
@@ -147,13 +212,17 @@ function iconUrlFor(elementId: string): string {
               :id="`element-${el.id}`"
               class="taxonomy-element-row"
             >
-              <DtprElement
-                :display="deriveElementDisplay(el, undefined, 'en', { iconUrl: iconUrlFor(el.id) })"
-              />
+              <DtprElement :display="displayById.get(el.id)!" />
             </div>
           </DtprElementGrid>
         </DtprCategorySection>
       </section>
+
+      <div v-if="searchQuery && !hasResults" class="taxonomy-empty">
+        <UIcon name="i-heroicons-magnifying-glass" class="taxonomy-empty__icon" />
+        <h2 class="taxonomy-empty__title">No results found</h2>
+        <p class="taxonomy-empty__hint">Try adjusting your search terms.</p>
+      </div>
     </main>
   </div>
 </template>
@@ -166,30 +235,48 @@ function iconUrlFor(elementId: string): string {
 .taxonomy-page__header {
   border-bottom: 1px solid var(--ui-border, rgb(229, 231, 235));
   background: var(--ui-bg, white);
-  padding: 1.5rem 0;
+  padding: 1rem 0;
+  position: sticky;
+  top: var(--ui-header-height, 0);
+  z-index: 30;
+  backdrop-filter: blur(8px);
 }
 
 .taxonomy-page__header-inner {
   max-width: 80rem;
   margin: 0 auto;
   padding: 0 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2rem;
+}
+
+.taxonomy-page__heading {
+  flex: 0 0 auto;
 }
 
 .taxonomy-page__title {
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  margin: 0 0 0.25rem 0;
+  margin: 0;
 }
 
 .taxonomy-page__subtitle {
   margin: 0;
   color: var(--ui-text-dimmed, rgb(107, 114, 128));
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
 }
 
 .taxonomy-page__subtitle code {
   font-family: ui-monospace, SFMono-Regular, monospace;
   font-size: 0.85em;
+}
+
+.taxonomy-page__search {
+  flex: 1 1 16rem;
+  min-width: 12rem;
+  max-width: 28rem;
 }
 
 .taxonomy-page__main {
@@ -202,10 +289,36 @@ function iconUrlFor(elementId: string): string {
 }
 
 .taxonomy-category {
-  scroll-margin-top: 5rem;
+  scroll-margin-top: 6rem;
 }
 
 .taxonomy-element-row {
-  scroll-margin-top: 5rem;
+  scroll-margin-top: 6rem;
+}
+
+.taxonomy-empty {
+  text-align: center;
+  padding: 4rem 1rem;
+  color: var(--ui-text-dimmed, rgb(107, 114, 128));
+}
+
+.taxonomy-empty__icon {
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto 1rem auto;
+  display: block;
+  opacity: 0.5;
+}
+
+.taxonomy-empty__title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+  color: var(--ui-text, inherit);
+}
+
+.taxonomy-empty__hint {
+  margin: 0;
+  font-size: 0.875rem;
 }
 </style>
