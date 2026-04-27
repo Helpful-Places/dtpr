@@ -37,9 +37,10 @@ interface CategoriesResponse {
 }
 
 // The REST API currently returns a singular `category_id` per element;
-// the grouping helper expects `category_ids: string[]`. We normalize on
-// load so either shape works if the API gains plural support later.
-type ElementApi = Omit<Element, 'category_ids'> & {
+// the grouping helper expects `category_ids: string[]`. Relax the
+// singular field to optional so either wire shape typechecks at the
+// boundary, then normalize to plural before grouping.
+type ElementApi = Omit<Element, 'category_id'> & {
   category_id?: string
   category_ids?: string[]
 }
@@ -50,8 +51,13 @@ interface ElementsResponse {
   elements: ElementApi[]
 }
 
+// 8s timeout keeps Cloudflare Workers SSR within its subrequest wall-clock
+// budget when api.dtpr.io is slow rather than holding the request open.
+const FETCH_TIMEOUT_MS = 8000
+
 const { data: schemasData } = await useFetch<SchemasResponse>(`${API_BASE}/schemas`, {
   key: 'dtpr-schemas-index',
+  timeout: FETCH_TIMEOUT_MS,
 })
 
 const aiVersions = computed<SchemaVersion[]>(() => {
@@ -102,7 +108,7 @@ const selectedVersion = computed({
   get: () => activeVersion.value,
   set: (next: string) => {
     if (!next || next === activeVersion.value) return
-    router.replace({ query: { ...route.query, v: next } })
+    router.replace({ query: { ...route.query, v: next }, hash: route.hash })
   },
 })
 
@@ -112,6 +118,7 @@ const { data: catsData } = await useAsyncData(
     activeVersion.value
       ? $fetch<CategoriesResponse>(
           `${API_BASE}/schemas/${activeVersion.value}/categories`,
+          { timeout: FETCH_TIMEOUT_MS },
         )
       : Promise.resolve(undefined),
   { watch: [activeVersion] },
@@ -123,6 +130,7 @@ const { data: elsData } = await useAsyncData(
     activeVersion.value
       ? $fetch<ElementsResponse>(
           `${API_BASE}/schemas/${activeVersion.value}/elements?fields=all&limit=200`,
+          { timeout: FETCH_TIMEOUT_MS },
         )
       : Promise.resolve(undefined),
   { watch: [activeVersion] },
@@ -206,12 +214,24 @@ function readHashTarget(): string | null {
   return window.location.hash ? window.location.hash.slice(1) : null
 }
 
+let scrollTimer: ReturnType<typeof setTimeout> | null = null
+let scrollFrame: number | null = null
+// Suppress the scroll-spy listener while a programmatic smooth scroll is
+// running so the sidebar highlight doesn't flicker through every section
+// the page passes on its way to the target.
+let programmaticScrollSuppressUntil = 0
+
 function scrollToTarget(id: string) {
   if (typeof document === 'undefined') return
   const el = document.getElementById(id)
   if (!el) return
+  if (scrollTimer !== null) clearTimeout(scrollTimer)
   // Defer past hydration so layout has settled.
-  setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100)
+  scrollTimer = setTimeout(() => {
+    scrollTimer = null
+    programmaticScrollSuppressUntil = Date.now() + 800
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }, 100)
 }
 
 onMounted(() => {
@@ -229,6 +249,14 @@ onBeforeUnmount(() => {
   if (typeof window !== 'undefined') {
     window.removeEventListener('hashchange', onHashChange)
     window.removeEventListener('scroll', handleScroll)
+  }
+  if (scrollTimer !== null) {
+    clearTimeout(scrollTimer)
+    scrollTimer = null
+  }
+  if (scrollFrame !== null) {
+    cancelAnimationFrame(scrollFrame)
+    scrollFrame = null
   }
 })
 
@@ -260,15 +288,18 @@ const sidebarItems = computed(() => {
       // Update history without reload so the URL is shareable.
       if (typeof window !== 'undefined' && window.location.hash !== `#${id}`) {
         history.replaceState(null, '', `#${id}`)
-        targetId.value = id
       }
+      targetId.value = id
+      sidebarOpen.value = false
       scrollToTarget(id)
     },
   }))
 })
 
-function handleScroll() {
+function computeActiveCategory() {
+  scrollFrame = null
   if (typeof document === 'undefined') return
+  if (Date.now() < programmaticScrollSuppressUntil) return
   const candidates = filteredSortedCategories.value
     .map((c) => ({ id: c.id, el: document.getElementById(`category-${c.id}`) }))
     .filter((c): c is { id: string; el: HTMLElement } => c.el !== null)
@@ -281,6 +312,11 @@ function handleScroll() {
     }
   }
   activeCategory.value = candidates[0]?.id ?? null
+}
+
+function handleScroll() {
+  if (scrollFrame !== null) return
+  scrollFrame = requestAnimationFrame(computeActiveCategory)
 }
 
 const sidebarOpen = ref(false)
@@ -299,6 +335,12 @@ async function copyHash(hash: string, label: string) {
       icon: 'i-heroicons-check-circle',
       color: 'success',
     })
+    // Only update the hash on a successful copy so the URL doesn't
+    // diverge from what landed on the user's clipboard.
+    if (typeof window !== 'undefined' && window.location.hash !== `#${hash}`) {
+      history.replaceState(null, '', `#${hash}`)
+      targetId.value = hash
+    }
   } catch {
     toast.add({
       title: 'Copy failed',
@@ -306,11 +348,6 @@ async function copyHash(hash: string, label: string) {
       icon: 'i-heroicons-exclamation-triangle',
       color: 'error',
     })
-  }
-  // Update the hash so the highlight follows the click and the URL is shareable.
-  if (typeof window !== 'undefined' && window.location.hash !== `#${hash}`) {
-    history.replaceState(null, '', `#${hash}`)
-    targetId.value = hash
   }
 }
 </script>
