@@ -59,10 +59,23 @@ export function checkLocales(source: SchemaVersionSource): SemanticError[] {
     }
   }
 
-  // Elements: title, description (required non-empty)
+  // Elements: title, description (required non-empty); element-level
+  // context (optional override) localized strings.
   for (const [ei, el] of source.elements.entries()) {
     check(el.title, `elements[${ei}].title`, 'title')
     check(el.description, `elements[${ei}].description`, 'description')
+    if (el.context) {
+      check(el.context.name, `elements[${ei}].context.name`, 'context.name')
+      check(el.context.description, `elements[${ei}].context.description`, 'context.description')
+      for (const [vi, cv] of el.context.values.entries()) {
+        check(cv.name, `elements[${ei}].context.values[${vi}].name`, 'context value name')
+        check(
+          cv.description,
+          `elements[${ei}].context.values[${vi}].description`,
+          'context value description',
+        )
+      }
+    }
   }
 
   // Datachain type name (required non-empty); description optional so only check locale membership if present
@@ -75,6 +88,11 @@ export function checkLocales(source: SchemaVersionSource): SemanticError[] {
         }),
       )
     }
+  }
+
+  // Datachain type subchains: name (required non-empty)
+  for (const [si, sub] of source.datachainType.subchains.entries()) {
+    check(sub.name, `datachainType.subchains[${si}].name`, 'subchain.name')
   }
 
   return findings

@@ -1,0 +1,201 @@
+id: input_dataset
+name:
+  - locale: en
+    value: Input Dataset
+  - locale: es
+    value: Conjunto de datos de entrada
+  - locale: fr
+    value: Ensemble de données d'entrée
+  - locale: km
+    value: បញ្ចូលសំណុំទិន្នន័យ
+  - locale: pt
+    value: Conjunto de dados de entrada
+  - locale: tl
+    value: Input ang Dataset
+description:
+  - locale: en
+    value: The runtime input — the live data this deployed system processes when it operates. Distinct from training data.
+  - locale: es
+    value: La entrada en tiempo de ejecución — los datos en vivo que este sistema implementado procesa cuando opera. Distinto de los datos de entrenamiento.
+  - locale: fr
+    value: L’entrée d’exécution — les données en direct que ce système déployé traite lorsqu’il fonctionne. Distinct des données d’entraînement.
+  - locale: km
+    value: ការបញ្ចូលនៅពេលដំណើរការ — ទិន្នន័យផ្ទាល់ដែលប្រព័ន្ធដាក់ពង្រាយនេះដំណើរការនៅពេលវាដំណើរការ។ ខុសពីទិន្នន័យបណ្តុះបណ្តាល។
+  - locale: pt
+    value: A entrada em tempo de execução — os dados ao vivo que este sistema implantado processa ao operar. Distinto dos dados de treinamento.
+  - locale: tl
+    value: Ang runtime input — ang live na data na pinoproseso ng naka-deploy na system kapag ito ay tumatakbo. Iba sa training data.
+prompt:
+  - locale: en
+    value: What live data does this AI system process at runtime?
+  - locale: es
+    value: ¿Qué datos en vivo procesa este sistema de IA en tiempo de ejecución?
+  - locale: fr
+    value: "Quelles données en direct ce système d’IA traite-t-il à l’exécution\_?"
+  - locale: km
+    value: តើ​ទិន្នន័យ​ផ្ទាល់​អ្វី​ដែល​ប្រព័ន្ធ AI នេះ​ដំណើរការ​នៅ​ពេល​ដំណើរការ?
+  - locale: pt
+    value: Quais dados ao vivo este sistema de IA processa em tempo de execução?
+  - locale: tl
+    value: Anong live na data ang pinoproseso ng AI system na ito sa runtime?
+required: false
+order: 6
+datachain_type: ai
+shape: circle
+context:
+  id: pii
+  name:
+    - locale: en
+      value: Personal Information
+    - locale: es
+      value: Información personal
+    - locale: fr
+      value: Informations personnelles
+    - locale: km
+      value: ព័ត៌មានផ្ទាល់ខ្លួន
+    - locale: pt
+      value: Informações pessoais
+    - locale: tl
+      value: Personal na Impormasyon
+  description:
+    - locale: en
+      value: Whether the runtime input contains personal information, and how identifiable that information is.
+    - locale: es
+      value: Si la entrada en tiempo de ejecución contiene información personal y cuán identificable es esa información.
+    - locale: fr
+      value: Si l’entrée d’exécution contient des informations personnelles et dans quelle mesure ces informations sont identifiables.
+    - locale: km
+      value: ថាតើការបញ្ចូលនៅពេលដំណើរការមានព័ត៌មានផ្ទាល់ខ្លួនឬទេ ហើយព័ត៌មាននោះអាចកំណត់អត្តសញ្ញាណបានកម្រិតណា។
+    - locale: pt
+      value: Se a entrada em tempo de execução contém informações pessoais e quão identificáveis são essas informações.
+    - locale: tl
+      value: Kung ang runtime input ay naglalaman ng personal na impormasyon, at kung gaano katukoy ang impormasyong iyon.
+  values:
+    - id: none
+      name:
+        - locale: en
+          value: No personal information
+        - locale: es
+          value: Sin información personal
+        - locale: fr
+          value: Aucune information personnelle
+        - locale: km
+          value: គ្មានព័ត៌មានផ្ទាល់ខ្លួន
+        - locale: pt
+          value: Sem informações pessoais
+        - locale: tl
+          value: Walang personal na impormasyon
+      description:
+        - locale: en
+          value: No personal information enters this system at runtime.
+        - locale: es
+          value: No entra información personal en este sistema en tiempo de ejecución.
+        - locale: fr
+          value: Aucune information personnelle n’entre dans ce système à l’exécution.
+        - locale: km
+          value: គ្មានព័ត៌មានផ្ទាល់ខ្លួនចូលក្នុងប្រព័ន្ធនេះនៅពេលដំណើរការទេ។
+        - locale: pt
+          value: Nenhuma informação pessoal entra neste sistema em tempo de execução.
+        - locale: tl
+          value: Walang personal na impormasyon ang pumapasok sa system na ito sa runtime.
+      color: null
+    - id: anonymized
+      name:
+        - locale: en
+          value: Anonymized
+        - locale: es
+          value: Anonimizado
+        - locale: fr
+          value: Anonymisé
+        - locale: km
+          value: អនាមិក
+        - locale: pt
+          value: Anonimizado
+        - locale: tl
+          value: Anonymized
+      description:
+        - locale: en
+          value: Personal information is processed but stripped of identifiers before use.
+        - locale: es
+          value: Se procesa información personal pero se eliminan los identificadores antes de su uso.
+        - locale: fr
+          value: Les informations personnelles sont traitées mais privées d’identifiants avant utilisation.
+        - locale: km
+          value: ព័ត៌មានផ្ទាល់ខ្លួនត្រូវបានដំណើរការ ប៉ុន្តែត្រូវបានដកអត្តសញ្ញាណចេញមុនពេលប្រើប្រាស់។
+        - locale: pt
+          value: Informações pessoais são processadas, mas têm identificadores removidos antes do uso.
+        - locale: tl
+          value: Pinoproseso ang personal na impormasyon ngunit inaalisan ng mga identifier bago gamitin.
+      color: "#4A90D9"
+    - id: identifiable
+      name:
+        - locale: en
+          value: Identifiable
+        - locale: es
+          value: Identificable
+        - locale: fr
+          value: Identifiable
+        - locale: km
+          value: អាចកំណត់អត្តសញ្ញាណបាន
+        - locale: pt
+          value: Identificável
+        - locale: tl
+          value: Natutukoy
+      description:
+        - locale: en
+          value: Personal information is processed in a form that can identify a specific person.
+        - locale: es
+          value: La información personal se procesa de una forma que puede identificar a una persona específica.
+        - locale: fr
+          value: Les informations personnelles sont traitées sous une forme qui peut identifier une personne spécifique.
+        - locale: km
+          value: ព័ត៌មានផ្ទាល់ខ្លួនត្រូវបានដំណើរការក្នុងទម្រង់ដែលអាចកំណត់អត្តសញ្ញាណមនុស្សជាក់លាក់ម្នាក់។
+        - locale: pt
+          value: Informações pessoais são processadas em uma forma que pode identificar uma pessoa específica.
+        - locale: tl
+          value: Ang personal na impormasyon ay pinoproseso sa anyo na maaaring tukuyin ang isang partikular na tao.
+      color: "#FFD700"
+    - id: biometric
+      name:
+        - locale: en
+          value: Biometric
+        - locale: es
+          value: Biométrico
+        - locale: fr
+          value: Biométrique
+        - locale: km
+          value: ជីវមាត្រ
+        - locale: pt
+          value: Biométrico
+        - locale: tl
+          value: Biometric
+      description:
+        - locale: en
+          value: Biological identifiers (face, fingerprint, voice, gait) are processed.
+        - locale: es
+          value: Se procesan identificadores biológicos (rostro, huella dactilar, voz, marcha).
+        - locale: fr
+          value: Des identifiants biologiques (visage, empreinte digitale, voix, démarche) sont traités.
+        - locale: km
+          value: អត្តសញ្ញាណជីវសាស្ត្រ (មុខ ស្នាមដៃ សំឡេង ដំណើរ) ត្រូវបានដំណើរការ។
+        - locale: pt
+          value: Identificadores biológicos (rosto, impressão digital, voz, marcha) são processados.
+        - locale: tl
+          value: Pinoproseso ang biological identifiers (mukha, fingerprint, boses, lakad).
+      color: "#D9342F"
+element_variables:
+  - id: additional_description
+    label:
+      - locale: en
+        value: Description
+      - locale: es
+        value: Descripción
+      - locale: fr
+        value: Description
+      - locale: km
+        value: ការពិពណ៌នា
+      - locale: pt
+        value: Descrição
+      - locale: tl
+        value: Paglalarawan
+    required: true

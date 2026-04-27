@@ -1,0 +1,60 @@
+id: processing
+name:
+  - locale: en
+    value: Processing Algorithm or AI
+  - locale: es
+    value: Algoritmo de procesamiento o IA
+  - locale: fr
+    value: Algorithme de traitement ou IA
+  - locale: km
+    value: ក្បួនដោះស្រាយដំណើរការ ឬ AI
+  - locale: pt
+    value: Algoritmo de Processamento ou IA
+  - locale: tl
+    value: Processing Algorithm o AI
+description:
+  - locale: en
+    value: The technical detail of how the AI works — the algorithm family, model class, or technique used to process inputs into outputs.
+  - locale: es
+    value: El detalle técnico de cómo funciona la IA — la familia de algoritmos, la clase de modelo o la técnica utilizada para procesar las entradas en salidas.
+  - locale: fr
+    value: Le détail technique du fonctionnement de l’IA — la famille d’algorithmes, la classe de modèle ou la technique utilisée pour transformer les entrées en sorties.
+  - locale: km
+    value: ព័ត៌មានលម្អិតបច្ចេកទេសអំពីរបៀបដែល AI ដំណើរការ — ប្រភេទក្បួនដោះស្រាយ ប្រភេទគំរូ ឬបច្ចេកទេសដែលប្រើដើម្បីដំណើរការការបញ្ចូលទៅជាលទ្ធផល។
+  - locale: pt
+    value: O detalhe técnico de como a IA funciona — a família de algoritmos, classe de modelo ou técnica usada para processar entradas em saídas.
+  - locale: tl
+    value: Ang teknikal na detalye kung paano gumagana ang AI — ang algorithm family, model class, o technique na ginagamit para iproseso ang input patungo sa output.
+prompt:
+  - locale: en
+    value: What algorithm family or model class processes inputs into outputs in this system?
+  - locale: es
+    value: ¿Qué familia de algoritmos o clase de modelo procesa las entradas en salidas en este sistema?
+  - locale: fr
+    value: "Quelle famille d’algorithmes ou classe de modèle traite les entrées en sorties dans ce système\_?"
+  - locale: km
+    value: តើប្រភេទក្បួនដោះស្រាយ ឬប្រភេទគំរូអ្វីដែលដំណើរការការបញ្ចូលទៅជាលទ្ធផលក្នុងប្រព័ន្ធនេះ?
+  - locale: pt
+    value: Que família de algoritmos ou classe de modelo processa entradas em saídas neste sistema?
+  - locale: tl
+    value: Anong algorithm family o model class ang nagpoproseso ng input patungo sa output sa system na ito?
+required: false
+order: 7
+datachain_type: ai
+shape: circle
+element_variables:
+  - id: additional_description
+    label:
+      - locale: en
+        value: Description
+      - locale: es
+        value: Descripción
+      - locale: fr
+        value: Description
+      - locale: km
+        value: ការពិពណ៌នា
+      - locale: pt
+        value: Descrição
+      - locale: tl
+        value: Paglalarawan
+    required: false

@@ -60,6 +60,7 @@ export function makeDatachainType(): DatachainType {
     name: [loc('en', 'AI'), loc('fr', 'IA')],
     description: [loc('en', 'AI datachain'), loc('fr', 'Chaîne IA')],
     categories: ['ai__decision'],
+    subchains: [],
     locales: ['en', 'fr'],
   }
 }

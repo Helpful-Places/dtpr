@@ -1,0 +1,75 @@
+id: storage
+name:
+  - locale: en
+    value: Data Storage
+  - locale: es
+    value: Almacenamiento de datos
+  - locale: fr
+    value: Stockage de données
+  - locale: km
+    value: ការផ្ទុកទិន្នន័យ
+  - locale: pt
+    value: Armazenamento de dados
+  - locale: tl
+    value: Imbakan ng Data
+description:
+  - locale: en
+    value: Where the data produced by the AI system is stored.
+  - locale: es
+    value: Dónde se almacenan los datos producidos por el sistema de IA.
+  - locale: fr
+    value: Où sont stockées les données produites par le système d'IA.
+  - locale: km
+    value: កន្លែងដែលទិន្នន័យដែលផលិតដោយប្រព័ន្ធ AI ត្រូវបានរក្សាទុក។
+  - locale: pt
+    value: Onde os dados produzidos pelo sistema de IA são armazenados.
+  - locale: tl
+    value: Kung saan nakaimbak ang data na ginawa ng AI system.
+prompt:
+  - locale: en
+    value: Where is the data produced by the AI system stored?
+  - locale: es
+    value: ¿Dónde se almacenan los datos producidos por el sistema de IA?
+  - locale: fr
+    value: Où sont stockées les données produites par le système d’IA ?
+  - locale: km
+    value: តើទិន្នន័យដែលផលិតដោយប្រព័ន្ធ AI ត្រូវបានរក្សាទុកនៅឯណា?
+  - locale: pt
+    value: Onde os dados produzidos pelo sistema de IA são armazenados?
+  - locale: tl
+    value: Saan nakaimbak ang data na ginawa ng AI system?
+required: false
+order: 11
+datachain_type: ai
+shape: rounded-square
+element_variables:
+  - id: additional_description
+    label:
+      - locale: en
+        value: Description
+      - locale: es
+        value: Descripción
+      - locale: fr
+        value: Description
+      - locale: km
+        value: ការពិពណ៌នា
+      - locale: pt
+        value: Descrição
+      - locale: tl
+        value: Paglalarawan
+    required: false
+  - id: duration
+    label:
+      - locale: en
+        value: Duration
+      - locale: es
+        value: Duración
+      - locale: fr
+        value: Durée
+      - locale: km
+        value: រយៈពេល
+      - locale: pt
+        value: Duração
+      - locale: tl
+        value: Tagal
+    required: true

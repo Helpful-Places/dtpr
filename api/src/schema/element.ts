@@ -1,6 +1,7 @@
 import { z } from 'zod'
 import { LocaleValueArraySchema } from './locale.ts'
 import { VariableSchema } from './variable.ts'
+import { ContextSchema } from './context.ts'
 
 /**
  * An element — a reusable tile that can be placed in a category.
@@ -53,6 +54,17 @@ export const ElementSchema = z
       .array(VariableSchema)
       .default([])
       .describe('Variables inherited from parent categories (materialized at build time)'),
+    /**
+     * Optional element-level context override. When present, it fully
+     * replaces the parent category's context for this element (no
+     * merge). Renderer resolution: `Element.context ?? Category.context
+     * ?? null`. Used when a single category hosts elements that need
+     * different context dimensions (e.g. per-mode autonomy semantics
+     * on the functional_modes category).
+     */
+    context: ContextSchema.optional().describe(
+      'Optional element-level context dimension. Fully overrides the parent category context for this element (no merge).',
+    ),
   })
   .describe('A reusable DTPR element tile')
 

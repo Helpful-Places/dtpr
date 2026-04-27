@@ -1,0 +1,55 @@
+id: right_algorithmic_transparency
+category_id: rights
+title:
+  - locale: en
+    value: Right to Algorithmic Transparency
+  - locale: es
+    value: Derecho a la transparencia algorítmica
+  - locale: fr
+    value: Droit à la transparence algorithmique
+  - locale: km
+    value: សិទ្ធិចំពោះតម្លាភាពនៃក្បួនដោះស្រាយ
+  - locale: pt
+    value: Direito à transparência algorítmica
+  - locale: tl
+    value: Karapatan sa Algorithmic Transparency
+description:
+  - locale: en
+    value: >-
+      The right to understand how an AI system makes decisions that affect you, including meaningful information about
+      the logic involved, the significance of the processing, and the likely consequences. This information should be
+      provided in clear, plain language that allows you to understand how the system works and how it arrived at a
+      particular decision.
+  - locale: es
+    value: >-
+      El derecho a entender cómo un sistema de IA toma decisiones que le afectan, incluyendo información significativa
+      sobre la lógica implicada, la importancia del procesamiento y las consecuencias probables. Esta información debe
+      proporcionarse en un lenguaje claro y sencillo que le permita comprender cómo funciona el sistema y cómo ha
+      llegado a una decisión concreta.
+  - locale: fr
+    value: >-
+      Le droit de comprendre comment un système d'IA prend des décisions qui vous affectent, y compris des informations
+      significatives sur la logique impliquée, la signification du traitement et les conséquences probables. Ces
+      informations doivent être fournies dans un langage clair et simple qui vous permette de comprendre comment le
+      système fonctionne et comment il est parvenu à une décision particulière.
+  - locale: km
+    value: >-
+      សិទ្ធិក្នុងការយល់ពីរបៀបដែលប្រព័ន្ធ AI ធ្វើការសម្រេចចិត្តដែលប៉ះពាល់ដល់អ្នក
+      រួមទាំងព័ត៌មានដ៏មានអត្ថន័យអំពីតក្កវិជ្ជាដែលពាក់ព័ន្ធ សារៈសំខាន់នៃដំណើរការ និងផលវិបាកដែលអាចកើតមាន។
+      ព័ត៌មាននេះគួរតែត្រូវបានផ្តល់ជូនជាភាសាច្បាស់លាស់ ដែលអនុញ្ញាតឱ្យអ្នកយល់ពីរបៀបដែលប្រព័ន្ធដំណើរការ
+      និងរបៀបដែលវាបានមកដល់ការសម្រេចចិត្តជាក់លាក់មួយ។
+  - locale: pt
+    value: >-
+      O direito de entender como um sistema de IA toma decisões que o afetam, incluindo informações significativas sobre
+      a lógica envolvida, a importância do processamento e as prováveis consequências. Essas informações devem ser
+      fornecidas em linguagem clara e simples que permita que você entenda como o sistema funciona e como ele chegou a
+      uma determinada decisão.
+  - locale: tl
+    value: >-
+      Ang karapatang maunawaan kung paano gumagawa ng mga desisyon ang AI system na makakaapekto sa iyo, kabilang ang
+      makabuluhang impormasyon tungkol sa lohika na kasangkot, ang kahalagahan ng pagproseso, at ang mga posibleng
+      kahihinatnan. Ang impormasyong ito ay dapat ibigay sa malinaw at simpleng wika na nagbibigay-daan sa iyong
+      maunawaan kung paano gumagana ang system at kung paano ito nakarating sa isang partikular na desisyon.
+citation: []
+symbol_id: rights_algorithmic-transparency
+variables: []

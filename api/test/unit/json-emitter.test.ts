@@ -76,6 +76,7 @@ function makeSource(): SchemaVersionSource {
       name: [loc('en', 'AI')],
       description: [],
       categories: ['ai__storage', 'ai__decision'],
+      subchains: [],
       locales: ['en', 'es'],
     },
     categories,

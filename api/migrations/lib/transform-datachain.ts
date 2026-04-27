@@ -32,6 +32,7 @@ export function transformDatachainType(
     name,
     description,
     categories: orderedCategoryIds,
+    subchains: [],
     locales,
   }
 }

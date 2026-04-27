@@ -1,0 +1,31 @@
+id: personal
+category_id: input_dataset
+title:
+  - locale: en
+    value: Personal
+  - locale: es
+    value: Personal
+  - locale: fr
+    value: Personnel
+  - locale: km
+    value: សេនាធិការ
+  - locale: pt
+    value: Pessoal
+  - locale: tl
+    value: Personal
+description:
+  - locale: en
+    value: Information about identifiable individuals.
+  - locale: es
+    value: Información sobre individuos identificables.
+  - locale: fr
+    value: Informations sur des personnes identifiables.
+  - locale: km
+    value: ព័ត៌មានអំពីបុគ្គលដែលអាចកំណត់អត្តសញ្ញាណបាន។
+  - locale: pt
+    value: Informações sobre indivíduos identificáveis.
+  - locale: tl
+    value: Impormasyon tungkol sa mga nakikilalang indibidwal.
+citation: []
+symbol_id: personal
+variables: []

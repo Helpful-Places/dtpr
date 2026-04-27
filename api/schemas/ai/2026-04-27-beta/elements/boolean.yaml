@@ -1,0 +1,31 @@
+id: boolean
+category_id: input_dataset
+title:
+  - locale: en
+    value: Boolean
+  - locale: es
+    value: Booleano
+  - locale: fr
+    value: Booléen
+  - locale: km
+    value: បន្លេម្យ៉ាង
+  - locale: pt
+    value: Booleano
+  - locale: tl
+    value: Boolean
+description:
+  - locale: en
+    value: Data that has one of two data values, for example true and false.
+  - locale: es
+    value: Datos que tienen uno de los dos valores de datos, por ejemplo, verdadero y falso.
+  - locale: fr
+    value: Données qui ont l'une des deux valeurs suivantes, par exemple vrai et faux.
+  - locale: km
+    value: ទិន្នន័យដែលមានតម្លៃទិន្នន័យមួយក្នុងចំណោមតម្លៃទិន្នន័យពីរឧទាហរណ៍ពិតនិងមិនពិត។
+  - locale: pt
+    value: Dados que têm um de dois valores, por exemplo, verdadeiro e falso.
+  - locale: tl
+    value: Ang mga datos na may isa sa dalawang mga halaga ng data, halimbawa totoo at hindi totoo.
+citation: []
+symbol_id: boolean
+variables: []

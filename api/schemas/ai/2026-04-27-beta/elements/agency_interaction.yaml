@@ -1,0 +1,33 @@
+id: agency_interaction
+category_id: purpose
+title:
+  - locale: en
+    value: Agency & Interaction
+  - locale: es
+    value: Agencia e interacción
+  - locale: fr
+    value: Capacité à agir & Interaction
+  - locale: km
+    value: សិទ្ធិជ្រើសរើសនិងអន្តរកម្ម
+  - locale: pt
+    value: Agência e Interação
+  - locale: tl
+    value: Ahensya at Pakikipag-ugnayan
+description:
+  - locale: en
+    value: Enables you to control or interact with aspects of a space or a technology.
+  - locale: es
+    value: Le permite controlar o interactuar con aspectos de un espacio o una tecnología.
+  - locale: fr
+    value: Permet de contrôler ou d'interagir avec certains aspects d'un espace ou d'une technologie.
+  - locale: km
+    value: >-
+      អនុញ្ញាតឱ្យអ្នកត្រួតពិនិត្យឬប្រាស្រ័យទាក់ទងជាមួយទិដ្ឋភាពនៃចន្លោះឬបច្ចេកវិទ្យា។ ស្វែងយល់បន្ថែមអំពី
+      ប្រព័ន្ធផ្សព្វផ្សាយអន្តរសកម្ម និង [ការពិតជាក់ស្តែង](https://en.wikipedia.org/wiki/Virtual_Reality.org)
+  - locale: pt
+    value: Permite controlar ou interagir com aspectos de um espaço ou de uma tecnologia.
+  - locale: tl
+    value: Nagbibigay-daan sa iyo upang makontrol o makihalubilo sa mga aspeto ng isang puwang o isang teknolohiya.
+citation: []
+symbol_id: agency_interaction
+variables: []

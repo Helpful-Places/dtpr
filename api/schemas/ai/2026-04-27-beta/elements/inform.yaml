@@ -1,0 +1,33 @@
+id: inform
+category_id: purpose
+title:
+  - locale: en
+    value: Inform
+  - locale: es
+    value: Informar
+  - locale: fr
+    value: Informer
+  - locale: km
+    value: ផ្ដល់ដមនឹង
+  - locale: pt
+    value: Informar
+  - locale: tl
+    value: Ipagbigay -alam
+description:
+  - locale: en
+    value: Supports the provision of information, for example about a location, a service, or to provide assistance
+  - locale: es
+    value: Apoya la provisión de información, por ejemplo, sobre una ubicación, un servicio o para brindar asistencia
+  - locale: fr
+    value: Permet de fournir des informations, par exemple sur un lieu ou un service, ou de fournir une assistance.
+  - locale: km
+    value: គាំទ្រដល់ការផ្តល់ព័ត៌មានឧទាហរណ៍អំពីទីតាំងសេវាកម្មឬផ្តល់ជំនួយ
+  - locale: pt
+    value: Apoia o fornecimento de informações, por exemplo, sobre um local, um serviço ou para prestar assistência
+  - locale: tl
+    value: >-
+      Sinusuportahan ang pagkakaloob ng impormasyon, halimbawa tungkol sa isang lokasyon, isang serbisyo, o upang
+      magbigay ng tulong
+citation: []
+symbol_id: light_waves
+variables: []

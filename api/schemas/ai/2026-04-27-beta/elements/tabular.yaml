@@ -1,0 +1,33 @@
+id: tabular
+category_id: input_dataset
+title:
+  - locale: en
+    value: Tabular
+  - locale: es
+    value: Tabular
+  - locale: fr
+    value: Tabulaire
+  - locale: km
+    value: តុររយម
+  - locale: pt
+    value: Tabular
+  - locale: tl
+    value: Tabular
+description:
+  - locale: en
+    value: Data that is stored in a table, where values are stored in rows and columns.
+  - locale: es
+    value: Datos que se almacenan en una tabla, donde los valores se almacenan en filas y columnas.
+  - locale: fr
+    value: Données stockées dans un tableau, où les valeurs sont stockées en lignes et en colonnes.
+  - locale: km
+    value: ទិន្នន័យដែលត្រូវបានរក្សាទុកនៅក្នុងតារាងមួយដែលតម្លៃត្រូវបានរក្សាទុកនៅក្នុងជួរដេកនិងជួរឈរ។
+  - locale: pt
+    value: Dados que são armazenados numa tabela, onde os valores são armazenados em linhas e colunas.
+  - locale: tl
+    value: >-
+      Ang mga datos na naka -imbak sa isang talahanayan, kung saan ang mga halaga ay naka -imbak sa mga hilera at
+      haligi.
+citation: []
+symbol_id: tabular
+variables: []

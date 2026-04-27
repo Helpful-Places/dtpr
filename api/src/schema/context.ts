@@ -10,12 +10,19 @@ const HexColorSchema = z
   .regex(/^#[0-9A-Fa-f]{6}$/)
   .describe('Six-digit hex color, e.g. "#F28C28"')
 
+/**
+ * `color` is nullable: when null, the renderer presents the value as a
+ * tag (no colored dot). Categorical contexts like Role use this; range
+ * contexts like PII keep hex colors.
+ */
 export const ContextValueSchema = z
   .object({
     id: z.string().min(1).describe('Context value id, unique within its context'),
     name: LocaleValueArraySchema.describe('Display name, one entry per locale'),
     description: LocaleValueArraySchema.describe('Short explanation of this context value'),
-    color: HexColorSchema,
+    color: HexColorSchema.nullable().describe(
+      'Six-digit hex color, or null. When null, the renderer treats the value as a tag instead of a colored dot.',
+    ),
   })
   .describe('A single selectable value within a category context (e.g. "ai_only")')
 

@@ -1,0 +1,33 @@
+id: research_development
+category_id: purpose
+title:
+  - locale: en
+    value: Research & Development
+  - locale: es
+    value: Investigación y desarrollo
+  - locale: fr
+    value: Recherche et développement
+  - locale: km
+    value: ស្រាវជ្រាវនិងអភិវឌ្ឍន៍
+  - locale: pt
+    value: Investigação e desenvolvimento
+  - locale: tl
+    value: Pananaliksik at Pag -unlad
+description:
+  - locale: en
+    value: Supports exploratory research and testing.
+  - locale: es
+    value: Apoya la investigación y las pruebas exploratorias.
+  - locale: fr
+    value: Favorise la recherche exploratoire et les tests.
+  - locale: km
+    value: >-
+      គាំទ្រការស្រាវជ្រាវស្វែងយល់និងការធ្វើតេស្ត។ ស្វែងយល់បន្ថែម
+      [នៅទីនេះ](https://en.wikipedia.org/wiki/Research_andevel_andever_andeverment) ។
+  - locale: pt
+    value: Apoia a investigação exploratória e os testes.
+  - locale: tl
+    value: Sinusuportahan ang exploratory na pananaliksik at pagsubok.
+citation: []
+symbol_id: research_development
+variables: []

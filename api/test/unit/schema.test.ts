@@ -96,12 +96,22 @@ describe('ElementSchema', () => {
 
 describe('CategorySchema', () => {
   const base = {
-    id: 'ai__decision',
-    name: [loc('en', 'Decision Type')],
-    description: [loc('en', 'Type of decision being made.')],
+    id: 'functional_modes',
+    name: [loc('en', 'Functional Modes')],
+    description: [loc('en', 'How this AI system operates.')],
     datachain_type: 'ai',
     shape: 'hexagon',
   }
+
+  it('rejects a category id with disallowed characters', () => {
+    const result = CategorySchema.safeParse({ ...base, id: 'has spaces' })
+    expect(result.success).toBe(false)
+  })
+
+  it('accepts a legacy ai__ category id (regex permits `__`; convention prefers bare slugs)', () => {
+    const result = CategorySchema.safeParse({ ...base, id: 'ai__decision' })
+    expect(result.success).toBe(true)
+  })
 
   it('parses a minimal category with defaults', () => {
     const cat = CategorySchema.parse(base)
@@ -178,10 +188,33 @@ describe('DatachainTypeSchema', () => {
     const dt = DatachainTypeSchema.parse({
       id: 'ai',
       name: [loc('en', 'AI / Algorithm')],
-      categories: ['ai__access', 'ai__decision'],
+      categories: ['access', 'functional_modes'],
       locales: ['en', 'es'],
     })
     expect(dt.categories).toHaveLength(2)
+    expect(dt.subchains).toEqual([])
+  })
+
+  it('parses a datachain type with optional subchains', () => {
+    const dt = DatachainTypeSchema.parse({
+      id: 'ai',
+      name: [loc('en', 'AI / Algorithm')],
+      categories: ['input_dataset', 'processing', 'output_dataset'],
+      subchains: [
+        {
+          id: 'data_flow',
+          name: [loc('en', 'Data Flow')],
+          categories: ['input_dataset', 'processing', 'output_dataset'],
+        },
+      ],
+      locales: ['en'],
+    })
+    expect(dt.subchains).toHaveLength(1)
+    expect(dt.subchains[0]?.categories).toEqual([
+      'input_dataset',
+      'processing',
+      'output_dataset',
+    ])
   })
 
   it('rejects empty categories array', () => {

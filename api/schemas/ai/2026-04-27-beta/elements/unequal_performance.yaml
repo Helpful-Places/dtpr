@@ -1,0 +1,61 @@
+id: unequal_performance
+category_id: risks_mitigation
+title:
+  - locale: en
+    value: Unequal performance across groups
+  - locale: es
+    value: Desigualdad de resultados entre grupos
+  - locale: fr
+    value: Des performances inégales entre les groupes
+  - locale: km
+    value: ការសម្តែងមិនស្មើគ្នាក្នុងក្រុម
+  - locale: pt
+    value: Desempenho desigual entre os grupos
+  - locale: tl
+    value: Hindi pantay na pagganap sa mga pangkat
+description:
+  - locale: en
+    value: >-
+      The risk that the AI system performs differently (typically worse) for certain demographic groups based on
+      characteristics such as race, gender, age, disability status, or socioeconomic background. This can lead to biased
+      or unfair outcomes that disproportionately impact vulnerable communities. Mitigations may include diverse training
+      data, routine fairness audits, and regular performance monitoring across different demographic groups.
+  - locale: es
+    value: >-
+      El riesgo de que el sistema de IA funcione de forma diferente (normalmente peor) para determinados grupos
+      demográficos en función de características como la raza, el sexo, la edad, la discapacidad o el nivel
+      socioeconómico. Esto puede dar lugar a resultados sesgados o injustos que afecten de forma desproporcionada a las
+      comunidades vulnerables. Las medidas de mitigación pueden incluir datos de formación diversos, auditorías
+      rutinarias de imparcialidad y un control regular del rendimiento de los distintos grupos demográficos.
+  - locale: fr
+    value: >-
+      Le risque que le système d'IA fonctionne différemment (généralement moins bien) pour certains groupes
+      démographiques sur la base de caractéristiques telles que la race, le sexe, l'âge, le statut de handicapé ou le
+      contexte socio-économique. Cela peut conduire à des résultats biaisés ou injustes qui ont un impact
+      disproportionné sur les communautés vulnérables. Les mesures d'atténuation peuvent inclure des données de
+      formation diversifiées, des audits d'équité de routine et un contrôle régulier des performances au sein de
+      différents groupes démographiques.
+  - locale: km
+    value: >-
+      ហានិភ័យដែលប្រព័ន្ធ AI ដំណើរការខុសគ្នា (ជាធម្មតាកាន់តែអាក្រក់)
+      សម្រាប់ក្រុមប្រជាសាស្រ្តមួយចំនួនដោយផ្អែកលើលក្ខណៈដូចជា ពូជសាសន៍ ភេទ អាយុ ស្ថានភាពពិការភាព ឬប្រវត្តិសេដ្ឋកិច្ចសង្គម។
+      នេះអាចនាំឱ្យមានលទ្ធផលលំអៀង ឬអយុត្តិធម៌ ដែលប៉ះពាល់ដល់សហគមន៍ដែលងាយរងគ្រោះមិនសមាមាត្រ។
+      ការបន្ធូរបន្ថយអាចរួមបញ្ចូលទិន្នន័យបណ្ដុះបណ្ដាលចម្រុះ ការធ្វើសវនកម្មភាពយុត្តិធម៌តាមទម្លាប់
+      និងការត្រួតពិនិត្យការអនុវត្តជាប្រចាំនៅទូទាំងក្រុមប្រជាសាស្រ្តផ្សេងៗគ្នា។
+  - locale: pt
+    value: >-
+      O risco de o sistema de IA ter um desempenho diferente (normalmente pior) para determinados grupos demográficos
+      com base em características como raça, sexo, idade, status de deficiência ou histórico socioeconômico. Isso pode
+      levar a resultados tendenciosos ou injustos que afetam desproporcionalmente as comunidades vulneráveis. As
+      mitigações podem incluir dados de treinamento diversificados, auditorias rotineiras de justiça e monitoramento
+      regular do desempenho em diferentes grupos demográficos.
+  - locale: tl
+    value: >-
+      Ang panganib na iba ang pagganap ng AI system (karaniwang mas malala) para sa ilang partikular na demograpikong
+      grupo batay sa mga katangian gaya ng lahi, kasarian, edad, kapansanan, o socioeconomic na background. Ito ay
+      maaaring humantong sa may kinikilingan o hindi patas na mga resulta na hindi katumbas ng epekto sa mga mahihinang
+      komunidad. Maaaring kabilang sa mga mitigations ang magkakaibang data ng pagsasanay, regular na pag-audit sa
+      pagiging patas, at regular na pagsubaybay sa pagganap sa iba't ibang demograpikong grupo.
+citation: []
+symbol_id: risks_unequal-performance
+variables: []

@@ -1,0 +1,33 @@
+id: arts_culture
+category_id: purpose
+title:
+  - locale: en
+    value: Arts & Culture
+  - locale: es
+    value: Artes y cultura
+  - locale: fr
+    value: Arts et culture
+  - locale: km
+    value: សិល្បៈនិងវប្បធម៌
+  - locale: pt
+    value: Artes e cultura
+  - locale: tl
+    value: Sining at Kultura
+description:
+  - locale: en
+    value: Enables artistic and/or cultural expression.
+  - locale: es
+    value: Habilita la expresión artística y/o cultural.
+  - locale: fr
+    value: Permet l'expression artistique et/ou culturelle.
+  - locale: km
+    value: >-
+      អនុញ្ញាតឱ្យធ្វើឱ្យការបញ្ចេញមតិសិល្បៈនិង / ឬវប្បធម៌។ ស្វែងយល់បន្ថែម
+      [នៅទីនេះ](https://en.wikipedia.org/wiki/Iterapeart_art)
+  - locale: pt
+    value: Permite a expressão artística e/ou cultural.
+  - locale: tl
+    value: Nagbibigay-daan sa pagiging malikhain at/o pagpapahayag ng kultura.
+citation: []
+symbol_id: arts_culture
+variables: []

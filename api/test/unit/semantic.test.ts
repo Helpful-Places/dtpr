@@ -22,6 +22,7 @@ function baseSource(): SchemaVersionSource {
       name: [loc('en', 'AI / Algorithm')],
       description: [],
       categories: ['ai__decision', 'ai__storage'],
+      subchains: [],
       locales: ['en', 'es'],
     },
     categories: [
@@ -376,14 +377,19 @@ describe('validateInstance — instance-level rules', () => {
         element_id: 'accept_deny',
         priority: 0,
         variables: [],
+        actions: [],
         context_type_id: 'ai_only',
       },
       {
         element_id: 'cloud_storage',
         priority: 1,
         variables: [{ id: 'retention_period', value: '30 days' }],
+        actions: [],
       },
     ],
+    subchain_instances: [],
+    sources: [],
+    linked_instance_ids: [],
   })
 
   it('happy path: valid instance against clean source', () => {

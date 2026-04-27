@@ -1,0 +1,75 @@
+id: retention
+name:
+  - locale: en
+    value: Retention
+  - locale: es
+    value: Retención
+  - locale: fr
+    value: Rétention
+  - locale: km
+    value: ការរក្សាទុក
+  - locale: pt
+    value: Retenção
+  - locale: tl
+    value: Pagpapanatili
+description:
+  - locale: en
+    value: The policies and practices governing the retention of data produced by the AI system.
+  - locale: es
+    value: Las políticas y prácticas que rigen la retención de datos producidos por el sistema de IA.
+  - locale: fr
+    value: Les politiques et pratiques régissant la conservation des données produites par le système d’IA.
+  - locale: km
+    value: គោលការណ៍ និងការអនុវត្តដែលគ្រប់គ្រងការរក្សាទុកទិន្នន័យដែលផលិតដោយប្រព័ន្ធ AI ។
+  - locale: pt
+    value: As políticas e práticas que regem a retenção de dados produzidos pelo sistema de IA.
+  - locale: tl
+    value: Ang mga patakaran at kasanayan na namamahala sa pagpapanatili ng data na ginawa ng AI system.
+prompt:
+  - locale: en
+    value: How long is the data kept?
+  - locale: es
+    value: ¿Durante cuánto tiempo se conservan los datos?
+  - locale: fr
+    value: Combien de temps les données sont-elles conservées ?
+  - locale: km
+    value: តើទិន្នន័យត្រូវបានរក្សាទុករយៈពេលប៉ុន្មាន?
+  - locale: pt
+    value: Por quanto tempo os dados são mantidos?
+  - locale: tl
+    value: Gaano katagal itinatago ang data?
+required: false
+order: 10
+datachain_type: ai
+shape: rounded-square
+element_variables:
+  - id: additional_description
+    label:
+      - locale: en
+        value: Description
+      - locale: es
+        value: Descripción
+      - locale: fr
+        value: Description
+      - locale: km
+        value: ការពិពណ៌នា
+      - locale: pt
+        value: Descrição
+      - locale: tl
+        value: Paglalarawan
+    required: false
+  - id: duration
+    label:
+      - locale: en
+        value: Duration
+      - locale: es
+        value: Duración
+      - locale: fr
+        value: Durée
+      - locale: km
+        value: រយៈពេល
+      - locale: pt
+        value: Duração
+      - locale: tl
+        value: Tagal
+    required: true

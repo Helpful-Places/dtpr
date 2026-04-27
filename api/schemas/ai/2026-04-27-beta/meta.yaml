@@ -1,0 +1,12 @@
+version: ai@2026-04-27-beta
+status: beta
+created_at: "2026-04-27T18:45:09.538Z"
+notes: Drafted from ai@2026-04-16-beta
+content_hash: sha256-0000000000000000000000000000000000000000000000000000000000000000
+locales:
+  - en
+  - es
+  - fr
+  - km
+  - pt
+  - tl

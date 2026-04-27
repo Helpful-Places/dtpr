@@ -1,0 +1,58 @@
+id: opaque_decision_making
+category_id: risks_mitigation
+title:
+  - locale: en
+    value: Opaque decision-making
+  - locale: es
+    value: Toma de decisiones opaca
+  - locale: fr
+    value: Prise de décision opaque
+  - locale: km
+    value: ការសម្រេចចិត្តស្រអាប់
+  - locale: pt
+    value: Tomada de decisões opacas
+  - locale: tl
+    value: Malabo ang paggawa ng desisyon
+description:
+  - locale: en
+    value: >-
+      The risk that AI systems make decisions through processes that are difficult or impossible for humans to
+      understand or explain. This lack of transparency makes it challenging to identify errors, biases, or other issues.
+      Mitigations may include using interpretable AI models when possible, developing explanation methods, and
+      maintaining documentation of system design and training processes.
+  - locale: es
+    value: >-
+      El riesgo de que los sistemas de IA tomen decisiones a través de procesos que son difíciles o imposibles de
+      entender o explicar para los humanos. Esta falta de transparencia dificulta la identificación de errores, sesgos u
+      otros problemas. Las medidas de mitigación pueden incluir el uso de modelos de IA interpretables cuando sea
+      posible, el desarrollo de métodos de explicación y el mantenimiento de documentación sobre el diseño del sistema y
+      los procesos de formación.
+  - locale: fr
+    value: >-
+      Le risque que les systèmes d'IA prennent des décisions par le biais de processus qu'il est difficile, voire
+      impossible, pour les humains de comprendre ou d'expliquer. Ce manque de transparence rend difficile
+      l'identification des erreurs, des biais ou d'autres problèmes. Les mesures d'atténuation peuvent comprendre
+      l'utilisation de modèles d'IA interprétables lorsque cela est possible, l'élaboration de méthodes d'explication et
+      la tenue d'une documentation sur la conception du système et les processus de formation.
+  - locale: km
+    value: >-
+      ហានិភ័យដែលប្រព័ន្ធ AI ធ្វើការសម្រេចចិត្តតាមរយៈដំណើរការដែលពិបាក ឬមិនអាចឱ្យមនុស្សយល់ ឬពន្យល់បាន។
+      កង្វះតម្លាភាពនេះធ្វើឱ្យវាពិបាកក្នុងការកំណត់អត្តសញ្ញាណកំហុស លំអៀង ឬបញ្ហាផ្សេងទៀត។
+      ការបន្ធូរបន្ថយអាចរួមមានការប្រើប្រាស់គំរូ AI ដែលអាចបកស្រាយបាននៅពេលដែលអាចធ្វើទៅបាន ការបង្កើតវិធីសាស្ត្រពន្យល់
+      និងការរក្សាឯកសារនៃដំណើរការរចនាប្រព័ន្ធ និងការបណ្តុះបណ្តាល។
+  - locale: pt
+    value: >-
+      O risco de os sistemas de IA tomarem decisões por meio de processos difíceis ou impossíveis de serem compreendidos
+      ou explicados por humanos. Essa falta de transparência dificulta a identificação de erros, vieses ou outros
+      problemas. As mitigações podem incluir o uso de modelos de IA interpretáveis quando possível, o desenvolvimento de
+      métodos de explicação e a manutenção da documentação do projeto do sistema e dos processos de treinamento.
+  - locale: tl
+    value: >-
+      Ang panganib na ang mga AI system ay gumawa ng mga desisyon sa pamamagitan ng mga proseso na mahirap o imposible
+      para sa mga tao na maunawaan o maipaliwanag. Dahil sa kawalan ng transparency na ito, nagiging mahirap na tukuyin
+      ang mga error, bias, o iba pang isyu. Maaaring kabilang sa mga pagpapagaan ang paggamit ng mga
+      nabibigyang-kahulugan na mga modelo ng AI kung posible, pagbuo ng mga paraan ng pagpapaliwanag, at pagpapanatili
+      ng dokumentasyon ng disenyo ng system at mga proseso ng pagsasanay.
+citation: []
+symbol_id: risks_opaque-decision-making
+variables: []

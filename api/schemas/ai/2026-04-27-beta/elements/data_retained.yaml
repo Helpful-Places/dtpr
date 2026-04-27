@@ -1,0 +1,31 @@
+id: data_retained
+category_id: retention
+title:
+  - locale: en
+    value: Retained {{duration}}
+  - locale: es
+    value: Retenido {{duration}}
+  - locale: fr
+    value: Retenu {{duration}}
+  - locale: km
+    value: បានរក្សាទុក {{duration}}
+  - locale: pt
+    value: Retido {{duration}}
+  - locale: tl
+    value: Napanatili {{duration}}
+description:
+  - locale: en
+    value: Data is stored for {{duration}}, and after this time period is deleted
+  - locale: es
+    value: Los datos se almacenan durante {{duration}}, y después de este período de tiempo se borran
+  - locale: fr
+    value: Les données sont stockées pendant {{duration}} et sont supprimées après cette période.
+  - locale: km
+    value: ទិន្នន័យត្រូវបានរក្សាទុកសម្រាប់រយៈពេល {{duration}} ហើយបន្ទាប់ពីរយៈពេលនេះត្រូវបានលុប
+  - locale: pt
+    value: Os dados são armazenados por {{duration}} e, após esse período, são excluídos
+  - locale: tl
+    value: Ang data ay iniimbak nang {{duration}}, at pagkatapos ng yugto ng panahon na ito ay tatanggalin
+citation: []
+symbol_id: is_retained
+variables: []

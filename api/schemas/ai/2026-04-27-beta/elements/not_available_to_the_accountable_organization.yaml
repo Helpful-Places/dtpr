@@ -1,0 +1,31 @@
+id: not_available_to_the_accountable_organization
+category_id: access
+title:
+  - locale: en
+    value: Not available to the accountable organization
+  - locale: es
+    value: No disponible para la organización responsable
+  - locale: fr
+    value: Non disponible pour l'organisation responsable
+  - locale: km
+    value: មិនមានសម្រាប់អង្គភាពគណនីទេ
+  - locale: pt
+    value: Não disponível para a organização responsável
+  - locale: tl
+    value: Hindi magagamit sa accountable na samahan
+description:
+  - locale: en
+    value: Data is not available to the accountable organization
+  - locale: es
+    value: Los datos no están disponibles para la organización responsable
+  - locale: fr
+    value: Les données ne sont pas disponibles pour l'organisation responsable
+  - locale: km
+    value: ទិន្នន័យមិនមានសម្រាប់អង្គការដែលទទួលខុសត្រូវទេ
+  - locale: pt
+    value: Os dados não estão disponíveis para a organização responsável
+  - locale: tl
+    value: Ang datos ay hindi magagamit sa organisasyon na may pananagutan
+citation: []
+symbol_id: not_available
+variables: []
