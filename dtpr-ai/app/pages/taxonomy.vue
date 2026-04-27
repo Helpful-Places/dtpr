@@ -161,6 +161,74 @@ const hasResults = computed(() => filteredDecorated.value.length > 0)
 function clearSearch() {
   searchQuery.value = ''
 }
+
+const targetId = ref<string | null>(null)
+
+function readHashTarget(): string | null {
+  if (typeof window === 'undefined') return null
+  return window.location.hash ? window.location.hash.slice(1) : null
+}
+
+function scrollToTarget(id: string) {
+  if (typeof document === 'undefined') return
+  const el = document.getElementById(id)
+  if (!el) return
+  // Defer past hydration so layout has settled.
+  setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100)
+}
+
+onMounted(() => {
+  const initial = readHashTarget()
+  if (initial) {
+    targetId.value = initial
+    scrollToTarget(initial)
+  }
+  window.addEventListener('hashchange', onHashChange)
+})
+
+onBeforeUnmount(() => {
+  if (typeof window !== 'undefined') {
+    window.removeEventListener('hashchange', onHashChange)
+  }
+})
+
+function onHashChange() {
+  const next = readHashTarget()
+  targetId.value = next
+  if (next) scrollToTarget(next)
+}
+
+const toast = useToast()
+
+function buildHashUrl(hash: string): string {
+  if (typeof window === 'undefined') return `#${hash}`
+  return `${window.location.origin}${window.location.pathname}${window.location.search}#${hash}`
+}
+
+async function copyHash(hash: string, label: string) {
+  const url = buildHashUrl(hash)
+  try {
+    await navigator.clipboard.writeText(url)
+    toast.add({
+      title: 'Link copied',
+      description: `${label} link copied to clipboard.`,
+      icon: 'i-heroicons-check-circle',
+      color: 'success',
+    })
+  } catch {
+    toast.add({
+      title: 'Copy failed',
+      description: 'Unable to access the clipboard.',
+      icon: 'i-heroicons-exclamation-triangle',
+      color: 'error',
+    })
+  }
+  // Update the hash so the highlight follows the click and the URL is shareable.
+  if (typeof window !== 'undefined' && window.location.hash !== `#${hash}`) {
+    history.replaceState(null, '', `#${hash}`)
+    targetId.value = hash
+  }
+}
 </script>
 
 <template>
@@ -203,7 +271,17 @@ function clearSearch() {
         :key="cat.id"
         :id="`category-${cat.id}`"
         class="taxonomy-category"
+        :class="{ 'taxonomy-category--active': targetId === `category-${cat.id}` }"
       >
+        <UButton
+          class="taxonomy-category__copy"
+          color="neutral"
+          variant="ghost"
+          size="xs"
+          icon="i-heroicons-link"
+          :aria-label="`Copy link to ${categoryTitle(cat.id)} category`"
+          @click="copyHash(`category-${cat.id}`, categoryTitle(cat.id))"
+        />
         <DtprCategorySection :id="cat.id" :title="categoryTitle(cat.id)" disable-accordion>
           <DtprElementGrid>
             <div
@@ -211,8 +289,18 @@ function clearSearch() {
               :key="el.id"
               :id="`element-${el.id}`"
               class="taxonomy-element-row"
+              :class="{ 'taxonomy-element-row--active': targetId === `element-${el.id}` }"
             >
               <DtprElement :display="displayById.get(el.id)!" />
+              <UButton
+                class="taxonomy-element-row__copy"
+                color="neutral"
+                variant="ghost"
+                size="xs"
+                icon="i-heroicons-link"
+                :aria-label="`Copy link to ${displayById.get(el.id)?.title ?? el.id}`"
+                @click="copyHash(`element-${el.id}`, displayById.get(el.id)?.title ?? el.id)"
+              />
             </div>
           </DtprElementGrid>
         </DtprCategorySection>
@@ -290,10 +378,58 @@ function clearSearch() {
 
 .taxonomy-category {
   scroll-margin-top: 6rem;
+  position: relative;
+  border-radius: 0.5rem;
+  transition: outline-color 0.4s ease, background-color 0.4s ease;
+  outline: 2px solid transparent;
+  outline-offset: 4px;
+}
+
+.taxonomy-category--active {
+  outline-color: var(--ui-primary, #10b981);
+  background-color: color-mix(in srgb, var(--ui-primary, #10b981) 4%, transparent);
+}
+
+.taxonomy-category__copy {
+  position: absolute;
+  top: 0.25rem;
+  right: 0.25rem;
+  z-index: 1;
+  opacity: 0.55;
+}
+
+.taxonomy-category__copy:hover,
+.taxonomy-category__copy:focus-visible {
+  opacity: 1;
 }
 
 .taxonomy-element-row {
   scroll-margin-top: 6rem;
+  position: relative;
+  border-radius: 0.5rem;
+  transition: outline-color 0.4s ease, background-color 0.4s ease;
+  outline: 2px solid transparent;
+  outline-offset: 4px;
+}
+
+.taxonomy-element-row--active {
+  outline-color: var(--ui-primary, #10b981);
+  background-color: color-mix(in srgb, var(--ui-primary, #10b981) 6%, transparent);
+}
+
+.taxonomy-element-row__copy {
+  position: absolute;
+  top: 0.125rem;
+  right: 0.125rem;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.taxonomy-element-row:hover .taxonomy-element-row__copy,
+.taxonomy-element-row:focus-within .taxonomy-element-row__copy,
+.taxonomy-element-row--active .taxonomy-element-row__copy {
+  opacity: 0.85;
 }
 
 .taxonomy-empty {
