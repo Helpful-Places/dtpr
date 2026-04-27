@@ -85,6 +85,8 @@ function resolveComposeVariant(
   if (variant === 'dark') return 'dark'
   const ctxValue = category.context?.values.find((v) => v.id === variant)
   if (!ctxValue) return null
+  // Null colors are tag-style and don't compose to a colored icon.
+  if (ctxValue.color === null) return null
   return { kind: 'colored', color: ctxValue.color }
 }
 

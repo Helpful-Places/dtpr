@@ -84,18 +84,21 @@ export function checkInstance(
       )
     }
 
-    // Rule 4: context_type_id must match a value defined on the parent category.
+    // Rule 4: context_type_id must match a value defined on the
+    // element's effective context. Element.context overrides
+    // Category.context fully (no merge); resolve in that order.
     if (ie.context_type_id) {
       const cat = categoryById.get(el.category_id)
-      const matched = !!cat?.context?.values.some((v) => v.id === ie.context_type_id)
+      const effectiveCtx = el.context ?? cat?.context
+      const matched = !!effectiveCtx?.values.some((v) => v.id === ie.context_type_id)
       if (!matched) {
         findings.push(
           err(
             'CONTEXT_TYPE_UNKNOWN',
-            `Element '${el.id}' context_type_id '${ie.context_type_id}' is not defined on its category '${el.category_id}' context`,
+            `Element '${el.id}' context_type_id '${ie.context_type_id}' is not defined on its element or category '${el.category_id}' context`,
             {
               path: `instance.elements[${ii}].context_type_id`,
-              fix_hint: `Pick a context value defined on '${el.category_id}' (see get_element).`,
+              fix_hint: `Pick a context value defined on element '${el.id}' or category '${el.category_id}' (see get_element).`,
             },
           ),
         )

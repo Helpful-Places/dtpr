@@ -64,5 +64,29 @@ export function checkUniqueness(source: SchemaVersionSource): SemanticError[] {
     }
   }
 
+  // Rule 3 (element-level override): same uniqueness inside an
+  // element's own context.values when present.
+  for (const [ei, el] of source.elements.entries()) {
+    if (!el.context) continue
+    const seenValues = new Map<string, number>()
+    for (const [vi, v] of el.context.values.entries()) {
+      const prev = seenValues.get(v.id)
+      if (prev !== undefined) {
+        findings.push(
+          err(
+            'CONTEXT_VALUE_DUPLICATE',
+            `Duplicate context value id '${v.id}' on element '${el.id}'`,
+            {
+              path: `elements[${ei}].context.values[${vi}].id`,
+              fix_hint: `Rename or remove the duplicate context value (first seen at index ${prev}).`,
+            },
+          ),
+        )
+      } else {
+        seenValues.set(v.id, vi)
+      }
+    }
+  }
+
   return findings
 }

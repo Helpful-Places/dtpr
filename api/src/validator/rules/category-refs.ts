@@ -70,5 +70,57 @@ export function checkCategoryRefs(source: SchemaVersionSource): SemanticError[] 
     }
   }
 
+  // Subchains: each `categories[]` entry must reference a defined
+  // category. Categories may belong to multiple subchains, so no
+  // cross-subchain duplicate check.
+  const seenSubchainIds = new Map<string, number>()
+  for (const [si, sub] of source.datachainType.subchains.entries()) {
+    const prevSub = seenSubchainIds.get(sub.id)
+    if (prevSub !== undefined) {
+      findings.push(
+        err(
+          'SUBCHAIN_DUPLICATE',
+          `datachain-type.subchains lists subchain id '${sub.id}' multiple times`,
+          {
+            path: `datachainType.subchains[${si}].id`,
+            fix_hint: `Rename or remove the duplicate subchain (first seen at index ${prevSub}).`,
+          },
+        ),
+      )
+    } else {
+      seenSubchainIds.set(sub.id, si)
+    }
+    const seenInSub = new Map<string, number>()
+    for (const [ci, cid] of sub.categories.entries()) {
+      if (!categoryIds.has(cid)) {
+        findings.push(
+          err(
+            'SUBCHAIN_CATEGORY_REF_MISSING',
+            `datachain-type.subchains[${si}].categories[${ci}] references undefined category '${cid}'`,
+            {
+              path: `datachainType.subchains[${si}].categories[${ci}]`,
+              fix_hint: `Use an id of an existing category in this schema version.`,
+            },
+          ),
+        )
+      }
+      const prevC = seenInSub.get(cid)
+      if (prevC !== undefined) {
+        findings.push(
+          err(
+            'SUBCHAIN_CATEGORY_DUPLICATE',
+            `datachain-type.subchains[${si}] lists category '${cid}' multiple times`,
+            {
+              path: `datachainType.subchains[${si}].categories[${ci}]`,
+              fix_hint: `Remove the duplicate (first seen at index ${prevC}).`,
+            },
+          ),
+        )
+      } else {
+        seenInSub.set(cid, ci)
+      }
+    }
+  }
+
   return findings
 }

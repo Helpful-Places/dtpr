@@ -69,13 +69,39 @@ export function materializeVariables(element: Element, categories: Category[]): 
 }
 
 /**
+ * Resolve the effective context for an element: element-level override
+ * takes full precedence over category-level (no merge), per the v2
+ * hybrid context model.
+ */
+function effectiveContext(
+  element: Element,
+  category: Category | undefined,
+): Category['context'] | undefined {
+  return element.context ?? category?.context
+}
+
+/**
  * Build the list of variant keys for an element given its category.
- * Reserved tokens come first in stable order, followed by any context
- * value ids. Callers should have run the `RESERVED_VARIANT_TOKEN` rule
- * first so collisions are surfaced as errors, not silently dropped.
+ * Reserved tokens come first in stable order, followed by context
+ * value ids whose colors are non-null (null-color values are tag-style
+ * and don't get a baked-in colored icon). Callers should have run the
+ * `RESERVED_VARIANT_TOKEN` rule first so collisions are surfaced as
+ * errors, not silently dropped.
  */
 export function iconVariantsFor(category: Category | undefined): string[] {
-  const extras = category?.context?.values.map((v) => v.id) ?? []
+  const extras =
+    category?.context?.values.filter((v) => v.color !== null).map((v) => v.id) ?? []
+  return [...RESERVED_VARIANTS, ...extras]
+}
+
+/**
+ * Variant list for a fully resolved element — uses the effective
+ * context (element override or category default) and skips null-color
+ * values (rendered as tags, not colored icons).
+ */
+function iconVariantsForElement(element: Element, category: Category | undefined): string[] {
+  const ctx = effectiveContext(element, category)
+  const extras = ctx?.values.filter((v) => v.color !== null).map((v) => v.id) ?? []
   return [...RESERVED_VARIANTS, ...extras]
 }
 
@@ -97,7 +123,7 @@ function materializeElement(element: Element, categories: Category[]): Materiali
     ...element,
     variables: materializeVariables(element, categories),
     shape: cat.shape,
-    icon_variants: iconVariantsFor(cat),
+    icon_variants: iconVariantsForElement(element, cat),
   }
 }
 
@@ -105,17 +131,30 @@ function materializeElement(element: Element, categories: Category[]): Materiali
  * Convert a variant token (entry in `icon_variants`) into the
  * `ComposeVariant` discriminated union. The reserved `'default'` and
  * `'dark'` tokens map through directly; any other token is looked up
- * in the category's context values and emitted as a colored variant.
+ * in the element's effective context (element override or category
+ * default) and emitted as a colored variant.
  */
-function toComposeVariant(variant: string, category: Category): ComposeVariant {
+function toComposeVariant(
+  variant: string,
+  element: Element,
+  category: Category,
+): ComposeVariant {
   if (variant === 'default' || variant === 'dark') return variant
-  const ctx = category.context
+  const ctx = effectiveContext(element, category)
   const hit = ctx?.values.find((v) => v.id === variant)
   if (!hit) {
-    // Guarded by iconVariantsFor + RESERVED_VARIANT_TOKEN rule; hitting
-    // this means someone passed a hand-built variant list.
+    // Guarded by iconVariantsForElement + RESERVED_VARIANT_TOKEN rule;
+    // hitting this means someone passed a hand-built variant list.
     throw new Error(
-      `toComposeVariant: variant '${variant}' not found in category '${category.id}'`,
+      `toComposeVariant: variant '${variant}' not found in element '${element.id}' effective context`,
+    )
+  }
+  if (hit.color === null) {
+    // Null-color values are tag-style and should be skipped before
+    // reaching the compositor. Filter at iconVariantsForElement; if we
+    // get here someone bypassed it.
+    throw new Error(
+      `toComposeVariant: variant '${variant}' on element '${element.id}' has null color (tag-style; not composable)`,
     )
   }
   return { kind: 'colored', color: hit.color }
@@ -151,7 +190,7 @@ export function bundleComposedIcons(
       composed[key] = composeIcon({
         shape: el.shape,
         symbolSvg,
-        variant: toComposeVariant(variant, cat),
+        variant: toComposeVariant(variant, el, cat),
       })
     }
   }

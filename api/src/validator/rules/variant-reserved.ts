@@ -3,7 +3,7 @@ import { err } from '../types.ts'
 
 /**
  * Reserved variant tokens — the compositor hard-codes these, so a
- * category context can't shadow them without breaking the
+ * category or element context can't shadow them without breaking the
  * `(element × variant)` pre-bake map.
  */
 const RESERVED_VARIANT_TOKENS = new Set(['default', 'dark'])
@@ -13,7 +13,8 @@ const RESERVED_VARIANT_TOKENS = new Set(['default', 'dark'])
  * token (`default`, `dark`). The build's `icon_variants` list is
  * `['default', 'dark', ...context.values.map(v => v.id)]`, so a
  * collision would produce duplicate keys and overwrite one variant
- * with another at pre-bake time.
+ * with another at pre-bake time. Runs against both category-level and
+ * element-level contexts.
  */
 export function checkVariantReserved(source: SchemaVersionSource): SemanticError[] {
   const findings: SemanticError[] = []
@@ -27,6 +28,25 @@ export function checkVariantReserved(source: SchemaVersionSource): SemanticError
             `Context value '${v.id}' on category '${cat.id}' collides with reserved variant token`,
             {
               path: `categories[${ci}].context.values[${vi}].id`,
+              fix_hint: `Rename this context value to something other than ${[...RESERVED_VARIANT_TOKENS]
+                .map((t) => `'${t}'`)
+                .join(' or ')} — these names are reserved by the icon compositor.`,
+            },
+          ),
+        )
+      }
+    }
+  }
+  for (const [ei, el] of source.elements.entries()) {
+    if (!el.context) continue
+    for (const [vi, v] of el.context.values.entries()) {
+      if (RESERVED_VARIANT_TOKENS.has(v.id)) {
+        findings.push(
+          err(
+            'RESERVED_VARIANT_TOKEN',
+            `Context value '${v.id}' on element '${el.id}' collides with reserved variant token`,
+            {
+              path: `elements[${ei}].context.values[${vi}].id`,
               fix_hint: `Rename this context value to something other than ${[...RESERVED_VARIANT_TOKENS]
                 .map((t) => `'${t}'`)
                 .join(' or ')} — these names are reserved by the icon compositor.`,
