@@ -74,6 +74,15 @@ const iconUrl = computed(() => {
   return props.baseIconUrl.replace(/\.svg$/, `.${v}.svg`)
 })
 
+// Surface a dark-mode counterpart only when the visitor has not picked
+// an explicit override. Selecting "Dark" or a context chip is a
+// preview-the-variant action — auto-swap would mask what the toggle is
+// supposed to demonstrate.
+const iconUrlDark = computed(() => {
+  if (variant.value !== 'default') return undefined
+  return props.baseIconUrl.replace(/\.svg$/, `.dark.svg`)
+})
+
 const instance = computed<InstanceElement>(() => ({
   id: props.element.id,
   variables: declaredVariables.value.map((v) => ({
@@ -85,6 +94,7 @@ const instance = computed<InstanceElement>(() => ({
 const display = computed(() =>
   deriveElementDisplay(props.element, instance.value, props.locale, {
     iconUrl: iconUrl.value,
+    iconUrlDark: iconUrlDark.value,
   }),
 )
 

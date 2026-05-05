@@ -37,6 +37,7 @@ function makeInstanceElement(overrides: Partial<InstanceElement> = {}): Instance
     element_id: 'cloud_storage',
     priority: 0,
     variables: [{ id: 'retention_period', value: '30 days' }],
+    actions: [],
     ...overrides,
   }
 }
@@ -117,5 +118,29 @@ describe('deriveElementDisplay', () => {
     const el = makeElement({ citation: [] })
     const result = deriveElementDisplay(el, makeInstanceElement(), 'en')
     expect(result.citation).toBe('')
+  })
+
+  it('plumbs iconUrlDark through to icon.urlDark', () => {
+    const result = deriveElementDisplay(makeElement(), makeInstanceElement(), 'en', {
+      iconUrl: '/icons/cloud.svg',
+      iconUrlDark: '/icons/cloud.dark.svg',
+    })
+    expect(result.icon.url).toBe('/icons/cloud.svg')
+    expect(result.icon.urlDark).toBe('/icons/cloud.dark.svg')
+  })
+
+  it('leaves icon.urlDark undefined when iconUrlDark is not supplied', () => {
+    const result = deriveElementDisplay(makeElement(), makeInstanceElement(), 'en', {
+      iconUrl: '/icons/cloud.svg',
+    })
+    expect(result.icon.urlDark).toBeUndefined()
+  })
+
+  it('treats an empty iconUrlDark string as not supplied', () => {
+    const result = deriveElementDisplay(makeElement(), makeInstanceElement(), 'en', {
+      iconUrl: '/icons/cloud.svg',
+      iconUrlDark: '',
+    })
+    expect(result.icon.urlDark).toBeUndefined()
   })
 })

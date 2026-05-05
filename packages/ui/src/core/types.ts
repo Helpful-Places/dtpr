@@ -55,6 +55,11 @@ export interface ElementDisplayVariable {
 
 export interface ElementDisplayIcon {
   url: string
+  // Optional dark-mode URL (e.g. the composed-icon `dark` variant —
+  // `/elements/:id/icon.dark.svg`). When set, `<DtprIcon>` swaps to
+  // this src when the host is in dark mode (html.dark class or
+  // prefers-color-scheme). Omit and the light url is used in both modes.
+  urlDark?: string
   alt: string
 }
 

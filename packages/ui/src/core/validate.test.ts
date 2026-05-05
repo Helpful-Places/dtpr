@@ -20,6 +20,7 @@ function baseSource(): SchemaVersionSource {
       name: [loc('en', 'AI / Algorithm')],
       description: [],
       categories: ['ai__decision', 'ai__storage'],
+      subchains: [],
       locales: ['en', 'es'],
     },
     categories: [
@@ -85,13 +86,17 @@ function validInstance(): DatachainInstance {
     schema_version: 'ai@2026-04-16-beta',
     created_at: '2026-04-16T00:00:00.000Z',
     elements: [
-      { element_id: 'accept_deny', priority: 0, variables: [] },
+      { element_id: 'accept_deny', priority: 0, variables: [], actions: [] },
       {
         element_id: 'cloud_storage',
         priority: 1,
         variables: [{ id: 'retention_period', value: '30 days' }],
+        actions: [],
       },
     ],
+    subchain_instances: [],
+    sources: [],
+    linked_instance_ids: [],
   }
 }
 

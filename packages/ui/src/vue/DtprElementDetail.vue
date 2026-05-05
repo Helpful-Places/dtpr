@@ -136,6 +136,7 @@ function renderVariable(v: ElementDisplayVariable): RenderedVariable {
         <DtprIcon
           class="dtpr-element-detail__icon"
           :src="display.icon.url"
+          :dark-src="display.icon.urlDark"
           :alt="display.icon.alt"
           :size="iconSize"
         />

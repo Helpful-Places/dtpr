@@ -4,6 +4,7 @@
 :where(html) {
   --dtpr-color-accent: #0f5153;
   --dtpr-color-accent-contrast: #ffffff;
+  --dtpr-color-accent-soft: rgba(15, 81, 83, 0.08);
   --dtpr-color-border: rgba(0, 0, 0, 0.1);
   --dtpr-color-text: #111111;
   --dtpr-color-text-muted: #555555;
@@ -19,6 +20,36 @@
   --dtpr-radius-sm: 0.25rem;
   --dtpr-radius-md: 0.5rem;
   --dtpr-radius-lg: 1rem;
+}
+
+/* Dark-mode tokens. Two triggers:
+   - `html.dark` matches the class @nuxt/color-mode applies (Nuxt UI's
+     `classSuffix: ""`), so Docus/dtpr-ai flips with the host theme.
+   - `prefers-color-scheme: dark`, gated on `html:not(.light)`, covers
+     standalone SSR consumers (MCP iframe) where no class is set.
+   Override either by setting tokens on a wrapper element. */
+:where(html.dark) {
+  --dtpr-color-accent: #5fb6b8;
+  --dtpr-color-accent-contrast: #0a1213;
+  --dtpr-color-accent-soft: rgba(95, 182, 184, 0.16);
+  --dtpr-color-border: rgba(255, 255, 255, 0.12);
+  --dtpr-color-text: #f5f5f5;
+  --dtpr-color-text-muted: #a3a3a3;
+  --dtpr-color-surface: #1a1a1a;
+  --dtpr-color-warning: #ff7676;
+}
+
+@media (prefers-color-scheme: dark) {
+  :where(html:not(.light)) {
+    --dtpr-color-accent: #5fb6b8;
+    --dtpr-color-accent-contrast: #0a1213;
+    --dtpr-color-accent-soft: rgba(95, 182, 184, 0.16);
+    --dtpr-color-border: rgba(255, 255, 255, 0.12);
+    --dtpr-color-text: #f5f5f5;
+    --dtpr-color-text-muted: #a3a3a3;
+    --dtpr-color-surface: #1a1a1a;
+    --dtpr-color-warning: #ff7676;
+  }
 }
 
 @layer dtpr {
@@ -129,7 +160,7 @@
   }
 
   .dtpr-variable-highlight {
-    background: rgba(15, 81, 83, 0.08);
+    background: var(--dtpr-color-accent-soft);
     color: var(--dtpr-color-accent);
     padding: 0 0.15em;
     border-radius: var(--dtpr-radius-sm);

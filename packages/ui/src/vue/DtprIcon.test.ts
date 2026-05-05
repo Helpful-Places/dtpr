@@ -1,9 +1,16 @@
-import { describe, it, expect } from 'vitest'
-import { mount } from '@vue/test-utils'
+import { describe, it, expect, afterEach, beforeEach, vi } from 'vitest'
+import { flushPromises, mount } from '@vue/test-utils'
+import { nextTick } from 'vue'
 import DtprIcon from './DtprIcon.vue'
 import { HEXAGON_FALLBACK_DATA_URI } from '../core/index.js'
 
 describe('DtprIcon', () => {
+  // Reset html class so a stray `.dark` from one test cannot leak into
+  // the next and silently flip the mode under another assertion.
+  afterEach(() => {
+    document.documentElement.classList.remove('dark', 'light')
+  })
+
   it('renders img with src, alt, and size-driven width/height', () => {
     const w = mount(DtprIcon, { props: { src: '/x.svg', alt: 'X', size: 32 } })
     const img = w.get('img')
@@ -57,5 +64,102 @@ describe('DtprIcon', () => {
     const img = w.get('img')
     expect(img.attributes('width')).toBe('48')
     expect(img.attributes('height')).toBe('48')
+  })
+
+  describe('dark-mode swap', () => {
+    // Force matchMedia to a known light baseline so each test starts
+    // from a deterministic state regardless of the host system pref.
+    beforeEach(() => {
+      vi.stubGlobal(
+        'matchMedia',
+        (q: string): MediaQueryList => ({
+          matches: false,
+          media: q,
+          onchange: null,
+          addEventListener: () => {},
+          removeEventListener: () => {},
+          addListener: () => {},
+          removeListener: () => {},
+          dispatchEvent: () => false,
+        }) as unknown as MediaQueryList,
+      )
+    })
+
+    afterEach(() => {
+      vi.unstubAllGlobals()
+    })
+
+    it('uses src in light mode even when darkSrc is provided', async () => {
+      const w = mount(DtprIcon, {
+        props: { src: '/light.svg', darkSrc: '/dark.svg', alt: 'X' },
+      })
+      await flushPromises()
+      expect(w.get('img').attributes('src')).toBe('/light.svg')
+    })
+
+    it('swaps to darkSrc when html.dark is added after mount', async () => {
+      const w = mount(DtprIcon, {
+        props: { src: '/light.svg', darkSrc: '/dark.svg', alt: 'X' },
+      })
+      await flushPromises()
+      expect(w.get('img').attributes('src')).toBe('/light.svg')
+
+      document.documentElement.classList.add('dark')
+      // MutationObserver delivers asynchronously — yield twice to let
+      // the callback run and Vue flush the resulting computed update.
+      await new Promise((resolve) => setTimeout(resolve, 0))
+      await nextTick()
+      expect(w.get('img').attributes('src')).toBe('/dark.svg')
+    })
+
+    it('falls back to src when darkSrc is omitted, even in dark mode', async () => {
+      document.documentElement.classList.add('dark')
+      const w = mount(DtprIcon, { props: { src: '/light.svg', alt: 'X' } })
+      await flushPromises()
+      expect(w.get('img').attributes('src')).toBe('/light.svg')
+    })
+
+    it('respects prefers-color-scheme when no html class is set', async () => {
+      vi.stubGlobal(
+        'matchMedia',
+        (q: string): MediaQueryList => ({
+          matches: q.includes('dark'),
+          media: q,
+          onchange: null,
+          addEventListener: () => {},
+          removeEventListener: () => {},
+          addListener: () => {},
+          removeListener: () => {},
+          dispatchEvent: () => false,
+        }) as unknown as MediaQueryList,
+      )
+      const w = mount(DtprIcon, {
+        props: { src: '/light.svg', darkSrc: '/dark.svg', alt: 'X' },
+      })
+      await flushPromises()
+      expect(w.get('img').attributes('src')).toBe('/dark.svg')
+    })
+
+    it('html.light overrides prefers-color-scheme: dark', async () => {
+      vi.stubGlobal(
+        'matchMedia',
+        (q: string): MediaQueryList => ({
+          matches: q.includes('dark'),
+          media: q,
+          onchange: null,
+          addEventListener: () => {},
+          removeEventListener: () => {},
+          addListener: () => {},
+          removeListener: () => {},
+          dispatchEvent: () => false,
+        }) as unknown as MediaQueryList,
+      )
+      document.documentElement.classList.add('light')
+      const w = mount(DtprIcon, {
+        props: { src: '/light.svg', darkSrc: '/dark.svg', alt: 'X' },
+      })
+      await flushPromises()
+      expect(w.get('img').attributes('src')).toBe('/light.svg')
+    })
   })
 })

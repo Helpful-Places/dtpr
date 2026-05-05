@@ -138,6 +138,11 @@ function iconUrlFor(elementId: string): string {
   return `${DTPR_API_BASE}/schemas/${activeVersion.value}/elements/${elementId}/icon.svg`
 }
 
+function iconUrlDarkFor(elementId: string): string {
+  if (!activeVersion.value) return ''
+  return `${DTPR_API_BASE}/schemas/${activeVersion.value}/elements/${elementId}/icon.dark.svg`
+}
+
 function elementHrefFor(elementId: string): string {
   return `/taxonomy/elements/${elementId}${queryString.value}`
 }
@@ -154,6 +159,7 @@ const decoratedElements = computed(() => {
     raw: el,
     display: deriveElementDisplay(el, undefined, activeLocale.value, {
       iconUrl: iconUrlFor(el.id),
+      iconUrlDark: iconUrlDarkFor(el.id),
     }),
   }))
 })
