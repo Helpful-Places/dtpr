@@ -233,7 +233,6 @@ const sidebarItems = computed(() => {
         history.replaceState(null, '', `#${id}`)
       }
       targetId.value = id
-      sidebarOpen.value = false
       scrollToTarget(id)
     },
   }))
@@ -247,7 +246,10 @@ function computeActiveCategory() {
     .map((c) => ({ id: c.id, el: document.getElementById(`category-${c.id}`) }))
     .filter((c): c is { id: string; el: HTMLElement } => c.el !== null)
 
-  const scrollPosition = window.scrollY + 100
+  // Scroll-spy threshold mirrors the CSS scroll-margin-top on each
+  // section so the active highlight flips when the section's title
+  // crosses the bottom edge of the sticky headers, not 100px above.
+  const scrollPosition = window.scrollY + 140
   for (let i = candidates.length - 1; i >= 0; i--) {
     if (candidates[i].el.offsetTop <= scrollPosition) {
       activeCategory.value = candidates[i].id
@@ -260,12 +262,6 @@ function computeActiveCategory() {
 function handleScroll() {
   if (scrollFrame !== null) return
   scrollFrame = requestAnimationFrame(computeActiveCategory)
-}
-
-const sidebarOpen = ref(false)
-
-function toggleSidebar() {
-  sidebarOpen.value = !sidebarOpen.value
 }
 
 async function copyHash(hash: string, label: string) {
@@ -317,29 +313,10 @@ async function copyHash(hash: string, label: string) {
           <code>{{ activeVersion || 'ai' }}</code> schema.
         </p>
       </template>
-      <template #actions>
-        <UButton
-          class="taxonomy-page__sidebar-toggle"
-          color="neutral"
-          variant="ghost"
-          :icon="sidebarOpen ? 'i-heroicons-x-mark' : 'i-heroicons-bars-3'"
-          aria-label="Toggle category navigation"
-          @click="toggleSidebar"
-        />
-      </template>
     </DtprPageHeader>
 
-    <div
-      v-if="sidebarOpen"
-      class="taxonomy-page__overlay"
-      @click="sidebarOpen = false"
-    />
-
     <div class="taxonomy-page__layout">
-      <aside
-        class="taxonomy-page__sidebar"
-        :class="{ 'taxonomy-page__sidebar--open': sidebarOpen }"
-      >
+      <aside class="taxonomy-page__sidebar">
         <div class="taxonomy-page__sidebar-inner">
           <h2 class="taxonomy-page__sidebar-heading">Categories</h2>
           <UNavigationMenu
@@ -436,16 +413,10 @@ async function copyHash(hash: string, label: string) {
   font-size: 0.85em;
 }
 
-@media (min-width: 1024px) {
-  .taxonomy-page__sidebar-toggle {
-    display: none;
-  }
-}
-
 .taxonomy-page__layout {
   max-width: 80rem;
   margin: 0 auto;
-  padding: 2rem 1.5rem;
+  padding: 1.5rem 1.5rem 2rem;
   display: flex;
   gap: 2rem;
   align-items: flex-start;
@@ -454,6 +425,13 @@ async function copyHash(hash: string, label: string) {
 .taxonomy-page__sidebar {
   flex: 0 0 16rem;
   position: sticky;
+  /*
+   * Sticky offset matches the sidebar's natural position at scroll=0:
+   * docus header (--ui-header-height) + DtprPageHeader (~4.5rem) +
+   * layout padding-top (1.5rem) ≈ --ui-header-height + 6rem. The
+   * sidebar locks the moment scrolling begins instead of inching up
+   * before catching its sticky offset.
+   */
   top: calc(var(--ui-header-height, 0) + 6rem);
   align-self: flex-start;
 }
@@ -481,42 +459,15 @@ async function copyHash(hash: string, label: string) {
   font-size: 0.8125rem;
 }
 
-.taxonomy-page__overlay {
-  display: none;
-}
-
 @media (max-width: 1023px) {
+  /*
+   * Below 1024px the sidebar is hidden — categories are still
+   * accessible by scrolling through the page, and the previous
+   * slide-in drawer + hamburger toggle were more friction than they
+   * were worth on this small a surface.
+   */
   .taxonomy-page__sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 18rem;
-    max-width: 80vw;
-    background: var(--ui-bg, white);
-    z-index: 50;
-    padding: 1.25rem;
-    border-right: 1px solid var(--ui-border, rgb(229, 231, 235));
-    transform: translateX(-100%);
-    transition: transform 0.2s ease;
-    overflow-y: auto;
-  }
-
-  .taxonomy-page__sidebar--open {
-    transform: translateX(0);
-  }
-
-  .taxonomy-page__sidebar-inner {
-    max-height: none;
-    overflow-y: visible;
-  }
-
-  .taxonomy-page__overlay {
-    display: block;
-    position: fixed;
-    inset: 0;
-    background: rgb(0 0 0 / 0.4);
-    z-index: 40;
+    display: none;
   }
 }
 
@@ -529,7 +480,7 @@ async function copyHash(hash: string, label: string) {
 }
 
 .taxonomy-category {
-  scroll-margin-top: 6rem;
+  scroll-margin-top: calc(var(--ui-header-height, 4rem) + 5.5rem);
   position: relative;
   border-radius: 0.5rem;
   transition: outline-color 0.4s ease, background-color 0.4s ease;
@@ -558,7 +509,7 @@ async function copyHash(hash: string, label: string) {
 }
 
 .taxonomy-element-row {
-  scroll-margin-top: 6rem;
+  scroll-margin-top: calc(var(--ui-header-height, 4rem) + 5.5rem);
   position: relative;
   border-radius: 0.5rem;
   transition: outline-color 0.4s ease, background-color 0.4s ease;
