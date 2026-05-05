@@ -2,8 +2,8 @@
   "name": "dtpr-ai",
   "private": true,
   "scripts": {
-    "build": "pnpm --filter @dtpr/ui build && NODE_OPTIONS=--max-old-space-size=4096 nuxt build",
-    "dev": "pnpm --filter @dtpr/ui build && nuxt dev",
+    "build": "pnpm --filter @dtpr/api build:schema && pnpm --filter @dtpr/ui build && NODE_OPTIONS=--max-old-space-size=4096 nuxt build",
+    "dev": "pnpm --filter @dtpr/api build:schema && pnpm --filter @dtpr/ui build && nuxt dev",
     "preview": "nuxt preview"
   },
   "dependencies": {
