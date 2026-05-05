@@ -21,6 +21,11 @@ import type { ElementDisplay, ElementDisplayVariable, VariableType } from './typ
 export interface DeriveElementDisplayOptions {
   fallbackLocale?: string
   iconUrl?: string
+  // Optional dark-mode icon URL (e.g. the composed-icon `dark` variant
+  // returned by `/elements/:id/icon.dark.svg` or MCP `get_icon_url`
+  // with `variant: 'dark'`). Plumbed onto `ElementDisplay.icon.urlDark`
+  // so `<DtprIcon>` can swap to it when the host is in dark mode.
+  iconUrlDark?: string
   iconAlt?: string
 }
 
@@ -56,6 +61,13 @@ export function deriveElementDisplay(
     options.iconUrl && options.iconUrl.length > 0
       ? options.iconUrl
       : HEXAGON_FALLBACK_DATA_URI
+  // No dark fallback — when the dark URL is omitted, <DtprIcon> stays on
+  // the light url (or the hexagon fallback) in both modes. The hexagon
+  // fallback's accent green reads on both light and dark surfaces.
+  const iconUrlDark =
+    options.iconUrlDark && options.iconUrlDark.length > 0
+      ? options.iconUrlDark
+      : undefined
   const iconAlt = options.iconAlt ?? title
 
   const instanceVarValues = new Map<string, string>()
@@ -92,7 +104,7 @@ export function deriveElementDisplay(
   return {
     title,
     description,
-    icon: { url: iconUrl, alt: iconAlt },
+    icon: { url: iconUrl, urlDark: iconUrlDark, alt: iconAlt },
     variables,
     citation,
   }

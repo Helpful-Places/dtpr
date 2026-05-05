@@ -8,9 +8,9 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'Schema version to upload (e.g. ai@2026-04-16-beta)'
-        required: true
-        default: 'ai@2026-04-16-beta'
+        description: 'Optional: deploy only this version (e.g. ai@2026-04-27-beta). Leave empty to deploy every version under api/schemas/.'
+        required: false
+        default: ''
 
 concurrency:
   group: api-deploy-prod
@@ -20,8 +20,6 @@ jobs:
   deploy:
     name: Deploy worker + atomic R2 upload
     runs-on: ubuntu-latest
-    env:
-      SCHEMA_VERSION: ${{ inputs.version || 'ai@2026-04-16-beta' }}
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
@@ -43,8 +41,50 @@ jobs:
       - run: pnpm --filter ./api typecheck
       - run: pnpm --filter ./api test
 
-      # Validate + build the bundle that we're about to publish.
-      - run: pnpm --filter ./api schema:build "$SCHEMA_VERSION"
+      # Source of truth = git tree under api/schemas/. Every <type>/<dir>
+      # is published; r2-upload.ts is idempotent (skips unchanged manifests
+      # by content_hash) so unchanged stables are a fast no-op. The
+      # workflow_dispatch `version` input narrows to a single version when
+      # set — useful for replaying a single failed upload.
+      - name: Resolve schema versions to deploy
+        id: schemas
+        working-directory: api/schemas
+        run: |
+          set -euo pipefail
+          override='${{ inputs.version }}'
+          if [ -n "$override" ]; then
+            versions="$override"
+            echo "Single-version override: $versions"
+          else
+            versions=$(find . -mindepth 2 -maxdepth 2 -type d \
+              | sed 's|^\./||' \
+              | sed 's|/|@|' \
+              | sort)
+            if [ -z "$versions" ]; then
+              echo "::error::No schema versions found under api/schemas/"
+              exit 1
+            fi
+            echo "Versions to deploy:"
+            echo "$versions"
+          fi
+          {
+            echo 'list<<EOF'
+            echo "$versions"
+            echo 'EOF'
+          } >> "$GITHUB_OUTPUT"
+
+      # Validate + build every bundle BEFORE the worker deploy. If any
+      # version fails validation we want to bail out before flipping the
+      # worker, not halfway through the upload phase.
+      - name: Build all schema bundles
+        run: |
+          set -euo pipefail
+          while IFS= read -r v; do
+            [ -z "$v" ] && continue
+            echo "::group::schema:build $v"
+            pnpm --filter ./api schema:build "$v"
+            echo "::endgroup::"
+          done <<< "${{ steps.schemas.outputs.list }}"
 
       - name: Deploy worker (production)
         uses: cloudflare/wrangler-action@v3
@@ -54,6 +94,10 @@ jobs:
           workingDirectory: api
           command: deploy --env=""
 
+      # Per-version atomic upload. The script's idempotency contract:
+      #   - matching content_hash → no-op (unchanged stables, unchanged betas)
+      #   - stable mismatch → hard fail (immutability breach)
+      #   - beta mismatch → overwrite + index flip
       - name: Atomic R2 upload (production)
         working-directory: api
         env:
@@ -61,7 +105,28 @@ jobs:
           R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID_PROD }}
           R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY_PROD }}
           R2_BUCKET: dtpr-api
-        run: pnpm tsx scripts/r2-upload.ts "$SCHEMA_VERSION"
+        run: |
+          set -euo pipefail
+          while IFS= read -r v; do
+            [ -z "$v" ] && continue
+            echo "::group::r2-upload $v"
+            pnpm tsx scripts/r2-upload.ts "$v"
+            echo "::endgroup::"
+          done <<< "${{ steps.schemas.outputs.list }}"
+
+      # Prune index entries whose source dir was deleted (e.g. after
+      # schema:promote renamed `<date>-beta` to `<date>`). Skipped when
+      # the workflow_dispatch single-version override is set, since we
+      # haven't enumerated the full source tree in that case.
+      - name: Prune stale index entries (production)
+        if: ${{ inputs.version == '' }}
+        working-directory: api
+        env:
+          R2_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID_PROD }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY_PROD }}
+          R2_BUCKET: dtpr-api
+        run: pnpm tsx scripts/r2-prune.ts
 
       - name: Post-deploy smoke tests
         env:

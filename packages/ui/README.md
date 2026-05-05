@@ -56,6 +56,26 @@ Styles live in the `dtpr` cascade layer and use CSS custom properties for brand 
 
 Token reference is in `src/vue/styles.css`.
 
+### Dark mode
+
+Tokens flip automatically when:
+
+- `<html class="dark">` is present — matches `@nuxt/color-mode` with `classSuffix: ""` (the Nuxt UI / Docus default), so a host app's color-mode toggle drives the library.
+- `prefers-color-scheme: dark` matches and the host has not explicitly opted into light via `<html class="light">` — covers standalone SSR consumers like the MCP App iframe.
+
+Override per-app by setting tokens on a wrapper element (or under your own selector) — token cascade wins over the library's defaults.
+
+#### Dark icon variants
+
+Pass a separate `iconUrlDark` to `deriveElementDisplay` (or `darkSrc` directly to `<DtprIcon>`) and components swap to it when the host is in dark mode. The same resolution as the tokens — `html.dark` / `html.light` / `prefers-color-scheme`. Omit it and the light URL is used in both modes.
+
+```ts
+deriveElementDisplay(element, instance, locale, {
+  iconUrl: `/api/v2/schemas/${v}/elements/${id}/icon.svg`,
+  iconUrlDark: `/api/v2/schemas/${v}/elements/${id}/icon.dark.svg`,
+})
+```
+
 ### Cascade-layer ordering
 
 Library styles are wrapped in `@layer dtpr { ... }`. If your host app uses Tailwind or another layer system, declare the layer order in your global CSS to control precedence:

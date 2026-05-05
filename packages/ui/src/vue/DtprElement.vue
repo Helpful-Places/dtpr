@@ -19,6 +19,7 @@ withDefaults(defineProps<Props>(), {
     <DtprIcon
       class="dtpr-element__icon"
       :src="display.icon.url"
+      :dark-src="display.icon.urlDark"
       :alt="display.icon.alt"
       :size="iconSize"
     />
