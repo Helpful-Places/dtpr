@@ -131,26 +131,15 @@ const decoratedElements = computed(() => {
   }))
 })
 
-const searchQuery = ref('')
-
-const filteredDecorated = computed(() => {
-  const q = searchQuery.value.trim().toLowerCase()
-  if (!q) return decoratedElements.value
-  return decoratedElements.value.filter(({ display }) => {
-    const haystack = `${display.title}\n${display.description}`.toLowerCase()
-    return haystack.includes(q)
-  })
-})
-
-const filteredGrouped = computed(() =>
+const grouped = computed(() =>
   groupElementsByCategory(
-    filteredDecorated.value.map((d) => d.raw),
+    decoratedElements.value.map((d) => d.raw),
     categories.value,
   ),
 )
 
-const filteredSortedCategories = computed(() =>
-  sortCategoriesByOrder(filteredGrouped.value, categories.value).filter(
+const sortedCategories = computed(() =>
+  sortCategoriesByOrder(grouped.value, categories.value).filter(
     (c) => c.elements.length > 0,
   ),
 )
@@ -160,12 +149,6 @@ const displayById = computed(() => {
   for (const d of decoratedElements.value) map.set(d.raw.id, d.display)
   return map
 })
-
-const hasResults = computed(() => filteredDecorated.value.length > 0)
-
-function clearSearch() {
-  searchQuery.value = ''
-}
 
 const targetId = ref<string | null>(null)
 
@@ -236,7 +219,7 @@ function buildHashUrl(hash: string): string {
 const activeCategory = ref<string | null>(null)
 
 const sidebarItems = computed(() => {
-  return filteredSortedCategories.value.map((cat) => ({
+  return sortedCategories.value.map((cat) => ({
     label: categoryTitle(cat.id),
     badge: cat.elements.length,
     to: `#category-${cat.id}`,
@@ -260,7 +243,7 @@ function computeActiveCategory() {
   scrollFrame = null
   if (typeof document === 'undefined') return
   if (Date.now() < programmaticScrollSuppressUntil) return
-  const candidates = filteredSortedCategories.value
+  const candidates = sortedCategories.value
     .map((c) => ({ id: c.id, el: document.getElementById(`category-${c.id}`) }))
     .filter((c): c is { id: string; el: HTMLElement } => c.el !== null)
 
@@ -334,26 +317,6 @@ async function copyHash(hash: string, label: string) {
           <code>{{ activeVersion || 'ai' }}</code> schema.
         </p>
       </template>
-      <template #search>
-        <UInput
-          v-model="searchQuery"
-          placeholder="Search elements…"
-          icon="i-heroicons-magnifying-glass"
-          size="md"
-          class="w-full"
-        >
-          <template #trailing>
-            <UButton
-              v-if="searchQuery"
-              color="neutral"
-              variant="link"
-              icon="i-heroicons-x-mark-20-solid"
-              aria-label="Clear search"
-              @click="clearSearch"
-            />
-          </template>
-        </UInput>
-      </template>
       <template #actions>
         <UButton
           class="taxonomy-page__sidebar-toggle"
@@ -390,7 +353,7 @@ async function copyHash(hash: string, label: string) {
 
       <main class="taxonomy-page__main">
       <section
-        v-for="cat in filteredSortedCategories"
+        v-for="cat in sortedCategories"
         :key="cat.id"
         :id="`category-${cat.id}`"
         class="taxonomy-category"
@@ -446,12 +409,6 @@ async function copyHash(hash: string, label: string) {
           </DtprElementGrid>
         </DtprCategorySection>
       </section>
-
-        <div v-if="searchQuery && !hasResults" class="taxonomy-empty">
-          <UIcon name="i-heroicons-magnifying-glass" class="taxonomy-empty__icon" />
-          <h2 class="taxonomy-empty__title">No results found</h2>
-          <p class="taxonomy-empty__hint">Try adjusting your search terms.</p>
-        </div>
       </main>
     </div>
   </div>
@@ -631,29 +588,4 @@ async function copyHash(hash: string, label: string) {
   opacity: 0.85;
 }
 
-.taxonomy-empty {
-  text-align: center;
-  padding: 4rem 1rem;
-  color: var(--ui-text-dimmed, rgb(107, 114, 128));
-}
-
-.taxonomy-empty__icon {
-  width: 3rem;
-  height: 3rem;
-  margin: 0 auto 1rem auto;
-  display: block;
-  opacity: 0.5;
-}
-
-.taxonomy-empty__title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  margin: 0 0 0.25rem 0;
-  color: var(--ui-text, inherit);
-}
-
-.taxonomy-empty__hint {
-  margin: 0;
-  font-size: 0.875rem;
-}
 </style>

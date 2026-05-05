@@ -86,6 +86,7 @@ const localeModel = computed({
         :items="localeItems"
         value-key="value"
         class="dtpr-page-header__select dtpr-page-header__select--locale"
+        :ui="{ content: 'w-auto min-w-[12rem]' }"
         aria-label="Locale"
       />
       <div class="dtpr-page-header__actions">
@@ -148,7 +149,8 @@ const localeModel = computed({
 }
 
 .dtpr-page-header__select--locale {
-  min-width: 9rem;
+  min-width: 10rem;
+  margin-left: auto;
 }
 
 .dtpr-page-header__actions {
