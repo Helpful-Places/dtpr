@@ -30,7 +30,7 @@ const isDark = useDtprDarkMode()
 // with a new url, and so a dark-mode swap retries cleanly after an
 // earlier light-url 404.
 watch(
-  () => [props.src, props.darkSrc],
+  () => [props.src, props.darkSrc, isDark.value],
   () => {
     failed.value = false
   },

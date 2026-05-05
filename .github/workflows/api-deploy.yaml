@@ -49,9 +49,11 @@ jobs:
       - name: Resolve schema versions to deploy
         id: schemas
         working-directory: api/schemas
+        env:
+          INPUT_VERSION: ${{ inputs.version }}
         run: |
           set -euo pipefail
-          override='${{ inputs.version }}'
+          override="$INPUT_VERSION"
           if [ -n "$override" ]; then
             versions="$override"
             echo "Single-version override: $versions"

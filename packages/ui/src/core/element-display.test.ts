@@ -37,6 +37,7 @@ function makeInstanceElement(overrides: Partial<InstanceElement> = {}): Instance
     element_id: 'cloud_storage',
     priority: 0,
     variables: [{ id: 'retention_period', value: '30 days' }],
+    actions: [],
     ...overrides,
   }
 }
