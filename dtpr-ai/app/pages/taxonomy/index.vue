@@ -35,11 +35,24 @@ type ElementApi = Omit<Element, 'category_id'> & {
   category_ids?: string[]
 }
 
+interface ElementsResponseMeta {
+  total?: number
+  returned?: number
+  next_cursor?: string | null
+}
+
 interface ElementsResponse {
   ok: boolean
   version: string
   elements: ElementApi[]
+  meta?: ElementsResponseMeta
 }
+
+// Schema-version element count cap. The API enforces `limit ≤ 200`
+// per the elements-list contract, so the catalog uses the maximum
+// single-page size. Pagination would be needed if a schema grows past
+// this; the truncation alert below surfaces the moment that happens.
+const ELEMENTS_PAGE_LIMIT = 200
 
 const route = useRoute()
 
@@ -55,10 +68,17 @@ const {
   availableLocales,
 } = useDtprState()
 
+// Build forwarded query string from validated state (see element /
+// category pages for the same pattern) so an invalid `?locale=xyz`
+// doesn't propagate through every link the visitor clicks afterward.
 const queryString = computed(() => {
   const parts: string[] = []
-  if (route.query.v) parts.push(`v=${encodeURIComponent(String(route.query.v))}`)
-  if (route.query.locale) parts.push(`locale=${encodeURIComponent(String(route.query.locale))}`)
+  if (requestedVersion.value && !versionMissing.value) {
+    parts.push(`v=${encodeURIComponent(activeVersion.value)}`)
+  }
+  if (activeLocale.value !== 'en') {
+    parts.push(`locale=${encodeURIComponent(activeLocale.value)}`)
+  }
   return parts.length ? `?${parts.join('&')}` : ''
 })
 
@@ -79,12 +99,19 @@ const { data: elsData } = await useAsyncData(
   () =>
     activeVersion.value
       ? $fetch<ElementsResponse>(
-          `${DTPR_API_BASE}/schemas/${activeVersion.value}/elements?fields=all&limit=200&locales=${activeLocale.value},en`,
+          `${DTPR_API_BASE}/schemas/${activeVersion.value}/elements?fields=all&limit=${ELEMENTS_PAGE_LIMIT}&locales=${activeLocale.value},en`,
           { timeout: DTPR_FETCH_TIMEOUT_MS },
         )
       : Promise.resolve(undefined),
   { watch: [activeVersion, activeLocale] },
 )
+
+const elementsTruncated = computed(() => {
+  const total = elsData.value?.meta?.total
+  return typeof total === 'number' && total > ELEMENTS_PAGE_LIMIT
+})
+
+const elementsTotal = computed(() => elsData.value?.meta?.total ?? 0)
 
 const categories = computed<Category[]>(() => catsData.value?.categories ?? [])
 
@@ -329,6 +356,15 @@ async function copyHash(hash: string, label: string) {
       </aside>
 
       <main class="taxonomy-page__main">
+      <UAlert
+        v-if="elementsTruncated"
+        class="taxonomy-page__truncation-alert"
+        color="warning"
+        variant="subtle"
+        icon="i-heroicons-exclamation-triangle"
+        title="Catalog truncated"
+        :description="`This schema declares ${elementsTotal} elements but the catalog only renders the first ${ELEMENTS_PAGE_LIMIT}. Pagination is needed to surface the remaining ${elementsTotal - ELEMENTS_PAGE_LIMIT}.`"
+      />
       <section
         v-for="cat in sortedCategories"
         :key="cat.id"

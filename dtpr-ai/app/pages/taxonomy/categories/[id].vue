@@ -42,10 +42,17 @@ const {
   availableLocales,
 } = useDtprState()
 
+// Build forwarded query string from validated state (see element page
+// for the same pattern) so an invalid `?locale=xyz` doesn't propagate
+// through every link the visitor clicks afterward.
 const queryString = computed(() => {
   const parts: string[] = []
-  if (route.query.v) parts.push(`v=${encodeURIComponent(String(route.query.v))}`)
-  if (route.query.locale) parts.push(`locale=${encodeURIComponent(String(route.query.locale))}`)
+  if (requestedVersion.value && !versionMissing.value) {
+    parts.push(`v=${encodeURIComponent(activeVersion.value)}`)
+  }
+  if (activeLocale.value !== 'en') {
+    parts.push(`locale=${encodeURIComponent(activeLocale.value)}`)
+  }
   return parts.length ? `?${parts.join('&')}` : ''
 })
 
@@ -70,8 +77,11 @@ const { data: categoriesData } = await useAsyncData<CategoriesResponse | undefin
   { watch: [activeVersion, activeLocale] },
 )
 
+// Key includes categoryId so SPA navigation between categories drops
+// the previous payload immediately rather than leaving the prior
+// elements list visible while the new fetch is in flight.
 const { data: elementsData } = await useAsyncData<ElementsResponse | undefined>(
-  'dtpr-category-detail-elements',
+  () => `dtpr-category-detail-elements-${categoryId.value}`,
   () =>
     elementsUrl.value
       ? $fetch<ElementsResponse>(elementsUrl.value, { timeout: DTPR_FETCH_TIMEOUT_MS })

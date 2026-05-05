@@ -56,6 +56,17 @@ const variant = computed<string>(() => {
   return 'default'
 })
 
+// Dark mode takes precedence over context for the rendered icon, but
+// keeping a chip visually selected while it has no effect is
+// confusing. `effectiveContextId` is null whenever dark mode is
+// active, so chip styling and aria state reflect what's actually
+// driving the hero. The underlying `contextId` is preserved so a
+// switch back to default restores the visitor's selection.
+const effectiveContextId = computed<string | null>(() =>
+  styleMode.value === 'dark' ? null : contextId.value,
+)
+const chipsLocked = computed(() => styleMode.value === 'dark')
+
 const iconUrl = computed(() => {
   const v = variant.value
   if (v === 'default') return props.baseIconUrl
@@ -149,19 +160,20 @@ const showPlaygroundForm = computed(
           :key="cv.id"
           type="button"
           size="xs"
-          :variant="contextId === cv.id ? 'solid' : 'outline'"
+          :variant="effectiveContextId === cv.id ? 'solid' : 'outline'"
+          :disabled="chipsLocked"
           :style="
             cv.color
               ? {
                   '--chip-color': cv.color,
                   borderColor: cv.color,
-                  backgroundColor: contextId === cv.id ? cv.color : 'transparent',
-                  color: contextId === cv.id ? '#fff' : cv.color,
+                  backgroundColor: effectiveContextId === cv.id ? cv.color : 'transparent',
+                  color: effectiveContextId === cv.id ? '#fff' : cv.color,
                 }
               : {}
           "
           class="dtpr-playground__chip"
-          :aria-pressed="contextId === cv.id"
+          :aria-pressed="effectiveContextId === cv.id"
           @click="toggleContext(cv.id)"
         >
           {{ contextValueName(cv.id) }}

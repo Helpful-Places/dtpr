@@ -31,11 +31,25 @@ type ElementApi = Omit<Element, 'category_id'> & {
   category_ids?: string[]
 }
 
+interface ElementsResponseMeta {
+  total?: number
+  returned?: number
+  next_cursor?: string | null
+}
+
 interface ElementsResponse {
   ok: boolean
   version: string
   elements: ElementApi[]
+  meta?: ElementsResponseMeta
 }
+
+// Schema-version element count cap. The API enforces `limit ≤ 200`,
+// so the catalog and Cmd-K boot fetch use the maximum single-page
+// size. If a future schema grows past this we'll need to paginate
+// (cursor exists), but the warning below will surface the moment the
+// count crosses the threshold instead of silently truncating.
+const ELEMENTS_PAGE_LIMIT = 200
 
 interface SearchItem {
   label: string
@@ -92,10 +106,18 @@ export function useDtprSearchOverlay(
           { timeout: DTPR_FETCH_TIMEOUT_MS },
         ).catch(() => ({ ok: false, version: '', categories: [] as Category[] })),
         $fetch<ElementsResponse>(
-          `${DTPR_API_BASE}/schemas/${activeVersion.value}/elements?fields=all&limit=200&locales=${locale},en`,
+          `${DTPR_API_BASE}/schemas/${activeVersion.value}/elements?fields=all&limit=${ELEMENTS_PAGE_LIMIT}&locales=${locale},en`,
           { timeout: DTPR_FETCH_TIMEOUT_MS },
         ).catch(() => ({ ok: false, version: '', elements: [] as ElementApi[] })),
       ])
+      const total = els.meta?.total
+      if (typeof total === 'number' && total > ELEMENTS_PAGE_LIMIT) {
+        // Surfaces the moment a schema outgrows the single-page limit so
+        // the truncation can't hide unnoticed in production.
+        console.warn(
+          `[dtpr-search-overlay] Schema ${activeVersion.value} reports ${total} elements but the Cmd-K index only fetched the first ${ELEMENTS_PAGE_LIMIT}. Pagination is needed to cover the remaining ${total - ELEMENTS_PAGE_LIMIT}.`,
+        )
+      }
       return {
         categories: cats.categories ?? [],
         elements: els.elements ?? [],

@@ -36,10 +36,19 @@ const {
   availableLocales,
 } = useDtprState()
 
+// Build forwarded query string from validated state, not the raw route
+// query — so an invalid `?locale=xyz` lands on /taxonomy/elements/<id>
+// once and then propagates as the canonical fallback (`en`) through
+// every link the visitor clicks afterward, instead of carrying the
+// broken value through the whole session.
 const queryString = computed(() => {
   const parts: string[] = []
-  if (route.query.v) parts.push(`v=${encodeURIComponent(String(route.query.v))}`)
-  if (route.query.locale) parts.push(`locale=${encodeURIComponent(String(route.query.locale))}`)
+  if (requestedVersion.value && !versionMissing.value) {
+    parts.push(`v=${encodeURIComponent(activeVersion.value)}`)
+  }
+  if (activeLocale.value !== 'en') {
+    parts.push(`locale=${encodeURIComponent(activeLocale.value)}`)
+  }
   return parts.length ? `?${parts.join('&')}` : ''
 })
 
@@ -56,8 +65,12 @@ const categoriesUrl = computed(() => {
   return `${DTPR_API_BASE}/schemas/${activeVersion.value}/categories?locales=${activeLocale.value},en`
 })
 
+// Key includes the element id so SPA navigation between elements drops
+// the previous payload immediately rather than leaving the prior
+// element's title and category breadcrumb visible while the new fetch
+// is in flight.
 const { data: elementData, error: elementError } = await useAsyncData<ElementResponse | undefined>(
-  'dtpr-element-detail',
+  () => `dtpr-element-detail-${elementId.value}`,
   () =>
     elementUrl.value
       ? $fetch<ElementResponse>(elementUrl.value, { timeout: DTPR_FETCH_TIMEOUT_MS })
