@@ -127,7 +127,8 @@ const localeModel = computed({
 }
 
 .dtpr-page-header__heading {
-  flex: 0 0 auto;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .dtpr-page-header__search {
@@ -150,7 +151,6 @@ const localeModel = computed({
 
 .dtpr-page-header__select--locale {
   min-width: 10rem;
-  margin-left: auto;
 }
 
 .dtpr-page-header__actions {
