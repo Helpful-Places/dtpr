@@ -1,7 +1,0 @@
-<svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g transform="translate(0,0)">
-<path d="M18 7C12.4772 7 8 11.4772 8 17V21.5L6 23.5V25H30V23.5L28 21.5V17C28 11.4772 23.5228 7 18 7ZM15 27C15 28.6569 16.3431 30 18 30C19.6569 30 21 28.6569 21 27H15Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
-<circle cx="18" cy="14" r="1.2" fill="currentColor"/>
-<rect x="17.4" y="16" width="1.2" height="4.5" rx="0.5" fill="currentColor"/>
-</g>
-</svg>
