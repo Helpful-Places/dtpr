@@ -1,0 +1,53 @@
+id: right_to_human_review
+category_id: rights
+title:
+  - locale: en
+    value: Right to a Human Review
+  - locale: es
+    value: Derecho a una revisión humana
+  - locale: fr
+    value: Droit à un examen humain
+  - locale: km
+    value: សិទ្ធិឱ្យមនុស្សពិនិត្យ
+  - locale: pt
+    value: Direito a uma revisão humana
+  - locale: tl
+    value: Karapatan sa Pagsusuri ng Tao
+description:
+  - locale: en
+    value: >-
+      The right to have a person — not an automated system — make or meaningfully reconsider a decision affecting you.
+      This is a path to a non-automated decision, separate from the right to challenge a decision that has already
+      been made. The reviewing person must have the authority and information to actually change the outcome.
+  - locale: es
+    value: >-
+      El derecho a que una persona — no un sistema automatizado — tome o reconsidere de manera significativa una
+      decisión que le afecte. Es una vía hacia una decisión no automatizada, distinta del derecho a impugnar una
+      decisión ya adoptada. La persona que realiza la revisión debe tener la autoridad y la información necesarias
+      para modificar realmente el resultado.
+  - locale: fr
+    value: >-
+      Le droit qu'une personne — et non un système automatisé — prenne ou réexamine de manière significative une
+      décision vous concernant. Il s'agit d'une voie vers une décision non automatisée, distincte du droit de contester
+      une décision déjà prise. La personne qui procède à l'examen doit disposer de l'autorité et des informations
+      nécessaires pour modifier effectivement le résultat.
+  - locale: km
+    value: >-
+      សិទ្ធិឱ្យមនុស្ស — មិនមែនប្រព័ន្ធស្វ័យប្រវត្តិ — ធ្វើឬពិចារណាឡើងវិញដោយមានន័យចំពោះការសម្រេចចិត្តដែលប៉ះពាល់ដល់អ្នក។
+      នេះគឺជាផ្លូវទៅកាន់ការសម្រេចចិត្តដែលមិនមែនជាស្វ័យប្រវត្តិ ដាច់ដោយឡែកពីសិទ្ធិក្នុងការប្រឆាំងការសម្រេចចិត្តដែលត្រូវបានធ្វើរួចហើយ។
+      មនុស្សដែលធ្វើការពិនិត្យត្រូវតែមានសិទ្ធិអំណាច និងព័ត៌មានដើម្បីពិតជាអាចផ្លាស់ប្តូរលទ្ធផល។
+  - locale: pt
+    value: >-
+      O direito a que uma pessoa — e não um sistema automatizado — tome ou reconsidere de forma significativa uma
+      decisão que o afete. Trata-se de um caminho para uma decisão não automatizada, distinto do direito de contestar
+      uma decisão já tomada. A pessoa que faz a revisão deve ter a autoridade e as informações necessárias para
+      realmente alterar o resultado.
+  - locale: tl
+    value: >-
+      Ang karapatang isang tao — hindi isang awtomatikong sistema — ang gumawa o makabuluhang muling magsuri ng isang
+      desisyong nakakaapekto sa iyo. Ito ay isang daan tungo sa isang hindi awtomatikong desisyon, hiwalay sa
+      karapatang hamunin ang isang desisyong nagawa na. Ang taong nagsusuri ay dapat may kapangyarihan at impormasyon
+      upang aktwal na mabago ang resulta.
+citation: []
+symbol_id: dtpr_api
+variables: []

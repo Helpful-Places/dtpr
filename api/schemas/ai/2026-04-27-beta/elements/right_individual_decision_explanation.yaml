@@ -1,0 +1,56 @@
+id: right_individual_decision_explanation
+category_id: rights
+title:
+  - locale: en
+    value: Right to an Explanation of a Decision
+  - locale: es
+    value: Derecho a una explicación de una decisión
+  - locale: fr
+    value: Droit à une explication d'une décision
+  - locale: km
+    value: សិទ្ធិទទួលការពន្យល់អំពីការសម្រេចចិត្ត
+  - locale: pt
+    value: Direito a uma explicação de uma decisão
+  - locale: tl
+    value: Karapatan sa Paliwanag ng isang Desisyon
+description:
+  - locale: en
+    value: >-
+      The right to a clear and meaningful explanation of how an AI system contributed to a specific decision affecting
+      you — what role the system played, the main factors that led to the outcome, and what it means for you. This
+      right covers the decision actually made about you; the right to be informed about how the system works in
+      general is a separate right.
+  - locale: es
+    value: >-
+      El derecho a recibir una explicación clara y significativa de cómo un sistema de IA contribuyó a una decisión
+      concreta que le afecta — qué papel desempeñó el sistema, los principales factores que llevaron al resultado y
+      qué significa para usted. Este derecho cubre la decisión efectivamente tomada sobre usted; el derecho a ser
+      informado sobre cómo funciona el sistema en general es un derecho distinto.
+  - locale: fr
+    value: >-
+      Le droit à une explication claire et significative de la manière dont un système d'IA a contribué à une décision
+      particulière vous concernant — le rôle joué par le système, les principaux facteurs qui ont conduit au résultat
+      et ce que cela signifie pour vous. Ce droit couvre la décision effectivement prise à votre sujet ; le droit
+      d'être informé du fonctionnement général du système est un droit distinct.
+  - locale: km
+    value: >-
+      សិទ្ធិក្នុងការទទួលការពន្យល់ច្បាស់លាស់ និងមានន័យអំពីរបៀបដែលប្រព័ន្ធ AI បានរួមចំណែកក្នុងការសម្រេចចិត្តជាក់លាក់
+      ដែលប៉ះពាល់ដល់អ្នក — តួនាទីរបស់ប្រព័ន្ធ កត្តាសំខាន់ៗដែលនាំទៅដល់លទ្ធផល និងអត្ថន័យសម្រាប់អ្នក។
+      សិទ្ធិនេះគ្របដណ្តប់លើការសម្រេចចិត្តដែលត្រូវបានធ្វើឡើងពិតប្រាកដចំពោះអ្នក។
+      សិទ្ធិក្នុងការទទួលដឹងពីរបៀបដែលប្រព័ន្ធដំណើរការជាទូទៅ គឺជាសិទ្ធិដាច់ដោយឡែក។
+  - locale: pt
+    value: >-
+      O direito a uma explicação clara e significativa de como um sistema de IA contribuiu para uma decisão específica
+      que o afeta — qual foi o papel do sistema, os principais fatores que levaram ao resultado e o que isso significa
+      para você. Este direito cobre a decisão efetivamente tomada a seu respeito; o direito de ser informado sobre
+      como o sistema funciona em geral é um direito distinto.
+  - locale: tl
+    value: >-
+      Ang karapatang makatanggap ng malinaw at makabuluhang paliwanag tungkol sa kung paano nag-ambag ang isang AI
+      system sa isang partikular na desisyong nakakaapekto sa iyo — kung anong papel ang ginampanan ng sistema, ang
+      mga pangunahing salik na humantong sa resulta, at kung ano ang ibig sabihin nito para sa iyo. Saklaw ng
+      karapatang ito ang aktwal na desisyong ginawa tungkol sa iyo; ang karapatang malaman kung paano gumagana ang
+      sistema sa pangkalahatan ay isang hiwalay na karapatan.
+citation: []
+symbol_id: dtpr_api
+variables: []

@@ -1,0 +1,59 @@
+id: right_object
+category_id: rights
+title:
+  - locale: en
+    value: Right to Stop Processing
+  - locale: es
+    value: Derecho a oponerse al tratamiento
+  - locale: fr
+    value: Droit d'opposition au traitement
+  - locale: km
+    value: សិទ្ធិបញ្ឈប់ការដំណើរការ
+  - locale: pt
+    value: Direito a opor-se ao tratamento
+  - locale: tl
+    value: Karapatang Ihinto ang Pagproseso
+description:
+  - locale: en
+    value: >-
+      The right to ask an organization to stop using your personal data, even when the data itself is not deleted.
+      This is separate from the right to be forgotten (which deletes the data) and from the right to purpose
+      limitation (which constrains the original stated purposes). It is the user-invoked stop-now affordance — your
+      data may stay on file, but no further processing should happen against it.
+  - locale: es
+    value: >-
+      El derecho a solicitar a una organización que deje de utilizar sus datos personales, aunque los datos no se
+      supriman. Es distinto del derecho al olvido (que suprime los datos) y del derecho a la limitación de la
+      finalidad (que restringe las finalidades originalmente declaradas). Es la facultad de detener el tratamiento
+      por iniciativa del usuario: sus datos pueden permanecer almacenados, pero no debe realizarse ningún tratamiento
+      adicional sobre ellos.
+  - locale: fr
+    value: >-
+      Le droit de demander à une organisation de cesser d'utiliser vos données à caractère personnel, même lorsque les
+      données elles-mêmes ne sont pas supprimées. Il est distinct du droit à l'oubli (qui supprime les données) et du
+      droit à la limitation des finalités (qui restreint les finalités initialement annoncées). Il s'agit du levier
+      d'arrêt immédiat actionné par l'utilisateur : vos données peuvent rester archivées, mais aucun traitement
+      supplémentaire ne doit être effectué.
+  - locale: km
+    value: >-
+      សិទ្ធិក្នុងការស្នើសុំឱ្យអង្គការបញ្ឈប់ការប្រើប្រាស់ទិន្នន័យផ្ទាល់ខ្លួនរបស់អ្នក សូម្បីតែទិន្នន័យខ្លួនឯងមិនត្រូវបានលុបក៏ដោយ។
+      សិទ្ធិនេះគឺដាច់ដោយឡែកពីសិទ្ធិត្រូវបំភ្លេច (ដែលលុបទិន្នន័យ) និងពីសិទ្ធិក្នុងការកំណត់គោលបំណង
+      (ដែលរឹតបន្តឹងគោលបំណងដើមដែលបានបញ្ជាក់)។ វាគឺជាការគ្រប់គ្រងបញ្ឈប់ភ្លាមៗដែលអ្នកប្រើប្រាស់អនុវត្ត —
+      ទិន្នន័យរបស់អ្នកអាចនៅតែរក្សាទុក ប៉ុន្តែមិនគួរមានដំណើរការបន្ថែមចំពោះវានោះទេ។
+  - locale: pt
+    value: >-
+      O direito de pedir a uma organização que pare de usar seus dados pessoais, mesmo quando os dados em si não são
+      excluídos. Este direito é distinto do direito de ser esquecido (que exclui os dados) e do direito à limitação
+      de finalidade (que restringe as finalidades originalmente declaradas). É o recurso de parada imediata acionado
+      pelo usuário — seus dados podem permanecer arquivados, mas nenhum processamento adicional deve ocorrer sobre
+      eles.
+  - locale: tl
+    value: >-
+      Ang karapatang hilingin sa isang organisasyon na ihinto ang paggamit ng iyong personal na data, kahit na hindi
+      tinatanggal ang data mismo. Ito ay hiwalay sa karapatang makalimutan (na nagtatanggal ng data) at sa
+      karapatang limitasyon ng layunin (na naglilimita sa orihinal na nakasaad na mga layunin). Ito ang gawang
+      ihinto-ngayon na ginagamit ng user — ang iyong data ay maaaring manatiling nakatago, ngunit walang dapat
+      pang ibang pagproseso na isagawa rito.
+citation: []
+symbol_id: dtpr_api
+variables: []
