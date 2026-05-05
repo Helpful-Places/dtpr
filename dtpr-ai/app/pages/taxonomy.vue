@@ -12,23 +12,13 @@ import {
   sortCategoriesByOrder,
 } from '@dtpr/ui/core'
 import type { Category, Element } from '@dtpr/ui/core'
-
-const API_BASE = 'https://api.dtpr.io/api/v2'
-const DATACHAIN_TYPE = 'ai'
+import {
+  DTPR_API_BASE,
+  DTPR_FETCH_TIMEOUT_MS,
+  useDtprState,
+} from '../composables/useDtprState'
 
 useHead({ title: 'Taxonomy' })
-
-interface SchemaVersion {
-  id: string
-  status: 'stable' | 'beta'
-  created_at: string
-  content_hash: string
-}
-
-interface SchemasResponse {
-  ok: boolean
-  versions: SchemaVersion[]
-}
 
 interface CategoriesResponse {
   ok: boolean
@@ -51,65 +41,25 @@ interface ElementsResponse {
   elements: ElementApi[]
 }
 
-// 8s timeout keeps Cloudflare Workers SSR within its subrequest wall-clock
-// budget when api.dtpr.io is slow rather than holding the request open.
-const FETCH_TIMEOUT_MS = 8000
-
-const { data: schemasData } = await useFetch<SchemasResponse>(`${API_BASE}/schemas`, {
-  key: 'dtpr-schemas-index',
-  timeout: FETCH_TIMEOUT_MS,
-})
-
-const aiVersions = computed<SchemaVersion[]>(() => {
-  const all = schemasData.value?.versions ?? []
-  return all
-    .filter((v) => v.id.startsWith(`${DATACHAIN_TYPE}@`))
-    .slice()
-    .sort((a, b) => {
-      // Stable beats beta; within a status, newest first.
-      if (a.status === 'stable' && b.status !== 'stable') return -1
-      if (a.status !== 'stable' && b.status === 'stable') return 1
-      return b.created_at.localeCompare(a.created_at)
-    })
-})
-
 const route = useRoute()
-const router = useRouter()
 
-const requestedVersion = computed(() => {
-  const raw = route.query.v
-  if (typeof raw !== 'string' || raw.length === 0) return null
-  return raw
-})
+const {
+  activeVersion,
+  activeLocale,
+  selectedVersion,
+  selectedLocale,
+  requestedVersion,
+  versionMissing,
+  latestVersion,
+  availableVersions,
+  availableLocales,
+} = useDtprState()
 
-const latestVersion = computed(() => aiVersions.value[0]?.id ?? '')
-
-const versionMissing = computed(() => {
-  const r = requestedVersion.value
-  if (!r) return false
-  return !aiVersions.value.some((v) => v.id === r)
-})
-
-const activeVersion = computed(() => {
-  const r = requestedVersion.value
-  if (r && !versionMissing.value) return r
-  return latestVersion.value
-})
-
-const versionItems = computed(() =>
-  aiVersions.value.map((v) => ({
-    label: v.id,
-    description: v.status === 'stable' ? 'stable' : 'beta',
-    value: v.id,
-  })),
-)
-
-const selectedVersion = computed({
-  get: () => activeVersion.value,
-  set: (next: string) => {
-    if (!next || next === activeVersion.value) return
-    router.replace({ query: { ...route.query, v: next }, hash: route.hash })
-  },
+const queryString = computed(() => {
+  const parts: string[] = []
+  if (route.query.v) parts.push(`v=${encodeURIComponent(String(route.query.v))}`)
+  if (route.query.locale) parts.push(`locale=${encodeURIComponent(String(route.query.locale))}`)
+  return parts.length ? `?${parts.join('&')}` : ''
 })
 
 const { data: catsData } = await useAsyncData(
@@ -117,11 +67,11 @@ const { data: catsData } = await useAsyncData(
   () =>
     activeVersion.value
       ? $fetch<CategoriesResponse>(
-          `${API_BASE}/schemas/${activeVersion.value}/categories`,
-          { timeout: FETCH_TIMEOUT_MS },
+          `${DTPR_API_BASE}/schemas/${activeVersion.value}/categories?locales=${activeLocale.value},en`,
+          { timeout: DTPR_FETCH_TIMEOUT_MS },
         )
       : Promise.resolve(undefined),
-  { watch: [activeVersion] },
+  { watch: [activeVersion, activeLocale] },
 )
 
 const { data: elsData } = await useAsyncData(
@@ -129,11 +79,11 @@ const { data: elsData } = await useAsyncData(
   () =>
     activeVersion.value
       ? $fetch<ElementsResponse>(
-          `${API_BASE}/schemas/${activeVersion.value}/elements?fields=all&limit=200`,
-          { timeout: FETCH_TIMEOUT_MS },
+          `${DTPR_API_BASE}/schemas/${activeVersion.value}/elements?fields=all&limit=200&locales=${activeLocale.value},en`,
+          { timeout: DTPR_FETCH_TIMEOUT_MS },
         )
       : Promise.resolve(undefined),
-  { watch: [activeVersion] },
+  { watch: [activeVersion, activeLocale] },
 )
 
 const categories = computed<Category[]>(() => catsData.value?.categories ?? [])
@@ -153,12 +103,20 @@ const elements = computed<Array<Element & { category_ids: string[] }>>(() => {
 function categoryTitle(id: string): string {
   const cat = categories.value.find((c) => c.id === id)
   if (!cat) return id
-  return extract(cat.name, 'en', 'en')
+  return extract(cat.name, activeLocale.value, 'en')
 }
 
 function iconUrlFor(elementId: string): string {
   if (!activeVersion.value) return ''
-  return `${API_BASE}/schemas/${activeVersion.value}/elements/${elementId}/icon.svg`
+  return `${DTPR_API_BASE}/schemas/${activeVersion.value}/elements/${elementId}/icon.svg`
+}
+
+function elementHrefFor(elementId: string): string {
+  return `/taxonomy/elements/${elementId}${queryString.value}`
+}
+
+function categoryHrefFor(categoryId: string): string {
+  return `/taxonomy/categories/${categoryId}${queryString.value}`
 }
 
 // Pre-resolve display strings for every element so search matches what
@@ -167,7 +125,9 @@ function iconUrlFor(elementId: string): string {
 const decoratedElements = computed(() => {
   return elements.value.map((el) => ({
     raw: el,
-    display: deriveElementDisplay(el, undefined, 'en', { iconUrl: iconUrlFor(el.id) }),
+    display: deriveElementDisplay(el, undefined, activeLocale.value, {
+      iconUrl: iconUrlFor(el.id),
+    }),
   }))
 })
 
@@ -354,43 +314,47 @@ async function copyHash(hash: string, label: string) {
 
 <template>
   <div class="taxonomy-page">
-    <header class="taxonomy-page__header">
-      <div class="taxonomy-page__header-inner">
-        <div class="taxonomy-page__heading">
-          <h1 class="taxonomy-page__title">Taxonomy</h1>
-          <p class="taxonomy-page__subtitle">
-            Browse every element in the
-            <code>{{ activeVersion || 'ai' }}</code> schema.
-          </p>
-        </div>
-        <div class="taxonomy-page__search">
-          <UInput
-            v-model="searchQuery"
-            placeholder="Search elements…"
-            icon="i-heroicons-magnifying-glass"
-            size="md"
-            class="w-full"
-          >
-            <template #trailing>
-              <UButton
-                v-show="searchQuery"
-                color="neutral"
-                variant="link"
-                icon="i-heroicons-x-mark-20-solid"
-                aria-label="Clear search"
-                @click="clearSearch"
-              />
-            </template>
-          </UInput>
-        </div>
-        <USelectMenu
-          v-if="versionItems.length > 1"
-          v-model="selectedVersion"
-          :items="versionItems"
-          value-key="value"
-          class="taxonomy-page__version"
-          aria-label="Schema version"
-        />
+    <DtprPageHeader
+      :active-version="activeVersion"
+      :active-locale="activeLocale"
+      :selected-version="selectedVersion"
+      :selected-locale="selectedLocale"
+      :available-versions="availableVersions"
+      :available-locales="availableLocales"
+      :version-missing="versionMissing"
+      :requested-version="requestedVersion"
+      :latest-version="latestVersion"
+      @update:selected-version="selectedVersion = $event"
+      @update:selected-locale="selectedLocale = $event"
+    >
+      <template #heading>
+        <h1 class="taxonomy-page__title">Taxonomy</h1>
+        <p class="taxonomy-page__subtitle">
+          Browse every element in the
+          <code>{{ activeVersion || 'ai' }}</code> schema.
+        </p>
+      </template>
+      <template #search>
+        <UInput
+          v-model="searchQuery"
+          placeholder="Search elements…"
+          icon="i-heroicons-magnifying-glass"
+          size="md"
+          class="w-full"
+        >
+          <template #trailing>
+            <UButton
+              v-show="searchQuery"
+              color="neutral"
+              variant="link"
+              icon="i-heroicons-x-mark-20-solid"
+              aria-label="Clear search"
+              @click="clearSearch"
+            />
+          </template>
+        </UInput>
+      </template>
+      <template #actions>
         <UButton
           class="taxonomy-page__sidebar-toggle"
           color="neutral"
@@ -399,17 +363,8 @@ async function copyHash(hash: string, label: string) {
           aria-label="Toggle category navigation"
           @click="toggleSidebar"
         />
-      </div>
-      <UAlert
-        v-if="versionMissing"
-        class="taxonomy-page__alert"
-        color="warning"
-        variant="subtle"
-        icon="i-heroicons-exclamation-triangle"
-        title="Unknown schema version"
-        :description="`The version &quot;${requestedVersion}&quot; is not registered. Showing &quot;${latestVersion}&quot; instead.`"
-      />
-    </header>
+      </template>
+    </DtprPageHeader>
 
     <div
       v-if="sidebarOpen"
@@ -441,15 +396,24 @@ async function copyHash(hash: string, label: string) {
         class="taxonomy-category"
         :class="{ 'taxonomy-category--active': targetId === `category-${cat.id}` }"
       >
-        <UButton
-          class="taxonomy-category__copy"
-          color="neutral"
-          variant="ghost"
-          size="xs"
-          icon="i-heroicons-link"
-          :aria-label="`Copy link to ${categoryTitle(cat.id)} category`"
-          @click="copyHash(`category-${cat.id}`, categoryTitle(cat.id))"
-        />
+        <div class="taxonomy-category__actions">
+          <UButton
+            color="neutral"
+            variant="ghost"
+            size="xs"
+            icon="i-heroicons-link"
+            :aria-label="`Copy link to ${categoryTitle(cat.id)} category`"
+            @click="copyHash(`category-${cat.id}`, categoryTitle(cat.id))"
+          />
+          <UButton
+            :to="categoryHrefFor(cat.id)"
+            color="neutral"
+            variant="ghost"
+            size="xs"
+            icon="i-heroicons-arrow-top-right-on-square"
+            :aria-label="`Open ${categoryTitle(cat.id)} category page`"
+          />
+        </div>
         <DtprCategorySection :id="cat.id" :title="categoryTitle(cat.id)" disable-accordion>
           <DtprElementGrid>
             <div
@@ -460,15 +424,24 @@ async function copyHash(hash: string, label: string) {
               :class="{ 'taxonomy-element-row--active': targetId === `element-${el.id}` }"
             >
               <DtprElement :display="displayById.get(el.id)!" />
-              <UButton
-                class="taxonomy-element-row__copy"
-                color="neutral"
-                variant="ghost"
-                size="xs"
-                icon="i-heroicons-link"
-                :aria-label="`Copy link to ${displayById.get(el.id)?.title ?? el.id}`"
-                @click="copyHash(`element-${el.id}`, displayById.get(el.id)?.title ?? el.id)"
-              />
+              <div class="taxonomy-element-row__actions">
+                <UButton
+                  color="neutral"
+                  variant="ghost"
+                  size="xs"
+                  icon="i-heroicons-link"
+                  :aria-label="`Copy link to ${displayById.get(el.id)?.title ?? el.id}`"
+                  @click="copyHash(`element-${el.id}`, displayById.get(el.id)?.title ?? el.id)"
+                />
+                <UButton
+                  :to="elementHrefFor(el.id)"
+                  color="neutral"
+                  variant="ghost"
+                  size="xs"
+                  icon="i-heroicons-arrow-top-right-on-square"
+                  :aria-label="`Open ${displayById.get(el.id)?.title ?? el.id} page`"
+                />
+              </div>
             </div>
           </DtprElementGrid>
         </DtprCategorySection>
@@ -489,30 +462,6 @@ async function copyHash(hash: string, label: string) {
   min-height: 100vh;
 }
 
-.taxonomy-page__header {
-  border-bottom: 1px solid var(--ui-border, rgb(229, 231, 235));
-  background: var(--ui-bg, white);
-  padding: 1rem 0;
-  position: sticky;
-  top: var(--ui-header-height, 0);
-  z-index: 30;
-  backdrop-filter: blur(8px);
-}
-
-.taxonomy-page__header-inner {
-  max-width: 80rem;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1rem 2rem;
-}
-
-.taxonomy-page__heading {
-  flex: 0 0 auto;
-}
-
 .taxonomy-page__title {
   font-size: 1.5rem;
   font-weight: 700;
@@ -528,25 +477,6 @@ async function copyHash(hash: string, label: string) {
 .taxonomy-page__subtitle code {
   font-family: ui-monospace, SFMono-Regular, monospace;
   font-size: 0.85em;
-}
-
-.taxonomy-page__search {
-  flex: 1 1 16rem;
-  min-width: 12rem;
-  max-width: 28rem;
-}
-
-.taxonomy-page__version {
-  flex: 0 0 auto;
-  min-width: 14rem;
-}
-
-.taxonomy-page__alert {
-  margin-top: 0.75rem;
-}
-
-.taxonomy-page__sidebar-toggle {
-  flex: 0 0 auto;
 }
 
 @media (min-width: 1024px) {
@@ -655,16 +585,18 @@ async function copyHash(hash: string, label: string) {
   background-color: color-mix(in srgb, var(--ui-primary, #10b981) 4%, transparent);
 }
 
-.taxonomy-category__copy {
+.taxonomy-category__actions {
   position: absolute;
   top: 0.25rem;
   right: 0.25rem;
   z-index: 1;
+  display: flex;
+  gap: 0.125rem;
   opacity: 0.55;
 }
 
-.taxonomy-category__copy:hover,
-.taxonomy-category__copy:focus-visible {
+.taxonomy-category__actions:hover,
+.taxonomy-category__actions:focus-within {
   opacity: 1;
 }
 
@@ -682,18 +614,20 @@ async function copyHash(hash: string, label: string) {
   background-color: color-mix(in srgb, var(--ui-primary, #10b981) 6%, transparent);
 }
 
-.taxonomy-element-row__copy {
+.taxonomy-element-row__actions {
   position: absolute;
   top: 0.125rem;
   right: 0.125rem;
   z-index: 1;
+  display: flex;
+  gap: 0.125rem;
   opacity: 0;
   transition: opacity 0.15s ease;
 }
 
-.taxonomy-element-row:hover .taxonomy-element-row__copy,
-.taxonomy-element-row:focus-within .taxonomy-element-row__copy,
-.taxonomy-element-row--active .taxonomy-element-row__copy {
+.taxonomy-element-row:hover .taxonomy-element-row__actions,
+.taxonomy-element-row:focus-within .taxonomy-element-row__actions,
+.taxonomy-element-row--active .taxonomy-element-row__actions {
   opacity: 0.85;
 }
 
