@@ -16,7 +16,7 @@ import {
   DTPR_API_BASE,
   DTPR_FETCH_TIMEOUT_MS,
   useDtprState,
-} from '../composables/useDtprState'
+} from '../../composables/useDtprState'
 
 useHead({ title: 'Taxonomy' })
 
@@ -344,7 +344,7 @@ async function copyHash(hash: string, label: string) {
         >
           <template #trailing>
             <UButton
-              v-show="searchQuery"
+              v-if="searchQuery"
               color="neutral"
               variant="link"
               icon="i-heroicons-x-mark-20-solid"
