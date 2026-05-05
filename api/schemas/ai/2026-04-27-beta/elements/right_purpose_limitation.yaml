@@ -16,40 +16,44 @@ title:
 description:
   - locale: en
     value: >-
-      The right to ensure your data is only used for the specific purposes that were clearly stated when it was
-      collected. This prevents organizations from using your data for new, unrelated purposes without your knowledge or
-      consent. The data collector must specify and document the intended purposes before collection begins, and adhere
-      to these limitations.
+      The right that your data is only used for the specific purposes that were stated when it was collected. The
+      organization must declare and document those purposes before collection begins, and is barred from later using
+      your data for new, unrelated purposes without your knowledge or consent. This is an upstream limit on what use is
+      ever allowed; the right to stop processing already underway is a separate right.
   - locale: es
     value: >-
-      El derecho a garantizar que sus datos sólo se utilicen para los fines específicos que se indicaron claramente
-      cuando se recopilaron. Esto impide que las organizaciones utilicen sus datos para nuevos fines no relacionados sin
-      su conocimiento o consentimiento. El recopilador de datos debe especificar y documentar los fines previstos antes
-      de iniciar la recopilación, y atenerse a estas limitaciones.
+      El derecho a que sus datos sólo se utilicen para los fines específicos que se indicaron cuando se recopilaron. La
+      organización debe declarar y documentar esos fines antes de iniciar la recopilación, y le está prohibido utilizar
+      posteriormente sus datos para fines nuevos no relacionados sin su conocimiento o consentimiento. Es un límite
+      previo sobre qué uso se permite; el derecho a detener un tratamiento ya en curso es un derecho distinto.
   - locale: fr
     value: >-
-      Le droit de s'assurer que vos données ne sont utilisées qu'aux fins spécifiques qui ont été clairement énoncées
-      lors de leur collecte. Cela empêche les organisations d'utiliser vos données à des fins nouvelles et sans rapport
-      avec celles-ci, sans que vous en soyez informé ou que vous y consentiez. Le collecteur de données doit préciser et
-      documenter les finalités prévues avant le début de la collecte et respecter ces limitations.
+      Le droit que vos données ne soient utilisées qu'aux fins spécifiques annoncées lors de leur collecte.
+      L'organisation doit déclarer et documenter ces finalités avant le début de la collecte, et il lui est interdit
+      d'utiliser ensuite vos données à des fins nouvelles et sans rapport, sans votre connaissance ni votre
+      consentement. Il s'agit d'une limite en amont sur l'usage autorisé ; le droit d'arrêter un traitement déjà en
+      cours est un droit distinct.
   - locale: km
     value: >-
-      សិទ្ធិក្នុងការធានាថាទិន្នន័យរបស់អ្នកត្រូវបានប្រើប្រាស់សម្រាប់គោលបំណងជាក់លាក់ដែលត្រូវបានបញ្ជាក់យ៉ាងច្បាស់នៅពេលដែលវាត្រូវបានប្រមូល។
-      សកម្មភាពនេះរារាំងស្ថាប័ននានាពីការប្រើប្រាស់ទិន្នន័យរបស់អ្នកសម្រាប់គោលបំណងថ្មី ដែលមិនពាក់ព័ន្ធដោយមិនមានចំណេះដឹង
-      ឬការយល់ព្រមពីអ្នក។ អ្នកប្រមូលទិន្នន័យត្រូវតែបញ្ជាក់ និងចងក្រងឯកសារគោលបំណងដែលបានគ្រោងទុក មុនពេលការប្រមូលចាប់ផ្តើម
-      ហើយប្រកាន់ខ្ជាប់នូវដែនកំណត់ទាំងនេះ។
+      សិទ្ធិដែលទិន្នន័យរបស់អ្នកត្រូវបានប្រើប្រាស់សម្រាប់តែគោលបំណងជាក់លាក់ដែលត្រូវបានបញ្ជាក់នៅពេលដែលវាត្រូវបានប្រមូលប៉ុណ្ណោះ។
+      ស្ថាប័នត្រូវតែប្រកាស និងចងក្រងឯកសារគោលបំណងទាំងនោះមុនពេលការប្រមូលចាប់ផ្តើម
+      ហើយត្រូវបានហាមឃាត់មិនឱ្យប្រើប្រាស់ទិន្នន័យរបស់អ្នកសម្រាប់គោលបំណងថ្មី ដែលមិនពាក់ព័ន្ធនៅពេលក្រោយ ដោយគ្មានចំណេះដឹង
+      ឬការយល់ព្រមពីអ្នក។ នេះគឺជាដែនកំណត់ដំបូងលើការប្រើប្រាស់ដែលត្រូវបានអនុញ្ញាត។
+      សិទ្ធិក្នុងការបញ្ឈប់ដំណើរការដែលកំពុងដំណើរការ គឺជាសិទ្ធិដាច់ដោយឡែក។
   - locale: pt
     value: >-
-      O direito de garantir que seus dados sejam usados somente para os fins específicos que foram claramente declarados
-      quando foram coletados. Isso impede que as organizações usem seus dados para finalidades novas e não relacionadas
-      sem seu conhecimento ou consentimento. O coletor de dados deve especificar e documentar as finalidades pretendidas
-      antes do início da coleta e aderir a essas limitações.
+      O direito a que seus dados sejam usados somente para os fins específicos que foram declarados quando foram
+      coletados. A organização deve declarar e documentar essas finalidades antes do início da coleta e está proibida
+      de usar posteriormente seus dados para finalidades novas e não relacionadas sem seu conhecimento ou
+      consentimento. Trata-se de um limite anterior sobre que uso é permitido; o direito de interromper um
+      processamento já em curso é um direito distinto.
   - locale: tl
     value: >-
-      Ang karapatang matiyak na ang iyong data ay ginagamit lamang para sa mga partikular na layunin na malinaw na
-      nakasaad noong ito ay nakolekta. Pinipigilan nito ang mga organisasyon na gamitin ang iyong data para sa bago,
-      hindi nauugnay na mga layunin nang hindi mo alam o pahintulot. Dapat tukuyin at idokumento ng tagakolekta ng data
-      ang mga nilalayon na layunin bago magsimula ang pangongolekta, at sumunod sa mga limitasyong ito.
+      Ang karapatang ang iyong data ay ginagamit lamang para sa mga partikular na layunin na nakasaad noong ito ay
+      kinolekta. Dapat ipahayag at idokumento ng organisasyon ang mga layuning iyon bago magsimula ang pangongolekta,
+      at ipinagbabawal na gamitin ang iyong data sa bago, hindi nauugnay na mga layunin nang hindi mo alam o
+      pahintulot. Ito ay isang naunang limitasyon sa kung anong paggamit ang pinapayagan; ang karapatang ihinto ang
+      isang pagprosesong umiiral na ay isang hiwalay na karapatan.
 citation: []
 symbol_id: rights_purpose-limitation
 variables: []
