@@ -1,0 +1,42 @@
+id: output_recommendation
+category_id: output_dataset
+title:
+  - locale: en
+    value: A recommendation or prediction
+  - locale: es
+    value: Una recomendación o predicción
+  - locale: fr
+    value: Une recommandation ou prédiction
+  - locale: pt
+    value: Uma recomendação ou previsão
+description:
+  - locale: en
+    value: >-
+      The AI produces an advisory output — a suggestion, forecast, risk score, or ranking. Distinct from a binding
+      decision because it advises rather than determines. Examples: a signage system suggesting an alternate route
+      based on predicted crowding, a forecasted demand curve for tomorrow, a recommended next destination on a
+      kiosk.
+  - locale: es
+    value: >-
+      La IA produce una salida consultiva: una sugerencia, pronóstico, puntuación de riesgo o jerarquía. Distinta de
+      una decisión vinculante porque aconseja sin determinar. Ejemplos: un sistema de señalización que sugiere una
+      ruta alternativa según la afluencia prevista, una curva de demanda pronosticada para mañana, un próximo
+      destino recomendado en un kiosco.
+  - locale: fr
+    value: >-
+      L'IA produit une sortie consultative : une suggestion, prévision, score de risque ou classement. Distincte
+      d'une décision contraignante parce qu'elle conseille sans trancher. Exemples : un système de signalisation
+      proposant un itinéraire alternatif d'après l'affluence prévue, une courbe de demande prévue pour demain, une
+      destination suggérée sur une borne.
+  - locale: pt
+    value: >-
+      A IA produz uma saída consultiva — uma sugestão, previsão, pontuação de risco ou ordenação. Distinta de uma
+      decisão vinculativa porque aconselha em vez de determinar. Exemplos: um sistema de sinalização que sugere uma
+      rota alternativa com base na afluência prevista, uma curva de procura prevista para amanhã, um próximo destino
+      recomendado num quiosque.
+citation:
+  - locale: en
+    value: >-
+      Output classes "predictions, recommendations" enumerated in EU AI Act Article 3(1).
+symbol_id: dm_priority-ranking
+variables: []

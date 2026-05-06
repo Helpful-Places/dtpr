@@ -1,0 +1,39 @@
+id: input_sensitive_personal
+category_id: input_dataset
+title:
+  - locale: en
+    value: Sensitive personal information
+  - locale: es
+    value: Información personal sensible
+  - locale: fr
+    value: Informations personnelles sensibles
+  - locale: pt
+    value: Informação pessoal sensível
+description:
+  - locale: en
+    value: >-
+      Health, finances, beliefs, sexuality, immigration status, or other personal information that carries legal and
+      social risk. The AI takes in this kind of protected data. Examples: insurance eligibility at a clinic kiosk, a
+      benefits-application status, a self-declared pronoun.
+  - locale: es
+    value: >-
+      Salud, finanzas, creencias, sexualidad, situación migratoria u otra información personal que conlleva riesgo
+      legal y social. La IA recibe este tipo de datos protegidos. Ejemplos: elegibilidad para un seguro en el kiosco
+      de una clínica, el estado de una solicitud de prestaciones, un pronombre auto-declarado.
+  - locale: fr
+    value: >-
+      Santé, finances, convictions, sexualité, situation migratoire ou autres informations personnelles porteuses de
+      risque légal et social. L'IA reçoit ce type de données protégées. Exemples : éligibilité à une assurance sur une
+      borne de clinique, état d'une demande de prestation, pronom auto-déclaré.
+  - locale: pt
+    value: >-
+      Saúde, finanças, crenças, sexualidade, situação migratória ou outra informação pessoal que comporta risco legal
+      e social. A IA recebe este tipo de dados protegidos. Exemplos: elegibilidade de seguro num quiosque de clínica,
+      estado de um pedido de benefício, pronome auto-declarado.
+citation:
+  - locale: en
+    value: >-
+      Categories drawn from GDPR Article 9 "special categories of personal data" and Apple App Store privacy
+      "Sensitive Info" / "Health & Fitness" / "Financial Info" labels.
+symbol_id: sensitive_personal
+variables: []

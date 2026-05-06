@@ -14,175 +14,34 @@ name:
     value: Output Dataset
 description:
   - locale: en
-    value: The dataset(s) produced by this AI system.
+    value: The runtime output — the live data this deployed system produces when it operates, including decisions it makes, content it generates, and actions it triggers.
   - locale: es
-    value: El conjunto o los conjuntos de datos producidos por este sistema de IA.
+    value: La salida en tiempo de ejecución — los datos en vivo que este sistema implementado produce cuando opera, incluyendo decisiones que toma, contenido que genera y acciones que activa.
   - locale: fr
-    value: L'ensemble(s) de données produit(s) par ce système d'IA.
+    value: La sortie d’exécution — les données en direct que ce système déployé produit lorsqu’il fonctionne, y compris les décisions qu’il prend, le contenu qu’il génère et les actions qu’il déclenche.
   - locale: km
-    value: សំណុំទិន្នន័យដែលផលិតដោយប្រព័ន្ធ AI នេះ។
+    value: លទ្ធផលនៅពេលដំណើរការ — ទិន្នន័យផ្ទាល់ដែលប្រព័ន្ធដាក់ពង្រាយនេះផលិតនៅពេលវាដំណើរការ រួមទាំងការសម្រេចចិត្តដែលវាធ្វើ មាតិកាដែលវាបង្កើត និងសកម្មភាពដែលវាបង្ក។
   - locale: pt
-    value: O(s) conjunto(s) de dados produzidos por este sistema de IA.
+    value: A saída em tempo de execução — os dados ao vivo que este sistema implantado produz ao operar, incluindo decisões que toma, conteúdo que gera e ações que aciona.
   - locale: tl
-    value: Ang (mga) dataset na ginawa ng AI system na ito.
+    value: Ang runtime output — ang live na data na ginagawa ng naka-deploy na system kapag tumatakbo, kasama ang mga desisyong ginagawa nito, nilalamang nililikha nito, at mga aksyong tinatawag nito.
 prompt:
   - locale: en
-    value: What dataset(s) are produced by this AI system?
+    value: What does this AI system produce — what decisions, content, or signals come out?
   - locale: es
-    value: ¿Qué conjunto(s) de datos produce este sistema de IA?
+    value: ¿Qué produce este sistema de IA — qué decisiones, contenido o señales genera?
   - locale: fr
-    value: "Quels ensembles de données sont produits par ce système d’IA\_?"
+    value: "Que produit ce système d’IA — quelles décisions, quel contenu ou quels signaux en sortent\_?"
   - locale: km
-    value: តើសំណុំទិន្នន័យអ្វីខ្លះត្រូវបានផលិតដោយប្រព័ន្ធ AI នេះ?
+    value: តើប្រព័ន្ធ AI នេះផលិតអ្វី — ការសម្រេចចិត្ត មាតិកា ឬសញ្ញាអ្វីខ្លះដែលចេញមក?
   - locale: pt
-    value: Que conjunto(s) de dados são produzidos por este sistema de IA?
+    value: O que este sistema de IA produz — que decisões, conteúdo ou sinais saem?
   - locale: tl
-    value: Anong (mga) dataset ang ginawa ng AI system na ito?
+    value: Ano ang ginagawa ng AI system na ito — anong mga desisyon, nilalaman, o senyales ang lumalabas?
 required: false
 order: 8
 datachain_type: ai
 shape: circle
-context:
-  id: pii
-  name:
-    - locale: en
-      value: Personal Information
-    - locale: es
-      value: Información personal
-    - locale: fr
-      value: Informations personnelles
-    - locale: km
-      value: ព័ត៌មានផ្ទាល់ខ្លួន
-    - locale: pt
-      value: Informações pessoais
-    - locale: tl
-      value: Personal na Impormasyon
-  description:
-    - locale: en
-      value: Whether the produced output contains personal information, and how identifiable that information is.
-    - locale: es
-      value: Si la salida producida contiene información personal y cuán identificable es esa información.
-    - locale: fr
-      value: Si la sortie produite contient des informations personnelles et dans quelle mesure ces informations sont identifiables.
-    - locale: km
-      value: ថាតើលទ្ធផលដែលផលិតមានព័ត៌មានផ្ទាល់ខ្លួនឬទេ ហើយព័ត៌មាននោះអាចកំណត់អត្តសញ្ញាណបានកម្រិតណា។
-    - locale: pt
-      value: Se a saída produzida contém informações pessoais e quão identificáveis são essas informações.
-    - locale: tl
-      value: Kung ang ginawang output ay naglalaman ng personal na impormasyon, at kung gaano katukoy ang impormasyong iyon.
-  values:
-    - id: none
-      name:
-        - locale: en
-          value: No personal information
-        - locale: es
-          value: Sin información personal
-        - locale: fr
-          value: Aucune information personnelle
-        - locale: km
-          value: គ្មានព័ត៌មានផ្ទាល់ខ្លួន
-        - locale: pt
-          value: Sem informações pessoais
-        - locale: tl
-          value: Walang personal na impormasyon
-      description:
-        - locale: en
-          value: The output contains no personal information.
-        - locale: es
-          value: La salida no contiene información personal.
-        - locale: fr
-          value: La sortie ne contient aucune information personnelle.
-        - locale: km
-          value: លទ្ធផលគ្មានព័ត៌មានផ្ទាល់ខ្លួនទេ។
-        - locale: pt
-          value: A saída não contém informações pessoais.
-        - locale: tl
-          value: Walang personal na impormasyon ang output.
-      color: null
-    - id: anonymized
-      name:
-        - locale: en
-          value: Anonymized
-        - locale: es
-          value: Anonimizado
-        - locale: fr
-          value: Anonymisé
-        - locale: km
-          value: អនាមិក
-        - locale: pt
-          value: Anonimizado
-        - locale: tl
-          value: Anonymized
-      description:
-        - locale: en
-          value: The output contains personal information stripped of identifiers.
-        - locale: es
-          value: La salida contiene información personal sin identificadores.
-        - locale: fr
-          value: La sortie contient des informations personnelles privées d’identifiants.
-        - locale: km
-          value: លទ្ធផលមានព័ត៌មានផ្ទាល់ខ្លួនដែលត្រូវបានដកអត្តសញ្ញាណចេញ។
-        - locale: pt
-          value: A saída contém informações pessoais sem identificadores.
-        - locale: tl
-          value: Naglalaman ang output ng personal na impormasyon na inalisan ng mga identifier.
-      color: "#4A90D9"
-    - id: identifiable
-      name:
-        - locale: en
-          value: Identifiable
-        - locale: es
-          value: Identificable
-        - locale: fr
-          value: Identifiable
-        - locale: km
-          value: អាចកំណត់អត្តសញ្ញាណបាន
-        - locale: pt
-          value: Identificável
-        - locale: tl
-          value: Natutukoy
-      description:
-        - locale: en
-          value: The output identifies a specific person.
-        - locale: es
-          value: La salida identifica a una persona específica.
-        - locale: fr
-          value: La sortie identifie une personne spécifique.
-        - locale: km
-          value: លទ្ធផលកំណត់អត្តសញ្ញាណមនុស្សជាក់លាក់។
-        - locale: pt
-          value: A saída identifica uma pessoa específica.
-        - locale: tl
-          value: Tinutukoy ng output ang isang partikular na tao.
-      color: "#FFD700"
-    - id: biometric
-      name:
-        - locale: en
-          value: Biometric
-        - locale: es
-          value: Biométrico
-        - locale: fr
-          value: Biométrique
-        - locale: km
-          value: ជីវមាត្រ
-        - locale: pt
-          value: Biométrico
-        - locale: tl
-          value: Biometric
-      description:
-        - locale: en
-          value: The output is or contains biological identifiers.
-        - locale: es
-          value: La salida es o contiene identificadores biológicos.
-        - locale: fr
-          value: La sortie est ou contient des identifiants biologiques.
-        - locale: km
-          value: លទ្ធផលគឺ ឬមានអត្តសញ្ញាណជីវសាស្ត្រ។
-        - locale: pt
-          value: A saída é ou contém identificadores biológicos.
-        - locale: tl
-          value: Ang output ay o naglalaman ng biological identifiers.
-      color: "#D9342F"
 element_variables:
   - id: additional_description
     label:

@@ -1,0 +1,42 @@
+id: input_recommendation
+category_id: input_dataset
+title:
+  - locale: en
+    value: A recommendation or prediction
+  - locale: es
+    value: Una recomendación o predicción
+  - locale: fr
+    value: Une recommandation ou prédiction
+  - locale: pt
+    value: Uma recomendação ou previsão
+description:
+  - locale: en
+    value: >-
+      A suggestion, forecast, risk score, or ranking produced earlier by another system. The AI takes in this
+      advisory output and uses it. Distinct from a binding decision because it advises rather than determines.
+      Examples: a forecasted demand curve, a risk score from a prior model, a recommended route from a navigation
+      service.
+  - locale: es
+    value: >-
+      Una sugerencia, pronóstico, puntuación de riesgo o jerarquía producida antes por otro sistema. La IA recibe
+      esta salida consultiva y la utiliza. Distinta de una decisión vinculante porque aconseja sin determinar.
+      Ejemplos: una curva de demanda pronosticada, una puntuación de riesgo de un modelo previo, una ruta recomendada
+      por un servicio de navegación.
+  - locale: fr
+    value: >-
+      Une suggestion, prévision, score de risque ou classement produit en amont par un autre système. L'IA reçoit
+      cette sortie consultative et l'utilise. Distincte d'une décision contraignante parce qu'elle conseille sans
+      trancher. Exemples : une courbe de demande prévue, un score de risque issu d'un modèle antérieur, un itinéraire
+      recommandé par un service de navigation.
+  - locale: pt
+    value: >-
+      Uma sugestão, previsão, pontuação de risco ou ordenação produzida anteriormente por outro sistema. A IA recebe
+      esta saída consultiva e utiliza-a. Distinta de uma decisão vinculativa porque aconselha em vez de determinar.
+      Exemplos: uma curva de procura prevista, uma pontuação de risco de um modelo anterior, uma rota recomendada
+      por um serviço de navegação.
+citation:
+  - locale: en
+    value: >-
+      Output classes "predictions, content, recommendations, or decisions" enumerated in EU AI Act Article 3(1).
+symbol_id: dm_priority-ranking
+variables: []

@@ -152,7 +152,7 @@ The audit reframed the scope: `input_dataset`'s shipped catalog (`binary`, `bool
 
 Approach taken:
 - Audit via `dtpr-category-audit` plus a `best-practices-researcher` pass synthesizing the eight frameworks.
-- Element YAMLs authored directly (en/es/fr/km/pt/tl) — `dtpr-element-design`'s locale-placeholder workflow leapfrogged because the audit + corpus already supplied the semantic taxonomy.
+- Element YAMLs authored directly across four locales (en/es/fr/pt) — matches Focus 1's precedent. `km` and `tl` translation is deferred to the native-speaker pass.
 - Symbol SVG stubs created in-place for six new symbol_ids; existing five symbol_ids reused (`personal`, `spatial`, `values_time`, `dm_accept-or-deny`, `dm_priority-ranking`).
 - `pii` context dropped from both categories — once "About a person" / "About a body" / "Sensitive personal info" are explicit elements, the context becomes double-bookkeeping.
 - `output_dataset` description and prompt broadened to cover decisions, content, and physical actions (not just data products).
@@ -180,15 +180,15 @@ Done:
 - [x] `categories/input_dataset.yaml` — `pii` context block removed.
 - [x] `categories/output_dataset.yaml` — `pii` context block removed; description and prompt broadened to "produces, decides, generates, or causes."
 - [x] 7 obsolete input_dataset element files deleted (`binary.yaml`, `boolean.yaml`, `personal.yaml`, `pixel_based_image.yaml`, `spatial.yaml`, `tabular.yaml`, `values_time.yaml`).
-- [x] 22 new element YAMLs written across all six locales (en/es/fr/km/pt/tl).
+- [x] 22 new element YAMLs written across four locales (en/es/fr/pt).
 - [x] 6 new symbol SVG stubs created (`about_a_body`, `about_behaviour`, `sensitive_personal`, `operational_data`, `generated_content`, `physical_action`).
-- [x] `pnpm schema:validate ai@2026-04-27-beta` passes — 11 categories, 98 elements.
-- [x] `pnpm schema:build ai@2026-04-27-beta` passes — 385 dist files.
+- [x] `pnpm schema:validate ai@2026-04-27-beta` passes — 11 categories, 103 elements.
+- [x] `pnpm schema:build ai@2026-04-27-beta` passes — 400 dist files.
 - [x] Full test suite passes — 388 tests (340 workers + 48 cli).
 - [x] Corpus verifier passes — 11 corpus entries.
 
 Follow-ups (block stable promotion, not this PR):
-- [ ] **Native-speaker translator review** of `es`, `fr`, `km`, `pt`, `tl` strings on the 22 new elements — drafted by the implementer.
+- [ ] **Native-speaker translator review** of `es`, `fr`, `pt` strings AND first-pass `km` + `tl` translation on the 22 new elements — current drafts are author-translated.
 - [ ] **Designer pass on the six placeholder symbol stubs** — current SVGs are minimal geometric stand-ins.
 - [ ] **Comprehension audit re-grade** — run `dtpr-comprehension-audit` against the 11 categories once translations land.
 - [ ] **Schema redeploy** — local dist not yet pushed to R2; live `dtpr.ai/taxonomy` will reflect this only after redeploy.

@@ -1,0 +1,34 @@
+id: input_about_a_person
+category_id: input_dataset
+title:
+  - locale: en
+    value: About a person
+  - locale: es
+    value: Sobre una persona
+  - locale: fr
+    value: À propos d'une personne
+  - locale: pt
+    value: Sobre uma pessoa
+description:
+  - locale: en
+    value: >-
+      Names, faces, voices, account IDs, or anything that identifies a specific individual. The AI takes in data that
+      is about a person. Examples: a transit-card account ID, a stored profile, a name on a kiosk login.
+  - locale: es
+    value: >-
+      Nombres, rostros, voces, identificadores de cuenta o cualquier dato que identifique a una persona específica. La
+      IA recibe datos que son sobre una persona. Ejemplos: el identificador de una tarjeta de transporte, un perfil
+      guardado, un nombre en el inicio de sesión de un kiosco.
+  - locale: fr
+    value: >-
+      Noms, visages, voix, identifiants de compte ou tout élément identifiant une personne précise. L'IA reçoit des
+      données qui concernent une personne. Exemples : l'identifiant d'une carte de transport, un profil enregistré,
+      un nom saisi à la connexion d'une borne.
+  - locale: pt
+    value: >-
+      Nomes, rostos, vozes, identificadores de conta ou qualquer dado que identifique uma pessoa específica. A IA
+      recebe dados que são sobre uma pessoa. Exemplos: o identificador de um cartão de transporte, um perfil guardado,
+      um nome no login de um quiosque.
+citation: []
+symbol_id: personal
+variables: []
