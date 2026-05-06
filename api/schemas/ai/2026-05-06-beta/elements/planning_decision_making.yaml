@@ -1,0 +1,45 @@
+id: planning_decision_making
+category_id: purpose
+title:
+  - locale: en
+    value: Planning & Decision-making
+  - locale: es
+    value: Planificación y toma de decisiones
+  - locale: fr
+    value: Planification et prise de décision
+  - locale: km
+    value: ការរៀបចំផែនការនិងការសម្រេចចិត្ត
+  - locale: pt
+    value: Planeamento e tomada de decisões
+  - locale: tl
+    value: Pagpaplano at paggawa ng desisyon
+description:
+  - locale: en
+    value: >-
+      Supports forecasting and policy-impact analysis at the population or system level — for example, urban planning,
+      infrastructure planning, or measuring the impact of a policy decision. Distinct from Risk Assessment & Triage,
+      which scores individuals.
+  - locale: es
+    value: >-
+      Apoya el pronóstico y el análisis de impacto de políticas a escala poblacional o de sistemas — por ejemplo,
+      planificación urbana, planificación de infraestructura, o medición del impacto de una decisión de política
+      pública. Se distingue de Evaluación de riesgo y triaje, que puntúa a personas individuales.
+  - locale: fr
+    value: >-
+      Permet la prévision et l'analyse d'impact des politiques à l'échelle d'une population ou d'un système — par
+      exemple l'urbanisme, la planification d'infrastructures, ou la mesure de l'impact d'une décision de politique
+      publique. À distinguer de Évaluation des risques et triage, qui note des personnes individuellement.
+  - locale: km
+    value: >-
+      គាំទ្រដល់ការអភិវឌ្ឍផែនការអនាគត ឬដើម្បីបើកដំណើរការឬវាស់វែងពីផលប៉ះពាល់នៃការសម្រេចចិត្ត។ ឧទាហរណ៍រួមមាន
+      [ការធ្វើផែនការទីក្រុង](https://en.wikipedia.org/wiki/urnanning)
+  - locale: pt
+    value: >-
+      Apoia a previsão e a análise de impacto de políticas à escala populacional ou de sistemas — por exemplo,
+      planeamento urbano, planeamento de infraestruturas, ou a medição do impacto de uma decisão de política pública.
+      Distinto de Avaliação de risco e triagem, que pontua pessoas individuais.
+  - locale: tl
+    value: Sinusuportahan ang pagbuo ng mga plano sa hinaharap; o upang paganahin o masukat ang epekto ng isang desisyon.
+citation: []
+symbol_id: planning_decision_making
+variables: []

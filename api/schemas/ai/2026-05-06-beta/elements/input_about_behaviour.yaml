@@ -1,0 +1,35 @@
+id: input_about_behaviour
+category_id: input_dataset
+title:
+  - locale: en
+    value: About behaviour
+  - locale: es
+    value: Sobre el comportamiento
+  - locale: fr
+    value: À propos du comportement
+  - locale: pt
+    value: Sobre o comportamento
+description:
+  - locale: en
+    value: >-
+      Taps, choices, paths walked, dwell time, purchases, or queries. The AI takes in records of what people did.
+      Examples: tapped destinations on a wayfinding kiosk, items added to a cart, a search query typed into a public
+      terminal.
+  - locale: es
+    value: >-
+      Toques, elecciones, recorridos, tiempo de permanencia, compras o consultas. La IA recibe registros de lo que
+      hicieron las personas. Ejemplos: destinos tocados en un kiosco de orientación, artículos añadidos a un carrito,
+      una consulta tecleada en un terminal público.
+  - locale: fr
+    value: >-
+      Touchers d'écran, choix, déplacements, temps de présence, achats ou requêtes. L'IA reçoit des registres de ce
+      que les personnes ont fait. Exemples : destinations touchées sur une borne de signalisation, articles ajoutés à
+      un panier, une requête tapée sur un terminal public.
+  - locale: pt
+    value: >-
+      Toques, escolhas, percursos, tempo de permanência, compras ou pesquisas. A IA recebe registos do que as pessoas
+      fizeram. Exemplos: destinos tocados num quiosque de orientação, itens adicionados a um carrinho, uma pesquisa
+      digitada num terminal público.
+citation: []
+symbol_id: about_behaviour
+variables: []

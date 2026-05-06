@@ -1,0 +1,44 @@
+id: available_to_me
+category_id: access
+title:
+  - locale: en
+    value: Available to me
+  - locale: es
+    value: Disponible para mi
+  - locale: fr
+    value: Disponible pour moi
+  - locale: km
+    value: មានសម្រាប់ខ្ញុំ
+  - locale: pt
+    value: Disponível para mim
+  - locale: tl
+    value: Magagamit sa akin
+description:
+  - locale: en
+    value: >-
+      Available to me but not to other individuals. For example, as an individual you have access to all your electronic
+      toll records for your car, but other individuals do not have access to that.
+  - locale: es
+    value: >-
+      Disponible para mí pero no para otras personas. Por ejemplo, como individuo, tiene acceso a todos sus registros de
+      peaje electrónicos para su automóvil, pero otras personas no tienen acceso a eso.
+  - locale: fr
+    value: >-
+      Disponible pour moi mais pas pour d'autres individus. Par exemple, en tant qu'individu, vous avez accés à tous vos
+      enregistrements de péage électronique pour votre voiture, mais les autres individus n'y ont pas accés.
+  - locale: km
+    value: >-
+      មានសម្រាប់ខ្ញុំប៉ុន្តែមិនឱ្យបុគ្គលផ្សេងទៀតទេ។
+      ឧទាហរណ៍ក្នុងនាមជាបុគ្គលដែលអ្នកមានសិទ្ធិចូលប្រើកំណត់ត្រាអេឡិចត្រូនិចរបស់អ្នកទាំងអស់សម្រាប់រថយន្តរបស់អ្នកប៉ុន្តែបុគ្គលផ្សេងទៀតមិនមានលទ្ធភាពចូលប្រើវាទេ។
+  - locale: pt
+    value: >-
+      Disponível para mim, mas não para outros indivíduos. Por exemplo, enquanto indivíduo, tem acesso a todos os
+      registos electrónicos de portagens do seu automóvel, mas outros indivíduos não têm acesso a esses registos.
+  - locale: tl
+    value: >-
+      Magagamit sa akin ngunit hindi sa ibang mga indibidwal. Halimbawa, bilang isang indibidwal mayroon kang access sa
+      lahat ng iyong mga talaan ng electronic toll para sa iyong kotse, ngunit ang ibang mga indibidwal ay walang access
+      sa mga ito
+citation: []
+symbol_id: available
+variables: []

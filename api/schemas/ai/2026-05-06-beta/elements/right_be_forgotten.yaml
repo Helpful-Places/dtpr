@@ -1,0 +1,59 @@
+id: right_be_forgotten
+category_id: rights
+title:
+  - locale: en
+    value: Right to Be Forgotten
+  - locale: es
+    value: Derecho al olvido
+  - locale: fr
+    value: Droit à l'oubli
+  - locale: km
+    value: សិទ្ធិ​ត្រូវ​បំភ្លេច
+  - locale: pt
+    value: Direito de ser esquecido
+  - locale: tl
+    value: Karapatang Makalimutan
+description:
+  - locale: en
+    value: >-
+      The right to have your personal data deleted from an AI system when the data is no longer needed for its original
+      purpose, when you withdraw consent, or when there is no legitimate interest in continuing to process it. Where
+      technically feasible, this also includes having the system "unlearn" information derived from your data. This is
+      a right of deletion; the right to stop processing without deletion is a separate right.
+  - locale: es
+    value: >-
+      El derecho a que sus datos personales se supriman de un sistema de IA cuando los datos ya no sean necesarios para
+      su finalidad original, cuando usted retire su consentimiento o cuando no exista un interés legítimo para seguir
+      tratándolos. Cuando sea técnicamente factible, esto incluye también que el sistema "desaprenda" la información
+      derivada de sus datos. Se trata de un derecho de supresión; el derecho a detener el tratamiento sin supresión es
+      un derecho distinto.
+  - locale: fr
+    value: >-
+      Le droit à l'effacement de vos données à caractère personnel d'un système d'IA lorsque les données ne sont plus
+      nécessaires à leur finalité initiale, lorsque vous retirez votre consentement ou lorsqu'il n'y a pas d'intérêt
+      légitime à continuer leur traitement. Lorsque cela est techniquement possible, cela inclut également que le
+      système "désapprenne" les informations dérivées de vos données. Il s'agit d'un droit à l'effacement ; le droit
+      d'arrêter le traitement sans effacement est un droit distinct.
+  - locale: km
+    value: >-
+      សិទ្ធិក្នុងការលុបទិន្នន័យផ្ទាល់ខ្លួនរបស់អ្នកចេញពីប្រព័ន្ធ AI នៅពេលដែលទិន្នន័យលែងចាំបាច់សម្រាប់គោលបំណងដើមរបស់វា
+      នៅពេលដែលអ្នកដកការយល់ព្រម ឬនៅពេលដែលមិនមានផលប្រយោជន៍ស្របច្បាប់ក្នុងការបន្តដំណើរការវា។ កាលណាអាចធ្វើទៅបានតាមបច្ចេកទេស
+      នេះក៏រួមបញ្ចូលផងដែរនូវការឱ្យប្រព័ន្ធ "មិនរៀន" ព័ត៌មានដែលបានមកពីទិន្នន័យរបស់អ្នក។ នេះគឺជាសិទ្ធិលុប;
+      សិទ្ធិក្នុងការបញ្ឈប់ដំណើរការដោយមិនលុប គឺជាសិទ្ធិដាច់ដោយឡែក។
+  - locale: pt
+    value: >-
+      O direito a que seus dados pessoais sejam excluídos de um sistema de IA quando os dados não forem mais necessários
+      para sua finalidade original, quando você retirar seu consentimento ou quando não houver interesse legítimo em
+      continuar a processá-los. Quando for tecnicamente viável, isso também inclui fazer com que o sistema "desaprenda"
+      as informações derivadas de seus dados. Trata-se de um direito de exclusão; o direito de interromper o
+      processamento sem exclusão é um direito distinto.
+  - locale: tl
+    value: >-
+      Ang karapatang matanggal ang iyong personal na data mula sa isang AI system kapag ang data ay hindi na kailangan
+      para sa orihinal nitong layunin, kapag nag-withdraw ka ng pahintulot, o kapag walang lehitimong interes sa
+      patuloy na pagproseso nito. Kung posible sa teknikal, kabilang dito ang pagkakaroon ng "hindi natutunan" ng
+      system na impormasyong hango sa iyong data. Ito ay isang karapatan sa pagtanggal; ang karapatang ihinto ang
+      pagproseso nang hindi tinatanggal ang data ay isang hiwalay na karapatan.
+citation: []
+symbol_id: rights_forgotten
+variables: []

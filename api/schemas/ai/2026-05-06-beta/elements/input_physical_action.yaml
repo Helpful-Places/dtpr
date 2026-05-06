@@ -1,0 +1,40 @@
+id: input_physical_action
+category_id: input_dataset
+title:
+  - locale: en
+    value: A physical action
+  - locale: es
+    value: Una acción física
+  - locale: fr
+    value: Une action physique
+  - locale: pt
+    value: Uma ação física
+description:
+  - locale: en
+    value: >-
+      A signal that something in the physical world changed — a door opening, a light turning on, an alert sounding.
+      The AI takes in evidence of these changes from upstream actuators or sensors. Examples: a turnstile-unlock
+      event, an HVAC adjustment recorded by a sensor, a public-address alert played upstream.
+  - locale: es
+    value: >-
+      Una señal de que algo en el mundo físico cambió: una puerta que se abre, una luz que se enciende, una alerta
+      que suena. La IA recibe evidencia de estos cambios desde actuadores o sensores previos. Ejemplos: un evento de
+      apertura de torniquete, un ajuste de climatización registrado por un sensor, una alerta de megafonía emitida
+      previamente.
+  - locale: fr
+    value: >-
+      Un signal indiquant qu'un élément du monde physique a changé : une porte qui s'ouvre, une lumière qui
+      s'allume, une alerte qui retentit. L'IA reçoit des indices de ces changements depuis des actionneurs ou
+      capteurs en amont. Exemples : un événement de déverrouillage de tourniquet, un ajustement de CVC enregistré
+      par un capteur, une alerte de sonorisation diffusée en amont.
+  - locale: pt
+    value: >-
+      Um sinal de que algo no mundo físico mudou — uma porta a abrir, uma luz a acender, um alerta a soar. A IA
+      recebe indícios destas mudanças de atuadores ou sensores anteriores. Exemplos: um evento de desbloqueio de
+      torniquete, um ajuste de AVAC registado por um sensor, um alerta de público anunciado anteriormente.
+citation:
+  - locale: en
+    value: >-
+      Output class implicit in EU AI Act Article 3(1) — outputs that "influence physical or virtual environments."
+symbol_id: physical_action
+variables: []

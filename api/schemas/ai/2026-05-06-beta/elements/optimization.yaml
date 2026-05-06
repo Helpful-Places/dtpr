@@ -1,0 +1,54 @@
+id: optimization
+category_id: processing
+title:
+  - locale: en
+    value: Optimization
+  - locale: es
+    value: Optimización
+  - locale: fr
+    value: Optimisation
+  - locale: km
+    value: ការបង្កើនប្រសិទ្ធភាព
+  - locale: pt
+    value: Otimização
+  - locale: tl
+    value: Optimisasyon
+description:
+  - locale: en
+    value: >-
+      AI systems that search for the best assignment, route, schedule, or allocation under constraints. Includes
+      vehicle routing, transit signal timing, energy and HVAC scheduling, staff rostering, and resource allocation.
+      Works by exploring possibilities to maximize or minimize a stated objective such as cost, time, or emissions.
+  - locale: es
+    value: >-
+      Sistemas de IA que buscan la mejor asignación, ruta, horario o distribución bajo restricciones. Incluye
+      enrutamiento de vehículos, sincronización de semáforos, programación energética y de climatización, planificación
+      de turnos y asignación de recursos. Funcionan explorando posibilidades para maximizar o minimizar un objetivo
+      como coste, tiempo o emisiones.
+  - locale: fr
+    value: >-
+      Systèmes d'IA qui recherchent la meilleure affectation, le meilleur itinéraire, le meilleur horaire ou la
+      meilleure répartition sous contraintes. Inclut le routage des véhicules, la synchronisation des feux, la
+      planification énergétique et CVC, la planification du personnel et l'allocation de ressources. Fonctionne en
+      explorant des possibilités pour maximiser ou minimiser un objectif comme le coût, le temps ou les émissions.
+  - locale: km
+    value: >-
+      ប្រព័ន្ធ AI ដែលស្វែងរកការចាត់តាំង ផ្លូវ កាលវិភាគ ឬការបែងចែកដ៏ល្អបំផុតក្រោមឧបសគ្គ។
+      រួមមានការចាត់ផ្លូវយានយន្ត ការកំណត់ពេលភ្លើងចរាចរណ៍ ការកំណត់កាលវិភាគថាមពលនិងម៉ាស៊ីនត្រជាក់
+      ការរៀបចំកាលវិភាគបុគ្គលិក និងការបែងចែកធនធាន។
+      ដំណើរការដោយស្វែងរកលទ្ធភាពដើម្បីបង្កើន ឬកាត់បន្ថយគោលដៅដូចជាការចំណាយ ពេលវេលា ឬការបញ្ចេញឧស្ម័ន។
+  - locale: pt
+    value: >-
+      Sistemas de IA que buscam a melhor atribuição, rota, cronograma ou alocação sob restrições. Inclui roteamento de
+      veículos, sincronização de semáforos, programação energética e de climatização, escala de equipes e alocação de
+      recursos. Funcionam explorando possibilidades para maximizar ou minimizar um objetivo como custo, tempo ou
+      emissões.
+  - locale: tl
+    value: >-
+      Mga AI system na naghahanap ng pinakamahusay na assignment, ruta, iskedyul, o paglalaan sa ilalim ng mga
+      paghihigpit. Kabilang ang vehicle routing, traffic signal timing, iskedyul ng enerhiya at HVAC, paghahati ng
+      shift, at paglalaan ng mapagkukunan. Gumagana sa pamamagitan ng paggalugad ng mga posibilidad upang i-maximize
+      o i-minimize ang isang layunin tulad ng gastos, oras, o emisyon.
+citation: []
+symbol_id: processing_optimization-algorithm
+variables: []

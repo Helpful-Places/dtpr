@@ -1,0 +1,48 @@
+id: shared_storage_and_governance
+category_id: storage
+title:
+  - locale: en
+    value: Shared storage and governance
+  - locale: es
+    value: Almacenamiento y gobierno compartidos
+  - locale: fr
+    value: Stockage et gouvernance partagés
+  - locale: km
+    value: ការផ្ទុកនិងអភិបាលកិច្ចរួមគ្នា
+  - locale: pt
+    value: Armazenamendo e governando de forma partilhada
+  - locale: tl
+    value: Ibinahaging imbakan at pamamahala
+description:
+  - locale: en
+    value: >-
+      In a shared data store model the data store is shared across multiple parties and because the infrastructure is
+      shared it becomes possible to enforce governance around the retention, access and destruction of the data by
+      policies built into the structure of the data itself.
+  - locale: es
+    value: >-
+      En un modelo de almacén de datos compartido, el almacén de datos se comparte en múltiples partes y, debido a que
+      la infraestructura se comparte, es posible hacer cumplir la gobernanza en torno a la retención, acceso y
+      destrucción de los datos por las políticas integradas en la estructura de los datos en sí.
+  - locale: fr
+    value: >-
+      Dans un modéle de magasin de données partagé, le magasin de données est partagé entre plusieurs parties et, comme
+      l'infrastructure est partagée, il devient possible d'appliquer la gouvernance autour de la conservation, de
+      l'accés et de la destruction des données par des politiques intégrées à la structure des données elles-mêmes.
+  - locale: km
+    value: >-
+      នៅក្នុងគំរូហាងទិន្នន័យដែលបានចែករំលែកហាងទិន្នន័យត្រូវបានចែករំលែកនៅទូទាំងភាគីជាច្រើនហើយដោយសារតែហេដ្ឋារចនាសម្ព័ន្ធត្រូវបានចែករំលែកឱ្យបានដើម្បីពង្រឹងអភិបាលកិច្ចជុំវិញការរក្សាទុកនិងការបំផ្លាញទិន្នន័យដោយគោលនយោបាយដែលបានបង្កើតឡើងនៅក្នុងរចនាសម្ព័ន្ធទិន្នន័យដោយខ្លួនវាផ្ទាល់។
+      ស្វែងយល់បន្ថែម [នៅទីនេះ](https://en.wikipedia.org/wiki/caroserative_storage_cloud)
+  - locale: pt
+    value: >-
+      Num modelo de armazenamento de dados partilhado, o armazenamento de dados é partilhado entre várias partes e, uma
+      vez que a infraestrutura é partilhada, torna-se possível aplicar a governação em torno da retenção, acesso e
+      destruição dos dados através de políticas incorporadas na estrutura dos próprios dados.
+  - locale: tl
+    value: >-
+      Sa isang modelo ng ibinahaging nakaimbak na datos ang nakaimbak na datos ay ibinahagi sa maraming mga partido at
+      dahil ibinahagi ang imprastraktura posible na ipatupad ang pamamahala sa paligid ng pagpapanatili, pag-access at
+      pagkasira ng datos sa pamamagitan ng mga patakaran na binuo sa istraktura ng datos mismo.
+citation: []
+symbol_id: stored
+variables: []

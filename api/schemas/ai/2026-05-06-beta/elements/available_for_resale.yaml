@@ -1,0 +1,31 @@
+id: available_for_resale
+category_id: access
+title:
+  - locale: en
+    value: Available for resale
+  - locale: es
+    value: Disponible para reventa
+  - locale: fr
+    value: Disponible à la revente
+  - locale: km
+    value: អាចប្រើបានសម្រាប់ការប៉ាន់ស្មាន
+  - locale: pt
+    value: Disponível para revenda
+  - locale: tl
+    value: Magagamit para sa muling pagbebenta
+description:
+  - locale: en
+    value: The data collected may be resold to other 3rd parties
+  - locale: es
+    value: Los datos recopilados pueden revenderse a otros terceros
+  - locale: fr
+    value: Les données collectées peuvent être revendues à d'autres tiers.
+  - locale: km
+    value: ទិន្នន័យដែលប្រមូលបានអាចត្រូវបានលក់ទៅឱ្យភាគីទី 3 ផ្សេងទៀត
+  - locale: pt
+    value: Os dados recolhidos podem ser revendidos a terceiros
+  - locale: tl
+    value: Ang data na nakolekta ay maaaring ibenta sa iba pang mga 3rd party
+citation: []
+symbol_id: available_for_resale
+variables: []

@@ -1,0 +1,39 @@
+id: output_decision
+category_id: output_dataset
+title:
+  - locale: en
+    value: A decision about you
+  - locale: es
+    value: Una decisión sobre ti
+  - locale: fr
+    value: Une décision à propos de vous
+  - locale: pt
+    value: Uma decisão sobre si
+description:
+  - locale: en
+    value: >-
+      The AI produces a binding determination about a person — eligibility, classification, ranking, or yes/no.
+      Examples: an access-control system deciding to open a gate, an automated benefits eligibility result, an
+      automated screening that rules someone out.
+  - locale: es
+    value: >-
+      La IA produce una determinación vinculante sobre una persona: elegibilidad, clasificación, jerarquía o un
+      sí/no. Ejemplos: un sistema de control de acceso que decide abrir una puerta, un resultado automatizado de
+      elegibilidad para prestaciones, un cribado automatizado que descarta a alguien.
+  - locale: fr
+    value: >-
+      L'IA produit une détermination contraignante sur une personne : éligibilité, classification, hiérarchisation,
+      ou oui/non. Exemples : un système de contrôle d'accès qui décide d'ouvrir un portique, un résultat
+      d'éligibilité automatisé à des prestations, un filtrage automatisé qui élimine quelqu'un.
+  - locale: pt
+    value: >-
+      A IA produz uma determinação vinculativa sobre uma pessoa — elegibilidade, classificação, ordenação ou um
+      sim/não. Exemplos: um sistema de controlo de acessos que decide abrir uma cancela, um resultado automatizado
+      de elegibilidade para benefícios, um rastreio automatizado que exclui alguém.
+citation:
+  - locale: en
+    value: >-
+      Output class "decisions" enumerated in EU AI Act Article 3(1); high-risk decision domains in Annex III
+      (biometric ID, employment, essential services, justice, migration, education).
+symbol_id: dm_accept-or-deny
+variables: []

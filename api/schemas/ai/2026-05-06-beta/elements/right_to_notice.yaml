@@ -1,0 +1,60 @@
+id: right_to_notice
+category_id: rights
+title:
+  - locale: en
+    value: Right to Be Informed of AI Use
+  - locale: es
+    value: Derecho a ser informado del uso de IA
+  - locale: fr
+    value: Droit d'être informé de l'utilisation de l'IA
+  - locale: km
+    value: សិទ្ធិត្រូវបានជូនដំណឹងពីការប្រើប្រាស់ AI
+  - locale: pt
+    value: Direito de ser informado sobre o uso de IA
+  - locale: tl
+    value: Karapatang Malaman ang Paggamit ng AI
+description:
+  - locale: en
+    value: >-
+      The right to know that an AI system is in operation before any decision affecting you is made. This includes
+      being told when you are interacting with an automated system rather than a person, when content is AI-generated,
+      and when biometric or emotion-recognition technology is in use. This is the precondition for every other right
+      in this category — you cannot exercise rights you do not know apply to you.
+  - locale: es
+    value: >-
+      El derecho a saber que un sistema de IA está en funcionamiento antes de que se tome cualquier decisión que le
+      afecte. Esto incluye que se le informe cuando interactúa con un sistema automatizado en lugar de con una persona,
+      cuando el contenido ha sido generado por IA y cuando se utiliza tecnología biométrica o de reconocimiento de
+      emociones. Es la condición previa para todos los demás derechos de esta categoría: no puede ejercer los derechos
+      que no sabe que le corresponden.
+  - locale: fr
+    value: >-
+      Le droit de savoir qu'un système d'IA est en fonctionnement avant qu'une décision vous concernant ne soit prise.
+      Cela comprend le fait d'être informé lorsque vous interagissez avec un système automatisé plutôt qu'avec une
+      personne, lorsque du contenu est généré par IA et lorsqu'une technologie biométrique ou de reconnaissance des
+      émotions est utilisée. Il s'agit de la condition préalable à tous les autres droits de cette catégorie : vous ne
+      pouvez pas exercer des droits dont vous ignorez l'existence.
+  - locale: km
+    value: >-
+      សិទ្ធិក្នុងការដឹងថាប្រព័ន្ធ AI កំពុងដំណើរការ មុនពេលការសម្រេចចិត្តណាមួយដែលប៉ះពាល់ដល់អ្នកត្រូវបានធ្វើឡើង។
+      នេះរាប់បញ្ចូលទាំងការប្រាប់នៅពេលដែលអ្នកកំពុងធ្វើអន្តរកម្មជាមួយប្រព័ន្ធស្វ័យប្រវត្តិជាជាងជាមួយមនុស្ស
+      នៅពេលដែលខ្លឹមសារត្រូវបានបង្កើតឡើងដោយ AI និងនៅពេលដែលបច្ចេកវិទ្យាជីវមាត្រ
+      ឬការស្គាល់អារម្មណ៍កំពុងប្រើប្រាស់។ នេះគឺជាលក្ខខណ្ឌតម្រូវសម្រាប់សិទ្ធិផ្សេងៗទៀតទាំងអស់ក្នុងប្រភេទនេះ —
+      អ្នកមិនអាចអនុវត្តសិទ្ធិដែលអ្នកមិនដឹងថាអនុវត្តចំពោះអ្នកបាននោះទេ។
+  - locale: pt
+    value: >-
+      O direito de saber que um sistema de IA está em operação antes de qualquer decisão que o afete ser tomada. Isso
+      inclui ser informado quando você está interagindo com um sistema automatizado em vez de uma pessoa, quando o
+      conteúdo é gerado por IA e quando tecnologia biométrica ou de reconhecimento de emoções está em uso. É a
+      pré-condição para todos os outros direitos desta categoria — você não pode exercer direitos que não sabe que se
+      aplicam a você.
+  - locale: tl
+    value: >-
+      Ang karapatang malaman na may AI system na gumagana bago gawin ang anumang desisyong nakakaapekto sa iyo.
+      Kabilang dito ang pagkakaroon ng abiso kapag nakikipag-ugnayan ka sa isang awtomatikong sistema sa halip na sa
+      isang tao, kapag ang nilalaman ay nilikha ng AI, at kapag ginagamit ang biometric o emotion-recognition na
+      teknolohiya. Ito ang paunang kondisyon para sa lahat ng iba pang karapatan sa kategoryang ito — hindi mo
+      magagamit ang mga karapatang hindi mo alam na nasasakop ka.
+citation: []
+symbol_id: dtpr_api
+variables: []

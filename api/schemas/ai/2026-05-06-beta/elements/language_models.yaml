@@ -1,0 +1,48 @@
+id: language_models
+category_id: processing
+title:
+  - locale: en
+    value: Language Models
+  - locale: es
+    value: Modelos de lenguaje
+  - locale: fr
+    value: Modèles de langage
+  - locale: km
+    value: គំរូភាសា
+  - locale: pt
+    value: Modelos de linguagem
+  - locale: tl
+    value: Mga Modelo ng Wika
+description:
+  - locale: en
+    value: >-
+      AI systems that read, write, summarize, translate, or hold a conversation in human language. Includes large
+      language models (LLMs), chatbots, and generative-text systems. They work by predicting the most likely next
+      tokens given the input and any prior context.
+  - locale: es
+    value: >-
+      Sistemas de IA que leen, escriben, resumen, traducen o mantienen una conversación en lenguaje humano. Incluye
+      grandes modelos de lenguaje (LLM), chatbots y sistemas generativos de texto. Funcionan prediciendo los tokens
+      más probables a partir de la entrada y de cualquier contexto anterior.
+  - locale: fr
+    value: >-
+      Systèmes d'IA qui lisent, écrivent, résument, traduisent ou tiennent une conversation en langage humain. Cela
+      inclut les grands modèles de langage (LLM), les chatbots et les systèmes de génération de texte. Ils
+      fonctionnent en prédisant les jetons les plus probables à partir de l'entrée et du contexte antérieur.
+  - locale: km
+    value: >-
+      ប្រព័ន្ធ AI ដែលអាចអាន សរសេរ សង្ខេប បកប្រែ ឬសន្ទនាជាភាសាមនុស្ស។ រួមបញ្ចូលគំរូភាសាធំ (LLMs) ឆាតបូត និងប្រព័ន្ធបង្កើតអត្ថបទ។
+      ពួកវាដំណើរការដោយការទស្សន៍ទាយតួអក្សរបន្ទាប់ដែលទំនងបំផុតពីការបញ្ចូល និងបរិបទពីមុន។
+  - locale: pt
+    value: >-
+      Sistemas de IA que leem, escrevem, resumem, traduzem ou conversam em linguagem humana. Inclui grandes modelos
+      de linguagem (LLMs), chatbots e sistemas de geração de texto. Funcionam prevendo os tokens mais prováveis com
+      base na entrada e no contexto anterior.
+  - locale: tl
+    value: >-
+      Mga AI system na nakakabasa, sumusulat, nagbubuod, nagsasalin, o nakikipag-usap sa wika ng tao. Kasama dito ang
+      malalaking modelo ng wika (LLMs), chatbots, at generative-text na mga sistema. Gumagana ang mga ito sa
+      pamamagitan ng paghula sa pinakamalamang na sumunod na token batay sa input at nakaraang konteksto.
+citation: []
+symbol_id: processing_llm
+variables: []

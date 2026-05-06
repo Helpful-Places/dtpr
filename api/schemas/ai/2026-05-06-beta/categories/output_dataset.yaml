@@ -1,0 +1,173 @@
+id: output_dataset
+name:
+  - locale: en
+    value: Output Dataset
+  - locale: es
+    value: Conjunto de datos de salida
+  - locale: fr
+    value: Ensemble de données de sortie
+  - locale: km
+    value: សំណុំទិន្នន័យលទ្ធផល
+  - locale: pt
+    value: Conjunto de dados de saída
+  - locale: tl
+    value: Output Dataset
+description:
+  - locale: en
+    value: The runtime output — the live data this deployed system produces when it operates, including decisions it makes, content it generates, and actions it triggers.
+  - locale: es
+    value: La salida en tiempo de ejecución — los datos en vivo que este sistema implementado produce cuando opera, incluyendo decisiones que toma, contenido que genera y acciones que activa.
+  - locale: fr
+    value: La sortie d’exécution — les données en direct que ce système déployé produit lorsqu’il fonctionne, y compris les décisions qu’il prend, le contenu qu’il génère et les actions qu’il déclenche.
+  - locale: km
+    value: លទ្ធផលនៅពេលដំណើរការ — ទិន្នន័យផ្ទាល់ដែលប្រព័ន្ធដាក់ពង្រាយនេះផលិតនៅពេលវាដំណើរការ រួមទាំងការសម្រេចចិត្តដែលវាធ្វើ មាតិកាដែលវាបង្កើត និងសកម្មភាពដែលវាបង្ក។
+  - locale: pt
+    value: A saída em tempo de execução — os dados ao vivo que este sistema implantado produz ao operar, incluindo decisões que toma, conteúdo que gera e ações que aciona.
+  - locale: tl
+    value: Ang runtime output — ang live na data na ginagawa ng naka-deploy na system kapag tumatakbo, kasama ang mga desisyong ginagawa nito, nilalamang nililikha nito, at mga aksyong tinatawag nito.
+prompt:
+  - locale: en
+    value: What does this AI system produce — what decisions, content, or signals come out?
+  - locale: es
+    value: ¿Qué produce este sistema de IA — qué decisiones, contenido o señales genera?
+  - locale: fr
+    value: "Que produit ce système d’IA — quelles décisions, quel contenu ou quels signaux en sortent\_?"
+  - locale: km
+    value: តើប្រព័ន្ធ AI នេះផលិតអ្វី — ការសម្រេចចិត្ត មាតិកា ឬសញ្ញាអ្វីខ្លះដែលចេញមក?
+  - locale: pt
+    value: O que este sistema de IA produz — que decisões, conteúdo ou sinais saem?
+  - locale: tl
+    value: Ano ang ginagawa ng AI system na ito — anong mga desisyon, nilalaman, o senyales ang lumalabas?
+required: false
+order: 8
+datachain_type: ai
+shape: circle
+context:
+  id: pii
+  name:
+    - locale: en
+      value: Personal Information
+    - locale: es
+      value: Información personal
+    - locale: fr
+      value: Informations personnelles
+    - locale: km
+      value: ព័ត៌មានផ្ទាល់ខ្លួន
+    - locale: pt
+      value: Informações pessoais
+    - locale: tl
+      value: Personal na Impormasyon
+  description:
+    - locale: en
+      value: How identifiable the data is when this system produces it. The element name says what the output is about; this colour says how directly it identifies a person.
+    - locale: es
+      value: Qué tan identificable es la información cuando este sistema la produce. El nombre del elemento indica de qué trata la salida; este color indica qué tan directamente identifica a una persona.
+    - locale: fr
+      value: À quel point les données sont identifiables lorsque ce système les produit. Le nom de l’élément indique de quoi parle la sortie ; cette couleur indique dans quelle mesure elle identifie directement une personne.
+    - locale: km
+      value: តើទិន្នន័យអាចកំណត់អត្តសញ្ញាណមនុស្សកម្រិតណានៅពេលប្រព័ន្ធនេះផលិតវា។ ឈ្មោះធាតុប្រាប់ថាតើលទ្ធផលនេះនិយាយអំពីអ្វី ហើយពណ៌នេះប្រាប់ថាតើវាកំណត់អត្តសញ្ញាណមនុស្សដោយផ្ទាល់កម្រិតណា។
+    - locale: pt
+      value: Quão identificáveis são os dados quando este sistema os produz. O nome do elemento indica sobre o que é a saída; esta cor indica quão diretamente identifica uma pessoa.
+    - locale: tl
+      value: Gaano katukoy ang data kapag ginagawa ito ng system na ito. Ang pangalan ng elemento ay nagsasabi kung tungkol saan ang output; ang kulay na ito ay nagsasabi kung gaano kadirekta nitong tinutukoy ang isang tao.
+  values:
+    - id: de_identified
+      name:
+        - locale: en
+          value: Anonymous
+        - locale: es
+          value: Anónimo
+        - locale: fr
+          value: Anonyme
+        - locale: km
+          value: អនាមិក
+        - locale: pt
+          value: Anônimo
+        - locale: tl
+          value: Anonymous
+      description:
+        - locale: en
+          value: Output about people with the link to who is broken. Stripped of identifiers, blurred, aggregated, or noised so the result can’t reasonably be tied back to an individual.
+        - locale: es
+          value: Salida sobre personas con el vínculo a la identidad eliminado. Sin identificadores, difuminada, agregada o con ruido para que el resultado no pueda razonablemente vincularse a un individuo.
+        - locale: fr
+          value: Sortie concernant des personnes dont le lien à l’identité est rompu. Privée d’identifiants, floutée, agrégée ou bruitée pour que le résultat ne puisse pas raisonnablement être relié à un individu.
+        - locale: km
+          value: លទ្ធផលអំពីមនុស្ស ដែលការតភ្ជាប់ទៅអ្នកណាត្រូវបានកាត់ផ្តាច់។ ដកអត្តសញ្ញាណចេញ ធ្វើឱ្យព្រិល បង្រួម ឬបន្ថែមការរំខាន ដើម្បីឱ្យលទ្ធផលមិនអាចត្រូវបានភ្ជាប់ត្រឡប់ទៅបុគ្គលណាមួយបានឡើយ។
+        - locale: pt
+          value: Saída sobre pessoas com o vínculo à identidade rompido. Sem identificadores, desfocada, agregada ou com ruído para que o resultado não possa razoavelmente ser ligado a um indivíduo.
+        - locale: tl
+          value: Output tungkol sa mga tao kung saan nasira ang ugnayan sa kung sino. Inalisan ng mga identifier, binura, pinagsama-sama, o dinaganan ng noise para hindi makonekta ang resulta sa isang indibidwal.
+      color: "#4A90D9"
+    - id: pseudonymous
+      name:
+        - locale: en
+          value: Pseudonymous
+        - locale: es
+          value: Seudónimo
+        - locale: fr
+          value: Pseudonyme
+        - locale: km
+          value: ឈ្មោះក្លែងក្លាយ
+        - locale: pt
+          value: Pseudônimo
+        - locale: tl
+          value: Pseudonymous
+      description:
+        - locale: en
+          value: The output is labelled with a token (hash, ID, template) that lets this system tie the result to the same person across events without revealing a name. Reidentification is possible with extra information.
+        - locale: es
+          value: La salida se etiqueta con un token (hash, ID, plantilla) que permite a este sistema vincular el resultado a la misma persona entre eventos sin revelar un nombre. La reidentificación es posible con información adicional.
+        - locale: fr
+          value: La sortie est étiquetée avec un jeton (hachage, identifiant, modèle) qui permet à ce système de relier le résultat à la même personne d’un événement à l’autre sans révéler de nom. La réidentification est possible avec des informations supplémentaires.
+        - locale: km
+          value: លទ្ធផលត្រូវបានដាក់ស្លាកដោយសញ្ញាសម្គាល់ (hash, ID, ទម្រង់) ដែលអនុញ្ញាតឱ្យប្រព័ន្ធនេះភ្ជាប់លទ្ធផលទៅនឹងមនុស្សដដែលនៅពេលផ្សេងៗគ្នាដោយមិនបង្ហាញឈ្មោះ។ ការកំណត់អត្តសញ្ញាណឡើងវិញអាចធ្វើទៅបានជាមួយព័ត៌មានបន្ថែម។
+        - locale: pt
+          value: A saída é marcada com um token (hash, ID, modelo) que permite a este sistema ligar o resultado à mesma pessoa entre eventos sem revelar um nome. A reidentificação é possível com informações adicionais.
+        - locale: tl
+          value: Ang output ay nilalagyan ng token (hash, ID, template) na nagpapahintulot sa system na ito na ikonekta ang resulta sa parehong tao sa iba’t ibang pangyayari nang hindi naglalabas ng pangalan. Posible ang muling pagkilala gamit ang karagdagang impormasyon.
+      color: "#9575CD"
+    - id: identifiable
+      name:
+        - locale: en
+          value: Identifiable
+        - locale: es
+          value: Identificable
+        - locale: fr
+          value: Identifiable
+        - locale: km
+          value: អាចកំណត់អត្តសញ្ញាណបាន
+        - locale: pt
+          value: Identificável
+        - locale: tl
+          value: Natutukoy
+      description:
+        - locale: en
+          value: The output names a person directly (name, address, account, recognisable face or voice, plate) or carries a token this system resolves to legal identity in the same step.
+        - locale: es
+          value: La salida nombra a una persona directamente (nombre, dirección, cuenta, rostro o voz reconocible, matrícula) o lleva un token que este sistema resuelve a identidad legal en el mismo paso.
+        - locale: fr
+          value: La sortie nomme une personne directement (nom, adresse, compte, visage ou voix reconnaissable, plaque) ou porte un jeton que ce système résout en identité légale dans la même étape.
+        - locale: km
+          value: លទ្ធផលដាក់ឈ្មោះមនុស្សដោយផ្ទាល់ (ឈ្មោះ អាសយដ្ឋាន គណនី មុខ ឬសំឡេងដែលអាចស្គាល់បាន លេខស្លាកយានយន្ត) ឬមានសញ្ញាសម្គាល់ដែលប្រព័ន្ធនេះបកស្រាយទៅជាអត្តសញ្ញាណផ្លូវច្បាប់ក្នុងជំហានដដែល។
+        - locale: pt
+          value: A saída nomeia uma pessoa diretamente (nome, endereço, conta, rosto ou voz reconhecível, placa) ou leva um token que este sistema resolve para identidade legal no mesmo passo.
+        - locale: tl
+          value: Ang output ay direktang nagpapangalan sa isang tao (pangalan, address, account, kilalang mukha o boses, plate) o nagdadala ng token na ang system na ito ay nagre-resolve sa legal na pagkakakilanlan sa parehong hakbang.
+      color: "#FFD700"
+element_variables:
+  - id: additional_description
+    label:
+      - locale: en
+        value: Description
+      - locale: es
+        value: Descripción
+      - locale: fr
+        value: Description
+      - locale: km
+        value: ការពិពណ៌នា
+      - locale: pt
+        value: Descrição
+      - locale: tl
+        value: Paglalarawan
+    required: true

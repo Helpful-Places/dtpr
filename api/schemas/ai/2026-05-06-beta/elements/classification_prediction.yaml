@@ -1,0 +1,53 @@
+id: classification_prediction
+category_id: processing
+title:
+  - locale: en
+    value: Classification & Prediction
+  - locale: es
+    value: Clasificación y predicción
+  - locale: fr
+    value: Classification et prédiction
+  - locale: km
+    value: ការចាត់ថ្នាក់ និងការទស្សន៍ទាយ
+  - locale: pt
+    value: Classificação e previsão
+  - locale: tl
+    value: Klasipikasyon at Pagtataya
+description:
+  - locale: en
+    value: >-
+      AI systems that assign a label to an input or estimate a numeric outcome — including classifiers (spam vs. not
+      spam, risk tier), regressors (predicted demand, expected wait), and time-series forecasters (next-hour ridership,
+      energy load). Built from labeled historical data using statistical or machine-learning models.
+  - locale: es
+    value: >-
+      Sistemas de IA que asignan una etiqueta a una entrada o estiman un resultado numérico, incluyendo clasificadores
+      (spam o no spam, nivel de riesgo), modelos de regresión (demanda prevista, tiempo de espera estimado) y
+      pronósticos de series temporales (pasajeros en la próxima hora, carga energética). Se construyen a partir de
+      datos históricos etiquetados mediante modelos estadísticos o de aprendizaje automático.
+  - locale: fr
+    value: >-
+      Systèmes d'IA qui attribuent une étiquette à une entrée ou estiment un résultat numérique : classifieurs (spam
+      ou non, niveau de risque), modèles de régression (demande prévue, temps d'attente attendu) et prévisions de
+      séries temporelles (fréquentation à la prochaine heure, charge énergétique). Construits à partir de données
+      historiques étiquetées par des modèles statistiques ou d'apprentissage automatique.
+  - locale: km
+    value: >-
+      ប្រព័ន្ធ AI ដែលផ្តល់ស្លាកដល់ការបញ្ចូល ឬប៉ាន់ប្រមាណលទ្ធផលជាលេខ — រួមមានកម្មវិធីចាត់ថ្នាក់ (សារឥតបានការ ឬមិន
+      កម្រិតហានិភ័យ) កម្មវិធីតំរែតំរង់ (តម្រូវការទស្សន៍ទាយ ការរង់ចាំ) និងព្យាករណ៍ស៊េរីពេលវេលា
+      (អ្នកដំណើរម៉ោងបន្ទាប់ បន្ទុកថាមពល)។ បង្កើតពីទិន្នន័យប្រវត្តិសាស្ត្រដែលមានស្លាកដោយប្រើគំរូស្ថិតិ ឬម៉ាស៊ីនរៀន។
+  - locale: pt
+    value: >-
+      Sistemas de IA que atribuem um rótulo a uma entrada ou estimam um resultado numérico — incluindo classificadores
+      (spam ou não, nível de risco), regressores (demanda prevista, tempo de espera) e previsão de séries temporais
+      (passageiros na próxima hora, carga energética). Construídos a partir de dados históricos rotulados usando
+      modelos estatísticos ou de aprendizado de máquina.
+  - locale: tl
+    value: >-
+      Mga AI system na nagtatalaga ng label sa input o tinatantya ang isang numerikong resulta — kasama ang mga
+      classifier (spam o hindi, risk tier), regressor (hinulaang demand, inaasahang oras ng paghihintay), at
+      time-series forecaster (mga sasakay sa susunod na oras, energy load). Binubuo mula sa naka-label na
+      makasaysayang data gamit ang statistical o machine-learning na modelo.
+citation: []
+symbol_id: processing_time-series-forecasting
+variables: []

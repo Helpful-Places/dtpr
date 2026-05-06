@@ -1,0 +1,160 @@
+id: accountable
+name:
+  - locale: en
+    value: Accountable
+  - locale: es
+    value: Responsable
+  - locale: fr
+    value: Responsable
+  - locale: km
+    value: ទទួលខុសត្រូវ
+  - locale: pt
+    value: Responsável
+  - locale: tl
+    value: Pananagutan
+description:
+  - locale: en
+    value: The organization accountable for the deployment of this AI system.
+  - locale: es
+    value: La organización responsable de la implementación de este sistema de IA.
+  - locale: fr
+    value: L'organisation responsable du déploiement de ce système d'IA.
+  - locale: km
+    value: អង្គការទទួលខុសត្រូវចំពោះការដាក់ពង្រាយប្រព័ន្ធ AI នេះ។
+  - locale: pt
+    value: A organização responsável pela implantação deste sistema de IA.
+  - locale: tl
+    value: Ang organisasyon ay may pananagutan para sa pag-deploy ng AI system na ito.
+prompt:
+  - locale: en
+    value: Who is accountable for this AI system?
+  - locale: es
+    value: ¿Quién es responsable de este sistema de IA?
+  - locale: fr
+    value: Qui est responsable de ce système d’IA ?
+  - locale: km
+    value: តើអ្នកណាជាអ្នកទទួលខុសត្រូវចំពោះប្រព័ន្ធ AI នេះ?
+  - locale: pt
+    value: Quem é responsável por este sistema de IA?
+  - locale: tl
+    value: Sino ang may pananagutan para sa AI system na ito?
+required: true
+order: 2
+datachain_type: ai
+shape: hexagon
+context:
+  id: role
+  name:
+    - locale: en
+      value: Role
+    - locale: es
+      value: Rol
+    - locale: fr
+      value: Rôle
+    - locale: km
+      value: តួនាទី
+    - locale: pt
+      value: Papel
+    - locale: tl
+      value: Papel
+  description:
+    - locale: en
+      value: How this organization participates in the deployment of the AI system.
+    - locale: es
+      value: Cómo participa esta organización en la implementación del sistema de IA.
+    - locale: fr
+      value: Comment cette organisation participe au déploiement du système d’IA.
+    - locale: km
+      value: របៀបដែលអង្គការនេះចូលរួមក្នុងការដាក់ពង្រាយប្រព័ន្ធ AI។
+    - locale: pt
+      value: Como esta organização participa da implantação do sistema de IA.
+    - locale: tl
+      value: Paano lumalahok ang organisasyong ito sa pag-deploy ng AI system.
+  values:
+    - id: vendor
+      name:
+        - locale: en
+          value: Vendor
+        - locale: es
+          value: Proveedor
+        - locale: fr
+          value: Fournisseur
+        - locale: km
+          value: អ្នកលក់
+        - locale: pt
+          value: Fornecedor
+        - locale: tl
+          value: Tagapagtustos
+      description:
+        - locale: en
+          value: The organization that builds, supplies, or licenses the AI system.
+        - locale: es
+          value: La organización que construye, suministra o licencia el sistema de IA.
+        - locale: fr
+          value: L’organisation qui construit, fournit ou concède sous licence le système d’IA.
+        - locale: km
+          value: អង្គការដែលបង្កើត ផ្គត់ផ្គង់ ឬផ្តល់អាជ្ញាបណ្ណប្រព័ន្ធ AI ។
+        - locale: pt
+          value: A organização que constrói, fornece ou licencia o sistema de IA.
+        - locale: tl
+          value: Ang organisasyon na gumagawa, nagsusuplay, o naglilisensya ng AI system.
+      color: null
+    - id: deployer
+      name:
+        - locale: en
+          value: Deployer
+        - locale: es
+          value: Implementador
+        - locale: fr
+          value: Déployeur
+        - locale: km
+          value: អ្នកដាក់ពង្រាយ
+        - locale: pt
+          value: Implementador
+        - locale: tl
+          value: Tagapagsagawa
+      description:
+        - locale: en
+          value: The organization that deploys and operates the AI system in this place.
+        - locale: es
+          value: La organización que implementa y opera el sistema de IA en este lugar.
+        - locale: fr
+          value: L’organisation qui déploie et exploite le système d’IA dans ce lieu.
+        - locale: km
+          value: អង្គការដែលដាក់ពង្រាយ និងដំណើរការប្រព័ន្ធ AI នៅកន្លែងនេះ។
+        - locale: pt
+          value: A organização que implanta e opera o sistema de IA neste local.
+        - locale: tl
+          value: Ang organisasyon na nag-de-deploy at nagpapatakbo ng AI system sa lugar na ito.
+      color: null
+element_variables:
+  - id: title
+    label:
+      - locale: en
+        value: Title
+      - locale: es
+        value: Título
+      - locale: fr
+        value: Titre
+      - locale: km
+        value: ចំណងជើង
+      - locale: pt
+        value: Título
+      - locale: tl
+        value: Titulo
+    required: true
+  - id: description
+    label:
+      - locale: en
+        value: Description
+      - locale: es
+        value: Descripción
+      - locale: fr
+        value: Description
+      - locale: km
+        value: ការពិពណ៌នា
+      - locale: pt
+        value: Descrição
+      - locale: tl
+        value: Paglalarawan
+    required: true

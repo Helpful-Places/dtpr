@@ -1,0 +1,87 @@
+id: financial_harm
+category_id: risks_mitigation
+title:
+  - locale: en
+    value: Financial & business harm
+  - locale: es
+    value: Daño financiero y empresarial
+  - locale: fr
+    value: Préjudice financier et commercial
+  - locale: km
+    value: គ្រោះថ្នាក់ហិរញ្ញវត្ថុ និងពាណិជ្ជកម្ម
+  - locale: pt
+    value: Dano financeiro e empresarial
+  - locale: tl
+    value: Pinsalang pinansyal at pang-negosyo
+description:
+  - locale: en
+    value: >-
+      The risk that the AI system causes financial losses to individuals or organizational damage through erroneous
+      pricing, denied services, fraud, or market manipulation. This includes risks from automated credit decisions,
+      dynamic-pricing inequities, AI-enabled scams, and supply-chain disruption from misuse. Mitigations may include
+      affordability guards, fairness audits of pricing models, fraud-detection layers, and clear redress procedures.
+  - locale: es
+    value: >-
+      El riesgo de que el sistema de IA cause pérdidas financieras a personas o daños organizacionales mediante una
+      fijación de precios errónea, denegación de servicios, fraude o manipulación del mercado. Esto incluye riesgos
+      por decisiones automatizadas de crédito, desigualdades en la fijación dinámica de precios, estafas habilitadas
+      por IA y disrupciones de la cadena de suministro por uso indebido. Las medidas de mitigación pueden incluir
+      protecciones de asequibilidad, auditorías de equidad de los modelos de precios, capas de detección de fraude y
+      procedimientos claros de reparación.
+  - locale: fr
+    value: >-
+      Le risque que le système d'IA cause des pertes financières à des personnes ou des dommages organisationnels par
+      une tarification erronée, des refus de services, des fraudes ou une manipulation du marché. Cela inclut les
+      risques liés aux décisions de crédit automatisées, aux inégalités de tarification dynamique, aux escroqueries
+      activées par l'IA et aux perturbations de la chaîne d'approvisionnement résultant d'un usage abusif. Les mesures
+      d'atténuation peuvent inclure des garde-fous d'accessibilité financière, des audits d'équité des modèles de
+      tarification, des couches de détection de la fraude et des procédures claires de recours.
+  - locale: km
+    value: >-
+      ហានិភ័យដែលប្រព័ន្ធ AI បង្កការខាតបង់ហិរញ្ញវត្ថុដល់បុគ្គល ឬការខូចខាតស្ថាប័នតាមរយៈការកំណត់តម្លៃខុស
+      ការបដិសេធសេវាកម្ម ការក្លែងបន្លំ ឬការរៀបចំទីផ្សារ។ នេះរួមបញ្ចូលហានិភ័យពីការសម្រេចចិត្តឥណទានស្វ័យប្រវត្តិ
+      វិសមភាពនៃការកំណត់តម្លៃថាមវន្ត ការក្លែងបន្លំដែលប្រើ AI និងការរំខានខ្សែសង្វាក់ផ្គត់ផ្គង់ពីការប្រើប្រាស់ខុស។
+      ការបន្ធូរបន្ថយអាចរួមមានការការពារសមត្ថភាពទិញ ការត្រួតពិនិត្យភាពយុត្តិធម៌នៃគំរូកំណត់តម្លៃ ស្រទាប់រកឃើញការក្លែងបន្លំ
+      និងនីតិវិធីស្តារសិទ្ធិច្បាស់លាស់។
+  - locale: pt
+    value: >-
+      O risco de que o sistema de IA cause perdas financeiras a pessoas ou danos organizacionais por meio de
+      precificação errônea, negação de serviços, fraude ou manipulação de mercado. Isso inclui riscos de decisões de
+      crédito automatizadas, desigualdades em precificação dinâmica, golpes habilitados por IA e interrupções na cadeia
+      de suprimentos por uso indevido. As mitigações podem incluir proteções de acessibilidade financeira, auditorias
+      de equidade dos modelos de precificação, camadas de detecção de fraude e procedimentos claros de reparação.
+  - locale: tl
+    value: >-
+      Ang panganib na ang AI system ay magdulot ng pinansyal na pagkalugi sa mga indibidwal o pinsala sa organisasyon
+      sa pamamagitan ng maling pagpepresyo, tinanggihang serbisyo, pandaraya, o manipulasyon ng merkado. Kabilang dito
+      ang mga panganib mula sa mga awtomatikong desisyon sa kredito, mga hindi pagkakapantay-pantay sa dynamic pricing,
+      mga scam na pinapagana ng AI, at supply chain disruption mula sa maling paggamit. Maaaring kabilang sa mga
+      mitigasyon ang affordability guards, fairness audits ng pricing models, fraud detection layers, at malinaw na
+      mga proseso ng redress.
+citation:
+  - locale: en
+    value: >-
+      Adapted from AIAAIC harm type "Financial & Business" — Abercrombie et al. (2024), A Collaborative, Human-Centred
+      Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+  - locale: es
+    value: >-
+      Adaptado del tipo de daño AIAAIC "Financiero y Empresarial" — Abercrombie et al. (2024), A Collaborative,
+      Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+  - locale: fr
+    value: >-
+      Adapté du type de préjudice AIAAIC « Financier et commercial » — Abercrombie et al. (2024), A Collaborative,
+      Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+  - locale: km
+    value: >-
+      សម្របតាមប្រភេទគ្រោះថ្នាក់ AIAAIC "ហិរញ្ញវត្ថុ និងពាណិជ្ជកម្ម" — Abercrombie et al. (2024), A Collaborative,
+      Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+  - locale: pt
+    value: >-
+      Adaptado do tipo de dano AIAAIC "Financeiro e Empresarial" — Abercrombie et al. (2024), A Collaborative,
+      Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+  - locale: tl
+    value: >-
+      Hango sa uri ng pinsalang AIAAIC na "Pinansyal at Pang-negosyo" — Abercrombie et al. (2024), A Collaborative,
+      Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+symbol_id: risks_financial
+variables: []
