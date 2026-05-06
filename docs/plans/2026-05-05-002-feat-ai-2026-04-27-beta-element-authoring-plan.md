@@ -21,11 +21,11 @@ Counted via `https://api.dtpr.io/api/v2/schemas/ai@2026-04-27-beta/elements?fiel
 | Category           | Count | Status                                       |
 | ------------------ | ----- | -------------------------------------------- |
 | `purpose`          | 23    | OK                                           |
-| `accountable`      | 2     | Needs consolidation (deferred — see Focus 3) |
+| `accountable`      | 2     | OK for this version                          |
 | `functional_modes` | 0 → 6 | Drafted in Focus 1 (this branch)             |
 | `risks_mitigation` | 6 → 9 | Retired 6 mechanism-oriented; replaced with AIAAIC's 9 victim-oriented harms (Focus 2) |
 | `rights`           | 11    | OK                                           |
-| `input_dataset`    | 7 → 11 | Replaced format-led catalog with semantic taxonomy; PII context dropped — Focus 5 |
+| `input_dataset`    | 7 → 11 | Replaced format-led catalog with semantic taxonomy; PII context refined to identifiability ramp — Focus 5 |
 | `processing`       | 7     | Needs family-typed reshape — Focus 4         |
 | `output_dataset`   | 0 → 11 | First-pass semantic taxonomy authored, mirrors input — Focus 5 |
 | `access`           | 9     | OK                                           |
@@ -36,7 +36,7 @@ Counted via `https://api.dtpr.io/api/v2/schemas/ai@2026-04-27-beta/elements?fiel
 
 ## Focus 1 — `functional_modes` (six modes)
 
-Status: drafted (this branch). Awaits review, translator pass for km/tl, designer pass on symbol stubs, then schema redeploy.
+Status: drafted (this branch). Awaits review, designer pass on symbol stubs, then schema redeploy.
 
 PR #274 emptied the renamed `ai__decision` → `functional_modes` catalog. The category description names six modes: **analytical, semantic, generative, agentic, perceptive, physical**. `dtpr-ai/content/6.concepts/6.subchains.md:54` references three by id (`perceptive_mode`, `analytical_mode`, `agentic_mode`) — establishing the `<mode>_mode` slug convention.
 
@@ -61,9 +61,8 @@ Done:
 - [x] Composed icons (hexagon × symbol) emit correctly under `dist/.../icons/<mode>_mode/{default,dark}.svg`
 
 Follow-ups (block stable promotion, not this PR):
-- [ ] **km and tl translations** — title, description, citation. Both locales were skipped in this pass; the validator accepts ≥1 locale entry but the existing element catalog is fully translated and these six are the only gap.
 - [ ] **Designer pass on symbol stubs** — the six SVGs are first-draft geometry. Comprehension rubric flagged "symbol legibility" for sign-scale review (especially `mode_physical`, the four-arrow glyph reads dense at small sizes).
-- [ ] **Comprehension audit re-grade** — run `dtpr-comprehension-audit` against the six new elements once translations land.
+- [ ] **Comprehension audit re-grade** — run `dtpr-comprehension-audit` against the six new elements.
 - [ ] **Schema redeploy** — local dist not yet pushed to R2; live `dtpr.ai/taxonomy` will pick up Functional Modes only after the API redeploys with the new bundles.
 
 Acceptance: `functional_modes` section renders on `/taxonomy` with six elements; the smart-intersection example in `6.subchains.md` resolves cleanly against real elements.
@@ -88,31 +87,14 @@ Approach:
 
 Follow-ups:
 - [ ] Designer pass on the 9 placeholder symbols (`risks_autonomy`, `risks_physical`, `risks_psychological`, `risks_reputational`, `risks_financial`, `risks_civil-liberties`, `risks_societal-cultural`, `risks_political-economic`, `risks_environmental`) — current SVGs are minimal geometric stand-ins.
-- [ ] Translator review of `es`, `fr`, `km`, `pt`, `tl` strings on the 9 new elements — drafted by the implementer, not by native speakers; voice should match the existing element catalog.
+- [ ] Translator review of `es`, `fr`, `pt` strings on the 9 new elements — drafted by the implementer, not by native speakers; voice should match the existing element catalog.
 - [ ] Renderer-side mode↔harm cross-product view — `functional_modes` and `risks_mitigation` are intentionally orthogonal categories. A taxonomy/instance view that surfaces "which (mode, harm) pairs are tagged" gives the disclosure power of mode-context-on-harm without coupling the schema. Out of scope for Focus 2; track separately when the renderer is the active surface.
-
----
-
-## Focus 3 — `accountable` consolidation + logo support
-
-Status: not started.
-
-Currently 2 elements. PR #274 corrected the shape to hexagon and added a Role context (vendor/deployer). The deferred work is a "consolidated accountable element with logo support" — likely a single element variant that carries an organization's logo as an asset, replacing the current pair.
-
-Approach:
-- Confirm what "logo support" requires at the schema layer (likely an element-level variable for a logo URL/asset, not a structural change).
-- Draft the consolidated element via `dtpr-element-design`.
-- Decide migration path for the existing two `accountable` elements (retire vs. keep as fallback).
-
-- [ ] Specify logo storage (variable? asset? external URL?)
-- [ ] Draft consolidated element
-- [ ] Migration plan for existing `accountable` entries
 
 ---
 
 ## Focus 4 — `processing` family-typed catalog
 
-Status: drafted in `ai@2026-05-06-beta`.
+Status: drafted (this branch). Awaits review, designer pass on two reused symbols, then schema redeploy.
 
 Currently 7 elements. PR #274 changed the shape to circle (data-in-motion contract) and rewrote the description. The deferred work is a "family-typed processing catalog" — grouping the processing techniques into families (e.g., classical-ML, LLM, optimization, recommendation, transformation). The current symbol directory hints at this: `processing_llm`, `processing_optimization-algorithm`, `processing_recommendation-systems`, `processing_sentiment-analysis`, `processing_text-to-speech`, `processing_time-series-forecasting`, `processing_privacy-preserving-transformation`.
 
@@ -122,7 +104,7 @@ Approach:
 - Draft any net-new elements; reorganize existing ones if needed.
 
 - [x] Family taxonomy decision — **each element IS a family** (no `Element.context` layer; ids are family slugs). 12 families chosen for breadth of public-space AI coverage.
-- [x] Draft / reorganize elements per family — 7 old element files removed; 12 new family-typed elements written under `api/schemas/ai/2026-05-06-beta/elements/`. `schema:validate` and `schema:build` pass (11 categories, 94 elements).
+- [x] Draft / reorganize elements per family — 7 old element files removed; 12 new family-typed elements written under `api/schemas/ai/2026-04-27-beta/elements/`. `schema:validate` and `schema:build` pass (11 categories, 94 elements at Focus-4 close; 103 after Focus 5).
 - [x] Comprehension check on family labels — see commit body. Two symbols (`search_retrieval`, `clustering_segmentation`) reuse closest-fit existing icons (`connectivity`, `social`) and are flagged for design follow-up.
 
 Family roster (12):
@@ -135,12 +117,12 @@ Family roster (12):
 | `speech_audio` | Speech & Audio | `processing_text-to-speech` |
 | `classification_prediction` | Classification & Prediction | `processing_time-series-forecasting` |
 | `affect_emotion_analysis` | Affect & Emotion Analysis | `processing_sentiment-analysis` |
-| `anomaly_detection` | Anomaly Detection | `dm_anomay-detection` |
+| `anomaly_detection` | Anomaly Detection | `dm_anomaly-detection` |
 | `optimization` | Optimization | `processing_optimization-algorithm` |
 | `recommendation_ranking` | Recommendation & Ranking | `processing_recommendation-systems` |
 | `search_retrieval` | Search & Retrieval | `connectivity` ✱ |
 | `clustering_segmentation` | Clustering & Segmentation | `social` ✱ |
-| `privacy_transformation` | Privacy-Preserving Transformation | `processing_privacy-preservoing-transformation` |
+| `privacy_transformation` | Privacy-Preserving Transformation | `processing_privacy-preserving-transformation` |
 
 ---
 
@@ -152,9 +134,9 @@ The audit reframed the scope: `input_dataset`'s shipped catalog (`binary`, `bool
 
 Approach taken:
 - Audit via `dtpr-category-audit` plus a `best-practices-researcher` pass synthesizing the eight frameworks.
-- Element YAMLs authored directly across four locales (en/es/fr/pt) — matches Focus 1's precedent. `km` and `tl` translation is deferred to the native-speaker pass.
+- Element YAMLs authored directly across four locales (en/es/fr/pt) — matches Focus 1's precedent.
 - Symbol SVG stubs created in-place for six new symbol_ids; existing five symbol_ids reused (`personal`, `spatial`, `values_time`, `dm_accept-or-deny`, `dm_priority-ranking`).
-- `pii` context dropped from both categories — once "About a person" / "About a body" / "Sensitive personal info" are explicit elements, the context becomes double-bookkeeping.
+- `pii` context kept on both categories but refined to a pure identifiability ramp (`de_identified` → `pseudonymous` → `identifiable`). The old `biometric` value retired (it was the genuine overlap with `*_about_a_body`); the old `none` value retired (absence of context now carries that meaning, matching how Role works on `accountable`). Restoring the colour band preserves original DTPR's at-a-glance modality signal that the semantic-element-only design lost.
 - `output_dataset` description and prompt broadened to cover decisions, content, and physical actions (not just data products).
 
 11-category bidirectional taxonomy with 22 element files (one per category per side, sharing one symbol_id):
@@ -177,20 +159,20 @@ Approach taken:
 
 Done:
 - [x] Eight-framework research synthesis captured at `plugin/dtpr/research/2026-05-06T1515-semantic-data-categories-public-disclosure.md`.
-- [x] `categories/input_dataset.yaml` — `pii` context block removed.
-- [x] `categories/output_dataset.yaml` — `pii` context block removed; description and prompt broadened to "produces, decides, generates, or causes."
+- [x] `categories/input_dataset.yaml` — `pii` context refined to three-value identifiability ramp (`de_identified` blue / `pseudonymous` purple / `identifiable` yellow); old `none` and `biometric` values retired.
+- [x] `categories/output_dataset.yaml` — `pii` context refined symmetrically; description and prompt broadened to "produces, decides, generates, or causes."
 - [x] 7 obsolete input_dataset element files deleted (`binary.yaml`, `boolean.yaml`, `personal.yaml`, `pixel_based_image.yaml`, `spatial.yaml`, `tabular.yaml`, `values_time.yaml`).
 - [x] 22 new element YAMLs written across four locales (en/es/fr/pt).
 - [x] 6 new symbol SVG stubs created (`about_a_body`, `about_behaviour`, `sensitive_personal`, `operational_data`, `generated_content`, `physical_action`).
 - [x] `pnpm schema:validate ai@2026-04-27-beta` passes — 11 categories, 103 elements.
-- [x] `pnpm schema:build ai@2026-04-27-beta` passes — 400 dist files.
+- [x] `pnpm schema:build ai@2026-04-27-beta` passes — 466 dist files (PII-context icon variants account for the increase from the pre-context 400-file baseline).
 - [x] Full test suite passes — 388 tests (340 workers + 48 cli).
 - [x] Corpus verifier passes — 11 corpus entries.
 
 Follow-ups (block stable promotion, not this PR):
-- [ ] **Native-speaker translator review** of `es`, `fr`, `pt` strings AND first-pass `km` + `tl` translation on the 22 new elements — current drafts are author-translated.
+- [ ] **Native-speaker translator review** of `es`, `fr`, `pt` strings on the 22 new elements — current drafts are author-translated.
 - [ ] **Designer pass on the six placeholder symbol stubs** — current SVGs are minimal geometric stand-ins.
-- [ ] **Comprehension audit re-grade** — run `dtpr-comprehension-audit` against the 11 categories once translations land.
+- [ ] **Comprehension audit re-grade** — run `dtpr-comprehension-audit` against the 11 categories.
 - [ ] **Schema redeploy** — local dist not yet pushed to R2; live `dtpr.ai/taxonomy` will reflect this only after redeploy.
 - [ ] **Migration note for downstream callers** — datachain instances pinned to `ai@2026-04-27-beta` and using the old element ids (`personal`, `tabular`, etc.) will need to remap. See migration table in the corpus entry. Beta-stage breaking change is in-policy per the plan's Out-of-scope section.
 
@@ -206,5 +188,5 @@ Follow-ups (block stable promotion, not this PR):
 
 ## Out of scope
 
-- Promoting `ai@2026-04-27-beta` from `beta` to `stable`. That's a separate decision once all five focuses land and the schema is exercised end-to-end.
+- Promoting `ai@2026-04-27-beta` from `beta` to `stable`. That's a separate decision once the schema is exercised end-to-end.
 - Retiring `ai@2026-04-16-beta`. The two-version coexistence is intentional during this rollout.

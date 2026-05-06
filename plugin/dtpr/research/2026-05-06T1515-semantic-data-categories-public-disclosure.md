@@ -4,7 +4,7 @@ date_accessed: 2026-05-06
 authority_tier: peer-reviewed
 applicability_tags: [category:input_dataset, category:output_dataset, concept:citizen-facing-disclosure, concept:public-space-ai, pattern:data-category-iconography, framework:apple-privacy-labels, framework:gdpr, framework:eu-ai-act, framework:dpv, framework:tilt, framework:dapis]
 recheck_after: 2027-05-06
-content_hash: sha256-9c6fb9526a51416ff327934edab912e14ed43daa28cad331be13f88835bada94
+content_hash: sha256-2505fd78459ba2137fd45d2b9d60379b0f92fb6b450d10a6f13e75aebd0c51a0
 ---
 
 # Semantic data categories for public-facing AI disclosure
@@ -42,16 +42,19 @@ This sentence enumerates four output classes plus a fifth via "influence physica
 
 The DTPR `output_dataset` category should mirror this taxonomy directly because it is the regulatory boundary the schema's audience operates inside (EU deployments) or interoperates with (jurisdictions following the EU model).
 
-## Why the PII context dimension becomes redundant
+## Why the PII context dimension stays — refined to a pure identifiability ramp
 
-The 2026-04-27-beta schema previously declared a `pii` context (`none|anonymized|identifiable|biometric`) on both `input_dataset` and `output_dataset`. With explicit semantic elements:
+The 2026-04-27-beta schema previously declared a `pii` context (`none|anonymized|identifiable|biometric`) on both `input_dataset` and `output_dataset`. The 2026-05-06 audit's first cut dropped the whole dimension on a "double-bookkeeping" argument; a follow-up audit walked that back. The collision was real for exactly **one** of the four old values:
 
-- `*_about_a_person` → identifiability is implied by the element title.
-- `*_about_a_body` → biometric is implied.
-- `*_sensitive_personal` → sensitivity is implied.
-- `*_about_behaviour`, `*_about_a_place`, `*_about_a_measurement`, `*_operational_data` → can be aggregate or individual; the `additional_description` element variable carries this nuance.
+- `pii: biometric` ↔ `*_about_a_body` element. Same fact, two encodings — author coin-flip. `biometric` retired.
+- `pii: none` ↔ absence of context value. Authoring a "no PII" claim is the same as not picking a context value, matching how Role works on `accountable`. `none` retired (encoded by absence).
+- `pii: anonymized` (rename `de_identified`) → orthogonal to all elements. A face-blurred crowd count is `*_about_a_body` + `de_identified`; an aggregate ridership count is `*_about_a_person` + `de_identified`. Kept.
+- `pii: identifiable` → orthogonal to all elements. A named-account profile is `*_about_a_person` + `identifiable`; a stored face-template tied to a name is `*_about_a_body` + `identifiable`. Kept.
+- New value `pseudonymous` → captures the case original DTPR collapsed into `identifiable`: a token (hash, ID, template) lets the system recognise the same person across events without revealing a name. GDPR Art. 4(5) treats this as personal data; it deserves its own colour stop on the ramp.
 
-Carrying both a PII context value and a semantic element produces double-bookkeeping where authors choose between two equally-valid encodings of the same fact ("biometric" as context vs. "About a body" as element). The 2026-05-06 audit collapses to elements-only.
+The refined `pii` context is a **modality** dimension (how identifiable the data version this system processes is), strictly orthogonal to the **subject** dimension the elements carry (what the data is about). Original DTPR's at-a-glance colour band returns; the only loss is the false-precision of `biometric`-as-tier (now correctly handled as `*_about_a_body` × `identifiable`).
+
+Final value set: `de_identified` (`#4A90D9` blue) → `pseudonymous` (`#9575CD` purple) → `identifiable` (`#FFD700` yellow). Absence of value carries the "no PII claim" meaning.
 
 ## Implementation details (2026-04-27-beta, 2026-05-06 audit)
 

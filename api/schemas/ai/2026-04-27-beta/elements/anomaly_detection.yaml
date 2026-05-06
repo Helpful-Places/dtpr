@@ -49,5 +49,5 @@ description:
       pagtukoy ng intrusion, pagsubaybay sa pagtagas ng tubig, at babala sa hindi pangkaraniwang daloy ng karamihan.
       Ang output ay karaniwang threshold na iskor, hindi direktang desisyon.
 citation: []
-symbol_id: dm_anomay-detection
+symbol_id: dm_anomaly-detection
 variables: []
