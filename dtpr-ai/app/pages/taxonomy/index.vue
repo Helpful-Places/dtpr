@@ -242,13 +242,6 @@ function onHashChange() {
   if (next) scrollToTarget(next)
 }
 
-const toast = useToast()
-
-function buildHashUrl(hash: string): string {
-  if (typeof window === 'undefined') return `#${hash}`
-  return `${window.location.origin}${window.location.pathname}${window.location.search}#${hash}`
-}
-
 const activeCategory = ref<string | null>(null)
 
 const sidebarItems = computed(() => {
@@ -297,31 +290,6 @@ function handleScroll() {
   scrollFrame = requestAnimationFrame(computeActiveCategory)
 }
 
-async function copyHash(hash: string, label: string) {
-  const url = buildHashUrl(hash)
-  try {
-    await navigator.clipboard.writeText(url)
-    toast.add({
-      title: 'Link copied',
-      description: `${label} link copied to clipboard.`,
-      icon: 'i-heroicons-check-circle',
-      color: 'success',
-    })
-    // Only update the hash on a successful copy so the URL doesn't
-    // diverge from what landed on the user's clipboard.
-    if (typeof window !== 'undefined' && window.location.hash !== `#${hash}`) {
-      history.replaceState(null, '', `#${hash}`)
-      targetId.value = hash
-    }
-  } catch {
-    toast.add({
-      title: 'Copy failed',
-      description: 'Unable to access the clipboard.',
-      icon: 'i-heroicons-exclamation-triangle',
-      color: 'error',
-    })
-  }
-}
 </script>
 
 <template>
@@ -378,24 +346,6 @@ async function copyHash(hash: string, label: string) {
         class="taxonomy-category"
         :class="{ 'taxonomy-category--active': targetId === `category-${cat.id}` }"
       >
-        <div class="taxonomy-category__actions">
-          <UButton
-            color="neutral"
-            variant="ghost"
-            size="xs"
-            icon="i-heroicons-link"
-            :aria-label="`Copy link to ${categoryTitle(cat.id)} category`"
-            @click="copyHash(`category-${cat.id}`, categoryTitle(cat.id))"
-          />
-          <UButton
-            :to="categoryHrefFor(cat.id)"
-            color="neutral"
-            variant="ghost"
-            size="xs"
-            icon="i-heroicons-arrow-top-right-on-square"
-            :aria-label="`Open ${categoryTitle(cat.id)} category page`"
-          />
-        </div>
         <DtprCategorySection :id="cat.id" :title="categoryTitle(cat.id)" disable-accordion>
           <DtprElementGrid>
             <div
@@ -405,27 +355,16 @@ async function copyHash(hash: string, label: string) {
               class="taxonomy-element-row"
               :class="{ 'taxonomy-element-row--active': targetId === `element-${el.id}` }"
             >
-              <DtprElement :display="displayById.get(el.id)!" />
-              <div class="taxonomy-element-row__actions">
-                <UButton
-                  color="neutral"
-                  variant="ghost"
-                  size="xs"
-                  icon="i-heroicons-link"
-                  :aria-label="`Copy link to ${displayById.get(el.id)?.title ?? el.id}`"
-                  @click="copyHash(`element-${el.id}`, displayById.get(el.id)?.title ?? el.id)"
-                />
-                <UButton
-                  :to="elementHrefFor(el.id)"
-                  color="neutral"
-                  variant="ghost"
-                  size="xs"
-                  icon="i-heroicons-arrow-top-right-on-square"
-                  :aria-label="`Open ${displayById.get(el.id)?.title ?? el.id} page`"
-                />
-              </div>
+              <DtprElement :display="displayById.get(el.id)!" show-description>
+                <template #footer>
+                  <TaxonomyViewLink :to="elementHrefFor(el.id)" label="View element" />
+                </template>
+              </DtprElement>
             </div>
           </DtprElementGrid>
+          <template #footer>
+            <TaxonomyViewLink :to="categoryHrefFor(cat.id)" label="View category" />
+          </template>
         </DtprCategorySection>
       </section>
       </main>
@@ -535,21 +474,6 @@ async function copyHash(hash: string, label: string) {
   background-color: color-mix(in srgb, var(--ui-primary, #10b981) 4%, transparent);
 }
 
-.taxonomy-category__actions {
-  position: absolute;
-  top: 0.25rem;
-  right: 0.25rem;
-  z-index: 1;
-  display: flex;
-  gap: 0.125rem;
-  opacity: 0.55;
-}
-
-.taxonomy-category__actions:hover,
-.taxonomy-category__actions:focus-within {
-  opacity: 1;
-}
-
 .taxonomy-element-row {
   scroll-margin-top: calc(var(--ui-header-height, 4rem) + 5.5rem);
   position: relative;
@@ -557,6 +481,11 @@ async function copyHash(hash: string, label: string) {
   transition: outline-color 0.4s ease, background-color 0.4s ease;
   outline: 2px solid transparent;
   outline-offset: 4px;
+  display: flex;
+}
+
+.taxonomy-element-row > :deep(.dtpr-element) {
+  flex: 1;
 }
 
 .taxonomy-element-row--active {
@@ -564,21 +493,14 @@ async function copyHash(hash: string, label: string) {
   background-color: color-mix(in srgb, var(--ui-primary, #10b981) 6%, transparent);
 }
 
-.taxonomy-element-row__actions {
-  position: absolute;
-  top: 0.125rem;
-  right: 0.125rem;
-  z-index: 1;
-  display: flex;
-  gap: 0.125rem;
-  opacity: 0;
-  transition: opacity 0.15s ease;
-}
-
-.taxonomy-element-row:hover .taxonomy-element-row__actions,
-.taxonomy-element-row:focus-within .taxonomy-element-row__actions,
-.taxonomy-element-row--active .taxonomy-element-row__actions {
-  opacity: 0.85;
+/*
+ * Cards now carry inline descriptions, so widen them and let the grid
+ * auto-fill instead of capping at 3 fixed columns. 20rem keeps the
+ * description readable without forcing a single-column layout on wide
+ * screens.
+ */
+.taxonomy-page :deep(.dtpr-element-grid) {
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
 }
 
 </style>

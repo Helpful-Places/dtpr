@@ -165,6 +165,7 @@ function contextValueName(value: { id: string; name: unknown }): string {
   return extract(value.name as never, activeLocale.value, 'en') || value.id
 }
 
+
 useHead(() => ({
   title: category.value
     ? `${categoryTitle.value} — DTPR Taxonomy`
@@ -248,10 +249,11 @@ useHead(() => ({
               :key="d.raw.id"
               class="taxonomy-detail-page__element-row"
             >
-              <NuxtLink :to="d.href" class="taxonomy-detail-page__element-link">
-                <DtprElement :display="d.display" />
-                <UIcon name="i-heroicons-arrow-top-right-on-square" class="taxonomy-detail-page__element-icon" />
-              </NuxtLink>
+              <DtprElement :display="d.display" show-description>
+                <template #footer>
+                  <TaxonomyViewLink :to="d.href" label="View element" />
+                </template>
+              </DtprElement>
             </li>
           </ul>
           <p v-else class="taxonomy-detail-page__empty">
@@ -385,40 +387,19 @@ useHead(() => ({
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   gap: 0.75rem;
 }
 
-.taxonomy-detail-page__element-link {
-  position: relative;
-  display: block;
-  padding: 1rem;
-  border: 1px solid var(--ui-border, rgb(229, 231, 235));
-  border-radius: 0.5rem;
-  text-decoration: none;
-  color: inherit;
-  transition: border-color 0.15s ease, background-color 0.15s ease;
+.taxonomy-detail-page__element-row {
+  scroll-margin-top: calc(var(--ui-header-height, 4rem) + 5.5rem);
+  display: flex;
 }
 
-.taxonomy-detail-page__element-link:hover,
-.taxonomy-detail-page__element-link:focus-visible {
-  border-color: var(--ui-primary, #10b981);
-  background: color-mix(in srgb, var(--ui-primary, #10b981) 4%, transparent);
+.taxonomy-detail-page__element-row > :deep(.dtpr-element) {
+  flex: 1;
 }
 
-.taxonomy-detail-page__element-icon {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  width: 1rem;
-  height: 1rem;
-  opacity: 0.5;
-}
-
-.taxonomy-detail-page__element-link:hover .taxonomy-detail-page__element-icon,
-.taxonomy-detail-page__element-link:focus-visible .taxonomy-detail-page__element-icon {
-  opacity: 1;
-}
 
 .taxonomy-detail-page__empty {
   margin: 0;
