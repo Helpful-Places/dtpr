@@ -34,5 +34,6 @@ export function transformDatachainType(
     categories: orderedCategoryIds,
     subchains: [],
     locales,
+    sources: [],
   }
 }

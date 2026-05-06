@@ -41,10 +41,31 @@ export function checkLocales(source: SchemaVersionSource): SemanticError[] {
     }
   }
 
-  // Categories: name, description (required non-empty)
+  // Optional localized field — only validate locale membership when entries exist.
+  const checkOptional = (values: LocaleValue[] | undefined, path: string) => {
+    if (!values || values.length === 0) return
+    for (const [i, v] of values.entries()) {
+      if (!allowed.has(v.locale as (typeof source.manifest.locales)[number])) {
+        findings.push(
+          err('LOCALE_NOT_ALLOWED', `Locale '${v.locale}' not in manifest allow-list`, {
+            path: `${path}[${i}].locale`,
+            fix_hint: `Use one of [${[...allowed].join(', ')}] or add '${v.locale}' to manifest.locales.`,
+          }),
+        )
+      }
+    }
+  }
+
+  // Categories: name, description (required non-empty); prompt/authoring_guidance/examples (optional locale check)
   for (const [ci, cat] of source.categories.entries()) {
     check(cat.name, `categories[${ci}].name`, 'name')
     check(cat.description, `categories[${ci}].description`, 'description')
+    checkOptional(cat.prompt, `categories[${ci}].prompt`)
+    checkOptional(cat.authoring_guidance, `categories[${ci}].authoring_guidance`)
+    for (const [exi, ex] of cat.examples.entries()) {
+      checkOptional(ex.scenario, `categories[${ci}].examples[${exi}].scenario`)
+      checkOptional(ex.narrative, `categories[${ci}].examples[${exi}].narrative`)
+    }
     if (cat.context) {
       check(cat.context.name, `categories[${ci}].context.name`, 'context.name')
       check(cat.context.description, `categories[${ci}].context.description`, 'context.description')
@@ -59,11 +80,18 @@ export function checkLocales(source: SchemaVersionSource): SemanticError[] {
     }
   }
 
-  // Elements: title, description (required non-empty); element-level
+  // Elements: title, description (required non-empty); citation/
+  // authoring_guidance/examples (optional locale check); element-level
   // context (optional override) localized strings.
   for (const [ei, el] of source.elements.entries()) {
     check(el.title, `elements[${ei}].title`, 'title')
     check(el.description, `elements[${ei}].description`, 'description')
+    checkOptional(el.citation, `elements[${ei}].citation`)
+    checkOptional(el.authoring_guidance, `elements[${ei}].authoring_guidance`)
+    for (const [exi, ex] of el.examples.entries()) {
+      checkOptional(ex.scenario, `elements[${ei}].examples[${exi}].scenario`)
+      checkOptional(ex.narrative, `elements[${ei}].examples[${exi}].narrative`)
+    }
     if (el.context) {
       check(el.context.name, `elements[${ei}].context.name`, 'context.name')
       check(el.context.description, `elements[${ei}].context.description`, 'context.description')

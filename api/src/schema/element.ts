@@ -2,6 +2,8 @@ import { z } from 'zod'
 import { LocaleValueArraySchema } from './locale.ts'
 import { VariableSchema } from './variable.ts'
 import { ContextSchema } from './context.ts'
+import { ProvenanceRefSchema } from './provenance.ts'
+import { ExampleSchema } from './example.ts'
 
 /**
  * An element — a reusable tile that can be placed in a category.
@@ -37,8 +39,23 @@ export const ElementSchema = z
       'Longer description. May reference variables via {{variable_id}} (rule 8).',
     ),
     citation: LocaleValueArraySchema.default([]).describe(
-      'Optional citation/source text, one entry per locale. Seeded empty during the 2026-04-16 port.',
+      'DEPRECATED. Free-text citation/source string per locale; superseded by `sources` (structured ProvenanceRef[]). Kept for one beta to allow content migration; will be removed before the next stable release.',
     ),
+    authoring_guidance: LocaleValueArraySchema.default([]).describe(
+      'Longer author-facing help text — when to pick this element vs a sibling, edge cases, disambiguation cues. Not rendered on public datachains.',
+    ),
+    examples: z
+      .array(ExampleSchema)
+      .default([])
+      .describe(
+        'Optional author-facing examples showing how this element is used in real deployments. Not rendered on public datachains.',
+      ),
+    sources: z
+      .array(ProvenanceRefSchema)
+      .default([])
+      .describe(
+        'Optional schema-design provenance: the research, framework sections, or prior art that justify this element. Replaces the legacy `citation` field with a structured shape.',
+      ),
     symbol_id: z
       .string()
       .regex(/^[a-zA-Z0-9_-]+$/)

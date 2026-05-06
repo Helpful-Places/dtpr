@@ -113,6 +113,9 @@ export function transformElement(
     title,
     description,
     citation: [],
+    authoring_guidance: [],
+    examples: [],
+    sources: [],
     symbol_id: symbolId,
     variables: [],
   }

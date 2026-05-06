@@ -1,7 +1,13 @@
 version: ai@2026-05-06-beta
 status: beta
-created_at: "2026-05-06T00:00:00.000Z"
-notes: Drafted from ai@2026-04-27-beta
+created_at: "2026-05-06T20:23:42.963Z"
+notes: |
+  Structural metadata pass — adds shared ProvenanceRef, sources[] on
+  DatachainType/Category/Element/InstanceElement, authoring_guidance and
+  examples[] on Category/Element. Element.citation deprecated in favor of
+  Element.sources (kept valid for one beta). Also lands the icon
+  design-pass priority queue from .context/icon-design-pass.md (20 SVGs
+  revised to the post-PR-#281 house style).
 content_hash: sha256-0000000000000000000000000000000000000000000000000000000000000000
 locales:
   - en
