@@ -1,0 +1,55 @@
+id: perceptive_mode
+category_id: functional_modes
+title:
+  - locale: en
+    value: Perceptive — senses
+  - locale: es
+    value: Perceptivo — percibe
+  - locale: fr
+    value: Perceptif — perçoit
+  - locale: pt
+    value: Perceptivo — perceciona
+description:
+  - locale: en
+    value: >-
+      Senses — turns raw camera, microphone, or scanned-document signals into structured detections, transcriptions, or
+      extracted fields. The system reads pixels, audio, or document images and returns things the rest of the
+      pipeline can use. Examples: detecting a vehicle in a camera frame, transcribing a spoken sentence, reading the
+      fields off a paper form.
+  - locale: es
+    value: >-
+      Percibe — convierte señales en bruto de cámara, micrófono o documentos escaneados en detecciones estructuradas,
+      transcripciones o campos extraídos. El sistema lee píxeles, audio o imágenes de documentos y devuelve resultados
+      que el resto del flujo puede usar. Ejemplos: detectar un vehículo en un fotograma de cámara, transcribir una
+      frase hablada, leer los campos de un formulario en papel.
+  - locale: fr
+    value: >-
+      Perçoit — transforme des signaux bruts de caméra, de microphone ou de documents numérisés en détections
+      structurées, en transcriptions ou en champs extraits. Le système lit des pixels, de l'audio ou des images de
+      documents et renvoie des éléments utilisables par la suite du pipeline. Exemples : détecter un véhicule dans une
+      image, transcrire une phrase parlée, lire les champs d'un formulaire papier.
+  - locale: pt
+    value: >-
+      Perceciona — transforma sinais brutos de câmara, microfone ou documentos digitalizados em deteções estruturadas,
+      transcrições ou campos extraídos. O sistema lê píxeis, áudio ou imagens de documentos e devolve elementos que o
+      resto do pipeline pode utilizar. Exemplos: detetar um veículo num fotograma de câmara, transcrever uma frase
+      falada, ler os campos de um formulário em papel.
+citation:
+  - locale: en
+    value: >-
+      Verb framing ("senses") and the six-mode partition adapted from Narain Jashanmal, *AI Taxonomy — An Operational
+      Framework for Precision in AI Discourse*, v1.1, January 2026. https://dropleaf.app/d/AlXez8scbd
+  - locale: es
+    value: >-
+      El verbo orientador ("percibe") y la partición en seis modos están adaptados de Narain Jashanmal, *AI Taxonomy —
+      An Operational Framework for Precision in AI Discourse*, v1.1, enero de 2026. https://dropleaf.app/d/AlXez8scbd
+  - locale: fr
+    value: >-
+      Le verbe-cadre (« perçoit ») et la partition en six modes sont adaptés de Narain Jashanmal, *AI Taxonomy — An
+      Operational Framework for Precision in AI Discourse*, v1.1, janvier 2026. https://dropleaf.app/d/AlXez8scbd
+  - locale: pt
+    value: >-
+      O verbo-âncora ("perceciona") e a partição em seis modos foram adaptados de Narain Jashanmal, *AI Taxonomy — An
+      Operational Framework for Precision in AI Discourse*, v1.1, janeiro de 2026. https://dropleaf.app/d/AlXez8scbd
+symbol_id: mode_perceptive
+variables: []

@@ -1,0 +1,86 @@
+id: physical_harm
+category_id: risks_mitigation
+title:
+  - locale: en
+    value: Physical harm
+  - locale: es
+    value: Daño físico
+  - locale: fr
+    value: Préjudice physique
+  - locale: km
+    value: គ្រោះថ្នាក់ផ្នែករាងកាយ
+  - locale: pt
+    value: Dano físico
+  - locale: tl
+    value: Pisikal na pinsala
+description:
+  - locale: en
+    value: >-
+      The risk that the AI system's outputs lead to physical injury to individuals or damage to property. This includes
+      risks from autonomous vehicles, robotic actuation, faulty navigation guidance, or critical-infrastructure errors
+      that put bodies or property in harm's way. Mitigations may include rigorous safety testing, fail-safe defaults,
+      geofencing of hazardous behavior, and human oversight of high-stakes physical actions.
+  - locale: es
+    value: >-
+      El riesgo de que los resultados del sistema de IA provoquen lesiones físicas a personas o daños a la propiedad.
+      Esto incluye riesgos de vehículos autónomos, accionamiento robótico, orientación de navegación defectuosa o
+      errores en infraestructuras críticas que ponen en peligro cuerpos o bienes. Las medidas de mitigación pueden
+      incluir pruebas de seguridad rigurosas, valores predeterminados a prueba de fallos, geocercas para comportamientos
+      peligrosos y supervisión humana de las acciones físicas de alto riesgo.
+  - locale: fr
+    value: >-
+      Le risque que les résultats du système d'IA entraînent des blessures physiques pour des personnes ou des dommages
+      matériels. Cela inclut les risques liés aux véhicules autonomes, à l'actionnement robotique, à des indications de
+      navigation erronées ou à des erreurs d'infrastructures critiques mettant en danger des corps ou des biens. Les
+      mesures d'atténuation peuvent inclure des tests de sécurité rigoureux, des paramètres par défaut à sécurité
+      intégrée, le géorepérage des comportements dangereux et la supervision humaine des actions physiques à enjeux
+      élevés.
+  - locale: km
+    value: >-
+      ហានិភ័យដែលលទ្ធផលរបស់ប្រព័ន្ធ AI នាំឱ្យមានការរងរបួសដល់រាងកាយចំពោះបុគ្គល ឬការខូចខាតដល់ទ្រព្យសម្បត្តិ។
+      នេះរួមបញ្ចូលទាំងហានិភ័យពីយានយន្តស្វ័យប្រវត្តិ ការផ្លាស់ប្តូររ៉ូបូត ការណែនាំការរុករកមិនត្រឹមត្រូវ
+      ឬកំហុសហេដ្ឋារចនាសម្ព័ន្ធសំខាន់ៗដែលដាក់រាងកាយ ឬទ្រព្យសម្បត្តិក្នុងគ្រោះថ្នាក់។
+      ការបន្ធូរបន្ថយអាចរួមមានការសាកល្បងសុវត្ថិភាពយ៉ាងម៉ត់ចត់ ការកំណត់លំនាំដើមមានសុវត្ថិភាព
+      ការដាក់ព្រំដែនភូមិសាស្ត្រលើឥរិយាបថគ្រោះថ្នាក់
+      និងការត្រួតពិនិត្យដោយមនុស្សលើសកម្មភាពរូបវន្តដែលមានហានិភ័យខ្ពស់។
+  - locale: pt
+    value: >-
+      O risco de que as saídas do sistema de IA causem lesões físicas a pessoas ou danos à propriedade. Isso inclui
+      riscos de veículos autônomos, atuação robótica, orientação de navegação defeituosa ou erros em infraestruturas
+      críticas que coloquem corpos ou bens em perigo. As mitigações podem incluir testes de segurança rigorosos,
+      padrões à prova de falhas, geocercas para comportamentos perigosos e supervisão humana de ações físicas de alto
+      risco.
+  - locale: tl
+    value: >-
+      Ang panganib na ang mga output ng AI system ay magdulot ng pisikal na pinsala sa mga indibidwal o pinsala sa
+      ari-arian. Kabilang dito ang mga panganib mula sa mga awtonomong sasakyan, robotic actuation, maling gabay sa
+      pag-navigate, o mga pagkakamali sa kritikal na imprastraktura na naglalagay sa katawan o ari-arian sa panganib.
+      Maaaring kabilang sa mga mitigasyon ang mahigpit na pagsubok sa kaligtasan, fail-safe na mga default, geofencing
+      ng mapanganib na pag-uugali, at human oversight ng mga pisikal na aksyon na may malaking panganib.
+citation:
+  - locale: en
+    value: >-
+      Adapted from AIAAIC harm type "Physical" — Abercrombie et al. (2024), A Collaborative, Human-Centred Taxonomy of
+      AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+  - locale: es
+    value: >-
+      Adaptado del tipo de daño AIAAIC "Físico" — Abercrombie et al. (2024), A Collaborative, Human-Centred Taxonomy of
+      AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+  - locale: fr
+    value: >-
+      Adapté du type de préjudice AIAAIC « Physique » — Abercrombie et al. (2024), A Collaborative, Human-Centred
+      Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+  - locale: km
+    value: >-
+      សម្របតាមប្រភេទគ្រោះថ្នាក់ AIAAIC "ផ្នែករាងកាយ" — Abercrombie et al. (2024), A Collaborative, Human-Centred Taxonomy
+      of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+  - locale: pt
+    value: >-
+      Adaptado do tipo de dano AIAAIC "Físico" — Abercrombie et al. (2024), A Collaborative, Human-Centred Taxonomy of
+      AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+  - locale: tl
+    value: >-
+      Hango sa uri ng pinsalang AIAAIC na "Pisikal" — Abercrombie et al. (2024), A Collaborative, Human-Centred
+      Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+symbol_id: risks_physical
+variables: []

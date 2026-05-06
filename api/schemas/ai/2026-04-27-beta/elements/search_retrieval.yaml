@@ -1,0 +1,56 @@
+id: search_retrieval
+category_id: processing
+title:
+  - locale: en
+    value: Search & Retrieval
+  - locale: es
+    value: Búsqueda y recuperación
+  - locale: fr
+    value: Recherche et récupération
+  - locale: km
+    value: ការស្វែងរក និងការទាញយក
+  - locale: pt
+    value: Pesquisa e recuperação
+  - locale: tl
+    value: Paghahanap at Pagkuha
+description:
+  - locale: en
+    value: >-
+      AI systems that find and surface relevant content from a body of documents, records, or media in response to a
+      query. Includes semantic search, vector retrieval, and retrieval-augmented generation (RAG) pipelines that feed
+      relevant passages into a language model. Used in document QA, public-records lookup, and library or archive
+      search.
+  - locale: es
+    value: >-
+      Sistemas de IA que localizan y muestran contenido relevante en un conjunto de documentos, registros o medios en
+      respuesta a una consulta. Incluye búsqueda semántica, recuperación vectorial y canalizaciones de generación
+      aumentada por recuperación (RAG) que alimentan pasajes relevantes a un modelo de lenguaje. Se usa en preguntas y
+      respuestas sobre documentos, consulta de registros públicos y búsqueda en bibliotecas o archivos.
+  - locale: fr
+    value: >-
+      Systèmes d'IA qui trouvent et présentent du contenu pertinent dans un ensemble de documents, dossiers ou médias
+      en réponse à une requête. Inclut la recherche sémantique, la récupération vectorielle et les pipelines de
+      génération augmentée par récupération (RAG) qui injectent des passages pertinents dans un modèle de langage.
+      Utilisé dans la QA documentaire, la consultation de registres publics et la recherche en bibliothèque ou en
+      archives.
+  - locale: km
+    value: >-
+      ប្រព័ន្ធ AI ដែលរកនិងបង្ហាញខ្លឹមសារពាក់ព័ន្ធពីឯកសារ កំណត់ត្រា ឬប្រព័ន្ធផ្សព្វផ្សាយដើម្បីឆ្លើយតបនឹងសំណួរ។
+      រួមមានការស្វែងរកអត្ថន័យ ការទាញវ៉ិចទ័រ និងបណ្តាញបង្កើតពង្រឹងការទាញ (RAG)
+      ដែលបញ្ចូលអត្ថបទពាក់ព័ន្ធទៅក្នុងគំរូភាសា។
+      ប្រើក្នុងការសួរ-ឆ្លើយឯកសារ ការស្វែងរកកំណត់ត្រាសាធារណៈ និងការស្វែងរកក្នុងបណ្ណាល័យ ឬប័ណ្ណសារ។
+  - locale: pt
+    value: >-
+      Sistemas de IA que encontram e apresentam conteúdo relevante em um conjunto de documentos, registros ou mídia em
+      resposta a uma consulta. Inclui pesquisa semântica, recuperação vetorial e pipelines de geração aumentada por
+      recuperação (RAG) que alimentam passagens relevantes em um modelo de linguagem. Usado em perguntas e respostas
+      sobre documentos, consulta de registros públicos e busca em bibliotecas ou arquivos.
+  - locale: tl
+    value: >-
+      Mga AI system na naghahanap at naglalabas ng kaugnay na nilalaman mula sa mga dokumento, talaan, o media bilang
+      tugon sa isang query. Kasama ang semantic search, vector retrieval, at retrieval-augmented generation (RAG) na
+      pipelines na nagbibigay ng kaugnay na passage sa isang language model. Ginagamit sa document QA, paghahanap ng
+      pampublikong rekord, at paghahanap sa library o archive.
+citation: []
+symbol_id: connectivity
+variables: []

@@ -1,0 +1,85 @@
+id: autonomy_loss
+category_id: risks_mitigation
+title:
+  - locale: en
+    value: Loss of autonomy
+  - locale: es
+    value: Pérdida de autonomía
+  - locale: fr
+    value: Perte d'autonomie
+  - locale: km
+    value: ការបាត់បង់ស្វ័យភាព
+  - locale: pt
+    value: Perda de autonomia
+  - locale: tl
+    value: Pagkawala ng awtonomiya
+description:
+  - locale: en
+    value: >-
+      The risk that the AI system limits a person's ability to make their own decisions, control their identity, or
+      choose freely. This includes risks of restricted access to alternatives, deceptive design that nudges decisions
+      toward a particular outcome, and lack of meaningful consent. Mitigations may include opt-out mechanisms,
+      transparent recommendations, defaults that protect agency, and human review of consequential decisions.
+  - locale: es
+    value: >-
+      El riesgo de que el sistema de IA limite la capacidad de una persona para tomar sus propias decisiones, controlar
+      su identidad o elegir libremente. Esto incluye riesgos de acceso restringido a alternativas, diseño engañoso que
+      orienta las decisiones hacia un resultado particular y falta de consentimiento significativo. Las medidas de
+      mitigación pueden incluir mecanismos de exclusión voluntaria, recomendaciones transparentes, valores
+      predeterminados que protejan la agencia y revisión humana de las decisiones consecuentes.
+  - locale: fr
+    value: >-
+      Le risque que le système d'IA limite la capacité d'une personne à prendre ses propres décisions, à contrôler son
+      identité ou à choisir librement. Cela inclut les risques d'accès restreint à des alternatives, de conception
+      trompeuse qui oriente les décisions vers un résultat particulier et d'absence de consentement significatif. Les
+      mesures d'atténuation peuvent inclure des mécanismes de retrait, des recommandations transparentes, des
+      paramètres par défaut qui protègent l'agentivité et un examen humain des décisions importantes.
+  - locale: km
+    value: >-
+      ហានិភ័យដែលប្រព័ន្ធ AI កំណត់សមត្ថភាពរបស់បុគ្គលក្នុងការសម្រេចចិត្តដោយខ្លួនឯង គ្រប់គ្រងអត្តសញ្ញាណរបស់ខ្លួន
+      ឬជ្រើសរើសដោយសេរី។ នេះរួមបញ្ចូលទាំងហានិភ័យនៃការដាក់កម្រិតការចូលប្រើជម្រើសផ្សេងទៀត
+      ការរចនាបោកប្រាស់ដែលរុញច្រានការសម្រេចចិត្តទៅរកលទ្ធផលជាក់លាក់ និងការខ្វះការយល់ព្រមដ៏មានន័យ។
+      ការបន្ធូរបន្ថយអាចរួមមានយន្តការដកខ្លួនចេញ ការផ្តល់អនុសាសន៍ប្រកបដោយតម្លាភាព
+      ការកំណត់លំនាំដើមដែលការពារភ្នាក់ងារភាព និងការត្រួតពិនិត្យដោយមនុស្សលើការសម្រេចចិត្តសំខាន់។
+  - locale: pt
+    value: >-
+      O risco de que o sistema de IA limite a capacidade de uma pessoa de tomar suas próprias decisões, controlar sua
+      identidade ou escolher livremente. Isso inclui riscos de acesso restrito a alternativas, design enganoso que
+      conduz as decisões para um resultado específico e ausência de consentimento significativo. As mitigações podem
+      incluir mecanismos de exclusão, recomendações transparentes, padrões que protejam a agência e revisão humana de
+      decisões consequentes.
+  - locale: tl
+    value: >-
+      Ang panganib na limitahan ng AI system ang kakayahan ng isang tao na gumawa ng sariling mga desisyon, kontrolin
+      ang kanilang pagkakakilanlan, o malayang pumili. Kabilang dito ang mga panganib ng paghihigpit sa pag-access sa
+      mga alternatibo, mapanlinlang na disenyo na nagtutulak ng mga desisyon patungo sa isang partikular na resulta, at
+      kakulangan ng makabuluhang pahintulot. Maaaring kabilang sa mga mitigasyon ang mga mekanismo ng opt-out,
+      transparent na mga rekomendasyon, mga default na nagpoprotekta sa agency, at pagsusuri ng tao sa mahahalagang
+      desisyon.
+citation:
+  - locale: en
+    value: >-
+      Adapted from AIAAIC harm type "Autonomy" — Abercrombie et al. (2024), A Collaborative, Human-Centred Taxonomy of
+      AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+  - locale: es
+    value: >-
+      Adaptado del tipo de daño AIAAIC "Autonomía" — Abercrombie et al. (2024), A Collaborative, Human-Centred Taxonomy
+      of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+  - locale: fr
+    value: >-
+      Adapté du type de préjudice AIAAIC « Autonomie » — Abercrombie et al. (2024), A Collaborative, Human-Centred
+      Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+  - locale: km
+    value: >-
+      សម្របតាមប្រភេទគ្រោះថ្នាក់ AIAAIC "ស្វ័យភាព" — Abercrombie et al. (2024), A Collaborative, Human-Centred Taxonomy
+      of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+  - locale: pt
+    value: >-
+      Adaptado do tipo de dano AIAAIC "Autonomia" — Abercrombie et al. (2024), A Collaborative, Human-Centred Taxonomy
+      of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+  - locale: tl
+    value: >-
+      Hango sa uri ng pinsalang AIAAIC na "Awtonomiya" — Abercrombie et al. (2024), A Collaborative, Human-Centred
+      Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+symbol_id: risks_autonomy
+variables: []

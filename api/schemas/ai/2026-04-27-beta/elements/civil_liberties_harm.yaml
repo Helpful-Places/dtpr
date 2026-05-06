@@ -1,0 +1,88 @@
+id: civil_liberties_harm
+category_id: risks_mitigation
+title:
+  - locale: en
+    value: Civil liberties harm
+  - locale: es
+    value: Daño a las libertades civiles
+  - locale: fr
+    value: Atteinte aux libertés civiles
+  - locale: km
+    value: គ្រោះថ្នាក់សិទ្ធិសេរីភាពពលរដ្ឋ
+  - locale: pt
+    value: Dano às liberdades civis
+  - locale: tl
+    value: Pinsala sa kalayaang sibil
+description:
+  - locale: en
+    value: >-
+      The risk that the AI system compromises fundamental human rights and civil liberties — speech, assembly,
+      movement, due process, or freedom from arbitrary surveillance. This includes risks from mass facial recognition,
+      predictive policing, censorship of lawful expression, and chilling effects on protest. Mitigations may include
+      strict purpose limits, judicial or independent oversight, narrow data retention, and human-rights impact
+      assessments before deployment.
+  - locale: es
+    value: >-
+      El riesgo de que el sistema de IA comprometa los derechos humanos fundamentales y las libertades civiles —
+      expresión, reunión, circulación, debido proceso o libertad frente a la vigilancia arbitraria. Esto incluye
+      riesgos de reconocimiento facial masivo, vigilancia policial predictiva, censura de la expresión lícita y
+      efectos disuasorios sobre la protesta. Las medidas de mitigación pueden incluir límites estrictos de finalidad,
+      supervisión judicial o independiente, retención limitada de datos y evaluaciones de impacto sobre los derechos
+      humanos antes del despliegue.
+  - locale: fr
+    value: >-
+      Le risque que le système d'IA compromette les droits humains fondamentaux et les libertés civiles — expression,
+      réunion, circulation, procédure équitable ou protection contre la surveillance arbitraire. Cela inclut les
+      risques liés à la reconnaissance faciale de masse, à la police prédictive, à la censure de l'expression légale
+      et aux effets dissuasifs sur la contestation. Les mesures d'atténuation peuvent inclure des limites strictes de
+      finalité, une supervision judiciaire ou indépendante, une rétention de données restreinte et des évaluations
+      d'impact sur les droits humains avant le déploiement.
+  - locale: km
+    value: >-
+      ហានិភ័យដែលប្រព័ន្ធ AI បំពានសិទ្ធិមនុស្សជាមូលដ្ឋាន និងសេរីភាពពលរដ្ឋ — ការនិយាយ ការប្រមូលផ្តុំ ការផ្លាស់ប្តូរ
+      ដំណើរការយុត្តិធម៌ ឬសេរីភាពពីការឃ្លាំមើលដោយបំពាន។ នេះរួមបញ្ចូលហានិភ័យពីការសម្គាល់មុខធំ
+      ប៉ូលីសព្យាករណ៍ ការចាក់សោការបញ្ចេញមតិស្របច្បាប់ និងផលប៉ះពាល់ត្រជាក់លើការតវ៉ា។ ការបន្ធូរបន្ថយអាចរួមមានដែនកំណត់
+      គោលបំណងតឹងរ៉ឹង ការត្រួតពិនិត្យតុលាការ ឬឯករាជ្យ ការរក្សាទុកទិន្នន័យតូចចង្អៀត
+      និងការវាយតម្លៃផលប៉ះពាល់សិទ្ធិមនុស្សមុនពេលដាក់ឱ្យដំណើរការ។
+  - locale: pt
+    value: >-
+      O risco de que o sistema de IA comprometa direitos humanos fundamentais e liberdades civis — expressão, reunião,
+      movimentação, devido processo ou liberdade contra vigilância arbitrária. Isso inclui riscos de reconhecimento
+      facial em massa, policiamento preditivo, censura de expressão legal e efeitos inibidores sobre protestos. As
+      mitigações podem incluir limites estritos de finalidade, supervisão judicial ou independente, retenção limitada
+      de dados e avaliações de impacto sobre direitos humanos antes da implantação.
+  - locale: tl
+    value: >-
+      Ang panganib na masira ng AI system ang mga pangunahing karapatang pantao at kalayaang sibil — pagsasalita,
+      pagtitipon, paggalaw, due process, o kalayaan mula sa arbitraryong surveillance. Kabilang dito ang mga panganib
+      mula sa mass facial recognition, predictive policing, censorship ng legal na pagpapahayag, at chilling effects sa
+      mga protesta. Maaaring kabilang sa mga mitigasyon ang mahigpit na mga limitasyon sa layunin, judicial o
+      independyenteng oversight, makitid na pagpapanatili ng data, at human rights impact assessments bago ang
+      deployment.
+citation:
+  - locale: en
+    value: >-
+      Adapted from AIAAIC harm type "Human Rights & Civil Liberties" — Abercrombie et al. (2024), A Collaborative,
+      Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+  - locale: es
+    value: >-
+      Adaptado del tipo de daño AIAAIC "Derechos humanos y libertades civiles" — Abercrombie et al. (2024),
+      A Collaborative, Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+  - locale: fr
+    value: >-
+      Adapté du type de préjudice AIAAIC « Droits humains et libertés civiles » — Abercrombie et al. (2024),
+      A Collaborative, Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+  - locale: km
+    value: >-
+      សម្របតាមប្រភេទគ្រោះថ្នាក់ AIAAIC "សិទ្ធិមនុស្ស និងសេរីភាពពលរដ្ឋ" — Abercrombie et al. (2024), A Collaborative,
+      Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+  - locale: pt
+    value: >-
+      Adaptado do tipo de dano AIAAIC "Direitos humanos e liberdades civis" — Abercrombie et al. (2024),
+      A Collaborative, Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+  - locale: tl
+    value: >-
+      Hango sa uri ng pinsalang AIAAIC na "Karapatang Pantao at Kalayaang Sibil" — Abercrombie et al. (2024),
+      A Collaborative, Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+symbol_id: risks_civil-liberties
+variables: []

@@ -1,0 +1,39 @@
+id: input_generated_content
+category_id: input_dataset
+title:
+  - locale: en
+    value: Generated content
+  - locale: es
+    value: Contenido generado
+  - locale: fr
+    value: Contenu généré
+  - locale: pt
+    value: Conteúdo gerado
+description:
+  - locale: en
+    value: >-
+      Text, images, audio, or video that another AI made. The AI takes in this synthetic content and processes it
+      further. Examples: an LLM-written summary fed into a translator, a generated photo passed to a moderation
+      model, a text-to-speech clip routed to an audio system.
+  - locale: es
+    value: >-
+      Texto, imágenes, audio o vídeo creados por otra IA. La IA recibe este contenido sintético y lo procesa más.
+      Ejemplos: un resumen escrito por un LLM enviado a un traductor, una foto generada pasada a un modelo de
+      moderación, un clip de texto a voz enviado a un sistema de audio.
+  - locale: fr
+    value: >-
+      Texte, images, audio ou vidéo créés par une autre IA. L'IA reçoit ce contenu synthétique et le traite encore.
+      Exemples : un résumé écrit par un LLM transmis à un traducteur, une photo générée passée à un modèle de
+      modération, un extrait synthèse vocale acheminé vers un système audio.
+  - locale: pt
+    value: >-
+      Texto, imagens, áudio ou vídeo criados por outra IA. A IA recebe este conteúdo sintético e processa-o ainda
+      mais. Exemplos: um resumo escrito por um LLM entregue a um tradutor, uma foto gerada enviada a um modelo de
+      moderação, um clip de texto-para-fala encaminhado para um sistema de áudio.
+citation:
+  - locale: en
+    value: >-
+      Output class "content" from EU AI Act Article 3(1); synthetic-content disclosure under Art. 50 and NIST AI
+      100-4.
+symbol_id: generated_content
+variables: []

@@ -59,74 +59,74 @@ context:
       value: Personal na Impormasyon
   description:
     - locale: en
-      value: Whether the runtime input contains personal information, and how identifiable that information is.
+      value: How identifiable the data is when this system processes it. The element name says what the data is about; this colour says how directly it identifies a person.
     - locale: es
-      value: Si la entrada en tiempo de ejecución contiene información personal y cuán identificable es esa información.
+      value: Qué tan identificable es la información cuando este sistema la procesa. El nombre del elemento indica de qué trata la información; este color indica qué tan directamente identifica a una persona.
     - locale: fr
-      value: Si l’entrée d’exécution contient des informations personnelles et dans quelle mesure ces informations sont identifiables.
+      value: À quel point les données sont identifiables lorsque ce système les traite. Le nom de l’élément indique de quoi parlent les données ; cette couleur indique dans quelle mesure elles identifient directement une personne.
     - locale: km
-      value: ថាតើការបញ្ចូលនៅពេលដំណើរការមានព័ត៌មានផ្ទាល់ខ្លួនឬទេ ហើយព័ត៌មាននោះអាចកំណត់អត្តសញ្ញាណបានកម្រិតណា។
+      value: តើទិន្នន័យអាចកំណត់អត្តសញ្ញាណមនុស្សកម្រិតណានៅពេលប្រព័ន្ធនេះដំណើរការវា។ ឈ្មោះធាតុប្រាប់ថាតើទិន្នន័យនេះនិយាយអំពីអ្វី ហើយពណ៌នេះប្រាប់ថាតើវាកំណត់អត្តសញ្ញាណមនុស្សដោយផ្ទាល់កម្រិតណា។
     - locale: pt
-      value: Se a entrada em tempo de execução contém informações pessoais e quão identificáveis são essas informações.
+      value: Quão identificáveis são os dados quando este sistema os processa. O nome do elemento indica sobre o que são os dados; esta cor indica quão diretamente identificam uma pessoa.
     - locale: tl
-      value: Kung ang runtime input ay naglalaman ng personal na impormasyon, at kung gaano katukoy ang impormasyong iyon.
+      value: Gaano katukoy ang data kapag pinoproseso ito ng system na ito. Ang pangalan ng elemento ay nagsasabi kung tungkol saan ang data; ang kulay na ito ay nagsasabi kung gaano kadirekta nitong tinutukoy ang isang tao.
   values:
-    - id: none
+    - id: de_identified
       name:
         - locale: en
-          value: No personal information
+          value: Anonymous
         - locale: es
-          value: Sin información personal
+          value: Anónimo
         - locale: fr
-          value: Aucune information personnelle
-        - locale: km
-          value: គ្មានព័ត៌មានផ្ទាល់ខ្លួន
-        - locale: pt
-          value: Sem informações pessoais
-        - locale: tl
-          value: Walang personal na impormasyon
-      description:
-        - locale: en
-          value: No personal information enters this system at runtime.
-        - locale: es
-          value: No entra información personal en este sistema en tiempo de ejecución.
-        - locale: fr
-          value: Aucune information personnelle n’entre dans ce système à l’exécution.
-        - locale: km
-          value: គ្មានព័ត៌មានផ្ទាល់ខ្លួនចូលក្នុងប្រព័ន្ធនេះនៅពេលដំណើរការទេ។
-        - locale: pt
-          value: Nenhuma informação pessoal entra neste sistema em tempo de execução.
-        - locale: tl
-          value: Walang personal na impormasyon ang pumapasok sa system na ito sa runtime.
-      color: null
-    - id: anonymized
-      name:
-        - locale: en
-          value: Anonymized
-        - locale: es
-          value: Anonimizado
-        - locale: fr
-          value: Anonymisé
+          value: Anonyme
         - locale: km
           value: អនាមិក
         - locale: pt
-          value: Anonimizado
+          value: Anônimo
         - locale: tl
-          value: Anonymized
+          value: Anonymous
       description:
         - locale: en
-          value: Personal information is processed but stripped of identifiers before use.
+          value: Data about people with the link to who is broken. Stripped of identifiers, blurred, aggregated, or noised so this system can’t reasonably tie a record back to an individual.
         - locale: es
-          value: Se procesa información personal pero se eliminan los identificadores antes de su uso.
+          value: Información sobre personas con el vínculo a la identidad eliminado. Sin identificadores, difuminada, agregada o con ruido para que este sistema no pueda razonablemente vincular un registro a un individuo.
         - locale: fr
-          value: Les informations personnelles sont traitées mais privées d’identifiants avant utilisation.
+          value: Données concernant des personnes dont le lien à l’identité est rompu. Privées d’identifiants, floutées, agrégées ou bruitées pour que ce système ne puisse pas raisonnablement relier un enregistrement à un individu.
         - locale: km
-          value: ព័ត៌មានផ្ទាល់ខ្លួនត្រូវបានដំណើរការ ប៉ុន្តែត្រូវបានដកអត្តសញ្ញាណចេញមុនពេលប្រើប្រាស់។
+          value: ទិន្នន័យអំពីមនុស្ស ដែលការតភ្ជាប់ទៅអ្នកណាត្រូវបានកាត់ផ្តាច់។ ដកអត្តសញ្ញាណចេញ ធ្វើឱ្យព្រិល បង្រួម ឬបន្ថែមការរំខាន ដើម្បីឱ្យប្រព័ន្ធនេះមិនអាចភ្ជាប់កំណត់ត្រាមួយត្រឡប់ទៅបុគ្គលណាមួយបានឡើយ។
         - locale: pt
-          value: Informações pessoais são processadas, mas têm identificadores removidos antes do uso.
+          value: Dados sobre pessoas com o vínculo à identidade rompido. Sem identificadores, desfocados, agregados ou com ruído para que este sistema não consiga razoavelmente ligar um registro a um indivíduo.
         - locale: tl
-          value: Pinoproseso ang personal na impormasyon ngunit inaalisan ng mga identifier bago gamitin.
+          value: Data tungkol sa mga tao kung saan nasira ang ugnayan sa kung sino. Inalisan ng mga identifier, binura, pinagsama-sama, o dinaganan ng noise para hindi makonekta ng system na ito ang isang record sa isang indibidwal.
       color: "#4A90D9"
+    - id: pseudonymous
+      name:
+        - locale: en
+          value: Pseudonymous
+        - locale: es
+          value: Seudónimo
+        - locale: fr
+          value: Pseudonyme
+        - locale: km
+          value: ឈ្មោះក្លែងក្លាយ
+        - locale: pt
+          value: Pseudônimo
+        - locale: tl
+          value: Pseudonymous
+      description:
+        - locale: en
+          value: Each person’s data is tied to a token (hash, ID, template) that lets this system recognise the same person across events, but the token itself doesn’t reveal a name. Reidentification is possible with extra information.
+        - locale: es
+          value: Los datos de cada persona se vinculan a un token (hash, ID, plantilla) que permite a este sistema reconocer a la misma persona entre eventos, pero el token en sí no revela un nombre. La reidentificación es posible con información adicional.
+        - locale: fr
+          value: Les données de chaque personne sont liées à un jeton (hachage, identifiant, modèle) qui permet à ce système de reconnaître la même personne d’un événement à l’autre, mais le jeton lui-même ne révèle pas de nom. La réidentification est possible avec des informations supplémentaires.
+        - locale: km
+          value: ទិន្នន័យរបស់មនុស្សម្នាក់ៗត្រូវបានភ្ជាប់ទៅនឹងសញ្ញាសម្គាល់ (hash, ID, ទម្រង់) ដែលអនុញ្ញាតឱ្យប្រព័ន្ធនេះស្គាល់មនុស្សដដែលនៅពេលផ្សេងៗគ្នា ប៉ុន្តែសញ្ញាសម្គាល់ខ្លួនវាមិនបង្ហាញឈ្មោះទេ។ ការកំណត់អត្តសញ្ញាណឡើងវិញអាចធ្វើទៅបានជាមួយព័ត៌មានបន្ថែម។
+        - locale: pt
+          value: Os dados de cada pessoa estão ligados a um token (hash, ID, modelo) que permite a este sistema reconhecer a mesma pessoa entre eventos, mas o token em si não revela um nome. A reidentificação é possível com informações adicionais.
+        - locale: tl
+          value: Ang data ng bawat tao ay nakatali sa isang token (hash, ID, template) na nagpapahintulot sa system na ito na makilala ang parehong tao sa iba’t ibang pangyayari, ngunit ang token mismo ay hindi naglalabas ng pangalan. Posible ang muling pagkilala gamit ang karagdagang impormasyon.
+      color: "#9575CD"
     - id: identifiable
       name:
         - locale: en
@@ -143,46 +143,18 @@ context:
           value: Natutukoy
       description:
         - locale: en
-          value: Personal information is processed in a form that can identify a specific person.
+          value: The data either contains a direct identifier (name, address, account name, recognisable face or voice, plate number) or carries a token this system uses to look up legal identity during processing.
         - locale: es
-          value: La información personal se procesa de una forma que puede identificar a una persona específica.
+          value: La información contiene un identificador directo (nombre, dirección, nombre de cuenta, rostro o voz reconocible, matrícula) o lleva un token que este sistema usa para buscar la identidad legal durante el procesamiento.
         - locale: fr
-          value: Les informations personnelles sont traitées sous une forme qui peut identifier une personne spécifique.
+          value: Les données contiennent un identifiant direct (nom, adresse, nom de compte, visage ou voix reconnaissable, plaque d’immatriculation) ou portent un jeton que ce système utilise pour rechercher l’identité légale pendant le traitement.
         - locale: km
-          value: ព័ត៌មានផ្ទាល់ខ្លួនត្រូវបានដំណើរការក្នុងទម្រង់ដែលអាចកំណត់អត្តសញ្ញាណមនុស្សជាក់លាក់ម្នាក់។
+          value: ទិន្នន័យមានអត្តសញ្ញាណផ្ទាល់ (ឈ្មោះ អាសយដ្ឋាន ឈ្មោះគណនី មុខ ឬសំឡេងដែលអាចស្គាល់បាន លេខស្លាកយានយន្ត) ឬមានសញ្ញាសម្គាល់ដែលប្រព័ន្ធនេះប្រើដើម្បីស្វែងរកអត្តសញ្ញាណផ្លូវច្បាប់នៅពេលដំណើរការ។
         - locale: pt
-          value: Informações pessoais são processadas em uma forma que pode identificar uma pessoa específica.
+          value: Os dados contêm um identificador direto (nome, endereço, nome de conta, rosto ou voz reconhecível, placa) ou levam um token que este sistema usa para consultar a identidade legal durante o processamento.
         - locale: tl
-          value: Ang personal na impormasyon ay pinoproseso sa anyo na maaaring tukuyin ang isang partikular na tao.
+          value: Ang data ay naglalaman ng direktang identifier (pangalan, address, pangalan ng account, kilalang mukha o boses, plate number) o nagdadala ng token na ginagamit ng system na ito para hanapin ang legal na pagkakakilanlan habang nagpoproseso.
       color: "#FFD700"
-    - id: biometric
-      name:
-        - locale: en
-          value: Biometric
-        - locale: es
-          value: Biométrico
-        - locale: fr
-          value: Biométrique
-        - locale: km
-          value: ជីវមាត្រ
-        - locale: pt
-          value: Biométrico
-        - locale: tl
-          value: Biometric
-      description:
-        - locale: en
-          value: Biological identifiers (face, fingerprint, voice, gait) are processed.
-        - locale: es
-          value: Se procesan identificadores biológicos (rostro, huella dactilar, voz, marcha).
-        - locale: fr
-          value: Des identifiants biologiques (visage, empreinte digitale, voix, démarche) sont traités.
-        - locale: km
-          value: អត្តសញ្ញាណជីវសាស្ត្រ (មុខ ស្នាមដៃ សំឡេង ដំណើរ) ត្រូវបានដំណើរការ។
-        - locale: pt
-          value: Identificadores biológicos (rosto, impressão digital, voz, marcha) são processados.
-        - locale: tl
-          value: Pinoproseso ang biological identifiers (mukha, fingerprint, boses, lakad).
-      color: "#D9342F"
 element_variables:
   - id: additional_description
     label:

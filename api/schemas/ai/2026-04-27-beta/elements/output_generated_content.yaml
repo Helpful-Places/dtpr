@@ -1,0 +1,39 @@
+id: output_generated_content
+category_id: output_dataset
+title:
+  - locale: en
+    value: Generated content
+  - locale: es
+    value: Contenido generado
+  - locale: fr
+    value: Contenu généré
+  - locale: pt
+    value: Conteúdo gerado
+description:
+  - locale: en
+    value: >-
+      The AI produces new content — text, images, audio, or video that did not exist before. Examples: an LLM-written
+      service advisory shown on a sign, a synthesized voice announcement played over a public-address system, a
+      generated illustration on a digital kiosk.
+  - locale: es
+    value: >-
+      La IA produce contenido nuevo: texto, imágenes, audio o vídeo que antes no existían. Ejemplos: un aviso de
+      servicio escrito por un LLM mostrado en una pantalla, un anuncio con voz sintetizada por megafonía, una
+      ilustración generada en un kiosco digital.
+  - locale: fr
+    value: >-
+      L'IA produit du contenu nouveau : du texte, des images, de l'audio ou de la vidéo qui n'existaient pas
+      auparavant. Exemples : un avis de service rédigé par un LLM affiché sur un panneau, une annonce vocale
+      synthétisée diffusée par un système de sonorisation, une illustration générée sur une borne numérique.
+  - locale: pt
+    value: >-
+      A IA produz conteúdo novo — texto, imagens, áudio ou vídeo que antes não existia. Exemplos: um aviso de serviço
+      escrito por um LLM apresentado num painel, um anúncio com voz sintetizada num sistema público de som, uma
+      ilustração gerada num quiosque digital.
+citation:
+  - locale: en
+    value: >-
+      Output class "content" from EU AI Act Article 3(1); synthetic-content disclosure obligations under Art. 50;
+      provenance under NIST AI 100-4 and C2PA.
+symbol_id: generated_content
+variables: []

@@ -1,0 +1,35 @@
+id: output_about_behaviour
+category_id: output_dataset
+title:
+  - locale: en
+    value: About behaviour
+  - locale: es
+    value: Sobre el comportamiento
+  - locale: fr
+    value: À propos du comportement
+  - locale: pt
+    value: Sobre o comportamento
+description:
+  - locale: en
+    value: >-
+      The AI produces records of what people did — paths walked, items selected, dwell times, interaction patterns.
+      Examples: a weekly report of most-visited destinations, a session log of touchscreen interactions, an inferred
+      route someone took through a venue.
+  - locale: es
+    value: >-
+      La IA produce registros de lo que hicieron las personas: recorridos, artículos elegidos, tiempos de permanencia,
+      patrones de interacción. Ejemplos: un informe semanal de los destinos más visitados, un registro de sesión de
+      interacciones táctiles, una ruta inferida que alguien siguió por un recinto.
+  - locale: fr
+    value: >-
+      L'IA produit des registres de ce que les personnes ont fait : déplacements, articles choisis, temps de
+      présence, schémas d'interaction. Exemples : un rapport hebdomadaire des destinations les plus visitées, un
+      journal de session des interactions tactiles, un itinéraire inféré qu'une personne a emprunté dans un lieu.
+  - locale: pt
+    value: >-
+      A IA produz registos do que as pessoas fizeram — percursos, itens escolhidos, tempos de permanência, padrões de
+      interação. Exemplos: um relatório semanal dos destinos mais visitados, um registo de sessão de interações
+      táteis, uma rota inferida que alguém percorreu num recinto.
+citation: []
+symbol_id: about_behaviour
+variables: []

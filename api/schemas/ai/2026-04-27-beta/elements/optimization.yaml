@@ -2,53 +2,53 @@ id: optimization
 category_id: processing
 title:
   - locale: en
-    value: Optimization Algorithm
+    value: Optimization
   - locale: es
-    value: Algoritmo de optimización
+    value: Optimización
   - locale: fr
-    value: Algorithme d'optimisation
+    value: Optimisation
   - locale: km
-    value: ក្បួនដោះស្រាយការបង្កើនប្រសិទ្ធភាព
+    value: ការបង្កើនប្រសិទ្ធភាព
   - locale: pt
-    value: Algoritmo de otimização
+    value: Otimização
   - locale: tl
-    value: Algorithm ng Pag-optimize
+    value: Optimisasyon
 description:
   - locale: en
     value: >-
-      A mathematical process that finds the best solution from all possible solutions for a given problem, such as
-      determining the most efficient route, schedule, or resource allocation. These algorithms work by systematically
-      evaluating different possibilities to maximize or minimize specific outcomes like cost, time, or resources.
+      AI systems that search for the best assignment, route, schedule, or allocation under constraints. Includes
+      vehicle routing, transit signal timing, energy and HVAC scheduling, staff rostering, and resource allocation.
+      Works by exploring possibilities to maximize or minimize a stated objective such as cost, time, or emissions.
   - locale: es
     value: >-
-      Proceso matemático que encuentra la mejor solución entre todas las posibles para un problema dado, como determinar
-      la ruta, el horario o la asignación de recursos más eficientes. Estos algoritmos funcionan evaluando
-      sistemáticamente distintas posibilidades para maximizar o minimizar resultados específicos como el coste, el
-      tiempo o los recursos.
+      Sistemas de IA que buscan la mejor asignación, ruta, horario o distribución bajo restricciones. Incluye
+      enrutamiento de vehículos, sincronización de semáforos, programación energética y de climatización, planificación
+      de turnos y asignación de recursos. Funcionan explorando posibilidades para maximizar o minimizar un objetivo
+      como coste, tiempo o emisiones.
   - locale: fr
     value: >-
-      Un processus mathématique qui trouve la meilleure solution parmi toutes les solutions possibles pour un problème
-      donné, tel que la détermination de l'itinéraire, du calendrier ou de l'allocation des ressources les plus
-      efficaces. Ces algorithmes fonctionnent en évaluant systématiquement différentes possibilités pour maximiser ou
-      minimiser des résultats spécifiques tels que le coût, le temps ou les ressources.
+      Systèmes d'IA qui recherchent la meilleure affectation, le meilleur itinéraire, le meilleur horaire ou la
+      meilleure répartition sous contraintes. Inclut le routage des véhicules, la synchronisation des feux, la
+      planification énergétique et CVC, la planification du personnel et l'allocation de ressources. Fonctionne en
+      explorant des possibilités pour maximiser ou minimiser un objectif comme le coût, le temps ou les émissions.
   - locale: km
     value: >-
-      ដំណើរការគណិតវិទ្យាដែលស្វែងរកដំណោះស្រាយដ៏ល្អបំផុតពីដំណោះស្រាយដែលអាចធ្វើបានទាំងអស់សម្រាប់បញ្ហាដែលបានផ្តល់ឱ្យ
-      ដូចជាការកំណត់ផ្លូវដែលមានប្រសិទ្ធភាពបំផុត កាលវិភាគ ឬការបែងចែកធនធាន។
-      ក្បួនដោះស្រាយទាំងនេះដំណើរការដោយការវាយតម្លៃជាប្រព័ន្ធនូវលទ្ធភាពផ្សេងៗ ដើម្បីបង្កើន
-      ឬកាត់បន្ថយលទ្ធផលជាក់លាក់ដូចជាការចំណាយ ពេលវេលា ឬធនធានជាដើម។
+      ប្រព័ន្ធ AI ដែលស្វែងរកការចាត់តាំង ផ្លូវ កាលវិភាគ ឬការបែងចែកដ៏ល្អបំផុតក្រោមឧបសគ្គ។
+      រួមមានការចាត់ផ្លូវយានយន្ត ការកំណត់ពេលភ្លើងចរាចរណ៍ ការកំណត់កាលវិភាគថាមពលនិងម៉ាស៊ីនត្រជាក់
+      ការរៀបចំកាលវិភាគបុគ្គលិក និងការបែងចែកធនធាន។
+      ដំណើរការដោយស្វែងរកលទ្ធភាពដើម្បីបង្កើន ឬកាត់បន្ថយគោលដៅដូចជាការចំណាយ ពេលវេលា ឬការបញ្ចេញឧស្ម័ន។
   - locale: pt
     value: >-
-      Um processo matemático que encontra a melhor solução entre todas as soluções possíveis para um determinado
-      problema, como determinar a rota, o cronograma ou a alocação de recursos mais eficiente. Esses algoritmos
-      funcionam avaliando sistematicamente diferentes possibilidades para maximizar ou minimizar resultados específicos,
-      como custo, tempo ou recursos.
+      Sistemas de IA que buscam a melhor atribuição, rota, cronograma ou alocação sob restrições. Inclui roteamento de
+      veículos, sincronização de semáforos, programação energética e de climatização, escala de equipes e alocação de
+      recursos. Funcionam explorando possibilidades para maximizar ou minimizar um objetivo como custo, tempo ou
+      emissões.
   - locale: tl
     value: >-
-      Isang prosesong matematikal na nakakahanap ng pinakamahusay na solusyon mula sa lahat ng posibleng solusyon para
-      sa isang partikular na problema, tulad ng pagtukoy sa pinakamabisang ruta, iskedyul, o paglalaan ng mapagkukunan.
-      Gumagana ang mga algorithm na ito sa pamamagitan ng sistematikong pagsusuri ng iba't ibang mga posibilidad upang
-      i-maximize o i-minimize ang mga partikular na resulta tulad ng gastos, oras, o mga mapagkukunan.
+      Mga AI system na naghahanap ng pinakamahusay na assignment, ruta, iskedyul, o paglalaan sa ilalim ng mga
+      paghihigpit. Kabilang ang vehicle routing, traffic signal timing, iskedyul ng enerhiya at HVAC, paghahati ng
+      shift, at paglalaan ng mapagkukunan. Gumagana sa pamamagitan ng paggalugad ng mga posibilidad upang i-maximize
+      o i-minimize ang isang layunin tulad ng gastos, oras, o emisyon.
 citation: []
 symbol_id: processing_optimization-algorithm
 variables: []

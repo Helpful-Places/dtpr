@@ -1,0 +1,37 @@
+id: output_about_a_body
+category_id: output_dataset
+title:
+  - locale: en
+    value: About a body
+  - locale: es
+    value: Sobre un cuerpo
+  - locale: fr
+    value: À propos d'un corps
+  - locale: pt
+    value: Sobre um corpo
+description:
+  - locale: en
+    value: >-
+      The AI produces output containing biological signals from a person's body — face templates, voice embeddings,
+      gait vectors, gesture sequences. Examples: an enrolled face template stored downstream, a voice embedding for
+      later matching, a gait signature exported to another system.
+  - locale: es
+    value: >-
+      La IA produce una salida que contiene señales biológicas del cuerpo de una persona: plantillas faciales,
+      representaciones de voz, vectores de marcha, secuencias de gestos. Ejemplos: una plantilla facial registrada
+      almacenada aguas abajo, una representación de voz para coincidencia posterior, una firma de marcha exportada
+      a otro sistema.
+  - locale: fr
+    value: >-
+      L'IA produit une sortie contenant des signaux biologiques du corps d'une personne : modèles faciaux,
+      empreintes vocales, vecteurs de démarche, séquences de gestes. Exemples : un modèle facial enrôlé stocké en
+      aval, une empreinte vocale pour appariement ultérieur, une signature de démarche exportée vers un autre
+      système.
+  - locale: pt
+    value: >-
+      A IA produz uma saída que contém sinais biológicos do corpo de uma pessoa — modelos faciais, representações de
+      voz, vetores de marcha, sequências de gestos. Exemplos: um modelo facial registado armazenado a jusante, uma
+      representação de voz para correspondência posterior, uma assinatura de marcha exportada para outro sistema.
+citation: []
+symbol_id: about_a_body
+variables: []
