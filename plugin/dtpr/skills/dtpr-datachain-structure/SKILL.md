@@ -1,6 +1,6 @@
 ---
 name: dtpr-datachain-structure
-description: Critique or propose changes to the DTPR (Digital Trust for Places and Routines) datachain-type itself — which categories exist, which are required, and whether the whole shape captures a new system class. Use whenever a user wants to iterate on the meta-structure of a datachain-type rather than on one category's contents or one element. Triggers on phrases like "critique the taxonomy", "brainstorm DTPR structure", "how should DTPR handle this system shape", "should DTPR add a category", "does the datachain-type miss X", "restructure DTPR", "what categories is DTPR missing", or any request to reshape the category set or the datachain-type's requirements. Produces a Markdown proposal with Scenario / Gaps / Proposed changes + an inline Comprehension check + the `schema:new` handoff. For requests to draft or retire a single element, use `dtpr-element-design`; to audit one category's element collection for coherence, use `dtpr-category-audit`; to describe an AI system as a validated datachain-instance, use `dtpr-describe-system`; to grade existing content against the comprehension rubric, use `dtpr-comprehension-audit`.
+description: Critique or propose changes to the DTPR (Digital Trust for Places and Routines) datachain-type itself — which categories exist, which are required, the `manifest.locales` allow-list, and whether the whole shape captures a new system class. Use whenever a user wants to iterate on the meta-structure of a datachain-type rather than on one category's contents or one element. Triggers on phrases like "critique the taxonomy", "brainstorm DTPR structure", "how should DTPR handle this system shape", "should DTPR add a category", "does the datachain-type miss X", "restructure DTPR", "what categories is DTPR missing", "add a locale to the schema", "drop a locale", or any request to reshape the category set, the locale allow-list, or the datachain-type's requirements. Produces a Markdown proposal with Scenario / Gaps / Proposed changes + an inline Comprehension check + the `schema:new` handoff. For requests to draft or retire a single element, use `dtpr-element-design`; to audit one category's element collection for coherence, use `dtpr-category-audit`; to describe an AI system as a validated datachain-instance, use `dtpr-describe-system`; to grade existing content against the comprehension rubric, use `dtpr-comprehension-audit`; to translate existing content into the locales already declared in the manifest, use `dtpr-translate`.
 ---
 
 # Critique or reshape the DTPR datachain-type
@@ -17,18 +17,19 @@ Meta-structure means the datachain-type's own axes: the category set, per-catego
 - User identifies that a datachain-type's required-set misses a dimension the system under discussion actually has.
 - User asks "how should DTPR handle" a new system class in a way that implies the answer is structural, not element-level.
 
-If the user is asking about a single category's element collection, route to `dtpr-category-audit`. If the ask is "propose a new element" or "retire one element", route to `dtpr-element-design`. If the user is describing an AI system to turn into a `DatachainInstance`, route to `dtpr-describe-system`. If the user just wants comprehension grading on existing content, route to `dtpr-comprehension-audit`.
+If the user is asking about a single category's element collection, route to `dtpr-category-audit`. If the ask is "propose a new element" or "retire one element", route to `dtpr-element-design`. If the user is describing an AI system to turn into a `DatachainInstance`, route to `dtpr-describe-system`. If the user just wants comprehension grading on existing content, route to `dtpr-comprehension-audit`. If the user just wants to translate existing content into the locales already declared in the manifest, route to `dtpr-translate` — that is downstream of meta-structure, not part of it.
 
 ## Sibling routing
 
-This skill is one of five peers. Route elsewhere when the ask is not about meta-structure:
+This skill is one of six peers. Route elsewhere when the ask is not about meta-structure:
 
 - **`dtpr-describe-system`** — the user wants a validated DatachainInstance for a specific system. Any "describe this system as a datachain" framing belongs there.
 - **`dtpr-category-audit`** — the user wants to audit one category's element collection for coherence, overlap, or gaps within that category.
 - **`dtpr-element-design`** — the user wants to draft, retire, or replace a single element (title, description, symbol direction, variables).
 - **`dtpr-comprehension-audit`** — the user wants to grade existing content against the comprehension rubric without proposing changes.
+- **`dtpr-translate`** — the user wants to fill in non-English locale rows on existing content under the locale allow-list this skill governs. Adding or removing a locale from `manifest.locales` is a meta-structure change and stays here; translating into the locales the manifest already declares belongs to the sibling.
 
-When a meta-structure proposal surfaces a downstream need — new elements, a category audit, deeper comprehension grading — name the sibling in the closing Phase 6 handoff.
+When a meta-structure proposal surfaces a downstream need — new elements, a category audit, deeper comprehension grading, or a translation pass after a locale is added — name the sibling in the closing Phase 6 handoff.
 
 ## Security framing
 
@@ -126,6 +127,7 @@ Name the next step when the proposal implies work that belongs on another skill:
 - Proposed change implies a category audit (e.g., the Edit bullet reshapes a category that now needs internal coherence review) → **`dtpr-category-audit`**.
 - Proposal needs deeper comprehension grading beyond the inline block → **`dtpr-comprehension-audit`**.
 - User wants to describe an actual system using the proposed shape → **`dtpr-describe-system`** (after the schema revision lands).
+- Proposal adds a locale to `manifest.locales` and the user now wants existing English content backfilled in the new locale → **`dtpr-translate`** (after the schema revision lands).
 
 One sentence per handoff is enough.
 

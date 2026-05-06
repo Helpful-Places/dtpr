@@ -1,6 +1,6 @@
 ---
 name: dtpr-category-audit
-description: Audit one DTPR (Digital Trust for Places and Routines) category's element collection for coherence, overlap, and gaps. Use whenever a user scopes a question to a single category — its completeness, whether two elements overlap, whether a concept is missing, or whether the category lands well for a specific scenario. Triggers on phrases like "does DTPR cover", "what's missing from the schema", "accountable deep-dive", "is the ai__risks_mitigation category complete", "audit this category", "elements overlap in DTPR's X category", "gaps in ai__decision", or any request to grade one category's element inventory. Produces audit findings with a coverage map, overlap pairs, gap list, proposed element additions/edits/retirements, an inline Comprehension check, and a schema:new handoff command. For drafting a single new element's title/description/symbol, use `dtpr-element-design`; to critique the datachain-type shape (which categories exist, required vs optional), use `dtpr-datachain-structure`; to describe a specific AI system as a datachain, use `dtpr-describe-system`; for pure comprehension grading without schema edits, use `dtpr-comprehension-audit`.
+description: Audit one DTPR (Digital Trust for Places and Routines) category's element collection for coherence, overlap, and gaps. Use whenever a user scopes a question to a single category — its completeness, whether two elements overlap, whether a concept is missing, or whether the category lands well for a specific scenario. Triggers on phrases like "does DTPR cover", "what's missing from the schema", "accountable deep-dive", "is the ai__risks_mitigation category complete", "audit this category", "elements overlap in DTPR's X category", "gaps in ai__decision", or any request to grade one category's element inventory. Produces audit findings with a coverage map, overlap pairs, gap list, proposed element additions/edits/retirements, an inline Comprehension check, and a schema:new handoff command. For drafting a single new element's title/description/symbol, use `dtpr-element-design`; to critique the datachain-type shape (which categories exist, required vs optional), use `dtpr-datachain-structure`; to describe a specific AI system as a datachain, use `dtpr-describe-system`; for pure comprehension grading without schema edits, use `dtpr-comprehension-audit`; to translate the category's name/description or its elements into the active locale allow-list, use `dtpr-translate`.
 ---
 
 # Audit one DTPR category
@@ -24,14 +24,15 @@ Three working definitions drive the audit:
 
 ## Sibling routing
 
-This skill is one of five peers in the DTPR authoring studio. Route elsewhere when the scope does not match one category's element collection:
+This skill is one of six peers in the DTPR authoring studio. Route elsewhere when the scope does not match one category's element collection:
 
-- **`dtpr-datachain-structure`** — the user wants to critique or change the datachain-type shape itself: which categories exist, required vs optional, a category-level retire-or-split proposal. If the audit here concludes the whole category should be retired or split, hand off there.
+- **`dtpr-datachain-structure`** — the user wants to critique or change the datachain-type shape itself: which categories exist, required vs optional, a category-level retire-or-split proposal, the `manifest.locales` allow-list. If the audit here concludes the whole category should be retired or split, hand off there.
 - **`dtpr-element-design`** — the user wants to draft one specific new element's title, description, symbol direction, or variables. This skill flags gaps and proposes additions at a summary level; drafting the full element body belongs to the sibling.
 - **`dtpr-describe-system`** — the user wants to turn a described AI system into a validated datachain instance. "Describe X as a datachain" belongs there, even when the system lands mostly in one category.
 - **`dtpr-comprehension-audit`** — the user only wants to grade existing content against the comprehension rubric, with no schema edits. The inline Comprehension check this skill emits is first-pass; for a standalone deeper grade, route there.
+- **`dtpr-translate`** — the user wants to fill in non-English locale rows on the category's `name`/`description` or on the elements proposed in this audit. Translation is downstream of the audit's English-side decisions and reads the active locale list dynamically from `get_schema`.
 
-When the audit surfaces work that belongs to a sibling (a single gap that dominates the list, a category-level retirement, a comprehension-only follow-up), name the sibling in the proposal's closing handoff.
+When the audit surfaces work that belongs to a sibling (a single gap that dominates the list, a category-level retirement, a comprehension-only follow-up, a translation pass after the English settles), name the sibling in the proposal's closing handoff.
 
 ## Security framing
 
@@ -147,6 +148,7 @@ When the audit surfaces work that belongs to a sibling, recommend it explicitly 
 - The proposal retires or splits the whole category → `dtpr-datachain-structure` for the meta-structure change.
 - The user wants a deeper standalone comprehension pass → `dtpr-comprehension-audit`.
 - The user wants to describe a specific system that hit this category → `dtpr-describe-system`.
+- The user wants to fill in non-English locale rows on the category or its proposed elements → `dtpr-translate`.
 
 ## Output
 
@@ -181,4 +183,4 @@ Tool parameter shapes are documented on the MCP itself — see `https://dtpr.ai/
 - **Does not draft full YAML for proposed elements.** Proposed additions appear as short `title`/`description`/`rationale` stubs. When the user is ready to write the full element body — variables, localizations, symbol direction, citations — hand off to `dtpr-element-design`.
 - **Does not change the datachain-type shape.** Retirement or splitting of the whole category is out of scope; route to `dtpr-datachain-structure`.
 - **Does not grade shipped content in isolation.** The inline Comprehension check grades the proposal; for a deeper standalone grade of an existing element or category, route to `dtpr-comprehension-audit`.
-- **Does not translate or localize.** Locale coverage is noted as a rubric item; actual translation work is out of scope.
+- **Does not translate or localize.** Locale coverage is noted as a rubric item; actual translation of category or element copy belongs to `dtpr-translate`, which reads the active locale list dynamically from `get_schema` rather than hardcoding it.
