@@ -40,15 +40,18 @@ describe('DtprElement', () => {
     expect(w.classes()).toContain('dtpr-element')
   })
 
-  it('renders icon and title as direct children of the __header row', () => {
+  it('renders icon and title-block as direct children of the __header row', () => {
     const w = mount(DtprElement, { props: { display: makeDisplay() } })
     const header = w.get('.dtpr-element__header')
     const children = Array.from(header.element.children)
     const iconIndex = children.findIndex((c) => c.classList.contains('dtpr-element__icon'))
-    const titleIndex = children.findIndex((c) => c.classList.contains('dtpr-element__title'))
+    const titleBlockIndex = children.findIndex((c) =>
+      c.classList.contains('dtpr-element__title-block'),
+    )
     expect(iconIndex).toBeGreaterThanOrEqual(0)
-    expect(titleIndex).toBeGreaterThanOrEqual(0)
-    expect(iconIndex).toBeLessThan(titleIndex)
+    expect(titleBlockIndex).toBeGreaterThanOrEqual(0)
+    expect(iconIndex).toBeLessThan(titleBlockIndex)
+    expect(w.get('.dtpr-element__title-block .dtpr-element__title').text()).toBe('Cloud storage')
   })
 
   it('renders footer slot content with --has-footer modifier and a __footer wrapper', () => {

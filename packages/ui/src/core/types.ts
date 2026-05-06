@@ -64,6 +64,19 @@ export interface ElementDisplayIcon {
 }
 
 /**
+ * Locale-resolved selected context value for an element. Populated when
+ * the source `InstanceElement` carries a `contextValueId` that resolves
+ * against the element's effective context (element-level override or
+ * category-level default). `color` is the value's hex color, or `null`
+ * for tag-style values that should render as a neutral chip.
+ */
+export interface ElementDisplayContextValue {
+  id: string
+  name: string
+  color: string | null
+}
+
+/**
  * Locale-resolved, instance-merged display props for a single element.
  * Produced by `deriveElementDisplay`; consumed by `<DtprElement>` and
  * `<DtprElementDetail>` (and their `/html` equivalents).
@@ -74,4 +87,10 @@ export interface ElementDisplay {
   icon: ElementDisplayIcon
   variables: ElementDisplayVariable[]
   citation: string
+  /**
+   * The selected context value for this element, when the instance
+   * supplies one. Renderers show this as a tag below the title.
+   * Undefined when no instance/no selection.
+   */
+  contextValue?: ElementDisplayContextValue
 }

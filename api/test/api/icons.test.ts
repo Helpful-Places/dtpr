@@ -56,6 +56,12 @@ function makeIconCategories(): Category[] {
             description: [loc('en', 'Autonomous decision.')],
             color: '#F28C28',
           },
+          {
+            id: 'tag_only',
+            name: [loc('en', 'Tag-style')],
+            description: [loc('en', 'No icon color, render as a tag.')],
+            color: null,
+          },
         ],
       },
     },
@@ -457,6 +463,62 @@ describe('Icons: GET /api/v2/schemas/:version/elements/:element_id/icon[.<varian
           variant: { kind: 'colored', color: '#F28C28' },
         }),
       )
+    })
+
+    it('null-color (tag-style) variant falls back to the default icon', async () => {
+      const res = await SELF.fetch(
+        `https://example.com/api/v2/schemas/${SAMPLE_BETA_VERSION.canonical}/elements/accept_deny/icon.tag_only.svg`,
+      )
+      expect(res.status).toBe(200)
+      const body = await res.text()
+      expect(body).toBe(
+        composeIcon({
+          shape: 'hexagon',
+          symbolSvg: acceptDenySymbolRaw,
+          variant: 'default',
+        }),
+      )
+    })
+
+    it('null-color variant with .dark suffix falls back to the dark icon', async () => {
+      const res = await SELF.fetch(
+        `https://example.com/api/v2/schemas/${SAMPLE_BETA_VERSION.canonical}/elements/accept_deny/icon.tag_only.dark.svg`,
+      )
+      expect(res.status).toBe(200)
+      const body = await res.text()
+      expect(body).toBe(
+        composeIcon({
+          shape: 'hexagon',
+          symbolSvg: acceptDenySymbolRaw,
+          variant: 'dark',
+        }),
+      )
+    })
+
+    it('colored variant with .dark suffix returns the same bytes as without (color is intrinsic)', async () => {
+      const lightRes = await SELF.fetch(
+        `https://example.com/api/v2/schemas/${SAMPLE_BETA_VERSION.canonical}/elements/accept_deny/icon.ai_only.svg`,
+      )
+      const darkRes = await SELF.fetch(
+        `https://example.com/api/v2/schemas/${SAMPLE_BETA_VERSION.canonical}/elements/accept_deny/icon.ai_only.dark.svg`,
+      )
+      expect(lightRes.status).toBe(200)
+      expect(darkRes.status).toBe(200)
+      expect(await darkRes.text()).toBe(await lightRes.text())
+    })
+
+    it('dark.dark is rejected as 404 (sanity guard against double-suffix)', async () => {
+      const res = await SELF.fetch(
+        `https://example.com/api/v2/schemas/${SAMPLE_BETA_VERSION.canonical}/elements/accept_deny/icon.dark.dark.svg`,
+      )
+      expect(res.status).toBe(404)
+    })
+
+    it('unknown context value with .dark suffix returns 404', async () => {
+      const res = await SELF.fetch(
+        `https://example.com/api/v2/schemas/${SAMPLE_BETA_VERSION.canonical}/elements/accept_deny/icon.does_not_exist.dark.svg`,
+      )
+      expect(res.status).toBe(404)
     })
   })
 

@@ -205,14 +205,37 @@ describe('iconVariantsFor', () => {
     expect(iconVariantsFor(src.categories[0])).toEqual(['default', 'dark'])
   })
 
-  it('appends context value ids in declared order', () => {
+  it('appends context value ids and their .dark companions in declared order', () => {
     const src = makeSourceWithContext()
     const decision = src.categories.find((c) => c.id === 'ai__decision')!
     expect(iconVariantsFor(decision)).toEqual([
       'default',
       'dark',
       'ai_only',
+      'ai_only.dark',
       'ai_flags_human_decides',
+      'ai_flags_human_decides.dark',
+    ])
+  })
+
+  it('includes null-color (tag-style) values alongside their .dark companions', () => {
+    const src = makeSourceWithContext()
+    const decision = src.categories.find((c) => c.id === 'ai__decision')!
+    decision.context!.values.push({
+      id: 'tag_only',
+      name: [loc('en', 'Tag-style')],
+      description: [loc('en', 'No icon color')],
+      color: null,
+    })
+    expect(iconVariantsFor(decision)).toEqual([
+      'default',
+      'dark',
+      'ai_only',
+      'ai_only.dark',
+      'ai_flags_human_decides',
+      'ai_flags_human_decides.dark',
+      'tag_only',
+      'tag_only.dark',
     ])
   })
 })
@@ -232,14 +255,16 @@ describe('buildBundle — element materialization', () => {
     expect(accept.shape).toBe('hexagon')
   })
 
-  it('icon_variants grows with context values', () => {
+  it('icon_variants grows with context values + their .dark companions', () => {
     const bundle = buildBundle(makeSourceWithContext())
     const accept = bundle.elements.find((e) => e.id === 'accept_deny')!
     expect(accept.icon_variants).toEqual([
       'default',
       'dark',
       'ai_only',
+      'ai_only.dark',
       'ai_flags_human_decides',
+      'ai_flags_human_decides.dark',
     ])
   })
 })
@@ -253,6 +278,30 @@ describe('buildBundle — composed icons + hashing', () => {
     // Spot-check a key shape.
     expect(bundle.composedIcons['accept_deny/default']).toMatch(/^<svg /)
     expect(bundle.composedIcons['accept_deny/ai_only']).toMatch(/#F28C28/)
+  })
+
+  it('colored.dark composes the same bytes as colored (color is intrinsic)', () => {
+    const bundle = buildBundle(makeSourceWithContext())
+    expect(bundle.composedIcons['accept_deny/ai_only.dark']).toBe(
+      bundle.composedIcons['accept_deny/ai_only'],
+    )
+  })
+
+  it('null-color variant composes default; null-color.dark composes dark', () => {
+    const src = makeSourceWithContext()
+    src.categories[1]!.context!.values.push({
+      id: 'tag_only',
+      name: [loc('en', 'Tag-style')],
+      description: [loc('en', 'No icon color')],
+      color: null,
+    })
+    const bundle = buildBundle(src)
+    expect(bundle.composedIcons['accept_deny/tag_only']).toBe(
+      bundle.composedIcons['accept_deny/default'],
+    )
+    expect(bundle.composedIcons['accept_deny/tag_only.dark']).toBe(
+      bundle.composedIcons['accept_deny/dark'],
+    )
   })
 
   it('category with no context emits exactly 2 composed icons per element', () => {
@@ -301,7 +350,9 @@ describe('bundleToFiles — symbols and pre-baked icons', () => {
     expect(files['icons/accept_deny/default.svg']).toBeDefined()
     expect(files['icons/accept_deny/dark.svg']).toBeDefined()
     expect(files['icons/accept_deny/ai_only.svg']).toBeDefined()
+    expect(files['icons/accept_deny/ai_only.dark.svg']).toBeDefined()
     expect(files['icons/accept_deny/ai_flags_human_decides.svg']).toBeDefined()
+    expect(files['icons/accept_deny/ai_flags_human_decides.dark.svg']).toBeDefined()
     // Each composed SVG starts with the outer wrapper.
     expect(files['icons/accept_deny/default.svg']).toMatch(/^<svg /)
   })

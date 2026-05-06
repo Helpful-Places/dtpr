@@ -89,12 +89,16 @@ const instance = computed<InstanceElement>(() => ({
     id: v.id,
     value: variableValues[v.id] ?? '',
   })),
+  ...(effectiveContextId.value
+    ? { context_type_id: effectiveContextId.value }
+    : {}),
 }))
 
 const display = computed(() =>
   deriveElementDisplay(props.element, instance.value, props.locale, {
     iconUrl: iconUrl.value,
     iconUrlDark: iconUrlDark.value,
+    ...(props.category ? { category: props.category } : {}),
   }),
 )
 

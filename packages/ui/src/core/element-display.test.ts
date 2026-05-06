@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import type {
+  Category,
   Element,
   InstanceElement,
   LocaleValue,
@@ -142,5 +143,143 @@ describe('deriveElementDisplay', () => {
       iconUrlDark: '',
     })
     expect(result.icon.urlDark).toBeUndefined()
+  })
+
+  describe('contextValue', () => {
+    function makeCategoryWithContext(): Category {
+      return {
+        id: 'ai__storage',
+        name: [loc('en', 'Storage')],
+        description: [loc('en', 'Where data is held.')],
+        prompt: [],
+        required: false,
+        order: 1,
+        datachain_type: 'ai',
+        shape: 'rounded-square',
+        element_variables: [],
+        context: {
+          id: 'pii',
+          name: [loc('en', 'PII')],
+          description: [loc('en', 'Personal-info classification.')],
+          values: [
+            {
+              id: 'identifiable',
+              name: [loc('en', 'Identifiable'), loc('es', 'Identificable')],
+              description: [loc('en', 'Identifies a person.')],
+              color: '#FFD700',
+            },
+            {
+              id: 'tag_only',
+              name: [loc('en', 'Tag-style')],
+              description: [loc('en', 'No icon color.')],
+              color: null,
+            },
+          ],
+        },
+      }
+    }
+
+    it('populates contextValue with hex color when instance picks a colored value', () => {
+      const result = deriveElementDisplay(
+        makeElement(),
+        makeInstanceElement({ context_type_id: 'identifiable' }),
+        'en',
+        { category: makeCategoryWithContext() },
+      )
+      expect(result.contextValue).toEqual({
+        id: 'identifiable',
+        name: 'Identifiable',
+        color: '#FFD700',
+      })
+    })
+
+    it('populates contextValue with null color for tag-style values', () => {
+      const result = deriveElementDisplay(
+        makeElement(),
+        makeInstanceElement({ context_type_id: 'tag_only' }),
+        'en',
+        { category: makeCategoryWithContext() },
+      )
+      expect(result.contextValue).toEqual({
+        id: 'tag_only',
+        name: 'Tag-style',
+        color: null,
+      })
+    })
+
+    it('resolves the context value name in the requested locale', () => {
+      const result = deriveElementDisplay(
+        makeElement(),
+        makeInstanceElement({ context_type_id: 'identifiable' }),
+        'es',
+        { category: makeCategoryWithContext() },
+      )
+      expect(result.contextValue?.name).toBe('Identificable')
+    })
+
+    it('leaves contextValue undefined when no instance is provided', () => {
+      const result = deriveElementDisplay(makeElement(), undefined, 'en', {
+        category: makeCategoryWithContext(),
+      })
+      expect(result.contextValue).toBeUndefined()
+    })
+
+    it('leaves contextValue undefined when instance has no context_type_id', () => {
+      const result = deriveElementDisplay(
+        makeElement(),
+        makeInstanceElement(),
+        'en',
+        { category: makeCategoryWithContext() },
+      )
+      expect(result.contextValue).toBeUndefined()
+    })
+
+    it('leaves contextValue undefined when context_type_id does not match any value', () => {
+      const result = deriveElementDisplay(
+        makeElement(),
+        makeInstanceElement({ context_type_id: 'unknown_id' }),
+        'en',
+        { category: makeCategoryWithContext() },
+      )
+      expect(result.contextValue).toBeUndefined()
+    })
+
+    it('element-level context overrides category-level context (no merge)', () => {
+      const elementWithContext = makeElement({
+        context: {
+          id: 'role',
+          name: [loc('en', 'Role')],
+          description: [loc('en', 'Role.')],
+          values: [
+            {
+              id: 'vendor',
+              name: [loc('en', 'Vendor')],
+              description: [loc('en', 'Vendor.')],
+              color: null,
+            },
+          ],
+        },
+      })
+      const result = deriveElementDisplay(
+        elementWithContext,
+        makeInstanceElement({ context_type_id: 'vendor' }),
+        'en',
+        { category: makeCategoryWithContext() },
+      )
+      expect(result.contextValue).toEqual({
+        id: 'vendor',
+        name: 'Vendor',
+        color: null,
+      })
+    })
+
+    it('returns undefined when category is not provided and the element has no context', () => {
+      const result = deriveElementDisplay(
+        makeElement(),
+        makeInstanceElement({ context_type_id: 'identifiable' }),
+        'en',
+      )
+      expect(result.contextValue).toBeUndefined()
+    })
   })
 })

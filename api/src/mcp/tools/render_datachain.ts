@@ -108,6 +108,8 @@ function buildSections(
 ): RenderedSection[] {
   const elementById = new Map<string, Element>()
   for (const el of elements) elementById.set(el.id, el)
+  const categoryById = new Map<string, Category>()
+  for (const c of categories) categoryById.set(c.id, c)
 
   const byCategory = new Map<string, ElementDisplay[]>()
   for (const c of categories) byCategory.set(c.id, [])
@@ -115,7 +117,10 @@ function buildSections(
   for (const placement of instance.elements) {
     const def = elementById.get(placement.element_id)
     if (!def) continue
-    const display = deriveElementDisplay(def, placement, locale)
+    const cat = categoryById.get(def.category_id)
+    const display = deriveElementDisplay(def, placement, locale, {
+      ...(cat ? { category: cat } : {}),
+    })
     const bucket = byCategory.get(def.category_id)
     if (bucket) bucket.push(display)
   }
