@@ -23,7 +23,7 @@ Counted via `https://api.dtpr.io/api/v2/schemas/ai@2026-04-27-beta/elements?fiel
 | `purpose`          | 23    | OK                                           |
 | `accountable`      | 2     | Needs consolidation (deferred — see Focus 3) |
 | `functional_modes` | 0 → 6 | Drafted in Focus 1 (this branch)             |
-| `risks_mitigation` | 6     | Needs AIAAIC expansion — Focus 2             |
+| `risks_mitigation` | 6 → 9 | Retired 6 mechanism-oriented; replaced with AIAAIC's 9 victim-oriented harms (Focus 2) |
 | `rights`           | 11    | OK                                           |
 | `input_dataset`    | 7     | OK (PII context applied in #274)             |
 | `processing`       | 7     | Needs family-typed reshape — Focus 4         |
@@ -74,19 +74,22 @@ Acceptance: `functional_modes` section renders on `/taxonomy` with six elements;
 
 Status: drafted (pending designer pass on placeholder symbols + translator review of non-en locales).
 
-PR #274 organized this category around the AIAAIC Collaborative Harms Taxonomy (victim-oriented over cause-oriented) and added attribution. The current six elements are baseline; nine more AIAAIC-derived elements are expected. See `dtpr-ai/content/9.attribution.md` for the CC BY-SA 4.0 boundary and per-element citation pattern (use `Element.citation`).
+PR #274 organized this category around the AIAAIC Collaborative Harms Taxonomy (victim-oriented over cause-oriented) and added attribution. This focus completes the realignment: the 6 mechanism-/cause-oriented elements are retired and replaced with 9 victim-oriented harms drawn directly from AIAAIC's harm-type cut. Sat next to victim-oriented elements, the cause-oriented ones overlap awkwardly (e.g., `compromise_of_privacy` collides with `autonomy_loss` + `civil_liberties_harm`; `unequal_performance` with `civil_liberties_harm` + `reputational_harm`) and force authors into a coin-flip between mechanism and outcome for the same scenario. Beta-stage retirement is acceptable; downstream datachain instances pinned to the old IDs will need to remap. See `dtpr-ai/content/9.attribution.md` for the CC BY-SA 4.0 boundary and per-element citation pattern (use `Element.citation`).
 
 Approach:
 - Run `dtpr-category-audit` on `risks_mitigation` against the AIAAIC corpus entry at `plugin/dtpr/research/2026-04-21T1510-aiaaic-human-centred-harm-taxonomy.md`.
 - Draft each new element via `dtpr-element-design` with `Element.citation` populated.
+- Retire the 6 mechanism-oriented elements and their orphaned symbols.
 
-- [x] Identify the nine AIAAIC-derived elements (audit pass) — mapped to AIAAIC's 9 victim-oriented harm types: autonomy, physical, psychological, reputational, financial-business, civil-liberties, societal-cultural, political-economic, environmental. The 6 existing elements are mechanism-/cause-oriented and complement the new victim-oriented set.
+- [x] Identify the nine AIAAIC-derived elements (audit pass) — mapped to AIAAIC's 9 victim-oriented harm types: autonomy, physical, psychological, reputational, financial-business, civil-liberties, societal-cultural, political-economic, environmental.
 - [x] Draft each element with citation — see `api/schemas/ai/2026-04-27-beta/elements/{autonomy_loss,physical_harm,psychological_harm,reputational_harm,financial_harm,civil_liberties_harm,societal_cultural_harm,political_economic_harm,environmental_harm}.yaml`. Each carries the AIAAIC citation per locale; CC BY-SA 4.0 surfaces in the citation text.
 - [x] Verify CC BY-SA 4.0 attribution surfaces correctly in the element page — citation field is per-locale and renders via the element-page slot (see `dtpr-ai/content/5.ui/2.vue.md` `after-citation` slot); `9.attribution.md` already names the per-element citation as authoritative.
+- [x] Retire the 6 mechanism-oriented elements (`compromise_of_privacy`, `function_creep`, `opaque_decision_making`, `overreliance_automation_bias`, `system_drift`, `unequal_performance`) and their orphaned symbols (`risks_compromise-of-privacy`, `risks_unforseen-or-function-creep`, `risks_opaque-decision-making`, `risks_overreliance-and-automation`, `risks_system-drift-and-temporal-validity`, `risks_unequal-performance`). Earlier `2026-04-16-beta` keeps them — only retired in this version.
 
 Follow-ups:
-- [ ] Designer pass on the 9 placeholder symbols (`risks_autonomy`, `risks_physical`, `risks_psychological`, `risks_reputational`, `risks_financial`, `risks_civil-liberties`, `risks_societal-cultural`, `risks_political-economic`, `risks_environmental`) — current SVGs are minimal geometric stand-ins; redraw to match the silhouette quality of the existing 6 risks symbols.
-- [ ] Translator review of `es`, `fr`, `km`, `pt`, `tl` strings on the 9 new elements — drafted by the implementer, not by native speakers; voice should match the existing 6 risks elements.
+- [ ] Designer pass on the 9 placeholder symbols (`risks_autonomy`, `risks_physical`, `risks_psychological`, `risks_reputational`, `risks_financial`, `risks_civil-liberties`, `risks_societal-cultural`, `risks_political-economic`, `risks_environmental`) — current SVGs are minimal geometric stand-ins.
+- [ ] Translator review of `es`, `fr`, `km`, `pt`, `tl` strings on the 9 new elements — drafted by the implementer, not by native speakers; voice should match the existing element catalog.
+- [ ] Renderer-side mode↔harm cross-product view — `functional_modes` and `risks_mitigation` are intentionally orthogonal categories. A taxonomy/instance view that surfaces "which (mode, harm) pairs are tagged" gives the disclosure power of mode-context-on-harm without coupling the schema. Out of scope for Focus 2; track separately when the renderer is the active surface.
 
 ---
 
@@ -109,7 +112,7 @@ Approach:
 
 ## Focus 4 — `processing` family-typed catalog
 
-Status: not started.
+Status: drafted in `ai@2026-05-06-beta`.
 
 Currently 7 elements. PR #274 changed the shape to circle (data-in-motion contract) and rewrote the description. The deferred work is a "family-typed processing catalog" — grouping the processing techniques into families (e.g., classical-ML, LLM, optimization, recommendation, transformation). The current symbol directory hints at this: `processing_llm`, `processing_optimization-algorithm`, `processing_recommendation-systems`, `processing_sentiment-analysis`, `processing_text-to-speech`, `processing_time-series-forecasting`, `processing_privacy-preserving-transformation`.
 
@@ -118,9 +121,26 @@ Approach:
 - Decide whether families are encoded via `Element.context`, element naming convention, or new structure.
 - Draft any net-new elements; reorganize existing ones if needed.
 
-- [ ] Family taxonomy decision
-- [ ] Draft / reorganize elements per family
-- [ ] Comprehension check on family labels
+- [x] Family taxonomy decision — **each element IS a family** (no `Element.context` layer; ids are family slugs). 12 families chosen for breadth of public-space AI coverage.
+- [x] Draft / reorganize elements per family — 7 old element files removed; 12 new family-typed elements written under `api/schemas/ai/2026-05-06-beta/elements/`. `schema:validate` and `schema:build` pass (11 categories, 94 elements).
+- [x] Comprehension check on family labels — see commit body. Two symbols (`search_retrieval`, `clustering_segmentation`) reuse closest-fit existing icons (`connectivity`, `social`) and are flagged for design follow-up.
+
+Family roster (12):
+
+| id | family | symbol_id (✱ = reuse pending design) |
+| --- | --- | --- |
+| `language_models` | Language Models | `processing_llm` |
+| `computer_vision` | Computer Vision | `pixel_based_image` |
+| `biometric_recognition` | Biometric Recognition | `personal` |
+| `speech_audio` | Speech & Audio | `processing_text-to-speech` |
+| `classification_prediction` | Classification & Prediction | `processing_time-series-forecasting` |
+| `affect_emotion_analysis` | Affect & Emotion Analysis | `processing_sentiment-analysis` |
+| `anomaly_detection` | Anomaly Detection | `dm_anomay-detection` |
+| `optimization` | Optimization | `processing_optimization-algorithm` |
+| `recommendation_ranking` | Recommendation & Ranking | `processing_recommendation-systems` |
+| `search_retrieval` | Search & Retrieval | `connectivity` ✱ |
+| `clustering_segmentation` | Clustering & Segmentation | `social` ✱ |
+| `privacy_transformation` | Privacy-Preserving Transformation | `processing_privacy-preservoing-transformation` |
 
 ---
 
