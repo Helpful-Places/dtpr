@@ -66,7 +66,7 @@
     },
     {
       "id": "cross-sibling:dtpr-comprehension-audit:grade-accept-deny-element",
-      "prompt": "Can you grade the `accept_deny` element for public comprehension? I want to know if a commuter would understand it."
+      "prompt": "Can you grade the `accept_deny` element for public comprehension? I want to know if a non-technical person encountering it in an app or on a sign would understand it."
     },
     {
       "id": "cross-sibling:dtpr-category-audit:risks-generative-complete",
