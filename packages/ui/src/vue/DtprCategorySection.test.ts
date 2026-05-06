@@ -84,4 +84,31 @@ describe('DtprCategorySection', () => {
     const w = mount(DtprCategorySection, { props: { id: 'x', title: 'X' } })
     expect(w.classes()).toContain('dtpr-category-section')
   })
+
+  it('renders footer slot in static mode after the panel', () => {
+    const w = mount(DtprCategorySection, {
+      props: { id: 'x', title: 'X', disableAccordion: true },
+      slots: {
+        default: '<p class="body">body</p>',
+        footer: '<a class="view-link" href="/x">View category</a>',
+      },
+    })
+    expect(w.get('.dtpr-category-section__footer .view-link').text()).toBe('View category')
+    const section = w.get('.dtpr-category-section')
+    const children = Array.from(section.element.children)
+    const panelIndex = children.findIndex((c) =>
+      c.classList.contains('dtpr-category-section__panel'),
+    )
+    const footerIndex = children.findIndex((c) =>
+      c.classList.contains('dtpr-category-section__footer'),
+    )
+    expect(panelIndex).toBeLessThan(footerIndex)
+  })
+
+  it('does not render a footer wrapper when no footer slot is provided', () => {
+    const w = mount(DtprCategorySection, {
+      props: { id: 'x', title: 'X', disableAccordion: true },
+    })
+    expect(w.find('.dtpr-category-section__footer').exists()).toBe(false)
+  })
 })

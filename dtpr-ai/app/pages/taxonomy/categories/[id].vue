@@ -165,6 +165,7 @@ function contextValueName(value: { id: string; name: unknown }): string {
   return extract(value.name as never, activeLocale.value, 'en') || value.id
 }
 
+
 useHead(() => ({
   title: category.value
     ? `${categoryTitle.value} — DTPR Taxonomy`
@@ -248,10 +249,14 @@ useHead(() => ({
               :key="d.raw.id"
               class="taxonomy-detail-page__element-row"
             >
-              <NuxtLink :to="d.href" class="taxonomy-detail-page__element-link">
-                <DtprElement :display="d.display" />
-                <UIcon name="i-heroicons-arrow-top-right-on-square" class="taxonomy-detail-page__element-icon" />
-              </NuxtLink>
+              <DtprElement :display="d.display" show-description>
+                <template #footer>
+                  <NuxtLink :to="d.href" class="taxonomy-view-link">
+                    <span>View element</span>
+                    <UIcon name="i-heroicons-arrow-right" class="taxonomy-view-link__icon" />
+                  </NuxtLink>
+                </template>
+              </DtprElement>
             </li>
           </ul>
           <p v-else class="taxonomy-detail-page__empty">
@@ -385,39 +390,55 @@ useHead(() => ({
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   gap: 0.75rem;
 }
 
-.taxonomy-detail-page__element-link {
-  position: relative;
-  display: block;
-  padding: 1rem;
-  border: 1px solid var(--ui-border, rgb(229, 231, 235));
-  border-radius: 0.5rem;
+.taxonomy-detail-page__element-row {
+  scroll-margin-top: calc(var(--ui-header-height, 4rem) + 5.5rem);
+  display: flex;
+}
+
+.taxonomy-detail-page__element-row > :deep(.dtpr-element) {
+  flex: 1;
+}
+
+/*
+ * View-link affordance mirrors the catalog page so element cards have
+ * consistent navigation across the taxonomy.
+ */
+.taxonomy-view-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--ui-text-dimmed, rgb(107, 114, 128));
   text-decoration: none;
-  color: inherit;
-  transition: border-color 0.15s ease, background-color 0.15s ease;
+  transition: color 0.15s ease;
 }
 
-.taxonomy-detail-page__element-link:hover,
-.taxonomy-detail-page__element-link:focus-visible {
-  border-color: var(--ui-primary, #10b981);
-  background: color-mix(in srgb, var(--ui-primary, #10b981) 4%, transparent);
+.taxonomy-view-link:hover,
+.taxonomy-view-link:focus-visible {
+  color: var(--ui-primary, #10b981);
+  outline: 0;
 }
 
-.taxonomy-detail-page__element-icon {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  width: 1rem;
-  height: 1rem;
-  opacity: 0.5;
+.taxonomy-view-link:focus-visible {
+  outline: 2px solid var(--ui-primary, #10b981);
+  outline-offset: 2px;
+  border-radius: 0.25rem;
 }
 
-.taxonomy-detail-page__element-link:hover .taxonomy-detail-page__element-icon,
-.taxonomy-detail-page__element-link:focus-visible .taxonomy-detail-page__element-icon {
-  opacity: 1;
+.taxonomy-view-link__icon {
+  width: 0.875rem;
+  height: 0.875rem;
+  transition: transform 0.15s ease;
+}
+
+.taxonomy-view-link:hover .taxonomy-view-link__icon,
+.taxonomy-view-link:focus-visible .taxonomy-view-link__icon {
+  transform: translateX(2px);
 }
 
 .taxonomy-detail-page__empty {

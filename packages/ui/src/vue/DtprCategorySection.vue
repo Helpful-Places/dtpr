@@ -75,6 +75,9 @@ function onKeydown(event: KeyboardEvent) {
       >
         <slot />
       </div>
+      <div v-if="$slots.footer" class="dtpr-category-section__footer">
+        <slot name="footer" />
+      </div>
     </template>
     <template v-else>
       <button
