@@ -121,7 +121,7 @@ For **retire** proposals, emit no fragment. Instead, name the element, its curre
 
 Produce a working **SVG symbol** in the DTPR house style, ready to drop into `app/public/dtpr-icons/symbols/<symbol_id>.svg`. Reuse before you draw: if a reasonable existing symbol fits, name its id in the YAML fragment, skip drawing a new one, and note the reuse explicitly (e.g., "reuses the existing symbol because the retire-and-replace keeps the same silhouette — the disclosure claim is adjacent"). `get_icon_url` is available as an optional check to confirm a reused symbol renders as expected against the active version.
 
-Before drawing a new symbol, **read 2–3 sibling SVGs from the target category** in `app/public/dtpr-icons/symbols/` (e.g., for an `ai__decision` element, sample `dm_accept-or-deny.svg`, `dm_matching.svg`, `dm_personalization.svg`). The corpus is the source of truth for how DTPR icons look — match its conventions, do not invent a new style.
+Before drawing a new symbol, **read 2–3 sibling SVGs from the target category** in `app/public/dtpr-icons/symbols/` (e.g., for an ai__decision element, sample `dm_accept-or-deny.svg`, `dm_matching.svg`, `dm_personalization.svg`). The corpus is the source of truth for how DTPR icons look — match its conventions, do not invent a new style.
 
 **House style — required.** Hold these conventions on every new symbol:
 
@@ -148,7 +148,7 @@ Forbid in new symbols: hex or rgb colors; opacity values; gradients, filters, ma
 - `risks_*` icons sit inside a triangular alert frame; keep that frame and vary only the inner glyph.
 - `rights_*` icons center a person or hand interacting with a document/decision, with a clear directional cue.
 - `dm_*` (decision-making) icons use a small set of geometric primitives — branches, ranks, matching pairs — over the same baseline grid.
-- Sensor and device icons (`camera`, `sensor`, `motion_detector`) center a single physical object with one or two cue lines for what it captures.
+- Sensor and device icons (`camera.svg`, `sensor.svg`, `motion_detector.svg`) center a single physical object with one or two cue lines for what it captures.
 
 Echo the category's silhouette family so the new icon does not stand out as foreign.
 
