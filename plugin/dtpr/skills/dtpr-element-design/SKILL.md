@@ -76,7 +76,15 @@ If `Read`, `Write`, or `Task` is unavailable on the host, log a one-line warning
 
 Match the canonical element shape from `api/schemas/ai/2026-04-16-beta/elements/accept_deny.yaml`. Read that file's top-level key set first and copy it verbatim; do not invent keys. Note the canonical locale shape: `title` and `description` are **arrays of `{locale, value}` entries**, not maps from `locale: value`. The validator at `api/src/validator/rules/locales.ts` enforces this shape against the array form.
 
-Before drafting, resolve the active locale list dynamically by calling `get_schema` with `include: "manifest"` and reading `manifest.locales`. Emit one row per code in that list — never a hardcoded six-element list. The current active version typically declares `[en, es, fr, km, pt, tl]`, but a future version may add or drop locales; the skeleton must follow whatever the live manifest says.
+Before drafting, resolve the active locale list dynamically:
+
+1. Call `list_schema_versions` and pick the active version (prefer `status: stable`; fall back to `status: beta`). The user may override by naming a specific version. Pinning the version explicitly is required — `get_schema` takes a version argument, and an implicit default may not match the active version the rest of the proposal references.
+2. Call `get_schema` with `include: "manifest"` against that version. Read `manifest.locales` from the response. Capture the returned `version` and `content_hash` for the proposal.
+3. Surface the resolved list to the user before drafting (e.g., "Active manifest declares: `en`, `es`, `fr`, `km`, `pt`, `tl`. The skeleton will carry one row per code, English drafted, the rest as placeholders.").
+
+If `get_schema` is unavailable on the host or returns an error, fall back to reading `api/schemas/<type>/<version>/datachain-type.yaml` directly with the `Read` tool and parse its top-level `locales:` block. If both paths fail, **stop and ask the user for the active locale allow-list explicitly** rather than emitting a skeleton with a guessed locale set — the validator at `api/src/validator/rules/locales.ts` rejects rows whose locale is not in `manifest.locales`, and a hand-edited skeleton built on a wrong list silently wastes the human reviewer's time.
+
+Emit one row per code in the resolved list — never a hardcoded six-element list. The current active version typically declares `[en, es, fr, km, pt, tl]`, but a future version may add or drop locales; the skeleton must follow whatever the live manifest says.
 
 Produce a fragment in the shape below, with only the English locale drafted and one placeholder row per remaining locale in `manifest.locales`:
 
@@ -216,7 +224,9 @@ Close by naming any sibling skill the user should hand off to for follow-on work
 | Phase 0 | `list_categories` | Enumerate category ids when the user is uncertain which category the element belongs in. |
 | Phase 1 | `get_element` | Point read on the candidate id to confirm it is unclaimed. |
 | Phase 1 | `list_elements` | BM25 `query` search for near-duplicates by title; optional `category_id` scope. |
+| Phase 3 | `list_schema_versions` | Pin the active version (prefer `status: stable`, fall back to `status: beta`) before reading the manifest, so `get_schema` runs against an explicit version. |
 | Phase 3 | `get_schema` | Read `manifest.locales` so the YAML skeleton emits one row per locale the active manifest declares — never a hardcoded list. |
+| Phase 3 | `Read` | Fallback path: parse `api/schemas/<type>/<version>/datachain-type.yaml` `locales:` directly when `get_schema` is unavailable on the host. If both paths fail, stop and ask the user. |
 | Phase 2 | `Read` | Read `INDEX.md` and entry files from the research corpus. |
 | Phase 2 | `Task` | Dispatch a researcher on a corpus miss (optional; degrade gracefully if unavailable). |
 | Phase 2 | `Write` | Write a new corpus entry when the drafting session surfaces a non-obvious insight worth compounding (optional). |

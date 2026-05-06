@@ -51,10 +51,11 @@ Before any tool call, name what is being translated:
 Also capture:
 
 - **Which locales to fill.** Default: every locale in `manifest.locales` other than `en`, restricted to those currently empty or marked placeholder. The user may override with "all locales" (overwrite existing translations), "just `<list>`", or "skip `<list>` — keep human edits".
+- **Target datachain-type id.** When the target is an existing element, category, or datachain-type, infer the type id from the loaded body (e.g., the element's `category_id` is `<type>__<slug>`). When the target is **pasted content** or **a new element drafted in the same session** — the two paths that skip the MCP read in Phase 2 — the skill cannot infer the type and **must ask the user** for it (e.g., "Which datachain-type does this content belong to? `ai`, or another?"). Capture the answer before proceeding; the Phase 7 handoff line substitutes this value into `pnpm --filter ./api schema:new <type> …`, so a missing capture here forces the user to hand-edit the emitted command.
 - **Tone hints.** DTPR signage is plain, friendly, and second-person. If the user has a preferred register (e.g., formal `usted` for Spanish public-sector signage), capture it now.
 - **Any reference glossary or prior-art translations** the user wants the skill to align with (e.g., a city's existing translated signage in the same language).
 
-If the user is ambiguous about target or scope after one round of clarifying questions, proceed with the most conservative interpretation (translate only empty locales on the named target) and flag the assumption in the output.
+If the user is ambiguous about target or scope after one round of clarifying questions, proceed with the most conservative interpretation (translate only empty locales on the named target) and flag the assumption in the output. The datachain-type id is not optional and not a guess — if the user cannot name it, surface that gap explicitly and emit the Phase 7 handoff line with `<type>` left as a literal placeholder so the user sees the missing piece rather than running an incorrect command.
 
 ### Phase 1 — Read the live locale allow-list
 
@@ -77,7 +78,7 @@ When the target is an existing schema entity:
 | Target | Tool | Notes |
 | --- | --- | --- |
 | Element | `get_element` with `element_id: <id>` | Returns the full element body, including any locales already filled. |
-| Category | `list_categories` then point-read by id | Returns the category metadata and its `name`/`description` rows. |
+| Category | `list_categories` for the active version, then filter the response by `category_id` | Returns the category metadata and its `name`/`description` rows. The MCP exposes no get_category tool — the list response carries every category's full body, so a client-side filter on `category_id` is the supported point-read. |
 | Datachain-type | `get_schema` with `include: "full"` | The datachain-type's `name` array sits at the top of the response. |
 
 Read existing locale rows before drafting so we don't overwrite human edits silently. For each locale already populated:
@@ -169,7 +170,7 @@ Close with the shell command line the user runs next, verbatim:
 
     pnpm --filter ./api schema:new <type> <YYYY-MM-DD>-beta
 
-Substitute `<type>` with the datachain-type id the target belongs to (e.g., `ai`) and `<YYYY-MM-DD>` with today's ISO date. This skill does not invoke the CLI and does not modify files under `api/schemas/` — the user runs it, splices the translated rows into the resulting beta directory, and routes the change through human-reviewed PR.
+Substitute `<type>` with the datachain-type id captured in Phase 0 (inferred from the loaded body for existing-entity targets, asked of the user for pasted-content and new-draft targets) and `<YYYY-MM-DD>` with today's ISO date. If Phase 0 could not pin a datachain-type id (the user did not know and the source is pasted content), leave `<type>` as a literal placeholder in the emitted line and call that gap out one line above the command — running `schema:new` with a wrong or guessed type writes to the wrong directory tree. This skill does not invoke the CLI and does not modify files under `api/schemas/` — the user runs it, splices the translated rows into the resulting beta directory, and routes the change through human-reviewed PR.
 
 When the translation session exposes other concerns — an English source whose comprehension itself is shaky, a category whose element bodies are wholesale due for re-translation, a request to add or remove a locale from the manifest — name the sibling skill in the output as a follow-up: `dtpr-element-design` for English re-drafts, `dtpr-comprehension-audit` for grading the source, `dtpr-category-audit` for category-scoped translation passes, `dtpr-datachain-structure` for changing `manifest.locales` itself.
 
