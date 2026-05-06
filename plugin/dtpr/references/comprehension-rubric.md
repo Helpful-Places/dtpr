@@ -4,7 +4,7 @@ rubric_version: 2026-04-20
 
 # Comprehension rubric
 
-A qualitative checklist for grading DTPR content (datachain-types, categories, elements, full datachain-instances) against the bar of **"a non-technical commuter understands this in seconds."**
+A qualitative checklist for grading DTPR content (datachain-types, categories, elements, full datachain-instances) against the bar of **"a non-technical person encountering an AI system understands this on a quick read."** The audience is anyone meeting an AI system in the wild — in an app, on a website, in a vehicle, on a kiosk or sign, or while moving through public space — with enough time to parse what they see but no prior expertise.
 
 Each item has a short definition and pass/fail/partial signals. There is no scoring math. When an item does not apply to the artifact you are grading (e.g., symbol legibility on a category-level critique), mark it **n/a** and note why in the one-line reason.
 
@@ -12,7 +12,7 @@ This rubric is the shared dependency of `dtpr-comprehension-audit` (standalone u
 
 ## Audience fit
 
-Does the content land for the intended audience — a commuter, visitor, or citizen encountering a sign or notice without prior context? A specialist audience (regulator, researcher) does not substitute for the default public audience.
+Does the content land for the intended audience — a non-technical person encountering an AI system without prior context, in any surface where DTPR content might appear (app, website, in-vehicle display, kiosk, public sign, embedded notice)? A specialist audience (regulator, researcher) does not substitute for the default public audience. A specific surface — a transit kiosk a commuter glances at, an in-vehicle display a driver sees mid-trip — is a useful subset stress test, not the only target.
 
 - **pass** — the language, framing, and example would be understood by a non-expert on first read.
 - **partial** — the core idea lands but one or two phrases need a gloss.

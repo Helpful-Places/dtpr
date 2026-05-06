@@ -1,6 +1,6 @@
 ---
 name: dtpr-comprehension-audit
-description: Grade DTPR (Digital Trust for Places and Routines) content — an element, a category, a datachain-instance, a pasted YAML fragment, or arbitrary markdown — against the public-comprehension rubric. Use whenever a user wants to check whether content is clear to a non-technical commuter. Triggers on phrases like "grade this element", "is this category clear to the public", "comprehension audit", "check this datachain for public understanding", "how readable is X", "does this land for a non-expert", or any request to judge clarity without changing content. Produces Markdown findings against the comprehension rubric plus a one-paragraph summary. For requests to describe an AI system, use `dtpr-describe-system`; to critique the datachain-type shape, use `dtpr-datachain-structure`; to audit one category's elements for coherence, use `dtpr-category-audit`; to design or propose a new element, use `dtpr-element-design`.
+description: Grade DTPR (Digital Trust for Places and Routines) content — an element, a category, a datachain-instance, a pasted YAML fragment, or arbitrary markdown — against the public-comprehension rubric. Use whenever a user wants to check whether content is clear to a non-technical person encountering an AI system (in an app, on a website, in a vehicle, on a kiosk or sign, or anywhere DTPR content might appear). Triggers on phrases like "grade this element", "is this category clear to the public", "comprehension audit", "check this datachain for public understanding", "how readable is X", "does this land for a non-expert", or any request to judge clarity without changing content. Produces Markdown findings against the comprehension rubric plus a one-paragraph summary. For requests to describe an AI system, use `dtpr-describe-system`; to critique the datachain-type shape, use `dtpr-datachain-structure`; to audit one category's elements for coherence, use `dtpr-category-audit`; to design or propose a new element, use `dtpr-element-design`.
 ---
 
 # Grade DTPR content against the comprehension rubric
@@ -14,7 +14,7 @@ The skill grades only. It does not modify schema content, draft new elements, or
 - User asks to grade, audit, or check a DTPR element, category, datachain-instance, or pasted content for public comprehension.
 - User uses the phrase "comprehension audit", "is this clear", "how readable is X", or "does this land for a non-expert".
 - A schema-tier skill's inline Comprehension check needs a deeper, standalone second pass.
-- User pastes YAML, JSON, or markdown and asks whether it would be understood by a commuter or citizen reading a sign.
+- User pastes YAML, JSON, or markdown and asks whether it would be understood by a non-technical person encountering an AI system — in an app, on a website, in a vehicle, on a kiosk or sign, or any other surface where DTPR content might appear.
 - User wants to re-grade content after the rubric has evolved (a new `rubric_version` appears in `comprehension-rubric.md`).
 
 ## Sibling routing

@@ -4,7 +4,11 @@
   "should_trigger": [
     {
       "id": "grade-accept-deny-element",
-      "prompt": "Grade the accept_deny element for comprehension — would a commuter at a transit kiosk understand it on first read?"
+      "prompt": "Grade the accept_deny element for comprehension — would a non-technical person encountering it in an app understand it on first read?"
+    },
+    {
+      "id": "grade-accept-deny-element-transit-kiosk",
+      "prompt": "Subset stress test: grade the accept_deny element for a commuter at a transit kiosk specifically — does it still land in that surface?"
     },
     {
       "id": "category-clear-to-public",

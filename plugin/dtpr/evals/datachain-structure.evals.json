@@ -42,7 +42,7 @@
     },
     {
       "id": "cross-sibling:dtpr-comprehension-audit:grade-accept-deny-element",
-      "prompt": "Grade the accept_deny element for comprehension — would a commuter understand it on first read?"
+      "prompt": "Grade the accept_deny element for comprehension — would a non-technical person encountering it understand it on first read?"
     },
     {
       "id": "refactor-typescript",
