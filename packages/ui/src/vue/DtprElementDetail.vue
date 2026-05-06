@@ -140,7 +140,19 @@ function renderVariable(v: ElementDisplayVariable): RenderedVariable {
           :alt="display.icon.alt"
           :size="iconSize"
         />
-        <h2 class="dtpr-element-detail__title">{{ display.title }}</h2>
+        <div class="dtpr-element-detail__title-block">
+          <h2 class="dtpr-element-detail__title">{{ display.title }}</h2>
+          <span
+            v-if="display.contextValue"
+            class="dtpr-element-detail__context-tag"
+            :class="display.contextValue.color
+              ? 'dtpr-element-detail__context-tag--colored'
+              : 'dtpr-element-detail__context-tag--neutral'"
+            :style="display.contextValue.color
+              ? { backgroundColor: display.contextValue.color, color: '#fff' }
+              : undefined"
+          >{{ display.contextValue.name }}</span>
+        </div>
       </slot>
     </header>
 

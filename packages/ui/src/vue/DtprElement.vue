@@ -41,7 +41,19 @@ const hasFooter = computed(() => !!slots.footer)
           :alt="display.icon.alt"
           :size="iconSize"
         />
-        <span class="dtpr-element__title">{{ display.title }}</span>
+        <div class="dtpr-element__title-block">
+          <span class="dtpr-element__title">{{ display.title }}</span>
+          <span
+            v-if="display.contextValue"
+            class="dtpr-element__context-tag"
+            :class="display.contextValue.color
+              ? 'dtpr-element__context-tag--colored'
+              : 'dtpr-element__context-tag--neutral'"
+            :style="display.contextValue.color
+              ? { backgroundColor: display.contextValue.color, color: '#fff' }
+              : undefined"
+          >{{ display.contextValue.name }}</span>
+        </div>
       </div>
       <p v-if="hasDescription" class="dtpr-element__description">
         {{ display.description }}

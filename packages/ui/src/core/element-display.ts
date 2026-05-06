@@ -1,8 +1,13 @@
-import type { Element, InstanceElement } from '@dtpr/api/schema'
+import type { Category, Element, InstanceElement } from '@dtpr/api/schema'
 import { extract } from './locale.js'
 import { interpolate } from './interpolate.js'
 import { HEXAGON_FALLBACK_DATA_URI } from './icons.js'
-import type { ElementDisplay, ElementDisplayVariable, VariableType } from './types.js'
+import type {
+  ElementDisplay,
+  ElementDisplayContextValue,
+  ElementDisplayVariable,
+  VariableType,
+} from './types.js'
 
 /**
  * Options for `deriveElementDisplay`.
@@ -27,6 +32,13 @@ export interface DeriveElementDisplayOptions {
   // so `<DtprIcon>` can swap to it when the host is in dark mode.
   iconUrlDark?: string
   iconAlt?: string
+  /**
+   * The element's category. Required to populate `display.contextValue`
+   * when the element doesn't carry its own context override and the
+   * instance supplies a `context_type_id`. Optional: omitting it just
+   * means no context tag is rendered.
+   */
+  category?: Category
 }
 
 /**
@@ -101,11 +113,45 @@ export function deriveElementDisplay(
   }
   const description = interpolate(rawDescription, interpolationVars)
 
+  const contextValue = resolveContextValue(
+    element,
+    instance,
+    options.category,
+    locale,
+    fallbackLocale,
+  )
+
   return {
     title,
     description,
     icon: { url: iconUrl, urlDark: iconUrlDark, alt: iconAlt },
     variables,
     citation,
+    ...(contextValue ? { contextValue } : {}),
+  }
+}
+
+/**
+ * Resolve the selected context value into display-ready
+ * `{ id, name, color }`. The element's own context overrides the
+ * category's context (no merge), per `Element.context` semantics.
+ * Returns `undefined` when no instance/no selection/no match.
+ */
+function resolveContextValue(
+  element: Element,
+  instance: InstanceElement | undefined,
+  category: Category | undefined,
+  locale: string,
+  fallbackLocale: string,
+): ElementDisplayContextValue | undefined {
+  const selectedId = instance?.context_type_id
+  if (!selectedId) return undefined
+  const ctx = element.context ?? category?.context
+  const value = ctx?.values.find((v) => v.id === selectedId)
+  if (!value) return undefined
+  return {
+    id: value.id,
+    name: extract(value.name, locale, fallbackLocale),
+    color: value.color,
   }
 }

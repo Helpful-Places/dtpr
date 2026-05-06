@@ -15,15 +15,25 @@ title:
     value: Ipagbigay -alam
 description:
   - locale: en
-    value: Supports the provision of information, for example about a location, a service, or to provide assistance
+    value: >-
+      Supports general-purpose information assistance — concierge, FAQ, signage, or guidance about a service. Distinct
+      from Wayfinding & Services, which covers spatial orientation and routing within a place.
   - locale: es
-    value: Apoya la provisión de información, por ejemplo, sobre una ubicación, un servicio o para brindar asistencia
+    value: >-
+      Apoya la asistencia informativa de uso general: consejería, preguntas frecuentes, señalización u orientación
+      sobre un servicio. Se distingue de Orientación y servicios, que cubre la orientación espacial y las rutas dentro
+      de un lugar.
   - locale: fr
-    value: Permet de fournir des informations, par exemple sur un lieu ou un service, ou de fournir une assistance.
+    value: >-
+      Permet une assistance informative à usage général : conciergerie, FAQ, signalétique ou orientation sur un
+      service. À distinguer de Signalisation et services, qui couvre l'orientation spatiale et les itinéraires dans
+      un lieu.
   - locale: km
     value: គាំទ្រដល់ការផ្តល់ព័ត៌មានឧទាហរណ៍អំពីទីតាំងសេវាកម្មឬផ្តល់ជំនួយ
   - locale: pt
-    value: Apoia o fornecimento de informações, por exemplo, sobre um local, um serviço ou para prestar assistência
+    value: >-
+      Apoia a assistência informativa de uso geral — receção, perguntas frequentes, sinalética ou orientação sobre um
+      serviço. Distinto de Serviços e sinalética, que cobre a orientação espacial e os percursos dentro de um lugar.
   - locale: tl
     value: >-
       Sinusuportahan ang pagkakaloob ng impormasyon, halimbawa tungkol sa isang lokasyon, isang serbisyo, o upang

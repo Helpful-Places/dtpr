@@ -13,10 +13,14 @@ import { buildSearchIndexesByLocale } from './search-index-builder.ts'
 
 /**
  * Variant tokens the compositor treats as reserved. The `icon_variants`
- * list starts with these, then appends every `ContextValue.id` for the
- * element's category (guarded by the RESERVED_VARIANT_TOKEN rule).
+ * list starts with these, then appends every `ContextValue.id` (and
+ * its `.dark` companion) for the element's category — guarded by the
+ * RESERVED_VARIANT_TOKEN rule.
  */
 const RESERVED_VARIANTS = ['default', 'dark'] as const
+
+/** Suffix that lets a context-value variant render against a dark background. */
+const DARK_SUFFIX = '.dark'
 
 /**
  * Emitted element shape. The source `Element` type stays author-facing;
@@ -82,26 +86,28 @@ function effectiveContext(
 
 /**
  * Build the list of variant keys for an element given its category.
- * Reserved tokens come first in stable order, followed by context
- * value ids whose colors are non-null (null-color values are tag-style
- * and don't get a baked-in colored icon). Callers should have run the
- * `RESERVED_VARIANT_TOKEN` rule first so collisions are surfaced as
- * errors, not silently dropped.
+ * Reserved tokens come first in stable order, followed by each
+ * `ContextValue.id` and its `.dark` companion. Null-color (tag-style)
+ * values are included: their composed bytes alias to `default` /
+ * `dark` so URL patterns like `icon.<value>.svg` always resolve.
+ * Callers should have run the `RESERVED_VARIANT_TOKEN` rule first so
+ * collisions are surfaced as errors, not silently dropped.
  */
 export function iconVariantsFor(category: Category | undefined): string[] {
   const extras =
-    category?.context?.values.filter((v) => v.color !== null).map((v) => v.id) ?? []
+    category?.context?.values.flatMap((v) => [v.id, `${v.id}${DARK_SUFFIX}`]) ?? []
   return [...RESERVED_VARIANTS, ...extras]
 }
 
 /**
  * Variant list for a fully resolved element — uses the effective
- * context (element override or category default) and skips null-color
- * values (rendered as tags, not colored icons).
+ * context (element override or category default). Same shape as
+ * `iconVariantsFor`: every value contributes both `<id>` and
+ * `<id>.dark`.
  */
 function iconVariantsForElement(element: Element, category: Category | undefined): string[] {
   const ctx = effectiveContext(element, category)
-  const extras = ctx?.values.filter((v) => v.color !== null).map((v) => v.id) ?? []
+  const extras = ctx?.values.flatMap((v) => [v.id, `${v.id}${DARK_SUFFIX}`]) ?? []
   return [...RESERVED_VARIANTS, ...extras]
 }
 
@@ -129,19 +135,34 @@ function materializeElement(element: Element, categories: Category[]): Materiali
 
 /**
  * Convert a variant token (entry in `icon_variants`) into the
- * `ComposeVariant` discriminated union. The reserved `'default'` and
- * `'dark'` tokens map through directly; any other token is looked up
- * in the element's effective context (element override or category
- * default) and emitted as a colored variant.
+ * `ComposeVariant` discriminated union.
+ *
+ * Tokens may carry an optional `.dark` suffix. Resolution mirrors the
+ * runtime route handler in `api/src/rest/routes.ts`:
+ *   - `default` / `default.dark`   → `'default'` / `'dark'`
+ *   - `dark`                       → `'dark'`
+ *   - `<null_color_value>` / `.dark` → `'default'` / `'dark'`
+ *   - `<colored_value>` / `.dark`  → `{ kind: 'colored', color }`
+ *     (colored bytes are theme-agnostic — `.dark` is a no-op)
  */
 function toComposeVariant(
   variant: string,
   element: Element,
   category: Category,
 ): ComposeVariant {
-  if (variant === 'default' || variant === 'dark') return variant
+  const dark = variant.endsWith(DARK_SUFFIX)
+  const base = dark ? variant.slice(0, -DARK_SUFFIX.length) : variant
+  if (base === 'default') return dark ? 'dark' : 'default'
+  if (base === 'dark') {
+    if (dark) {
+      throw new Error(
+        `toComposeVariant: variant '${variant}' on element '${element.id}' invalid (cannot combine 'dark' with '.dark')`,
+      )
+    }
+    return 'dark'
+  }
   const ctx = effectiveContext(element, category)
-  const hit = ctx?.values.find((v) => v.id === variant)
+  const hit = ctx?.values.find((v) => v.id === base)
   if (!hit) {
     // Guarded by iconVariantsForElement + RESERVED_VARIANT_TOKEN rule;
     // hitting this means someone passed a hand-built variant list.
@@ -149,14 +170,7 @@ function toComposeVariant(
       `toComposeVariant: variant '${variant}' not found in element '${element.id}' effective context`,
     )
   }
-  if (hit.color === null) {
-    // Null-color values are tag-style and should be skipped before
-    // reaching the compositor. Filter at iconVariantsForElement; if we
-    // get here someone bypassed it.
-    throw new Error(
-      `toComposeVariant: variant '${variant}' on element '${element.id}' has null color (tag-style; not composable)`,
-    )
-  }
+  if (hit.color === null) return dark ? 'dark' : 'default'
   return { kind: 'colored', color: hit.color }
 }
 

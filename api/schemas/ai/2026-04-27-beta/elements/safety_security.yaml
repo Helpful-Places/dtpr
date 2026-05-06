@@ -4,9 +4,9 @@ title:
   - locale: en
     value: Safety & Security
   - locale: es
-    value: Seguridad Seguridad
+    value: Seguridad y protección
   - locale: fr
-    value: Tranquillité Prévention
+    value: Sûreté et sécurité
   - locale: km
     value: សុវត្ថិភាពនិងសន្តិសុខ
   - locale: pt
@@ -16,16 +16,19 @@ title:
 description:
   - locale: en
     value: >-
-      Enables a safe and/or secure environment, for example for the purposes of fire safety, home security or ensuring
-      safe passage in places such as airports or roads
+      Supports preventive risk reduction in physical environments — for example, fire safety, home security, or
+      ensuring safe passage in airports or on roads. Distinct from Enforcement (rule application) and from Fire &
+      Emergency (incident response).
   - locale: es
     value: >-
-      Habilita un entorno seguro y/o seguro, por ejemplo, para los fines de seguridad contra incendios, Home Security o
-      garantizar un paso seguro en lugares como aeropuertos o carreteras
+      Apoya la reducción preventiva de riesgos en entornos físicos — por ejemplo, seguridad contra incendios,
+      seguridad doméstica o garantizar el paso seguro en aeropuertos o carreteras. Se distingue de Aplicación
+      (aplicación de reglas) y de Fuego y emergencia (respuesta a incidentes).
   - locale: fr
     value: >-
-      Permet de créer un environnement sór et/ou sécurisé, par exemple à des fins de sécurité incendie, de détection des
-      intrusions ou pour assurer la sécurité du passage dans des lieux tels que les aéroports ou les routes.
+      Soutient la réduction préventive des risques dans les environnements physiques — par exemple la sécurité
+      incendie, la sécurité domestique ou la sécurité de passage dans les aéroports ou sur les routes. À distinguer
+      de Cadre légal (application des règles) et de Incendie et urgence (réponse aux incidents).
   - locale: km
     value: >-
       បើកដំណើរការបរិស្ថានដែលមានសុវត្ថិភាព និង/ឬសុវត្ថិភាព ឧទាហរណ៍សម្រាប់គោលបំណងនៃ
@@ -35,8 +38,9 @@ description:
       [roads](https://en.wikipedia.org/wiki/Road_traffic_safety)
   - locale: pt
     value: >-
-      Permite um ambiente seguro e/ou protegido, por exemplo, para efeitos de [egurança contra incêndios, segurança
-      doméstica ou para garantir uma passagem segura em locais como aeroportos ou estradas.
+      Apoia a redução preventiva de riscos em ambientes físicos — por exemplo, segurança contra incêndios, segurança
+      doméstica ou garantia de passagem segura em aeroportos ou estradas. Distinto de Aplicação da lei (aplicação de
+      regras) e de Incêndio e emergência (resposta a incidentes).
   - locale: tl
     value: >-
       Nagbibigay-daan sa isang ligtas at/o secure na kapaligiran, halimbawa para sa mga layunin ng kaligtasan sa sunog,

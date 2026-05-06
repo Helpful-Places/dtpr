@@ -70,35 +70,69 @@ function notFoundSvgRoute(raw: string) {
 
 const DEFAULT_ELEMENT_FIELDS = ['id', 'title', 'category_id'] as const
 
+const DARK_SUFFIX = '.dark'
+
+/**
+ * Split a variant URL token into a base id and an optional `.dark`
+ * modifier. Returns `null` when the base is empty or contains
+ * additional dots — the route layer treats that as an unknown variant.
+ *
+ * Examples:
+ *   `default`        → { base: 'default',   dark: false }
+ *   `dark`           → { base: 'dark',      dark: false }
+ *   `vendor`         → { base: 'vendor',    dark: false }
+ *   `vendor.dark`    → { base: 'vendor',    dark: true  }
+ */
+function parseVariantToken(
+  token: string,
+): { base: string; dark: boolean } | null {
+  if (token.endsWith(DARK_SUFFIX)) {
+    const base = token.slice(0, -DARK_SUFFIX.length)
+    if (base.length === 0 || base.includes('.')) return null
+    return { base, dark: true }
+  }
+  if (token.includes('.')) return null
+  if (token.length === 0) return null
+  return { base: token, dark: false }
+}
+
 /**
  * Resolve a variant URL token to the `ComposeVariant` the pure
  * compositor accepts. Returns `null` when the token isn't one of the
  * reserved names (`default`, `dark`) and doesn't match any context
  * value on the element's category — the caller translates that into a
  * 404 with a `valid_variants` fix hint.
+ *
+ * Tag-style context values (`color: null`) fall back to `default`
+ * (or `dark` when the token carries the `.dark` suffix), so URLs like
+ * `icon.vendor.svg` always resolve to a renderable icon. Colored
+ * context values render the same bytes regardless of `.dark` — color
+ * is intrinsic identity and the inner symbol already auto-contrasts.
  */
 function resolveComposeVariant(
   variant: string,
   category: Category,
 ): ComposeVariant | null {
-  if (variant === 'default') return 'default'
-  if (variant === 'dark') return 'dark'
-  const ctxValue = category.context?.values.find((v) => v.id === variant)
+  const parsed = parseVariantToken(variant)
+  if (!parsed) return null
+  const { base, dark } = parsed
+  if (base === 'default') return dark ? 'dark' : 'default'
+  if (base === 'dark') return dark ? null : 'dark'
+  const ctxValue = category.context?.values.find((v) => v.id === base)
   if (!ctxValue) return null
-  // Null colors are tag-style and don't compose to a colored icon.
-  if (ctxValue.color === null) return null
+  if (ctxValue.color === null) return dark ? 'dark' : 'default'
   return { kind: 'colored', color: ctxValue.color }
 }
 
 /**
  * Human-readable list of the variants a given category supports.
- * Always includes `default` and `dark`; appends context-value ids when
- * the category declares a `context`. Used for the fix-hint body on a
- * 404 unknown-variant response.
+ * Always includes `default` and `dark`; appends each context-value id
+ * and its `.dark` companion when the category declares a `context`.
+ * Used for the fix-hint body on a 404 unknown-variant response.
  */
 function validVariantsFor(category: Category): string[] {
   const base = ['default', 'dark']
-  const ctxIds = category.context?.values.map((v) => v.id) ?? []
+  const ctxIds = category.context?.values.flatMap((v) => [v.id, `${v.id}${DARK_SUFFIX}`]) ?? []
   return [...base, ...ctxIds]
 }
 
@@ -152,11 +186,14 @@ async function composedIconHandler(
       'Use [a-zA-Z0-9_-] only.',
     )
   }
-  if (!ID_REGEX.test(variant)) {
+  // Variants may carry a `.dark` suffix (e.g. `vendor.dark`); the path
+  // guard runs against the parsed base id, not the raw token.
+  const parsedVariant = parseVariantToken(variant)
+  if (!parsedVariant || !ID_REGEX.test(parsedVariant.base)) {
     throw apiErrors.badRequest(
       `Invalid variant '${variant}'.`,
       undefined,
-      'Use [a-zA-Z0-9_-] only.',
+      'Use [a-zA-Z0-9_-] only, optionally followed by `.dark`.',
     )
   }
 
