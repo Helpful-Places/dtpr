@@ -1,6 +1,6 @@
 ---
 name: dtpr-describe-system
-description: Describe an AI system, algorithm, or automated decision process as a DTPR (Digital Trust for Places and Routines) AI datachain. Use whenever a user wants to document, disclose, audit, or publish how an AI system works — including its inputs, outputs, decisions, data handling, and rights. Accepts zero or more artifacts (PDFs, URLs, AIAs, policy documents) alongside or instead of a verbal description. Triggers on phrases like "describe this AI system", "make a DTPR datachain", "document this algorithm", "what would DTPR say about this", "disclose this model", "describe the attached PDF as a datachain", "turn this URL into a DTPR disclosure", or any request to produce a structured transparency artifact for an AI product. Produces a machine-validated JSON datachain conforming to the current DTPR schema plus a short narrative justifying each category choice.
+description: Describe an AI system, algorithm, or automated decision process as a DTPR (Digital Trust for Places and Routines) AI datachain. Use whenever a user wants to document, disclose, audit, or publish how an AI system works — including its inputs, outputs, decisions, data handling, and rights. Accepts zero or more artifacts (PDFs, URLs, AIAs, policy documents) alongside or instead of a verbal description. Triggers on phrases like "describe this AI system", "make a DTPR datachain", "document this algorithm", "what would DTPR say about this", "disclose this model", "describe the attached PDF as a datachain", "turn this URL into a DTPR disclosure", or any request to produce a structured transparency artifact for an AI product. Produces a machine-validated JSON datachain conforming to the current DTPR schema plus a short narrative justifying each category choice. To translate the resulting datachain's referenced element copy into the locales declared in the manifest, route to `dtpr-translate`.
 ---
 
 # Describe an AI system as a DTPR datachain
@@ -19,14 +19,15 @@ The authoritative schema lives at the DTPR API (`https://api.dtpr.io`). This ski
 
 ## Sibling routing
 
-This skill is one of five peers in the DTPR authoring studio. Route elsewhere when the ask is not about producing a DatachainInstance for a specific system:
+This skill is one of six peers in the DTPR authoring studio. Route elsewhere when the ask is not about producing a DatachainInstance for a specific system:
 
-- **`dtpr-datachain-structure`** — the user wants to critique or propose changes to the datachain-type shape itself (which categories exist, required vs optional, category-level retirement or addition).
+- **`dtpr-datachain-structure`** — the user wants to critique or propose changes to the datachain-type shape itself (which categories exist, required vs optional, category-level retirement or addition, the `manifest.locales` allow-list).
 - **`dtpr-category-audit`** — the user wants to audit one category's element collection for coherence, overlap, or missing elements.
 - **`dtpr-element-design`** — the user wants to draft a new element (title, description, symbol direction, variables) or retire and replace an existing one.
 - **`dtpr-comprehension-audit`** — the user wants to grade an element, category, datachain-instance, or pasted content against the public-comprehension rubric without changing it.
+- **`dtpr-translate`** — the user wants to render the datachain's referenced element copy into the non-English locales the manifest declares. This skill picks one locale at output time; full translation passes belong to the sibling.
 
-When Phase 3 surfaces a gap that one of the four siblings should address (no element matches a concept, a category's collection feels off, the datachain-type shape itself misses the system's nature, or the output needs deeper comprehension grading), name the sibling in the narrative and hand the user the next step.
+When Phase 3 surfaces a gap that one of the five siblings should address (no element matches a concept, a category's collection feels off, the datachain-type shape itself misses the system's nature, the output needs deeper comprehension grading, or the user wants the disclosure rendered in additional locales), name the sibling in the narrative and hand the user the next step.
 
 ## Security framing
 
@@ -134,7 +135,7 @@ Assemble a JSON object that conforms to the `DatachainInstance` shape in the sch
 - One entry per required category, each referencing one or more element IDs.
 - Any variable values the element definitions require (e.g. retention periods).
 
-Use the locale returned from `get_schema`; default to `en` if the user hasn't specified.
+Use one locale from `manifest.locales` (returned from `get_schema`) for the rendered output; default to `en` if the user hasn't specified. To produce the same disclosure across every locale in the allow-list, hand off to `dtpr-translate` after the JSON validates — that skill reads `manifest.locales` dynamically so it tracks whatever the live schema declares.
 
 ### Phase 5 — Validate and iterate
 
@@ -179,4 +180,4 @@ MCP tool parameter shapes are documented on the MCP itself — see `https://dtpr
 - Modifying DTPR taxonomy. Use `dtpr-datachain-structure`, `dtpr-category-audit`, or `dtpr-element-design` for proposals.
 - Grading published content for public comprehension. Use `dtpr-comprehension-audit` when the ask is "is this clear" rather than "describe this system".
 - Writing production disclosure copy or regulatory filings. The narrative this skill produces is a starting point for human editors, not a finished public artifact.
-- Translating content. Locale output uses what the schema already carries; actual translation is out of scope.
+- Translating content. Locale output uses what the schema already carries for one chosen locale; producing the same disclosure across every locale in `manifest.locales` belongs to `dtpr-translate`, which reads the locale list dynamically.

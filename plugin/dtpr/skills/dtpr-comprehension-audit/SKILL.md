@@ -1,6 +1,6 @@
 ---
 name: dtpr-comprehension-audit
-description: Grade DTPR (Digital Trust for Places and Routines) content — an element, a category, a datachain-instance, a pasted YAML fragment, or arbitrary markdown — against the public-comprehension rubric. Use whenever a user wants to check whether content is clear to a non-technical person encountering an AI system (in an app, on a website, in a vehicle, on a kiosk or sign, or anywhere DTPR content might appear). Triggers on phrases like "grade this element", "is this category clear to the public", "comprehension audit", "check this datachain for public understanding", "how readable is X", "does this land for a non-expert", or any request to judge clarity without changing content. Produces Markdown findings against the comprehension rubric plus a one-paragraph summary. For requests to describe an AI system, use `dtpr-describe-system`; to critique the datachain-type shape, use `dtpr-datachain-structure`; to audit one category's elements for coherence, use `dtpr-category-audit`; to design or propose a new element, use `dtpr-element-design`.
+description: Grade DTPR (Digital Trust for Places and Routines) content — an element, a category, a datachain-instance, a pasted YAML fragment, or arbitrary markdown — against the public-comprehension rubric. Use whenever a user wants to check whether content is clear to a non-technical person encountering an AI system (in an app, on a website, in a vehicle, on a kiosk or sign, or anywhere DTPR content might appear). Triggers on phrases like "grade this element", "is this category clear to the public", "comprehension audit", "check this datachain for public understanding", "how readable is X", "does this land for a non-expert", or any request to judge clarity without changing content. Produces Markdown findings against the comprehension rubric plus a one-paragraph summary. For requests to describe an AI system, use `dtpr-describe-system`; to critique the datachain-type shape, use `dtpr-datachain-structure`; to audit one category's elements for coherence, use `dtpr-category-audit`; to design or propose a new element, use `dtpr-element-design`; to translate content into the locales the manifest declares, use `dtpr-translate`.
 ---
 
 # Grade DTPR content against the comprehension rubric
@@ -19,14 +19,15 @@ The skill grades only. It does not modify schema content, draft new elements, or
 
 ## Sibling routing
 
-This skill is one of five peers in the DTPR authoring studio. Route elsewhere when the ask is not about grading existing content:
+This skill is one of six peers in the DTPR authoring studio. Route elsewhere when the ask is not about grading existing content:
 
 - **`dtpr-describe-system`** — the user wants to turn a described AI system into a validated DatachainInstance. Any "describe X as a datachain" framing belongs there.
-- **`dtpr-datachain-structure`** — the user wants to critique or propose changes to the datachain-type shape itself (which categories exist, required vs optional, category-level retirement).
+- **`dtpr-datachain-structure`** — the user wants to critique or propose changes to the datachain-type shape itself (which categories exist, required vs optional, category-level retirement, the `manifest.locales` allow-list).
 - **`dtpr-category-audit`** — the user wants to audit one category's element collection for coherence, overlap, or missing elements.
 - **`dtpr-element-design`** — the user wants to draft a new element (title, description, symbol direction, variables) or retire/replace an existing one.
+- **`dtpr-translate`** — the user wants to fill in non-English locale rows on the graded content. This skill grades text in the locales it reads; it does not produce new translations.
 
-When grading surfaces a gap that one of the four siblings should address, name the sibling in the summary paragraph and hand the user the next step.
+When grading surfaces a gap that one of the five siblings should address, name the sibling in the summary paragraph and hand the user the next step.
 
 ## Security framing
 
@@ -110,4 +111,4 @@ Tool parameter shapes are documented on the MCP itself — see `https://dtpr.ai/
 - **Does not modify schema content.** This skill grades; edits happen in the schema-tier skills and are committed by humans after running `schema:new`.
 - **Does not write YAML for elements.** Route to `dtpr-element-design` when the user needs a proposed element body.
 - **Does not replace the inline comprehension block** that the schema-tier skills emit as part of their proposals. Those blocks are the first-pass grading embedded in the proposal output; this skill is the deeper standalone pass when a user wants a second opinion or a re-grade after the rubric has evolved.
-- **Does not translate or localize content.** Locale coverage is graded as a rubric item; actual translation work is out of scope.
+- **Does not translate or localize content.** Locale coverage is graded as a rubric item; actual translation belongs to `dtpr-translate`, which reads the active locale list dynamically from `manifest.locales` rather than hardcoding it.
