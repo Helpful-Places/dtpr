@@ -251,10 +251,7 @@ useHead(() => ({
             >
               <DtprElement :display="d.display" show-description>
                 <template #footer>
-                  <NuxtLink :to="d.href" class="taxonomy-view-link">
-                    <span>View element</span>
-                    <UIcon name="i-heroicons-arrow-right" class="taxonomy-view-link__icon" />
-                  </NuxtLink>
+                  <TaxonomyViewLink :to="d.href" label="View element" />
                 </template>
               </DtprElement>
             </li>
@@ -403,43 +400,6 @@ useHead(() => ({
   flex: 1;
 }
 
-/*
- * View-link affordance mirrors the catalog page so element cards have
- * consistent navigation across the taxonomy.
- */
-.taxonomy-view-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: var(--ui-text-dimmed, rgb(107, 114, 128));
-  text-decoration: none;
-  transition: color 0.15s ease;
-}
-
-.taxonomy-view-link:hover,
-.taxonomy-view-link:focus-visible {
-  color: var(--ui-primary, #10b981);
-  outline: 0;
-}
-
-.taxonomy-view-link:focus-visible {
-  outline: 2px solid var(--ui-primary, #10b981);
-  outline-offset: 2px;
-  border-radius: 0.25rem;
-}
-
-.taxonomy-view-link__icon {
-  width: 0.875rem;
-  height: 0.875rem;
-  transition: transform 0.15s ease;
-}
-
-.taxonomy-view-link:hover .taxonomy-view-link__icon,
-.taxonomy-view-link:focus-visible .taxonomy-view-link__icon {
-  transform: translateX(2px);
-}
 
 .taxonomy-detail-page__empty {
   margin: 0;

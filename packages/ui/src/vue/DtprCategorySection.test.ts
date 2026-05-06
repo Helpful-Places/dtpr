@@ -111,4 +111,20 @@ describe('DtprCategorySection', () => {
     })
     expect(w.find('.dtpr-category-section__footer').exists()).toBe(false)
   })
+
+  it('renders footer slot in accordion mode and hides it with the panel when collapsed', async () => {
+    const w = mount(DtprCategorySection, {
+      props: { id: 'x', title: 'X' },
+      slots: {
+        default: '<p class="body">body</p>',
+        footer: '<a class="view-link" href="/x">View category</a>',
+      },
+    })
+    const footer = w.get('.dtpr-category-section__footer')
+    expect(footer.find('.view-link').text()).toBe('View category')
+    // Collapsed by default — footer should be hidden alongside the panel.
+    expect(footer.attributes('hidden')).toBeDefined()
+    await w.get('button').trigger('click')
+    expect(w.get('.dtpr-category-section__footer').attributes('hidden')).toBeUndefined()
+  })
 })
