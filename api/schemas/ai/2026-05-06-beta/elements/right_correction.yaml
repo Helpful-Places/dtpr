@@ -1,0 +1,54 @@
+id: right_correction
+category_id: rights
+title:
+  - locale: en
+    value: Right to Correct Your Data
+  - locale: es
+    value: Derecho a rectificar sus datos
+  - locale: fr
+    value: Droit de rectifier vos données
+  - locale: km
+    value: សិទ្ធិកែតម្រូវទិន្នន័យរបស់អ្នក
+  - locale: pt
+    value: Direito de corrigir seus dados
+  - locale: tl
+    value: Karapatang Itama ang Iyong Data
+description:
+  - locale: en
+    value: >-
+      The right to have inaccurate or incomplete data that an AI system holds about you corrected or completed. This
+      is separate from the right to access your data (which is the right to read it) and the right to be forgotten
+      (which is the right to delete it). When the original data is corrected, downstream decisions made from the
+      faulty data should be revisited.
+  - locale: es
+    value: >-
+      El derecho a que se rectifiquen o completen los datos inexactos o incompletos que un sistema de IA tenga sobre
+      usted. Es distinto del derecho de acceso (que es el derecho a consultar los datos) y del derecho al olvido (que
+      es el derecho a su supresión). Cuando se corrigen los datos originales, las decisiones posteriores tomadas a
+      partir de los datos erróneos deben revisarse.
+  - locale: fr
+    value: >-
+      Le droit de faire rectifier ou compléter les données inexactes ou incomplètes qu'un système d'IA détient à votre
+      sujet. Ce droit se distingue du droit d'accès (qui est le droit de les consulter) et du droit à l'oubli (qui
+      est le droit à leur effacement). Lorsque les données d'origine sont rectifiées, les décisions ultérieures prises
+      à partir de données erronées devraient être réexaminées.
+  - locale: km
+    value: >-
+      សិទ្ធិកែតម្រូវ ឬបំពេញទិន្នន័យដែលមិនត្រឹមត្រូវ ឬមិនពេញលេញដែលប្រព័ន្ធ AI កាន់កាប់អំពីអ្នក។
+      សិទ្ធិនេះគឺដាច់ដោយឡែកពីសិទ្ធិចូលប្រើទិន្នន័យរបស់អ្នក (ដែលជាសិទ្ធិអាន) និងសិទ្ធិត្រូវបំភ្លេច (ដែលជាសិទ្ធិលុប)។
+      នៅពេលដែលទិន្នន័យដើមត្រូវបានកែតម្រូវ ការសម្រេចចិត្តនៅខាងក្រោយដែលធ្វើឡើងពីទិន្នន័យខុសឆ្គង គួរតែត្រូវបានពិនិត្យឡើងវិញ។
+  - locale: pt
+    value: >-
+      O direito a que dados inexatos ou incompletos que um sistema de IA mantém sobre você sejam corrigidos ou
+      completados. Este direito é distinto do direito de acesso (que é o direito de lê-los) e do direito de ser
+      esquecido (que é o direito de excluí-los). Quando os dados originais são corrigidos, as decisões posteriores
+      tomadas a partir dos dados incorretos devem ser revistas.
+  - locale: tl
+    value: >-
+      Ang karapatang itama o kumpletuhin ang hindi tama o hindi kumpletong data na hawak ng isang AI system tungkol
+      sa iyo. Ito ay hiwalay sa karapatang ma-access ang iyong data (na siyang karapatang basahin ito) at sa
+      karapatang makalimutan (na siyang karapatang tanggalin ito). Kapag naitama ang orihinal na data, ang mga
+      kasunod na desisyong ginawa batay sa maling data ay dapat suriing muli.
+citation: []
+symbol_id: dtpr_api
+variables: []

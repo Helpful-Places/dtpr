@@ -1,0 +1,33 @@
+id: stored_locally
+category_id: storage
+title:
+  - locale: en
+    value: Stored locally
+  - locale: es
+    value: Almacenado localmente
+  - locale: fr
+    value: Stocké localement
+  - locale: km
+    value: រក្សាទុកក្នុងមូលដ្ឋាន
+  - locale: pt
+    value: Armazenado localmente
+  - locale: tl
+    value: Nakaimbak nang lokal
+description:
+  - locale: en
+    value: Data is stored in the jurisdiction where it was collected.
+  - locale: es
+    value: Los datos se almacenan en la jurisdicción donde se recopiló.
+  - locale: fr
+    value: Les données sont stockées dans une zone soumise aux mêmes lois que celle où elles sont collectées.
+  - locale: km
+    value: >-
+      ទិន្នន័យត្រូវបានរក្សាទុកនៅក្នុងយុត្តាធិការដែលវាត្រូវបានប្រមូល។ ស្វែងយល់បន្ថែម
+      [នៅទីនេះ](https://en.wikipedia.org/wiki/data_sovereignty)
+  - locale: pt
+    value: Os dados são armazenados na jurisdição onde foram recolhidos.
+  - locale: tl
+    value: Ang datos ay naka-imbak sa hurisdiksyon kung saan nakolekta ito.
+citation: []
+symbol_id: stored
+variables: []

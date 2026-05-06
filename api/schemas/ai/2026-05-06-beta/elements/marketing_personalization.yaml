@@ -1,0 +1,72 @@
+id: marketing_personalization
+category_id: purpose
+title:
+  - locale: en
+    value: Marketing & Personalization
+  - locale: es
+    value: Marketing y personalización
+  - locale: fr
+    value: Marketing et personnalisation
+  - locale: km
+    value: ទីផ្សារ និងការកម្រិតផ្ទាល់ខ្លួន
+  - locale: pt
+    value: Marketing e personalização
+  - locale: tl
+    value: Marketing at Personalisasyon
+description:
+  - locale: en
+    value: >-
+      Targets advertising, personalizes recommendations, or profiles audiences for marketing — for example, in-store
+      loyalty offers, personalized signage, behavioural ad targeting.
+  - locale: es
+    value: >-
+      Dirige publicidad, personaliza recomendaciones o perfila audiencias con fines de marketing — por ejemplo,
+      ofertas de fidelización en tienda, señalización personalizada, segmentación publicitaria por comportamiento.
+  - locale: fr
+    value: >-
+      Cible la publicité, personnalise les recommandations ou profile les audiences à des fins marketing — par
+      exemple, offres de fidélité en magasin, signalétique personnalisée, ciblage publicitaire comportemental.
+  - locale: km
+    value: >-
+      កំណត់គោលដៅការផ្សាយពាណិជ្ជកម្ម កម្រិតផ្ទាល់ខ្លួននៃអនុសាសន៍ ឬធ្វើប្រវត្តិអ្នកទស្សនាក្នុងគោលបំណងធ្វើទីផ្សារ — ឧទាហរណ៍
+      កម្មវិធីស្មោះត្រង់ក្នុងហាង សញ្ញាបង្ហាញផ្ទាល់ខ្លួន ការកំណត់គោលដៅការផ្សាយពាណិជ្ជកម្មតាមឥរិយាបថ។
+  - locale: pt
+    value: >-
+      Direciona publicidade, personaliza recomendações ou perfila audiências para fins de marketing — por exemplo,
+      ofertas de fidelização em loja, sinalética personalizada, segmentação publicitária comportamental.
+  - locale: tl
+    value: >-
+      Tina-target ang patalastas, pino-personalize ang mga rekomendasyon, o nagpo-profile ng audience para sa
+      marketing — halimbawa, in-store loyalty offers, personalized signage, behavioural ad targeting.
+citation:
+  - locale: en
+    value: >-
+      Profiling and automated decisioning for marketing regulated under GDPR (Regulation (EU) 2016/679), Article 22
+      (automated individual decision-making, including profiling); transparency duties for online platform advertising
+      under EU Digital Services Act (Regulation (EU) 2022/2065), Articles 26 and 39.
+  - locale: es
+    value: >-
+      La elaboración de perfiles y la toma de decisiones automatizada con fines de marketing están reguladas por el
+      RGPD (Reglamento (UE) 2016/679), Artículo 22; deberes de transparencia para la publicidad en plataformas en
+      línea bajo el Reglamento de Servicios Digitales (Reglamento (UE) 2022/2065), Artículos 26 y 39.
+  - locale: fr
+    value: >-
+      Le profilage et la prise de décision automatisée à des fins marketing sont encadrés par le RGPD (Règlement
+      (UE) 2016/679), Article 22 ; obligations de transparence pour la publicité en ligne au titre du Règlement sur
+      les services numériques (Règlement (UE) 2022/2065), Articles 26 et 39.
+  - locale: km
+    value: >-
+      ការធ្វើប្រវត្តិ និងការសម្រេចចិត្តស្វ័យប្រវត្តិសម្រាប់ទីផ្សារ ត្រូវកំណត់ដោយ GDPR (Regulation (EU) 2016/679) មាត្រា 22
+      និងភារកិច្ចតម្លាភាពនៅក្នុងច្បាប់សេវាឌីជីថល (Regulation (EU) 2022/2065) មាត្រា 26 និង 39។
+  - locale: pt
+    value: >-
+      Definição de perfis e tomada de decisão automatizada para marketing são regulamentadas pelo RGPD (Regulamento
+      (UE) 2016/679), Artigo 22; deveres de transparência para publicidade em plataformas em linha pelo Regulamento
+      dos Serviços Digitais (Regulamento (UE) 2022/2065), Artigos 26 e 39.
+  - locale: tl
+    value: >-
+      Ang profiling at automated decision-making para sa marketing ay regulated sa ilalim ng GDPR (Regulation
+      (EU) 2016/679), Article 22; transparency duties para sa online platform advertising sa ilalim ng EU Digital
+      Services Act (Regulation (EU) 2022/2065), Articles 26 at 39.
+symbol_id: marketing_personalization
+variables: []

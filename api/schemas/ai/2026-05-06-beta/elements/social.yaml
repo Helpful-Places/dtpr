@@ -1,0 +1,31 @@
+id: social
+category_id: purpose
+title:
+  - locale: en
+    value: Social
+  - locale: es
+    value: Social
+  - locale: fr
+    value: Social
+  - locale: km
+    value: ឯនសង្គម
+  - locale: pt
+    value: Social
+  - locale: tl
+    value: Panlipunan
+description:
+  - locale: en
+    value: For interacting with another person or a group.
+  - locale: es
+    value: Para interactuar con otra persona o un grupo.
+  - locale: fr
+    value: Pour interagir avec une autre personne ou un groupe.
+  - locale: km
+    value: សម្រាប់ការប្រាស្រ័យទាក់ទងជាមួយមនុស្សម្នាក់ទៀតឬក្រុម។
+  - locale: pt
+    value: Para interagir com outra pessoa ou com um grupo.
+  - locale: tl
+    value: Para sa pakikipag -ugnay sa ibang tao o isang pangkat.
+citation: []
+symbol_id: social
+variables: []

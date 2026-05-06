@@ -1,0 +1,33 @@
+id: mobility
+category_id: purpose
+title:
+  - locale: en
+    value: Mobility
+  - locale: es
+    value: Movilidad
+  - locale: fr
+    value: Mobilité
+  - locale: km
+    value: ចលផាប
+  - locale: pt
+    value: Mobilidade
+  - locale: tl
+    value: Pagkilos
+description:
+  - locale: en
+    value: Supports how people and materials move around.
+  - locale: es
+    value: Apoya cómo se mueven las personas y los materiales.
+  - locale: fr
+    value: Contribue à la maniére dont les personnes et les matériaux se déplacent.
+  - locale: km
+    value: >-
+      គាំទ្រដល់របៀបដែលមនុស្សនិងវត្ថុធាតុដើមផ្លាស់ទីនៅជុំវិញ។ ស្វែងយល់បន្ថែម
+      [នៅទីនេះ](https://en.wikipedia.org/wiki/transport)
+  - locale: pt
+    value: Apoia a forma como as pessoas e os materiais se deslocam.
+  - locale: tl
+    value: Sinusuportahan kung paano gumagalaw ang mga tao at materyales.
+citation: []
+symbol_id: mobility
+variables: []

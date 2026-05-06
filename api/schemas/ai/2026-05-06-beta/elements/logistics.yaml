@@ -1,0 +1,31 @@
+id: logistics
+category_id: purpose
+title:
+  - locale: en
+    value: Logistics
+  - locale: es
+    value: Logística
+  - locale: fr
+    value: Logistique
+  - locale: km
+    value: ផស្ថ
+  - locale: pt
+    value: Logística
+  - locale: tl
+    value: Logistik
+description:
+  - locale: en
+    value: Supports the movements of goods or materials.
+  - locale: es
+    value: Apoya los movimientos de bienes o materiales.
+  - locale: fr
+    value: Favorise la circulation des marchandises ou des matériaux.
+  - locale: km
+    value: គាំទ្រចលនាទំនិញឬសម្ភារៈ។ ស្វែងយល់បន្ថែម [នៅទីនេះ](https://en.wikipedia.org/wiki/logists)
+  - locale: pt
+    value: Apoia a circulação de mercadorias ou materiais.
+  - locale: tl
+    value: Sinusuportahan ang paggalaw ng mga kalakal o materyales.
+citation: []
+symbol_id: logistics
+variables: []

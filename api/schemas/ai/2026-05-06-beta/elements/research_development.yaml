@@ -1,0 +1,42 @@
+id: research_development
+category_id: purpose
+title:
+  - locale: en
+    value: Research & Development
+  - locale: es
+    value: Investigación y desarrollo
+  - locale: fr
+    value: Recherche et développement
+  - locale: km
+    value: ស្រាវជ្រាវនិងអភិវឌ្ឍន៍
+  - locale: pt
+    value: Investigação e desenvolvimento
+  - locale: tl
+    value: Pananaliksik at Pag -unlad
+description:
+  - locale: en
+    value: >-
+      Supports a deployed research instrument — a system that studies a place, population, or environment as part of a
+      research program. Distinct from production AI that delivers a service to the public.
+  - locale: es
+    value: >-
+      Apoya un instrumento de investigación desplegado — un sistema que estudia un lugar, población o entorno como
+      parte de un programa de investigación. Se distingue de la IA de producción que ofrece un servicio al público.
+  - locale: fr
+    value: >-
+      Permet le déploiement d'un instrument de recherche — un système qui étudie un lieu, une population ou un
+      environnement dans le cadre d'un programme de recherche. À distinguer de l'IA de production qui rend un service
+      au public.
+  - locale: km
+    value: >-
+      គាំទ្រការស្រាវជ្រាវស្វែងយល់និងការធ្វើតេស្ត។ ស្វែងយល់បន្ថែម
+      [នៅទីនេះ](https://en.wikipedia.org/wiki/Research_andevel_andever_andeverment) ។
+  - locale: pt
+    value: >-
+      Apoia um instrumento de investigação implantado — um sistema que estuda um lugar, população ou ambiente como
+      parte de um programa de investigação. Distinto de IA de produção que entrega um serviço ao público.
+  - locale: tl
+    value: Sinusuportahan ang exploratory na pananaliksik at pagsubok.
+citation: []
+symbol_id: research_development
+variables: []

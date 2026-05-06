@@ -1,0 +1,90 @@
+id: societal_cultural_harm
+category_id: risks_mitigation
+title:
+  - locale: en
+    value: Societal & cultural harm
+  - locale: es
+    value: Daño social y cultural
+  - locale: fr
+    value: Préjudice sociétal et culturel
+  - locale: km
+    value: គ្រោះថ្នាក់សង្គម និងវប្បធម៌
+  - locale: pt
+    value: Dano social e cultural
+  - locale: tl
+    value: Pinsalang panlipunan at pangkultura
+description:
+  - locale: en
+    value: >-
+      The risk that the AI system harms communities or culture through erosion of trust, loss of linguistic and
+      cultural diversity, or unhealthy dependency on opaque systems. This includes risks of misinformation at scale,
+      homogenization of cultural expression, replacement of local knowledge, and degradation of public-information
+      ecosystems. Mitigations may include multilingual support, partnerships with affected communities, provenance
+      signals on generated content, and investment in local-language and local-context models.
+  - locale: es
+    value: >-
+      El riesgo de que el sistema de IA dañe a comunidades o a la cultura mediante la erosión de la confianza, la
+      pérdida de diversidad lingüística y cultural o una dependencia insana de sistemas opacos. Esto incluye riesgos
+      de desinformación a gran escala, homogeneización de la expresión cultural, sustitución del conocimiento local y
+      degradación de los ecosistemas de información pública. Las medidas de mitigación pueden incluir soporte
+      multilingüe, asociaciones con comunidades afectadas, señales de procedencia en el contenido generado e inversión
+      en modelos de idiomas y contextos locales.
+  - locale: fr
+    value: >-
+      Le risque que le système d'IA porte atteinte aux communautés ou à la culture par l'érosion de la confiance, la
+      perte de diversité linguistique et culturelle ou une dépendance malsaine à des systèmes opaques. Cela inclut les
+      risques de désinformation à grande échelle, d'homogénéisation de l'expression culturelle, de substitution des
+      savoirs locaux et de dégradation des écosystèmes d'information publique. Les mesures d'atténuation peuvent
+      inclure un support multilingue, des partenariats avec les communautés concernées, des signaux de provenance sur
+      les contenus générés et des investissements dans des modèles spécifiques aux langues et aux contextes locaux.
+  - locale: km
+    value: >-
+      ហានិភ័យដែលប្រព័ន្ធ AI បង្កគ្រោះថ្នាក់ដល់សហគមន៍ ឬវប្បធម៌តាមរយៈការចុះអន់នៃទំនុកចិត្ត
+      ការបាត់បង់ភាពចម្រុះភាសា និងវប្បធម៌ ឬការពឹងផ្អែកមិនល្អលើប្រព័ន្ធស្រអាប់។
+      នេះរួមបញ្ចូលហានិភ័យនៃព័ត៌មានខុសក្នុងមាត្រដ្ឋានធំ ការធ្វើឱ្យដូចគ្នានៃការបង្ហាញវប្បធម៌
+      ការជំនួសចំណេះដឹងក្នុងតំបន់ និងការខ្សោះជីវជាតិនៃប្រព័ន្ធអេកូព័ត៌មានសាធារណៈ។
+      ការបន្ធូរបន្ថយអាចរួមមានការគាំទ្រពហុភាសា ភាពជាដៃគូជាមួយសហគមន៍ដែលរងផលប៉ះពាល់
+      សញ្ញាប្រភពនៃមាតិកាដែលបង្កើត និងការវិនិយោគលើគំរូភាសា និងបរិបទក្នុងតំបន់។
+  - locale: pt
+    value: >-
+      O risco de que o sistema de IA prejudique comunidades ou a cultura por meio da erosão da confiança, perda de
+      diversidade linguística e cultural, ou dependência prejudicial de sistemas opacos. Isso inclui riscos de
+      desinformação em larga escala, homogeneização da expressão cultural, substituição de conhecimento local e
+      degradação dos ecossistemas de informação pública. As mitigações podem incluir suporte multilíngue, parcerias
+      com comunidades afetadas, sinais de proveniência em conteúdo gerado e investimento em modelos de idiomas e
+      contextos locais.
+  - locale: tl
+    value: >-
+      Ang panganib na ang AI system ay makapinsala sa mga komunidad o kultura sa pamamagitan ng pag-erode sa tiwala,
+      pagkawala ng pagkakaiba-iba sa wika at kultura, o di-malusog na pag-asa sa mga opaque na sistema. Kabilang dito
+      ang mga panganib ng misinformation sa malaking sukat, paghohomogenize ng kulturang pagpapahayag, pagpapalit ng
+      lokal na kaalaman, at pagkakasira ng mga ecosystem ng pampublikong impormasyon. Maaaring kabilang sa mga
+      mitigasyon ang multilingual na suporta, mga partnership sa mga apektadong komunidad, provenance signals sa
+      generated content, at pamumuhunan sa mga modelong angkop sa lokal na wika at konteksto.
+citation:
+  - locale: en
+    value: >-
+      Adapted from AIAAIC harm type "Societal & Cultural" — Abercrombie et al. (2024), A Collaborative, Human-Centred
+      Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+  - locale: es
+    value: >-
+      Adaptado del tipo de daño AIAAIC "Social y Cultural" — Abercrombie et al. (2024), A Collaborative, Human-Centred
+      Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+  - locale: fr
+    value: >-
+      Adapté du type de préjudice AIAAIC « Sociétal et culturel » — Abercrombie et al. (2024), A Collaborative,
+      Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+  - locale: km
+    value: >-
+      សម្របតាមប្រភេទគ្រោះថ្នាក់ AIAAIC "សង្គម និងវប្បធម៌" — Abercrombie et al. (2024), A Collaborative, Human-Centred
+      Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+  - locale: pt
+    value: >-
+      Adaptado do tipo de dano AIAAIC "Social e Cultural" — Abercrombie et al. (2024), A Collaborative, Human-Centred
+      Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+  - locale: tl
+    value: >-
+      Hango sa uri ng pinsalang AIAAIC na "Panlipunan at Pangkultura" — Abercrombie et al. (2024), A Collaborative,
+      Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+symbol_id: risks_societal-cultural
+variables: []

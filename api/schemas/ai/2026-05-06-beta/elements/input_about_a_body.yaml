@@ -1,0 +1,35 @@
+id: input_about_a_body
+category_id: input_dataset
+title:
+  - locale: en
+    value: About a body
+  - locale: es
+    value: Sobre un cuerpo
+  - locale: fr
+    value: À propos d'un corps
+  - locale: pt
+    value: Sobre um corpo
+description:
+  - locale: en
+    value: >-
+      Faces, fingerprints, voice prints, gait, gestures, gaze, posture. The AI takes in biological signals from a
+      person's body. Examples: a face captured at a turnstile, a voice recorded by a kiosk microphone, gait analyzed
+      by an overhead camera.
+  - locale: es
+    value: >-
+      Rostros, huellas dactilares, huellas vocales, marcha, gestos, mirada, postura. La IA recibe señales biológicas
+      del cuerpo de una persona. Ejemplos: un rostro capturado en un torniquete, una voz grabada por el micrófono de
+      un kiosco, una marcha analizada por una cámara cenital.
+  - locale: fr
+    value: >-
+      Visages, empreintes digitales, empreintes vocales, démarche, gestes, regard, posture. L'IA reçoit des signaux
+      biologiques provenant du corps d'une personne. Exemples : un visage capturé à un tourniquet, une voix
+      enregistrée par le microphone d'une borne, une démarche analysée par une caméra zénithale.
+  - locale: pt
+    value: >-
+      Rostos, impressões digitais, impressões vocais, marcha, gestos, olhar, postura. A IA recebe sinais biológicos do
+      corpo de uma pessoa. Exemplos: um rosto capturado num torniquete, uma voz gravada pelo microfone de um quiosque,
+      uma marcha analisada por uma câmara zenital.
+citation: []
+symbol_id: about_a_body
+variables: []
