@@ -1,0 +1,51 @@
+id: speech_audio
+category_id: processing
+title:
+  - locale: en
+    value: Speech & Audio
+  - locale: es
+    value: Habla y audio
+  - locale: fr
+    value: Parole et audio
+  - locale: km
+    value: ការនិយាយ និងសំឡេង
+  - locale: pt
+    value: Fala e áudio
+  - locale: tl
+    value: Pagsasalita at Audio
+description:
+  - locale: en
+    value: >-
+      AI systems that convert between spoken words and other formats, or that classify non-speech sound. Includes
+      speech-to-text (transcription), text-to-speech (synthetic voice), keyword spotting, and audio event detection.
+      Voice-as-identity (recognizing who is speaking) belongs in Biometric Recognition.
+  - locale: es
+    value: >-
+      Sistemas de IA que convierten entre palabras habladas y otros formatos, o que clasifican sonidos distintos del
+      habla. Incluye conversión de voz a texto (transcripción), texto a voz (voz sintética), detección de palabras
+      clave y detección de eventos sonoros. La voz como identidad (reconocer quién habla) pertenece al reconocimiento
+      biométrico.
+  - locale: fr
+    value: >-
+      Systèmes d'IA qui convertissent entre la parole et d'autres formats, ou qui classent les sons non vocaux.
+      Inclut la transcription parole-vers-texte, la synthèse vocale, la détection de mots-clés et la détection
+      d'événements sonores. La voix comme identité (reconnaître qui parle) relève de la reconnaissance biométrique.
+  - locale: km
+    value: >-
+      ប្រព័ន្ធ AI ដែលបំប្លែងរវាងពាក្យដែលនិយាយ និងទម្រង់ផ្សេងទៀត ឬដែលចាត់ថ្នាក់សំឡេងមិនមែននិយាយ។
+      រួមមានការបំប្លែងសំឡេងទៅជាអត្ថបទ (ការចម្លង) អត្ថបទទៅជាសំឡេង (សំឡេងសំយោគ) ការរកពាក្យគន្លឹះ
+      និងការរកព្រឹត្តិការណ៍សំឡេង។ សំឡេងជាអត្តសញ្ញាណ (ស្គាល់អ្នកនិយាយ) ស្ថិតក្នុងការស្គាល់អត្តសញ្ញាណជីវមាត្រ។
+  - locale: pt
+    value: >-
+      Sistemas de IA que convertem entre palavras faladas e outros formatos, ou que classificam som não falado. Inclui
+      conversão de fala em texto (transcrição), texto em fala (voz sintética), detecção de palavras-chave e detecção
+      de eventos sonoros. A voz como identidade (reconhecer quem fala) pertence ao reconhecimento biométrico.
+  - locale: tl
+    value: >-
+      Mga AI system na nagko-convert sa pagitan ng salita at iba pang format, o nag-uuri ng tunog na hindi salita.
+      Kasama dito ang speech-to-text (transcription), text-to-speech (sintetikong boses), keyword spotting, at
+      pagtukoy ng audio event. Ang boses bilang pagkakakilanlan (kung sino ang nagsasalita) ay nasa Biometric
+      Recognition.
+citation: []
+symbol_id: processing_text-to-speech
+variables: []

@@ -25,9 +25,9 @@ Counted via `https://api.dtpr.io/api/v2/schemas/ai@2026-04-27-beta/elements?fiel
 | `functional_modes` | 0 → 6 | Drafted in Focus 1 (this branch)             |
 | `risks_mitigation` | 6 → 9 | Retired 6 mechanism-oriented; replaced with AIAAIC's 9 victim-oriented harms (Focus 2) |
 | `rights`           | 11    | OK                                           |
-| `input_dataset`    | 7     | OK (PII context applied in #274)             |
+| `input_dataset`    | 7 → 11 | Replaced format-led catalog with semantic taxonomy; PII context dropped — Focus 5 |
 | `processing`       | 7     | Needs family-typed reshape — Focus 4         |
-| `output_dataset`   | 0     | **Empty** — Focus 5                          |
+| `output_dataset`   | 0 → 11 | First-pass semantic taxonomy authored, mirrors input — Focus 5 |
 | `access`           | 9     | OK                                           |
 | `retention`        | 2     | OK                                           |
 | `storage`          | 7     | OK                                           |
@@ -144,18 +144,55 @@ Family roster (12):
 
 ---
 
-## Focus 5 — `output_dataset` (currently empty)
+## Focus 5 — `output_dataset` + `input_dataset` semantic recategorization
 
-Status: not started. Not explicitly listed in PR #274's deferred work but flagged here because the category renders empty on `/taxonomy`.
+Status: drafted (this branch). Awaits review, native-speaker translator pass for non-en locales, designer pass on six placeholder symbols, then schema redeploy.
 
-PR #274 added the same PII context as `input_dataset` (none/anonymized/identifiable/biometric). Element catalog needs first-pass authoring.
+The audit reframed the scope: `input_dataset`'s shipped catalog (`binary`, `boolean`, `tabular`, `pixel_based_image`, `personal`, `spatial`, `values_time`) was a hybrid — three semantic elements alongside four data-format elements that read as programmer documentation to a non-technical commuter. Eight independently-developed citizen-facing transparency frameworks (Apple Privacy Nutrition Labels, Google Play Data Safety, W3C DPV PD v2.3, GDPR Art. 9, EU AI Act Art. 3(1) + Annex III, TILT, DaPIS, original DTPR's own semantic three) all categorize by *what data is about*, not by encoding. This focus replaces the input catalog wholesale and authors the output catalog symmetrically. Captured in corpus at `plugin/dtpr/research/2026-05-06T1515-semantic-data-categories-public-disclosure.md`.
 
-Approach:
-- Run `dtpr-category-audit` to scope.
-- Likely mirrors `input_dataset` structure; may share elements via `category_ids[]` rather than duplicating.
+Approach taken:
+- Audit via `dtpr-category-audit` plus a `best-practices-researcher` pass synthesizing the eight frameworks.
+- Element YAMLs authored directly (en/es/fr/km/pt/tl) — `dtpr-element-design`'s locale-placeholder workflow leapfrogged because the audit + corpus already supplied the semantic taxonomy.
+- Symbol SVG stubs created in-place for six new symbol_ids; existing five symbol_ids reused (`personal`, `spatial`, `values_time`, `dm_accept-or-deny`, `dm_priority-ranking`).
+- `pii` context dropped from both categories — once "About a person" / "About a body" / "Sensitive personal info" are explicit elements, the context becomes double-bookkeeping.
+- `output_dataset` description and prompt broadened to cover decisions, content, and physical actions (not just data products).
 
-- [ ] Audit pass
-- [ ] Draft elements (or reuse `input_dataset` via `category_ids[]`)
+11-category bidirectional taxonomy with 22 element files (one per category per side, sharing one symbol_id):
+
+| Concept | Input element id | Output element id | Shared symbol_id |
+| --- | --- | --- | --- |
+| About a person | `input_about_a_person` | `output_about_a_person` | `personal` |
+| About a body | `input_about_a_body` | `output_about_a_body` | `about_a_body` ✱ |
+| About a place | `input_about_a_place` | `output_about_a_place` | `spatial` |
+| About behaviour | `input_about_behaviour` | `output_about_behaviour` | `about_behaviour` ✱ |
+| About a measurement | `input_about_a_measurement` | `output_about_a_measurement` | `values_time` |
+| Sensitive personal | `input_sensitive_personal` | `output_sensitive_personal` | `sensitive_personal` ✱ |
+| Operational data | `input_operational_data` | `output_operational_data` | `operational_data` ✱ |
+| A decision | `input_decision` | `output_decision` | `dm_accept-or-deny` |
+| A recommendation or prediction | `input_recommendation` | `output_recommendation` | `dm_priority-ranking` |
+| Generated content | `input_generated_content` | `output_generated_content` | `generated_content` ✱ |
+| A physical action | `input_physical_action` | `output_physical_action` | `physical_action` ✱ |
+
+✱ = first-draft placeholder symbol, designer pass pending.
+
+Done:
+- [x] Eight-framework research synthesis captured at `plugin/dtpr/research/2026-05-06T1515-semantic-data-categories-public-disclosure.md`.
+- [x] `categories/input_dataset.yaml` — `pii` context block removed.
+- [x] `categories/output_dataset.yaml` — `pii` context block removed; description and prompt broadened to "produces, decides, generates, or causes."
+- [x] 7 obsolete input_dataset element files deleted (`binary.yaml`, `boolean.yaml`, `personal.yaml`, `pixel_based_image.yaml`, `spatial.yaml`, `tabular.yaml`, `values_time.yaml`).
+- [x] 22 new element YAMLs written across all six locales (en/es/fr/km/pt/tl).
+- [x] 6 new symbol SVG stubs created (`about_a_body`, `about_behaviour`, `sensitive_personal`, `operational_data`, `generated_content`, `physical_action`).
+- [x] `pnpm schema:validate ai@2026-04-27-beta` passes — 11 categories, 98 elements.
+- [x] `pnpm schema:build ai@2026-04-27-beta` passes — 385 dist files.
+- [x] Full test suite passes — 388 tests (340 workers + 48 cli).
+- [x] Corpus verifier passes — 11 corpus entries.
+
+Follow-ups (block stable promotion, not this PR):
+- [ ] **Native-speaker translator review** of `es`, `fr`, `km`, `pt`, `tl` strings on the 22 new elements — drafted by the implementer.
+- [ ] **Designer pass on the six placeholder symbol stubs** — current SVGs are minimal geometric stand-ins.
+- [ ] **Comprehension audit re-grade** — run `dtpr-comprehension-audit` against the 11 categories once translations land.
+- [ ] **Schema redeploy** — local dist not yet pushed to R2; live `dtpr.ai/taxonomy` will reflect this only after redeploy.
+- [ ] **Migration note for downstream callers** — datachain instances pinned to `ai@2026-04-27-beta` and using the old element ids (`personal`, `tabular`, etc.) will need to remap. See migration table in the corpus entry. Beta-stage breaking change is in-policy per the plan's Out-of-scope section.
 
 ---
 
