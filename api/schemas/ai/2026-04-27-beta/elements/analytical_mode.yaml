@@ -1,0 +1,55 @@
+id: analytical_mode
+category_id: functional_modes
+title:
+  - locale: en
+    value: Analytical — decides
+  - locale: es
+    value: Analítico — decide
+  - locale: fr
+    value: Analytique — décide
+  - locale: pt
+    value: Analítico — decide
+description:
+  - locale: en
+    value: >-
+      Decides — predicts, classifies, scores, or ranks from structured data. The system reads numeric or categorical
+      inputs and returns a label, a score, or a ranking. It does not generate new content. Examples: a credit-risk
+      score, a fraud flag, a queue-length forecast, a recommendation rank.
+  - locale: es
+    value: >-
+      Decide — predice, clasifica, puntúa o clasifica a partir de datos estructurados. El sistema lee entradas numéricas
+      o categóricas y devuelve una etiqueta, una puntuación o una clasificación. No genera contenido nuevo. Ejemplos:
+      una puntuación de riesgo crediticio, una marca de fraude, un pronóstico de longitud de cola, un orden de
+      recomendación.
+  - locale: fr
+    value: >-
+      Décide — prédit, classe, note ou hiérarchise à partir de données structurées. Le système lit des entrées
+      numériques ou catégorielles et renvoie une étiquette, une note ou un classement. Il ne génère pas de nouveau
+      contenu. Exemples : un score de risque de crédit, un signalement de fraude, une prévision de longueur de file,
+      un classement de recommandations.
+  - locale: pt
+    value: >-
+      Decide — prevê, classifica, pontua ou ordena a partir de dados estruturados. O sistema lê entradas numéricas ou
+      categóricas e devolve um rótulo, uma pontuação ou uma ordenação. Não gera conteúdo novo. Exemplos: uma pontuação
+      de risco de crédito, um sinalizador de fraude, uma previsão de comprimento de fila, uma ordenação de
+      recomendações.
+citation:
+  - locale: en
+    value: >-
+      Verb framing ("decides") and the six-mode partition adapted from Narain Jashanmal, *AI Taxonomy — An Operational
+      Framework for Precision in AI Discourse*, v1.1, January 2026. https://dropleaf.app/d/AlXez8scbd
+  - locale: es
+    value: >-
+      El verbo orientador ("decide") y la partición en seis modos están adaptados de Narain Jashanmal, *AI Taxonomy —
+      An Operational Framework for Precision in AI Discourse*, v1.1, enero de 2026.
+      https://dropleaf.app/d/AlXez8scbd
+  - locale: fr
+    value: >-
+      Le verbe-cadre (« décide ») et la partition en six modes sont adaptés de Narain Jashanmal, *AI Taxonomy — An
+      Operational Framework for Precision in AI Discourse*, v1.1, janvier 2026. https://dropleaf.app/d/AlXez8scbd
+  - locale: pt
+    value: >-
+      O verbo-âncora ("decide") e a partição em seis modos foram adaptados de Narain Jashanmal, *AI Taxonomy — An
+      Operational Framework for Precision in AI Discourse*, v1.1, janeiro de 2026. https://dropleaf.app/d/AlXez8scbd
+symbol_id: mode_analytical
+variables: []

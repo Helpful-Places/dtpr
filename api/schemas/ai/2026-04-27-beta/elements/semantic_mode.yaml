@@ -1,0 +1,61 @@
+id: semantic_mode
+category_id: functional_modes
+title:
+  - locale: en
+    value: Semantic — understands and remembers
+  - locale: es
+    value: Semántico — entiende y recuerda
+  - locale: fr
+    value: Sémantique — comprend et se souvient
+  - locale: pt
+    value: Semântico — entende e recorda
+description:
+  - locale: en
+    value: >-
+      Understands and remembers — pulls meaning from text or speech, finds related ideas, and grounds the system in
+      saved context. The system reads language and returns matches, intents, summaries, or links to relevant prior
+      knowledge. It does not generate new content. Examples: matching a customer's question to the right help article,
+      retrieving the policy clause that applies to a case, recognizing the topic of a recorded sentence.
+  - locale: es
+    value: >-
+      Entiende y recuerda — extrae significado del texto o del habla, encuentra ideas relacionadas y ancla al sistema en
+      contexto guardado. El sistema lee lenguaje y devuelve coincidencias, intenciones, resúmenes o enlaces a
+      conocimiento previo relevante. No genera contenido nuevo. Ejemplos: emparejar la pregunta de un cliente con el
+      artículo de ayuda adecuado, recuperar la cláusula de política que aplica a un caso, reconocer el tema de una
+      frase grabada.
+  - locale: fr
+    value: >-
+      Comprend et se souvient — extrait du sens d'un texte ou d'une parole, trouve des idées liées et ancre le système
+      dans un contexte enregistré. Le système lit du langage et renvoie des correspondances, des intentions, des
+      résumés ou des liens vers des connaissances pertinentes. Il ne génère pas de nouveau contenu. Exemples : faire
+      correspondre la question d'un client à l'article d'aide approprié, retrouver la clause de politique applicable à
+      un dossier, reconnaître le sujet d'une phrase enregistrée.
+  - locale: pt
+    value: >-
+      Entende e recorda — extrai significado de texto ou fala, encontra ideias relacionadas e ancora o sistema em
+      contexto guardado. O sistema lê linguagem e devolve correspondências, intenções, resumos ou ligações a
+      conhecimento prévio relevante. Não gera conteúdo novo. Exemplos: associar a pergunta de um cliente ao artigo de
+      ajuda adequado, recuperar a cláusula da política aplicável a um caso, reconhecer o tema de uma frase gravada.
+citation:
+  - locale: en
+    value: >-
+      Verb framing ("understands and remembers") and the six-mode partition adapted from Narain Jashanmal, *AI
+      Taxonomy — An Operational Framework for Precision in AI Discourse*, v1.1, January 2026.
+      https://dropleaf.app/d/AlXez8scbd
+  - locale: es
+    value: >-
+      El verbo orientador ("entiende y recuerda") y la partición en seis modos están adaptados de Narain Jashanmal,
+      *AI Taxonomy — An Operational Framework for Precision in AI Discourse*, v1.1, enero de 2026.
+      https://dropleaf.app/d/AlXez8scbd
+  - locale: fr
+    value: >-
+      Le verbe-cadre (« comprend et se souvient ») et la partition en six modes sont adaptés de Narain Jashanmal,
+      *AI Taxonomy — An Operational Framework for Precision in AI Discourse*, v1.1, janvier 2026.
+      https://dropleaf.app/d/AlXez8scbd
+  - locale: pt
+    value: >-
+      O verbo-âncora ("entende e recorda") e a partição em seis modos foram adaptados de Narain Jashanmal, *AI
+      Taxonomy — An Operational Framework for Precision in AI Discourse*, v1.1, janeiro de 2026.
+      https://dropleaf.app/d/AlXez8scbd
+symbol_id: mode_semantic
+variables: []
