@@ -4,11 +4,12 @@
 // default). This is docus's canonical extension point for right-side
 // header buttons — it renders left of UColorModeButton and the
 // GitHub link.
+const localePath = useLocalePath()
 </script>
 
 <template>
   <UButton
-    to="/taxonomy"
+    :to="localePath('/taxonomy')"
     label="Taxonomy"
     color="neutral"
     variant="ghost"
