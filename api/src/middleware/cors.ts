@@ -9,6 +9,8 @@ const ALLOW_LIST: readonly string[] = [
   'https://dtpr.io',
   'https://www.dtpr.io',
   'https://docs.dtpr.io',
+  'https://dtpr.ai',
+  'https://www.dtpr.ai',
   'https://studio.nuxt.com',
 ]
 
