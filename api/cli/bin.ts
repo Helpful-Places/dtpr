@@ -1,5 +1,6 @@
 #!/usr/bin/env -S tsx
 import { build, validateCmd } from './commands/build.ts'
+import { bundleSkillsCmd } from './commands/bundle-skills.ts'
 import { schemaNew } from './commands/new.ts'
 import { schemaPromote } from './commands/promote.ts'
 
@@ -74,6 +75,16 @@ const commands: Record<string, Command> = {
     const result = await schemaPromote(version, flags)
     return result.ok ? 0 : 2
   },
+  'bundle-skills': async (args) => {
+    const opts: { pluginRoot?: string; outputPath?: string } = {}
+    for (let i = 0; i < args.length; i++) {
+      const arg = args[i]!
+      if (arg === '--plugin-root' && args[i + 1]) opts.pluginRoot = args[++i]
+      else if (arg === '--output-path' && args[i + 1]) opts.outputPath = args[++i]
+    }
+    const result = await bundleSkillsCmd(opts)
+    return result.ok ? 0 : 1
+  },
   '--help': async () => {
     printHelp()
     return 0
@@ -98,6 +109,7 @@ Commands:
   validate <version>             Validate a schema version (no emit)
   new <type> <YYYY-MM-DD-beta>   Draft a new beta by copying the newest existing version
   promote <type>@<date>-beta     Promote a beta version to stable (writes a branch ready for PR)
+  bundle-skills                  Regenerate src/mcp/prompts/skills.generated.ts from plugin/dtpr/
 
 Version strings: '<type>@<YYYY-MM-DD>[-beta]' (e.g. 'ai@2026-04-16-beta')
 `)

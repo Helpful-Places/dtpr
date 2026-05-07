@@ -39,6 +39,7 @@
     "schema:validate": "tsx cli/bin.ts validate",
     "schema:new": "tsx cli/bin.ts new",
     "schema:promote": "tsx cli/bin.ts promote",
+    "bundle:skills": "tsx cli/bin.ts bundle-skills",
     "build:schema": "tsup --config tsup.schema.config.ts"
   },
   "dependencies": {

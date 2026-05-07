@@ -28,10 +28,21 @@ export interface McpResponse<T = unknown> {
   error?: { code: number; message: string; data?: unknown }
 }
 
+export interface PromptListResult {
+  prompts: Array<{ name: string; description?: string }>
+}
+
+export interface PromptGetResult {
+  description: string
+  messages: Array<{ role: 'user' | 'assistant'; content: { type: 'text'; text: string } }>
+}
+
 export interface McpClient {
   initialize: () => Promise<McpResponse>
   listTools: () => Promise<McpResponse<{ tools: Array<{ name: string; description?: string }> }>>
   callTool: <T = unknown>(name: string, args: Record<string, unknown>) => Promise<McpResponse<T>>
+  listPrompts: () => Promise<McpResponse<PromptListResult>>
+  getPrompt: (name: string) => Promise<McpResponse<PromptGetResult>>
   /** The session id surfaced after `initialize` (transport-managed). */
   sessionId: () => string | null
 }
@@ -103,6 +114,19 @@ export function createMcpClient(opts: McpClientOptions = {}): McpClient {
         method: 'tools/call',
         params: { name, arguments: args },
       })) as McpResponse<T>
+    },
+    async listPrompts() {
+      const id = nextId++
+      return (await send({ jsonrpc: '2.0', id, method: 'prompts/list' })) as McpResponse<PromptListResult>
+    },
+    async getPrompt(name: string) {
+      const id = nextId++
+      return (await send({
+        jsonrpc: '2.0',
+        id,
+        method: 'prompts/get',
+        params: { name },
+      })) as McpResponse<PromptGetResult>
     },
   }
 }
