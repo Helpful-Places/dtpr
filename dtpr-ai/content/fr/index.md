@@ -2,8 +2,6 @@
 title: DTPR for AI
 ---
 
-# DTPR for AI
-
 Translated documentation is coming soon. The English documentation
 is available at [/en](/en).
 
