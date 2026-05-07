@@ -49,12 +49,19 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
 })
 
+// Diverges from docus upstream: docus's locales array (from
+// useDocusI18n) is filtered to only locales with bundled message
+// files (no pt.json / tl.json), but @nuxtjs/i18n still registers all
+// configured locales as routes. Use the registered locales here so a
+// `/pt/...` URL doesn't get bounced back to `/en/...` on mount.
 if (isEnabled.value) {
   const route = useRoute()
+  const i18nApi = useI18n()
   const defaultLocale = useRuntimeConfig().public.i18n.defaultLocale!
   onMounted(() => {
     const currentLocale = route.path.split('/')[1]
-    if (!locales.some(l => l.code === currentLocale)) {
+    const registered = i18nApi.locales.value as Array<{ code: string }>
+    if (!registered.some(l => l.code === currentLocale)) {
       return navigateTo(switchLocalePath(defaultLocale) as string)
     }
   })

@@ -13,10 +13,10 @@ defineProps<Props>()
 </script>
 
 <template>
-  <NuxtLink :to="to" class="taxonomy-view-link">
+  <NuxtLinkLocale :to="to" class="taxonomy-view-link">
     <span>{{ label }}</span>
     <UIcon name="i-heroicons-arrow-right" class="taxonomy-view-link__icon" />
-  </NuxtLink>
+  </NuxtLinkLocale>
 </template>
 
 <style scoped>

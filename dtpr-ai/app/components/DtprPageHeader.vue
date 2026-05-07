@@ -1,17 +1,18 @@
 <script setup lang="ts">
 // Sticky header strip shared across DTPR-derived surfaces (catalog,
-// element pages, category pages). Owns the version + locale selectors
-// and the version-missing alert; each surface composes its own
-// heading, search bar, and right-rail actions via slots.
-import type { SupportedLocale, SchemaVersion } from '../composables/useDtprState'
+// element pages, category pages). Owns the version selector and the
+// version-missing alert; each surface composes its own heading,
+// search bar, and right-rail actions via slots.
+//
+// Locale selection lives outside this header — switch locales via
+// the URL prefix (`/fr/...`) or whichever site-wide chrome the docus
+// shell exposes.
+import type { SchemaVersion } from '../composables/useDtprState'
 
 interface Props {
   activeVersion: string
-  activeLocale: SupportedLocale
   selectedVersion: string
-  selectedLocale: SupportedLocale
   availableVersions: SchemaVersion[]
-  availableLocales: readonly SupportedLocale[]
   versionMissing?: boolean
   requestedVersion?: string | null
   latestVersion?: string
@@ -25,7 +26,6 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits<{
   'update:selectedVersion': [value: string]
-  'update:selectedLocale': [value: SupportedLocale]
 }>()
 
 const versionItems = computed(() =>
@@ -36,31 +36,9 @@ const versionItems = computed(() =>
   })),
 )
 
-const LOCALE_LABELS: Record<SupportedLocale, string> = {
-  en: 'English',
-  es: 'Español',
-  fr: 'Français',
-  km: 'ខ្មែរ',
-  pt: 'Português',
-  tl: 'Tagalog',
-}
-
-const localeItems = computed(() =>
-  props.availableLocales.map((l) => ({
-    label: LOCALE_LABELS[l] ?? l,
-    description: l,
-    value: l,
-  })),
-)
-
 const versionModel = computed({
   get: () => props.selectedVersion,
   set: (v: string) => emit('update:selectedVersion', v),
-})
-
-const localeModel = computed({
-  get: () => props.selectedLocale,
-  set: (v: SupportedLocale) => emit('update:selectedLocale', v),
 })
 </script>
 
@@ -80,14 +58,6 @@ const localeModel = computed({
         value-key="value"
         class="dtpr-page-header__select dtpr-page-header__select--version"
         aria-label="Schema version"
-      />
-      <USelectMenu
-        v-model="localeModel"
-        :items="localeItems"
-        value-key="value"
-        class="dtpr-page-header__select dtpr-page-header__select--locale"
-        :ui="{ content: 'w-auto min-w-[12rem]' }"
-        aria-label="Locale"
       />
       <div class="dtpr-page-header__actions">
         <slot name="actions" />
@@ -147,10 +117,6 @@ const localeModel = computed({
 
 .dtpr-page-header__select--version {
   min-width: 14rem;
-}
-
-.dtpr-page-header__select--locale {
-  min-width: 10rem;
 }
 
 .dtpr-page-header__actions {

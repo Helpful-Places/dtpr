@@ -21,6 +21,7 @@ interface CategoriesResponse {
 }
 
 const route = useRoute()
+const localePath = useLocalePath()
 const elementId = computed(() => String(route.params.id))
 const overlayPath = computed(() => `/taxonomy/elements/${elementId.value}`)
 
@@ -28,30 +29,27 @@ const {
   activeVersion,
   activeLocale,
   selectedVersion,
-  selectedLocale,
   requestedVersion,
   versionMissing,
   latestVersion,
   availableVersions,
-  availableLocales,
 } = useDtprState()
 
-// Build forwarded query string from validated state, not the raw route
-// query — so an invalid `?locale=xyz` lands on /taxonomy/elements/<id>
-// once and then propagates as the canonical fallback (`en`) through
-// every link the visitor clicks afterward, instead of carrying the
-// broken value through the whole session.
+// Forwarded query string carries only the version pin now — locale
+// lives in the route prefix (`/es/...`). An invalid `?v=xyz` still
+// gets normalized to the validated `activeVersion` so it doesn't
+// propagate through the session.
 const queryString = computed(() => {
-  const parts: string[] = []
   if (requestedVersion.value && !versionMissing.value) {
-    parts.push(`v=${encodeURIComponent(activeVersion.value)}`)
+    return `?v=${encodeURIComponent(activeVersion.value)}`
   }
-  if (activeLocale.value !== 'en') {
-    parts.push(`locale=${encodeURIComponent(activeLocale.value)}`)
-  }
-  return parts.length ? `?${parts.join('&')}` : ''
+  return ''
 })
 
+// Bare paths everywhere — `<NuxtLinkLocale>` and `localePath()` add
+// the active locale prefix at consumption time. Keeping the canonical
+// (unprefixed) path here avoids accidental double-prefixing if a link
+// target ever passes through both helpers.
 const backToTaxonomyHref = computed(() => `/taxonomy${queryString.value}`)
 
 const elementUrl = computed(() => {
@@ -168,26 +166,22 @@ useHead(() => ({
   <div class="taxonomy-detail-page">
     <DtprPageHeader
       :active-version="activeVersion"
-      :active-locale="activeLocale"
       :selected-version="selectedVersion"
-      :selected-locale="selectedLocale"
       :available-versions="availableVersions"
-      :available-locales="availableLocales"
       :version-missing="versionMissing"
       :requested-version="requestedVersion"
       :latest-version="latestVersion"
       @update:selected-version="selectedVersion = $event"
-      @update:selected-locale="selectedLocale = $event"
     >
       <template #heading>
         <h1 class="taxonomy-detail-page__title">
           {{ display ? display.title : elementId }}
         </h1>
         <p class="taxonomy-detail-page__breadcrumb">
-          <NuxtLink :to="backToTaxonomyHref" class="taxonomy-detail-page__crumb">Taxonomy</NuxtLink>
+          <NuxtLinkLocale :to="backToTaxonomyHref" class="taxonomy-detail-page__crumb">Taxonomy</NuxtLinkLocale>
           <template v-if="categoryHref">
             <span class="taxonomy-detail-page__crumb-sep">/</span>
-            <NuxtLink :to="categoryHref" class="taxonomy-detail-page__crumb">{{ categoryTitle }}</NuxtLink>
+            <NuxtLinkLocale :to="categoryHref" class="taxonomy-detail-page__crumb">{{ categoryTitle }}</NuxtLinkLocale>
           </template>
         </p>
       </template>
@@ -203,7 +197,7 @@ useHead(() => ({
         :description="`No element with id &quot;${elementId}&quot; exists in this schema version.`"
       >
         <template #actions>
-          <UButton :to="backToTaxonomyHref" variant="solid" color="primary">
+          <UButton :to="localePath(backToTaxonomyHref)" variant="solid" color="primary">
             Back to taxonomy
           </UButton>
         </template>

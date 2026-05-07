@@ -76,7 +76,7 @@ function truncate(value: string, max: number): string {
 
 function pathnameOf(to: string): string {
   // Strip any query string from a synthetic `to` so it dedupes against
-  // authored md, which has no `?v=` / `?locale=` pinning in its id.
+  // authored md, which has no `?v=` pinning in its id.
   const q = to.indexOf('?')
   return q === -1 ? to : to.slice(0, q)
 }
@@ -85,14 +85,14 @@ export function useDtprSearchOverlay(
   files: Ref<ContentSearchFile[] | null | undefined>,
 ) {
   const { activeVersion, activeLocale } = useDtprState()
+  const localePath = useLocalePath()
 
+  // Locale lives in the route prefix now — `localePath()` injects it
+  // into each synthetic `to`. Only the version pin needs to ride
+  // along as a query string.
   const queryString = computed(() => {
-    const parts: string[] = []
-    if (activeVersion.value) parts.push(`v=${encodeURIComponent(activeVersion.value)}`)
-    if (activeLocale.value && activeLocale.value !== 'en') {
-      parts.push(`locale=${encodeURIComponent(activeLocale.value)}`)
-    }
-    return parts.length ? `?${parts.join('&')}` : ''
+    if (activeVersion.value) return `?v=${encodeURIComponent(activeVersion.value)}`
+    return ''
   })
 
   const { data: overlayData } = useAsyncData(
@@ -155,7 +155,9 @@ export function useDtprSearchOverlay(
           : []
       const cat = catIds.map((id) => categoryById.get(id)).find(Boolean)
       const display = deriveElementDisplay(raw as Element, undefined, locale, {})
-      const to = `/taxonomy/elements/${raw.id}${queryString.value}`
+      // `<UContentSearch>` renders results via `<NuxtLink :to>` (not
+      // locale-aware), so pre-prefix the synthetic path here.
+      const to = `${localePath(`/taxonomy/elements/${raw.id}`)}${queryString.value}`
       if (existingPaths.has(`/taxonomy/elements/${raw.id}`)) continue
       const catTitle = cat ? extract(cat.name, locale, 'en') : null
       elementItems.push({
@@ -174,7 +176,7 @@ export function useDtprSearchOverlay(
       categoryItems.push({
         label: title,
         suffix: truncate(description, 120),
-        to: `/taxonomy/categories/${cat.id}${queryString.value}`,
+        to: `${localePath(`/taxonomy/categories/${cat.id}`)}${queryString.value}`,
         prefix: 'category',
       })
     }

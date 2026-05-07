@@ -1,22 +1,26 @@
 // Shared locale + version state for DTPR-derived surfaces (the catalog,
-// element pages, category pages, and the synthetic Cmd-K group). Reads
-// `?v=` and `?locale=` query params from the active route, exposes the
-// resolved active values, and surfaces writable computeds that push to
-// the router via `replace` (preserving back-button behavior).
+// element pages, category pages, and the synthetic Cmd-K group).
 //
-// Scope: this is NOT a general-purpose i18n layer for the docus prose
-// shell. Docus stays English-only at the site level; locale awareness
-// here applies only to schema-derived content (titles, descriptions,
-// variable labels, context value names). Future migration to docus's
-// `[[lang]]/...` route prefix is a clean redirect-and-migrate when the
-// prose translation pipeline lands.
+// Locale is owned by `@nuxtjs/i18n` (configured via docus's i18n
+// integration) and exposed here as a computed alias of `useI18n().locale`.
+// Version still lives in `?v=` query — schema versions are an
+// orthogonal axis to locale and don't need to be in the URL path.
+//
+// Schema-derived content (titles, descriptions, variable labels,
+// context value names) translates from the route locale via the API's
+// `locales=` query parameter. Docus prose remains English-only until
+// translated `content/{locale}/` folders ship.
 import { computed } from 'vue'
 
 const API_BASE = 'https://api.dtpr.io/api/v2'
 const DATACHAIN_TYPE = 'ai'
 const FETCH_TIMEOUT_MS = 8000
 
-const SUPPORTED_LOCALES = ['en', 'es', 'fr', 'km', 'pt', 'tl'] as const
+// Route locales — narrowed to languages whose prose translations are
+// (or are about to be) shipping. The schema itself may carry more
+// locales; the API still returns them when asked, but for now only
+// these are reachable via URL prefix and surfaced in the locale UI.
+const SUPPORTED_LOCALES = ['en', 'fr'] as const
 
 export type SupportedLocale = (typeof SUPPORTED_LOCALES)[number]
 
@@ -39,6 +43,7 @@ function isSupportedLocale(value: string): value is SupportedLocale {
 export function useDtprState() {
   const route = useRoute()
   const router = useRouter()
+  const { locale: i18nLocale } = useI18n()
 
   const { data: schemasData } = useFetch<SchemasResponse>(`${API_BASE}/schemas`, {
     key: 'dtpr-schemas-index',
@@ -57,7 +62,12 @@ export function useDtprState() {
       })
   })
 
-  const latestVersion = computed(() => availableVersions.value[0]?.id ?? `${DATACHAIN_TYPE}@latest`)
+  // Empty string (not `${DATACHAIN_TYPE}@latest`) when the list isn't
+  // resolved yet: the API rejects literal "latest" with a 400, and
+  // every consumer gates category/element fetches on truthy
+  // `activeVersion`, so an empty value cleanly skips the request until
+  // the schemas fetch lands.
+  const latestVersion = computed(() => availableVersions.value[0]?.id ?? '')
 
   const requestedVersion = computed(() => {
     const raw = route.query.v
@@ -78,15 +88,9 @@ export function useDtprState() {
     return latestVersion.value
   })
 
-  const requestedLocale = computed(() => {
-    const raw = route.query.locale
-    if (typeof raw !== 'string' || raw.length === 0) return null
-    return raw
-  })
-
   const activeLocale = computed<SupportedLocale>(() => {
-    const r = requestedLocale.value
-    if (r && isSupportedLocale(r)) return r
+    const r = i18nLocale.value
+    if (typeof r === 'string' && isSupportedLocale(r)) return r
     return 'en'
   })
 
@@ -98,30 +102,14 @@ export function useDtprState() {
     },
   })
 
-  const selectedLocale = computed<SupportedLocale>({
-    get: () => activeLocale.value,
-    set: (next: SupportedLocale) => {
-      if (!next || next === activeLocale.value) return
-      // Strip back to default rather than carrying `?locale=en` in URLs.
-      const query = { ...route.query }
-      if (next === 'en') delete query.locale
-      else query.locale = next
-      router.replace({ query, hash: route.hash })
-    },
-  })
-
-  const availableLocales = computed(() => SUPPORTED_LOCALES.slice())
-
   return {
     activeVersion,
     activeLocale,
     selectedVersion,
-    selectedLocale,
     requestedVersion,
     versionMissing,
     latestVersion,
     availableVersions,
-    availableLocales,
   }
 }
 

@@ -27,6 +27,7 @@ interface ElementsResponse {
 }
 
 const route = useRoute()
+const localePath = useLocalePath()
 const categoryId = computed(() => String(route.params.id))
 const overlayPath = computed(() => `/taxonomy/categories/${categoryId.value}`)
 
@@ -34,26 +35,19 @@ const {
   activeVersion,
   activeLocale,
   selectedVersion,
-  selectedLocale,
   requestedVersion,
   versionMissing,
   latestVersion,
   availableVersions,
-  availableLocales,
 } = useDtprState()
 
-// Build forwarded query string from validated state (see element page
-// for the same pattern) so an invalid `?locale=xyz` doesn't propagate
-// through every link the visitor clicks afterward.
+// Forwarded query string carries only the version pin now — locale
+// lives in the route prefix (`/es/...`).
 const queryString = computed(() => {
-  const parts: string[] = []
   if (requestedVersion.value && !versionMissing.value) {
-    parts.push(`v=${encodeURIComponent(activeVersion.value)}`)
+    return `?v=${encodeURIComponent(activeVersion.value)}`
   }
-  if (activeLocale.value !== 'en') {
-    parts.push(`locale=${encodeURIComponent(activeLocale.value)}`)
-  }
-  return parts.length ? `?${parts.join('&')}` : ''
+  return ''
 })
 
 const backToTaxonomyHref = computed(() => `/taxonomy${queryString.value}`)
@@ -177,21 +171,17 @@ useHead(() => ({
   <div class="taxonomy-detail-page">
     <DtprPageHeader
       :active-version="activeVersion"
-      :active-locale="activeLocale"
       :selected-version="selectedVersion"
-      :selected-locale="selectedLocale"
       :available-versions="availableVersions"
-      :available-locales="availableLocales"
       :version-missing="versionMissing"
       :requested-version="requestedVersion"
       :latest-version="latestVersion"
       @update:selected-version="selectedVersion = $event"
-      @update:selected-locale="selectedLocale = $event"
     >
       <template #heading>
         <h1 class="taxonomy-detail-page__title">{{ categoryTitle }}</h1>
         <p class="taxonomy-detail-page__breadcrumb">
-          <NuxtLink :to="backToTaxonomyHref" class="taxonomy-detail-page__crumb">Taxonomy</NuxtLink>
+          <NuxtLinkLocale :to="backToTaxonomyHref" class="taxonomy-detail-page__crumb">Taxonomy</NuxtLinkLocale>
         </p>
       </template>
     </DtprPageHeader>
@@ -206,7 +196,7 @@ useHead(() => ({
         :description="`No category with id &quot;${categoryId}&quot; exists in this schema version.`"
       >
         <template #actions>
-          <UButton :to="backToTaxonomyHref" variant="solid" color="primary">
+          <UButton :to="localePath(backToTaxonomyHref)" variant="solid" color="primary">
             Back to taxonomy
           </UButton>
         </template>
