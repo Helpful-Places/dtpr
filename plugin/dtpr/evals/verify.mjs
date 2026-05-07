@@ -264,6 +264,10 @@ function verifyToolReferences(skills, toolNames) {
     'rubric_version',
     'template_version',
     'icon_variants',
+    // Element- / symbol-tier domain terms that appear in SKILL.md prose
+    // (element ids, symbol ids, schema field names) — not MCP tools.
+    'symbol_id',
+    'cloud_storage',
     // Retired skill id appears in handoff prose during the transition.
     'schema_new',
   ])
