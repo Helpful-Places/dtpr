@@ -121,6 +121,16 @@ describe('deriveElementDisplay', () => {
     expect(result.citation).toBe('')
   })
 
+  it('does not set proposed or provenance — those are merged in by buildResolvedSections (U7 type extension)', () => {
+    // ElementDisplay was extended in U7 to carry optional `proposed`
+    // and `provenance` fields. `deriveElementDisplay` itself remains
+    // unchanged: it does not populate either field. The resolved-form
+    // helper (`buildResolvedSections`) merges them in after derivation.
+    const result = deriveElementDisplay(makeElement(), makeInstanceElement(), 'en')
+    expect(result.proposed).toBeUndefined()
+    expect(result.provenance).toBeUndefined()
+  })
+
   it('plumbs iconUrlDark through to icon.urlDark', () => {
     const result = deriveElementDisplay(makeElement(), makeInstanceElement(), 'en', {
       iconUrl: '/icons/cloud.svg',
