@@ -8,6 +8,8 @@
  * not part of the schema but are part of the ui contract.
  */
 
+import type { AuthoringProvenance } from '@dtpr/api/schema'
+
 export type {
   Element,
   Category,
@@ -17,6 +19,9 @@ export type {
   InstanceVariableValue,
   DatachainInstance,
   SchemaManifest,
+  AuthoringProvenance,
+  ResolvedDatachain,
+  SchemaSnapshot,
 } from '@dtpr/api/schema'
 
 /**
@@ -93,4 +98,26 @@ export interface ElementDisplay {
    * Undefined when no instance/no selection.
    */
   contextValue?: ElementDisplayContextValue
+  /**
+   * True when this element came from a `ResolvedDatachain`'s
+   * `suggested_elements` (R15) and the caller has the proposed
+   * indicator turned on (R15b — default). Renderers surface this as
+   * a "proposed" badge so readers can distinguish AI-suggested
+   * elements from snapshot-pinned ones at a glance.
+   *
+   * Populated by `buildResolvedSections`; `deriveElementDisplay`
+   * itself does not set this field — the resolved-form helper merges
+   * it after derivation. Existing callers that route through the
+   * non-resolved `buildSections` ignore the field entirely.
+   */
+  proposed?: boolean
+  /**
+   * Authoring provenance carried from the resolved datachain (R10).
+   * The same provenance object is attached to every element on the
+   * datachain — provenance is whole-disclosure, not per-element. The
+   * detail renderer uses this to render the AI-proposal-context
+   * section (R15c). Undefined for non-resolved-form rendering paths
+   * and for resolved datachains that omit `authoring_provenance`.
+   */
+  provenance?: AuthoringProvenance
 }
