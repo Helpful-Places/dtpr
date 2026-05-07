@@ -57,8 +57,12 @@
       "prompt": "Grade the accept_deny element for public comprehension — I just want a readability audit, not a proposal."
     },
     {
-      "id": "generate-svg-icon",
+      "id": "cross-sibling:dtpr-symbol-design:generate-svg-icon",
       "prompt": "Generate the actual SVG markup for a new element icon — I need the vector file, not a prose description."
+    },
+    {
+      "id": "cross-sibling:dtpr-symbol-design:redesign-cloud-storage-icon",
+      "prompt": "Redesign the icon for the cloud_storage element — I want three SVG variants to compare, not changes to the YAML."
     }
   ]
 }

@@ -1,6 +1,11 @@
 import type { Context } from 'hono'
 import type { AppEnv } from '../app-types.ts'
 import { errEnvelope, toToolResult } from './envelope.ts'
+import {
+  buildPromptRegistry,
+  toPromptResult,
+  type PromptRegistry,
+} from './prompts.ts'
 import { buildToolRegistry, type ToolRegistry, type ToolResult } from './tools.ts'
 import {
   DATACHAIN_RESOURCE_MIME,
@@ -31,13 +36,19 @@ export const PROTOCOL_VERSION = '2025-06-18'
 
 export const SERVER_INFO = {
   name: 'dtpr-api',
-  version: '0.1.0',
+  version: '0.2.0',
 }
 
 export const SERVER_CAPABILITIES = {
   tools: {},
   resources: {},
+  prompts: {},
 }
+
+// Prompt bodies are static — the registry is safe to build once per
+// isolate. Tool registry stays request-scoped because it captures the
+// per-request `LoadContext` and `sessionId`.
+const PROMPT_REGISTRY: PromptRegistry = buildPromptRegistry()
 
 interface JsonRpcRequest {
   jsonrpc?: string
@@ -151,6 +162,22 @@ async function dispatch(
       return rpcSuccess(reqId, {
         contents: [{ uri, mimeType: DATACHAIN_RESOURCE_MIME, text }],
       })
+    }
+    case 'prompts/list': {
+      if (reqId === null) return null
+      return rpcSuccess(reqId, { prompts: PROMPT_REGISTRY.list() })
+    }
+    case 'prompts/get': {
+      if (reqId === null) return null
+      const name = params?.['name']
+      if (typeof name !== 'string') {
+        return rpcError(reqId, ERR.INVALID_PARAMS, '`name` is required')
+      }
+      const def = PROMPT_REGISTRY.get(name)
+      if (!def) {
+        return rpcError(reqId, ERR.METHOD_NOT_FOUND, `Prompt not found: ${name}`)
+      }
+      return rpcSuccess(reqId, toPromptResult(def))
     }
     default: {
       if (reqId === null) return null

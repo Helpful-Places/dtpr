@@ -1,6 +1,6 @@
 # DTPR authoring plugin
 
-Describe AI systems as DTPR datachains, author and iterate on the DTPR schema, and grade content for public comprehension — without leaving your Claude host. The plugin bundles **five peer skills** and auto-registers the remote DTPR MCP at `https://api.dtpr.io/mcp`.
+Describe AI systems as DTPR datachains, author and iterate on the DTPR schema, and grade content for public comprehension — without leaving your Claude host. The plugin bundles **seven peer skills** and auto-registers the remote DTPR MCP at `https://api.dtpr.io/mcp`.
 
 ## Install
 
@@ -46,17 +46,19 @@ When a capability is listed as "Probe at session start", the expected behavior i
 
 ## Skills
 
-The five skills are peers — no runtime router. Users (and the description router) pick based on the judgment tier the question lives at.
+The seven skills are peers — no runtime router. Users (and the description router) pick based on the judgment tier the question lives at.
 
 | Skill | Tier | Use when |
 | --- | --- | --- |
 | `dtpr-describe-system` | Instance | Describing a specific AI system as a validated DTPR datachain, optionally from a PDF, URL, or verbal description. |
 | `dtpr-datachain-structure` | Meta-structure | Critiquing or proposing changes to the datachain-type shape itself (categories, requirements, retirement). |
 | `dtpr-category-audit` | Category | Auditing one category's element collection for coherence, overlap, and gaps. |
-| `dtpr-element-design` | Element | Drafting, editing, or retiring one element — its title, description, variables, and symbol direction. |
+| `dtpr-element-design` | Element | Drafting, editing, or retiring one element — its title, description, variables, and symbol disposition (reuse / hand-off / iterate). |
+| `dtpr-symbol-design` | Symbol | Proposing or refining an SVG symbol for an element — three variants per round, local HTML preview, finalized markup. |
+| `dtpr-translate` | Locale | Filling in non-English locale rows on an element, category, or pasted English fragment, against the active manifest's locale allow-list. |
 | `dtpr-comprehension-audit` | Comprehension | Grading any DTPR content (an element, a category, a datachain-instance, or pasted markdown) against the public-comprehension rubric. |
 
-Each schema-tier skill (`dtpr-datachain-structure`, `dtpr-category-audit`, `dtpr-element-design`) emits the `pnpm --filter ./api schema:new <type> <YYYY-MM-DD>-beta` command line as a handoff — the skill does not invoke it. Human edits YAML in the resulting beta directory, validates with `schema:validate`, opens a PR.
+Each schema-tier skill (`dtpr-datachain-structure`, `dtpr-category-audit`, `dtpr-element-design`) emits the `pnpm --filter ./api schema:new <type> <YYYY-MM-DD>-beta` command line as a handoff — the skill does not invoke it. Human edits YAML in the resulting beta directory, validates with `schema:validate`, opens a PR. `dtpr-element-design` hands off the SVG step to `dtpr-symbol-design`, which writes a local HTML preview but never into `app/public/dtpr-icons/symbols/` — the user saves the chosen variant themselves.
 
 ## References
 
@@ -94,7 +96,7 @@ The corpus ships with the plugin but is **not pre-seeded**. Every entry comes fr
 
 ## Changelog
 
-See [CHANGELOG.md](CHANGELOG.md) for release notes. 0.2.0 retires `dtpr-schema-brainstorm` in favor of the three schema-tier skills.
+See [CHANGELOG.md](CHANGELOG.md) for release notes. 0.3.0 extracts symbol drafting into `dtpr-symbol-design`. 0.2.0 retires `dtpr-schema-brainstorm` in favor of the three schema-tier skills.
 
 ## Related links
 

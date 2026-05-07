@@ -1,0 +1,56 @@
+{
+  "skill": "dtpr-symbol-design",
+  "description": "Baseline eval prompts. should_trigger entries must invoke the skill; should_not_trigger entries must not. Compatible with skill-creator's run_loop.py.",
+  "should_trigger": [
+    {
+      "id": "generate-svg-icon",
+      "prompt": "Generate the actual SVG markup for a new element icon — I need the vector file, not a prose description."
+    },
+    {
+      "id": "redesign-cloud-storage-icon",
+      "prompt": "Redesign the icon for the cloud_storage element — I want three SVG variants to compare, not changes to the YAML."
+    },
+    {
+      "id": "three-options-differential-privacy",
+      "prompt": "Show me three SVG options for an icon representing differential privacy in DTPR style."
+    },
+    {
+      "id": "iterate-symbol-sign-scale",
+      "prompt": "The accept_deny icon doesn't read at sign scale — iterate on the symbol until it works at 24×24."
+    },
+    {
+      "id": "draft-svg-for-model-card",
+      "prompt": "Draft an SVG symbol for an element about model card disclosure — it should sit in the rights category."
+    }
+  ],
+  "should_not_trigger": [
+    {
+      "id": "refactor-typescript",
+      "prompt": "Refactor this TypeScript function to return a Result type instead of throwing."
+    },
+    {
+      "id": "sql-query",
+      "prompt": "Write a SQL query that returns the top 10 customers by revenue in the last quarter."
+    },
+    {
+      "id": "fix-github-actions",
+      "prompt": "My GitHub Actions workflow is failing on the lint step. Help me debug it."
+    },
+    {
+      "id": "cross-sibling:dtpr-element-design:llm-hallucination",
+      "prompt": "DTPR doesn't say anything about LLM hallucination disclosure. Propose changes to cover that."
+    },
+    {
+      "id": "cross-sibling:dtpr-element-design:appeal-after-automated-decision",
+      "prompt": "Propose an element for appeal-after-automated-decision — a person contests an algorithmic denial and a human adjudicator resolves it within a stated window."
+    },
+    {
+      "id": "cross-sibling:dtpr-category-audit:accountable-deep-dive",
+      "prompt": "Walk me through the accountable category for a library self-checkout kiosk — does the schema capture multi-party responsibility?"
+    },
+    {
+      "id": "cross-sibling:dtpr-comprehension-audit:grade-accept-deny-element",
+      "prompt": "Grade the accept_deny element for public comprehension — I just want a readability audit, not a proposal."
+    }
+  ]
+}

@@ -46,6 +46,15 @@ const INDEX_PATH = join(RESEARCH_DIR, 'INDEX.md')
 const REPO_ROOT = dirname(dirname(PLUGIN_ROOT))
 const TOOLS_SRC = join(REPO_ROOT, 'api', 'src', 'mcp', 'tools.ts')
 const TOOLS_DIR = join(REPO_ROOT, 'api', 'src', 'mcp', 'tools')
+const REFERENCES_DIR = join(PLUGIN_ROOT, 'references')
+const PROMPTS_BUNDLE_PATH = join(
+  REPO_ROOT,
+  'api',
+  'src',
+  'mcp',
+  'prompts',
+  'skills.generated.ts',
+)
 const INDEX_RELPATH = 'plugin/dtpr/research/INDEX.md'
 
 const AUTHORITY_TIER_ENUM = [
@@ -264,6 +273,10 @@ function verifyToolReferences(skills, toolNames) {
     'rubric_version',
     'template_version',
     'icon_variants',
+    // Element- / symbol-tier domain terms that appear in SKILL.md prose
+    // (element ids, symbol ids, schema field names) — not MCP tools.
+    'symbol_id',
+    'cloud_storage',
     // Retired skill id appears in handoff prose during the transition.
     'schema_new',
   ])
@@ -479,6 +492,74 @@ function verifyEvalSymmetry(evalSets, skillDirNames) {
   }
 }
 
+/**
+ * Verify the MCP prompts bundle (api/src/mcp/prompts/skills.generated.ts)
+ * lists one entry per SKILL.md and one per references/*.md. Catches
+ * drift when a new skill or reference lands without re-running
+ * `pnpm --filter ./api bundle:skills`.
+ *
+ * The bundle is a generated TS module that calls
+ * `JSON.stringify({...})` on each entry's `name`/`description`/`body`,
+ * so we can extract the names with a simple `name: "..."` regex.
+ */
+function verifyPromptsBundle(skillDirNames) {
+  let raw
+  try {
+    raw = readFileSync(PROMPTS_BUNDLE_PATH, 'utf8')
+  } catch {
+    fail(
+      `${PROMPTS_BUNDLE_PATH}: missing or unreadable. Run \`pnpm --filter ./api bundle:skills\` to regenerate.`,
+    )
+    return
+  }
+  const nameRe = /name:\s*"([a-z][a-z0-9_-]*)"/g
+  const bundledNames = new Set()
+  for (const m of raw.matchAll(nameRe)) bundledNames.add(m[1])
+  if (bundledNames.size === 0) {
+    fail(`${PROMPTS_BUNDLE_PATH}: no prompt entries found (regex drift?).`)
+    return
+  }
+
+  for (const skillName of skillDirNames) {
+    if (!bundledNames.has(skillName)) {
+      fail(
+        `${PROMPTS_BUNDLE_PATH}: missing entry for skill '${skillName}'. Run \`pnpm --filter ./api bundle:skills\` to regenerate.`,
+      )
+    }
+  }
+
+  let referenceFiles
+  try {
+    referenceFiles = readdirSync(REFERENCES_DIR).filter((f) => f.endsWith('.md'))
+  } catch {
+    referenceFiles = []
+  }
+  for (const refFile of referenceFiles) {
+    const slug = refFile.replace(/\.md$/, '')
+    const promptName = `dtpr-references-${slug}`
+    if (!bundledNames.has(promptName)) {
+      fail(
+        `${PROMPTS_BUNDLE_PATH}: missing entry for reference '${slug}'. Run \`pnpm --filter ./api bundle:skills\` to regenerate.`,
+      )
+    }
+  }
+
+  // Bundle entries that don't correspond to a skill directory or
+  // references file are stale — flag so they get cleaned up rather
+  // than silently shipped.
+  const expected = new Set([
+    ...skillDirNames,
+    ...referenceFiles.map((f) => `dtpr-references-${f.replace(/\.md$/, '')}`),
+  ])
+  for (const bundled of bundledNames) {
+    if (!expected.has(bundled)) {
+      fail(
+        `${PROMPTS_BUNDLE_PATH}: stale entry '${bundled}' has no matching skill directory or reference file. Run \`pnpm --filter ./api bundle:skills\` to regenerate.`,
+      )
+    }
+  }
+}
+
 function main() {
   const skillDirents = readdirSync(SKILLS_DIR, { withFileTypes: true }).filter(
     (d) => d.isDirectory(),
@@ -511,6 +592,7 @@ function main() {
   verifyIndex(INDEX_PATH, corpusFileNames)
 
   verifyEvalSymmetry(evalSets, skillDirNames)
+  verifyPromptsBundle(skillDirNames)
 
   for (const w of warnings) console.warn(`plugin/dtpr conformance warning: ${w}`)
 
@@ -519,8 +601,18 @@ function main() {
     for (const f of failures) console.error(`  - ${f}`)
     process.exit(1)
   }
+  // Count the bundled prompts for the summary line. Best-effort —
+  // verifyPromptsBundle has already failed loudly if the bundle is
+  // missing or stale, so we just want a simple count here.
+  let promptsBundledCount = 0
+  try {
+    const raw = readFileSync(PROMPTS_BUNDLE_PATH, 'utf8')
+    promptsBundledCount = [...raw.matchAll(/name:\s*"([a-z][a-z0-9_-]*)"/g)].length
+  } catch {
+    /* noop */
+  }
   console.log(
-    `plugin/dtpr conformance check passed: ${skills.length} skills, ${evalFiles.length} eval sets, ${toolNames.size} MCP tools, ${corpusEntries.length} corpus entries.`,
+    `plugin/dtpr conformance check passed: ${skills.length} skills, ${evalFiles.length} eval sets, ${toolNames.size} MCP tools, ${corpusEntries.length} corpus entries, ${promptsBundledCount} bundled prompts.`,
   )
 }
 
