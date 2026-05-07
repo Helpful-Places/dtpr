@@ -52,7 +52,7 @@ function makeSource(): SchemaVersionSource {
     {
       id: 'cloud_storage',
       category_id: 'ai__storage',
-      title: [loc('en', 'Cloud storage'), loc('es', 'Almacenamiento en la nube')],
+      title: [loc('en', 'Cloud storage'), loc('fr', 'Stockage cloud')],
       description: [loc('en', 'Held for {{retention_period}}.')],
       citation: [],
       authoring_guidance: [],
@@ -81,7 +81,7 @@ function makeSource(): SchemaVersionSource {
       created_at: '2026-04-16T00:00:00.000Z',
       notes: '',
       content_hash: `sha256-${'0'.repeat(64)}`,
-      locales: ['en', 'es'],
+      locales: ['en', 'fr'],
     },
     datachainType: {
       id: 'ai',
@@ -89,7 +89,7 @@ function makeSource(): SchemaVersionSource {
       description: [],
       categories: ['ai__storage', 'ai__decision'],
       subchains: [],
-      locales: ['en', 'es'],
+      locales: ['en', 'fr'],
       sources: [],
     },
     categories,
@@ -148,7 +148,7 @@ describe('buildBundle', () => {
 
   it('builds a search index per locale', () => {
     const bundle = buildBundle(makeSource())
-    expect(Object.keys(bundle.searchIndexesByLocale).sort()).toEqual(['en', 'es'])
+    expect(Object.keys(bundle.searchIndexesByLocale).sort()).toEqual(['en', 'fr'])
     expect(typeof bundle.searchIndexesByLocale.en).toBe('string')
   })
 
@@ -175,7 +175,7 @@ describe('bundleToFiles', () => {
     expect(files['elements/cloud_storage.json']).toBeDefined()
     expect(files['elements/accept_deny.json']).toBeDefined()
     expect(files['search-index.en.json']).toBeDefined()
-    expect(files['search-index.es.json']).toBeDefined()
+    expect(files['search-index.fr.json']).toBeDefined()
   })
 
   it('each per-element file is valid JSON for that element', () => {

@@ -4,14 +4,16 @@ import { z } from 'zod'
  * Locales the DTPR Zod layer recognizes. This is the *type-level*
  * allow-list; each schema version additionally constrains it via its
  * own `manifest.locales` (semantic rule 11), which is the
- * per-version contract production schemas operate against. Current
- * production manifests narrow this to `['en', 'fr']`; historical
- * fixtures and tests still exercise the full enum so the validator
- * stays generic and a future schema version can re-introduce a
- * dropped locale just by listing it in its manifest.
+ * per-version contract production schemas operate against. Adding a
+ * locale back is a deliberate two-step: list it here, then add it
+ * to a version's `manifest.locales` and ship translated content.
+ *
+ * The historical v1 → 2026-04-16 migration in `migrations/` deals
+ * with a wider 6-locale source set; it types its locale codes as
+ * plain strings to stay decoupled from this enum.
  */
 export const LocaleCodeSchema = z
-  .enum(['en', 'es', 'fr', 'km', 'pt', 'tl'])
+  .enum(['en', 'fr'])
   .describe('ISO locale code from the schema version allow-list')
 
 export type LocaleCode = z.infer<typeof LocaleCodeSchema>

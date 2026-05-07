@@ -15,7 +15,7 @@ function baseSource(): SchemaVersionSource {
       created_at: '2026-04-16T00:00:00.000Z',
       notes: '',
       content_hash: `sha256-${'0'.repeat(64)}`,
-      locales: ['en', 'es'],
+      locales: ['en', 'fr'],
     },
     datachainType: {
       id: 'ai',
@@ -23,7 +23,7 @@ function baseSource(): SchemaVersionSource {
       description: [],
       categories: ['ai__decision', 'ai__storage'],
       subchains: [],
-      locales: ['en', 'es'],
+      locales: ['en', 'fr'],
       sources: [],
     },
     categories: [
@@ -167,8 +167,11 @@ describe('validateVersion — version-level rules', () => {
 
   it('Rule 11 (locale_not_allowed): unknown locale in element title', () => {
     const src = baseSource()
-    // Use a locale not in manifest.locales (which is ['en','es'])
-    src.elements[0]!.title = [loc('fr', 'X') as any]
+    // Construct an entry with a locale outside the manifest. `'es'` is
+    // not in the current LocaleCode enum either, so the cast bypasses
+    // both the type and the manifest allow-list — the semantic rule
+    // is what we want to exercise here.
+    src.elements[0]!.title = [{ locale: 'es' as never, value: 'X' }]
     const r = validateVersion(src)
     expect(r.errors.some((e) => e.code === 'LOCALE_NOT_ALLOWED')).toBe(true)
   })
@@ -215,7 +218,7 @@ describe('validateVersion — version-level rules', () => {
     // Put a {{retention_period}} in en and a non-en description that lacks it.
     src.elements[1]!.description = [
       loc('en', 'Data held for {{retention_period}}.'),
-      loc('es', 'Datos almacenados.'), // missing the {{var}}
+      loc('fr', 'Données conservées.'), // missing the {{var}}
     ]
     const r = validateVersion(src)
     expect(r.ok).toBe(true) // warnings don't fail the build

@@ -1,5 +1,5 @@
 import type { Category, ShapeType } from '../../src/schema/category.ts'
-import type { LocaleValue } from '../../src/schema/locale.ts'
+import type { LocaleCode, LocaleValue } from '../../src/schema/locale.ts'
 import { mergeCategoryContext, mergeCategoryElementVariables } from './transform-element.ts'
 import { MIGRATION_LOCALES, type LocaleBundle, type MigrationWarning } from './types.ts'
 
@@ -33,7 +33,11 @@ function buildField(bundle: LocaleBundle, field: string): LocaleValue[] {
     if (!fm) continue
     const raw = fm[field]
     if (typeof raw !== 'string' || raw.length === 0) continue
-    out.push({ locale, value: raw.trim() })
+    // MIGRATION_LOCALES is the historical 6-locale string set, wider
+    // than the current `LocaleCode` enum. The cast is correct for the
+    // migration's contract: the YAML it emits intentionally carries
+    // every locale the v1 source had.
+    out.push({ locale: locale as LocaleCode, value: raw.trim() })
   }
   return out
 }
