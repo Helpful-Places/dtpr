@@ -98,10 +98,21 @@ export function createApp(options: CreateAppOptions = {}) {
   )
   app.use('/mcp', timeout({ budgetMs: readBudget }))
 
-  // Rate limits (two buckets — validate is tighter). Middleware is a
-  // no-op when the bindings are absent, so dev / test / preview
-  // builds don't need to provision them.
+  // Rate limits (three buckets — validate is tighter, resolve is
+  // tightest). Middleware is a no-op when the bindings are absent, so
+  // dev / test / preview builds don't need to provision them.
+  //
+  // Mount order matters: Hono runs `app.use` middleware in declaration
+  // order, so the route-specific RL_VALIDATE / RL_RESOLVE mounts must
+  // precede the wildcard RL_READ mount, otherwise the wildcard would
+  // consume an RL_READ token first and the dedicated buckets would
+  // see traffic only on requests that survived the RL_READ ceiling.
   app.use('/api/v2/schemas/:version/validate', rateLimit({ binding: 'RL_VALIDATE' }))
+  app.use('/api/v2/schemas/:version/resolve', rateLimit({ binding: 'RL_RESOLVE' }))
+  app.use(
+    '/api/v2/schemas/:version/validate_resolved',
+    rateLimit({ binding: 'RL_RESOLVE' }),
+  )
   app.use('/api/v2/*', rateLimit({ binding: 'RL_READ' }))
   app.use('/mcp', rateLimit({ binding: 'RL_READ' }))
 

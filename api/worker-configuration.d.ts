@@ -10,12 +10,14 @@ declare namespace Cloudflare {
 		ENVIRONMENT: "preview";
 		RL_READ: RateLimit;
 		RL_VALIDATE: RateLimit;
+		RL_RESOLVE: RateLimit;
 	}
 	interface Env {
 		CONTENT: R2Bucket;
 		ENVIRONMENT?: "preview";
 		RL_READ: RateLimit;
 		RL_VALIDATE: RateLimit;
+		RL_RESOLVE: RateLimit;
 	}
 }
 interface Env extends Cloudflare.Env {}
