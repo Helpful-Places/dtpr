@@ -5,7 +5,45 @@ export default defineNuxtConfig({
   // (to add its bundled locale message files) but does not register
   // the module itself. We add it here so `useI18n`, `useLocalePath`,
   // `useSwitchLocalePath`, and `<NuxtLinkLocale>` are wired up.
-  modules: ['@nuxtjs/i18n'],
+  //
+  // The inline module after it patches the two route templates docus
+  // ships with — both were written for the no-i18n / no-prefix case
+  // and break under `strategy: 'prefix'` because `@nuxtjs/i18n`
+  // prepends `/{locale}` to every route's path (`/foo` → `/en/foo`
+  // + `/fr/foo`):
+  //
+  //   1. `lang-index` (landing template, path `/:lang?`) gets prefixed
+  //      to `/en/:lang?`, which then matches *any* single-segment URL
+  //      starting with `/en` — including `/en/getting-started`. The
+  //      docs URL therefore lands on landing.vue, which queries the
+  //      `landing_en` collection (only entry: `/en`) and 404s.
+  //   2. `lang-slug` (docs catchall, path `/:lang?/:slug(.*)*`) gets
+  //      prefixed to `/en/:lang?/:slug(.*)*`, which *also* matches the
+  //      bare `/en` (lang=undefined, slug=[]) and beats the landing
+  //      route, breaking the locale homepage.
+  //
+  // The fix:
+  //   - lang-index → `/` (prefixed to `/en` and `/fr` only)
+  //   - lang-slug  → `/:slug(.+)` (prefixed to `/en/:slug(.+)` and
+  //     `/fr/:slug(.+)`; requires at least one segment after the
+  //     locale, so `/en` falls through to the landing route).
+  //
+  // The patch must run inside a module rather than a top-level
+  // `hooks: { 'pages:extend' }` entry: top-level hooks register before
+  // `extends`-layer modules, so they fire *before* docus's routing
+  // module has appended `lang-index`. Defining the listener in a module
+  // here registers it after docus's, so it runs last.
+  modules: [
+    '@nuxtjs/i18n',
+    (_options, nuxt) => {
+      nuxt.hook('pages:extend', (pages) => {
+        const landing = pages.find(p => p.name === 'lang-index')
+        if (landing) landing.path = '/'
+        const docs = pages.find(p => p.name === 'lang-slug')
+        if (docs) docs.path = '/:slug(.+)'
+      })
+    },
+  ],
 
   site: {
     name: 'DTPR for AI',

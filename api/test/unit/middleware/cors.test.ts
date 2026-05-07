@@ -5,7 +5,10 @@ import { _test as corsTest } from '../../../src/middleware/cors.ts'
 describe('middleware: cors', () => {
   it('allows explicit allow-list origins', () => {
     expect(corsTest.isAllowedOrigin('https://dtpr.io')).toBe(true)
+    expect(corsTest.isAllowedOrigin('https://www.dtpr.io')).toBe(true)
     expect(corsTest.isAllowedOrigin('https://docs.dtpr.io')).toBe(true)
+    expect(corsTest.isAllowedOrigin('https://dtpr.ai')).toBe(true)
+    expect(corsTest.isAllowedOrigin('https://www.dtpr.ai')).toBe(true)
   })
 
   it('allows preview subdomains by pattern', () => {
