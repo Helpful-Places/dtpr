@@ -1,5 +1,7 @@
 <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M21 9 C16.5 9 13 12.5 13 16.5 C13 18 13.5 19 14 20 L14 25 L21 25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M24 13 L27 16 L24 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M27.5 10 L30.5 13 L27.5 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<g transform="scale(1.0285714285714285)">
+<path d="M11 17 C11 12.5 14 9.5 17.5 9.5 C21 9.5 24 12.5 24 17 L24 22 L20 22 L20 25 L13 25 L13 19 L11 19 Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" fill="none"/>
+<path d="M16 14.5 C16.6 14 17.4 14 18 14.5 C18.6 15 18.6 16 18 16.5 C17.4 17 17 17.5 17 18.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+<circle cx="17" cy="20.5" r="0.7" fill="currentColor"/>
+</g>
 </svg>
