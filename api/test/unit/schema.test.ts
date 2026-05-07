@@ -189,7 +189,7 @@ describe('DatachainTypeSchema', () => {
       id: 'ai',
       name: [loc('en', 'AI / Algorithm')],
       categories: ['access', 'functional_modes'],
-      locales: ['en', 'es'],
+      locales: ['en', 'fr'],
     })
     expect(dt.categories).toHaveLength(2)
     expect(dt.subchains).toEqual([])

@@ -3,87 +3,37 @@ category_id: risks_mitigation
 title:
   - locale: en
     value: Environmental harm
-  - locale: es
-    value: Daño ambiental
   - locale: fr
     value: Préjudice environnemental
-  - locale: km
-    value: គ្រោះថ្នាក់បរិស្ថាន
-  - locale: pt
-    value: Dano ambiental
-  - locale: tl
-    value: Pinsalang pangkapaligiran
 description:
   - locale: en
     value: >-
-      The risk that the AI system causes environmental degradation through energy consumption, water use, e-waste,
-      carbon emissions, or resource extraction for hardware. This includes risks from training-time compute,
-      always-on inference, cooling demands of data centers, and rapid hardware churn. Mitigations may include energy
-      and water efficiency targets, transparent reporting of compute footprint, hardware-lifecycle planning, and
-      renewable-energy procurement for data-centre operations.
-  - locale: es
-    value: >-
-      El riesgo de que el sistema de IA cause degradación ambiental por consumo de energía, uso de agua, residuos
-      electrónicos, emisiones de carbono o extracción de recursos para hardware. Esto incluye riesgos del cómputo de
-      entrenamiento, la inferencia siempre activa, las demandas de refrigeración de los centros de datos y la rápida
-      rotación de hardware. Las medidas de mitigación pueden incluir objetivos de eficiencia energética e hídrica,
-      informes transparentes sobre la huella de cómputo, planificación del ciclo de vida del hardware y adquisición de
-      energía renovable para los centros de datos.
+      The risk that the AI system causes environmental degradation through energy consumption, water
+      use, e-waste, carbon emissions, or resource extraction for hardware. This includes risks from
+      training-time compute, always-on inference, cooling demands of data centers, and rapid
+      hardware churn. Mitigations may include energy and water efficiency targets, transparent
+      reporting of compute footprint, hardware-lifecycle planning, and renewable-energy procurement
+      for data-centre operations.
   - locale: fr
     value: >-
-      Le risque que le système d'IA cause une dégradation environnementale par la consommation d'énergie, l'usage de
-      l'eau, les déchets électroniques, les émissions de carbone ou l'extraction de ressources pour le matériel. Cela
-      inclut les risques liés au calcul d'entraînement, à l'inférence permanente, aux besoins de refroidissement des
-      centres de données et au renouvellement rapide du matériel. Les mesures d'atténuation peuvent inclure des
-      objectifs d'efficacité énergétique et hydrique, un reporting transparent de l'empreinte de calcul, une
-      planification du cycle de vie du matériel et l'approvisionnement en énergies renouvelables pour les centres de
-      données.
-  - locale: km
-    value: >-
-      ហានិភ័យដែលប្រព័ន្ធ AI បង្កការខ្សោះជីវជាតិបរិស្ថានតាមរយៈការប្រើប្រាស់ថាមពល ការប្រើប្រាស់ទឹក សំណល់អេឡិចត្រូនិច
-      ការបញ្ចេញកាបូន ឬការទាញយកធនធានសម្រាប់ឧបករណ៍។ នេះរួមបញ្ចូលហានិភ័យពីការគណនាពេលបណ្តុះបណ្តាល
-      ការប៉ាន់ស្មានដំណើរការជានិច្ច តម្រូវការត្រជាក់នៃមជ្ឈមណ្ឌលទិន្នន័យ និងការផ្លាស់ប្តូរឧបករណ៍យ៉ាងលឿន។
-      ការបន្ធូរបន្ថយអាចរួមមានគោលដៅប្រសិទ្ធភាពថាមពល និងទឹក ការរាយការណ៍តម្លាភាពពីដាននៃការគណនា
-      ការគ្រោងវដ្តជីវិតឧបករណ៍ និងការទិញថាមពលកកើតឡើងវិញសម្រាប់ប្រតិបត្តិការមជ្ឈមណ្ឌលទិន្នន័យ។
-  - locale: pt
-    value: >-
-      O risco de que o sistema de IA cause degradação ambiental por consumo de energia, uso de água, lixo eletrônico,
-      emissões de carbono ou extração de recursos para hardware. Isso inclui riscos do cômputo de treinamento, da
-      inferência sempre ativa, das demandas de resfriamento dos data centers e da rápida rotatividade de hardware. As
-      mitigações podem incluir metas de eficiência energética e hídrica, relatórios transparentes da pegada de
-      cômputo, planejamento de ciclo de vida do hardware e compra de energia renovável para operações de data center.
-  - locale: tl
-    value: >-
-      Ang panganib na ang AI system ay magdulot ng pagkasira ng kapaligiran sa pamamagitan ng konsumo ng enerhiya,
-      paggamit ng tubig, e-waste, emisyon ng carbon, o pagkuha ng mga mapagkukunan para sa hardware. Kabilang dito ang
-      mga panganib mula sa training-time compute, palaging-on na inference, mga pangangailangan sa cooling ng mga
-      data center, at mabilis na pag-ikot ng hardware. Maaaring kabilang sa mga mitigasyon ang mga target sa kahusayan
-      sa enerhiya at tubig, transparent na pag-uulat ng compute footprint, pagpaplano ng lifecycle ng hardware, at
-      pagkuha ng renewable energy para sa operasyon ng data center.
+      Le risque que le système d'IA cause une dégradation environnementale par la consommation
+      d'énergie, l'usage de l'eau, les déchets électroniques, les émissions de carbone ou
+      l'extraction de ressources pour le matériel. Cela inclut les risques liés au calcul
+      d'entraînement, à l'inférence permanente, aux besoins de refroidissement des centres de
+      données et au renouvellement rapide du matériel. Les mesures d'atténuation peuvent inclure des
+      objectifs d'efficacité énergétique et hydrique, un reporting transparent de l'empreinte de
+      calcul, une planification du cycle de vie du matériel et l'approvisionnement en énergies
+      renouvelables pour les centres de données.
 citation:
   - locale: en
     value: >-
-      Adapted from AIAAIC harm type "Environmental" — Abercrombie et al. (2024), A Collaborative, Human-Centred
-      Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
-  - locale: es
-    value: >-
-      Adaptado del tipo de daño AIAAIC "Ambiental" — Abercrombie et al. (2024), A Collaborative, Human-Centred
-      Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+      Adapted from AIAAIC harm type "Environmental" — Abercrombie et al. (2024), A Collaborative,
+      Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA
+      4.0.
   - locale: fr
     value: >-
-      Adapté du type de préjudice AIAAIC « Environnemental » — Abercrombie et al. (2024), A Collaborative,
-      Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
-  - locale: km
-    value: >-
-      សម្របតាមប្រភេទគ្រោះថ្នាក់ AIAAIC "បរិស្ថាន" — Abercrombie et al. (2024), A Collaborative, Human-Centred Taxonomy
-      of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
-  - locale: pt
-    value: >-
-      Adaptado do tipo de dano AIAAIC "Ambiental" — Abercrombie et al. (2024), A Collaborative, Human-Centred Taxonomy
-      of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
-  - locale: tl
-    value: >-
-      Hango sa uri ng pinsalang AIAAIC na "Pangkapaligiran" — Abercrombie et al. (2024), A Collaborative, Human-Centred
-      Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+      Adapté du type de préjudice AIAAIC « Environnemental » — Abercrombie et al. (2024), A
+      Collaborative, Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms,
+      arXiv:2407.01294. CC BY-SA 4.0.
 symbol_id: risks_environmental
 variables: []

@@ -3,49 +3,19 @@ category_id: purpose
 title:
   - locale: en
     value: Environmental Health
-  - locale: es
-    value: Salud ambiental
   - locale: fr
     value: Santé environnementale
-  - locale: km
-    value: សុខផាប
-  - locale: pt
-    value: Saúde ambiental
-  - locale: tl
-    value: Kalusugan
 description:
   - locale: en
     value: >-
-      Measures or monitors aspects of the physical environment that affect human health — air quality, water quality,
-      radiation, noise, or workplace exposures. Distinct from Healthcare, which supports clinical care for individuals.
-  - locale: es
-    value: >-
-      Mide o supervisa aspectos del entorno físico que afectan la salud humana — calidad del aire, calidad del agua,
-      radiación, ruido o exposiciones en el lugar de trabajo. Se distingue de Atención sanitaria, que apoya la atención
-      clínica a personas.
+      Measures or monitors aspects of the physical environment that affect human health — air
+      quality, water quality, radiation, noise, or workplace exposures. Distinct from Healthcare,
+      which supports clinical care for individuals.
   - locale: fr
     value: >-
-      Mesure ou surveille les aspects de l'environnement physique qui affectent la santé humaine — qualité de l'air,
-      qualité de l'eau, rayonnements, bruit ou expositions sur le lieu de travail. À distinguer de Soins de santé, qui
-      soutient les soins cliniques aux personnes.
-  - locale: km
-    value: >-
-      គាំទ្រការវាស់វែង ឬការត្រួតពិនិត្យទិដ្ឋភាពនៃបរិយាកាសរាងកាយដែលប៉ះពាល់ដល់សុខភាពមនុស្ស ដូចជា
-      [វិទ្យុសកម្ម](https://en.wikipedia.org/wiki/Radiation_protection) ឬ
-      [គុណភាពខ្យល់](https:/en.wikipedia.org/wiki/Air_pollution) ឬក្នុងបរិបទជាក់លាក់ដូចជាកន្លែងធ្វើការ។
-      ស្វែងយល់បន្ថែមអំពី [ការត្រួតពិនិត្យបរិស្ថាន](https://en.wikipedia.org/wiki/Environmental_monitoring) និង [សុខភាព
-      និងសុវត្ថិភាពការងារ](https://en.wikipedia.org/wiki/Occupational_safety_and_health)
-  - locale: pt
-    value: >-
-      Mede ou monitoriza aspetos do ambiente físico que afetam a saúde humana — qualidade do ar, qualidade da água,
-      radiação, ruído ou exposições no local de trabalho. Distinto de Cuidados de saúde, que apoia os cuidados clínicos
-      a pessoas.
-  - locale: tl
-    value: >-
-      Sinusuportahan ang pagsukat o pagsubaybay sa mga aspeto ng pisikal na kapaligiran na nakakaapekto sa kalusugan ng
-      tao, tulad ng radiation o kalidad ng hangin, o sa mga tiyak na konteksto tulad ng lugar ng trabaho. Alamin ang
-      higit pa tungkol sa [pagsubaybay sa kapaligiran](https://en.wikipedia.org/wiki/environmental_monitoring) at
-      [Occupational Health and Safety](https://en.wikipedia.org/wiki/occupat"&"ional_safety_and_health)")
+      Mesure ou surveille les aspects de l'environnement physique qui affectent la santé humaine —
+      qualité de l'air, qualité de l'eau, rayonnements, bruit ou expositions sur le lieu de travail.
+      À distinguer de Soins de santé, qui soutient les soins cliniques aux personnes.
 citation: []
 symbol_id: health
 variables: []

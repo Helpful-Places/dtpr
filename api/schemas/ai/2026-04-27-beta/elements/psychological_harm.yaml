@@ -3,83 +3,35 @@ category_id: risks_mitigation
 title:
   - locale: en
     value: Psychological harm
-  - locale: es
-    value: Daño psicológico
   - locale: fr
     value: Préjudice psychologique
-  - locale: km
-    value: គ្រោះថ្នាក់ផ្លូវចិត្ត
-  - locale: pt
-    value: Dano psicológico
-  - locale: tl
-    value: Pinsalang sikolohikal
 description:
   - locale: en
     value: >-
-      The risk that the AI system causes emotional or mental-health impairment, directly or indirectly. This includes
-      risks from addictive feedback loops, distress caused by surveillance, harassment via generated content, and
-      anxiety from automated denials. Mitigations may include content warnings, well-being safeguards,
-      age-appropriate design, accessible support channels, and rate limits on engagement-maximizing behavior.
-  - locale: es
-    value: >-
-      El riesgo de que el sistema de IA cause un deterioro emocional o de la salud mental, directa o indirectamente.
-      Esto incluye riesgos derivados de bucles de retroalimentación adictivos, malestar causado por la vigilancia,
-      acoso mediante contenido generado y ansiedad por las denegaciones automatizadas. Las medidas de mitigación
-      pueden incluir advertencias de contenido, salvaguardas de bienestar, diseño apropiado para la edad, canales de
-      apoyo accesibles y límites a las conductas que maximizan el compromiso.
+      The risk that the AI system causes emotional or mental-health impairment, directly or
+      indirectly. This includes risks from addictive feedback loops, distress caused by
+      surveillance, harassment via generated content, and anxiety from automated denials.
+      Mitigations may include content warnings, well-being safeguards, age-appropriate design,
+      accessible support channels, and rate limits on engagement-maximizing behavior.
   - locale: fr
     value: >-
-      Le risque que le système d'IA cause une atteinte émotionnelle ou à la santé mentale, directement ou
-      indirectement. Cela inclut les risques liés à des boucles de rétroaction addictives, à la détresse causée par la
-      surveillance, au harcèlement via du contenu généré et à l'anxiété liée aux refus automatisés. Les mesures
-      d'atténuation peuvent inclure des avertissements de contenu, des garde-fous pour le bien-être, une conception
-      adaptée à l'âge, des canaux d'assistance accessibles et des limites sur les comportements qui maximisent
+      Le risque que le système d'IA cause une atteinte émotionnelle ou à la santé mentale,
+      directement ou indirectement. Cela inclut les risques liés à des boucles de rétroaction
+      addictives, à la détresse causée par la surveillance, au harcèlement via du contenu généré et
+      à l'anxiété liée aux refus automatisés. Les mesures d'atténuation peuvent inclure des
+      avertissements de contenu, des garde-fous pour le bien-être, une conception adaptée à l'âge,
+      des canaux d'assistance accessibles et des limites sur les comportements qui maximisent
       l'engagement.
-  - locale: km
-    value: >-
-      ហានិភ័យដែលប្រព័ន្ធ AI បង្កការខូចខាតផ្លូវចិត្ត ឬសុខភាពផ្លូវចិត្តដោយផ្ទាល់ ឬដោយប្រយោល។
-      នេះរួមបញ្ចូលហានិភ័យពីរង្វិលជុំមតិត្រឡប់ដែលធ្វើឱ្យញៀន ការខូចចិត្តដែលបង្កឡើងដោយការឃ្លាំមើល
-      ការយាយីតាមរយៈមាតិកាដែលបានបង្កើត និងការថប់បារម្ភពីការបដិសេធដោយស្វ័យប្រវត្តិ។
-      ការបន្ធូរបន្ថយអាចរួមមានការព្រមានអំពីមាតិកា ការការពារសុខុមាលភាព ការរចនាសមស្របនឹងអាយុ
-      ប៉ុស្តិ៍គាំទ្រដែលអាចចូលដំណើរការបាន និងដែនកំណត់ល្បឿនលើឥរិយាបថដែលបង្កើនការចូលរួម។
-  - locale: pt
-    value: >-
-      O risco de que o sistema de IA cause prejuízo emocional ou à saúde mental, direta ou indiretamente. Isso inclui
-      riscos de ciclos de feedback viciantes, sofrimento causado pela vigilância, assédio por meio de conteúdo gerado
-      e ansiedade decorrente de negações automatizadas. As mitigações podem incluir avisos de conteúdo, salvaguardas
-      de bem-estar, design apropriado à idade, canais de suporte acessíveis e limites sobre comportamentos que
-      maximizam o engajamento.
-  - locale: tl
-    value: >-
-      Ang panganib na ang AI system ay magdulot ng emosyonal o pinsala sa kalusugan ng pag-iisip, direkta o di-direkta.
-      Kabilang dito ang mga panganib mula sa nakaadik na feedback loops, pagkabalisa dulot ng surveillance, harassment
-      sa pamamagitan ng generated content, at pagkabalisa mula sa mga awtomatikong pagtanggi. Maaaring kabilang sa mga
-      mitigasyon ang mga babala sa nilalaman, mga proteksiyon sa kapakanan, disenyong angkop sa edad, mga accessible
-      na channel ng suporta, at mga limitasyon sa pag-uugaling nakapagpapalakas ng engagement.
 citation:
   - locale: en
     value: >-
-      Adapted from AIAAIC harm type "Psychological" — Abercrombie et al. (2024), A Collaborative, Human-Centred
-      Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
-  - locale: es
-    value: >-
-      Adaptado del tipo de daño AIAAIC "Psicológico" — Abercrombie et al. (2024), A Collaborative, Human-Centred
-      Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+      Adapted from AIAAIC harm type "Psychological" — Abercrombie et al. (2024), A Collaborative,
+      Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA
+      4.0.
   - locale: fr
     value: >-
-      Adapté du type de préjudice AIAAIC « Psychologique » — Abercrombie et al. (2024), A Collaborative, Human-Centred
-      Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
-  - locale: km
-    value: >-
-      សម្របតាមប្រភេទគ្រោះថ្នាក់ AIAAIC "ផ្លូវចិត្ត" — Abercrombie et al. (2024), A Collaborative, Human-Centred Taxonomy
-      of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
-  - locale: pt
-    value: >-
-      Adaptado do tipo de dano AIAAIC "Psicológico" — Abercrombie et al. (2024), A Collaborative, Human-Centred
-      Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
-  - locale: tl
-    value: >-
-      Hango sa uri ng pinsalang AIAAIC na "Sikolohikal" — Abercrombie et al. (2024), A Collaborative, Human-Centred
-      Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+      Adapté du type de préjudice AIAAIC « Psychologique » — Abercrombie et al. (2024), A
+      Collaborative, Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms,
+      arXiv:2407.01294. CC BY-SA 4.0.
 symbol_id: risks_psychological
 variables: []

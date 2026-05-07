@@ -3,76 +3,31 @@ category_id: purpose
 title:
   - locale: en
     value: Healthcare
-  - locale: es
-    value: Atención sanitaria
   - locale: fr
     value: Soins de santé
-  - locale: km
-    value: សុខាភិបាល
-  - locale: pt
-    value: Cuidados de saúde
-  - locale: tl
-    value: Pangangalaga sa Kalusugan
 description:
   - locale: en
     value: >-
-      Supports clinical care for individuals — for example, diagnosis assistance, treatment recommendations, patient
-      triage, or health chatbots. Distinct from Environmental Health, which monitors the physical environment.
-  - locale: es
-    value: >-
-      Apoya la atención clínica a personas — por ejemplo, ayuda al diagnóstico, recomendaciones de tratamiento,
-      triaje de pacientes o chatbots de salud. Se distingue de Salud ambiental, que monitorea el entorno físico.
+      Supports clinical care for individuals — for example, diagnosis assistance, treatment
+      recommendations, patient triage, or health chatbots. Distinct from Environmental Health, which
+      monitors the physical environment.
   - locale: fr
     value: >-
-      Soutient les soins cliniques aux personnes — par exemple, aide au diagnostic, recommandations de traitement,
-      triage des patients ou chatbots de santé. À distinguer de Santé environnementale, qui surveille
-      l'environnement physique.
-  - locale: km
-    value: >-
-      គាំទ្រការថែទាំសុខភាពសម្រាប់បុគ្គល — ឧទាហរណ៍ ជំនួយការវិនិច្ឆ័យ អនុសាសន៍ការព្យាបាល ការដាក់ឋានៈអ្នកជំងឺ ឬឆាតបុតសុខភាព។
-      ខុសពីសុខភាពបរិស្ថាន ដែលត្រួតពិនិត្យបរិស្ថានរូបវ័ន្ត។
-  - locale: pt
-    value: >-
-      Apoia os cuidados clínicos a pessoas — por exemplo, ajuda ao diagnóstico, recomendações de tratamento, triagem
-      de pacientes ou chatbots de saúde. Distinto de Saúde ambiental, que monitoriza o ambiente físico.
-  - locale: tl
-    value: >-
-      Sinusuportahan ang klinikal na pag-aalaga sa mga indibidwal — halimbawa, tulong sa diagnosis, rekomendasyon ng
-      treatment, patient triage, o health chatbot. Iba ito sa Environmental Health, na sinusubaybayan ang pisikal
-      na kapaligiran.
+      Soutient les soins cliniques aux personnes — par exemple, aide au diagnostic, recommandations
+      de traitement, triage des patients ou chatbots de santé. À distinguer de Santé
+      environnementale, qui surveille l'environnement physique.
 citation:
   - locale: en
     value: >-
-      Clinical-AI governance under the WHO Ethics and Governance of Artificial Intelligence for Health (2021);
-      medical-device AI regulated by the EU Medical Device Regulation (Regulation (EU) 2017/745) and In Vitro
-      Diagnostic Regulation (Regulation (EU) 2017/746), with EU AI Act (Regulation (EU) 2024/1689) Annex II overlay
-      for safety components.
-  - locale: es
-    value: >-
-      Gobernanza de IA clínica bajo la OMS — *Ética y gobernanza de la inteligencia artificial para la salud* (2021);
-      la IA en dispositivos médicos está regulada por el Reglamento (UE) 2017/745 (Productos Sanitarios) y el
-      Reglamento (UE) 2017/746, con la superposición del Anexo II del Reglamento (UE) 2024/1689 (Ley de IA).
+      Clinical-AI governance under the WHO Ethics and Governance of Artificial Intelligence for
+      Health (2021); medical-device AI regulated by the EU Medical Device Regulation (Regulation
+      (EU) 2017/745) and In Vitro Diagnostic Regulation (Regulation (EU) 2017/746), with EU AI Act
+      (Regulation (EU) 2024/1689) Annex II overlay for safety components.
   - locale: fr
     value: >-
-      Gouvernance de l'IA clinique selon le rapport de l'OMS *Éthique et gouvernance de l'intelligence artificielle
-      pour la santé* (2021) ; l'IA des dispositifs médicaux est encadrée par le Règlement (UE) 2017/745 et le
-      Règlement (UE) 2017/746, avec la superposition de l'Annexe II du Règlement (UE) 2024/1689 (loi européenne sur
-      l'IA).
-  - locale: km
-    value: >-
-      អភិបាលកិច្ច AI ផ្នែកពេទ្យ យោងតាមរបាយការណ៍របស់ WHO *Ethics and Governance of AI for Health* (2021);
-      AI ឧបករណ៍ពេទ្យ កំណត់ដោយបទប្បញ្ញត្តិសហភាពអឺរ៉ុប (Regulation (EU) 2017/745 និង 2017/746) និងច្បាប់ AI
-      (Regulation (EU) 2024/1689) ឧបសម្ព័ន្ធទី II។
-  - locale: pt
-    value: >-
-      Governação de IA clínica ao abrigo do relatório da OMS *Ética e governação da inteligência artificial para a
-      saúde* (2021); IA em dispositivos médicos regulada pelo Regulamento (UE) 2017/745 e Regulamento
-      (UE) 2017/746, com sobreposição do Anexo II do Regulamento (UE) 2024/1689 (Lei da IA).
-  - locale: tl
-    value: >-
-      Ang governance ng clinical AI ay ayon sa WHO *Ethics and Governance of Artificial Intelligence for Health*
-      (2021); ang medical-device AI ay regulated ng EU Medical Device Regulation (Regulation (EU) 2017/745) at In
-      Vitro Diagnostic Regulation (Regulation (EU) 2017/746), na may overlay ng Annex II ng EU AI Act (Regulation
-      (EU) 2024/1689).
+      Gouvernance de l'IA clinique selon le rapport de l'OMS *Éthique et gouvernance de
+      l'intelligence artificielle pour la santé* (2021) ; l'IA des dispositifs médicaux est encadrée
+      par le Règlement (UE) 2017/745 et le Règlement (UE) 2017/746, avec la superposition de
+      l'Annexe II du Règlement (UE) 2024/1689 (loi européenne sur l'IA).
 symbol_id: healthcare
 variables: []

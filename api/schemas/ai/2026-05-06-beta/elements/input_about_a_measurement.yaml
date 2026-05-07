@@ -3,34 +3,21 @@ category_id: input_dataset
 title:
   - locale: en
     value: About a measurement
-  - locale: es
-    value: Sobre una medición
   - locale: fr
     value: À propos d'une mesure
-  - locale: pt
-    value: Sobre uma medição
 description:
   - locale: en
     value: >-
-      Sensor readings — air quality, temperature, sound level, energy, water flow. The AI takes in numeric
-      measurements from physical sensors, usually with no person attached. Examples: PM2.5 readings from an
-      air-quality monitor, decibel levels from a sound sensor, kilowatt-hours from a meter.
-  - locale: es
-    value: >-
-      Lecturas de sensores: calidad del aire, temperatura, nivel sonoro, energía, caudal de agua. La IA recibe
-      mediciones numéricas de sensores físicos, normalmente sin que estén asociadas a una persona. Ejemplos: lecturas
-      de PM2,5 de un monitor de calidad del aire, decibelios de un sensor acústico, kilovatios-hora de un contador.
+      Sensor readings — air quality, temperature, sound level, energy, water flow. The AI takes in
+      numeric measurements from physical sensors, usually with no person attached. Examples: PM2.5
+      readings from an air-quality monitor, decibel levels from a sound sensor, kilowatt-hours from
+      a meter.
   - locale: fr
     value: >-
-      Relevés de capteurs : qualité de l'air, température, niveau sonore, énergie, débit d'eau. L'IA reçoit des
-      mesures numériques issues de capteurs physiques, généralement non rattachées à une personne. Exemples : des
-      relevés PM2,5 d'un moniteur de qualité de l'air, des décibels d'un capteur acoustique, des kilowattheures d'un
-      compteur.
-  - locale: pt
-    value: >-
-      Leituras de sensores — qualidade do ar, temperatura, nível sonoro, energia, caudal de água. A IA recebe medições
-      numéricas de sensores físicos, normalmente sem estarem associadas a uma pessoa. Exemplos: leituras de PM2,5 de
-      um monitor de qualidade do ar, decibéis de um sensor acústico, quilowatts-hora de um contador.
+      Relevés de capteurs : qualité de l'air, température, niveau sonore, énergie, débit d'eau. L'IA
+      reçoit des mesures numériques issues de capteurs physiques, généralement non rattachées à une
+      personne. Exemples : des relevés PM2,5 d'un moniteur de qualité de l'air, des décibels d'un
+      capteur acoustique, des kilowattheures d'un compteur.
 citation: []
 symbol_id: values_time
 variables: []

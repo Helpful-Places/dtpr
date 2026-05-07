@@ -3,87 +3,37 @@ category_id: risks_mitigation
 title:
   - locale: en
     value: Political & economic harm
-  - locale: es
-    value: Daño político y económico
   - locale: fr
     value: Préjudice politique et économique
-  - locale: km
-    value: គ្រោះថ្នាក់នយោបាយ និងសេដ្ឋកិច្ច
-  - locale: pt
-    value: Dano político e econômico
-  - locale: tl
-    value: Pinsalang pampulitika at pang-ekonomiya
 description:
   - locale: en
     value: >-
-      The risk that the AI system manipulates political discourse, interferes with elections, concentrates market
-      power, or damages public institutions. This includes risks of synthetic media targeting voters, opaque
-      ad-targeting, competitive distortion from monopoly access to data and compute, and erosion of institutional
-      trust. Mitigations may include disclosure of synthetic content, antitrust attention to AI markets, audit access
-      for regulators, and political-ad transparency requirements.
-  - locale: es
-    value: >-
-      El riesgo de que el sistema de IA manipule el discurso político, interfiera con las elecciones, concentre poder
-      de mercado o dañe a las instituciones públicas. Esto incluye riesgos de medios sintéticos dirigidos a votantes,
-      segmentación opaca de anuncios, distorsión competitiva por acceso monopolístico a datos y cómputo, y erosión de
-      la confianza institucional. Las medidas de mitigación pueden incluir divulgación del contenido sintético,
-      atención antimonopolio a los mercados de IA, acceso de auditoría para reguladores y requisitos de transparencia
-      en la publicidad política.
+      The risk that the AI system manipulates political discourse, interferes with elections,
+      concentrates market power, or damages public institutions. This includes risks of synthetic
+      media targeting voters, opaque ad-targeting, competitive distortion from monopoly access to
+      data and compute, and erosion of institutional trust. Mitigations may include disclosure of
+      synthetic content, antitrust attention to AI markets, audit access for regulators, and
+      political-ad transparency requirements.
   - locale: fr
     value: >-
-      Le risque que le système d'IA manipule le discours politique, interfère avec les élections, concentre le pouvoir
-      de marché ou porte atteinte aux institutions publiques. Cela inclut les risques liés aux médias synthétiques
-      ciblant les électeurs, au ciblage publicitaire opaque, à la distorsion concurrentielle due à l'accès
-      monopolistique aux données et au calcul, et à l'érosion de la confiance institutionnelle. Les mesures
-      d'atténuation peuvent inclure la divulgation des contenus synthétiques, l'attention antitrust portée aux marchés
-      de l'IA, l'accès d'audit pour les régulateurs et des obligations de transparence pour les publicités politiques.
-  - locale: km
-    value: >-
-      ហានិភ័យដែលប្រព័ន្ធ AI រៀបចំការសន្ទនានយោបាយ ជ្រៀតជ្រែកការបោះឆ្នោត ប្រមូលផ្តុំអំណាចទីផ្សារ
-      ឬបំផ្លាញស្ថាប័នសាធារណៈ។ នេះរួមបញ្ចូលហានិភ័យនៃប្រព័ន្ធផ្សព្វផ្សាយសំយោគដែលផ្តោតទៅអ្នកបោះឆ្នោត
-      ការផ្តោតការផ្សាយពាណិជ្ជកម្មស្រអាប់ ការបង្ខូចការប្រកួតប្រជែងដោយការចូលប្រើទិន្នន័យ និងគណនាដោយម៉ូណូប៉ូលី
-      និងការកាត់បន្ថយទំនុកចិត្តស្ថាប័ន។ ការបន្ធូរបន្ថយអាចរួមមានការបង្ហាញមាតិកាសំយោគ
-      ការយកចិត្តទុកដាក់ប្រឆាំងម៉ូណូប៉ូលីលើទីផ្សារ AI ការចូលប្រើសវនកម្មសម្រាប់និយតករ
-      និងតម្រូវការតម្លាភាពនៃការផ្សាយពាណិជ្ជកម្មនយោបាយ។
-  - locale: pt
-    value: >-
-      O risco de que o sistema de IA manipule o discurso político, interfira em eleições, concentre poder de mercado
-      ou prejudique instituições públicas. Isso inclui riscos de mídia sintética dirigida a eleitores, segmentação
-      opaca de anúncios, distorção competitiva por acesso monopolístico a dados e computação, e erosão da confiança
-      institucional. As mitigações podem incluir divulgação de conteúdo sintético, atenção antitruste a mercados de
-      IA, acesso de auditoria para reguladores e requisitos de transparência em publicidade política.
-  - locale: tl
-    value: >-
-      Ang panganib na manipulahin ng AI system ang pampulitikang diskurso, makialam sa mga halalan, kumonsentra ng
-      kapangyarihan sa merkado, o sirain ang mga pampublikong institusyon. Kabilang dito ang mga panganib ng synthetic
-      media na nakatuon sa mga botante, opaque na ad-targeting, competitive distortion mula sa monopoly access sa
-      data at compute, at pag-erode ng tiwala sa institusyon. Maaaring kabilang sa mga mitigasyon ang pagsisiwalat ng
-      synthetic content, antitrust na atensyon sa mga merkado ng AI, audit access para sa mga regulator, at mga
-      kinakailangan sa transparency ng political ads.
+      Le risque que le système d'IA manipule le discours politique, interfère avec les élections,
+      concentre le pouvoir de marché ou porte atteinte aux institutions publiques. Cela inclut les
+      risques liés aux médias synthétiques ciblant les électeurs, au ciblage publicitaire opaque, à
+      la distorsion concurrentielle due à l'accès monopolistique aux données et au calcul, et à
+      l'érosion de la confiance institutionnelle. Les mesures d'atténuation peuvent inclure la
+      divulgation des contenus synthétiques, l'attention antitrust portée aux marchés de l'IA,
+      l'accès d'audit pour les régulateurs et des obligations de transparence pour les publicités
+      politiques.
 citation:
   - locale: en
     value: >-
-      Adapted from AIAAIC harm type "Political & Economic" — Abercrombie et al. (2024), A Collaborative, Human-Centred
-      Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
-  - locale: es
-    value: >-
-      Adaptado del tipo de daño AIAAIC "Político y Económico" — Abercrombie et al. (2024), A Collaborative,
-      Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+      Adapted from AIAAIC harm type "Political & Economic" — Abercrombie et al. (2024), A
+      Collaborative, Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms,
+      arXiv:2407.01294. CC BY-SA 4.0.
   - locale: fr
     value: >-
-      Adapté du type de préjudice AIAAIC « Politique et économique » — Abercrombie et al. (2024), A Collaborative,
-      Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
-  - locale: km
-    value: >-
-      សម្របតាមប្រភេទគ្រោះថ្នាក់ AIAAIC "នយោបាយ និងសេដ្ឋកិច្ច" — Abercrombie et al. (2024), A Collaborative,
-      Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
-  - locale: pt
-    value: >-
-      Adaptado do tipo de dano AIAAIC "Político e Econômico" — Abercrombie et al. (2024), A Collaborative,
-      Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
-  - locale: tl
-    value: >-
-      Hango sa uri ng pinsalang AIAAIC na "Pampulitika at Pang-ekonomiya" — Abercrombie et al. (2024), A Collaborative,
-      Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+      Adapté du type de préjudice AIAAIC « Politique et économique » — Abercrombie et al. (2024), A
+      Collaborative, Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms,
+      arXiv:2407.01294. CC BY-SA 4.0.
 symbol_id: risks_political-economic
 variables: []

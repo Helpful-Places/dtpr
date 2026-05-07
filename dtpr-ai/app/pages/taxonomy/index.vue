@@ -60,26 +60,21 @@ const {
   activeVersion,
   activeLocale,
   selectedVersion,
-  selectedLocale,
   requestedVersion,
   versionMissing,
   latestVersion,
   availableVersions,
-  availableLocales,
 } = useDtprState()
 
-// Build forwarded query string from validated state (see element /
-// category pages for the same pattern) so an invalid `?locale=xyz`
-// doesn't propagate through every link the visitor clicks afterward.
+// Forwarded query string carries only the version pin now — locale
+// lives in the route prefix (`/es/...`) and `<NuxtLinkLocale>` adds
+// it automatically. An invalid `?v=xyz` still gets normalized to the
+// validated `activeVersion` so it doesn't propagate through clicks.
 const queryString = computed(() => {
-  const parts: string[] = []
   if (requestedVersion.value && !versionMissing.value) {
-    parts.push(`v=${encodeURIComponent(activeVersion.value)}`)
+    return `?v=${encodeURIComponent(activeVersion.value)}`
   }
-  if (activeLocale.value !== 'en') {
-    parts.push(`locale=${encodeURIComponent(activeLocale.value)}`)
-  }
-  return parts.length ? `?${parts.join('&')}` : ''
+  return ''
 })
 
 const { data: catsData } = await useAsyncData(
@@ -296,16 +291,12 @@ function handleScroll() {
   <div class="taxonomy-page">
     <DtprPageHeader
       :active-version="activeVersion"
-      :active-locale="activeLocale"
       :selected-version="selectedVersion"
-      :selected-locale="selectedLocale"
       :available-versions="availableVersions"
-      :available-locales="availableLocales"
       :version-missing="versionMissing"
       :requested-version="requestedVersion"
       :latest-version="latestVersion"
       @update:selected-version="selectedVersion = $event"
-      @update:selected-locale="selectedLocale = $event"
     >
       <template #heading>
         <h1 class="taxonomy-page__title">Taxonomy</h1>

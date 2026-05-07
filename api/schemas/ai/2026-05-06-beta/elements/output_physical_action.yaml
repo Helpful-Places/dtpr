@@ -3,39 +3,25 @@ category_id: output_dataset
 title:
   - locale: en
     value: A physical action
-  - locale: es
-    value: Una acción física
   - locale: fr
     value: Une action physique
-  - locale: pt
-    value: Uma ação física
 description:
   - locale: en
     value: >-
-      The AI triggers something in the physical world — a door unlocking, a light turning on, an alert sounding,
-      signage changing, HVAC adjusting. Examples: a turnstile that opens on facial match, a public-address alert
-      played automatically, an HVAC adjustment commanded by a building model.
-  - locale: es
-    value: >-
-      La IA desencadena algo en el mundo físico: una puerta que se desbloquea, una luz que se enciende, una alerta
-      que suena, una señalización que cambia, una climatización que se ajusta. Ejemplos: un torniquete que se abre
-      al reconocer un rostro, una alerta de megafonía emitida automáticamente, un ajuste de climatización ordenado
-      por un modelo del edificio.
+      The AI triggers something in the physical world — a door unlocking, a light turning on, an
+      alert sounding, signage changing, HVAC adjusting. Examples: a turnstile that opens on facial
+      match, a public-address alert played automatically, an HVAC adjustment commanded by a building
+      model.
   - locale: fr
     value: >-
-      L'IA déclenche quelque chose dans le monde physique : une porte qui se déverrouille, une lumière qui s'allume,
-      une alerte qui retentit, une signalétique qui change, un système CVC qui s'ajuste. Exemples : un tourniquet
-      qui s'ouvre sur reconnaissance faciale, une alerte de sonorisation diffusée automatiquement, un ajustement CVC
-      commandé par un modèle de bâtiment.
-  - locale: pt
-    value: >-
-      A IA desencadeia algo no mundo físico — uma porta a desbloquear, uma luz a acender, um alerta a soar, uma
-      sinalização a mudar, um AVAC a ajustar-se. Exemplos: um torniquete que abre por reconhecimento facial, um
-      alerta de público emitido automaticamente, um ajuste de AVAC comandado por um modelo do edifício.
+      L'IA déclenche quelque chose dans le monde physique : une porte qui se déverrouille, une
+      lumière qui s'allume, une alerte qui retentit, une signalétique qui change, un système CVC qui
+      s'ajuste. Exemples : un tourniquet qui s'ouvre sur reconnaissance faciale, une alerte de
+      sonorisation diffusée automatiquement, un ajustement CVC commandé par un modèle de bâtiment.
 citation:
   - locale: en
     value: >-
-      Output class implicit in EU AI Act Article 3(1) — outputs that "influence physical or virtual environments";
-      pairs with the agentic_mode element in this schema.
+      Output class implicit in EU AI Act Article 3(1) — outputs that "influence physical or virtual
+      environments"; pairs with the agentic_mode element in this schema.
 symbol_id: physical_action
 variables: []

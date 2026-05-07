@@ -1,4 +1,4 @@
-import type { LocaleValue } from '../../src/schema/locale.ts'
+import type { LocaleCode, LocaleValue } from '../../src/schema/locale.ts'
 import type { Element } from '../../src/schema/element.ts'
 import { MIGRATION_LOCALES, type LocaleBundle, type MigrationWarning } from './types.ts'
 
@@ -20,7 +20,7 @@ function buildLocaleValues(
     if (typeof raw !== 'string') continue
     const value = transform(raw)
     if (value.length === 0) continue
-    out.push({ locale, value })
+    out.push({ locale: locale as LocaleCode, value })
   }
   return out
 }
@@ -147,7 +147,7 @@ export function mergeCategoryElementVariables(
       }
       if (typeof label === 'string' && label.length > 0) {
         if (!current.label.some((l) => l.locale === locale)) {
-          current.label.push({ locale, value: label.trim() })
+          current.label.push({ locale: locale as LocaleCode, value: label.trim() })
         }
       }
       if (required === true) current.required = true
@@ -199,18 +199,18 @@ export function mergeCategoryContext(bundle: LocaleBundle):
     const fm = bundle[locale]
     const ctx = fm?.context as Record<string, unknown> | undefined
     if (!ctx) continue
-    if (typeof ctx.name === 'string') name.push({ locale, value: ctx.name.trim() })
+    if (typeof ctx.name === 'string') name.push({ locale: locale as LocaleCode, value: ctx.name.trim() })
     if (typeof ctx.description === 'string')
-      description.push({ locale, value: ctx.description.trim() })
+      description.push({ locale: locale as LocaleCode, value: ctx.description.trim() })
     const localizedValues = Array.isArray(ctx.values) ? (ctx.values as unknown[]) : []
     for (const lv of localizedValues) {
       const cast = lv as Record<string, unknown>
       if (typeof cast?.id !== 'string') continue
       const match = values.find((x) => x.id === cast.id)
       if (!match) continue
-      if (typeof cast.name === 'string') match.name.push({ locale, value: cast.name.trim() })
+      if (typeof cast.name === 'string') match.name.push({ locale: locale as LocaleCode, value: cast.name.trim() })
       if (typeof cast.description === 'string')
-        match.description.push({ locale, value: cast.description.trim() })
+        match.description.push({ locale: locale as LocaleCode, value: cast.description.trim() })
     }
   }
 

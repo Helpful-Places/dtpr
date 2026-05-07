@@ -162,3 +162,28 @@ jobs:
             exit 1
           fi
           echo "::endgroup::"
+
+      # dtpr-ai bakes the schemas index into prerendered HTML at build
+      # time, so a schema-only push (no dtpr-ai/** changes) leaves the
+      # docs site stale until something else triggers its Cloudflare
+      # Workers Builds pipeline. Pinging the project's deploy hook
+      # forces a fresh build that picks up the API state we just shipped.
+      - name: Trigger dtpr-ai rebuild
+        if: success()
+        env:
+          DEPLOY_HOOK: ${{ secrets.DTPR_AI_DEPLOY_HOOK }}
+        run: |
+          set -euo pipefail
+          if [ -z "${DEPLOY_HOOK:-}" ]; then
+            echo "::warning::DTPR_AI_DEPLOY_HOOK not configured — dtpr-ai will not auto-rebuild. Add the Cloudflare Workers Builds deploy hook URL as a repository secret."
+            exit 0
+          fi
+          response=$(curl -sS -X POST "$DEPLOY_HOOK" -w '\n%{http_code}')
+          status=$(echo "$response" | tail -n1)
+          body=$(echo "$response" | sed '$d')
+          echo "$body"
+          if [ "$status" != "200" ] && [ "$status" != "201" ] && [ "$status" != "202" ]; then
+            echo "::error::dtpr-ai deploy hook returned HTTP $status"
+            exit 1
+          fi
+          echo "dtpr-ai rebuild triggered (HTTP $status)."

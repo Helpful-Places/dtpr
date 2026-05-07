@@ -3,52 +3,22 @@ category_id: rights
 title:
   - locale: en
     value: Right to Contest
-  - locale: es
-    value: Derecho de impugnación
   - locale: fr
     value: Droit de contestation
-  - locale: km
-    value: សិទ្ធិក្នុងការប្រលង
-  - locale: pt
-    value: Direito de contestação
-  - locale: tl
-    value: Karapatan sa Paligsahan
 description:
   - locale: en
     value: >-
-      The right to challenge a decision an AI system has made about you — to provide additional information, express
-      your point of view, and have the decision reconsidered based on your input. This is a remedy after a decision has
-      been made; the right to a human review before a decision is acted on is a separate right.
-  - locale: es
-    value: >-
-      El derecho a impugnar una decisión que un sistema de IA haya tomado sobre usted — a aportar información adicional,
-      expresar su punto de vista y obtener que la decisión se reconsidere sobre la base de sus aportaciones. Se trata de
-      un remedio posterior a la decisión; el derecho a una revisión humana antes de que se ejecute una decisión es un
-      derecho distinto.
+      The right to challenge a decision an AI system has made about you — to provide additional
+      information, express your point of view, and have the decision reconsidered based on your
+      input. This is a remedy after a decision has been made; the right to a human review before a
+      decision is acted on is a separate right.
   - locale: fr
     value: >-
-      Le droit de contester une décision qu'un système d'IA a prise à votre sujet — d'apporter des informations
-      supplémentaires, d'exprimer votre point de vue et d'obtenir que la décision soit réexaminée sur la base de votre
-      contribution. Il s'agit d'un recours postérieur à la décision ; le droit à un examen humain avant qu'une décision
-      ne soit exécutée constitue un droit distinct.
-  - locale: km
-    value: >-
-      សិទ្ធិប្រកួតប្រជែងការសម្រេចចិត្តដែលប្រព័ន្ធ AI បានធ្វើឡើងចំពោះអ្នក — ដើម្បីផ្តល់ព័ត៌មានបន្ថែម
-      បង្ហាញពីទស្សនៈរបស់អ្នក និងឱ្យការសម្រេចចិត្តពិចារណាឡើងវិញដោយផ្អែកលើការបញ្ចូលរបស់អ្នក។
-      នេះគឺជាដំណោះស្រាយក្រោយពេលការសម្រេចចិត្តត្រូវបានធ្វើឡើង។ សិទ្ធិក្នុងការឱ្យមនុស្សពិនិត្យមើលមុនពេលការសម្រេចចិត្តត្រូវបានអនុវត្ត
-      គឺជាសិទ្ធិដាច់ដោយឡែក។
-  - locale: pt
-    value: >-
-      O direito de contestar uma decisão que um sistema de IA tenha tomado sobre você — de fornecer informações
-      adicionais, expressar seu ponto de vista e fazer com que a decisão seja reconsiderada com base em sua opinião.
-      Trata-se de um recurso posterior à decisão; o direito a uma revisão humana antes de uma decisão ser executada é um
-      direito distinto.
-  - locale: tl
-    value: >-
-      Ang karapatang hamunin ang isang desisyong ginawa ng isang AI system tungkol sa iyo — magbigay ng karagdagang
-      impormasyon, ipahayag ang iyong pananaw, at muling isaalang-alang ang desisyon batay sa iyong input. Ito ay isang
-      remedyo pagkatapos magawa ang desisyon; ang karapatan sa pagsusuri ng tao bago ipatupad ang isang desisyon ay
-      isang hiwalay na karapatan.
+      Le droit de contester une décision qu'un système d'IA a prise à votre sujet — d'apporter des
+      informations supplémentaires, d'exprimer votre point de vue et d'obtenir que la décision soit
+      réexaminée sur la base de votre contribution. Il s'agit d'un recours postérieur à la décision
+      ; le droit à un examen humain avant qu'une décision ne soit exécutée constitue un droit
+      distinct.
 citation: []
 symbol_id: rights_contest
 variables: []

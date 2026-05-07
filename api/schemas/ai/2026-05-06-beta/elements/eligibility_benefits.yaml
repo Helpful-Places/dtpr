@@ -3,72 +3,30 @@ category_id: purpose
 title:
   - locale: en
     value: Eligibility & Public Benefits
-  - locale: es
-    value: Elegibilidad y prestaciones públicas
   - locale: fr
     value: Éligibilité et prestations publiques
-  - locale: km
-    value: សិទ្ធិទទួលបាន និងអត្ថប្រយោជន៍សាធារណៈ
-  - locale: pt
-    value: Elegibilidade e prestações públicas
-  - locale: tl
-    value: Pagiging Karapat-Dapat at Pampublikong Benepisyo
 description:
   - locale: en
     value: >-
-      Determines eligibility for, or distribution of, government benefits and essential public services — for example,
-      welfare allocation, housing assistance, child-services risk scoring.
-  - locale: es
-    value: >-
-      Determina la elegibilidad o la distribución de prestaciones gubernamentales y servicios públicos esenciales —
-      por ejemplo, asignación de bienestar social, asistencia para vivienda, evaluación de riesgo en servicios
-      infantiles.
+      Determines eligibility for, or distribution of, government benefits and essential public
+      services — for example, welfare allocation, housing assistance, child-services risk scoring.
   - locale: fr
     value: >-
-      Détermine l'éligibilité ou la distribution de prestations publiques et de services publics essentiels — par
-      exemple, l'attribution d'aides sociales, l'aide au logement, l'évaluation du risque en protection de l'enfance.
-  - locale: km
-    value: >-
-      សម្រេចសិទ្ធិទទួលបាន ឬការចែកចាយអត្ថប្រយោជន៍រដ្ឋាភិបាល និងសេវាសាធារណៈចាំបាច់ — ឧទាហរណ៍ ការបែងចែកសុខុមាលភាព ជំនួយលំនៅឋាន
-      ការវាយតម្លៃហានិភ័យក្នុងសេវាកុមារ។
-  - locale: pt
-    value: >-
-      Determina a elegibilidade ou a distribuição de prestações governamentais e serviços públicos essenciais — por
-      exemplo, atribuição de apoios sociais, ajuda à habitação, avaliação de risco em serviços de proteção de menores.
-  - locale: tl
-    value: >-
-      Tinutukoy ang pagiging karapat-dapat o pamamahagi ng mga benepisyo at mahahalagang serbisyong pampubliko —
-      halimbawa, paglalaan ng welfare, tulong sa pabahay, child-services risk scoring.
+      Détermine l'éligibilité ou la distribution de prestations publiques et de services publics
+      essentiels — par exemple, l'attribution d'aides sociales, l'aide au logement, l'évaluation du
+      risque en protection de l'enfance.
 citation:
   - locale: en
     value: >-
-      AI used by or on behalf of public authorities to evaluate eligibility for essential public assistance benefits
-      and services listed as Annex III high-risk under the EU AI Act (Regulation (EU) 2024/1689), Article 6(2) and
-      Annex III §5(a). AIAAIC repository documents recurring harms in welfare-fraud detection and child-services
-      scoring (e.g., SyRI, Robodebt).
-  - locale: es
-    value: >-
-      La IA utilizada por las autoridades públicas o en su nombre para evaluar la elegibilidad para prestaciones y
-      servicios públicos esenciales figura como alto riesgo en el Anexo III del Reglamento (UE) 2024/1689 (Ley de IA
-      de la UE), Artículo 6(2) y Anexo III §5(a).
+      AI used by or on behalf of public authorities to evaluate eligibility for essential public
+      assistance benefits and services listed as Annex III high-risk under the EU AI Act (Regulation
+      (EU) 2024/1689), Article 6(2) and Annex III §5(a). AIAAIC repository documents recurring harms
+      in welfare-fraud detection and child-services scoring (e.g., SyRI, Robodebt).
   - locale: fr
     value: >-
-      Les systèmes d'IA utilisés par les autorités publiques ou pour leur compte pour évaluer l'éligibilité aux
-      prestations et services publics essentiels sont classés à haut risque à l'Annexe III du Règlement (UE) 2024/1689
-      (loi européenne sur l'IA), Article 6(2) et Annexe III §5(a).
-  - locale: km
-    value: >-
-      AI ដែលប្រើដោយអាជ្ញាធរសាធារណៈ ឬក្នុងនាមអាជ្ញាធរ ក្នុងការវាយតម្លៃសិទ្ធិទទួលបានអត្ថប្រយោជន៍សាធារណៈ និងសេវាចាំបាច់ ត្រូវ
-      ចាត់ទុកជាហានិភ័យខ្ពស់នៅឧបសម្ព័ន្ធទី III នៃច្បាប់ AI សហភាពអឺរ៉ុប (Regulation (EU) 2024/1689) មាត្រា 6(2)។
-  - locale: pt
-    value: >-
-      A IA utilizada por autoridades públicas ou em seu nome para avaliar a elegibilidade para prestações e serviços
-      públicos essenciais está listada como alto risco no Anexo III do Regulamento (UE) 2024/1689 (Lei da IA da UE),
-      Artigo 6(2) e Anexo III §5(a).
-  - locale: tl
-    value: >-
-      Ang AI na ginagamit ng o sa ngalan ng mga awtoridad sa publiko upang suriin ang pagiging karapat-dapat sa
-      mahahalagang public-assistance benefits at serbisyo ay nakalista bilang Annex III high-risk sa ilalim ng EU AI
-      Act (Regulation (EU) 2024/1689), Article 6(2) at Annex III §5(a).
+      Les systèmes d'IA utilisés par les autorités publiques ou pour leur compte pour évaluer
+      l'éligibilité aux prestations et services publics essentiels sont classés à haut risque à
+      l'Annexe III du Règlement (UE) 2024/1689 (loi européenne sur l'IA), Article 6(2) et Annexe III
+      §5(a).
 symbol_id: eligibility_benefits
 variables: []

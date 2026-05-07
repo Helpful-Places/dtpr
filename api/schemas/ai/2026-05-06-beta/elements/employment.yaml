@@ -3,67 +3,29 @@ category_id: purpose
 title:
   - locale: en
     value: Employment & Work
-  - locale: es
-    value: Empleo y trabajo
   - locale: fr
     value: Emploi et travail
-  - locale: km
-    value: ការងារ និងការជ្រើសរើសបុគ្គលិក
-  - locale: pt
-    value: Emprego e trabalho
-  - locale: tl
-    value: Trabaho at Pagtatrabaho
 description:
   - locale: en
     value: >-
-      Supports hiring, scheduling, performance evaluation, or workplace operations — for example, resume screening,
-      shift assignment, productivity monitoring.
-  - locale: es
-    value: >-
-      Apoya la contratación, la programación, la evaluación del desempeño o las operaciones del lugar de trabajo — por
-      ejemplo, selección de currículos, asignación de turnos, monitoreo de la productividad.
+      Supports hiring, scheduling, performance evaluation, or workplace operations — for example,
+      resume screening, shift assignment, productivity monitoring.
   - locale: fr
     value: >-
-      Soutient le recrutement, la planification, l'évaluation de la performance ou les opérations sur le lieu de
-      travail — par exemple, le tri de CV, l'attribution des postes, le suivi de la productivité.
-  - locale: km
-    value: >-
-      គាំទ្រការជ្រើសរើសបុគ្គលិក ការរៀបកាលវិភាគ ការវាយតម្លៃការអនុវត្ត ឬប្រតិបត្តិការនៅកន្លែងការងារ — ឧទាហរណ៍ ការច្រោះប្រវត្តិរូប
-      ការចែកវេនការងារ ការតាមដានផលិតភាព។
-  - locale: pt
-    value: >-
-      Apoia a contratação, o agendamento, a avaliação de desempenho ou as operações no local de trabalho — por
-      exemplo, triagem de currículos, atribuição de turnos, monitorização da produtividade.
-  - locale: tl
-    value: >-
-      Sinusuportahan ang pag-hire, pagpaplano ng iskedyul, pagsusuri ng performance, o operasyon sa lugar ng trabaho —
-      halimbawa, resume screening, pagtatalaga ng shift, pagsubaybay sa produktibidad.
+      Soutient le recrutement, la planification, l'évaluation de la performance ou les opérations
+      sur le lieu de travail — par exemple, le tri de CV, l'attribution des postes, le suivi de la
+      productivité.
 citation:
   - locale: en
     value: >-
-      Employment, workers management, and access to self-employment listed as Annex III high-risk under the EU AI Act
-      (Regulation (EU) 2024/1689), Article 6(2) and Annex III §4 — including recruitment, work-relationship monitoring,
-      and task-allocation decisions. AIAAIC repository documents recurring incidents in resume screening and workforce
-      monitoring.
-  - locale: es
-    value: >-
-      Empleo, gestión de trabajadores y acceso al autoempleo figuran como alto riesgo en el Anexo III del Reglamento
-      (UE) 2024/1689 (Ley de IA de la UE), Artículo 6(2) y Anexo III §4.
+      Employment, workers management, and access to self-employment listed as Annex III high-risk
+      under the EU AI Act (Regulation (EU) 2024/1689), Article 6(2) and Annex III §4 — including
+      recruitment, work-relationship monitoring, and task-allocation decisions. AIAAIC repository
+      documents recurring incidents in resume screening and workforce monitoring.
   - locale: fr
     value: >-
-      Emploi, gestion des travailleurs et accès au travail indépendant classés à haut risque à l'Annexe III du
-      Règlement (UE) 2024/1689 (loi européenne sur l'IA), Article 6(2) et Annexe III §4.
-  - locale: km
-    value: >-
-      ការងារ ការគ្រប់គ្រងបុគ្គលិក និងការទទួលបានការងារដោយខ្លួនឯង ត្រូវចាត់ទុកជាហានិភ័យខ្ពស់នៅឧបសម្ព័ន្ធទី III នៃច្បាប់ AI
-      សហភាពអឺរ៉ុប (Regulation (EU) 2024/1689) មាត្រា 6(2)។
-  - locale: pt
-    value: >-
-      Emprego, gestão de trabalhadores e acesso ao trabalho independente listados como alto risco no Anexo III do
-      Regulamento (UE) 2024/1689 (Lei da IA da UE), Artigo 6(2) e Anexo III §4.
-  - locale: tl
-    value: >-
-      Ang trabaho, pamamahala ng mga manggagawa, at access sa self-employment ay nakalista bilang Annex III high-risk
-      sa ilalim ng EU AI Act (Regulation (EU) 2024/1689), Article 6(2) at Annex III §4.
+      Emploi, gestion des travailleurs et accès au travail indépendant classés à haut risque à
+      l'Annexe III du Règlement (UE) 2024/1689 (loi européenne sur l'IA), Article 6(2) et Annexe III
+      §4.
 symbol_id: employment
 variables: []

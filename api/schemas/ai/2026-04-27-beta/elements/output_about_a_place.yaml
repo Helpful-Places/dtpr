@@ -3,31 +3,19 @@ category_id: output_dataset
 title:
   - locale: en
     value: About a place
-  - locale: es
-    value: Sobre un lugar
   - locale: fr
     value: À propos d'un lieu
-  - locale: pt
-    value: Sobre um lugar
 description:
   - locale: en
     value: >-
-      The AI produces location, route, region, or floor-plan output. Examples: a wayfinding route shown on a kiosk,
-      a heatmap of foot-traffic density, a geofence boundary published to downstream systems.
-  - locale: es
-    value: >-
-      La IA produce una salida de ubicación, ruta, región o planta. Ejemplos: una ruta de orientación mostrada en un
-      kiosco, un mapa de calor de densidad de peatones, los límites de una geocerca publicados a sistemas aguas
-      abajo.
+      The AI produces location, route, region, or floor-plan output. Examples: a wayfinding route
+      shown on a kiosk, a heatmap of foot-traffic density, a geofence boundary published to
+      downstream systems.
   - locale: fr
     value: >-
-      L'IA produit une sortie de localisation, d'itinéraire, de zone ou de plan. Exemples : un itinéraire affiché sur
-      une borne, une carte de chaleur de la densité piétonne, les limites d'une géoclôture publiées à des systèmes
-      en aval.
-  - locale: pt
-    value: >-
-      A IA produz uma saída de localização, rota, região ou planta. Exemplos: uma rota de orientação apresentada num
-      quiosque, um mapa de calor da densidade de peões, os limites de uma geocerca publicados a sistemas a jusante.
+      L'IA produit une sortie de localisation, d'itinéraire, de zone ou de plan. Exemples : un
+      itinéraire affiché sur une borne, une carte de chaleur de la densité piétonne, les limites
+      d'une géoclôture publiées à des systèmes en aval.
 citation: []
 symbol_id: spatial
 variables: []

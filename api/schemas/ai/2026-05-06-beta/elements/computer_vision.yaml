@@ -3,51 +3,22 @@ category_id: processing
 title:
   - locale: en
     value: Computer Vision
-  - locale: es
-    value: Visión por computadora
   - locale: fr
     value: Vision par ordinateur
-  - locale: km
-    value: ទិដ្ឋភាពកុំព្យូទ័រ
-  - locale: pt
-    value: Visão computacional
-  - locale: tl
-    value: Computer Vision
 description:
   - locale: en
     value: >-
-      AI systems that interpret images or video — counting people, detecting objects, reading text in pictures,
-      tracking motion, or segmenting scenes. Common in occupancy sensing, traffic and crowd monitoring, accessibility
-      assistance, and signage inspection. Distinct from biometric recognition, which identifies specific individuals.
-  - locale: es
-    value: >-
-      Sistemas de IA que interpretan imágenes o vídeo: cuentan personas, detectan objetos, leen texto en imágenes,
-      rastrean movimiento o segmentan escenas. Habitual en detección de ocupación, control de tráfico y multitudes,
-      asistencia de accesibilidad e inspección de señalización. Distinto del reconocimiento biométrico, que identifica
-      a personas concretas.
+      AI systems that interpret images or video — counting people, detecting objects, reading text
+      in pictures, tracking motion, or segmenting scenes. Common in occupancy sensing, traffic and
+      crowd monitoring, accessibility assistance, and signage inspection. Distinct from biometric
+      recognition, which identifies specific individuals.
   - locale: fr
     value: >-
-      Systèmes d'IA qui interprètent des images ou des vidéos : comptage de personnes, détection d'objets, lecture de
-      texte dans des images, suivi de mouvements ou segmentation de scènes. Courant dans la détection d'occupation, la
-      surveillance du trafic et des foules, l'assistance à l'accessibilité et l'inspection de la signalisation.
-      Distinct de la reconnaissance biométrique, qui identifie des personnes spécifiques.
-  - locale: km
-    value: >-
-      ប្រព័ន្ធ AI ដែលបកស្រាយរូបភាព ឬវីដេអូ — រាប់មនុស្ស រកវត្ថុ អានអត្ថបទក្នុងរូបភាព តាមដានចលនា
-      ឬបែងចែកឆាក។ ប្រើជាទូទៅក្នុងការវាស់ភាពកក់កុះ ការតាមដានចរាចរណ៍ និងហ្វូងមនុស្ស ការជួយផ្នែកលទ្ធភាព
-      និងការត្រួតពិនិត្យសញ្ញា។ ខុសពីការស្គាល់អត្តសញ្ញាណជីវមាត្រ ដែលកំណត់បុគ្គលជាក់លាក់។
-  - locale: pt
-    value: >-
-      Sistemas de IA que interpretam imagens ou vídeo — contam pessoas, detectam objetos, leem texto em imagens,
-      rastreiam movimento ou segmentam cenas. Comum em sensoriamento de ocupação, monitoramento de trânsito e
-      multidões, assistência à acessibilidade e inspeção de sinalização. Distinto do reconhecimento biométrico, que
-      identifica indivíduos específicos.
-  - locale: tl
-    value: >-
-      Mga AI system na nag-iinterpret ng mga larawan o video — pagbilang ng tao, pagtukoy ng mga bagay, pagbasa ng
-      teksto sa larawan, pagsubaybay ng paggalaw, o pagse-segment ng mga eksena. Karaniwan sa pagsukat ng okupasyon,
-      pagsubaybay sa trapiko at karamihan, tulong sa accessibility, at inspeksyon ng signage. Iba sa biometric
-      recognition, na tumutukoy sa partikular na indibidwal.
+      Systèmes d'IA qui interprètent des images ou des vidéos : comptage de personnes, détection
+      d'objets, lecture de texte dans des images, suivi de mouvements ou segmentation de scènes.
+      Courant dans la détection d'occupation, la surveillance du trafic et des foules, l'assistance
+      à l'accessibilité et l'inspection de la signalisation. Distinct de la reconnaissance
+      biométrique, qui identifie des personnes spécifiques.
 citation: []
 symbol_id: pixel_based_image
 variables: []

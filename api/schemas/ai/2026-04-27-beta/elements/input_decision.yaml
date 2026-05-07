@@ -3,37 +3,25 @@ category_id: input_dataset
 title:
   - locale: en
     value: A decision about you
-  - locale: es
-    value: Una decisión sobre ti
   - locale: fr
     value: Une décision à propos de vous
-  - locale: pt
-    value: Uma decisão sobre si
 description:
   - locale: en
     value: >-
-      An eligibility, classification, ranking, or yes/no that another system already made about a person. The AI
-      takes in this prior decision and uses it as input. Examples: a credit score from another model, an
-      access-allow flag from upstream, a triage class assigned earlier in the pipeline.
-  - locale: es
-    value: >-
-      Una elegibilidad, clasificación, jerarquía o un sí/no que otro sistema ya tomó sobre una persona. La IA recibe
-      esa decisión previa y la utiliza como entrada. Ejemplos: una puntuación de crédito de otro modelo, una marca
-      de acceso permitido de un sistema previo, una clase de triaje asignada antes en el flujo.
+      An eligibility, classification, ranking, or yes/no that another system already made about a
+      person. The AI takes in this prior decision and uses it as input. Examples: a credit score
+      from another model, an access-allow flag from upstream, a triage class assigned earlier in the
+      pipeline.
   - locale: fr
     value: >-
-      Une éligibilité, classification, hiérarchisation, ou un oui/non qu'un autre système a déjà décidé sur une
-      personne. L'IA reçoit cette décision antérieure et l'utilise en entrée. Exemples : un score de crédit issu d'un
-      autre modèle, un drapeau d'accès autorisé venant d'amont, une classe de triage attribuée plus tôt dans le
-      pipeline.
-  - locale: pt
-    value: >-
-      Uma elegibilidade, classificação, ordenação ou um sim/não que outro sistema já tomou sobre uma pessoa. A IA
-      recebe essa decisão anterior e usa-a como entrada. Exemplos: uma pontuação de crédito de outro modelo, um
-      sinalizador de acesso permitido de um sistema anterior, uma classe de triagem atribuída antes na pipeline.
+      Une éligibilité, classification, hiérarchisation, ou un oui/non qu'un autre système a déjà
+      décidé sur une personne. L'IA reçoit cette décision antérieure et l'utilise en entrée.
+      Exemples : un score de crédit issu d'un autre modèle, un drapeau d'accès autorisé venant
+      d'amont, une classe de triage attribuée plus tôt dans le pipeline.
 citation:
   - locale: en
     value: >-
-      Output classes "predictions, content, recommendations, or decisions" enumerated in EU AI Act Article 3(1).
+      Output classes "predictions, content, recommendations, or decisions" enumerated in EU AI Act
+      Article 3(1).
 symbol_id: dm_accept-or-deny
 variables: []

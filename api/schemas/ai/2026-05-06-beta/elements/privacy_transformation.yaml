@@ -3,53 +3,23 @@ category_id: processing
 title:
   - locale: en
     value: Privacy-Preserving Transformation
-  - locale: es
-    value: Transformación con preservación de la privacidad
   - locale: fr
     value: Transformation préservant la vie privée
-  - locale: km
-    value: ការបំប្លែងការពារឯកជនភាព
-  - locale: pt
-    value: Transformação com preservação de privacidade
-  - locale: tl
-    value: Pagbabagong Nagpapanatili ng Privacy
 description:
   - locale: en
     value: >-
-      AI systems whose primary job is to transform input data so identifying details are removed, blurred, or replaced
-      before any downstream use. Includes face blurring, license-plate masking, tokenization, k-anonymization,
-      differential privacy, and synthetic-data generation. Acts as a barrier between raw collected data and the data
-      used for analysis or decisions.
-  - locale: es
-    value: >-
-      Sistemas de IA cuyo objetivo principal es transformar los datos de entrada para eliminar, difuminar o sustituir
-      los detalles identificativos antes de cualquier uso posterior. Incluye difuminado de rostros, ocultación de
-      matrículas, tokenización, k-anonimización, privacidad diferencial y generación de datos sintéticos. Actúa como
-      barrera entre los datos brutos recopilados y los datos utilizados para análisis o decisiones.
+      AI systems whose primary job is to transform input data so identifying details are removed,
+      blurred, or replaced before any downstream use. Includes face blurring, license-plate masking,
+      tokenization, k-anonymization, differential privacy, and synthetic-data generation. Acts as a
+      barrier between raw collected data and the data used for analysis or decisions.
   - locale: fr
     value: >-
-      Systèmes d'IA dont la fonction principale est de transformer les données d'entrée afin de supprimer, flouter ou
-      remplacer les détails identifiants avant toute utilisation en aval. Inclut le floutage de visages, le masquage
-      de plaques d'immatriculation, la tokenisation, la k-anonymisation, la confidentialité différentielle et la
-      génération de données synthétiques. Sert de barrière entre les données brutes collectées et celles utilisées
-      pour l'analyse ou les décisions.
-  - locale: km
-    value: >-
-      ប្រព័ន្ធ AI ដែលការងារចម្បងគឺបំប្លែងទិន្នន័យបញ្ចូល ដើម្បីលុប បំបាំង ឬជំនួសព័ត៌មានកំណត់អត្តសញ្ញាណមុនការប្រើប្រាស់។
-      រួមមានការបំបាំងមុខ ការបិទបាំងស្លាកលេខ ការដាក់សញ្ញាសម្ងាត់ k-anonymization ឯកជនភាពឌីហ្វ៊ែរ៉ង់ស្យែល
-      និងការបង្កើតទិន្នន័យសំយោគ។ ដើរតួជារបាំងរវាងទិន្នន័យឆៅ និងទិន្នន័យដែលប្រើសម្រាប់ការវិភាគ ឬសម្រេចចិត្ត។
-  - locale: pt
-    value: >-
-      Sistemas de IA cuja função principal é transformar os dados de entrada para que os detalhes identificáveis sejam
-      removidos, borrados ou substituídos antes de qualquer uso posterior. Inclui desfoque de rostos, mascaramento de
-      placas, tokenização, k-anonimização, privacidade diferencial e geração de dados sintéticos. Atua como barreira
-      entre os dados brutos coletados e os dados usados para análise ou decisões.
-  - locale: tl
-    value: >-
-      Mga AI system na ang pangunahing trabaho ay baguhin ang input na data upang alisin, lampasin, o palitan ang mga
-      detalyeng nagbibigay ng pagkakakilanlan bago gamitin pa. Kasama ang face blurring, license-plate masking,
-      tokenization, k-anonymization, differential privacy, at synthetic-data generation. Nagsisilbing hadlang sa
-      pagitan ng raw na data at ng datang ginagamit para sa pagsusuri o desisyon.
+      Systèmes d'IA dont la fonction principale est de transformer les données d'entrée afin de
+      supprimer, flouter ou remplacer les détails identifiants avant toute utilisation en aval.
+      Inclut le floutage de visages, le masquage de plaques d'immatriculation, la tokenisation, la
+      k-anonymisation, la confidentialité différentielle et la génération de données synthétiques.
+      Sert de barrière entre les données brutes collectées et celles utilisées pour l'analyse ou les
+      décisions.
 citation: []
 symbol_id: processing_privacy-preserving-transformation
 variables: []

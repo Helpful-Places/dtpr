@@ -3,36 +3,22 @@ category_id: output_dataset
 title:
   - locale: en
     value: Operational data
-  - locale: es
-    value: Datos operativos
   - locale: fr
     value: Données opérationnelles
-  - locale: pt
-    value: Dados operacionais
 description:
   - locale: en
     value: >-
-      The AI produces administrative output — schedules, routes, occupancy estimates, budget allocations, or other
-      records about how a place or service runs. Not about any one person. Examples: an optimized trash-collection
-      route, a school occupancy projection, a recommended budget allocation for next quarter.
-  - locale: es
-    value: >-
-      La IA produce una salida administrativa: horarios, rutas, estimaciones de ocupación, asignaciones
-      presupuestarias u otros registros sobre cómo funciona un lugar o un servicio. No sobre ninguna persona en
-      particular. Ejemplos: una ruta optimizada de recogida de basura, una proyección de ocupación escolar, una
-      asignación presupuestaria recomendada para el próximo trimestre.
+      The AI produces administrative output — schedules, routes, occupancy estimates, budget
+      allocations, or other records about how a place or service runs. Not about any one person.
+      Examples: an optimized trash-collection route, a school occupancy projection, a recommended
+      budget allocation for next quarter.
   - locale: fr
     value: >-
-      L'IA produit une sortie administrative : horaires, itinéraires, estimations d'occupation, allocations
-      budgétaires ou autres registres sur le fonctionnement d'un lieu ou d'un service. Aucune personne en particulier
-      n'est concernée. Exemples : une tournée de collecte des ordures optimisée, une projection d'occupation scolaire,
-      une allocation budgétaire recommandée pour le trimestre suivant.
-  - locale: pt
-    value: >-
-      A IA produz uma saída administrativa — horários, rotas, estimativas de ocupação, dotações orçamentais ou outros
-      registos sobre como funciona um local ou um serviço. Não sobre uma pessoa em particular. Exemplos: uma rota
-      otimizada de recolha de lixo, uma projeção de ocupação escolar, uma dotação orçamental recomendada para o
-      próximo trimestre.
+      L'IA produit une sortie administrative : horaires, itinéraires, estimations d'occupation,
+      allocations budgétaires ou autres registres sur le fonctionnement d'un lieu ou d'un service.
+      Aucune personne en particulier n'est concernée. Exemples : une tournée de collecte des ordures
+      optimisée, une projection d'occupation scolaire, une allocation budgétaire recommandée pour le
+      trimestre suivant.
 citation: []
 symbol_id: operational_data
 variables: []

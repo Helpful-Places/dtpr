@@ -3,66 +3,29 @@ category_id: purpose
 title:
   - locale: en
     value: Content Moderation
-  - locale: es
-    value: Moderación de contenido
   - locale: fr
     value: Modération de contenu
-  - locale: km
-    value: ការត្រួតពិនិត្យមាតិកា
-  - locale: pt
-    value: Moderação de conteúdo
-  - locale: tl
-    value: Pag-moderate ng Nilalaman
 description:
   - locale: en
     value: >-
-      Filters, ranks, or removes user-generated content based on policies — for example, comment moderation on a
-      public-facing kiosk, image filtering, or hate-speech detection.
-  - locale: es
-    value: >-
-      Filtra, clasifica o elimina contenido generado por los usuarios según políticas — por ejemplo, moderación de
-      comentarios en un quiosco público, filtrado de imágenes, o detección de discurso de odio.
+      Filters, ranks, or removes user-generated content based on policies — for example, comment
+      moderation on a public-facing kiosk, image filtering, or hate-speech detection.
   - locale: fr
     value: >-
-      Filtre, classe ou retire du contenu généré par les utilisateurs selon des politiques — par exemple, la
-      modération de commentaires sur une borne publique, le filtrage d'images, ou la détection de discours haineux.
-  - locale: km
-    value: >-
-      ច្រោះ ដាក់លំដាប់ ឬដកមាតិកាដែលបង្កើតដោយអ្នកប្រើប្រាស់ ដោយផ្អែកលើគោលការណ៍ — ឧទាហរណ៍ ការត្រួតពិនិត្យមតិយោបល់
-      នៅលើគីយ៉ុសសាធារណៈ ការច្រោះរូបភាព ឬការរកពាក្យស្អប់ខ្ពើម។
-  - locale: pt
-    value: >-
-      Filtra, ordena ou remove conteúdo gerado pelos utilizadores com base em políticas — por exemplo, moderação de
-      comentários num quiosque público, filtragem de imagens, ou deteção de discurso de ódio.
-  - locale: tl
-    value: >-
-      Sinasala, ina-rank, o tinatanggal ang user-generated content batay sa mga patakaran — halimbawa, comment
-      moderation sa public-facing kiosk, image filtering, o hate-speech detection.
+      Filtre, classe ou retire du contenu généré par les utilisateurs selon des politiques — par
+      exemple, la modération de commentaires sur une borne publique, le filtrage d'images, ou la
+      détection de discours haineux.
 citation:
   - locale: en
     value: >-
-      Content-moderation duties for online platforms framed by the EU Digital Services Act (Regulation (EU) 2022/2065)
-      — particularly Articles 14–17 (notice-and-action, statements of reasons, internal complaint handling). AIAAIC
-      repository documents recurring moderation failures across speech, image, and recommender systems.
-  - locale: es
-    value: >-
-      Deberes de moderación de contenido para plataformas en línea regulados por el Reglamento de Servicios Digitales
-      de la UE (Reglamento (UE) 2022/2065), en particular los Artículos 14–17.
+      Content-moderation duties for online platforms framed by the EU Digital Services Act
+      (Regulation (EU) 2022/2065) — particularly Articles 14–17 (notice-and-action, statements of
+      reasons, internal complaint handling). AIAAIC repository documents recurring moderation
+      failures across speech, image, and recommender systems.
   - locale: fr
     value: >-
-      Obligations de modération de contenu pour les plateformes en ligne encadrées par le Règlement européen sur les
-      services numériques (Règlement (UE) 2022/2065), en particulier les Articles 14 à 17.
-  - locale: km
-    value: >-
-      ភារកិច្ចត្រួតពិនិត្យមាតិកាសម្រាប់វេទិកាអនឡាញកំណត់ដោយច្បាប់សេវាឌីជីថលរបស់សហភាពអឺរ៉ុប (Regulation (EU) 2022/2065)
-      ជាពិសេសមាត្រា 14–17។
-  - locale: pt
-    value: >-
-      Deveres de moderação de conteúdo para plataformas em linha enquadrados pelo Regulamento dos Serviços Digitais
-      da UE (Regulamento (UE) 2022/2065), em particular os Artigos 14–17.
-  - locale: tl
-    value: >-
-      Ang mga tungkulin sa content moderation para sa online platforms ay nakabatay sa EU Digital Services Act
-      (Regulation (EU) 2022/2065), partikular sa Articles 14–17.
+      Obligations de modération de contenu pour les plateformes en ligne encadrées par le Règlement
+      européen sur les services numériques (Règlement (UE) 2022/2065), en particulier les Articles
+      14 à 17.
 symbol_id: content_moderation
 variables: []

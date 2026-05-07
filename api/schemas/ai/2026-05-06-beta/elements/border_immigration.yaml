@@ -3,66 +3,28 @@ category_id: purpose
 title:
   - locale: en
     value: Border & Immigration
-  - locale: es
-    value: Frontera e inmigración
   - locale: fr
     value: Frontière et immigration
-  - locale: km
-    value: ព្រំដែន និងការធ្វើចំណាកស្រុក
-  - locale: pt
-    value: Fronteira e imigração
-  - locale: tl
-    value: Hangganan at Imigrasyon
 description:
   - locale: en
     value: >-
-      Supports immigration, asylum, or border-crossing decisions or processing — for example, border-control facial
-      recognition, visa adjudication, asylum risk assessment.
-  - locale: es
-    value: >-
-      Apoya decisiones o trámites de inmigración, asilo o cruce de fronteras — por ejemplo, reconocimiento facial en
-      control fronterizo, decisiones de visado, evaluación de riesgo en asilo.
+      Supports immigration, asylum, or border-crossing decisions or processing — for example,
+      border-control facial recognition, visa adjudication, asylum risk assessment.
   - locale: fr
     value: >-
-      Soutient les décisions ou traitements en matière d'immigration, d'asile ou de passage de frontière — par exemple,
-      la reconnaissance faciale au contrôle frontalier, la décision sur les visas, l'évaluation du risque en asile.
-  - locale: km
-    value: >-
-      គាំទ្រការសម្រេចចិត្ត ឬដំណើរការស្ដីពីការធ្វើចំណាកស្រុក សិទ្ធិជ្រកកោន ឬការឆ្លងកាត់ព្រំដែន — ឧទាហរណ៍ ការស្គាល់មុខនៅច្រកព្រំដែន
-      ការសម្រេចលើវីសា ការវាយតម្លៃហានិភ័យក្នុងសិទ្ធិជ្រកកោន។
-  - locale: pt
-    value: >-
-      Apoia decisões ou trâmites em matéria de imigração, asilo ou passagem de fronteira — por exemplo, reconhecimento
-      facial no controlo fronteiriço, decisões sobre vistos, avaliação de risco em asilo.
-  - locale: tl
-    value: >-
-      Sinusuportahan ang mga desisyon o pagproseso sa imigrasyon, asylum, o border crossing — halimbawa, facial
-      recognition sa border control, visa adjudication, asylum risk assessment.
+      Soutient les décisions ou traitements en matière d'immigration, d'asile ou de passage de
+      frontière — par exemple, la reconnaissance faciale au contrôle frontalier, la décision sur les
+      visas, l'évaluation du risque en asile.
 citation:
   - locale: en
     value: >-
-      Migration, asylum, and border-control management listed as Annex III high-risk under the EU AI Act (Regulation
-      (EU) 2024/1689), Article 6(2) and Annex III §7 — including risk assessments, polygraph-style detection, and
-      verification of travel-document authenticity.
-  - locale: es
-    value: >-
-      La gestión de migración, asilo y control fronterizo figura como alto riesgo en el Anexo III del Reglamento
-      (UE) 2024/1689 (Ley de IA de la UE), Artículo 6(2) y Anexo III §7.
+      Migration, asylum, and border-control management listed as Annex III high-risk under the EU AI
+      Act (Regulation (EU) 2024/1689), Article 6(2) and Annex III §7 — including risk assessments,
+      polygraph-style detection, and verification of travel-document authenticity.
   - locale: fr
     value: >-
-      La gestion de la migration, de l'asile et du contrôle aux frontières est classée à haut risque à l'Annexe III du
-      Règlement (UE) 2024/1689 (loi européenne sur l'IA), Article 6(2) et Annexe III §7.
-  - locale: km
-    value: >-
-      ការគ្រប់គ្រងការធ្វើចំណាកស្រុក សិទ្ធិជ្រកកោន និងការត្រួតពិនិត្យព្រំដែន ត្រូវចាត់ទុកជាហានិភ័យខ្ពស់នៅឧបសម្ព័ន្ធទី III នៃច្បាប់ AI
-      សហភាពអឺរ៉ុប (Regulation (EU) 2024/1689) មាត្រា 6(2)។
-  - locale: pt
-    value: >-
-      A gestão da migração, do asilo e do controlo fronteiriço está listada como alto risco no Anexo III do
-      Regulamento (UE) 2024/1689 (Lei da IA da UE), Artigo 6(2) e Anexo III §7.
-  - locale: tl
-    value: >-
-      Ang pamamahala sa migration, asylum, at border-control ay nakalista bilang Annex III high-risk sa ilalim ng EU
-      AI Act (Regulation (EU) 2024/1689), Article 6(2) at Annex III §7.
+      La gestion de la migration, de l'asile et du contrôle aux frontières est classée à haut risque
+      à l'Annexe III du Règlement (UE) 2024/1689 (loi européenne sur l'IA), Article 6(2) et Annexe
+      III §7.
 symbol_id: border_immigration
 variables: []

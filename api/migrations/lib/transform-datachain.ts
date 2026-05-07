@@ -9,7 +9,10 @@ import { MIGRATION_LOCALES, type LocaleBundle } from './types.ts'
 export function transformDatachainType(
   bundle: LocaleBundle,
   orderedCategoryIds: string[],
-  locales: LocaleCode[] = MIGRATION_LOCALES,
+  // Default to the historical 6-locale set the v1 port shipped with.
+  // Cast through `unknown` because `MIGRATION_LOCALES` is `string[]`
+  // (intentionally wider than `LocaleCode`) — see migrations/lib/types.ts.
+  locales: LocaleCode[] = MIGRATION_LOCALES as unknown as LocaleCode[],
 ): DatachainType {
   const enFm = bundle.en ?? {}
   const id = typeof enFm.id === 'string' ? enFm.id : 'ai'
@@ -20,10 +23,10 @@ export function transformDatachainType(
     const fm = bundle[locale]
     if (!fm) continue
     if (typeof fm.name === 'string' && fm.name.length > 0) {
-      name.push({ locale, value: fm.name.trim() })
+      name.push({ locale: locale as LocaleCode, value: fm.name.trim() })
     }
     if (typeof fm.description === 'string' && fm.description.length > 0) {
-      description.push({ locale, value: fm.description.trim() })
+      description.push({ locale: locale as LocaleCode, value: fm.description.trim() })
     }
   }
 

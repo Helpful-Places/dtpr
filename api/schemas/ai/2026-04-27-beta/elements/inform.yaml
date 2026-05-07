@@ -3,41 +3,19 @@ category_id: purpose
 title:
   - locale: en
     value: Inform
-  - locale: es
-    value: Informar
   - locale: fr
     value: Informer
-  - locale: km
-    value: ផ្ដល់ដមនឹង
-  - locale: pt
-    value: Informar
-  - locale: tl
-    value: Ipagbigay -alam
 description:
   - locale: en
     value: >-
-      Supports general-purpose information assistance — concierge, FAQ, signage, or guidance about a service. Distinct
-      from Wayfinding & Services, which covers spatial orientation and routing within a place.
-  - locale: es
-    value: >-
-      Apoya la asistencia informativa de uso general: consejería, preguntas frecuentes, señalización u orientación
-      sobre un servicio. Se distingue de Orientación y servicios, que cubre la orientación espacial y las rutas dentro
-      de un lugar.
+      Supports general-purpose information assistance — concierge, FAQ, signage, or guidance about a
+      service. Distinct from Wayfinding & Services, which covers spatial orientation and routing
+      within a place.
   - locale: fr
     value: >-
-      Permet une assistance informative à usage général : conciergerie, FAQ, signalétique ou orientation sur un
-      service. À distinguer de Signalisation et services, qui couvre l'orientation spatiale et les itinéraires dans
-      un lieu.
-  - locale: km
-    value: គាំទ្រដល់ការផ្តល់ព័ត៌មានឧទាហរណ៍អំពីទីតាំងសេវាកម្មឬផ្តល់ជំនួយ
-  - locale: pt
-    value: >-
-      Apoia a assistência informativa de uso geral — receção, perguntas frequentes, sinalética ou orientação sobre um
-      serviço. Distinto de Serviços e sinalética, que cobre a orientação espacial e os percursos dentro de um lugar.
-  - locale: tl
-    value: >-
-      Sinusuportahan ang pagkakaloob ng impormasyon, halimbawa tungkol sa isang lokasyon, isang serbisyo, o upang
-      magbigay ng tulong
+      Permet une assistance informative à usage général : conciergerie, FAQ, signalétique ou
+      orientation sur un service. À distinguer de Signalisation et services, qui couvre
+      l'orientation spatiale et les itinéraires dans un lieu.
 citation: []
 symbol_id: light_waves
 variables: []

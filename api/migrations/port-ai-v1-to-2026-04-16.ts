@@ -190,7 +190,11 @@ async function main(): Promise<void> {
       'docs/plans/2026-04-16-001-feat-dtpr-api-mcp-plan.md Unit 5.',
     // content_hash is stamped by `schema:build`; use a placeholder in source.
     content_hash: `sha256-${'0'.repeat(64)}`,
-    locales: MIGRATION_LOCALES as readonly LocaleCode[],
+    // The migration emits the historical 6-locale set; the manifest
+    // shape's `locales` is narrower today (en + fr). Cast through
+    // `unknown` so the migration's output stays faithful to v1
+    // without dragging the dropped codes back into LocaleCode.
+    locales: MIGRATION_LOCALES as unknown as readonly LocaleCode[],
   }
   await writeFile(join(versionOutDir, 'meta.yaml'), toYaml(manifest), 'utf8')
 

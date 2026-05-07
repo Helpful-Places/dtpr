@@ -3,66 +3,27 @@ category_id: purpose
 title:
   - locale: en
     value: Education & Learning
-  - locale: es
-    value: Educación y aprendizaje
   - locale: fr
     value: Éducation et apprentissage
-  - locale: km
-    value: ការអប់រំ និងការរៀនសូត្រ
-  - locale: pt
-    value: Educação e aprendizagem
-  - locale: tl
-    value: Edukasyon at Pagkatuto
 description:
   - locale: en
     value: >-
-      Supports teaching, learning, assessment, or educational guidance — for example, tutoring assistants, automated
-      grading, or library and museum recommenders.
-  - locale: es
-    value: >-
-      Apoya la enseñanza, el aprendizaje, la evaluación o la orientación educativa — por ejemplo, asistentes de
-      tutoría, calificación automática, o recomendadores de bibliotecas y museos.
+      Supports teaching, learning, assessment, or educational guidance — for example, tutoring
+      assistants, automated grading, or library and museum recommenders.
   - locale: fr
     value: >-
-      Soutient l'enseignement, l'apprentissage, l'évaluation ou l'orientation pédagogique — par exemple, des assistants
-      de tutorat, la notation automatisée, ou des recommandations de bibliothèques et musées.
-  - locale: km
-    value: >-
-      គាំទ្រការបង្រៀន ការរៀន ការវាយតម្លៃ ឬការណែនាំខាងអប់រំ — ឧទាហរណ៍ ជំនួយការគ្រូ ការដាក់ពិន្ទុដោយស្វ័យប្រវត្តិ
-      ឬប្រព័ន្ធផ្ដល់អនុសាសន៍នៅបណ្ណាល័យ និងសារមន្ទីរ។
-  - locale: pt
-    value: >-
-      Apoia o ensino, a aprendizagem, a avaliação ou a orientação educativa — por exemplo, assistentes de tutoria,
-      classificação automática, ou recomendadores de bibliotecas e museus.
-  - locale: tl
-    value: >-
-      Sinusuportahan ang pagtuturo, pag-aaral, pagtatasa, o gabay sa edukasyon — halimbawa, mga tutoring assistant,
-      awtomatikong pagbibigay ng marka, o mga recommender sa aklatan at museo.
+      Soutient l'enseignement, l'apprentissage, l'évaluation ou l'orientation pédagogique — par
+      exemple, des assistants de tutorat, la notation automatisée, ou des recommandations de
+      bibliothèques et musées.
 citation:
   - locale: en
     value: >-
-      Education and vocational training listed as Annex III high-risk under the EU AI Act (Regulation (EU) 2024/1689),
-      Article 6(2) and Annex III §3 — covering admission, evaluation of learning outcomes, and detection of prohibited
-      behaviour during testing.
-  - locale: es
-    value: >-
-      La educación y la formación profesional figuran como alto riesgo en el Anexo III del Reglamento (UE) 2024/1689
-      (Ley de IA de la UE), Artículo 6(2) y Anexo III §3.
+      Education and vocational training listed as Annex III high-risk under the EU AI Act
+      (Regulation (EU) 2024/1689), Article 6(2) and Annex III §3 — covering admission, evaluation of
+      learning outcomes, and detection of prohibited behaviour during testing.
   - locale: fr
     value: >-
-      L'éducation et la formation professionnelle sont classées à haut risque à l'Annexe III du Règlement
-      (UE) 2024/1689 (loi européenne sur l'IA), Article 6(2) et Annexe III §3.
-  - locale: km
-    value: >-
-      ការអប់រំ និងការបណ្តុះបណ្តាលវិជ្ជាជីវៈ ត្រូវចាត់ទុកជាហានិភ័យខ្ពស់នៅឧបសម្ព័ន្ធទី III នៃច្បាប់ AI សហភាពអឺរ៉ុប
-      (Regulation (EU) 2024/1689) មាត្រា 6(2)។
-  - locale: pt
-    value: >-
-      Educação e formação profissional listadas como alto risco no Anexo III do Regulamento (UE) 2024/1689 (Lei da IA
-      da UE), Artigo 6(2) e Anexo III §3.
-  - locale: tl
-    value: >-
-      Ang edukasyon at vocational training ay nakalista bilang Annex III high-risk sa ilalim ng EU AI Act
-      (Regulation (EU) 2024/1689), Article 6(2) at Annex III §3.
+      L'éducation et la formation professionnelle sont classées à haut risque à l'Annexe III du
+      Règlement (UE) 2024/1689 (loi européenne sur l'IA), Article 6(2) et Annexe III §3.
 symbol_id: education
 variables: []
