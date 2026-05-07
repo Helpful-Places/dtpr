@@ -1,5 +1,6 @@
 import { z } from 'zod'
 import { LocaleValueArraySchema, LocaleCodeSchema } from './locale.ts'
+import { ProvenanceRefSchema } from './provenance.ts'
 
 /**
  * A subchain definition: a named, ordered grouping of categories within
@@ -50,6 +51,12 @@ export const DatachainTypeSchema = z
       .array(LocaleCodeSchema)
       .min(1)
       .describe('Allow-list of locale codes supported by this datachain type (rule 11)'),
+    sources: z
+      .array(ProvenanceRefSchema)
+      .default([])
+      .describe(
+        'Optional schema-design provenance: the frameworks, standards, and prior art that justify this datachain type and its category set.',
+      ),
   })
   .describe('Top-level datachain type definition')
 

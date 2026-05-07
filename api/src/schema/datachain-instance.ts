@@ -1,6 +1,7 @@
 import { z } from 'zod'
 import { LocaleValueArraySchema } from './locale.ts'
 import { VersionStringSchema } from './manifest.ts'
+import { ProvenanceRefSchema, ProvenanceTypeSchema, type ProvenanceRef, type ProvenanceType } from './provenance.ts'
 
 /**
  * A variable value as provided by a datachain instance. The value is
@@ -81,6 +82,12 @@ export const InstanceElementSchema = z
       .describe(
         'Optional first-class actions surfaced beneath this element (e.g. DPO email, DSAR form URL).',
       ),
+    sources: z
+      .array(ProvenanceRefSchema)
+      .default([])
+      .describe(
+        'Optional per-element provenance references (e.g. the model card row this element was derived from). Renderer composes per-element + instance-level into a deduped citation footer.',
+      ),
   })
   .describe('An element placed on a datachain instance')
 
@@ -120,26 +127,18 @@ export const SubchainInstanceSchema = z
 export type SubchainInstance = z.infer<typeof SubchainInstanceSchema>
 
 /**
- * Provenance reference attached to a datachain instance. Used to point
- * at AI registers, model cards, policy documents, or upstream API
- * documentation backing the disclosure.
+ * Provenance references on instances now use the shared
+ * ProvenanceRef shape (see `provenance.ts`). The original
+ * instance-only enum was a subset of the shared enum, so existing
+ * data still parses.
+ *
+ * The aliases below preserve the old export names so existing
+ * consumers (tests, downstream packages) don't break in this beta.
  */
-export const InstanceSourceTypeSchema = z
-  .enum(['ai_register', 'model_card', 'policy_document', 'api_documentation', 'other'])
-  .describe('Provenance reference kind')
-
-export type InstanceSourceType = z.infer<typeof InstanceSourceTypeSchema>
-
-export const InstanceSourceSchema = z
-  .object({
-    type: InstanceSourceTypeSchema,
-    title: z.string().min(1).describe('Human-readable source title'),
-    url: z.string().url().optional().describe('Optional URL to the source artifact'),
-    citation: z.string().optional().describe('Optional citation/footnote text'),
-  })
-  .describe('Provenance reference for the disclosure')
-
-export type InstanceSource = z.infer<typeof InstanceSourceSchema>
+export const InstanceSourceTypeSchema = ProvenanceTypeSchema
+export type InstanceSourceType = ProvenanceType
+export const InstanceSourceSchema = ProvenanceRefSchema
+export type InstanceSource = ProvenanceRef
 
 export const DatachainInstanceSchema = z
   .object({
@@ -167,9 +166,11 @@ export const DatachainInstanceSchema = z
         'Optional list of concrete subchain realizations. Each references a subchain defined on the pinned schema version.',
       ),
     sources: z
-      .array(InstanceSourceSchema)
+      .array(ProvenanceRefSchema)
       .default([])
-      .describe('Optional provenance references (AI register, model card, policy document, etc.).'),
+      .describe(
+        'Optional whole-disclosure provenance references (AI register, model card, policy document, framework, etc.).',
+      ),
     linked_instance_ids: z
       .array(z.string().min(1))
       .default([])

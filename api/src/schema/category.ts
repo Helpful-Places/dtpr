@@ -2,6 +2,8 @@ import { z } from 'zod'
 import { LocaleValueArraySchema } from './locale.ts'
 import { VariableSchema } from './variable.ts'
 import { ContextSchema } from './context.ts'
+import { ProvenanceRefSchema } from './provenance.ts'
+import { ExampleSchema } from './example.ts'
 
 /**
  * Shape primitive names the icon compositor recognizes. Each value
@@ -50,8 +52,23 @@ export const CategorySchema = z
     name: LocaleValueArraySchema,
     description: LocaleValueArraySchema,
     prompt: LocaleValueArraySchema.default([]).describe(
-      'Authoring prompt shown in editors; optional.',
+      'Short authoring prompt — the one-line question the author answers when picking elements for this category. Optional.',
     ),
+    authoring_guidance: LocaleValueArraySchema.default([]).describe(
+      'Longer author-facing help text — when to use this category, how it differs from siblings, edge cases. Not rendered on public datachains.',
+    ),
+    examples: z
+      .array(ExampleSchema)
+      .default([])
+      .describe(
+        'Optional author-facing examples showing how this category is populated in real deployments. Not rendered on public datachains.',
+      ),
+    sources: z
+      .array(ProvenanceRefSchema)
+      .default([])
+      .describe(
+        'Optional schema-design provenance: the research, prior art, or framework sections that justify this category.',
+      ),
     required: z
       .boolean()
       .default(false)
