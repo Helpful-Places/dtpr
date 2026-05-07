@@ -155,11 +155,13 @@ describe('buildBundle', () => {
   it('emits JSON Schema for every content schema', () => {
     const bundle = buildBundle(makeSource())
     expect(Object.keys(bundle.schemaJson).sort()).toEqual([
+      'AuthoringProvenance',
       'Category',
       'DatachainInstance',
       'DatachainType',
       'Element',
       'Manifest',
+      'ResolvedDatachain',
     ])
   })
 })

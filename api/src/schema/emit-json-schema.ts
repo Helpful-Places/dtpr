@@ -2,6 +2,10 @@ import { z } from 'zod'
 import { CategorySchema } from './category.ts'
 import { DatachainTypeSchema } from './datachain-type.ts'
 import { DatachainInstanceSchema } from './datachain-instance.ts'
+import {
+  AuthoringProvenanceSchema,
+  ResolvedDatachainSchema,
+} from './datachain-instance-resolved.ts'
 import { ElementSchema } from './element.ts'
 import { SchemaManifestSchema } from './manifest.ts'
 
@@ -47,5 +51,7 @@ export function emitAllContentSchemas(): Record<string, Record<string, unknown>>
     Category: emitJsonSchema(CategorySchema, 'Category'),
     Element: emitJsonSchema(ElementSchema, 'Element'),
     DatachainInstance: emitJsonSchema(DatachainInstanceSchema, 'DatachainInstance'),
+    ResolvedDatachain: emitJsonSchema(ResolvedDatachainSchema, 'ResolvedDatachain'),
+    AuthoringProvenance: emitJsonSchema(AuthoringProvenanceSchema, 'AuthoringProvenance'),
   }
 }
