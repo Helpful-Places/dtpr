@@ -3,76 +3,33 @@ category_id: purpose
 title:
   - locale: en
     value: Risk Assessment & Triage
-  - locale: es
-    value: Evaluación de riesgo y triaje
   - locale: fr
     value: Évaluation des risques et triage
-  - locale: km
-    value: ការវាយតម្លៃហានិភ័យ និងការដាក់ឋានៈ
-  - locale: pt
-    value: Avaliação de risco e triagem
-  - locale: tl
-    value: Risk Assessment at Pagsasaayos ng Prayoridad
 description:
   - locale: en
     value: >-
-      Scores or prioritizes individuals or cases for further attention or action — for example, recidivism scoring,
-      hospital triage, child-welfare risk flags. Distinct from Planning & Decision-making, which forecasts at a
-      population or system level.
-  - locale: es
-    value: >-
-      Puntúa o prioriza personas o casos para mayor atención o acción — por ejemplo, puntuación de reincidencia,
-      triaje hospitalario, alertas de riesgo en bienestar infantil. Se distingue de Planificación y toma de decisiones,
-      que pronostica a escala poblacional o de sistemas.
+      Scores or prioritizes individuals or cases for further attention or action — for example,
+      recidivism scoring, hospital triage, child-welfare risk flags. Distinct from Planning &
+      Decision-making, which forecasts at a population or system level.
   - locale: fr
     value: >-
-      Note ou hiérarchise des personnes ou des cas pour une attention ou une action accrue — par exemple, notation de
-      récidive, triage hospitalier, signalements de risque en protection de l'enfance. À distinguer de Planification
-      et prise de décision, qui prévoit à l'échelle d'une population ou d'un système.
-  - locale: km
-    value: >-
-      ដាក់ពិន្ទុ ឬផ្ដល់អាទិភាពដល់បុគ្គលឬករណី សម្រាប់ការយកចិត្តទុកដាក់ ឬសកម្មភាពបន្ថែម — ឧទាហរណ៍ ការដាក់ពិន្ទុបទល្មើសឡើងវិញ
-      ការដាក់ឋានៈនៅមន្ទីរពេទ្យ ការសម្គាល់ហានិភ័យក្នុងសុខុមាលភាពកុមារ។ ខុសពីផែនការនិងការសម្រេចចិត្ត ដែលព្យាករនៅកម្រិតប្រជាជនឬប្រព័ន្ធ។
-  - locale: pt
-    value: >-
-      Pontua ou prioriza pessoas ou casos para maior atenção ou ação — por exemplo, pontuação de reincidência, triagem
-      hospitalar, sinalizações de risco em proteção de menores. Distinto de Planeamento e tomada de decisões, que
-      prevê à escala populacional ou de sistemas.
-  - locale: tl
-    value: >-
-      Nagbibigay ng score o priority sa mga indibidwal o kaso para sa karagdagang atensyon o aksyon — halimbawa,
-      recidivism scoring, hospital triage, child-welfare risk flags. Iba ito sa Pagpaplano at paggawa ng desisyon,
-      na nagho-forecast sa antas ng populasyon o sistema.
+      Note ou hiérarchise des personnes ou des cas pour une attention ou une action accrue — par
+      exemple, notation de récidive, triage hospitalier, signalements de risque en protection de
+      l'enfance. À distinguer de Planification et prise de décision, qui prévoit à l'échelle d'une
+      population ou d'un système.
 citation:
   - locale: en
     value: >-
-      Risk profiling of natural persons listed as Annex III high-risk under the EU AI Act (Regulation (EU) 2024/1689),
-      Article 6(2) — including law-enforcement profiling (Annex III §6) and individual risk assessment in the
-      administration of justice (§8). AIAAIC repository documents incidents in COMPAS recidivism scoring (US), Dutch
-      SyRI welfare-fraud risk, and UK Gangs Matrix.
-  - locale: es
-    value: >-
-      La elaboración de perfiles de riesgo de personas físicas figura como alto riesgo en el Anexo III del Reglamento
-      (UE) 2024/1689 (Ley de IA de la UE), Artículo 6(2) — incluyendo la elaboración de perfiles policiales (Anexo III
-      §6) y la evaluación de riesgo individual en la administración de justicia (§8).
+      Risk profiling of natural persons listed as Annex III high-risk under the EU AI Act
+      (Regulation (EU) 2024/1689), Article 6(2) — including law-enforcement profiling (Annex III §6)
+      and individual risk assessment in the administration of justice (§8). AIAAIC repository
+      documents incidents in COMPAS recidivism scoring (US), Dutch SyRI welfare-fraud risk, and UK
+      Gangs Matrix.
   - locale: fr
     value: >-
-      Le profilage de risque des personnes physiques est classé à haut risque à l'Annexe III du Règlement
-      (UE) 2024/1689 (loi européenne sur l'IA), Article 6(2) — y compris le profilage policier (Annexe III §6) et
-      l'évaluation individuelle du risque dans l'administration de la justice (§8).
-  - locale: km
-    value: >-
-      ការធ្វើប្រវត្តិហានិភ័យរបស់បុគ្គល ត្រូវចាត់ទុកជាហានិភ័យខ្ពស់នៅឧបសម្ព័ន្ធទី III នៃច្បាប់ AI សហភាពអឺរ៉ុប
-      (Regulation (EU) 2024/1689) មាត្រា 6(2) រួមទាំងការធ្វើប្រវត្តិដោយអាជ្ញាធរនគរបាល និងការវាយតម្លៃហានិភ័យក្នុងការគ្រប់គ្រងយុត្តិធម៌។
-  - locale: pt
-    value: >-
-      A definição de perfis de risco de pessoas singulares está listada como alto risco no Anexo III do Regulamento
-      (UE) 2024/1689 (Lei da IA da UE), Artigo 6(2) — incluindo a definição de perfis policiais (Anexo III §6) e a
-      avaliação de risco individual na administração da justiça (§8).
-  - locale: tl
-    value: >-
-      Ang risk profiling ng mga natural na tao ay nakalista bilang Annex III high-risk sa ilalim ng EU AI Act
-      (Regulation (EU) 2024/1689), Article 6(2) — kabilang ang law-enforcement profiling (Annex III §6) at individual
-      risk assessment sa administration of justice (§8).
+      Le profilage de risque des personnes physiques est classé à haut risque à l'Annexe III du
+      Règlement (UE) 2024/1689 (loi européenne sur l'IA), Article 6(2) — y compris le profilage
+      policier (Annexe III §6) et l'évaluation individuelle du risque dans l'administration de la
+      justice (§8).
 symbol_id: risk_assessment
 variables: []

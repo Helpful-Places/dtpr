@@ -3,52 +3,21 @@ category_id: processing
 title:
   - locale: en
     value: Recommendation & Ranking
-  - locale: es
-    value: Recomendación y clasificación
   - locale: fr
     value: Recommandation et classement
-  - locale: km
-    value: ការណែនាំ និងការដាក់ចំណាត់ថ្នាក់
-  - locale: pt
-    value: Recomendação e classificação
-  - locale: tl
-    value: Rekomendasyon at Pag-ranggo
 description:
   - locale: en
     value: >-
-      AI systems that suggest or order items for a person — services, listings, news, wayfinding options — based on
-      preferences, behavior, or similarity to other people. Includes collaborative filtering, content-based
-      recommenders, and learned ranking. Personalizes what each person sees from the same underlying catalog.
-  - locale: es
-    value: >-
-      Sistemas de IA que sugieren u ordenan elementos para una persona —servicios, anuncios, noticias, opciones de
-      orientación— en función de sus preferencias, comportamiento o similitud con otras personas. Incluye filtrado
-      colaborativo, recomendadores basados en contenido y clasificación aprendida. Personalizan lo que cada persona ve
-      a partir del mismo catálogo subyacente.
+      AI systems that suggest or order items for a person — services, listings, news, wayfinding
+      options — based on preferences, behavior, or similarity to other people. Includes
+      collaborative filtering, content-based recommenders, and learned ranking. Personalizes what
+      each person sees from the same underlying catalog.
   - locale: fr
     value: >-
-      Systèmes d'IA qui suggèrent ou classent des éléments pour une personne — services, annonces, actualités, options
-      d'orientation — selon ses préférences, son comportement ou sa similarité avec d'autres. Inclut le filtrage
-      collaboratif, les recommandateurs basés sur le contenu et le classement appris. Personnalise ce que chaque
-      personne voit dans un même catalogue.
-  - locale: km
-    value: >-
-      ប្រព័ន្ធ AI ដែលណែនាំ ឬរៀបលំដាប់ធាតុសម្រាប់បុគ្គល — សេវាកម្ម បញ្ជី ព័ត៌មាន ជម្រើសស្វែងរកផ្លូវ —
-      ដោយផ្អែកលើចំណូលចិត្ត អាកប្បកិរិយា ឬភាពស្រដៀងគ្នាទៅនឹងអ្នកដទៃ។
-      រួមមានការត្រងសហការ ការណែនាំផ្អែកលើខ្លឹមសារ និងការដាក់ចំណាត់ថ្នាក់ដែលរៀន។
-      កំណត់នូវអ្វីដែលបុគ្គលម្នាក់ៗឃើញពីបញ្ជីដូចគ្នា។
-  - locale: pt
-    value: >-
-      Sistemas de IA que sugerem ou ordenam itens para uma pessoa — serviços, listagens, notícias, opções de orientação
-      — com base em preferências, comportamento ou semelhança a outras pessoas. Inclui filtragem colaborativa,
-      recomendadores baseados em conteúdo e ranqueamento aprendido. Personaliza o que cada pessoa vê a partir do mesmo
-      catálogo.
-  - locale: tl
-    value: >-
-      Mga AI system na nagmumungkahi o nag-aayos ng mga item para sa isang tao — serbisyo, listahan, balita,
-      pagpipilian sa wayfinding — batay sa mga kagustuhan, ugali, o pagkakatulad sa ibang tao. Kasama ang collaborative
-      filtering, content-based recommender, at natutuhang pag-ranggo. Pinapersonal ang nakikita ng bawat tao mula sa
-      iisang catalog.
+      Systèmes d'IA qui suggèrent ou classent des éléments pour une personne — services, annonces,
+      actualités, options d'orientation — selon ses préférences, son comportement ou sa similarité
+      avec d'autres. Inclut le filtrage collaboratif, les recommandateurs basés sur le contenu et le
+      classement appris. Personnalise ce que chaque personne voit dans un même catalogue.
 citation: []
 symbol_id: processing_recommendation-systems
 variables: []

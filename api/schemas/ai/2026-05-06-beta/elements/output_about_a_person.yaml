@@ -3,30 +3,19 @@ category_id: output_dataset
 title:
   - locale: en
     value: About a person
-  - locale: es
-    value: Sobre una persona
   - locale: fr
     value: À propos d'une personne
-  - locale: pt
-    value: Sobre uma pessoa
 description:
   - locale: en
     value: >-
-      The AI produces output that names or describes a specific individual. Examples: a personalized greeting on
-      digital signage, a record tagged to a known account, a name returned by a recognition system.
-  - locale: es
-    value: >-
-      La IA produce una salida que nombra o describe a una persona específica. Ejemplos: un saludo personalizado en
-      una pantalla, un registro asociado a una cuenta conocida, un nombre devuelto por un sistema de reconocimiento.
+      The AI produces output that names or describes a specific individual. Examples: a personalized
+      greeting on digital signage, a record tagged to a known account, a name returned by a
+      recognition system.
   - locale: fr
     value: >-
-      L'IA produit une sortie qui nomme ou décrit une personne précise. Exemples : un message d'accueil personnalisé
-      sur un affichage numérique, un enregistrement étiqueté à un compte connu, un nom renvoyé par un système de
-      reconnaissance.
-  - locale: pt
-    value: >-
-      A IA produz uma saída que nomeia ou descreve uma pessoa específica. Exemplos: uma saudação personalizada num
-      ecrã, um registo associado a uma conta conhecida, um nome devolvido por um sistema de reconhecimento.
+      L'IA produit une sortie qui nomme ou décrit une personne précise. Exemples : un message
+      d'accueil personnalisé sur un affichage numérique, un enregistrement étiqueté à un compte
+      connu, un nom renvoyé par un système de reconnaissance.
 citation: []
 symbol_id: personal
 variables: []

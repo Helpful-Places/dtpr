@@ -2,14 +2,8 @@ id: ai
 name:
   - locale: en
     value: AI / Algorithm
-  - locale: es
-    value: AI / Algoritmo
   - locale: fr
     value: IA / Algorithme
-  - locale: km
-    value: AI / ក្បួនដោះស្រាយ
-  - locale: tl
-    value: AI / Algorithm
 description: []
 categories:
   - ai__accountable
@@ -25,8 +19,4 @@ categories:
   - ai__rights
 locales:
   - en
-  - es
   - fr
-  - km
-  - pt
-  - tl

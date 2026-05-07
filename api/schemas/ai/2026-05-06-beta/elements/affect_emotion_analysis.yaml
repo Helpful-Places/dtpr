@@ -3,54 +3,22 @@ category_id: processing
 title:
   - locale: en
     value: Affect & Emotion Analysis
-  - locale: es
-    value: Análisis de afecto y emoción
   - locale: fr
     value: Analyse de l'affect et des émotions
-  - locale: km
-    value: ការវិភាគអារម្មណ៍
-  - locale: pt
-    value: Análise de afeto e emoção
-  - locale: tl
-    value: Pagsusuri ng Damdamin at Emosyon
 description:
   - locale: en
     value: >-
-      AI systems that infer emotional state, mood, or sentiment from text, speech, facial expressions, or physiological
-      signals. Used to gauge crowd sentiment, evaluate service experience, or screen for distress. The accuracy and
-      cultural fairness of affect inference is contested, and some jurisdictions restrict its use in workplaces and
-      public services.
-  - locale: es
-    value: >-
-      Sistemas de IA que infieren estado emocional, ánimo o sentimiento a partir de texto, voz, expresiones faciales
-      o señales fisiológicas. Se utilizan para medir el sentimiento de la multitud, evaluar la experiencia del servicio
-      o detectar señales de malestar. La precisión y la equidad cultural de la inferencia de afecto son cuestionadas, y
-      algunas jurisdicciones restringen su uso en lugares de trabajo y servicios públicos.
+      AI systems that infer emotional state, mood, or sentiment from text, speech, facial
+      expressions, or physiological signals. Used to gauge crowd sentiment, evaluate service
+      experience, or screen for distress. The accuracy and cultural fairness of affect inference is
+      contested, and some jurisdictions restrict its use in workplaces and public services.
   - locale: fr
     value: >-
-      Systèmes d'IA qui infèrent un état émotionnel, une humeur ou un sentiment à partir de texte, de parole,
-      d'expressions faciales ou de signaux physiologiques. Utilisés pour évaluer le ressenti d'une foule, mesurer
-      l'expérience d'un service ou détecter une détresse. La précision et l'équité culturelle de l'inférence d'affect
-      sont contestées, et certaines juridictions limitent son usage en milieu professionnel et dans les services
-      publics.
-  - locale: km
-    value: >-
-      ប្រព័ន្ធ AI ដែលសន្មត់ស្ថានភាពអារម្មណ៍ ចិត្តចង់ ឬមនោសញ្ចេតនាពីអត្ថបទ ការនិយាយ ទឹកមុខ ឬសញ្ញារាងកាយ។
-      ប្រើដើម្បីវាស់អារម្មណ៍ហ្វូងមនុស្ស វាយតម្លៃបទពិសោធន៍សេវាកម្ម ឬរកសញ្ញាទុក្ខព្រួយ។
-      ភាពត្រឹមត្រូវ និងភាពយុត្តិធម៌វប្បធម៌នៃការសន្មត់អារម្មណ៍ត្រូវបានប្រកែក
-      ហើយយុត្តាធិការខ្លះកំណត់ការប្រើនៅកន្លែងធ្វើការ និងសេវាសាធារណៈ។
-  - locale: pt
-    value: >-
-      Sistemas de IA que inferem estado emocional, humor ou sentimento a partir de texto, fala, expressões faciais ou
-      sinais fisiológicos. Usados para medir o sentimento de multidões, avaliar a experiência de serviço ou detectar
-      sinais de aflição. A precisão e a justiça cultural da inferência de afeto são contestadas, e algumas jurisdições
-      restringem seu uso em locais de trabalho e serviços públicos.
-  - locale: tl
-    value: >-
-      Mga AI system na humihinuha ng emosyonal na estado, kalooban, o damdamin mula sa teksto, salita, ekspresyon ng
-      mukha, o signal na pisyolohikal. Ginagamit upang sukatin ang damdamin ng karamihan, suriin ang karanasan ng
-      serbisyo, o tukuyin ang pagkabalisa. Pinagtatalunan ang katumpakan at kultural na patas ng affect inference, at
-      may mga hurisdiksyong naglilimita sa paggamit nito sa trabaho at pampublikong serbisyo.
+      Systèmes d'IA qui infèrent un état émotionnel, une humeur ou un sentiment à partir de texte,
+      de parole, d'expressions faciales ou de signaux physiologiques. Utilisés pour évaluer le
+      ressenti d'une foule, mesurer l'expérience d'un service ou détecter une détresse. La précision
+      et l'équité culturelle de l'inférence d'affect sont contestées, et certaines juridictions
+      limitent son usage en milieu professionnel et dans les services publics.
 citation: []
 symbol_id: processing_sentiment-analysis
 variables: []

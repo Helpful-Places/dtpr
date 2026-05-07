@@ -3,69 +3,28 @@ category_id: purpose
 title:
   - locale: en
     value: Translation & Language Access
-  - locale: es
-    value: Traducción y acceso lingüístico
   - locale: fr
     value: Traduction et accès linguistique
-  - locale: km
-    value: ការបកប្រែ និងការទទួលបានភាសា
-  - locale: pt
-    value: Tradução e acesso linguístico
-  - locale: tl
-    value: Pagsasalin at Pag-access sa Wika
 description:
   - locale: en
     value: >-
-      Translates speech, text, or signs to make a place or service accessible across languages — for example, real-time
-      interpretation at a service counter, multilingual signage.
-  - locale: es
-    value: >-
-      Traduce voz, texto o señales para hacer accesible un lugar o servicio en varios idiomas — por ejemplo,
-      interpretación en tiempo real en un mostrador de servicio, señalización multilingüe.
+      Translates speech, text, or signs to make a place or service accessible across languages — for
+      example, real-time interpretation at a service counter, multilingual signage.
   - locale: fr
     value: >-
-      Traduit la parole, le texte ou la signalétique pour rendre un lieu ou un service accessible dans plusieurs
-      langues — par exemple, l'interprétation en temps réel à un guichet, la signalétique multilingue.
-  - locale: km
-    value: >-
-      បកប្រែសម្ដី អត្ថបទ ឬផ្ទាំងសញ្ញា ដើម្បីឱ្យកន្លែងឬសេវាអាចប្រើបានលើភាសាច្រើន — ឧទាហរណ៍ ការបកប្រែភ្លាមៗនៅបញ្ជរសេវា
-      ផ្ទាំងសញ្ញាច្រើនភាសា។
-  - locale: pt
-    value: >-
-      Traduz fala, texto ou sinalética para tornar um lugar ou serviço acessível em várias línguas — por exemplo,
-      interpretação em tempo real num balcão de atendimento, sinalética multilingue.
-  - locale: tl
-    value: >-
-      Nagsasalin ng pananalita, teksto, o palatandaan upang gawing accessible ang isang lugar o serbisyo sa iba't
-      ibang wika — halimbawa, real-time interpretation sa service counter, multilingual signage.
+      Traduit la parole, le texte ou la signalétique pour rendre un lieu ou un service accessible
+      dans plusieurs langues — par exemple, l'interprétation en temps réel à un guichet, la
+      signalétique multilingue.
 citation:
   - locale: en
     value: >-
-      Language access in public-facing services framed by the Council of Europe European Charter for Regional or
-      Minority Languages (1992) and accessibility duties under the EU Web Accessibility Directive (Directive (EU)
-      2016/2102) and WCAG 2.2 multilingual support.
-  - locale: es
-    value: >-
-      El acceso lingüístico en servicios públicos está enmarcado por la Carta Europea de las Lenguas Regionales o
-      Minoritarias del Consejo de Europa (1992) y los deberes de accesibilidad de la Directiva (UE) 2016/2102 y de
-      las WCAG 2.2.
+      Language access in public-facing services framed by the Council of Europe European Charter for
+      Regional or Minority Languages (1992) and accessibility duties under the EU Web Accessibility
+      Directive (Directive (EU) 2016/2102) and WCAG 2.2 multilingual support.
   - locale: fr
     value: >-
-      L'accès linguistique aux services publics est encadré par la Charte européenne des langues régionales ou
-      minoritaires du Conseil de l'Europe (1992) et les obligations d'accessibilité de la Directive (UE) 2016/2102
-      et des WCAG 2.2.
-  - locale: km
-    value: >-
-      ការទទួលបានភាសានៅសេវាសាធារណៈកំណត់ដោយធម្មនុញ្ញអឺរ៉ុបស្ដីពីភាសាតំបន់ឬភាសាតិចតួច (Council of Europe, 1992) និងភារកិច្ច
-      ភាពអាចប្រើបានក្នុងសេចក្ដីណែនាំ (EU) 2016/2102 និង WCAG 2.2។
-  - locale: pt
-    value: >-
-      O acesso linguístico em serviços públicos é enquadrado pela Carta Europeia das Línguas Regionais ou Minoritárias
-      do Conselho da Europa (1992) e pelos deveres de acessibilidade da Diretiva (UE) 2016/2102 e das WCAG 2.2.
-  - locale: tl
-    value: >-
-      Ang language access sa public-facing services ay nakabatay sa Council of Europe European Charter for Regional
-      or Minority Languages (1992) at sa accessibility duties ng EU Web Accessibility Directive (Directive (EU)
-      2016/2102) at WCAG 2.2.
+      L'accès linguistique aux services publics est encadré par la Charte européenne des langues
+      régionales ou minoritaires du Conseil de l'Europe (1992) et les obligations d'accessibilité de
+      la Directive (UE) 2016/2102 et des WCAG 2.2.
 symbol_id: translation_language
 variables: []

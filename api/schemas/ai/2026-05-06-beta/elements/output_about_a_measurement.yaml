@@ -3,33 +3,20 @@ category_id: output_dataset
 title:
   - locale: en
     value: About a measurement
-  - locale: es
-    value: Sobre una medición
   - locale: fr
     value: À propos d'une mesure
-  - locale: pt
-    value: Sobre uma medição
 description:
   - locale: en
     value: >-
-      The AI produces numeric measurements over time — sensor outputs, derived quality scores, forecasted values.
-      Examples: an hourly air-quality score for a plaza, a predicted ridership curve for tomorrow, an aggregated
-      noise-level reading published to a public dashboard.
-  - locale: es
-    value: >-
-      La IA produce mediciones numéricas a lo largo del tiempo: salidas de sensores, puntuaciones de calidad
-      derivadas, valores pronosticados. Ejemplos: una puntuación horaria de calidad del aire en una plaza, una curva
-      de afluencia prevista para mañana, una lectura agregada de nivel sonoro publicada en un panel público.
+      The AI produces numeric measurements over time — sensor outputs, derived quality scores,
+      forecasted values. Examples: an hourly air-quality score for a plaza, a predicted ridership
+      curve for tomorrow, an aggregated noise-level reading published to a public dashboard.
   - locale: fr
     value: >-
-      L'IA produit des mesures numériques au fil du temps : sorties de capteurs, indices de qualité dérivés, valeurs
-      prévues. Exemples : un indice de qualité de l'air horaire pour une place, une courbe d'affluence prévue pour
-      demain, une lecture de niveau sonore agrégée publiée sur un tableau de bord public.
-  - locale: pt
-    value: >-
-      A IA produz medições numéricas ao longo do tempo — saídas de sensores, índices de qualidade derivados, valores
-      previstos. Exemplos: um índice horário de qualidade do ar para uma praça, uma curva de afluência prevista para
-      amanhã, uma leitura agregada de nível sonoro publicada num painel público.
+      L'IA produit des mesures numériques au fil du temps : sorties de capteurs, indices de qualité
+      dérivés, valeurs prévues. Exemples : un indice de qualité de l'air horaire pour une place, une
+      courbe d'affluence prévue pour demain, une lecture de niveau sonore agrégée publiée sur un
+      tableau de bord public.
 citation: []
 symbol_id: values_time
 variables: []

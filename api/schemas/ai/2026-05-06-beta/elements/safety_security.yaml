@@ -3,48 +3,20 @@ category_id: purpose
 title:
   - locale: en
     value: Safety & Security
-  - locale: es
-    value: Seguridad y protección
   - locale: fr
     value: Sûreté et sécurité
-  - locale: km
-    value: សុវត្ថិភាពនិងសន្តិសុខ
-  - locale: pt
-    value: Segurança e proteção
-  - locale: tl
-    value: Kaligtasan at Seguridad
 description:
   - locale: en
     value: >-
-      Supports preventive risk reduction in physical environments — for example, fire safety, home security, or
-      ensuring safe passage in airports or on roads. Distinct from Enforcement (rule application) and from Fire &
-      Emergency (incident response).
-  - locale: es
-    value: >-
-      Apoya la reducción preventiva de riesgos en entornos físicos — por ejemplo, seguridad contra incendios,
-      seguridad doméstica o garantizar el paso seguro en aeropuertos o carreteras. Se distingue de Aplicación
-      (aplicación de reglas) y de Fuego y emergencia (respuesta a incidentes).
+      Supports preventive risk reduction in physical environments — for example, fire safety, home
+      security, or ensuring safe passage in airports or on roads. Distinct from Enforcement (rule
+      application) and from Fire & Emergency (incident response).
   - locale: fr
     value: >-
-      Soutient la réduction préventive des risques dans les environnements physiques — par exemple la sécurité
-      incendie, la sécurité domestique ou la sécurité de passage dans les aéroports ou sur les routes. À distinguer
-      de Cadre légal (application des règles) et de Incendie et urgence (réponse aux incidents).
-  - locale: km
-    value: >-
-      បើកដំណើរការបរិស្ថានដែលមានសុវត្ថិភាព និង/ឬសុវត្ថិភាព ឧទាហរណ៍សម្រាប់គោលបំណងនៃ
-      [សុវត្ថិភាពអគ្គីភ័យ](https://en.wikipedia.org/wiki/Fire_safety),
-      [សុវត្ថិភាពផ្ទះ](https://en.wikipedia.org/wiki/Home_security) ឬធានាការឆ្លងកាត់ប្រកបដោយសុវត្ថិភាពនៅកន្លែងដូចជា
-      [ព្រលានយន្តហោះ](https://en.wikipedia.org/wiki/Airport_security) ឬ
-      [roads](https://en.wikipedia.org/wiki/Road_traffic_safety)
-  - locale: pt
-    value: >-
-      Apoia a redução preventiva de riscos em ambientes físicos — por exemplo, segurança contra incêndios, segurança
-      doméstica ou garantia de passagem segura em aeroportos ou estradas. Distinto de Aplicação da lei (aplicação de
-      regras) e de Incêndio e emergência (resposta a incidentes).
-  - locale: tl
-    value: >-
-      Nagbibigay-daan sa isang ligtas at/o secure na kapaligiran, halimbawa para sa mga layunin ng kaligtasan sa sunog,
-      seguridad sa tahanan o pagtiyak ng ligtas na daan sa mga lugar tulad ng mga paliparan o mga kalsada
+      Soutient la réduction préventive des risques dans les environnements physiques — par exemple
+      la sécurité incendie, la sécurité domestique ou la sécurité de passage dans les aéroports ou
+      sur les routes. À distinguer de Cadre légal (application des règles) et de Incendie et urgence
+      (réponse aux incidents).
 citation: []
 symbol_id: safety_security
 variables: []

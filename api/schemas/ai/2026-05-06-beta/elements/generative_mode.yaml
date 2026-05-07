@@ -3,52 +3,32 @@ category_id: functional_modes
 title:
   - locale: en
     value: Generative — creates
-  - locale: es
-    value: Generativo — crea
   - locale: fr
     value: Génératif — crée
-  - locale: pt
-    value: Generativo — cria
 description:
   - locale: en
     value: >-
-      Creates — produces new text, images, audio, video, or code that did not exist before this system ran. The output
-      is content authored by the system, not a label or score about existing data. Examples: drafting a paragraph in
-      response to a prompt, generating an image from a description, composing audio, completing a snippet of code.
-  - locale: es
-    value: >-
-      Crea — produce nuevo texto, imágenes, audio, video o código que no existía antes de ejecutarse el sistema. La
-      salida es contenido escrito por el sistema, no una etiqueta o puntuación sobre datos existentes. Ejemplos:
-      redactar un párrafo en respuesta a una indicación, generar una imagen a partir de una descripción, componer
-      audio, completar un fragmento de código.
+      Creates — produces new text, images, audio, video, or code that did not exist before this
+      system ran. The output is content authored by the system, not a label or score about existing
+      data. Examples: drafting a paragraph in response to a prompt, generating an image from a
+      description, composing audio, completing a snippet of code.
   - locale: fr
     value: >-
-      Crée — produit du nouveau texte, des images, de l'audio, de la vidéo ou du code qui n'existaient pas avant que le
-      système ne s'exécute. La sortie est du contenu créé par le système, pas une étiquette ou un score sur des
-      données existantes. Exemples : rédiger un paragraphe en réponse à une consigne, générer une image à partir d'une
-      description, composer de l'audio, compléter un extrait de code.
-  - locale: pt
-    value: >-
-      Cria — produz novo texto, imagens, áudio, vídeo ou código que não existia antes de o sistema ser executado. O
-      resultado é conteúdo escrito pelo sistema, não um rótulo ou pontuação sobre dados existentes. Exemplos: redigir
-      um parágrafo em resposta a uma indicação, gerar uma imagem a partir de uma descrição, compor áudio, completar
-      um trecho de código.
+      Crée — produit du nouveau texte, des images, de l'audio, de la vidéo ou du code qui
+      n'existaient pas avant que le système ne s'exécute. La sortie est du contenu créé par le
+      système, pas une étiquette ou un score sur des données existantes. Exemples : rédiger un
+      paragraphe en réponse à une consigne, générer une image à partir d'une description, composer
+      de l'audio, compléter un extrait de code.
 citation:
   - locale: en
     value: >-
-      Verb framing ("creates") and the six-mode partition adapted from Narain Jashanmal, *AI Taxonomy — An Operational
-      Framework for Precision in AI Discourse*, v1.1, January 2026. https://dropleaf.app/d/AlXez8scbd
-  - locale: es
-    value: >-
-      El verbo orientador ("crea") y la partición en seis modos están adaptados de Narain Jashanmal, *AI Taxonomy — An
-      Operational Framework for Precision in AI Discourse*, v1.1, enero de 2026. https://dropleaf.app/d/AlXez8scbd
+      Verb framing ("creates") and the six-mode partition adapted from Narain Jashanmal, *AI
+      Taxonomy — An Operational Framework for Precision in AI Discourse*, v1.1, January 2026.
+      https://dropleaf.app/d/AlXez8scbd
   - locale: fr
     value: >-
-      Le verbe-cadre (« crée ») et la partition en six modes sont adaptés de Narain Jashanmal, *AI Taxonomy — An
-      Operational Framework for Precision in AI Discourse*, v1.1, janvier 2026. https://dropleaf.app/d/AlXez8scbd
-  - locale: pt
-    value: >-
-      O verbo-âncora ("cria") e a partição em seis modos foram adaptados de Narain Jashanmal, *AI Taxonomy — An
-      Operational Framework for Precision in AI Discourse*, v1.1, janeiro de 2026. https://dropleaf.app/d/AlXez8scbd
+      Le verbe-cadre (« crée ») et la partition en six modes sont adaptés de Narain Jashanmal, *AI
+      Taxonomy — An Operational Framework for Precision in AI Discourse*, v1.1, janvier 2026.
+      https://dropleaf.app/d/AlXez8scbd
 symbol_id: mode_generative
 variables: []

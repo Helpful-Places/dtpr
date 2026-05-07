@@ -3,51 +3,22 @@ category_id: processing
 title:
   - locale: en
     value: Biometric Recognition
-  - locale: es
-    value: Reconocimiento biométrico
   - locale: fr
     value: Reconnaissance biométrique
-  - locale: km
-    value: ការស្គាល់អត្តសញ្ញាណជីវមាត្រ
-  - locale: pt
-    value: Reconhecimento biométrico
-  - locale: tl
-    value: Biometric Recognition
 description:
   - locale: en
     value: >-
-      AI systems that identify or verify a specific person from biological signals — face, fingerprint, voice, iris,
-      or gait. Distinct from generic computer vision because the output is tied to a named individual. Many
-      jurisdictions restrict or prohibit biometric recognition in publicly accessible spaces.
-  - locale: es
-    value: >-
-      Sistemas de IA que identifican o verifican a una persona concreta a partir de señales biológicas: rostro, huella
-      dactilar, voz, iris o forma de andar. Se distinguen de la visión por computadora genérica porque la salida está
-      vinculada a un individuo concreto. Muchas jurisdicciones restringen o prohíben el reconocimiento biométrico en
-      espacios de acceso público.
+      AI systems that identify or verify a specific person from biological signals — face,
+      fingerprint, voice, iris, or gait. Distinct from generic computer vision because the output is
+      tied to a named individual. Many jurisdictions restrict or prohibit biometric recognition in
+      publicly accessible spaces.
   - locale: fr
     value: >-
-      Systèmes d'IA qui identifient ou vérifient une personne précise à partir de signaux biologiques — visage,
-      empreinte digitale, voix, iris ou démarche. Distinct de la vision par ordinateur générique car la sortie est
-      liée à un individu nommé. De nombreuses juridictions restreignent ou interdisent la reconnaissance biométrique
-      dans les espaces accessibles au public.
-  - locale: km
-    value: >-
-      ប្រព័ន្ធ AI ដែលកំណត់អត្តសញ្ញាណ ឬផ្ទៀងផ្ទាត់បុគ្គលជាក់លាក់ពីសញ្ញាជីវសាស្ត្រ — មុខ ស្នាមដៃ សំឡេង រុយ
-      ឬដំណើរ។ ខុសពីទិដ្ឋភាពកុំព្យូទ័រធម្មតាព្រោះលទ្ធផលត្រូវបានភ្ជាប់ទៅនឹងបុគ្គលដែលបានដាក់ឈ្មោះ។
-      យុត្តាធិការជាច្រើនកំណត់ឬហាមឃាត់ការស្គាល់អត្តសញ្ញាណជីវមាត្រនៅកន្លែងសាធារណៈ។
-  - locale: pt
-    value: >-
-      Sistemas de IA que identificam ou verificam uma pessoa específica a partir de sinais biológicos — rosto,
-      impressão digital, voz, íris ou marcha. Distinto da visão computacional genérica porque a saída está vinculada a
-      um indivíduo nomeado. Muitas jurisdições restringem ou proíbem o reconhecimento biométrico em espaços
-      publicamente acessíveis.
-  - locale: tl
-    value: >-
-      Mga AI system na tumutukoy o nagpapatotoo ng partikular na tao mula sa biological signals — mukha, fingerprint,
-      boses, iris, o lakad. Iba sa pangkalahatang computer vision dahil ang output ay nakatali sa isang tukoy na
-      indibidwal. Maraming hurisdiksyon ang naglilimita o nagbabawal sa biometric recognition sa mga pampublikong
-      espasyo.
+      Systèmes d'IA qui identifient ou vérifient une personne précise à partir de signaux
+      biologiques — visage, empreinte digitale, voix, iris ou démarche. Distinct de la vision par
+      ordinateur générique car la sortie est liée à un individu nommé. De nombreuses juridictions
+      restreignent ou interdisent la reconnaissance biométrique dans les espaces accessibles au
+      public.
 citation: []
 symbol_id: personal
 variables: []

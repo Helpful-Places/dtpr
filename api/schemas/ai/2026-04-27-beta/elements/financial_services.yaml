@@ -3,70 +3,28 @@ category_id: purpose
 title:
   - locale: en
     value: Financial Services
-  - locale: es
-    value: Servicios financieros
   - locale: fr
     value: Services financiers
-  - locale: km
-    value: សេវាកម្មហិរញ្ញវត្ថុ
-  - locale: pt
-    value: Serviços financeiros
-  - locale: tl
-    value: Mga Serbisyong Pinansyal
 description:
   - locale: en
     value: >-
-      Supports lending, insurance, fraud detection, or other financial decisions about people — for example, credit
-      scoring, insurance underwriting, transaction-fraud flagging.
-  - locale: es
-    value: >-
-      Apoya préstamos, seguros, detección de fraude u otras decisiones financieras sobre las personas — por ejemplo,
-      puntuación crediticia, suscripción de seguros, marcación de fraude en transacciones.
+      Supports lending, insurance, fraud detection, or other financial decisions about people — for
+      example, credit scoring, insurance underwriting, transaction-fraud flagging.
   - locale: fr
     value: >-
-      Soutient le crédit, l'assurance, la détection de fraude ou d'autres décisions financières concernant des
-      personnes — par exemple, l'évaluation du crédit, la souscription d'assurance, le signalement de fraude
-      transactionnelle.
-  - locale: km
-    value: >-
-      គាំទ្រការផ្ដល់ប្រាក់កម្ចី ការធានារ៉ាប់រង ការរកបន្លំ ឬការសម្រេចចិត្តហិរញ្ញវត្ថុផ្សេងទៀតអំពីមនុស្ស — ឧទាហរណ៍ ការវាយតម្លៃឥណទាន
-      ការសរសេរធានារ៉ាប់រង ការរាយការណ៍ការលួចបន្លំក្នុងប្រតិបត្តិការ។
-  - locale: pt
-    value: >-
-      Apoia o crédito, os seguros, a deteção de fraude ou outras decisões financeiras sobre pessoas — por exemplo,
-      pontuação de crédito, subscrição de seguros, sinalização de fraude em transações.
-  - locale: tl
-    value: >-
-      Sinusuportahan ang pagpapautang, insurance, fraud detection, o iba pang desisyong pinansyal tungkol sa mga tao —
-      halimbawa, credit scoring, insurance underwriting, transaction-fraud flagging.
+      Soutient le crédit, l'assurance, la détection de fraude ou d'autres décisions financières
+      concernant des personnes — par exemple, l'évaluation du crédit, la souscription d'assurance,
+      le signalement de fraude transactionnelle.
 citation:
   - locale: en
     value: >-
-      Credit-scoring of natural persons and risk assessment / pricing in life and health insurance listed as Annex III
-      high-risk under the EU AI Act (Regulation (EU) 2024/1689), Article 6(2) and Annex III §5(b) and §5(c).
-  - locale: es
-    value: >-
-      La puntuación crediticia de personas físicas y la evaluación de riesgo y fijación de precios en seguros de vida
-      y salud figuran como alto riesgo en el Anexo III del Reglamento (UE) 2024/1689 (Ley de IA de la UE), Artículo
-      6(2) y Anexo III §5(b) y §5(c).
+      Credit-scoring of natural persons and risk assessment / pricing in life and health insurance
+      listed as Annex III high-risk under the EU AI Act (Regulation (EU) 2024/1689), Article 6(2)
+      and Annex III §5(b) and §5(c).
   - locale: fr
     value: >-
-      L'évaluation du crédit des personnes physiques et l'évaluation du risque et la tarification en assurance vie et
-      santé sont classées à haut risque à l'Annexe III du Règlement (UE) 2024/1689 (loi européenne sur l'IA), Article
-      6(2) et Annexe III §5(b) et §5(c).
-  - locale: km
-    value: >-
-      ការវាយតម្លៃឥណទានរបស់បុគ្គល និងការវាយតម្លៃហានិភ័យ ការកំណត់តម្លៃធានារ៉ាប់រងជីវិតនិងសុខភាព ត្រូវចាត់ទុកជាហានិភ័យខ្ពស់នៅ
-      ឧបសម្ព័ន្ធទី III នៃច្បាប់ AI សហភាពអឺរ៉ុប (Regulation (EU) 2024/1689) មាត្រា 6(2)។
-  - locale: pt
-    value: >-
-      A pontuação de crédito de pessoas singulares e a avaliação de risco e fixação de preços em seguros de vida e
-      saúde estão listadas como alto risco no Anexo III do Regulamento (UE) 2024/1689 (Lei da IA da UE), Artigo 6(2) e
-      Anexo III §5(b) e §5(c).
-  - locale: tl
-    value: >-
-      Ang credit scoring ng mga natural na tao at risk assessment / pricing sa life at health insurance ay nakalista
-      bilang Annex III high-risk sa ilalim ng EU AI Act (Regulation (EU) 2024/1689), Article 6(2) at Annex III §5(b)
-      at §5(c).
+      L'évaluation du crédit des personnes physiques et l'évaluation du risque et la tarification en
+      assurance vie et santé sont classées à haut risque à l'Annexe III du Règlement (UE) 2024/1689
+      (loi européenne sur l'IA), Article 6(2) et Annexe III §5(b) et §5(c).
 symbol_id: financial_services
 variables: []

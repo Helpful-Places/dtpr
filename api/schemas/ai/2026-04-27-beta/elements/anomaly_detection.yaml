@@ -3,51 +3,22 @@ category_id: processing
 title:
   - locale: en
     value: Anomaly Detection
-  - locale: es
-    value: Detección de anomalías
   - locale: fr
     value: Détection d'anomalies
-  - locale: km
-    value: ការរកឃើញភាពមិនធម្មតា
-  - locale: pt
-    value: Detecção de anomalias
-  - locale: tl
-    value: Pagtukoy ng Anomalya
 description:
   - locale: en
     value: >-
-      AI systems that flag unusual events, patterns, or values that depart from a learned baseline of normal behavior.
-      Used for equipment-failure prediction, fraud screening, intrusion detection, water-leak monitoring, and unusual
-      crowd-flow alerts. Outputs are typically thresholded scores rather than direct decisions.
-  - locale: es
-    value: >-
-      Sistemas de IA que señalan eventos, patrones o valores inusuales que se apartan de una línea base aprendida de
-      comportamiento normal. Se usan para predecir fallos de equipos, detectar fraudes, detectar intrusiones, vigilar
-      fugas de agua y alertar sobre flujos inusuales de multitudes. Las salidas suelen ser puntuaciones con umbral en
-      lugar de decisiones directas.
+      AI systems that flag unusual events, patterns, or values that depart from a learned baseline
+      of normal behavior. Used for equipment-failure prediction, fraud screening, intrusion
+      detection, water-leak monitoring, and unusual crowd-flow alerts. Outputs are typically
+      thresholded scores rather than direct decisions.
   - locale: fr
     value: >-
-      Systèmes d'IA qui signalent des événements, motifs ou valeurs inhabituels s'écartant d'une référence apprise du
-      comportement normal. Utilisés pour la prédiction de pannes d'équipement, la détection de fraude, la détection
-      d'intrusion, la surveillance des fuites d'eau et les alertes de flux de foule inhabituels. Les sorties sont en
-      général des scores seuillés plutôt que des décisions directes.
-  - locale: km
-    value: >-
-      ប្រព័ន្ធ AI ដែលរកសញ្ញាព្រឹត្តិការណ៍ ឬតម្លៃខុសធម្មតាដែលឃ្លាតពីបាតព្រឹក្សា្យដែលបានរៀន។
-      ប្រើសម្រាប់ការទស្សន៍ទាយការខូចឧបករណ៍ ការស្ទង់ការក្លែងបន្លំ ការរកឃើញការឈ្លានពាន ការតាមដានការលេចទឹក
-      និងការព្រមានអំពីលំហូរហ្វូងមនុស្សខុសធម្មតា។ លទ្ធផលជាធម្មតាជាពិន្ទុកំណត់កម្រិតជាជាងការសម្រេចចិត្តផ្ទាល់។
-  - locale: pt
-    value: >-
-      Sistemas de IA que sinalizam eventos, padrões ou valores incomuns que se afastam de uma linha de base aprendida
-      de comportamento normal. Usados para previsão de falhas de equipamento, triagem de fraudes, detecção de
-      intrusão, monitoramento de vazamentos de água e alertas de fluxo incomum de multidões. As saídas normalmente são
-      pontuações com limiar, não decisões diretas.
-  - locale: tl
-    value: >-
-      Mga AI system na nagba-flag ng hindi pangkaraniwang pangyayari, pattern, o halaga na lumilihis sa natutuhang
-      baseline ng normal na pag-uugali. Ginagamit sa pagtataya ng pagkasira ng kagamitan, pag-screen ng pandaraya,
-      pagtukoy ng intrusion, pagsubaybay sa pagtagas ng tubig, at babala sa hindi pangkaraniwang daloy ng karamihan.
-      Ang output ay karaniwang threshold na iskor, hindi direktang desisyon.
+      Systèmes d'IA qui signalent des événements, motifs ou valeurs inhabituels s'écartant d'une
+      référence apprise du comportement normal. Utilisés pour la prédiction de pannes d'équipement,
+      la détection de fraude, la détection d'intrusion, la surveillance des fuites d'eau et les
+      alertes de flux de foule inhabituels. Les sorties sont en général des scores seuillés plutôt
+      que des décisions directes.
 citation: []
 symbol_id: dm_anomaly-detection
 variables: []

@@ -3,52 +3,22 @@ category_id: processing
 title:
   - locale: en
     value: Clustering & Segmentation
-  - locale: es
-    value: Agrupamiento y segmentación
   - locale: fr
     value: Regroupement et segmentation
-  - locale: km
-    value: ការបែងចែកជាក្រុម
-  - locale: pt
-    value: Agrupamento e segmentação
-  - locale: tl
-    value: Pag-cluster at Segmentasyon
 description:
   - locale: en
     value: >-
-      AI systems that group people, places, or events into clusters based on similarity, without using pre-defined
-      labels. Used to segment audiences, mobility patterns, energy-use profiles, or service-demand zones. Outputs are
-      cluster assignments that downstream systems may treat as categories — even though clusters are inferred, not
-      authored.
-  - locale: es
-    value: >-
-      Sistemas de IA que agrupan personas, lugares o eventos en grupos por similitud, sin usar etiquetas predefinidas.
-      Se utilizan para segmentar audiencias, patrones de movilidad, perfiles de uso energético o zonas de demanda de
-      servicios. Las salidas son asignaciones de grupo que los sistemas posteriores pueden tratar como categorías,
-      aunque los grupos son inferidos, no autorizados.
+      AI systems that group people, places, or events into clusters based on similarity, without
+      using pre-defined labels. Used to segment audiences, mobility patterns, energy-use profiles,
+      or service-demand zones. Outputs are cluster assignments that downstream systems may treat as
+      categories — even though clusters are inferred, not authored.
   - locale: fr
     value: >-
-      Systèmes d'IA qui regroupent des personnes, lieux ou événements en groupes par similarité, sans utiliser
-      d'étiquettes prédéfinies. Utilisés pour segmenter des audiences, des modèles de mobilité, des profils d'usage
-      énergétique ou des zones de demande de services. Les sorties sont des affectations de groupe que les systèmes en
-      aval peuvent traiter comme des catégories, bien que les groupes soient inférés et non définis.
-  - locale: km
-    value: >-
-      ប្រព័ន្ធ AI ដែលដាក់មនុស្ស ទីកន្លែង ឬព្រឹត្តិការណ៍ជាក្រុមដោយផ្អែកលើភាពស្រដៀង ដោយមិនប្រើស្លាកដែលកំណត់ជាមុន។
-      ប្រើដើម្បីបែងចែកទស្សនិកជន គំរូចលនា ទម្រង់ប្រើប្រាស់ថាមពល ឬតំបន់តម្រូវការសេវាកម្ម។
-      លទ្ធផលគឺការដាក់ក្រុមដែលប្រព័ន្ធបន្តបន្ទាប់អាចចាត់ទុកជាប្រភេទ បើទោះបីក្រុមត្រូវបានសន្មត់មិនមែនកំណត់ដោយដៃ។
-  - locale: pt
-    value: >-
-      Sistemas de IA que agrupam pessoas, lugares ou eventos em clusters por similaridade, sem usar rótulos
-      predefinidos. Usados para segmentar audiências, padrões de mobilidade, perfis de uso de energia ou zonas de
-      demanda de serviços. As saídas são atribuições de cluster que sistemas posteriores podem tratar como categorias,
-      embora os clusters sejam inferidos, não autorizados.
-  - locale: tl
-    value: >-
-      Mga AI system na nagpapangkat ng tao, lugar, o pangyayari sa mga cluster batay sa pagkakatulad, nang hindi
-      gumagamit ng paunang label. Ginagamit upang i-segment ang mga audience, pattern ng paggalaw, profile ng
-      paggamit ng enerhiya, o zone ng demand ng serbisyo. Ang output ay cluster assignment na maaring tratuhin ng
-      sumunod na sistema bilang kategorya — kahit na ang cluster ay hinuhula, hindi kinakatha.
+      Systèmes d'IA qui regroupent des personnes, lieux ou événements en groupes par similarité,
+      sans utiliser d'étiquettes prédéfinies. Utilisés pour segmenter des audiences, des modèles de
+      mobilité, des profils d'usage énergétique ou des zones de demande de services. Les sorties
+      sont des affectations de groupe que les systèmes en aval peuvent traiter comme des catégories,
+      bien que les groupes soient inférés et non définis.
 citation: []
 symbol_id: social
 variables: []

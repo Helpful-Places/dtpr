@@ -3,52 +3,32 @@ category_id: functional_modes
 title:
   - locale: en
     value: Agentic — acts
-  - locale: es
-    value: Agentivo — actúa
   - locale: fr
     value: Agentique — agit
-  - locale: pt
-    value: Agêntico — atua
 description:
   - locale: en
     value: >-
-      Acts — plans a goal into steps and carries them out, calling tools, browsing, scheduling, or composing
-      multi-step workflows on the user's or operator's behalf. The output is an action taken in software, not a piece
-      of content returned. Examples: booking a meeting, filing a return, escalating a ticket, running a campaign loop.
-  - locale: es
-    value: >-
-      Actúa — planifica una meta en pasos y los ejecuta, llamando a herramientas, navegando, programando o componiendo
-      flujos de trabajo de varios pasos en nombre del usuario o del operador. La salida es una acción realizada en el
-      software, no contenido devuelto. Ejemplos: reservar una reunión, presentar una devolución, escalar un ticket,
-      ejecutar un ciclo de campaña.
+      Acts — plans a goal into steps and carries them out, calling tools, browsing, scheduling, or
+      composing multi-step workflows on the user's or operator's behalf. The output is an action
+      taken in software, not a piece of content returned. Examples: booking a meeting, filing a
+      return, escalating a ticket, running a campaign loop.
   - locale: fr
     value: >-
-      Agit — décompose un objectif en étapes et les exécute, en appelant des outils, en naviguant, en planifiant ou en
-      composant des flux de travail à plusieurs étapes pour le compte de l'utilisateur ou de l'opérateur. La sortie
-      est une action réalisée dans un logiciel, pas un contenu renvoyé. Exemples : réserver une réunion, déposer une
-      demande de remboursement, escalader un ticket, exécuter une boucle de campagne.
-  - locale: pt
-    value: >-
-      Atua — decompõe um objetivo em passos e executa-os, chamando ferramentas, navegando, agendando ou compondo
-      fluxos de trabalho de vários passos em nome do utilizador ou do operador. O resultado é uma ação realizada em
-      software, não conteúdo devolvido. Exemplos: marcar uma reunião, submeter uma devolução, escalar um pedido,
-      executar um ciclo de campanha.
+      Agit — décompose un objectif en étapes et les exécute, en appelant des outils, en naviguant,
+      en planifiant ou en composant des flux de travail à plusieurs étapes pour le compte de
+      l'utilisateur ou de l'opérateur. La sortie est une action réalisée dans un logiciel, pas un
+      contenu renvoyé. Exemples : réserver une réunion, déposer une demande de remboursement,
+      escalader un ticket, exécuter une boucle de campagne.
 citation:
   - locale: en
     value: >-
-      Verb framing ("acts") and the six-mode partition adapted from Narain Jashanmal, *AI Taxonomy — An Operational
-      Framework for Precision in AI Discourse*, v1.1, January 2026. https://dropleaf.app/d/AlXez8scbd
-  - locale: es
-    value: >-
-      El verbo orientador ("actúa") y la partición en seis modos están adaptados de Narain Jashanmal, *AI Taxonomy —
-      An Operational Framework for Precision in AI Discourse*, v1.1, enero de 2026. https://dropleaf.app/d/AlXez8scbd
+      Verb framing ("acts") and the six-mode partition adapted from Narain Jashanmal, *AI Taxonomy —
+      An Operational Framework for Precision in AI Discourse*, v1.1, January 2026.
+      https://dropleaf.app/d/AlXez8scbd
   - locale: fr
     value: >-
-      Le verbe-cadre (« agit ») et la partition en six modes sont adaptés de Narain Jashanmal, *AI Taxonomy — An
-      Operational Framework for Precision in AI Discourse*, v1.1, janvier 2026. https://dropleaf.app/d/AlXez8scbd
-  - locale: pt
-    value: >-
-      O verbo-âncora ("atua") e a partição em seis modos foram adaptados de Narain Jashanmal, *AI Taxonomy — An
-      Operational Framework for Precision in AI Discourse*, v1.1, janeiro de 2026. https://dropleaf.app/d/AlXez8scbd
+      Le verbe-cadre (« agit ») et la partition en six modes sont adaptés de Narain Jashanmal, *AI
+      Taxonomy — An Operational Framework for Precision in AI Discourse*, v1.1, janvier 2026.
+      https://dropleaf.app/d/AlXez8scbd
 symbol_id: mode_agentic
 variables: []

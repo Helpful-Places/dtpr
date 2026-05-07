@@ -3,86 +3,36 @@ category_id: risks_mitigation
 title:
   - locale: en
     value: Reputational harm
-  - locale: es
-    value: Daño reputacional
   - locale: fr
     value: Atteinte à la réputation
-  - locale: km
-    value: គ្រោះថ្នាក់កេរ្តិ៍ឈ្មោះ
-  - locale: pt
-    value: Dano à reputação
-  - locale: tl
-    value: Pinsala sa reputasyon
 description:
   - locale: en
     value: >-
-      The risk that the AI system damages the reputation of individuals, groups, or organizations through
-      misidentification, false categorization, or stigmatizing labels. This includes risks of inaccurate face
-      recognition, defamatory generated content, and unfair public scoring that follow people across contexts.
-      Mitigations may include accuracy thresholds before public-facing labels are applied, human review of
-      high-impact identifications, takedown procedures, and clear rights to correction.
-  - locale: es
-    value: >-
-      El riesgo de que el sistema de IA dañe la reputación de personas, grupos u organizaciones mediante una
-      identificación errónea, una categorización falsa o etiquetas estigmatizantes. Esto incluye riesgos de
-      reconocimiento facial inexacto, contenido difamatorio generado y puntuaciones públicas injustas que siguen a las
-      personas en distintos contextos. Las medidas de mitigación pueden incluir umbrales de precisión antes de aplicar
-      etiquetas públicas, revisión humana de las identificaciones de alto impacto, procedimientos de retirada y
-      derechos claros de corrección.
+      The risk that the AI system damages the reputation of individuals, groups, or organizations
+      through misidentification, false categorization, or stigmatizing labels. This includes risks
+      of inaccurate face recognition, defamatory generated content, and unfair public scoring that
+      follow people across contexts. Mitigations may include accuracy thresholds before
+      public-facing labels are applied, human review of high-impact identifications, takedown
+      procedures, and clear rights to correction.
   - locale: fr
     value: >-
-      Le risque que le système d'IA porte atteinte à la réputation de personnes, de groupes ou d'organisations par une
-      identification erronée, une catégorisation fausse ou des étiquettes stigmatisantes. Cela inclut les risques de
-      reconnaissance faciale inexacte, de contenu diffamatoire généré et de notation publique injuste qui suit les
-      personnes dans différents contextes. Les mesures d'atténuation peuvent inclure des seuils de précision avant
-      l'application d'étiquettes publiques, un examen humain des identifications à fort impact, des procédures de
-      retrait et des droits clairs de rectification.
-  - locale: km
-    value: >-
-      ហានិភ័យដែលប្រព័ន្ធ AI បំផ្លាញកេរ្តិ៍ឈ្មោះរបស់បុគ្គល ក្រុម ឬស្ថាប័នតាមរយៈការកំណត់អត្តសញ្ញាណខុស
-      ការចាត់ថ្នាក់មិនពិត ឬស្លាកស្តិកមិនល្អ។ នេះរួមបញ្ចូលទាំងហានិភ័យនៃការសម្គាល់មុខមិនត្រឹមត្រូវ
-      មាតិកាបង្កើតដែលបង្ខូចកេរ្តិ៍ឈ្មោះ និងការវាយតម្លៃជាសាធារណៈដោយអយុត្តិធម៌ដែលតាមមនុស្សនៅទូទាំងបរិបទ។
-      ការបន្ធូរបន្ថយអាចរួមមានកម្រិតភាពត្រឹមត្រូវមុនពេលអនុវត្តស្លាកជាសាធារណៈ
-      ការត្រួតពិនិត្យដោយមនុស្សលើការកំណត់អត្តសញ្ញាណដែលមានឥទ្ធិពលខ្ពស់ នីតិវិធីដកចេញ និងសិទ្ធិច្បាស់លាស់ក្នុងការកែតម្រូវ។
-  - locale: pt
-    value: >-
-      O risco de que o sistema de IA prejudique a reputação de pessoas, grupos ou organizações por meio de
-      identificação incorreta, categorização falsa ou rótulos estigmatizantes. Isso inclui riscos de reconhecimento
-      facial impreciso, conteúdo difamatório gerado e pontuação pública injusta que acompanha as pessoas em diferentes
-      contextos. As mitigações podem incluir limiares de precisão antes da aplicação de rótulos públicos, revisão
-      humana de identificações de alto impacto, procedimentos de remoção e direitos claros de correção.
-  - locale: tl
-    value: >-
-      Ang panganib na masira ng AI system ang reputasyon ng mga indibidwal, grupo, o organisasyon sa pamamagitan ng
-      maling pagkilala, maling pagkakategorya, o nagpapakahiyang label. Kabilang dito ang mga panganib ng hindi tumpak
-      na pagkilala sa mukha, mapanirang generated content, at hindi makatarungang pampublikong scoring na sumusunod sa
-      mga tao sa iba't ibang konteksto. Maaaring kabilang sa mga mitigasyon ang mga threshold ng katumpakan bago
-      ilapat ang pampublikong label, pagsusuri ng tao sa mga high-impact na pagkilala, mga takedown procedure, at
-      malinaw na karapatang magtuwid.
+      Le risque que le système d'IA porte atteinte à la réputation de personnes, de groupes ou
+      d'organisations par une identification erronée, une catégorisation fausse ou des étiquettes
+      stigmatisantes. Cela inclut les risques de reconnaissance faciale inexacte, de contenu
+      diffamatoire généré et de notation publique injuste qui suit les personnes dans différents
+      contextes. Les mesures d'atténuation peuvent inclure des seuils de précision avant
+      l'application d'étiquettes publiques, un examen humain des identifications à fort impact, des
+      procédures de retrait et des droits clairs de rectification.
 citation:
   - locale: en
     value: >-
-      Adapted from AIAAIC harm type "Reputational" — Abercrombie et al. (2024), A Collaborative, Human-Centred
-      Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
-  - locale: es
-    value: >-
-      Adaptado del tipo de daño AIAAIC "Reputacional" — Abercrombie et al. (2024), A Collaborative, Human-Centred
-      Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+      Adapted from AIAAIC harm type "Reputational" — Abercrombie et al. (2024), A Collaborative,
+      Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA
+      4.0.
   - locale: fr
     value: >-
-      Adapté du type de préjudice AIAAIC « Réputationnel » — Abercrombie et al. (2024), A Collaborative, Human-Centred
-      Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
-  - locale: km
-    value: >-
-      សម្របតាមប្រភេទគ្រោះថ្នាក់ AIAAIC "កេរ្តិ៍ឈ្មោះ" — Abercrombie et al. (2024), A Collaborative, Human-Centred
-      Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
-  - locale: pt
-    value: >-
-      Adaptado do tipo de dano AIAAIC "Reputacional" — Abercrombie et al. (2024), A Collaborative, Human-Centred
-      Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
-  - locale: tl
-    value: >-
-      Hango sa uri ng pinsalang AIAAIC na "Reputasyonal" — Abercrombie et al. (2024), A Collaborative, Human-Centred
-      Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA 4.0.
+      Adapté du type de préjudice AIAAIC « Réputationnel » — Abercrombie et al. (2024), A
+      Collaborative, Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms,
+      arXiv:2407.01294. CC BY-SA 4.0.
 symbol_id: risks_reputational
 variables: []
