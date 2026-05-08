@@ -1,11 +1,11 @@
-import type { ResolvedDatachain } from '../../schema/datachain-instance-resolved.ts'
+import type { ResolvedDatachainInstance } from '../../schema/datachain-instance-resolved.ts'
 import type { SemanticError } from '../types.ts'
 import { err } from '../types.ts'
 
 /**
  * R15a (defensive): no `suggested_elements[].id` may match any
  * `schema_snapshot.elements[].id`. The Zod refinement on
- * `ResolvedDatachainSchema` already rejects collisions at parse
+ * `ResolvedDatachainInstanceSchema` already rejects collisions at parse
  * time, but the wire validator re-runs the check so callers that
  * skip parse (e.g. an internal pipeline that constructs the typed
  * value programmatically) still get the rule.
@@ -13,7 +13,7 @@ import { err } from '../types.ts'
  * Errors carry the colliding id and the snapshot-wins resolution
  * note in the fix hint.
  */
-export function checkElementIdCollision(resolved: ResolvedDatachain): SemanticError[] {
+export function checkElementIdCollision(resolved: ResolvedDatachainInstance): SemanticError[] {
   const findings: SemanticError[] = []
   if (resolved.suggested_elements.length === 0) return findings
   const snapshotIds = new Set(resolved.schema_snapshot.elements.map((e) => e.id))

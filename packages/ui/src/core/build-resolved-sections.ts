@@ -1,4 +1,4 @@
-import type { Category, Element, ResolvedDatachain } from './types.js'
+import type { Category, Element, ResolvedDatachainInstance } from './types.js'
 import { deriveElementDisplay } from './element-display.js'
 import { extract } from './locale.js'
 
@@ -46,14 +46,14 @@ type SourceTag = 'snapshot' | 'suggested'
 
 /**
  * Build the ordered list of `RenderedSection`s from a
- * `ResolvedDatachain` — the resolved-form analogue to the existing
+ * `ResolvedDatachainInstance` — the resolved-form analogue to the existing
  * non-resolved `buildSections` (api/src/mcp/tools/render_datachain.ts).
  *
  * Behavior:
  *
  *   - Element-id resolution: snapshot first, then suggested. Snapshot
  *     wins on collision. Collisions are caller responsibility (the
- *     R15a refinement on `ResolvedDatachainSchema` and U2's semantic
+ *     R15a refinement on `ResolvedDatachainInstanceSchema` and U2's semantic
  *     validator both reject them); this helper is defensive — it
  *     simply prefers the snapshot record.
  *
@@ -85,7 +85,7 @@ type SourceTag = 'snapshot' | 'suggested'
  *     malformed input rather than render an empty datachain silently.
  */
 export function buildResolvedSections(
-  resolved: ResolvedDatachain,
+  resolved: ResolvedDatachainInstance,
   locale: string,
   options: BuildResolvedSectionsOptions = {},
 ): RenderedSection[] {

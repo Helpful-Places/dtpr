@@ -7,7 +7,7 @@ import type {
   Element,
   InstanceElement,
   LocaleValue,
-  ResolvedDatachain,
+  ResolvedDatachainInstance,
   SchemaSnapshot,
 } from './types.js'
 
@@ -78,7 +78,7 @@ interface MakeResolvedOpts {
   provenance?: AuthoringProvenance
 }
 
-function makeResolved(opts: MakeResolvedOpts): ResolvedDatachain {
+function makeResolved(opts: MakeResolvedOpts): ResolvedDatachainInstance {
   const declared = opts.declaredCategoryIds ?? opts.categories.map((c) => c.id)
   const snapshot: SchemaSnapshot = {
     datachain_type: {
@@ -109,7 +109,7 @@ function makeResolved(opts: MakeResolvedOpts): ResolvedDatachain {
     schema_snapshot: snapshot,
     suggested_elements: opts.suggestedElements ?? [],
     ...(opts.provenance ? { authoring_provenance: opts.provenance } : {}),
-  } as ResolvedDatachain
+  } as ResolvedDatachainInstance
 }
 
 describe('buildResolvedSections', () => {
@@ -280,7 +280,7 @@ describe('buildResolvedSections', () => {
     }
     // Use an unsafe build so we can exercise the collision case (the
     // schema's R15a refinement would otherwise reject this input).
-    const resolved: ResolvedDatachain = {
+    const resolved: ResolvedDatachainInstance = {
       ...makeResolved({
         categories: cats,
         snapshotElements: [snapshotEl],
@@ -288,7 +288,7 @@ describe('buildResolvedSections', () => {
         provenance,
       }),
       suggested_elements: [suggestedEl],
-    } as ResolvedDatachain
+    } as ResolvedDatachainInstance
 
     const sections = buildResolvedSections(resolved, 'en')
     const el = sections[0]?.elements[0]!

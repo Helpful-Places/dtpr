@@ -1,7 +1,7 @@
 import type { Category } from '../../schema/category.ts'
 import type { DatachainType } from '../../schema/datachain-type.ts'
 import type { Element } from '../../schema/element.ts'
-import type { ResolvedDatachain } from '../../schema/datachain-instance-resolved.ts'
+import type { ResolvedDatachainInstance } from '../../schema/datachain-instance-resolved.ts'
 import type { SemanticError } from '../types.ts'
 import { err } from '../types.ts'
 
@@ -47,7 +47,7 @@ export type LoadCanonicalSchema = (
  * pass a sync stub still work.
  */
 export async function checkSnapshotConsistency(
-  resolved: ResolvedDatachain,
+  resolved: ResolvedDatachainInstance,
   load: LoadCanonicalSchema,
 ): Promise<SemanticError[]> {
   const canonical = await load(resolved.schema_version)

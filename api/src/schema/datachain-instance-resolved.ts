@@ -75,7 +75,7 @@ export type ElementProvenance = z.infer<typeof ElementProvenanceSchema>
 
 /**
  * Authoring provenance — describes who/what produced a
- * `ResolvedDatachain`. Discriminated by `kind` so consumers can
+ * `ResolvedDatachainInstance`. Discriminated by `kind` so consumers can
  * switch on a single literal field.
  *
  * Two shapes:
@@ -89,7 +89,7 @@ export type ElementProvenance = z.infer<typeof ElementProvenanceSchema>
  *     Ruby generator's intent (`hp-app` `DatachainGenerator`).
  *
  * R14 implication (`suggested_elements.length > 0 ⟹
- * kind === 'ai_generated'`) lives on `ResolvedDatachainSchema` as a
+ * kind === 'ai_generated'`) lives on `ResolvedDatachainInstanceSchema` as a
  * `.refine(...)` and is mirrored on the wire path by
  * `checkProvenanceRequired`.
  */
@@ -121,13 +121,13 @@ export const AuthoringProvenanceSchema = z
       })
       .describe('AI-assisted authoring with per-element rationale and optional model metadata'),
   ])
-  .describe('Authoring provenance for a ResolvedDatachain — discriminated by `kind`')
+  .describe('Authoring provenance for a ResolvedDatachainInstance — discriminated by `kind`')
 
 export type AuthoringProvenance = z.infer<typeof AuthoringProvenanceSchema>
 
 /**
  * Schema snapshot — the slice of schema content (datachain type,
- * categories, elements) frozen onto a `ResolvedDatachain` at
+ * categories, elements) frozen onto a `ResolvedDatachainInstance` at
  * resolve-time. Pinning this snapshot decouples runtime rendering
  * and validation from the live schema store: a deployed disclosure
  * keeps rendering correctly even if the schema evolves or the live
@@ -149,7 +149,7 @@ export const SchemaSnapshotSchema = z
       .array(ElementSchema)
       .describe('Full element definitions pinned at resolve-time'),
   })
-  .describe('Frozen slice of schema content pinned onto a ResolvedDatachain')
+  .describe('Frozen slice of schema content pinned onto a ResolvedDatachainInstance')
 
 export type SchemaSnapshot = z.infer<typeof SchemaSnapshotSchema>
 
@@ -179,7 +179,7 @@ export type SchemaSnapshot = z.infer<typeof SchemaSnapshotSchema>
  *     same `id`. Snapshot wins on lookup; collisions are rejected at
  *     parse-time so resolution never sees ambiguity.
  */
-export const ResolvedDatachainSchema = DatachainInstanceSchema.extend({
+export const ResolvedDatachainInstanceSchema = DatachainInstanceSchema.extend({
   schema_snapshot: SchemaSnapshotSchema.describe(
     'Frozen schema content (datachain type, categories, elements) pinned at resolve-time. Decouples rendering from the live schema store.',
   ),
@@ -222,4 +222,4 @@ export const ResolvedDatachainSchema = DatachainInstanceSchema.extend({
     },
   )
 
-export type ResolvedDatachain = z.infer<typeof ResolvedDatachainSchema>
+export type ResolvedDatachainInstance = z.infer<typeof ResolvedDatachainInstanceSchema>

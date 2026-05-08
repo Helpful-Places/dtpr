@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { checkElementProvenanceKeys } from '../../src/validator/rules/element-provenance-keys.ts'
-import type { ResolvedDatachain } from '../../src/schema/datachain-instance-resolved.ts'
+import type { ResolvedDatachainInstance } from '../../src/schema/datachain-instance-resolved.ts'
 import type { LocaleCode, LocaleValue } from '../../src/schema/locale.ts'
 import type { Element } from '../../src/schema/element.ts'
 import type { Category } from '../../src/schema/category.ts'
@@ -57,7 +57,7 @@ function makeResolved(opts: {
   snapshotIds: string[]
   elementProvenance?: Record<string, { rationale?: string }>
   kind?: 'human' | 'ai_generated'
-}): ResolvedDatachain {
+}): ResolvedDatachainInstance {
   const provenance =
     opts.elementProvenance !== undefined || opts.kind !== undefined
       ? {
@@ -88,7 +88,7 @@ function makeResolved(opts: {
       elements: opts.snapshotIds.map(el),
     },
     suggested_elements: [],
-    ...(provenance ? { authoring_provenance: provenance as ResolvedDatachain['authoring_provenance'] } : {}),
+    ...(provenance ? { authoring_provenance: provenance as ResolvedDatachainInstance['authoring_provenance'] } : {}),
   }
 }
 

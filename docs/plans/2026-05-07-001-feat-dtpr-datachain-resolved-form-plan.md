@@ -1,16 +1,16 @@
 ---
-title: "feat: ResolvedDatachain — strict-superset wire shape with snapshot, suggested elements, and authoring provenance"
+title: "feat: ResolvedDatachainInstance — strict-superset wire shape with snapshot, suggested elements, and authoring provenance"
 type: feat
 status: completed
 date: 2026-05-07
 origin: docs/brainstorms/2026-05-07-dtpr-datachain-instance-resolved-form-brainstorm.md
 ---
 
-# feat: ResolvedDatachain — strict-superset wire shape with snapshot, suggested elements, and authoring provenance
+# feat: ResolvedDatachainInstance — strict-superset wire shape with snapshot, suggested elements, and authoring provenance
 
 ## Summary
 
-Add `ResolvedDatachain` as a strict structural superset of `DatachainInstanceSchema`, attaching a referenced-subset `schema_snapshot` (full `datachain_type` + lean `categories`/`elements`), an optional `suggested_elements: Element[]` array for LLM-proposed elements, and an optional discriminated-union `authoring_provenance`. Ship two new REST endpoints (`POST /schemas/:version/resolve`, `POST /schemas/:version/validate_resolved`), two sibling MCP tools (`resolve_datachain`, `validate_resolved`), and a snapshot-aware section builder in `@dtpr/ui/core` that drives the existing `<DtprDatachain>` / `<DtprElementDetail>` / `renderDatachainDocument` / MCP `render_datachain` paths additively. The thin `DatachainInstance` contract, `validate` semantics, and existing v2 fixtures stay byte-for-byte unchanged.
+Add `ResolvedDatachainInstance` as a strict structural superset of `DatachainInstanceSchema`, attaching a referenced-subset `schema_snapshot` (full `datachain_type` + lean `categories`/`elements`), an optional `suggested_elements: Element[]` array for LLM-proposed elements, and an optional discriminated-union `authoring_provenance`. Ship two new REST endpoints (`POST /schemas/:version/resolve`, `POST /schemas/:version/validate_resolved`), two sibling MCP tools (`resolve_datachain`, `validate_resolved`), and a snapshot-aware section builder in `@dtpr/ui/core` that drives the existing `<DtprDatachain>` / `<DtprElementDetail>` / `renderDatachainDocument` / MCP `render_datachain` paths additively. The thin `DatachainInstance` contract, `validate` semantics, and existing v2 fixtures stay byte-for-byte unchanged.
 
 (see origin: `docs/brainstorms/2026-05-07-dtpr-datachain-instance-resolved-form-brainstorm.md`)
 
@@ -23,7 +23,7 @@ DTPR's v2 thin `DatachainInstance` is a pointer shape — every element is `{ele
 - **hp-app** persists a richer denormalized snapshot per algorithm (full element records inlined per-locale, instance overrides, `ai_generation` provenance, snapshot of the pinned schema's categories) so transparency pages, admin UI, and signage PDFs render without API access. Today this shape is private.
 - **DTPR agent skills** (`dtpr-describe-system`, `dtpr-element-design`) produce datachains that may carry LLM-proposed elements not in the pinned schema. `validate` rejects unknown `element_id` references, and authoring-tool draft state is not portable. Reviewers cannot package and swap an AI-authored draft for review before promoting proposed elements to a real schema version.
 
-The brainstorm committed to a sibling `ResolvedDatachain` Zod type — strict structural superset, additive endpoints, additive renderer surface — so the thin contract stays load-bearing for `validate` while the resolved form blesses both consumer paths.
+The brainstorm committed to a sibling `ResolvedDatachainInstance` Zod type — strict structural superset, additive endpoints, additive renderer surface — so the thin contract stays load-bearing for `validate` while the resolved form blesses both consumer paths.
 
 ---
 
@@ -33,11 +33,11 @@ All requirement IDs trace to `docs/brainstorms/2026-05-07-dtpr-datachain-instanc
 
 **Two wire forms (additive)**
 - R1 — thin `DatachainInstance` shape and `validate` contract preserved → **U1, U5, U6**
-- R2 — new `ResolvedDatachain` strict superset with `schema_snapshot`, `suggested_elements`, `authoring_provenance?` → **U1**
-- R3 — `ResolvedDatachain → DatachainInstance` is a structural strip when `suggested_elements.length === 0` → **U1, U3**
+- R2 — new `ResolvedDatachainInstance` strict superset with `schema_snapshot`, `suggested_elements`, `authoring_provenance?` → **U1**
+- R3 — `ResolvedDatachainInstance → DatachainInstance` is a structural strip when `suggested_elements.length === 0` → **U1, U3**
 
 **Resolve contract**
-- R4 — `resolve(thin, schema) → ResolvedDatachain` is pure with stable serialization (round-trip is post-parse equivalence, not byte-identity) → **U3**
+- R4 — `resolve(thin, schema) → ResolvedDatachainInstance` is pure with stable serialization (round-trip is post-parse equivalence, not byte-identity) → **U3**
 - R5 — `POST /schemas/:version/resolve` REST endpoint and `resolve_datachain` MCP tool with `RL_RESOLVE` rate-limit bucket, 512 KB response cap, per-route wall-clock budget (the brainstorm's "1000ms via `limits.cpu_ms`" is structurally inconsistent with Wrangler — see Key Technical Decisions) → **U4, U5, U6**
 - R6 — `schema_snapshot.datachain_type` is full; `categories` and `elements` are referenced-subset → **U3**
 - R7 — the `resolve` operation (REST + MCP entry points) runs `validate` internally before calling the pure `resolve(thin, schema)` function; the pure function trusts the parsed input and never produces `suggested_elements` → **U3, U5**
@@ -52,7 +52,7 @@ All requirement IDs trace to `docs/brainstorms/2026-05-07-dtpr-datachain-instanc
 - R12 — `AuthoringProvenance` distinct from `sources`/`ProvenanceRef`; coexist on the same shape → **U1, U8, U10**
 
 **Suggested elements**
-- R13 — `suggested_elements` lives on `ResolvedDatachain` only; thin `DatachainInstance` never carries them → **U1, U2**
+- R13 — `suggested_elements` lives on `ResolvedDatachainInstance` only; thin `DatachainInstance` never carries them → **U1, U2**
 - R14 — `suggested_elements.length > 0 ⟹ authoring_provenance.kind === 'ai_generated'` (instance-level Zod refinement) → **U1**
 - R15 — element-id resolution: `schema_snapshot.elements` first, fall through to `suggested_elements` → **U7**
 - R15a — element-id collision is a hard error in `validate_resolved` → **U2**
@@ -64,7 +64,7 @@ All requirement IDs trace to `docs/brainstorms/2026-05-07-dtpr-datachain-instanc
 - R17a — fork-forever post-promotion lifecycle; persisted artifacts do not auto-rebase → **(documented in U10)**
 
 **Renderer contract**
-- R18 — `<DtprDatachain>`, `renderDatachainDocument`, MCP `render_datachain` render `ResolvedDatachain` end-to-end with no further schema fetches; locale stays a caller responsibility → **U7, U9**
+- R18 — `<DtprDatachain>`, `renderDatachainDocument`, MCP `render_datachain` render `ResolvedDatachainInstance` end-to-end with no further schema fetches; locale stays a caller responsibility → **U7, U9**
 - R19 — element-id fallthrough is part of the renderer contract → **U7**
 
 **Documentation**
@@ -90,14 +90,14 @@ All requirement IDs trace to `docs/brainstorms/2026-05-07-dtpr-datachain-instanc
 - Per-placement `AuthoringProvenance` override; instance-level only in v1
 - Structural typing for `source_references` (e.g. `{ label, url? }`); v1 keeps `string[]` with URL-scheme refinement
 - In-product mutate-a-suggested-element edit loop; rejection is operational
-- hp-app's downstream migration to consume `ResolvedDatachain`; out-of-band consumer work
+- hp-app's downstream migration to consume `ResolvedDatachainInstance`; out-of-band consumer work
 - Frame A type collapse, Frame C content-hashed bundle pinning, "suggested: true" on the thin form, element-id prefix encoding of suggested in the thin form, and any change to `validate`'s thin input/output (all rejected in the brainstorm)
 - Schema-snapshot integrity / forged-snapshot threat model — explicitly **out of scope for v1** per user decision; trust-boundary documented in `concepts/datachains.md`. Re-entry path is the deferred content-hash-on-resolved-artifact item above.
 
 ### Deferred to Follow-Up Work
 
 - **hp-app shape audit and migration**: hp-app is not reachable from this repo (no sibling worktree, no workspace package). The `AuthoringProvenance.ai_generated` field set ships in v1 with the discriminated-union shape committed and all candidate fields (`rationale`, `confidence`, `source_references`, `variable_rationale`, `model`, `generated_at`) optional. A side-by-side audit against hp-app's persisted artifact happens out-of-band when hp-app is reachable; field-name normalization or required/optional tightening lands in a follow-up if needed.
-- **`dtpr-describe-system` and other skill output updates** to emit `ResolvedDatachain` (with `authoring_provenance.kind === 'ai_generated'`) when proposed elements are surfaced. The schema layer ships first; skill `SKILL.md` updates follow in a separate PR so the schema is reviewable independently.
+- **`dtpr-describe-system` and other skill output updates** to emit `ResolvedDatachainInstance` (with `authoring_provenance.kind === 'ai_generated'`) when proposed elements are surfaced. The schema layer ships first; skill `SKILL.md` updates follow in a separate PR so the schema is reviewable independently.
 
 ---
 
@@ -108,7 +108,7 @@ All requirement IDs trace to `docs/brainstorms/2026-05-07-dtpr-datachain-instanc
 **Schema layer** (all under `api/src/schema/`):
 - `datachain-instance.ts` — `DatachainInstance` (lines 143-181), `InstanceElement` (lines 52-92). Confirmed: `InstanceElementSchema` has no `category_id` field; the brainstorm's "stale field in docs" call is correct. Defaults that defeat byte-identity round-trip: `priority: 0`, `variables: []`, `subchain_instances: []`, `sources: []`, `linked_instance_ids: []`.
 - `category.ts`, `element.ts`, `datachain-type.ts`, `locale.ts`, `manifest.ts`, `provenance.ts`, `index.ts` (barrel)
-- `emit-json-schema.ts` — `emitAllContentSchemas()` at lines 43-51 emits `Manifest, DatachainType, Category, Element, DatachainInstance`. Add `ResolvedDatachain` and `AuthoringProvenance` here so they ship in `schema_json` and reach the MCP `get_schema` tool. The header comment at line 26 mandates `emitJsonSchema()` for consistency across CLI/REST/MCP.
+- `emit-json-schema.ts` — `emitAllContentSchemas()` at lines 43-51 emits `Manifest, DatachainType, Category, Element, DatachainInstance`. Add `ResolvedDatachainInstance` and `AuthoringProvenance` here so they ship in `schema_json` and reach the MCP `get_schema` tool. The header comment at line 26 mandates `emitJsonSchema()` for consistency across CLI/REST/MCP.
 
 **API surface**:
 - `api/src/rest/routes.ts:375-423` — `POST /schemas/:version/validate` handler. Soft-failure: `ZodError` and semantic failures both return HTTP 200 with `{ ok: false, errors }`. Reuse this convention for `validate_resolved`.
@@ -126,7 +126,7 @@ All requirement IDs trace to `docs/brainstorms/2026-05-07-dtpr-datachain-instanc
 
 **Renderer surfaces**:
 - `packages/ui/src/core/element-display.ts:61-132` — `deriveElementDisplay()`. Already locale-resolved and category-aware. The wire-shape extension is hidden behind `ElementDisplay`, NOT pushed up into Vue components.
-- `packages/ui/src/vue/DtprDatachain.vue:5-24` — accepts `sections: readonly SectionDescriptor[]`. Does not import `DatachainInstance` or `Element` directly. **No Vue API change required** to support `ResolvedDatachain`.
+- `packages/ui/src/vue/DtprDatachain.vue:5-24` — accepts `sections: readonly SectionDescriptor[]`. Does not import `DatachainInstance` or `Element` directly. **No Vue API change required** to support `ResolvedDatachainInstance`.
 - `packages/ui/src/vue/DtprElement.vue:6-15` — `display: ElementDisplay` prop only. Compact view; carries the proposed indicator.
 - `packages/ui/src/vue/DtprElementDetail.vue:12-26, 239-241` — detail view. R15c's "AI proposal context" expandable slots between `<slot name="after-variables" />` and the citation.
 - `packages/ui/src/html/document.ts:55-108` — `renderDatachainDocument(sections, options)`. Same story as `<DtprDatachain>` — accepts `RenderedSection[]`, no surgery needed.
@@ -134,7 +134,7 @@ All requirement IDs trace to `docs/brainstorms/2026-05-07-dtpr-datachain-instanc
 **Test infrastructure**:
 - `api/test/api/seed.ts` — shared R2 seed harness. Reusable end-to-end for resolve and validate_resolved tests.
 - `api/test/api/rest.test.ts:264-339` — REST validate fixtures. Stay valid under the additive plan (success criterion 3).
-- `api/test/unit/json-schema-emit.test.ts:30-49` — covers emit keys list and asserts byte-stable emission. Refinement-emit verification (R14) lands here as a new assertion that the emitted `ResolvedDatachainSchema` carries an `allOf` (or `if-then-else`) constraint expressing the rule.
+- `api/test/unit/json-schema-emit.test.ts:30-49` — covers emit keys list and asserts byte-stable emission. Refinement-emit verification (R14) lands here as a new assertion that the emitted `ResolvedDatachainInstanceSchema` carries an `allOf` (or `if-then-else`) constraint expressing the rule.
 - `api/test/unit/semantic.test.ts` — pattern for new semantic-rule tests (R15a, R9 snapshot consistency).
 
 ### Institutional Learnings
@@ -149,7 +149,7 @@ External research skipped — local patterns are strong (REST endpoint addition,
 
 ## Key Technical Decisions
 
-- **Sibling type, additive evolution.** `DatachainInstanceSchema` is unchanged. `ResolvedDatachainSchema = DatachainInstanceSchema.extend({...}).refine(...).refine(...)`. Rationale per origin (R1, R2): zero v2 consumer breakage and round-trip is a structural strip, not a transformation.
+- **Sibling type, additive evolution.** `DatachainInstanceSchema` is unchanged. `ResolvedDatachainInstanceSchema = DatachainInstanceSchema.extend({...}).refine(...).refine(...)`. Rationale per origin (R1, R2): zero v2 consumer breakage and round-trip is a structural strip, not a transformation.
 
 - **Lean subset for `categories`/`elements`; full `datachain_type`.** The snapshot inlines only categories transitively required by the instance's placements plus the categories the required-categories rule (computed from `Category.required === true`, since required-ness lives on each Category record per `api/src/schema/category.ts`, not on a `DatachainType.required_categories` field) pulls in. `datachain_type` is full because it is small and load-bearing for renderer ordering (subchains, locale allow-list). Per origin R6.
 
@@ -173,7 +173,7 @@ External research skipped — local patterns are strong (REST endpoint addition,
 
 - **Schema-snapshot integrity is out of scope for v1.** Per user decision on the brainstorm's "Resolve before planning" threat-model gate. Documented as a trust boundary in `concepts/datachains.md`: consumers MUST NOT treat `schema_snapshot` as a forgery-resistant attestation. Re-entry path is the deferred content-hashed-resolved-artifact item in Scope Boundaries.
 
-- **No `<DtprDatachain>` Vue API change.** The component already accepts `RenderedSection[]`; the wire-shape change is absorbed by the section-builder layer. **Decision:** add a new `buildResolvedSections(resolved, locale)` helper to `@dtpr/ui/core` (sibling to `deriveElementDisplay`) that consumes a `ResolvedDatachain` directly and emits `RenderedSection[]` with the R15 fallthrough rule and R15b's default-on `proposed` indicator. Both MCP `render_datachain` and external `<DtprDatachain>` consumers use the same helper. Cleaner than the brainstorm's "new prop variant / separate component / single entry that branches" framing because it preserves a single component API and keeps the wire-shape concern in `core`.
+- **No `<DtprDatachain>` Vue API change.** The component already accepts `RenderedSection[]`; the wire-shape change is absorbed by the section-builder layer. **Decision:** add a new `buildResolvedSections(resolved, locale)` helper to `@dtpr/ui/core` (sibling to `deriveElementDisplay`) that consumes a `ResolvedDatachainInstance` directly and emits `RenderedSection[]` with the R15 fallthrough rule and R15b's default-on `proposed` indicator. Both MCP `render_datachain` and external `<DtprDatachain>` consumers use the same helper. Cleaner than the brainstorm's "new prop variant / separate component / single entry that branches" framing because it preserves a single component API and keeps the wire-shape concern in `core`.
 
 - **Promoted-element lifecycle: fork-forever.** Per origin R17a. Persisted resolved artifacts stay pinned; re-resolving a thin instance against a new schema version is the path to adopt a promoted element.
 
@@ -194,11 +194,11 @@ External research skipped — local patterns are strong (REST endpoint addition,
 
 ### Deferred to Implementation
 
-- **Refinement → JSON Schema emit verification** — empirical assertion in `api/test/unit/json-schema-emit.test.ts` that the emitted `ResolvedDatachainSchema` carries an `allOf` / `if-then-else` constraint expressing R14 (`suggested ⟹ ai_generated`). If `unrepresentable: 'any'` silently drops the conditional, the rule moves to the semantic validator path (R9 surface). Either way the wire shape stays unchanged. Lands in U1.
+- **Refinement → JSON Schema emit verification** — empirical assertion in `api/test/unit/json-schema-emit.test.ts` that the emitted `ResolvedDatachainInstanceSchema` carries an `allOf` / `if-then-else` constraint expressing R14 (`suggested ⟹ ai_generated`). If `unrepresentable: 'any'` silently drops the conditional, the rule moves to the semantic validator path (R9 surface). Either way the wire shape stays unchanged. Lands in U1.
 - **Qualitative confidence-bucket thresholds** for R15c (`<0.4` low / `0.4-0.7` medium / `>0.7` high is the strawman) — pick once real agent-skill output distributions are observed. Lands in U8.
 - **Sorted-key serializer choice** for R4 deterministic resolve — likely a small in-house `canonicalStringify(value)` over a third-party dep (the only consumer is resolve; `JSON.stringify` does not promise key order). Lands in U3.
 - **Exact field name for the proposed indicator badge** in `<DtprElement>` and `<DtprElementDetail>` — visual treatment (badge vs border vs label) chosen during U8 implementation; the requirement is "visible by default."
-- **`buildResolvedSections` helper signature** — `(resolved: ResolvedDatachain, locale: string, options?) => RenderedSection[]`. Final option-bag fields land during U7 implementation.
+- **`buildResolvedSections` helper signature** — `(resolved: ResolvedDatachainInstance, locale: string, options?) => RenderedSection[]`. Final option-bag fields land during U7 implementation.
 
 ---
 
@@ -209,7 +209,7 @@ External research skipped — local patterns are strong (REST endpoint addition,
 ### Wire shape relationship
 
 ```
-DatachainInstance                    ResolvedDatachain (strict superset)
+DatachainInstance                    ResolvedDatachainInstance (strict superset)
 ─────────────────────                ──────────────────────────────────
 id                                   id
 schema_version                       schema_version
@@ -262,7 +262,7 @@ linked_instance_ids (default [])     linked_instance_ids (default [])
 POST /schemas/:version/resolve              POST /schemas/:version/validate_resolved
 ─────────────────────────────────           ──────────────────────────────────────────
 1. version-resolver (404 on miss)           1. version-resolver (404 on miss)
-2. parse request as DatachainInstance       2. parse request as ResolvedDatachain
+2. parse request as DatachainInstance       2. parse request as ResolvedDatachainInstance
    (Zod soft-fail → HTTP 200 + ok:false)       (Zod soft-fail → HTTP 200 + ok:false)
 3. semantic validate (existing)             3. validateResolvedInstance:
 4. assemble schema_snapshot:                   - placement IDs ∈ snapshot ∪ suggested
@@ -280,7 +280,7 @@ POST /schemas/:version/resolve              POST /schemas/:version/validate_reso
 ### Renderer additivity (no Vue API change)
 
 ```
-ResolvedDatachain ──┐
+ResolvedDatachainInstance ──┐
                     │
                     ▼
        buildResolvedSections(resolved, locale)
@@ -312,9 +312,9 @@ ResolvedDatachain ──┐
 
 ## Implementation Units
 
-### U1. Add `ResolvedDatachain` Zod schema layer + JSON Schema emit verification
+### U1. Add `ResolvedDatachainInstance` Zod schema layer + JSON Schema emit verification
 
-**Goal:** Land `AuthoringProvenanceSchema`, `SchemaSnapshotSchema`, and `ResolvedDatachainSchema` (with R14 `suggested ⟹ ai_generated` and R15a collision refinements) as a strict superset of `DatachainInstanceSchema`. Verify empirically that `z.toJSONSchema` with `unrepresentable: 'any'` emits the conditional refinement as a well-formed constraint OR document the rule's home in the semantic validator.
+**Goal:** Land `AuthoringProvenanceSchema`, `SchemaSnapshotSchema`, and `ResolvedDatachainInstanceSchema` (with R14 `suggested ⟹ ai_generated` and R15a collision refinements) as a strict superset of `DatachainInstanceSchema`. Verify empirically that `z.toJSONSchema` with `unrepresentable: 'any'` emits the conditional refinement as a well-formed constraint OR document the rule's home in the semantic validator.
 
 **Requirements:** R1, R2, R3, R10, R11, R13, R14, R16
 
@@ -323,14 +323,14 @@ ResolvedDatachain ──┐
 **Files:**
 - Create: `api/src/schema/datachain-instance-resolved.ts`
 - Modify: `api/src/schema/index.ts` (barrel export)
-- Modify: `api/src/schema/emit-json-schema.ts` (add `ResolvedDatachain` and `AuthoringProvenance` to `emitAllContentSchemas()` at lines 43-51)
+- Modify: `api/src/schema/emit-json-schema.ts` (add `ResolvedDatachainInstance` and `AuthoringProvenance` to `emitAllContentSchemas()` at lines 43-51)
 - Test: `api/test/unit/datachain-instance-resolved.test.ts`
 - Test (extend): `api/test/unit/json-schema-emit.test.ts:30-49` (expected-keys list + new refinement-emit assertion)
 
 **Approach:**
 - `AuthoringProvenanceSchema` is a `z.discriminatedUnion('kind', [...])` with `'human'` (marker only) and `'ai_generated'` (all candidate fields optional per Scope Boundaries — `rationale`, `confidence` clamped `0..1`, `source_references` array of URLs constrained by a `.refine` to `https:`/`http:` schemes, `variable_rationale` record, `model`, `generated_at` ISO datetime).
 - `SchemaSnapshotSchema` carries `datachain_type: DatachainTypeSchema` (full), `categories: z.array(CategorySchema)`, `elements: z.array(ElementSchema)`.
-- `ResolvedDatachainSchema = DatachainInstanceSchema.extend({ schema_snapshot, suggested_elements: z.array(ElementSchema).default([]), authoring_provenance: AuthoringProvenanceSchema.optional() }).refine(R14).refine(R15a)`.
+- `ResolvedDatachainInstanceSchema = DatachainInstanceSchema.extend({ schema_snapshot, suggested_elements: z.array(ElementSchema).default([]), authoring_provenance: AuthoringProvenanceSchema.optional() }).refine(R14).refine(R15a)`.
 - Every field carries `.describe(...)` per the repo convention asserted in `api/test/unit/json-schema-emit.test.ts:22-28`.
 - New emit assertion: parse the emitted JSON Schema, walk it for an `allOf` (or `if/then/else`) member whose effect is "if `suggested_elements.length > 0` then `authoring_provenance.kind === 'ai_generated'`". If absent — Zod silently dropped the refinement under `unrepresentable: 'any'` — flag clearly, leave the Zod refinement in place (it still runs at parse time), and route the runtime enforcement through `validate_resolved`'s semantic path in U2 instead. Either way the wire shape and parse-time behavior are unchanged.
 
@@ -340,7 +340,7 @@ ResolvedDatachain ──┐
 - Emit-list update: `api/src/schema/emit-json-schema.ts:43-51`
 
 **Test scenarios:**
-- Happy path: parsing a thin `DatachainInstance` literal through `ResolvedDatachainSchema` rejects (missing `schema_snapshot`) — strict superset is enforced.
+- Happy path: parsing a thin `DatachainInstance` literal through `ResolvedDatachainInstanceSchema` rejects (missing `schema_snapshot`) — strict superset is enforced.
 - Happy path: parsing a literal with `schema_snapshot` and empty `suggested_elements` succeeds without `authoring_provenance` (R14's antecedent is false).
 - Happy path: parsing a literal with non-empty `suggested_elements` and `authoring_provenance: { kind: 'ai_generated' }` succeeds.
 - Edge case: `suggested_elements.length === 0` with `authoring_provenance: { kind: 'human' }` succeeds (R14 is implication, not biconditional).
@@ -349,9 +349,9 @@ ResolvedDatachain ──┐
 - Error path: non-empty `suggested_elements` with `authoring_provenance: { kind: 'human' }` rejects on R14.
 - Error path: non-empty `suggested_elements` with `authoring_provenance` undefined rejects on R14.
 - Error path: collision rule (R15a) — `schema_snapshot.elements: [{ id: 'foo', ... }]`, `suggested_elements: [{ id: 'foo', ... }]` rejects with the path `['suggested_elements']`.
-- Round-trip equivalence (R3, R4): parsing a `ResolvedDatachain`, omitting the three new fields, and parsing as `DatachainInstance` yields a value equivalent (post-parse, post-default-population) to a directly-parsed thin `DatachainInstance` of the same elements.
-- JSON Schema emit (R13): the emitted `schema_json` includes `ResolvedDatachain` and `AuthoringProvenance` as top-level keys.
-- JSON Schema emit refinement assertion: walk the emitted `ResolvedDatachain` schema for the R14 conditional. PASS if present (record the JSON Schema shape used). FAIL — flag clearly, the Zod refinement still runs, U2 picks up runtime enforcement.
+- Round-trip equivalence (R3, R4): parsing a `ResolvedDatachainInstance`, omitting the three new fields, and parsing as `DatachainInstance` yields a value equivalent (post-parse, post-default-population) to a directly-parsed thin `DatachainInstance` of the same elements.
+- JSON Schema emit (R13): the emitted `schema_json` includes `ResolvedDatachainInstance` and `AuthoringProvenance` as top-level keys.
+- JSON Schema emit refinement assertion: walk the emitted `ResolvedDatachainInstance` schema for the R14 conditional. PASS if present (record the JSON Schema shape used). FAIL — flag clearly, the Zod refinement still runs, U2 picks up runtime enforcement.
 
 **Verification:**
 - Existing `api/test/unit/json-schema-emit.test.ts` byte-stability assertion still passes for the unchanged shapes.
@@ -360,7 +360,7 @@ ResolvedDatachain ──┐
 
 ---
 
-### U2. Semantic validator for `ResolvedDatachain` (collision, fallthrough, snapshot consistency)
+### U2. Semantic validator for `ResolvedDatachainInstance` (collision, fallthrough, snapshot consistency)
 
 **Goal:** Add `validateResolvedInstance(resolved, schema?)` that runs the R15 fallthrough resolution, the R15a collision rule, and the R9 snapshot-consistency check (only when the pinned version is in `INDEX_KEY`), plus the existing semantic rules adapted to operate against `schema_snapshot.elements ∪ suggested_elements`. This is the runtime backstop if Zod's JSON-Schema emit dropped the R14 refinement under `unrepresentable: 'any'`.
 
@@ -406,7 +406,7 @@ ResolvedDatachain ──┐
 
 ### U3. `resolve(thin, schema)` — deterministic snapshot assembler
 
-**Goal:** Implement the pure `resolve(thin: DatachainInstance, schema: SchemaContext) → ResolvedDatachain` function with stable serialization (sorted object keys, deterministic locale ordering, deterministic placement ordering inside `schema_snapshot.elements`/`schema_snapshot.categories`). Round-trip: `resolve(thin_parsed, schema) → strip(['schema_snapshot', 'suggested_elements', 'authoring_provenance']) → re-parse` yields the same parsed `DatachainInstance` value.
+**Goal:** Implement the pure `resolve(thin: DatachainInstance, schema: SchemaContext) → ResolvedDatachainInstance` function with stable serialization (sorted object keys, deterministic locale ordering, deterministic placement ordering inside `schema_snapshot.elements`/`schema_snapshot.categories`). Round-trip: `resolve(thin_parsed, schema) → strip(['schema_snapshot', 'suggested_elements', 'authoring_provenance']) → re-parse` yields the same parsed `DatachainInstance` value.
 
 **Requirements:** R3, R4, R6, R7
 
@@ -424,7 +424,7 @@ ResolvedDatachain ──┐
 - Subset `elements` and `categories` from the `schema` argument by membership; preserve all locales as-is.
 - Sort: `categories` by `id` ascending; `elements` by `id` ascending; locales within each `LocaleValueArray` by the locale code's position in `manifest.locales`. Object keys via `canonicalStringify`.
 - Resolve never produces `suggested_elements` (R7); the field stays at default `[]`.
-- `authoring_provenance` is not set by resolve; it only enters `ResolvedDatachain` when an authoring tool produces a resolved form directly.
+- `authoring_provenance` is not set by resolve; it only enters `ResolvedDatachainInstance` when an authoring tool produces a resolved form directly.
 - `canonicalStringify(value)`: depth-first stringify with `Object.keys(value).sort()` at every object boundary, arrays preserved in input order. Keep it small (~30 LOC) so consumers don't have to pull a third-party canonical-JSON dep. **Always operates on the post-Zod-parsed value, never on raw author bytes** — Zod default population (`priority: 0`, `variables: []`, etc.) is the canonicalization input, so two thin instances differing only in elided defaults produce byte-identical resolved bundles.
 
 **Patterns to follow:**
@@ -432,7 +432,7 @@ ResolvedDatachain ──┐
 - Pure-function placement: sibling to `api/src/validator/`
 
 **Test scenarios:**
-- Happy path: resolve a thin instance referencing two elements across two categories yields a `ResolvedDatachain` with snapshot containing exactly those two elements + two categories + the full datachain-type.
+- Happy path: resolve a thin instance referencing two elements across two categories yields a `ResolvedDatachainInstance` with snapshot containing exactly those two elements + two categories + the full datachain-type.
 - Happy path: required-categories rule (R6) — schema declares `Category { id: 'cat-a', required: true, ... }`; instance places no elements in `cat-a`. Snapshot still includes `cat-a` because the rule pulls in every required category regardless of placement.
 - Edge case: instance with no placements yields a snapshot with empty `categories`/`elements` and the full `datachain_type`. (Behavior under degenerate input is well-defined.)
 - Edge case: locale ordering — schema declares `manifest.locales: ['en', 'fr']`; element has locales declared in `[fr, en]` order. After resolve, the locale array within each element is `[en, fr]` regardless of input order.
@@ -500,7 +500,7 @@ ResolvedDatachain ──┐
 **Approach:**
 - Handlers reuse the validate handler's pre-flight: `resolveKnownVersion` → 404 envelope on miss; JSON parse → `bad_request` 400 on failure; Zod parse → soft-failure HTTP 200 on `ZodError` (R8 contract preserved).
 - Resolve flow: thin Zod parse → existing `validateInstance` (semantic) → `resolve(thin, schemaCtx)` → `canonicalStringify` → byte-length check against `512 * 1024`. If over the cap, return `apiErrors.payloadTooLarge('resolved bundle exceeds 512 KB cap')` envelope with HTTP 413.
-- Validate_resolved flow: `ResolvedDatachainSchema.parse` → `validateResolvedInstance` → soft-failure envelope on error; HTTP 200 on success.
+- Validate_resolved flow: `ResolvedDatachainInstanceSchema.parse` → `validateResolvedInstance` → soft-failure envelope on error; HTTP 200 on success.
 - Per-route timeout mount: 5000 ms wall-clock via the existing `timeoutMiddleware`. Mounted explicitly per-route (per the `app.ts:56-66` comment about wildcard pitfalls).
 - Both handlers use `loadCtx(c)` for R2 + execution context (existing pattern).
 
@@ -510,13 +510,13 @@ ResolvedDatachain ──┐
 - `api/src/middleware/errors.ts:54` — `payloadTooLarge` envelope factory
 
 **Test scenarios:**
-- Happy path: resolve a known thin fixture; response status 200, body parses as `ResolvedDatachain`, contains `schema_snapshot`/`suggested_elements: []`/no `authoring_provenance`.
+- Happy path: resolve a known thin fixture; response status 200, body parses as `ResolvedDatachainInstance`, contains `schema_snapshot`/`suggested_elements: []`/no `authoring_provenance`.
 - Happy path: validate_resolved a known good resolved fixture; response status 200, body `{ ok: true }`.
 - Edge case: resolve returns a snapshot with `categories.length` matching the lean-subset rule (R6); explicit assertion against the placement set.
 - Edge case: 413 cap — resolve a fixture engineered to exceed 512 KB (e.g., schema with 10 categories × 1000 elements × 6 locales). Response status 413, body `apiErrors.payloadTooLarge` envelope.
 - Error path: resolve with a thin fixture that fails semantic validate returns soft-failure HTTP 200 with the same error envelope as `/validate` would (R7 contract).
 - Error path: resolve against an unknown version returns 404 with `apiErrors.notFound` envelope.
-- Error path: validate_resolved with a `ResolvedDatachain` carrying `suggested_elements` colliding with snapshot returns soft-failure HTTP 200 with R15a error.
+- Error path: validate_resolved with a `ResolvedDatachainInstance` carrying `suggested_elements` colliding with snapshot returns soft-failure HTTP 200 with R15a error.
 - Error path: validate_resolved with `suggested_elements` non-empty and no `authoring_provenance` returns soft-failure HTTP 200 with R14 error.
 - Edge case: validate_resolved against a version absent from `INDEX_KEY` skips the snapshot-consistency check (R9 graceful degradation); other rules still apply.
 - Integration: existing `validate` REST tests at `api/test/api/rest.test.ts:264-339` continue to pass byte-for-byte (success criterion 3).
@@ -546,7 +546,7 @@ ResolvedDatachain ──┐
 
 **Approach:**
 - Both tools share the request-parse + version-resolution pre-flight with `validate_datachain` (`api/src/mcp/tools.ts:470-561`); extract a shared helper if duplication exceeds two cases.
-- `resolve_datachain` input schema: `{ version: string, datachain: unknown }`. Output: `OkEnvelope<ResolvedDatachain>` with the resolved JSON inline in `structuredContent` and the same payload mirrored in `content[].text` (envelope back-compat per `api/src/mcp/envelope.ts:1-11`).
+- `resolve_datachain` input schema: `{ version: string, datachain: unknown }`. Output: `OkEnvelope<ResolvedDatachainInstance>` with the resolved JSON inline in `structuredContent` and the same payload mirrored in `content[].text` (envelope back-compat per `api/src/mcp/envelope.ts:1-11`).
 - `validate_resolved` input schema: `{ version: string, datachain: unknown }`. Output: `OkEnvelope<{ valid: true }>` on success; `toSoftFailureResult(errEnvelope(...))` with `isError: false` on validation failure, mirroring `validate_datachain`'s posture.
 - 512 KB cap on `resolve_datachain` follows the REST handler's check (U5); over-cap returns the same error envelope.
 - The MCP envelope already carries `meta.budget_ms` / similar metadata patterns; mirror what `validate_datachain` emits.
@@ -557,7 +557,7 @@ ResolvedDatachain ──┐
 - `api/test/api/mcp/render_datachain.test.ts` — MCP tool test fixtures, seeding pattern
 
 **Test scenarios:**
-- Happy path: `resolve_datachain` against a known thin fixture returns `OkEnvelope<ResolvedDatachain>` with `structuredContent.data` parseable as `ResolvedDatachain` and `content[0].text` carrying the same JSON.
+- Happy path: `resolve_datachain` against a known thin fixture returns `OkEnvelope<ResolvedDatachainInstance>` with `structuredContent.data` parseable as `ResolvedDatachainInstance` and `content[0].text` carrying the same JSON.
 - Happy path: `validate_resolved` against a known good resolved fixture returns `OkEnvelope<{ valid: true }>`.
 - Error path: `resolve_datachain` with a Zod-failing input returns soft-failure (`isError: false`, error envelope in result); the older-protocol `content[]` text mirrors the structured payload.
 - Error path: `validate_resolved` with R15a collision input returns soft-failure with the collision error in the envelope's `errors[]`.
@@ -572,15 +572,15 @@ ResolvedDatachain ──┐
 
 ### U7. UI core: extend `ElementDisplay`, add `buildResolvedSections` snapshot-aware section builder
 
-**Goal:** Add `proposed?: boolean` and `provenance?: AuthoringProvenance` to `ElementDisplay` (additive, all existing callers ignore the new optional fields) and ship a new `buildResolvedSections(resolved, locale, options?)` helper in `@dtpr/ui/core` that consumes a `ResolvedDatachain` and emits `RenderedSection[]` with the R15 fallthrough rule and R15b's default-on `proposed` indicator.
+**Goal:** Add `proposed?: boolean` and `provenance?: AuthoringProvenance` to `ElementDisplay` (additive, all existing callers ignore the new optional fields) and ship a new `buildResolvedSections(resolved, locale, options?)` helper in `@dtpr/ui/core` that consumes a `ResolvedDatachainInstance` and emits `RenderedSection[]` with the R15 fallthrough rule and R15b's default-on `proposed` indicator.
 
 **Requirements:** R10, R12, R15, R15b, R18, R19
 
-**Dependencies:** U1 (schemas exported; `ResolvedDatachain` and `AuthoringProvenance` types reachable from `@dtpr/ui` either by re-export or by sibling type definition)
+**Dependencies:** U1 (schemas exported; `ResolvedDatachainInstance` and `AuthoringProvenance` types reachable from `@dtpr/ui` either by re-export or by sibling type definition)
 
 **Files:**
 - Modify: `packages/ui/src/core/element-display.ts:61-132` (extend `ElementDisplay` type with `proposed?` and `provenance?`)
-- Modify: `packages/ui/src/core/types.ts` or equivalent re-export barrel (surface `AuthoringProvenance` and `ResolvedDatachain` types — types only; the Zod runtime stays in `@dtpr/api`)
+- Modify: `packages/ui/src/core/types.ts` or equivalent re-export barrel (surface `AuthoringProvenance` and `ResolvedDatachainInstance` types — types only; the Zod runtime stays in `@dtpr/api`)
 - Create: `packages/ui/src/core/build-resolved-sections.ts`
 - Test: `packages/ui/test/core/element-display.test.ts` (extend if exists)
 - Test: `packages/ui/test/core/build-resolved-sections.test.ts`
@@ -594,15 +594,15 @@ ResolvedDatachain ──┐
   - Bucket by `category_id`; preserve `datachain_type.categories` declared order.
   - Emit `RenderedSection[]` matching the existing `buildSections` output shape in `api/src/mcp/tools/render_datachain.ts:102-136` so downstream rendering is identical.
 - `options?: { proposedIndicator?: boolean }` defaults to `true` per R15b ("default-on").
-- Type re-export: `@dtpr/ui` consumers should not need to install `@dtpr/api`; ship the `AuthoringProvenance` and `ResolvedDatachain` types from `@dtpr/ui/core` as `import type` re-exports (workspace-relative). If that creates a dependency loop, ship a structural type local to `@dtpr/ui/core` whose shape is asserted-equal to the API type via a typecheck-only test.
+- Type re-export: `@dtpr/ui` consumers should not need to install `@dtpr/api`; ship the `AuthoringProvenance` and `ResolvedDatachainInstance` types from `@dtpr/ui/core` as `import type` re-exports (workspace-relative). If that creates a dependency loop, ship a structural type local to `@dtpr/ui/core` whose shape is asserted-equal to the API type via a typecheck-only test.
 
 **Patterns to follow:**
 - `packages/ui/src/core/element-display.ts:61-132` — the existing locale-resolved derivation
 - `api/src/mcp/tools/render_datachain.ts:102-136` — existing `buildSections` for the section-building shape
 
 **Test scenarios:**
-- Happy path: a `ResolvedDatachain` with two snapshot elements, no suggested, returns two `RenderedSection`s; every `display.proposed === false`; `display.provenance === undefined`.
-- Happy path: a `ResolvedDatachain` with one snapshot + one suggested element + `authoring_provenance: { kind: 'ai_generated', rationale: 'foo' }` returns sections where `display.proposed === false` for the snapshot element and `display.proposed === true` for the suggested element; both carry the same `display.provenance`.
+- Happy path: a `ResolvedDatachainInstance` with two snapshot elements, no suggested, returns two `RenderedSection`s; every `display.proposed === false`; `display.provenance === undefined`.
+- Happy path: a `ResolvedDatachainInstance` with one snapshot + one suggested element + `authoring_provenance: { kind: 'ai_generated', rationale: 'foo' }` returns sections where `display.proposed === false` for the snapshot element and `display.proposed === true` for the suggested element; both carry the same `display.provenance`.
 - Edge case: `options.proposedIndicator: false` opt-out — `display.proposed` is `false` on suggested elements (caller-controlled override). R15b's default-on requirement is preserved because the parameter is opt-out, not opt-in.
 - Edge case: locale fallthrough — locale not in the element's `LocaleValueArray`; `deriveElementDisplay` falls back per existing semantics; `buildResolvedSections` does not interfere.
 - Edge case: collision (snapshot wins) — the helper does not enforce R15a (validator's job); on collision input the snapshot's element record is used. Defensive behavior, not a contract.
@@ -664,9 +664,9 @@ ResolvedDatachain ──┐
 
 ---
 
-### U9. MCP `render_datachain` accepts `ResolvedDatachain`
+### U9. MCP `render_datachain` accepts `ResolvedDatachainInstance`
 
-**Goal:** Extend the MCP `render_datachain` tool to accept either a thin `DatachainInstance` (existing) or a `ResolvedDatachain` (new). When given a resolved input, skip the schema fetch and use `buildResolvedSections` (U7) directly.
+**Goal:** Extend the MCP `render_datachain` tool to accept either a thin `DatachainInstance` (existing) or a `ResolvedDatachainInstance` (new). When given a resolved input, skip the schema fetch and use `buildResolvedSections` (U7) directly.
 
 **Requirements:** R18, R19
 
@@ -677,7 +677,7 @@ ResolvedDatachain ──┐
 - Test: `api/test/api/mcp/render_datachain.test.ts` (extend)
 
 **Approach:**
-- Input schema becomes a discriminated union or an unknown that the handler tries to parse as `ResolvedDatachain` first, falling back to `DatachainInstance`. **Recommended:** add an explicit input shape signal — `{ version, datachain, locale }` where `datachain` is `unknown`; try `ResolvedDatachainSchema.safeParse(datachain)` first; if success, branch to `buildResolvedSections(resolved, locale)`; if failure, fall through to the existing thin-input path. Document the precedence in the tool description so MCP clients are not surprised.
+- Input schema becomes a discriminated union or an unknown that the handler tries to parse as `ResolvedDatachainInstance` first, falling back to `DatachainInstance`. **Recommended:** add an explicit input shape signal — `{ version, datachain, locale }` where `datachain` is `unknown`; try `ResolvedDatachainInstanceSchema.safeParse(datachain)` first; if success, branch to `buildResolvedSections(resolved, locale)`; if failure, fall through to the existing thin-input path. Document the precedence in the tool description so MCP clients are not surprised.
 - When the input is resolved, no R2 schema load is required (the snapshot is self-contained per R18). Skips `loadCtx` for the schema-fetch path; the handler still needs `sessionId` and `setDatachainHtml`.
 - HTML output is identical in shape to the thin-input path (same `RenderedSection[]` → `renderDatachainDocument` pipeline).
 
@@ -783,12 +783,12 @@ ResolvedDatachain ──┐
 | Risk | Mitigation |
 |------|------------|
 | Zod's `unrepresentable: 'any'` silently drops the R14 conditional refinement under JSON-Schema emit | Empirical assertion in `api/test/unit/json-schema-emit.test.ts` (U1 test scenarios). The Zod refinement still runs at parse time regardless; if emit drops, U2's semantic validator carries the runtime guard. Wire shape is unchanged either way. |
-| Forged-snapshot scenario (a `ResolvedDatachain` with hand-edited `schema_snapshot` claiming attribution to a real prior version) | Out of scope for v1 per user decision; documented as a trust boundary in `concepts/datachains.md` (U10). Re-entry path is the deferred content-hash-on-resolved-artifact item in Scope Boundaries. |
+| Forged-snapshot scenario (a `ResolvedDatachainInstance` with hand-edited `schema_snapshot` claiming attribution to a real prior version) | Out of scope for v1 per user decision; documented as a trust boundary in `concepts/datachains.md` (U10). Re-entry path is the deferred content-hash-on-resolved-artifact item in Scope Boundaries. |
 | Resolved-bundle size exceeds 512 KB for representative fixtures | Lean-subset rule (R6) keeps the snapshot small; `categories`/`elements` are only those referenced. Cap-check in U5 returns 413 with a clear error envelope, not a silent truncation. If real fixtures hit the cap, raise it deliberately or revisit the lean-subset rule. |
 | `buildResolvedSections` and existing `buildSections` (in `render_datachain.ts`) drift apart over time, producing different `RenderedSection[]` shapes for thin vs resolved inputs | Use the same helper internals where possible; assert structural equivalence in a snapshot test for one canonical fixture (build sections both ways and compare). When MCP `render_datachain` accepts resolved inputs (U9), have it use `buildResolvedSections` exclusively for that branch — keeps the helper as the single owner of resolved-input section building. |
 | HTML-escape policy slippage — a downstream consumer of `<DtprElementDetail>` `v-html`'s a `rationale` field by mistake | Document the policy in the component prop's TSDoc; assert the renderer-test invariant (`<script>` and `<img onerror>` round-trip as escaped text); in U10 explicitly call out the policy in `1.datachains.md`. |
 | `validate_resolved`'s snapshot-consistency rule (R9) needs to load the live store to compare; cost grows with snapshot size | The check skips when `version ∉ INDEX_KEY`; for live versions the cost is bounded by the lean-subset rule. CPU stays under the existing Worker `cpu_ms: 500` ceiling. If real validation latency exceeds that, the rule moves to a sample-and-flag posture. |
-| hp-app's eventual consumption of `ResolvedDatachain` requires a field-name pass we cannot anticipate without reading hp-app | Field set is intentionally optional-only in v1 per Scope Boundaries; tightening / renaming is a future additive change. The discriminated-union shape is committed; that's the load-bearing structural decision. |
+| hp-app's eventual consumption of `ResolvedDatachainInstance` requires a field-name pass we cannot anticipate without reading hp-app | Field set is intentionally optional-only in v1 per Scope Boundaries; tightening / renaming is a future additive change. The discriminated-union shape is committed; that's the load-bearing structural decision. |
 | Doc numbering for new reference pages disrupts deep links into the dtpr.ai content tree | New pages slot at the end (10/11); existing files keep their numbers. Trade-off: resolve and validate_resolved are not adjacent to validate in the rendered nav. Acceptable per the doc-numbering decision in Open Questions. |
 
 ---
@@ -799,7 +799,7 @@ ResolvedDatachain ──┐
 - **No migration is required for existing v2 consumers.** Thin `DatachainInstance` and `validate` are unchanged.
 - **Operational: new `RL_RESOLVE` binding requires a Cloudflare deploy with the Wrangler config update.** The rate-limit binding's namespace IDs (`1003 / 2003`) need to be allocated before merge if the team uses pre-deployed namespace ranges; verify against any unfamiliar bookkeeping practice.
 - **Monitoring:** existing Workers logs / metrics surface 4xx + 5xx counts per route. Add the new routes to whatever dashboards already track validate's request / cap / rate-limit counts.
-- **Skill output update follow-up (`dtpr-describe-system` etc.):** the `SKILL.md` files currently say "produce a `DatachainInstance` JSON". Once the resolved form ships, those skills should switch their output instruction to `ResolvedDatachain` (with `authoring_provenance.kind === 'ai_generated'`) when proposed elements are surfaced. That edit is downstream of this plan and lives in a separate PR; not blocking.
+- **Skill output update follow-up (`dtpr-describe-system` etc.):** the `SKILL.md` files currently say "produce a `DatachainInstance` JSON". Once the resolved form ships, those skills should switch their output instruction to `ResolvedDatachainInstance` (with `authoring_provenance.kind === 'ai_generated'`) when proposed elements are surfaced. That edit is downstream of this plan and lives in a separate PR; not blocking.
 
 ---
 

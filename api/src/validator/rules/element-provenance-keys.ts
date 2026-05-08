@@ -1,4 +1,4 @@
-import type { ResolvedDatachain } from '../../schema/datachain-instance-resolved.ts'
+import type { ResolvedDatachainInstance } from '../../schema/datachain-instance-resolved.ts'
 import type { SemanticError } from '../types.ts'
 import { err } from '../types.ts'
 
@@ -14,7 +14,7 @@ import { err } from '../types.ts'
  *
  * Empty / missing `element_provenance` is a no-op.
  */
-export function checkElementProvenanceKeys(resolved: ResolvedDatachain): SemanticError[] {
+export function checkElementProvenanceKeys(resolved: ResolvedDatachainInstance): SemanticError[] {
   const provenance = resolved.authoring_provenance
   if (!provenance || provenance.kind !== 'ai_generated') return []
   const map = provenance.element_provenance

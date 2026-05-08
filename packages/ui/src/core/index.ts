@@ -47,7 +47,7 @@ export type {
   AuthoringProvenance,
   ConfidenceLevel,
   ElementProvenance,
-  ResolvedDatachain,
+  ResolvedDatachainInstance,
   SchemaSnapshot,
   SourceReference,
   VariableType,

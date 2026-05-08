@@ -81,7 +81,7 @@ export function resolveDatachainTool(ctx: LoadContext): ToolDef {
       name: 'resolve_datachain',
       description:
         'Compose a thin DatachainInstance + the pinned schema slice into a ' +
-        'ResolvedDatachain. The response carries `schema_snapshot` (referenced ' +
+        'ResolvedDatachainInstance. The response carries `schema_snapshot` (referenced ' +
         'subset of categories/elements + full datachain_type), `suggested_elements: []`, ' +
         'and no authoring_provenance. Soft-failure (isError:false) on parse / ' +
         'semantic validate errors. Capped at 512 KB; over-cap returns a ' +

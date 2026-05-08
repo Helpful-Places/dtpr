@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest'
 import {
   AuthoringProvenanceSchema,
   DatachainInstanceSchema,
-  ResolvedDatachainSchema,
+  ResolvedDatachainInstanceSchema,
   SchemaSnapshotSchema,
 } from '../../src/schema/index.ts'
 import type { LocaleCode, LocaleValue } from '../../src/schema/locale.ts'
@@ -210,9 +210,9 @@ describe('SchemaSnapshotSchema', () => {
   })
 })
 
-// ---------------- ResolvedDatachainSchema ----------------
+// ---------------- ResolvedDatachainInstanceSchema ----------------
 
-describe('ResolvedDatachainSchema', () => {
+describe('ResolvedDatachainInstanceSchema', () => {
   it('strict superset: thin DatachainInstance literal rejects (missing schema_snapshot)', () => {
     const thin = {
       id: 'worcester-lpr',
@@ -222,13 +222,13 @@ describe('ResolvedDatachainSchema', () => {
     }
     // Thin parse succeeds against DatachainInstanceSchema...
     expect(DatachainInstanceSchema.safeParse(thin).success).toBe(true)
-    // ...but the same literal fails ResolvedDatachainSchema.
-    const r = ResolvedDatachainSchema.safeParse(thin)
+    // ...but the same literal fails ResolvedDatachainInstanceSchema.
+    const r = ResolvedDatachainInstanceSchema.safeParse(thin)
     expect(r.success).toBe(false)
   })
 
   it('happy path: parses with schema_snapshot, no suggested_elements, no provenance', () => {
-    const r = ResolvedDatachainSchema.parse(baseResolvedInput())
+    const r = ResolvedDatachainInstanceSchema.parse(baseResolvedInput())
     expect(r.suggested_elements).toEqual([])
     expect(r.authoring_provenance).toBeUndefined()
   })
@@ -242,7 +242,7 @@ describe('ResolvedDatachainSchema', () => {
         element_provenance: { proposed_element: { confidence: 'high' as const } },
       },
     }
-    const r = ResolvedDatachainSchema.parse(input)
+    const r = ResolvedDatachainInstanceSchema.parse(input)
     expect(r.suggested_elements).toHaveLength(1)
     expect(r.authoring_provenance?.kind).toBe('ai_generated')
   })
@@ -252,7 +252,7 @@ describe('ResolvedDatachainSchema', () => {
       ...baseResolvedInput(),
       authoring_provenance: { kind: 'human' as const },
     }
-    const r = ResolvedDatachainSchema.parse(input)
+    const r = ResolvedDatachainInstanceSchema.parse(input)
     expect(r.authoring_provenance?.kind).toBe('human')
     expect(r.suggested_elements).toEqual([])
   })
@@ -262,7 +262,7 @@ describe('ResolvedDatachainSchema', () => {
       ...baseResolvedInput(),
       authoring_provenance: { kind: 'ai_generated' as const },
     }
-    const r = ResolvedDatachainSchema.parse(input)
+    const r = ResolvedDatachainInstanceSchema.parse(input)
     expect(r.authoring_provenance?.kind).toBe('ai_generated')
   })
 
@@ -272,7 +272,7 @@ describe('ResolvedDatachainSchema', () => {
       suggested_elements: [baseElement('proposed_element')],
       authoring_provenance: { kind: 'human' as const },
     }
-    const r = ResolvedDatachainSchema.safeParse(input)
+    const r = ResolvedDatachainInstanceSchema.safeParse(input)
     expect(r.success).toBe(false)
     if (!r.success) {
       const hasR14 = r.error.issues.some((i) =>
@@ -287,7 +287,7 @@ describe('ResolvedDatachainSchema', () => {
       ...baseResolvedInput(),
       suggested_elements: [baseElement('proposed_element')],
     }
-    const r = ResolvedDatachainSchema.safeParse(input)
+    const r = ResolvedDatachainInstanceSchema.safeParse(input)
     expect(r.success).toBe(false)
   })
 
@@ -298,7 +298,7 @@ describe('ResolvedDatachainSchema', () => {
       suggested_elements: [baseElement('accept_deny')],
       authoring_provenance: { kind: 'ai_generated' as const },
     }
-    const r = ResolvedDatachainSchema.safeParse(input)
+    const r = ResolvedDatachainInstanceSchema.safeParse(input)
     expect(r.success).toBe(false)
     if (!r.success) {
       const hasR15a = r.error.issues.some(
@@ -311,7 +311,7 @@ describe('ResolvedDatachainSchema', () => {
   })
 
   it('round-trip equivalence (R3, R4): strip 3 new fields → parses as thin with same shape', () => {
-    const resolved = ResolvedDatachainSchema.parse({
+    const resolved = ResolvedDatachainInstanceSchema.parse({
       ...baseResolvedInput(),
       suggested_elements: [baseElement('proposed')],
       authoring_provenance: {
@@ -363,7 +363,7 @@ describe('ResolvedDatachainSchema', () => {
       expect(thin.title.map((t) => t.value)).toEqual(['Worcester license plate reader'])
       expect(thin.description.map((d) => d.value)).toEqual(['Parking enforcement automation.'])
 
-      const resolved = ResolvedDatachainSchema.parse({
+      const resolved = ResolvedDatachainInstanceSchema.parse({
         ...wire,
         schema_snapshot: {
           datachain_type: baseDatachainType(),
@@ -389,7 +389,7 @@ describe('ResolvedDatachainSchema', () => {
           elements: [baseElement('accept_deny')],
         },
       }
-      const resolved = ResolvedDatachainSchema.parse(wire)
+      const resolved = ResolvedDatachainInstanceSchema.parse(wire)
       const { schema_snapshot: _ss, suggested_elements: _se, authoring_provenance: _ap, ...stripped } =
         resolved
       void _ss

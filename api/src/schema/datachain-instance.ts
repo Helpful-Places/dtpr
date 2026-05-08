@@ -147,7 +147,7 @@ export const DatachainInstanceSchema = z
       'Localized human-readable title of the system being described (e.g. "Worcester license plate reader"). The id is opaque; this is what renderers and agents display.',
     ),
     description: LocaleValueArraySchema.default([]).describe(
-      'Optional localized prose summary of the system. One or two sentences for non-technical readers; longer prose belongs on linked documentation referenced via `sources`.',
+      'Optional localized prose summary of the system. A paragraph for non-technical readers; longer prose belongs on linked documentation referenced via `sources`.',
     ),
     schema_version: VersionStringSchema.describe('Pinned schema version, e.g. "ai@2026-04-16"'),
     created_at: z.string().datetime().describe('ISO 8601 timestamp of instance authoring'),

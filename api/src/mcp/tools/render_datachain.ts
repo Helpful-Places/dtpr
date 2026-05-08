@@ -5,8 +5,8 @@ import type { Category } from '../../schema/category.ts'
 import type { Element } from '../../schema/element.ts'
 import { DatachainInstanceSchema, type DatachainInstance } from '../../schema/datachain-instance.ts'
 import {
-  ResolvedDatachainSchema,
-  type ResolvedDatachain,
+  ResolvedDatachainInstanceSchema,
+  type ResolvedDatachainInstance,
 } from '../../schema/datachain-instance-resolved.ts'
 import { LocaleCodeSchema } from '../../schema/locale.ts'
 import {
@@ -162,8 +162,8 @@ export function renderDatachainTool(ctx: LoadContext, sessionId: string): ToolDe
       name: 'render_datachain',
       description:
         'Render a DTPR datachain instance as an interactive HTML document. ' +
-        'Accepts either a thin DatachainInstance or a ResolvedDatachain. ' +
-        'When a ResolvedDatachain is supplied, the embedded schema_snapshot ' +
+        'Accepts either a thin DatachainInstance or a ResolvedDatachainInstance. ' +
+        'When a ResolvedDatachainInstance is supplied, the embedded schema_snapshot ' +
         'is used directly and no schema fetch is performed; suggested_elements ' +
         'render with a "proposed" indicator. Precedence: an input that strictly ' +
         'matches DatachainInstance parses thin; an input adding schema_snapshot ' +
@@ -185,16 +185,16 @@ export function renderDatachainTool(ctx: LoadContext, sessionId: string): ToolDe
         return toToolResult(errEnvelope(errorsFrom(e)))
       }
 
-      // Resolved-input branch (R18, R19): try ResolvedDatachainSchema
-      // first. ResolvedDatachain is a strict superset, so a thin
+      // Resolved-input branch (R18, R19): try ResolvedDatachainInstanceSchema
+      // first. ResolvedDatachainInstance is a strict superset, so a thin
       // instance never matches and falls through. When a resolved
       // input matches, the schema_snapshot is self-contained — no
       // R2 reads, no validateInstance run (the resolved form has its
       // own validate_resolved surface).
-      const resolvedParse = ResolvedDatachainSchema.safeParse(args.datachain)
+      const resolvedParse = ResolvedDatachainInstanceSchema.safeParse(args.datachain)
       if (resolvedParse.success) {
         try {
-          const resolved: ResolvedDatachain = resolvedParse.data
+          const resolved: ResolvedDatachainInstance = resolvedParse.data
           const sections = buildResolvedSections(resolved, args.locale)
           const title = pickLocale(resolved.title, args.locale)
           const description = pickLocale(resolved.description, args.locale)

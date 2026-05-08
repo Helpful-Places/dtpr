@@ -1,5 +1,5 @@
 import type { DatachainInstance } from '../schema/datachain-instance.ts'
-import type { ResolvedDatachain } from '../schema/datachain-instance-resolved.ts'
+import type { ResolvedDatachainInstance } from '../schema/datachain-instance-resolved.ts'
 import { checkCategoryRefs } from './rules/category-refs.ts'
 import { checkColorContrast } from './rules/color-contrast.ts'
 import { checkColors } from './rules/colors.ts'
@@ -97,7 +97,7 @@ export interface ValidateResolvedOptions {
  * call still completes (snapshot consistency simply skipped).
  */
 export async function validateResolvedInstance(
-  resolved: ResolvedDatachain,
+  resolved: ResolvedDatachainInstance,
   options: ValidateResolvedOptions = {},
 ): Promise<ValidationResult> {
   const findings: SemanticError[] = []

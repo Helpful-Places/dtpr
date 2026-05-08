@@ -5,7 +5,7 @@ import {
   JSON_SCHEMA_OPTIONS,
 } from '../../src/schema/emit-json-schema.ts'
 import { ElementSchema } from '../../src/schema/element.ts'
-import { ResolvedDatachainSchema } from '../../src/schema/datachain-instance-resolved.ts'
+import { ResolvedDatachainInstanceSchema } from '../../src/schema/datachain-instance-resolved.ts'
 
 describe('emitJsonSchema', () => {
   it('uses draft-2020-12 and input io mode', () => {
@@ -37,7 +37,7 @@ describe('emitJsonSchema', () => {
       'DatachainType',
       'Element',
       'Manifest',
-      'ResolvedDatachain',
+      'ResolvedDatachainInstance',
     ])
     for (const [name, schema] of Object.entries(all)) {
       expect(schema.title).toBe(name)
@@ -59,7 +59,7 @@ describe('emitJsonSchema', () => {
 
   // R14 conditional refinement — empirical check.
   //
-  // Plan-mandated assertion: walk the emitted ResolvedDatachain JSON
+  // Plan-mandated assertion: walk the emitted ResolvedDatachainInstance JSON
   // Schema for an `allOf`/`if-then-else`/`oneOf` constraint that
   // expresses "non-empty suggested_elements ⟹
   // authoring_provenance.kind === 'ai_generated'".
@@ -73,7 +73,7 @@ describe('emitJsonSchema', () => {
   // enforcement on the wire path. The Zod refinement itself still runs
   // at parse time regardless.
   it('records whether the R14 conditional refinement survives JSON Schema emission', () => {
-    const emitted = emitJsonSchema(ResolvedDatachainSchema, 'ResolvedDatachain') as Record<
+    const emitted = emitJsonSchema(ResolvedDatachainInstanceSchema, 'ResolvedDatachainInstance') as Record<
       string,
       unknown
     >
@@ -91,7 +91,7 @@ describe('emitJsonSchema', () => {
       // Record the shape used for downstream consumers.
       // eslint-disable-next-line no-console
       console.log(
-        '[R14 emit] conditional structure detected in ResolvedDatachain JSON Schema:',
+        '[R14 emit] conditional structure detected in ResolvedDatachainInstance JSON Schema:',
         Object.keys(emitted).filter((k) => ['allOf', 'oneOf', 'if', 'then', 'else'].includes(k)),
       )
     } else {
@@ -101,7 +101,7 @@ describe('emitJsonSchema', () => {
       // parse time on the typed path.
       // eslint-disable-next-line no-console
       console.warn(
-        '[R14 emit] no conditional structure in emitted ResolvedDatachain JSON Schema — refinement dropped by Zod under unrepresentable: "any". U2 semantic validator carries runtime enforcement.',
+        '[R14 emit] no conditional structure in emitted ResolvedDatachainInstance JSON Schema — refinement dropped by Zod under unrepresentable: "any". U2 semantic validator carries runtime enforcement.',
       )
     }
 

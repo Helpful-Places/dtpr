@@ -15,7 +15,7 @@ import {
 import type { Category } from '../schema/category.ts'
 import type { Element } from '../schema/element.ts'
 import { DatachainInstanceSchema } from '../schema/datachain-instance.ts'
-import { ResolvedDatachainSchema } from '../schema/datachain-instance-resolved.ts'
+import { ResolvedDatachainInstanceSchema } from '../schema/datachain-instance-resolved.ts'
 import {
   loadCategories,
   loadCategory,
@@ -450,7 +450,7 @@ export function createRestApp() {
   // POST /schemas/:version/resolve
   //
   // Composes the thin instance + pinned schema slice into a
-  // `ResolvedDatachain` per R3. Preserves the validate handler's
+  // `ResolvedDatachainInstance` per R3. Preserves the validate handler's
   // soft-failure contract (R8): JSON parse / Zod parse / semantic
   // validate errors return HTTP 200 with `{ ok: false, errors }`.
   // R7 dictates the order (validate before resolve); the 512 KB
@@ -562,7 +562,7 @@ export function createRestApp() {
 
     let parsed
     try {
-      parsed = ResolvedDatachainSchema.parse(raw)
+      parsed = ResolvedDatachainInstanceSchema.parse(raw)
     } catch (e) {
       if (e instanceof ZodError) {
         const errors = e.issues.map((iss) => ({

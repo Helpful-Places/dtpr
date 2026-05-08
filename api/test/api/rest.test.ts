@@ -352,7 +352,7 @@ describe('REST: POST .../resolve', () => {
     }
   }
 
-  it('happy path returns ResolvedDatachain shape with snapshot subset', async () => {
+  it('happy path returns ResolvedDatachainInstance shape with snapshot subset', async () => {
     const res = await SELF.fetch(
       `https://example.com/api/v2/schemas/${SAMPLE_VERSION.canonical}/resolve`,
       {

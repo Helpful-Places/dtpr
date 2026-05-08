@@ -456,7 +456,7 @@ describe('MCP: validate_datachain', () => {
 })
 
 describe('MCP: resolve_datachain', () => {
-  it('valid thin instance returns a ResolvedDatachain envelope', async () => {
+  it('valid thin instance returns a ResolvedDatachainInstance envelope', async () => {
     const client = createMcpClient()
     await client.initialize()
     const datachain = {

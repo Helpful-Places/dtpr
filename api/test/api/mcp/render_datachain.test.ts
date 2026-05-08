@@ -304,7 +304,7 @@ describe('render_datachain tool (end-to-end via /mcp)', () => {
     expect(html).toContain('<title>Worcester license plate reader</title>')
   })
 
-  it('accepts a ResolvedDatachain input directly (R18) — no schema fetch', async () => {
+  it('accepts a ResolvedDatachainInstance input directly (R18) — no schema fetch', async () => {
     const client = createMcpClient()
     await client.initialize()
     // Build a resolved-form fixture by first calling resolve over REST.

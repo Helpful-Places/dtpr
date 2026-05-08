@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import {
-  ResolvedDatachainSchema,
-  type ResolvedDatachain,
+  ResolvedDatachainInstanceSchema,
+  type ResolvedDatachainInstance,
 } from '../../src/schema/datachain-instance-resolved.ts'
 import {
   validateResolvedInstance,
@@ -61,11 +61,11 @@ function baseElement(id: string = 'accept_deny'): Element {
 }
 
 /**
- * Build a parsed canonical ResolvedDatachain for the happy path. The
+ * Build a parsed canonical ResolvedDatachainInstance for the happy path. The
  * returned value is the *typed* shape (post-parse), so semantic-rule
  * tests don't redundantly verify Zod again.
  */
-function baseResolved(overrides: Partial<ResolvedDatachain> = {}): ResolvedDatachain {
+function baseResolved(overrides: Partial<ResolvedDatachainInstance> = {}): ResolvedDatachainInstance {
   const wire = {
     id: 'worcester-lpr',
     schema_version: 'ai@2026-04-16-beta',
@@ -77,7 +77,7 @@ function baseResolved(overrides: Partial<ResolvedDatachain> = {}): ResolvedDatac
       elements: [baseElement('accept_deny')],
     },
   }
-  return { ...ResolvedDatachainSchema.parse(wire), ...overrides }
+  return { ...ResolvedDatachainInstanceSchema.parse(wire), ...overrides }
 }
 
 // ---------------- tests ----------------
@@ -116,7 +116,7 @@ describe('validateResolvedInstance — happy paths', () => {
         },
       },
     }
-    const resolved = ResolvedDatachainSchema.parse(wire)
+    const resolved = ResolvedDatachainInstanceSchema.parse(wire)
     const r = await validateResolvedInstance(resolved)
     expect(r.ok).toBe(true)
     expect(r.errors).toEqual([])
@@ -141,7 +141,7 @@ describe('validateResolvedInstance — happy paths', () => {
       elements: [{ element_id: 'accept_deny' }],
       schema_snapshot: { datachain_type: dt, categories: [cat], elements: [el] },
     }
-    const resolved = ResolvedDatachainSchema.parse(wire)
+    const resolved = ResolvedDatachainInstanceSchema.parse(wire)
     const load: LoadCanonicalSchema = () => ({
       datachainType: dt,
       categories: [cat],
@@ -170,7 +170,7 @@ describe('validateResolvedInstance — error paths', () => {
         elements: [baseElement('accept_deny')],
       },
     }
-    const resolved = ResolvedDatachainSchema.parse(wire)
+    const resolved = ResolvedDatachainInstanceSchema.parse(wire)
     const r = await validateResolvedInstance(resolved)
     expect(r.ok).toBe(false)
     const err = r.errors.find((e) => e.code === 'unknown_element_id')
@@ -183,7 +183,7 @@ describe('validateResolvedInstance — error paths', () => {
     // Bypass Zod (which would reject) by constructing the typed value
     // directly — this tests the wire-path enforcement that backs JSON
     // Schema callers who skip the Zod refinement.
-    const resolved: ResolvedDatachain = {
+    const resolved: ResolvedDatachainInstance = {
       id: 'x',
       title: [],
       description: [],
@@ -209,7 +209,7 @@ describe('validateResolvedInstance — error paths', () => {
   })
 
   it('emits provenance_required when suggested non-empty + provenance is undefined', async () => {
-    const resolved: ResolvedDatachain = {
+    const resolved: ResolvedDatachainInstance = {
       id: 'x',
       title: [],
       description: [],
@@ -237,7 +237,7 @@ describe('validateResolvedInstance — error paths', () => {
     // exercised here — this is the defensive duplicate the wire
     // validator carries.
     const collidingId = 'accept_deny'
-    const resolved: ResolvedDatachain = {
+    const resolved: ResolvedDatachainInstance = {
       id: 'x',
       title: [],
       description: [],
@@ -287,7 +287,7 @@ describe('validateResolvedInstance — error paths', () => {
         elements: [baseElement('accept_deny')],
       },
     }
-    const resolved = ResolvedDatachainSchema.parse(wire)
+    const resolved = ResolvedDatachainInstanceSchema.parse(wire)
     const load: LoadCanonicalSchema = () => ({
       datachainType: dt,
       categories: [liveCategory],
@@ -330,7 +330,7 @@ describe('validateResolvedInstance — error paths', () => {
         elements: [baseElement('accept_deny'), optionalElement],
       },
     }
-    const resolved = ResolvedDatachainSchema.parse(wire)
+    const resolved = ResolvedDatachainInstanceSchema.parse(wire)
     const r = await validateResolvedInstance(resolved)
     expect(r.ok).toBe(false)
     expect(r.errors.some((e) => e.code === 'REQUIRED_CATEGORY_MISSING')).toBe(true)
@@ -348,7 +348,7 @@ describe('validateResolvedInstance — error paths', () => {
         elements: [baseElement('accept_deny')],
       },
     }
-    const parsed = ResolvedDatachainSchema.parse(wire)
+    const parsed = ResolvedDatachainInstanceSchema.parse(wire)
     const r = await validateResolvedInstance(parsed)
     expect(r.ok).toBe(true)
   })

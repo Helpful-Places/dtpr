@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // Object reference page — displays the JSON Schema for the two
-// datachain wire forms (`DatachainInstance` and `ResolvedDatachain`)
+// datachain wire forms (`DatachainInstance` and `ResolvedDatachainInstance`)
 // directly from `api/src/schema/`. The build script
 // `scripts/emit-object-reference.ts` runs `emitAllContentSchemas()`
 // from the api package and writes a slim subset to
@@ -14,7 +14,7 @@ useHead({
     {
       name: 'description',
       content:
-        'JSON Schema reference for the DTPR datachain wire forms (DatachainInstance and ResolvedDatachain), generated from the canonical Zod sources.',
+        'JSON Schema reference for the DTPR datachain wire forms (DatachainInstance and ResolvedDatachainInstance), generated from the canonical Zod sources.',
     },
   ],
 })
@@ -22,13 +22,13 @@ useHead({
 type JsonSchema = Record<string, any>
 
 interface ObjectEntry {
-  name: 'DatachainInstance' | 'ResolvedDatachain'
+  name: 'DatachainInstance' | 'ResolvedDatachainInstance'
   schema: JsonSchema
 }
 
 const objects: ObjectEntry[] = [
   { name: 'DatachainInstance', schema: (schemas as any).DatachainInstance },
-  { name: 'ResolvedDatachain', schema: (schemas as any).ResolvedDatachain },
+  { name: 'ResolvedDatachainInstance', schema: (schemas as any).ResolvedDatachainInstance },
 ]
 </script>
 

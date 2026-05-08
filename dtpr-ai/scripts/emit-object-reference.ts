@@ -15,9 +15,16 @@ const here = dirname(fileURLToPath(import.meta.url))
 const out = resolve(here, '../.data/object-reference.json')
 
 const all = emitAllContentSchemas()
+// Note: the canonical key in `emitAllContentSchemas()` is
+// `ResolvedDatachain` (matching the type alias in
+// `api/src/schema/datachain-instance-resolved.ts`). This page renders
+// the two wire forms under display names that mirror each other
+// (`*Instance`), so we re-key here without touching the api emitter
+// (which is also consumed by the worker `schema.json` bundle and MCP
+// tool descriptors — those should keep the canonical key).
 const subset = {
   DatachainInstance: all.DatachainInstance,
-  ResolvedDatachain: all.ResolvedDatachain,
+  ResolvedDatachainInstance: all.ResolvedDatachain,
 }
 
 mkdirSync(dirname(out), { recursive: true })

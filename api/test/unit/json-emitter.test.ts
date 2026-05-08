@@ -161,7 +161,7 @@ describe('buildBundle', () => {
       'DatachainType',
       'Element',
       'Manifest',
-      'ResolvedDatachain',
+      'ResolvedDatachainInstance',
     ])
   })
 })

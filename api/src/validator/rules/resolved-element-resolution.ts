@@ -1,11 +1,11 @@
 import type { Element } from '../../schema/element.ts'
-import type { ResolvedDatachain } from '../../schema/datachain-instance-resolved.ts'
+import type { ResolvedDatachainInstance } from '../../schema/datachain-instance-resolved.ts'
 import type { SemanticError } from '../types.ts'
 import { err } from '../types.ts'
 
 /**
  * Source of an element looked up against the merged pool of a
- * `ResolvedDatachain`. Snapshot wins on collision (collisions are
+ * `ResolvedDatachainInstance`. Snapshot wins on collision (collisions are
  * separately reported by `element-id-collision`); knowing the source
  * is useful to downstream rules that want to flag suggested-only ids.
  */
@@ -22,7 +22,7 @@ export interface ResolvedElementLookup {
  * collision itself is detected by `element-id-collision`.
  */
 export function buildResolvedElementLookup(
-  resolved: ResolvedDatachain,
+  resolved: ResolvedDatachainInstance,
 ): Map<string, ResolvedElementLookup> {
   const out = new Map<string, ResolvedElementLookup>()
   // Suggested first so snapshot overwrites on collision (defensive —
@@ -46,7 +46,7 @@ export function buildResolvedElementLookup(
  * has a stable code distinct from the legacy instance check.
  */
 export function checkResolvedElementResolution(
-  resolved: ResolvedDatachain,
+  resolved: ResolvedDatachainInstance,
   lookup: Map<string, ResolvedElementLookup>,
 ): SemanticError[] {
   const findings: SemanticError[] = []

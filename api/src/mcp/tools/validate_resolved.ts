@@ -8,7 +8,7 @@ import {
   normalizeDatachainTypeLocales,
   normalizeElementLocales,
 } from '../../resolver/resolve.ts'
-import { ResolvedDatachainSchema } from '../../schema/datachain-instance-resolved.ts'
+import { ResolvedDatachainInstanceSchema } from '../../schema/datachain-instance-resolved.ts'
 import type { Element } from '../../schema/element.ts'
 import {
   loadCategories,
@@ -44,7 +44,7 @@ const InputSchema = z.object({
   version: VersionString,
   datachain: z
     .unknown()
-    .describe('Resolved DTPR datachain. See schema_json.ResolvedDatachain.'),
+    .describe('Resolved DTPR datachain. See schema_json.ResolvedDatachainInstance.'),
 })
 
 function schemaToJson(schema: z.ZodType): Record<string, unknown> {
@@ -81,7 +81,7 @@ export function validateResolvedTool(ctx: LoadContext): ToolDef {
     descriptor: {
       name: 'validate_resolved',
       description:
-        'Validate a ResolvedDatachain (snapshot-pinned form) against its referenced schema. ' +
+        'Validate a ResolvedDatachainInstance (snapshot-pinned form) against its referenced schema. ' +
         'Returns ok:true on success or ok:false with structured errors. ' +
         'Always isError:false — invalid is a successful answer. Snapshot consistency ' +
         '(snapshot_drift) is checked only when the pinned version is still in the schema index.',
@@ -111,7 +111,7 @@ export function validateResolvedTool(ctx: LoadContext): ToolDef {
         }
         let parsed
         try {
-          parsed = ResolvedDatachainSchema.parse(args.datachain)
+          parsed = ResolvedDatachainInstanceSchema.parse(args.datachain)
         } catch (e) {
           if (e instanceof ZodError) {
             return toSoftFailureResult(

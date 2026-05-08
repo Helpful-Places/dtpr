@@ -1,4 +1,4 @@
-import type { ResolvedDatachain } from '../../schema/datachain-instance-resolved.ts'
+import type { ResolvedDatachainInstance } from '../../schema/datachain-instance-resolved.ts'
 import type { SemanticError } from '../types.ts'
 import { err } from '../types.ts'
 
@@ -16,7 +16,7 @@ import { err } from '../types.ts'
  * Empty `suggested_elements` ⇒ no enforcement (the implication is
  * vacuously true).
  */
-export function checkProvenanceRequired(resolved: ResolvedDatachain): SemanticError[] {
+export function checkProvenanceRequired(resolved: ResolvedDatachainInstance): SemanticError[] {
   if (resolved.suggested_elements.length === 0) return []
   const kind = resolved.authoring_provenance?.kind
   if (kind === 'ai_generated') return []

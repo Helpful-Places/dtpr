@@ -4,7 +4,7 @@ import type { DatachainType } from '../schema/datachain-type.ts'
 import type { Element } from '../schema/element.ts'
 import type { LocaleCode, LocaleValue } from '../schema/locale.ts'
 import type { SchemaManifest } from '../schema/manifest.ts'
-import type { ResolvedDatachain, SchemaSnapshot } from '../schema/datachain-instance-resolved.ts'
+import type { ResolvedDatachainInstance, SchemaSnapshot } from '../schema/datachain-instance-resolved.ts'
 
 /**
  * The pinned schema-version slice the resolver reads from. Structurally
@@ -133,10 +133,10 @@ export function normalizeDatachainTypeLocales(
  * the bundle through it).
  *
  * `suggested_elements` is always `[]` (R7); `authoring_provenance` is
- * never set by resolve (it only enters a `ResolvedDatachain` from
+ * never set by resolve (it only enters a `ResolvedDatachainInstance` from
  * authoring tools).
  */
-export function resolve(thin: DatachainInstance, schema: SchemaContext): ResolvedDatachain {
+export function resolve(thin: DatachainInstance, schema: SchemaContext): ResolvedDatachainInstance {
   const elementById = new Map(schema.elements.map((e) => [e.id, e] as const))
 
   // Compute referenced ids from placements.
@@ -184,7 +184,7 @@ export function resolve(thin: DatachainInstance, schema: SchemaContext): Resolve
   // populated, so determinism for elided-default inputs holds. Locale
   // arrays on instance-level fields (title, description) are normalized
   // to manifest order, matching the schema-snapshot policy.
-  const resolved: ResolvedDatachain = {
+  const resolved: ResolvedDatachainInstance = {
     ...thin,
     title: sortLocales<LocaleValue>(thin.title, locales),
     description: sortLocales<LocaleValue>(thin.description, locales),

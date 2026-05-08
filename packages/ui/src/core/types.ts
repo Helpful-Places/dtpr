@@ -22,7 +22,7 @@ export type {
   AuthoringProvenance,
   ConfidenceLevel,
   ElementProvenance,
-  ResolvedDatachain,
+  ResolvedDatachainInstance,
   SchemaSnapshot,
   SourceReference,
 } from '@dtpr/api/schema'
@@ -102,7 +102,7 @@ export interface ElementDisplay {
    */
   contextValue?: ElementDisplayContextValue
   /**
-   * True when this element came from a `ResolvedDatachain`'s
+   * True when this element came from a `ResolvedDatachainInstance`'s
    * `suggested_elements` (R15) and the caller has the proposed
    * indicator turned on (R15b — default). Renderers surface this as
    * a "proposed" badge so readers can distinguish AI-suggested
