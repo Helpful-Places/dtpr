@@ -23,7 +23,7 @@ required: false
 order: 8
 datachain_type: ai
 shape: circle
-context:
+element_context:
   id: pii
   name:
     - locale: en

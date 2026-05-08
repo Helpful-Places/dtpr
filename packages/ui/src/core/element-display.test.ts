@@ -165,7 +165,7 @@ describe('deriveElementDisplay', () => {
         datachain_type: 'ai',
         shape: 'rounded-square',
         element_variables: [],
-        context: {
+        element_context: {
           id: 'pii',
           name: [loc('en', 'PII')],
           description: [loc('en', 'Personal-info classification.')],

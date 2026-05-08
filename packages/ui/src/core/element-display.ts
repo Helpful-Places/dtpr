@@ -132,7 +132,7 @@ export function deriveElementDisplay(
 /**
  * Resolve the selected context value into display-ready
  * `{ id, name, color }`. The element's own context overrides the
- * category's context (no merge), per `Element.context` semantics.
+ * category's `element_context` (no merge), per `Element.context` semantics.
  * Returns `undefined` when no instance/no selection/no match.
  */
 function resolveContextValue(
@@ -144,7 +144,7 @@ function resolveContextValue(
 ): ElementDisplayContextValue | undefined {
   const selectedId = instance?.context_type_id
   if (!selectedId) return undefined
-  const ctx = element.context ?? category?.context
+  const ctx = element.context ?? category?.element_context
   const value = ctx?.values.find((v) => v.id === selectedId)
   if (!value) return undefined
   return {

@@ -43,9 +43,9 @@ export function checkUniqueness(source: SchemaVersionSource): SemanticError[] {
 
   // Rule 3
   for (const [ci, cat] of source.categories.entries()) {
-    if (!cat.context) continue
+    if (!cat.element_context) continue
     const seenValues = new Map<string, number>()
-    for (const [vi, v] of cat.context.values.entries()) {
+    for (const [vi, v] of cat.element_context.values.entries()) {
       const prev = seenValues.get(v.id)
       if (prev !== undefined) {
         findings.push(
@@ -53,7 +53,7 @@ export function checkUniqueness(source: SchemaVersionSource): SemanticError[] {
             'CONTEXT_VALUE_DUPLICATE',
             `Duplicate context value id '${v.id}' on category '${cat.id}'`,
             {
-              path: `categories[${ci}].context.values[${vi}].id`,
+              path: `categories[${ci}].element_context.values[${vi}].id`,
               fix_hint: `Rename or remove the duplicate context value (first seen at index ${prev}).`,
             },
           ),

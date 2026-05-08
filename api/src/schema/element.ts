@@ -70,10 +70,10 @@ export const ElementSchema = z
     /**
      * Optional element-level context override. When present, it fully
      * replaces the parent category's context for this element (no
-     * merge). Renderer resolution: `Element.context ?? Category.context
-     * ?? null`. Used when a single category hosts elements that need
-     * different context dimensions (e.g. per-mode autonomy semantics
-     * on the functional_modes category).
+     * merge). Renderer resolution: `Element.context ??
+     * Category.element_context ?? null`. Used when a single category
+     * hosts elements that need different context dimensions (e.g.
+     * per-mode autonomy semantics on the functional_modes category).
      */
     context: ContextSchema.optional().describe(
       'Optional element-level context dimension. Fully overrides the parent category context for this element (no merge).',

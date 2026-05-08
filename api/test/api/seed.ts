@@ -84,7 +84,7 @@ export function makeCategories(): Category[] {
       datachain_type: 'ai',
       shape: 'hexagon',
       element_variables: [],
-      context: {
+      element_context: {
         id: 'actor',
         name: [loc('en', 'Actor'), loc('fr', 'Acteur')],
         description: [

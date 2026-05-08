@@ -143,7 +143,7 @@ function resolveComposeVariant(
   const { base, dark } = parsed
   if (base === 'default') return dark ? 'dark' : 'default'
   if (base === 'dark') return dark ? null : 'dark'
-  const ctxValue = category.context?.values.find((v) => v.id === base)
+  const ctxValue = category.element_context?.values.find((v) => v.id === base)
   if (!ctxValue) return null
   if (ctxValue.color === null) return dark ? 'dark' : 'default'
   return { kind: 'colored', color: ctxValue.color }
@@ -152,12 +152,14 @@ function resolveComposeVariant(
 /**
  * Human-readable list of the variants a given category supports.
  * Always includes `default` and `dark`; appends each context-value id
- * and its `.dark` companion when the category declares a `context`.
+ * and its `.dark` companion when the category declares an
+ * `element_context`.
  * Used for the fix-hint body on a 404 unknown-variant response.
  */
 function validVariantsFor(category: Category): string[] {
   const base = ['default', 'dark']
-  const ctxIds = category.context?.values.flatMap((v) => [v.id, `${v.id}${DARK_SUFFIX}`]) ?? []
+  const ctxIds =
+    category.element_context?.values.flatMap((v) => [v.id, `${v.id}${DARK_SUFFIX}`]) ?? []
   return [...base, ...ctxIds]
 }
 

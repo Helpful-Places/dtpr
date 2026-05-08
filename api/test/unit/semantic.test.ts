@@ -40,7 +40,7 @@ function baseSource(): SchemaVersionSource {
         datachain_type: 'ai',
         shape: 'hexagon',
         element_variables: [],
-        context: {
+        element_context: {
           id: 'level_of_autonomy',
           name: [loc('en', 'Autonomy')],
           description: [loc('en', 'Level of human involvement.')],
@@ -132,7 +132,7 @@ describe('validateVersion — version-level rules', () => {
 
   it('Rule 3 (context_value_duplicate): duplicate value id in context', () => {
     const src = baseSource()
-    src.categories[0]!.context!.values.push({
+    src.categories[0]!.element_context!.values.push({
       id: 'ai_only', // duplicate
       name: [loc('en', 'X')],
       description: [loc('en', 'X')],
@@ -183,7 +183,7 @@ describe('validateVersion — version-level rules', () => {
 
   it('Rule 13 (context_value_color_invalid): non-hex color', () => {
     const src = baseSource()
-    src.categories[0]!.context!.values[0]!.color = 'red'
+    src.categories[0]!.element_context!.values[0]!.color = 'red'
     const r = validateVersion(src)
     expect(r.errors.some((e) => e.code === 'CONTEXT_VALUE_COLOR_INVALID')).toBe(true)
   })
@@ -227,7 +227,7 @@ describe('validateVersion — version-level rules', () => {
     const src = baseSource()
     src.elements[0]!.category_id = 'ai__phantom'
     src.elements[1]!.title = []
-    src.categories[0]!.context!.values[0]!.color = 'red'
+    src.categories[0]!.element_context!.values[0]!.color = 'red'
     const r = validateVersion(src)
     const codes = new Set(r.errors.map((e) => e.code))
     expect(codes.has('CATEGORY_REF_MISSING')).toBe(true)
@@ -332,7 +332,7 @@ describe('validateVersion — symbol-refs rule', () => {
 describe('validateVersion — variant-reserved rule', () => {
   it('RESERVED_VARIANT_TOKEN: context value id "dark"', () => {
     const src = baseSource()
-    src.categories[0]!.context!.values.push({
+    src.categories[0]!.element_context!.values.push({
       id: 'dark',
       name: [loc('en', 'Dark')],
       description: [loc('en', 'Dark')],
@@ -344,7 +344,7 @@ describe('validateVersion — variant-reserved rule', () => {
 
   it('RESERVED_VARIANT_TOKEN: context value id "default"', () => {
     const src = baseSource()
-    src.categories[0]!.context!.values.push({
+    src.categories[0]!.element_context!.values.push({
       id: 'default',
       name: [loc('en', 'Default')],
       description: [loc('en', 'Default')],
@@ -365,7 +365,7 @@ describe('validateVersion — color-contrast rule', () => {
 
   it('skips non-hex colors (rule 13 reports them)', () => {
     const src = baseSource()
-    src.categories[0]!.context!.values[0]!.color = 'not-a-hex'
+    src.categories[0]!.element_context!.values[0]!.color = 'not-a-hex'
     const r = validateVersion(src)
     expect(r.warnings.some((w) => w.code === 'LOW_CONTRAST_CONTEXT_COLOR')).toBe(false)
   })

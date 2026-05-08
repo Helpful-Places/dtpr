@@ -99,6 +99,6 @@ export function transformCategory(
     datachain_type,
     shape,
     element_variables: mergeCategoryElementVariables(bundle),
-    context: mergeCategoryContext(bundle),
+    element_context: mergeCategoryContext(bundle),
   }
 }

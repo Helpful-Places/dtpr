@@ -57,12 +57,12 @@ export function normalizeCategoryLocales(cat: Category, locales: ReadonlyArray<L
       label: sortLocales<LocaleValue>(v.label, locales),
     })),
   }
-  if (cat.context) {
-    next.context = {
-      ...cat.context,
-      name: sortLocales<LocaleValue>(cat.context.name, locales),
-      description: sortLocales<LocaleValue>(cat.context.description, locales),
-      values: cat.context.values.map((v) => ({
+  if (cat.element_context) {
+    next.element_context = {
+      ...cat.element_context,
+      name: sortLocales<LocaleValue>(cat.element_context.name, locales),
+      description: sortLocales<LocaleValue>(cat.element_context.description, locales),
+      values: cat.element_context.values.map((v) => ({
         ...v,
         name: sortLocales<LocaleValue>(v.name, locales),
         description: sortLocales<LocaleValue>(v.description, locales),
