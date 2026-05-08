@@ -6,5 +6,4 @@ title:
 description:
   - locale: en
     value: Binary yes/no decision evaluating inputs against criteria.
-citation: []
 symbol_id: accept_deny

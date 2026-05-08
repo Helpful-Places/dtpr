@@ -23,16 +23,5 @@ description:
       contextes. Les mesures d'atténuation peuvent inclure des seuils de précision avant
       l'application d'étiquettes publiques, un examen humain des identifications à fort impact, des
       procédures de retrait et des droits clairs de rectification.
-citation:
-  - locale: en
-    value: >-
-      Adapted from AIAAIC harm type "Reputational" — Abercrombie et al. (2024), A Collaborative,
-      Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA
-      4.0.
-  - locale: fr
-    value: >-
-      Adapté du type de préjudice AIAAIC « Réputationnel » — Abercrombie et al. (2024), A
-      Collaborative, Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms,
-      arXiv:2407.01294. CC BY-SA 4.0.
 symbol_id: risks_reputational
 variables: []

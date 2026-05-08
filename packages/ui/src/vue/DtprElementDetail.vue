@@ -315,10 +315,5 @@ function renderVariable(v: ElementDisplayVariable): RenderedVariable {
       </div>
     </details>
 
-    <p v-if="display.citation" class="dtpr-element-detail__citation">
-      {{ display.citation }}
-    </p>
-
-    <slot name="after-citation" />
   </article>
 </template>

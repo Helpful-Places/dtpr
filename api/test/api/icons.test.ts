@@ -81,7 +81,6 @@ function makeIconElements(): Element[] {
         loc('en', 'Binary outcome: yes or no.'),
         loc('fr', 'Résultat binaire: oui ou non.'),
       ],
-      citation: [],
       authoring_guidance: [],
       examples: [],
       sources: [],

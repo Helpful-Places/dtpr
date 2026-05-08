@@ -49,7 +49,6 @@ function baseElement(id: string = 'accept_deny'): Element {
     category_id: 'ai__decision',
     title: [loc('en', 'Accept or deny')],
     description: [loc('en', 'Binary yes/no decision.')],
-    citation: [],
     authoring_guidance: [],
     examples: [],
     sources: [],

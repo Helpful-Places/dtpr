@@ -18,10 +18,14 @@ description:
       situation migratoire ou d'autres catégories porteuses de risque légal et social. Exemples :
       une priorité de triage attribuée en clinique, un résultat d'éligibilité envoyé à un portail de
       prestations, un attribut protégé inféré et exporté.
-citation:
-  - locale: en
-    value: >-
-      Categories drawn from GDPR Article 9 "special categories of personal data" and Apple App Store
-      privacy "Sensitive Info" / "Health & Fitness" / "Financial Info" labels.
+sources:
+  - type: regulation
+    title: GDPR Article 9 — Special categories of personal data
+    url: https://eur-lex.europa.eu/eli/reg/2016/679/oj
+    citation: Regulation (EU) 2016/679, Article 9.
+  - type: other
+    title: Apple App Store privacy labels — Sensitive Info / Health & Fitness / Financial Info
+    url: https://developer.apple.com/app-store/app-privacy-details/
+    citation: Apple.
 symbol_id: sensitive_personal
 variables: []

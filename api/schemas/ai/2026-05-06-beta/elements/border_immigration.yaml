@@ -15,16 +15,12 @@ description:
       Soutient les décisions ou traitements en matière d'immigration, d'asile ou de passage de
       frontière — par exemple, la reconnaissance faciale au contrôle frontalier, la décision sur les
       visas, l'évaluation du risque en asile.
-citation:
-  - locale: en
-    value: >-
-      Migration, asylum, and border-control management listed as Annex III high-risk under the EU AI
-      Act (Regulation (EU) 2024/1689), Article 6(2) and Annex III §7 — including risk assessments,
+sources:
+  - type: regulation
+    title: EU AI Act Annex III §7 — Migration, asylum, and border-control management
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+    citation: >-
+      Regulation (EU) 2024/1689, Article 6(2) and Annex III §7 — including risk assessments,
       polygraph-style detection, and verification of travel-document authenticity.
-  - locale: fr
-    value: >-
-      La gestion de la migration, de l'asile et du contrôle aux frontières est classée à haut risque
-      à l'Annexe III du Règlement (UE) 2024/1689 (loi européenne sur l'IA), Article 6(2) et Annexe
-      III §7.
 symbol_id: border_immigration
 variables: []

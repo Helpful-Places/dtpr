@@ -24,16 +24,5 @@ description:
       divulgation des contenus synthétiques, l'attention antitrust portée aux marchés de l'IA,
       l'accès d'audit pour les régulateurs et des obligations de transparence pour les publicités
       politiques.
-citation:
-  - locale: en
-    value: >-
-      Adapted from AIAAIC harm type "Political & Economic" — Abercrombie et al. (2024), A
-      Collaborative, Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms,
-      arXiv:2407.01294. CC BY-SA 4.0.
-  - locale: fr
-    value: >-
-      Adapté du type de préjudice AIAAIC « Politique et économique » — Abercrombie et al. (2024), A
-      Collaborative, Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms,
-      arXiv:2407.01294. CC BY-SA 4.0.
 symbol_id: risks_political-economic
 variables: []

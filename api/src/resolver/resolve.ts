@@ -77,7 +77,6 @@ export function normalizeElementLocales(el: Element, locales: ReadonlyArray<Loca
     ...el,
     title: sortLocales<LocaleValue>(el.title, locales),
     description: sortLocales<LocaleValue>(el.description, locales),
-    citation: sortLocales<LocaleValue>(el.citation, locales),
     authoring_guidance: sortLocales<LocaleValue>(el.authoring_guidance, locales),
     variables: el.variables.map((v) => ({
       ...v,

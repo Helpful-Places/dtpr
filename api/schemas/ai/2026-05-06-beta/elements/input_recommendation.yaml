@@ -19,10 +19,10 @@ description:
       contraignante parce qu'elle conseille sans trancher. Exemples : une courbe de demande prévue,
       un score de risque issu d'un modèle antérieur, un itinéraire recommandé par un service de
       navigation.
-citation:
-  - locale: en
-    value: >-
-      Output classes "predictions, content, recommendations, or decisions" enumerated in EU AI Act
-      Article 3(1).
+sources:
+  - type: regulation
+    title: EU AI Act Article 3(1) — output classes (predictions, content, recommendations, decisions)
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+    citation: Regulation (EU) 2024/1689, Article 3(1).
 symbol_id: dm_priority-ranking
 variables: []

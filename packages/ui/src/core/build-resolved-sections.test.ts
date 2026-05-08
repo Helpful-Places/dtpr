@@ -50,7 +50,6 @@ function makeElement(id: string, category_id: string, title: string): Element {
     category_id,
     title: [loc('en', title)],
     description: [loc('en', `${title} description.`)],
-    citation: [],
     authoring_guidance: [],
     examples: [],
     sources: [],
@@ -402,7 +401,6 @@ describe('ElementDisplay type extension (U7)', () => {
       description: 'd',
       icon: { url: '/x', alt: 't' },
       variables: [],
-      citation: '',
       proposed: true,
       provenance,
     }

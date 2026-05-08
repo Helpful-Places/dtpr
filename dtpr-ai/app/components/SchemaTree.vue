@@ -136,6 +136,19 @@ const arrayItems = computed<JsonSchema | null>(() => {
   return r.type === 'array' && r.items ? r.items : null
 })
 
+// Record / map objects emitted by `z.record(z.string(), Schema)` —
+// `{ type: 'object', additionalProperties: <Schema>, propertyNames }`
+// with no `properties`. We render the value shape under a `<key>`
+// label so authors can see what each entry carries.
+const recordValue = computed<JsonSchema | null>(() => {
+  const r = resolved.value
+  if (r.type !== 'object') return null
+  if (r.properties) return null
+  const ap = r.additionalProperties
+  if (!ap || typeof ap !== 'object') return null
+  return ap as JsonSchema
+})
+
 const unionVariants = computed<JsonSchema[]>(() => {
   const r = resolved.value
   return (r.anyOf ?? r.oneOf ?? []) as JsonSchema[]
@@ -181,6 +194,17 @@ const unionVariants = computed<JsonSchema[]>(() => {
       <SchemaTree
         :schema="schema"
         :node="arrayItems"
+        :defs="rootDefs"
+        :depth="depth + 1"
+      />
+    </div>
+
+    <!-- Record / map: object whose entries are all the same shape. -->
+    <div v-else-if="recordValue" class="schema-tree__nested">
+      <div class="schema-tree__nested-label">&lt;key&gt;</div>
+      <SchemaTree
+        :schema="schema"
+        :node="recordValue"
         :defs="rootDefs"
         :depth="depth + 1"
       />

@@ -54,7 +54,6 @@ export const ElementSchema = z.object({
   category_id: z.string(),
   title: z.array(LocaleValueSchema),
   description: z.array(LocaleValueSchema),
-  citation: z.array(LocaleValueSchema),
   symbol_id: z.string(),
   variables: z.array(VariableSchema),
 })

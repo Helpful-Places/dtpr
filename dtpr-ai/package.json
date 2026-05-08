@@ -12,6 +12,7 @@
     "@nuxt/ui": "^4.5.1",
     "@nuxtjs/i18n": "^10.2.4",
     "docus": "latest",
+    "mermaid": "^11.14.0",
     "nuxt": "^4.0.0"
   },
   "devDependencies": {

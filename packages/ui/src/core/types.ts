@@ -94,7 +94,6 @@ export interface ElementDisplay {
   description: string
   icon: ElementDisplayIcon
   variables: ElementDisplayVariable[]
-  citation: string
   /**
    * The selected context value for this element, when the instance
    * supplies one. Renderers show this as a tag below the title.

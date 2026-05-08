@@ -97,7 +97,6 @@ describe('transformElement — characterization', () => {
       { locale: 'en', value: 'Accept or deny' },
       { locale: 'es', value: 'Aceptar o denegar' },
     ])
-    expect(el!.citation).toEqual([]) // seeded empty
     expect(warnings).toEqual([])
   })
 

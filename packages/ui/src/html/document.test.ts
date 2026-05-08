@@ -8,7 +8,6 @@ function makeDisplay(title: string): ElementDisplay {
     description: 'desc',
     icon: { url: '/i.svg', alt: `alt for ${title}` },
     variables: [],
-    citation: '',
   }
 }
 

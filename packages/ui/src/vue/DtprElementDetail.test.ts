@@ -20,19 +20,17 @@ function makeDisplay(overrides: Partial<ElementDisplay> = {}): ElementDisplay {
     description: 'Data held for {{retention_period}}.',
     icon: { url: '/icons/cloud.svg', alt: 'Cloud' },
     variables: [makeVar()],
-    citation: 'See RFC 1234',
     ...overrides,
   }
 }
 
 describe('DtprElementDetail', () => {
-  it('renders title, description (interpolated), variables list, and citation', () => {
+  it('renders title, description (interpolated), and variables list', () => {
     const w = mount(DtprElementDetail, { props: { display: makeDisplay() } })
     expect(w.text()).toContain('Cloud storage')
     expect(w.text()).toContain('Data held for')
     expect(w.text()).toContain('30 days')
     expect(w.text()).toContain('Retention period')
-    expect(w.text()).toContain('See RFC 1234')
   })
 
   it('highlights variable segments in the plain-text description path', () => {
@@ -106,22 +104,19 @@ describe('DtprElementDetail', () => {
     expect(w.find('h2.dtpr-element-detail__title').exists()).toBe(false)
   })
 
-  it('#after-description, #after-variables, #after-citation slots render in order', () => {
+  it('#after-description and #after-variables slots render in order', () => {
     const w = mount(DtprElementDetail, {
       props: { display: makeDisplay() },
       slots: {
         'after-description': '<div data-test="after-desc">AD</div>',
         'after-variables': '<div data-test="after-vars">AV</div>',
-        'after-citation': '<div data-test="after-cite">AC</div>',
       },
     })
     const html = w.html()
     const i1 = html.indexOf('after-desc')
     const i2 = html.indexOf('after-vars')
-    const i3 = html.indexOf('after-cite')
     expect(i1).toBeGreaterThan(-1)
     expect(i2).toBeGreaterThan(i1)
-    expect(i3).toBeGreaterThan(i2)
   })
 
   describe('variable-type rendering', () => {
@@ -204,9 +199,9 @@ describe('DtprElementDetail', () => {
     })
   })
 
-  // AI proposal context (expandable section between after-variables
-  // and citation; renders only when the placement carries a
-  // composed per-element provenance entry).
+  // AI proposal context (expandable section after after-variables;
+  // renders only when the placement carries a composed per-element
+  // provenance entry).
   describe('AI proposal context', () => {
     it('does not render the section when display.provenance is undefined', () => {
       const w = mount(DtprElementDetail, { props: { display: makeDisplay() } })

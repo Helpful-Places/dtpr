@@ -15,15 +15,12 @@ description:
       Soutient l'enseignement, l'apprentissage, l'évaluation ou l'orientation pédagogique — par
       exemple, des assistants de tutorat, la notation automatisée, ou des recommandations de
       bibliothèques et musées.
-citation:
-  - locale: en
-    value: >-
-      Education and vocational training listed as Annex III high-risk under the EU AI Act
-      (Regulation (EU) 2024/1689), Article 6(2) and Annex III §3 — covering admission, evaluation of
+sources:
+  - type: regulation
+    title: EU AI Act Annex III §3 — Education and vocational training
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+    citation: >-
+      Regulation (EU) 2024/1689, Article 6(2) and Annex III §3 — covering admission, evaluation of
       learning outcomes, and detection of prohibited behaviour during testing.
-  - locale: fr
-    value: >-
-      L'éducation et la formation professionnelle sont classées à haut risque à l'Annexe III du
-      Règlement (UE) 2024/1689 (loi européenne sur l'IA), Article 6(2) et Annexe III §3.
 symbol_id: education
 variables: []

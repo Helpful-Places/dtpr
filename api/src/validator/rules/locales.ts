@@ -80,13 +80,12 @@ export function checkLocales(source: SchemaVersionSource): SemanticError[] {
     }
   }
 
-  // Elements: title, description (required non-empty); citation/
+  // Elements: title, description (required non-empty);
   // authoring_guidance/examples (optional locale check); element-level
   // context (optional override) localized strings.
   for (const [ei, el] of source.elements.entries()) {
     check(el.title, `elements[${ei}].title`, 'title')
     check(el.description, `elements[${ei}].description`, 'description')
-    checkOptional(el.citation, `elements[${ei}].citation`)
     checkOptional(el.authoring_guidance, `elements[${ei}].authoring_guidance`)
     for (const [exi, ex] of el.examples.entries()) {
       checkOptional(ex.scenario, `elements[${ei}].examples[${exi}].scenario`)

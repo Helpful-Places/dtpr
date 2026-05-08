@@ -15,18 +15,14 @@ description:
       Cible la publicité, personnalise les recommandations ou profile les audiences à des fins
       marketing — par exemple, offres de fidélité en magasin, signalétique personnalisée, ciblage
       publicitaire comportemental.
-citation:
-  - locale: en
-    value: >-
-      Profiling and automated decisioning for marketing regulated under GDPR (Regulation (EU)
-      2016/679), Article 22 (automated individual decision-making, including profiling);
-      transparency duties for online platform advertising under EU Digital Services Act (Regulation
-      (EU) 2022/2065), Articles 26 and 39.
-  - locale: fr
-    value: >-
-      Le profilage et la prise de décision automatisée à des fins marketing sont encadrés par le
-      RGPD (Règlement (UE) 2016/679), Article 22 ; obligations de transparence pour la publicité en
-      ligne au titre du Règlement sur les services numériques (Règlement (UE) 2022/2065), Articles
-      26 et 39.
+sources:
+  - type: regulation
+    title: GDPR Article 22 — Automated individual decision-making, including profiling
+    url: https://eur-lex.europa.eu/eli/reg/2016/679/oj
+    citation: Regulation (EU) 2016/679, Article 22.
+  - type: regulation
+    title: EU Digital Services Act Articles 26 and 39 — Online platform advertising transparency
+    url: https://eur-lex.europa.eu/eli/reg/2022/2065/oj
+    citation: Regulation (EU) 2022/2065, Articles 26 and 39.
 symbol_id: marketing_personalization
 variables: []

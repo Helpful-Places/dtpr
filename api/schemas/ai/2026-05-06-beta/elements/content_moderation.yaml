@@ -15,17 +15,10 @@ description:
       Filtre, classe ou retire du contenu généré par les utilisateurs selon des politiques — par
       exemple, la modération de commentaires sur une borne publique, le filtrage d'images, ou la
       détection de discours haineux.
-citation:
-  - locale: en
-    value: >-
-      Content-moderation duties for online platforms framed by the EU Digital Services Act
-      (Regulation (EU) 2022/2065) — particularly Articles 14–17 (notice-and-action, statements of
-      reasons, internal complaint handling). AIAAIC repository documents recurring moderation
-      failures across speech, image, and recommender systems.
-  - locale: fr
-    value: >-
-      Obligations de modération de contenu pour les plateformes en ligne encadrées par le Règlement
-      européen sur les services numériques (Règlement (UE) 2022/2065), en particulier les Articles
-      14 à 17.
+sources:
+  - type: regulation
+    title: EU Digital Services Act — Articles 14–17 (notice-and-action, statements of reasons, internal complaint handling)
+    url: https://eur-lex.europa.eu/eli/reg/2022/2065/oj
+    citation: Regulation (EU) 2022/2065, Articles 14–17.
 symbol_id: content_moderation
 variables: []

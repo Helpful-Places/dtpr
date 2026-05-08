@@ -18,10 +18,10 @@ description:
       lumière qui s'allume, une alerte qui retentit, une signalétique qui change, un système CVC qui
       s'ajuste. Exemples : un tourniquet qui s'ouvre sur reconnaissance faciale, une alerte de
       sonorisation diffusée automatiquement, un ajustement CVC commandé par un modèle de bâtiment.
-citation:
-  - locale: en
-    value: >-
-      Output class implicit in EU AI Act Article 3(1) — outputs that "influence physical or virtual
-      environments"; pairs with the agentic_mode element in this schema.
+sources:
+  - type: regulation
+    title: EU AI Act Article 3(1) — outputs that "influence physical or virtual environments"
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+    citation: Regulation (EU) 2024/1689, Article 3(1). Pairs with the agentic_mode element in this schema.
 symbol_id: physical_action
 variables: []

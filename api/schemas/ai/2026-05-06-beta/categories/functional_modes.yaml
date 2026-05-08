@@ -22,6 +22,11 @@ required: true
 order: 3
 datachain_type: ai
 shape: hexagon
+sources:
+  - type: framework
+    title: AI Taxonomy — An Operational Framework for Precision in AI Discourse
+    url: https://dropleaf.app/d/AlXez8scbd
+    citation: Narain Jashanmal, v1.1, January 2026.
 element_variables:
   - id: additional_description
     label:

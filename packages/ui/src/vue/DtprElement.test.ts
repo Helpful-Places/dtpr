@@ -9,7 +9,6 @@ function makeDisplay(overrides: Partial<ElementDisplay> = {}): ElementDisplay {
     description: 'Data held for 30 days.',
     icon: { url: '/icons/cloud.svg', alt: 'Cloud' },
     variables: [],
-    citation: 'See RFC 1234',
     ...overrides,
   }
 }

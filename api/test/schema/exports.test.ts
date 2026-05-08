@@ -14,7 +14,6 @@ const validElement = {
   category_id: 'cat-1',
   title: [{ locale: 'en', value: 'Test Element' }],
   description: [{ locale: 'en', value: 'Description' }],
-  citation: [],
   symbol_id: 'signal',
   variables: [],
 }

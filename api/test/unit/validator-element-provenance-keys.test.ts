@@ -43,7 +43,6 @@ function el(id: string): Element {
     category_id: 'ai__decision',
     title: [loc('en', id)],
     description: [],
-    citation: [],
     authoring_guidance: [],
     examples: [],
     sources: [],

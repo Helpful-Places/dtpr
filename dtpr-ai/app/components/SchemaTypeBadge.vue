@@ -31,6 +31,12 @@ const label = computed<string>(() => {
     return 'array'
   }
   if (Array.isArray(n.type)) return n.type.join(' | ')
+  if (n.type === 'object' && !n.properties && n.additionalProperties && typeof n.additionalProperties === 'object') {
+    const ap = n.additionalProperties
+    if (ap.$ref) return `record<${refName(ap.$ref) ?? ap.$ref}>`
+    if (ap.type) return `record<${ap.type}>`
+    return 'record'
+  }
   if (n.type) return n.type as string
   if (Array.isArray(n.anyOf)) return 'union'
   if (Array.isArray(n.oneOf)) return 'oneOf'

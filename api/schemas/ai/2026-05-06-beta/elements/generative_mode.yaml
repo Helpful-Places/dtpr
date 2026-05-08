@@ -19,16 +19,5 @@ description:
       système, pas une étiquette ou un score sur des données existantes. Exemples : rédiger un
       paragraphe en réponse à une consigne, générer une image à partir d'une description, composer
       de l'audio, compléter un extrait de code.
-citation:
-  - locale: en
-    value: >-
-      Verb framing ("creates") and the six-mode partition adapted from Narain Jashanmal, *AI
-      Taxonomy — An Operational Framework for Precision in AI Discourse*, v1.1, January 2026.
-      https://dropleaf.app/d/AlXez8scbd
-  - locale: fr
-    value: >-
-      Le verbe-cadre (« crée ») et la partition en six modes sont adaptés de Narain Jashanmal, *AI
-      Taxonomy — An Operational Framework for Precision in AI Discourse*, v1.1, janvier 2026.
-      https://dropleaf.app/d/AlXez8scbd
 symbol_id: mode_generative
 variables: []

@@ -35,7 +35,6 @@ describe('ElementSchema', () => {
 
   it('parses a minimal element with defaults', () => {
     const el = ElementSchema.parse(base)
-    expect(el.citation).toEqual([])
     expect(el.variables).toEqual([])
     expect(el.symbol_id).toBe('signal')
     expect(el.category_id).toBe('ai__decision')

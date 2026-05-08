@@ -17,10 +17,16 @@ description:
       hiérarchisation, ou oui/non. Exemples : un système de contrôle d'accès qui décide d'ouvrir un
       portique, un résultat d'éligibilité automatisé à des prestations, un filtrage automatisé qui
       élimine quelqu'un.
-citation:
-  - locale: en
-    value: >-
-      Output class "decisions" enumerated in EU AI Act Article 3(1); high-risk decision domains in
-      Annex III (biometric ID, employment, essential services, justice, migration, education).
+sources:
+  - type: regulation
+    title: EU AI Act Article 3(1) — output class "decisions"
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+    citation: Regulation (EU) 2024/1689, Article 3(1).
+  - type: regulation
+    title: EU AI Act Annex III — High-risk decision domains
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+    citation: >-
+      Regulation (EU) 2024/1689, Annex III — biometric ID, employment, essential services, justice,
+      migration, education.
 symbol_id: dm_accept-or-deny
 variables: []

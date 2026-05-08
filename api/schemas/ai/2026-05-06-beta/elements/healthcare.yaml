@@ -16,18 +16,22 @@ description:
       Soutient les soins cliniques aux personnes — par exemple, aide au diagnostic, recommandations
       de traitement, triage des patients ou chatbots de santé. À distinguer de Santé
       environnementale, qui surveille l'environnement physique.
-citation:
-  - locale: en
-    value: >-
-      Clinical-AI governance under the WHO Ethics and Governance of Artificial Intelligence for
-      Health (2021); medical-device AI regulated by the EU Medical Device Regulation (Regulation
-      (EU) 2017/745) and In Vitro Diagnostic Regulation (Regulation (EU) 2017/746), with EU AI Act
-      (Regulation (EU) 2024/1689) Annex II overlay for safety components.
-  - locale: fr
-    value: >-
-      Gouvernance de l'IA clinique selon le rapport de l'OMS *Éthique et gouvernance de
-      l'intelligence artificielle pour la santé* (2021) ; l'IA des dispositifs médicaux est encadrée
-      par le Règlement (UE) 2017/745 et le Règlement (UE) 2017/746, avec la superposition de
-      l'Annexe II du Règlement (UE) 2024/1689 (loi européenne sur l'IA).
+sources:
+  - type: policy_document
+    title: Ethics and Governance of Artificial Intelligence for Health
+    url: https://www.who.int/publications/i/item/9789240029200
+    citation: World Health Organization, 2021.
+  - type: regulation
+    title: EU Medical Device Regulation
+    url: https://eur-lex.europa.eu/eli/reg/2017/745/oj
+    citation: Regulation (EU) 2017/745.
+  - type: regulation
+    title: EU In Vitro Diagnostic Regulation
+    url: https://eur-lex.europa.eu/eli/reg/2017/746/oj
+    citation: Regulation (EU) 2017/746.
+  - type: regulation
+    title: EU AI Act Annex II — Safety components overlay
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+    citation: Regulation (EU) 2024/1689, Annex II.
 symbol_id: healthcare
 variables: []

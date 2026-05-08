@@ -60,7 +60,6 @@ function makeElement(id: string, categoryId: string, opts: Partial<Element> = {}
     category_id: categoryId,
     title: [loc('en', `Element ${id}`)],
     description: [loc('en', 'desc')],
-    citation: [],
     authoring_guidance: [],
     examples: [],
     sources: [],

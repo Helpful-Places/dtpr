@@ -15,16 +15,18 @@ description:
       Traduit la parole, le texte ou la signalétique pour rendre un lieu ou un service accessible
       dans plusieurs langues — par exemple, l'interprétation en temps réel à un guichet, la
       signalétique multilingue.
-citation:
-  - locale: en
-    value: >-
-      Language access in public-facing services framed by the Council of Europe European Charter for
-      Regional or Minority Languages (1992) and accessibility duties under the EU Web Accessibility
-      Directive (Directive (EU) 2016/2102) and WCAG 2.2 multilingual support.
-  - locale: fr
-    value: >-
-      L'accès linguistique aux services publics est encadré par la Charte européenne des langues
-      régionales ou minoritaires du Conseil de l'Europe (1992) et les obligations d'accessibilité de
-      la Directive (UE) 2016/2102 et des WCAG 2.2.
+sources:
+  - type: framework
+    title: European Charter for Regional or Minority Languages
+    url: https://www.coe.int/en/web/european-charter-regional-or-minority-languages
+    citation: Council of Europe, 1992.
+  - type: regulation
+    title: EU Web Accessibility Directive
+    url: https://eur-lex.europa.eu/eli/dir/2016/2102/oj
+    citation: Directive (EU) 2016/2102.
+  - type: standard
+    title: WCAG 2.2 — Web Content Accessibility Guidelines
+    url: https://www.w3.org/TR/WCAG22/
+    citation: W3C Recommendation.
 symbol_id: translation_language
 variables: []

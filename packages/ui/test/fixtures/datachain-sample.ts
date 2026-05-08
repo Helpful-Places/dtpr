@@ -8,7 +8,6 @@ function display(title: string, description: string): ElementDisplay {
     description,
     icon: { url: '/icons/sample.svg', alt: `icon for ${title}` },
     variables: [],
-    citation: '',
   }
 }
 
