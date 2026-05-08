@@ -51,12 +51,16 @@ export const apiErrors = {
   notFound(message: string, fix_hint?: string): ApiError {
     return new ApiError(404, [{ code: 'not_found', message, fix_hint }])
   },
-  payloadTooLarge(maxBytes: number): ApiError {
+  payloadTooLarge(maxBytesOrMessage: number | string, fix_hint?: string): ApiError {
+    const message =
+      typeof maxBytesOrMessage === 'number'
+        ? `Request body exceeds ${maxBytesOrMessage}-byte limit.`
+        : maxBytesOrMessage
     return new ApiError(413, [
       {
         code: 'payload_too_large',
-        message: `Request body exceeds ${maxBytes}-byte limit.`,
-        fix_hint: 'Shrink the request or break it into smaller batches.',
+        message,
+        fix_hint: fix_hint ?? 'Shrink the request or break it into smaller batches.',
       },
     ])
   },

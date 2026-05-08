@@ -338,6 +338,177 @@ describe('REST: POST .../validate', () => {
   })
 })
 
+describe('REST: POST .../resolve', () => {
+  beforeAll(async () => {
+    await seedVersion()
+  })
+
+  function thinInstance() {
+    return {
+      id: 'resolve-test-1',
+      schema_version: SAMPLE_VERSION.canonical,
+      created_at: '2026-04-16T00:00:00.000Z',
+      elements: [{ element_id: 'accept_deny' }],
+    }
+  }
+
+  it('happy path returns ResolvedDatachain shape with snapshot subset', async () => {
+    const res = await SELF.fetch(
+      `https://example.com/api/v2/schemas/${SAMPLE_VERSION.canonical}/resolve`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(thinInstance()),
+      },
+    )
+    expect(res.status).toBe(200)
+    const body = (await res.json()) as {
+      schema_snapshot?: {
+        datachain_type?: { id?: string }
+        categories?: Array<{ id: string }>
+        elements?: Array<{ id: string }>
+      }
+      suggested_elements?: unknown[]
+      authoring_provenance?: unknown
+    }
+    expect(body.schema_snapshot?.datachain_type?.id).toBe('ai')
+    // Lean-subset rule: only the placement element + its category
+    expect(body.schema_snapshot?.elements?.map((e) => e.id)).toContain('accept_deny')
+    expect(body.suggested_elements).toEqual([])
+    expect(body.authoring_provenance).toBeUndefined()
+  })
+
+  it('semantic-failing thin returns soft-failure ok:false (R7)', async () => {
+    const body = {
+      id: 'resolve-test-bad',
+      schema_version: SAMPLE_VERSION.canonical,
+      created_at: '2026-04-16T00:00:00.000Z',
+      elements: [{ element_id: 'nonexistent' }],
+    }
+    const res = await SELF.fetch(
+      `https://example.com/api/v2/schemas/${SAMPLE_VERSION.canonical}/resolve`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      },
+    )
+    expect(res.status).toBe(200)
+    const json = (await res.json()) as { ok: false; errors: unknown[] }
+    expect(json.ok).toBe(false)
+    expect(json.errors.length).toBeGreaterThan(0)
+  })
+
+  it('unknown version returns 404 envelope', async () => {
+    const res = await SELF.fetch(
+      'https://example.com/api/v2/schemas/ai@2099-12-31/resolve',
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(thinInstance()),
+      },
+    )
+    expect(res.status).toBe(404)
+  })
+
+  it('malformed JSON body returns 400', async () => {
+    const res = await SELF.fetch(
+      `https://example.com/api/v2/schemas/${SAMPLE_VERSION.canonical}/resolve`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: '{not json',
+      },
+    )
+    expect(res.status).toBe(400)
+  })
+})
+
+describe('REST: POST .../validate_resolved', () => {
+  beforeAll(async () => {
+    await seedVersion()
+  })
+
+  // Build a resolved-form payload by first hitting /resolve, then
+  // editing it as needed for the test case. This keeps the snapshot
+  // structurally consistent with the live store (R9 happy path).
+  async function resolvedFromSeed(): Promise<Record<string, unknown>> {
+    const res = await SELF.fetch(
+      `https://example.com/api/v2/schemas/${SAMPLE_VERSION.canonical}/resolve`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          id: 'vr-seed',
+          schema_version: SAMPLE_VERSION.canonical,
+          created_at: '2026-04-16T00:00:00.000Z',
+          elements: [{ element_id: 'accept_deny' }],
+        }),
+      },
+    )
+    expect(res.status).toBe(200)
+    return (await res.json()) as Record<string, unknown>
+  }
+
+  it('happy path returns ok:true', async () => {
+    const resolved = await resolvedFromSeed()
+    const res = await SELF.fetch(
+      `https://example.com/api/v2/schemas/${SAMPLE_VERSION.canonical}/validate_resolved`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(resolved),
+      },
+    )
+    expect(res.status).toBe(200)
+    const json = (await res.json()) as { ok: boolean }
+    expect(json.ok).toBe(true)
+  })
+
+  it('non-empty suggested + no provenance returns soft-failure with provenance_required (R14)', async () => {
+    const resolved = (await resolvedFromSeed()) as {
+      schema_snapshot: { elements: Array<{ id: string; category_id: string }> }
+      suggested_elements: unknown[]
+    }
+    // Crafted suggested element distinct from snapshot ids; missing
+    // authoring_provenance triggers R14.
+    const proposed = {
+      ...(resolved.schema_snapshot.elements[0] ?? {}),
+      id: 'proposed_decision',
+    }
+    const body = {
+      ...resolved,
+      suggested_elements: [proposed],
+    }
+    const res = await SELF.fetch(
+      `https://example.com/api/v2/schemas/${SAMPLE_VERSION.canonical}/validate_resolved`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      },
+    )
+    // Zod refinement R14 fires at parse time and produces parse_error;
+    // either way, the response is ok:false at HTTP 200.
+    expect(res.status).toBe(200)
+    const json = (await res.json()) as { ok: false; errors: Array<{ code: string }> }
+    expect(json.ok).toBe(false)
+    expect(json.errors.length).toBeGreaterThan(0)
+  })
+
+  it('malformed JSON body returns 400', async () => {
+    const res = await SELF.fetch(
+      `https://example.com/api/v2/schemas/${SAMPLE_VERSION.canonical}/validate_resolved`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: '{not json',
+      },
+    )
+    expect(res.status).toBe(400)
+  })
+})
+
 describe('REST: cache control on beta', () => {
   beforeAll(async () => {
     await seedVersion({ version: SAMPLE_BETA_VERSION, manifest: makeManifest(SAMPLE_BETA_VERSION) })

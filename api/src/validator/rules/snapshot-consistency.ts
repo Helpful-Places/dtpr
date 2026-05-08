@@ -69,33 +69,57 @@ export async function checkSnapshotConsistency(
     )
   }
 
-  if (!structurallyEqual(schema_snapshot.categories, canonical.categories)) {
-    findings.push(
-      err(
-        'snapshot_drift',
-        `schema_snapshot.categories differ from the canonical schema for '${resolved.schema_version}'`,
-        {
-          path: 'schema_snapshot.categories',
-          fix_hint: `Re-resolve the datachain against the current schema version, or pin a frozen version that matches this snapshot.`,
-        },
-      ),
-    )
+  // Per R6 the snapshot carries a referenced subset of categories /
+  // elements (only those needed for placement + required-categories
+  // expansion), so equality against the full canonical pool would
+  // always fail. Drift detection compares each snapshot item against
+  // its canonical counterpart by id; a snapshot item with no
+  // canonical match (or a per-id structural mismatch) is drift.
+  for (const finding of subsetDrift(
+    schema_snapshot.categories,
+    canonical.categories,
+    'schema_snapshot.categories',
+    resolved.schema_version,
+  )) {
+    findings.push(finding)
   }
-
-  if (!structurallyEqual(schema_snapshot.elements, canonical.elements)) {
-    findings.push(
-      err(
-        'snapshot_drift',
-        `schema_snapshot.elements differ from the canonical schema for '${resolved.schema_version}'`,
-        {
-          path: 'schema_snapshot.elements',
-          fix_hint: `Re-resolve the datachain against the current schema version, or pin a frozen version that matches this snapshot.`,
-        },
-      ),
-    )
+  for (const finding of subsetDrift(
+    schema_snapshot.elements,
+    canonical.elements,
+    'schema_snapshot.elements',
+    resolved.schema_version,
+  )) {
+    findings.push(finding)
   }
 
   return findings
+}
+
+function subsetDrift<T extends { id: string }>(
+  snapshotItems: T[],
+  canonicalItems: T[],
+  path: string,
+  schemaVersion: string,
+): SemanticError[] {
+  const canonicalById = new Map<string, T>()
+  for (const item of canonicalItems) canonicalById.set(item.id, item)
+
+  for (const snap of snapshotItems) {
+    const canon = canonicalById.get(snap.id)
+    if (!canon || !structurallyEqual(snap, canon)) {
+      return [
+        err(
+          'snapshot_drift',
+          `${path} differ from the canonical schema for '${schemaVersion}'`,
+          {
+            path,
+            fix_hint: `Re-resolve the datachain against the current schema version, or pin a frozen version that matches this snapshot.`,
+          },
+        ),
+      ]
+    }
+  }
+  return []
 }
 
 /**
@@ -108,15 +132,33 @@ function structurallyEqual(a: unknown, b: unknown): boolean {
 }
 
 function canonicalize(v: unknown): string {
-  return JSON.stringify(v, sortReplacer)
+  return JSON.stringify(normalize(v))
 }
 
-function sortReplacer(_key: string, value: unknown): unknown {
-  if (value && typeof value === 'object' && !Array.isArray(value)) {
-    const o = value as Record<string, unknown>
+// Object keys sorted; arrays of `{locale, ...}` records sorted by
+// locale (the resolver normalizes locale order to `manifest.locales`
+// position; the canonical store load returns whatever order R2 gave
+// us). Other arrays preserve order — drift detection treats list
+// position as significant for non-locale arrays.
+function normalize(v: unknown): unknown {
+  if (Array.isArray(v)) {
+    const items = v.map(normalize)
+    if (items.every(isLocaleRecord)) {
+      return [...items].sort((a, b) =>
+        (a as { locale: string }).locale.localeCompare((b as { locale: string }).locale),
+      )
+    }
+    return items
+  }
+  if (v && typeof v === 'object') {
+    const o = v as Record<string, unknown>
     const sorted: Record<string, unknown> = {}
-    for (const k of Object.keys(o).sort()) sorted[k] = o[k]
+    for (const k of Object.keys(o).sort()) sorted[k] = normalize(o[k])
     return sorted
   }
-  return value
+  return v
+}
+
+function isLocaleRecord(v: unknown): v is { locale: string } {
+  return Boolean(v && typeof v === 'object' && typeof (v as { locale?: unknown }).locale === 'string')
 }

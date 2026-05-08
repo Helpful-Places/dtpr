@@ -45,7 +45,7 @@ function sortLocales<T extends { locale: LocaleCode }>(
  * (name, description, prompt, authoring_guidance, plus context.values
  * and context.name/description if present).
  */
-function normalizeCategoryLocales(cat: Category, locales: ReadonlyArray<LocaleCode>): Category {
+export function normalizeCategoryLocales(cat: Category, locales: ReadonlyArray<LocaleCode>): Category {
   const next: Category = {
     ...cat,
     name: sortLocales<LocaleValue>(cat.name, locales),
@@ -72,7 +72,7 @@ function normalizeCategoryLocales(cat: Category, locales: ReadonlyArray<LocaleCo
   return next
 }
 
-function normalizeElementLocales(el: Element, locales: ReadonlyArray<LocaleCode>): Element {
+export function normalizeElementLocales(el: Element, locales: ReadonlyArray<LocaleCode>): Element {
   const next: Element = {
     ...el,
     title: sortLocales<LocaleValue>(el.title, locales),
@@ -99,7 +99,7 @@ function normalizeElementLocales(el: Element, locales: ReadonlyArray<LocaleCode>
   return next
 }
 
-function normalizeDatachainTypeLocales(
+export function normalizeDatachainTypeLocales(
   dt: DatachainType,
   locales: ReadonlyArray<LocaleCode>,
 ): DatachainType {

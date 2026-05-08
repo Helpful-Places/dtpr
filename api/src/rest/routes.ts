@@ -4,8 +4,18 @@ import type { AppEnv } from '../app-types.ts'
 import { composeIcon, type ComposeVariant } from '../icons/compositor.ts'
 import { getShapeSvgFragment, SHAPES, type ShapeType } from '../icons/shapes.ts'
 import { apiErrors } from '../middleware/errors.ts'
+import { canonicalStringify } from '../resolver/canonical-stringify.ts'
+import {
+  normalizeCategoryLocales,
+  normalizeDatachainTypeLocales,
+  normalizeElementLocales,
+  resolve,
+  type SchemaContext,
+} from '../resolver/resolve.ts'
 import type { Category } from '../schema/category.ts'
+import type { Element } from '../schema/element.ts'
 import { DatachainInstanceSchema } from '../schema/datachain-instance.ts'
+import { ResolvedDatachainSchema } from '../schema/datachain-instance-resolved.ts'
 import {
   loadCategories,
   loadCategory,
@@ -18,7 +28,8 @@ import {
   loadSymbolSvg,
   type LoadContext,
 } from '../store/index.ts'
-import { validateInstance } from '../validator/semantic.ts'
+import { validateInstance, validateResolvedInstance } from '../validator/semantic.ts'
+import type { CanonicalSchema, LoadCanonicalSchema } from '../validator/index.ts'
 import {
   decodeCursor,
   paginate,
@@ -69,6 +80,20 @@ function notFoundSvgRoute(raw: string) {
 }
 
 const DEFAULT_ELEMENT_FIELDS = ['id', 'title', 'category_id'] as const
+
+/**
+ * Response cap (R5) for the resolve endpoint. The resolver bundles
+ * the full pinned schema slice plus the thin instance into a single
+ * JSON document; for pathological inputs (many categories × many
+ * elements × many locales) this can balloon. The 512 KB ceiling is
+ * the contract the wire-path advertises — over-budget responses
+ * surface as a 413 envelope rather than streaming a giant body.
+ *
+ * Measured against the canonical (sorted-key) serialization, not
+ * `JSON.stringify`, so the threshold is byte-stable across runs and
+ * matches what the response actually emits.
+ */
+const RESOLVE_RESPONSE_CAP_BYTES = 512 * 1024
 
 const DARK_SUFFIX = '.dark'
 
@@ -415,6 +440,181 @@ export function createRestApp() {
       { manifest, datachainType, categories, elements, symbols: {} },
       parsed,
     )
+    setVersionHeaders(c, manifest)
+    if (result.ok) {
+      return c.json({ ok: true, warnings: result.warnings }, 200)
+    }
+    return c.json({ ok: false, errors: result.errors, warnings: result.warnings }, 200)
+  })
+
+  // POST /schemas/:version/resolve
+  //
+  // Composes the thin instance + pinned schema slice into a
+  // `ResolvedDatachain` per R3. Preserves the validate handler's
+  // soft-failure contract (R8): JSON parse / Zod parse / semantic
+  // validate errors return HTTP 200 with `{ ok: false, errors }`.
+  // R7 dictates the order (validate before resolve); the 512 KB
+  // response cap (R5) is enforced after assembly so consumers get
+  // a typed 413 envelope rather than a truncated body.
+  app.post('/schemas/:version/resolve', async (c) => {
+    const ctx = loadCtx(c)
+    const version = await resolveKnownVersion(ctx, c.req.param('version'))
+    const manifest = await loadManifest(ctx, version)
+    if (!manifest) throw apiErrors.notFound(`Manifest for ${version.canonical} missing.`)
+
+    let raw: unknown
+    try {
+      raw = await c.req.json()
+    } catch {
+      throw apiErrors.badRequest(
+        'Invalid JSON body.',
+        undefined,
+        'Send a valid JSON datachain-instance payload.',
+      )
+    }
+
+    let parsed
+    try {
+      parsed = DatachainInstanceSchema.parse(raw)
+    } catch (e) {
+      if (e instanceof ZodError) {
+        const errors = e.issues.map((iss) => ({
+          code: 'parse_error',
+          message: iss.message,
+          path: iss.path.join('.'),
+          fix_hint: 'Fix the field shape and retry.',
+        }))
+        return c.json({ ok: false, errors }, 200)
+      }
+      throw e
+    }
+
+    const datachainType = await loadDatachainType(ctx, version)
+    const categories = (await loadCategories(ctx, version)) ?? []
+    const elements = (await loadElements(ctx, version)) ?? []
+    if (!datachainType) {
+      throw apiErrors.notFound(`Datachain type for ${version.canonical} missing.`)
+    }
+
+    // R7: run the existing thin semantic validator before resolve.
+    // Soft-failure mirrors the /validate handler's envelope shape
+    // exactly so callers can swap endpoints without re-handling.
+    const semantic = validateInstance(
+      { manifest, datachainType, categories, elements, symbols: {} },
+      parsed,
+    )
+    if (!semantic.ok) {
+      setVersionHeaders(c, manifest)
+      return c.json(
+        { ok: false, errors: semantic.errors, warnings: semantic.warnings },
+        200,
+      )
+    }
+
+    const schemaCtx: SchemaContext = {
+      manifest,
+      datachain_type: datachainType,
+      categories,
+      elements,
+    }
+    const resolved = resolve(parsed, schemaCtx)
+
+    // R5: response cap. Use the canonical serialization so the
+    // measured byte length matches what the response body emits and
+    // is stable run-to-run.
+    const serialized = canonicalStringify(resolved)
+    const byteLength = new TextEncoder().encode(serialized).byteLength
+    if (byteLength > RESOLVE_RESPONSE_CAP_BYTES) {
+      throw apiErrors.payloadTooLarge(
+        `Resolved bundle exceeds ${RESOLVE_RESPONSE_CAP_BYTES}-byte cap (got ${byteLength}).`,
+        'Reduce locales/elements/categories pinned by the schema, or fetch the schema content separately.',
+      )
+    }
+
+    setVersionHeaders(c, manifest)
+    return c.json(resolved, 200)
+  })
+
+  // POST /schemas/:version/validate_resolved
+  //
+  // Validates a pre-resolved (snapshot-pinned) datachain. Same
+  // soft-failure pattern as /validate — Zod parse and semantic
+  // findings both return HTTP 200 + `{ ok: false, errors }`. R9
+  // (snapshot consistency) is graceful: when the pinned version is
+  // absent from `INDEX_KEY` the loader returns `null` and the rule
+  // is skipped — other rules still run.
+  app.post('/schemas/:version/validate_resolved', async (c) => {
+    const ctx = loadCtx(c)
+    const version = await resolveKnownVersion(ctx, c.req.param('version'))
+    const manifest = await loadManifest(ctx, version)
+    if (!manifest) throw apiErrors.notFound(`Manifest for ${version.canonical} missing.`)
+
+    let raw: unknown
+    try {
+      raw = await c.req.json()
+    } catch {
+      throw apiErrors.badRequest(
+        'Invalid JSON body.',
+        undefined,
+        'Send a valid JSON resolved-datachain payload.',
+      )
+    }
+
+    let parsed
+    try {
+      parsed = ResolvedDatachainSchema.parse(raw)
+    } catch (e) {
+      if (e instanceof ZodError) {
+        const errors = e.issues.map((iss) => ({
+          code: 'parse_error',
+          message: iss.message,
+          path: iss.path.join('.'),
+          fix_hint: 'Fix the field shape and retry.',
+        }))
+        return c.json({ ok: false, errors }, 200)
+      }
+      throw e
+    }
+
+    // R9 loader: the validator only runs snapshot consistency when
+    // the loader returns a non-null `CanonicalSchema`. We load the
+    // index up-front and short-circuit when the pinned version isn't
+    // in `versions[]`, so we never issue store reads for a stale
+    // pin. Canonical items are run through the same locale normalizer
+    // the resolver uses so drift detection compares apples-to-apples
+    // against any snapshot the resolver produced.
+    const loadCanonicalSchema: LoadCanonicalSchema = async (
+      schemaVersion,
+    ): Promise<CanonicalSchema | null> => {
+      const index = await loadSchemaIndex(ctx)
+      const known = index.versions.some((entry) => entry.id === schemaVersion)
+      if (!known) return null
+      const dt = await loadDatachainType(ctx, version)
+      const cats = (await loadCategories(ctx, version)) ?? []
+      const els = (await loadElements(ctx, version)) ?? []
+      if (!dt) return null
+      const locales = manifest.locales
+      // `loadElements` returns MaterializedElement with `shape` +
+      // `icon_variants` denormalized for icon-URL resolution; the
+      // canonical Element schema (and the snapshot) does not carry
+      // those. Strip them so drift detection compares apples-to-
+      // apples — these fields are emit-time enrichment, not schema
+      // content.
+      const plainElements = els.map((e) => {
+        const { shape: _shape, icon_variants: _iv, ...rest } = e as Element & {
+          shape?: unknown
+          icon_variants?: unknown
+        }
+        return rest
+      })
+      return {
+        datachainType: normalizeDatachainTypeLocales(dt, locales),
+        categories: cats.map((c) => normalizeCategoryLocales(c, locales)),
+        elements: plainElements.map((e) => normalizeElementLocales(e, locales)),
+      }
+    }
+
+    const result = await validateResolvedInstance(parsed, { loadCanonicalSchema })
     setVersionHeaders(c, manifest)
     if (result.ok) {
       return c.json({ ok: true, warnings: result.warnings }, 200)

@@ -62,6 +62,15 @@ export function createApp(options: CreateAppOptions = {}) {
   // validate request hitting several R2 reads could then trip a
   // spurious 504 before its real budget expired.
   app.use('/api/v2/schemas/:version/validate', timeout({ budgetMs: validateBudget }))
+  // Resolve + validate_resolved share the validate budget — same
+  // semantic-rule cost profile (full schema slice + instance rules),
+  // and resolve additionally runs canonicalStringify for the cap
+  // check.
+  app.use('/api/v2/schemas/:version/resolve', timeout({ budgetMs: validateBudget }))
+  app.use(
+    '/api/v2/schemas/:version/validate_resolved',
+    timeout({ budgetMs: validateBudget }),
+  )
   app.use('/healthz', timeout({ budgetMs: readBudget }))
   app.use('/api/v2/schemas', timeout({ budgetMs: readBudget }))
   app.use('/api/v2/schemas/:version/manifest', timeout({ budgetMs: readBudget }))
