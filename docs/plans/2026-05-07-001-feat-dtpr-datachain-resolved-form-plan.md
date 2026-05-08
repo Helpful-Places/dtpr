@@ -1,7 +1,7 @@
 ---
 title: "feat: ResolvedDatachain — strict-superset wire shape with snapshot, suggested elements, and authoring provenance"
 type: feat
-status: active
+status: completed
 date: 2026-05-07
 origin: docs/brainstorms/2026-05-07-dtpr-datachain-instance-resolved-form-brainstorm.md
 ---
