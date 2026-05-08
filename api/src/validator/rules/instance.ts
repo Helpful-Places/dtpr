@@ -130,7 +130,7 @@ export function checkInstance(
             `Element '${el.id}' is missing required variable '${v.id}'`,
             {
               path: `instance.elements[${ii}].variables`,
-              fix_hint: `Add an entry { id: '${v.id}', value: '...' } to this element's variables.`,
+              fix_hint: `Add an entry { id: '${v.id}', value: [{ locale: 'en', value: '...' }] } to this element's variables.`,
             },
           ),
         )

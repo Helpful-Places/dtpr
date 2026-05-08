@@ -400,7 +400,12 @@ describe('validateInstance — instance-level rules', () => {
       {
         element_id: 'cloud_storage',
         priority: 1,
-        variables: [{ id: 'retention_period', value: '30 days' }],
+        variables: [
+          {
+            id: 'retention_period',
+            value: [loc('en', '30 days')],
+          },
+        ],
         actions: [],
         sources: [],
       },
@@ -432,7 +437,9 @@ describe('validateInstance — instance-level rules', () => {
 
   it('Rule 9 (instance_variable_unknown): variable id not defined on element', () => {
     const inst = validInstance()
-    inst.elements[1]!.variables = [{ id: 'bogus_variable', value: 'x' }]
+    inst.elements[1]!.variables = [
+      { id: 'bogus_variable', value: [loc('en', 'x')] },
+    ]
     const r = validateInstance(baseSource(), inst)
     expect(r.errors.some((e) => e.code === 'INSTANCE_VARIABLE_UNKNOWN')).toBe(true)
   })

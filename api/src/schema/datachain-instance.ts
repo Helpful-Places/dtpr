@@ -4,9 +4,11 @@ import { VersionStringSchema } from './manifest.ts'
 import { ProvenanceRefSchema, ProvenanceTypeSchema, type ProvenanceRef, type ProvenanceType } from './provenance.ts'
 
 /**
- * A variable value as provided by a datachain instance. The value is
- * plain text; localization of instance-provided values is the author's
- * responsibility (the datachain belongs to a single deployment).
+ * A variable value as provided by a datachain instance. The value is a
+ * `LocaleValueArray` so authors can provide one entry per locale in the
+ * manifest allow-list — a single deployment is still rendered in
+ * multiple languages, so a free-text answer needs translations
+ * alongside every other user-facing string.
  */
 export const InstanceVariableValueSchema = z
   .object({
@@ -14,7 +16,9 @@ export const InstanceVariableValueSchema = z
       .string()
       .regex(/^[a-zA-Z0-9_-]+$/)
       .describe('Variable id (must match a variable declared on the element\'s category, rule 9)'),
-    value: z.string().describe('Concrete value for this variable'),
+    value: LocaleValueArraySchema.describe(
+      'Localized concrete value for this variable, one entry per locale (rules 11/12).',
+    ),
   })
   .describe('Variable value bound on a datachain instance element')
 

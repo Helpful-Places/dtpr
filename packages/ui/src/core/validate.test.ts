@@ -88,7 +88,9 @@ function validInstance(): DatachainInstance {
       {
         element_id: 'cloud_storage',
         priority: 1,
-        variables: [{ id: 'retention_period', value: '30 days' }],
+        variables: [
+          { id: 'retention_period', value: [{ locale: 'en', value: '30 days' }] },
+        ],
         actions: [],
       },
     ],
