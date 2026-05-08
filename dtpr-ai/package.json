@@ -2,8 +2,9 @@
   "name": "dtpr-ai",
   "private": true,
   "scripts": {
-    "build": "pnpm --filter @dtpr/api build:schema && pnpm --filter @dtpr/ui build && NODE_OPTIONS=--max-old-space-size=4096 nuxt build",
-    "dev": "pnpm --filter @dtpr/api build:schema && pnpm --filter @dtpr/ui build && NODE_OPTIONS=--max-old-space-size=4096 nuxt dev",
+    "build": "pnpm --filter @dtpr/api build:schema && pnpm --filter @dtpr/ui build && pnpm emit:object-reference && NODE_OPTIONS=--max-old-space-size=4096 nuxt build",
+    "dev": "pnpm --filter @dtpr/api build:schema && pnpm --filter @dtpr/ui build && pnpm emit:object-reference && NODE_OPTIONS=--max-old-space-size=4096 nuxt dev",
+    "emit:object-reference": "tsx scripts/emit-object-reference.ts",
     "preview": "nuxt preview"
   },
   "dependencies": {
@@ -14,6 +15,8 @@
     "nuxt": "^4.0.0"
   },
   "devDependencies": {
+    "@dtpr/api": "workspace:*",
+    "tsx": "^4.19.0",
     "wrangler": "^4.83.0"
   }
 }
