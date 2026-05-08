@@ -1,9 +1,13 @@
 import { z, ZodError } from 'zod'
-import { deriveElementDisplay, type ElementDisplay } from '@dtpr/ui/core'
+import { buildResolvedSections, deriveElementDisplay, type ElementDisplay } from '@dtpr/ui/core'
 import { renderDatachainDocument, type RenderedSection } from '@dtpr/ui/html'
 import type { Category } from '../../schema/category.ts'
 import type { Element } from '../../schema/element.ts'
 import { DatachainInstanceSchema, type DatachainInstance } from '../../schema/datachain-instance.ts'
+import {
+  ResolvedDatachainSchema,
+  type ResolvedDatachain,
+} from '../../schema/datachain-instance-resolved.ts'
 import { LocaleCodeSchema } from '../../schema/locale.ts'
 import {
   loadCategories,
@@ -146,9 +150,14 @@ export function renderDatachainTool(ctx: LoadContext, sessionId: string): ToolDe
       name: 'render_datachain',
       description:
         'Render a DTPR datachain instance as an interactive HTML document. ' +
-        'The document URL is returned in _meta.ui.resourceUri and can be ' +
-        'fetched via resources/read; the tool also returns a plaintext ' +
-        'summary of the rendered categories and elements.',
+        'Accepts either a thin DatachainInstance or a ResolvedDatachain. ' +
+        'When a ResolvedDatachain is supplied, the embedded schema_snapshot ' +
+        'is used directly and no schema fetch is performed; suggested_elements ' +
+        'render with a "proposed" indicator. Precedence: an input that strictly ' +
+        'matches DatachainInstance parses thin; an input adding schema_snapshot ' +
+        'parses resolved. The document URL is returned in _meta.ui.resourceUri ' +
+        'and can be fetched via resources/read; the tool also returns a ' +
+        'plaintext summary of the rendered categories and elements.',
       inputSchema: schemaToJson(InputSchema),
     },
     handler: async (raw: Record<string, unknown>) => {
@@ -162,6 +171,43 @@ export function renderDatachainTool(ctx: LoadContext, sessionId: string): ToolDe
         normalizeVersionParam(args.version)
       } catch (e) {
         return toToolResult(errEnvelope(errorsFrom(e)))
+      }
+
+      // Resolved-input branch (R18, R19): try ResolvedDatachainSchema
+      // first. ResolvedDatachain is a strict superset, so a thin
+      // instance never matches and falls through. When a resolved
+      // input matches, the schema_snapshot is self-contained — no
+      // R2 reads, no validateInstance run (the resolved form has its
+      // own validate_resolved surface).
+      const resolvedParse = ResolvedDatachainSchema.safeParse(args.datachain)
+      if (resolvedParse.success) {
+        try {
+          const resolved: ResolvedDatachain = resolvedParse.data
+          const sections = buildResolvedSections(resolved, args.locale)
+          const html = await renderDatachainDocument(sections, { locale: args.locale })
+          setDatachainHtml(sessionId, html)
+          const summary = buildAgentSummary(sections, DATACHAIN_RESOURCE_URI)
+          return {
+            structuredContent: okEnvelope({
+              resource_uri: DATACHAIN_RESOURCE_URI,
+              section_count: sections.length,
+              element_count: sections.reduce((n, s) => n + s.elements.length, 0),
+              warnings: [],
+            }) as unknown as Record<string, unknown>,
+            content: [{ type: 'text' as const, text: summary }],
+            _meta: {
+              ui: {
+                resourceUri: DATACHAIN_RESOURCE_URI,
+                csp: { resourceDomains: [], connectDomains: [] },
+              },
+            },
+          }
+        } catch (e) {
+          // buildResolvedSections throws on missing element_id (where
+          // the thin path silently skips). Surface as soft-failure
+          // matching validate_resolved's posture.
+          return toSoftFailureResult(errEnvelope(errorsFrom(e)))
+        }
       }
 
       let parsedInstance: DatachainInstance

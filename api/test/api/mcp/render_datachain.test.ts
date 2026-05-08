@@ -272,4 +272,32 @@ describe('render_datachain tool (end-to-end via /mcp)', () => {
     })) as McpResponse<RenderResult>
     expect(res.result?.structuredContent?.ok).toBe(false)
   })
+
+  it('accepts a ResolvedDatachain input directly (R18) — no schema fetch', async () => {
+    const client = createMcpClient()
+    await client.initialize()
+    // Build a resolved-form fixture by first calling resolve over REST.
+    const resolveRes = await SELF.fetch(
+      `https://example.com/api/v2/schemas/${VERSION}/resolve`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(validInstance()),
+      },
+    )
+    expect(resolveRes.status).toBe(200)
+    const resolved = (await resolveRes.json()) as Record<string, unknown>
+    const res = (await client.callTool<RenderResult>('render_datachain', {
+      version: VERSION,
+      datachain: resolved,
+    })) as McpResponse<RenderResult>
+    expect(res.error).toBeUndefined()
+    expect(res.result?.isError).toBeUndefined()
+    expect(res.result?.structuredContent?.ok).toBe(true)
+    expect(res.result?._meta?.ui?.resourceUri).toBe('ui://dtpr/datachain/view.html')
+    // Snapshot is self-contained; same elements as the thin path.
+    expect(res.result?.structuredContent?.data?.element_count).toBe(2)
+    const summary = res.result?.content?.[0]?.text
+    expect(summary).toContain('Accept / Deny')
+  })
 })
