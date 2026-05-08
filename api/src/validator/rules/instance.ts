@@ -106,6 +106,11 @@ export function checkInstance(
     }
 
     // Rule 9 and 10: instance variables validated against element's inherited definitions.
+    // Rule 12 (mirrored on instances): a provided variable must carry at
+    // least one localized entry — Zod accepts `value: []` because
+    // LocaleValueArraySchema has no min, so the check lives here.
+    // Without it, `extract([])` returns `''` at render time and silently
+    // collapses `{{var}}` placeholders to an empty string.
     const defined = variablesForElement(el.id)
     const providedIds = new Set(ie.variables.map((v) => v.id))
     for (const [vi, iv] of ie.variables.entries()) {
@@ -117,6 +122,18 @@ export function checkInstance(
             {
               path: `instance.elements[${ii}].variables[${vi}].id`,
               fix_hint: `Remove the variable or declare it on this element's category (${el.category_id}).`,
+            },
+          ),
+        )
+      }
+      if (iv.value.length === 0) {
+        findings.push(
+          err(
+            'INSTANCE_VARIABLE_VALUE_EMPTY',
+            `Element '${el.id}' instance variable '${iv.id}' has no localized values`,
+            {
+              path: `instance.elements[${ii}].variables[${vi}].value`,
+              fix_hint: `Add at least one entry, e.g. [{ locale: 'en', value: '...' }].`,
             },
           ),
         )

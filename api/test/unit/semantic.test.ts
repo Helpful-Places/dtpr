@@ -451,6 +451,13 @@ describe('validateInstance — instance-level rules', () => {
     expect(r.errors.some((e) => e.code === 'INSTANCE_REQUIRED_VARIABLE_MISSING')).toBe(true)
   })
 
+  it('Rule 12 mirror (instance_variable_value_empty): provided value array is empty', () => {
+    const inst = validInstance()
+    inst.elements[1]!.variables = [{ id: 'retention_period', value: [] }]
+    const r = validateInstance(baseSource(), inst)
+    expect(r.errors.some((e) => e.code === 'INSTANCE_VARIABLE_VALUE_EMPTY')).toBe(true)
+  })
+
   it('error envelope fields are agent-actionable', () => {
     const inst = validInstance()
     inst.elements[1]!.variables = []

@@ -39,10 +39,7 @@ function makeInstanceElement(overrides: Partial<InstanceElement> = {}): Instance
     variables: [
       {
         id: 'retention_period',
-        value: [
-          { locale: 'en', value: '30 days' },
-          { locale: 'es', value: '30 días' },
-        ],
+        value: [loc('en', '30 days'), loc('es', '30 días')],
       },
     ],
     actions: [],
