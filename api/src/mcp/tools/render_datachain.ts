@@ -68,6 +68,18 @@ function wrapVariableValue(value: string): string {
   return `<dtpr_variable_value>${value}</dtpr_variable_value>`
 }
 
+// Pick the locale-appropriate value from a `LocaleValue[]`. Falls
+// through to the first entry when the requested locale is absent;
+// returns undefined when the array is empty so callers can branch on
+// presence (the field is optional on the wire — `default([])`).
+function pickLocale(
+  values: ReadonlyArray<{ locale: string; value: string }>,
+  locale: string,
+): string | undefined {
+  if (values.length === 0) return undefined
+  return (values.find((v) => v.locale === locale) ?? values[0])?.value
+}
+
 function buildAgentSummary(
   sections: RenderedSection[],
   resourceUri: string,
@@ -184,7 +196,13 @@ export function renderDatachainTool(ctx: LoadContext, sessionId: string): ToolDe
         try {
           const resolved: ResolvedDatachain = resolvedParse.data
           const sections = buildResolvedSections(resolved, args.locale)
-          const html = await renderDatachainDocument(sections, { locale: args.locale })
+          const headline = pickLocale(resolved.title, args.locale)
+          const subhead = pickLocale(resolved.description, args.locale)
+          const html = await renderDatachainDocument(sections, {
+            locale: args.locale,
+            ...(headline !== undefined ? { headline, title: headline } : {}),
+            ...(subhead !== undefined ? { subhead } : {}),
+          })
           setDatachainHtml(sessionId, html)
           const summary = buildAgentSummary(sections, DATACHAIN_RESOURCE_URI)
           return {
@@ -259,7 +277,13 @@ export function renderDatachainTool(ctx: LoadContext, sessionId: string): ToolDe
         }
 
         const sections = buildSections(parsedInstance, categories, elements, args.locale)
-        const html = await renderDatachainDocument(sections, { locale: args.locale })
+        const headline = pickLocale(parsedInstance.title, args.locale)
+        const subhead = pickLocale(parsedInstance.description, args.locale)
+        const html = await renderDatachainDocument(sections, {
+          locale: args.locale,
+          ...(headline !== undefined ? { headline, title: headline } : {}),
+          ...(subhead !== undefined ? { subhead } : {}),
+        })
         setDatachainHtml(sessionId, html)
 
         const summary = buildAgentSummary(sections, DATACHAIN_RESOURCE_URI)

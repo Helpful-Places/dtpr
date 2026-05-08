@@ -32,6 +32,14 @@ export interface RenderedSection {
 export interface RenderDatachainOptions {
   locale?: string
   title?: string
+  // Optional headline for the rendered page body — typically the
+  // datachain instance's title resolved into the requested locale
+  // ("Worcester license plate reader"). When omitted, no header
+  // block is rendered.
+  headline?: string
+  // Optional one or two-sentence prose summary, rendered beneath the
+  // headline. Resolved into the requested locale by the caller.
+  subhead?: string
   // Optional HTML for the empty state, inserted unescaped. Declare trust
   // via `trustAsHtml(...)` — the brand prevents raw user input from
   // reaching the v-html boundary. When omitted and no sections are
@@ -94,6 +102,7 @@ export async function renderDatachainDocument(
   const app = createSSRApp(Root)
   const body = await renderToString(app)
 
+  const header = renderHeader(options.headline, options.subhead)
   return (
     `<!doctype html><html lang="${escapeHtml(locale)}">` +
     `<head>` +
@@ -102,7 +111,23 @@ export async function renderDatachainDocument(
     `<title>${escapeHtml(title)}</title>` +
     `<style>${stylesCss}</style>` +
     `</head>` +
-    `<body>${body}<script>${accordionScript}</script></body>` +
+    `<body>${header}${body}<script>${accordionScript}</script></body>` +
     `</html>`
   )
+}
+
+// Optional <header> block above the body content. Both fields run
+// through `escapeHtml` — they originate as plain text on the
+// `DatachainInstance` (locale-resolved by the caller) and are
+// untrusted as far as the renderer is concerned.
+function renderHeader(headline?: string, subhead?: string): string {
+  if (!headline && !subhead) return ''
+  const parts: string[] = []
+  if (headline) {
+    parts.push(`<h1 class="dtpr-headline">${escapeHtml(headline)}</h1>`)
+  }
+  if (subhead) {
+    parts.push(`<p class="dtpr-subhead">${escapeHtml(subhead)}</p>`)
+  }
+  return `<header class="dtpr-document-header">${parts.join('')}</header>`
 }

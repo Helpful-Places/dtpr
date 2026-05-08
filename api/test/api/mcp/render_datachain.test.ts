@@ -273,6 +273,37 @@ describe('render_datachain tool (end-to-end via /mcp)', () => {
     expect(res.result?.structuredContent?.ok).toBe(false)
   })
 
+  // Instance-level title + description plumb through to the rendered
+  // HTML's <header> block (and the document <title>).
+  it('renders the instance title + description as headline + subhead', async () => {
+    const client = createMcpClient()
+    await client.initialize()
+    const datachain = {
+      ...validInstance(),
+      title: [{ locale: 'en', value: 'Worcester license plate reader' }],
+      description: [{ locale: 'en', value: 'Parking enforcement automation.' }],
+    }
+    await client.callTool<RenderResult>('render_datachain', {
+      version: VERSION,
+      datachain,
+    })
+    const { body } = await postMcp({
+      jsonrpc: '2.0',
+      id: 50,
+      method: 'resources/read',
+      params: { uri: 'ui://dtpr/datachain/view.html' },
+    })
+    const result = body.result as {
+      contents?: Array<{ uri: string; text: string }>
+    }
+    const html = result?.contents?.[0]?.text ?? ''
+    expect(html).toContain('<header class="dtpr-document-header">')
+    expect(html).toContain('Worcester license plate reader')
+    expect(html).toContain('Parking enforcement automation.')
+    // Document <title> defaults to the headline when one is supplied.
+    expect(html).toContain('<title>Worcester license plate reader</title>')
+  })
+
   it('accepts a ResolvedDatachain input directly (R18) — no schema fetch', async () => {
     const client = createMcpClient()
     await client.initialize()

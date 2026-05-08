@@ -137,6 +137,8 @@ describe('resolve', () => {
     // shape by hand to model the degenerate case.
     const thin = {
       id: 'inst-empty',
+      title: [],
+      description: [],
       schema_version: 'ai@2026-04-16-beta',
       created_at: '2026-04-16T00:00:00.000Z',
       elements: [],
@@ -313,6 +315,28 @@ describe('resolve', () => {
     const out = resolve(thin, ctx)
     const serialized = canonicalStringify(out)
     expect(serialized.length).toBeLessThan(512 * 1024)
+  })
+
+  it('locale-normalizes instance title + description to manifest order', () => {
+    const ctx = makeSchemaContext({
+      manifestLocales: ['en', 'fr'],
+      categories: [makeCategory('cat-a')],
+      elements: [makeElement('el-a1', 'cat-a')],
+      datachainType: makeDatachainType({ locales: ['en', 'fr'] }),
+    })
+    const thin = DatachainInstanceSchema.parse({
+      id: 'inst-x',
+      // Author wrote locales in [fr, en] order; resolver must
+      // re-emit them in manifest order [en, fr].
+      title: [loc('fr', 'Lecteur de plaques'), loc('en', 'License plate reader')],
+      description: [loc('fr', 'Application de stationnement.'), loc('en', 'Parking enforcement.')],
+      schema_version: 'ai@2026-04-16-beta',
+      created_at: '2026-04-16T00:00:00.000Z',
+      elements: [{ element_id: 'el-a1' }],
+    })
+    const out = resolve(thin, ctx)
+    expect(out.title.map((t) => t.locale)).toEqual(['en', 'fr'])
+    expect(out.description.map((t) => t.locale)).toEqual(['en', 'fr'])
   })
 
   it('elements and categories in the snapshot are sorted ascending by id', () => {

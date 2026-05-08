@@ -82,6 +82,35 @@ describe('renderDatachainDocument', () => {
     expect(html).toContain('<html lang="pt">')
   })
 
+  // Instance-level headline + subhead (from DatachainInstance.title /
+  // .description after locale resolution).
+  it('renders headline + subhead block above the sections', async () => {
+    const html = await renderDatachainDocument(sampleSections(1, 1), {
+      headline: 'Worcester license plate reader',
+      subhead: 'Parking enforcement automation.',
+    })
+    expect(html).toContain('<header class="dtpr-document-header">')
+    expect(html).toContain('<h1 class="dtpr-headline">Worcester license plate reader</h1>')
+    expect(html).toContain('<p class="dtpr-subhead">Parking enforcement automation.</p>')
+  })
+
+  it('omits the header block when neither headline nor subhead is set', async () => {
+    const html = await renderDatachainDocument(sampleSections(1, 1))
+    expect(html).not.toContain('dtpr-document-header')
+    expect(html).not.toContain('dtpr-headline')
+    expect(html).not.toContain('dtpr-subhead')
+  })
+
+  it('escapes XSS in headline + subhead', async () => {
+    const html = await renderDatachainDocument(sampleSections(1, 1), {
+      headline: '<script>alert(1)</script>',
+      subhead: '<img src=x onerror=alert(1)>',
+    })
+    expect(html).not.toContain('<script>alert(1)</script>')
+    expect(html).toContain('&lt;script&gt;alert(1)&lt;/script&gt;')
+    expect(html).toContain('&lt;img src=x onerror=alert(1)&gt;')
+  })
+
   // Soft ceiling. Unit 0.5 measured p99 ~10ms in workerd for the same
   // 30-element fixture; Node + happy-dom is comparatively slower, so this
   // threshold is a regression guard, not the production SLA.

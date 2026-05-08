@@ -291,4 +291,69 @@ describe('ResolvedDatachainSchema', () => {
     })
     expect(thinFromResolved).toEqual(thinDirect)
   })
+
+  // Instance-level title + description (the system being described).
+  // Optional with `default([])` so existing v2 fixtures parse unchanged.
+  describe('instance title + description', () => {
+    it('elided title + description default to empty arrays (back-compat)', () => {
+      const parsed = DatachainInstanceSchema.parse({
+        id: 'worcester-lpr',
+        schema_version: 'ai@2026-04-16-beta',
+        created_at: '2026-04-16T00:00:00.000Z',
+        elements: [{ element_id: 'accept_deny' }],
+      })
+      expect(parsed.title).toEqual([])
+      expect(parsed.description).toEqual([])
+    })
+
+    it('parses title + description as LocaleValueArray on both wire forms', () => {
+      const wire = {
+        id: 'worcester-lpr',
+        title: [loc('en', 'Worcester license plate reader')],
+        description: [loc('en', 'Parking enforcement automation.')],
+        schema_version: 'ai@2026-04-16-beta',
+        created_at: '2026-04-16T00:00:00.000Z',
+        elements: [{ element_id: 'accept_deny' }],
+      }
+      const thin = DatachainInstanceSchema.parse(wire)
+      expect(thin.title.map((t) => t.value)).toEqual(['Worcester license plate reader'])
+      expect(thin.description.map((d) => d.value)).toEqual(['Parking enforcement automation.'])
+
+      const resolved = ResolvedDatachainSchema.parse({
+        ...wire,
+        schema_snapshot: {
+          datachain_type: baseDatachainType(),
+          categories: [baseCategory()],
+          elements: [baseElement('accept_deny')],
+        },
+      })
+      expect(resolved.title).toEqual(thin.title)
+      expect(resolved.description).toEqual(thin.description)
+    })
+
+    it('round-trip preserves title + description', () => {
+      const wire = {
+        id: 'worcester-lpr',
+        title: [loc('en', 'Worcester license plate reader')],
+        description: [loc('en', 'A summary.')],
+        schema_version: 'ai@2026-04-16-beta',
+        created_at: '2026-04-16T00:00:00.000Z',
+        elements: [{ element_id: 'accept_deny' }],
+        schema_snapshot: {
+          datachain_type: baseDatachainType(),
+          categories: [baseCategory()],
+          elements: [baseElement('accept_deny')],
+        },
+      }
+      const resolved = ResolvedDatachainSchema.parse(wire)
+      const { schema_snapshot: _ss, suggested_elements: _se, authoring_provenance: _ap, ...stripped } =
+        resolved
+      void _ss
+      void _se
+      void _ap
+      const thin = DatachainInstanceSchema.parse(stripped)
+      expect(thin.title).toEqual(resolved.title)
+      expect(thin.description).toEqual(resolved.description)
+    })
+  })
 })

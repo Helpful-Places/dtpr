@@ -181,9 +181,13 @@ export function resolve(thin: DatachainInstance, schema: SchemaContext): Resolve
   }
 
   // Spread the parsed thin instance verbatim — Zod defaults are already
-  // populated, so determinism for elided-default inputs holds.
+  // populated, so determinism for elided-default inputs holds. Locale
+  // arrays on instance-level fields (title, description) are normalized
+  // to manifest order, matching the schema-snapshot policy.
   const resolved: ResolvedDatachain = {
     ...thin,
+    title: sortLocales<LocaleValue>(thin.title, locales),
+    description: sortLocales<LocaleValue>(thin.description, locales),
     schema_snapshot: snapshot,
     suggested_elements: [],
   }

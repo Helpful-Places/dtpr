@@ -386,6 +386,8 @@ describe('validateVersion — color-contrast rule', () => {
 describe('validateInstance — instance-level rules', () => {
   const validInstance = () => ({
     id: 'worcester-lpr',
+    title: [],
+    description: [],
     schema_version: 'ai@2026-04-16-beta',
     created_at: '2026-04-16T00:00:00.000Z',
     elements: [

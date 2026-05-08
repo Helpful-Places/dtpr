@@ -152,6 +152,8 @@ describe('validateResolvedInstance — error paths', () => {
   it('emits unknown_element_id when a placement ref is absent from both pools', async () => {
     const wire = {
       id: 'x',
+      title: [],
+      description: [],
       schema_version: 'ai@2026-04-16-beta',
       created_at: '2026-04-16T00:00:00.000Z',
       // Placement references something the snapshot satisfies for
@@ -178,6 +180,8 @@ describe('validateResolvedInstance — error paths', () => {
     // Schema callers who skip the Zod refinement.
     const resolved: ResolvedDatachain = {
       id: 'x',
+      title: [],
+      description: [],
       schema_version: 'ai@2026-04-16-beta',
       created_at: '2026-04-16T00:00:00.000Z',
       elements: [{ element_id: 'accept_deny', priority: 0, variables: [], actions: [], sources: [] }],
@@ -202,6 +206,8 @@ describe('validateResolvedInstance — error paths', () => {
   it('emits provenance_required when suggested non-empty + provenance is undefined', async () => {
     const resolved: ResolvedDatachain = {
       id: 'x',
+      title: [],
+      description: [],
       schema_version: 'ai@2026-04-16-beta',
       created_at: '2026-04-16T00:00:00.000Z',
       elements: [{ element_id: 'accept_deny', priority: 0, variables: [], actions: [], sources: [] }],
@@ -228,6 +234,8 @@ describe('validateResolvedInstance — error paths', () => {
     const collidingId = 'accept_deny'
     const resolved: ResolvedDatachain = {
       id: 'x',
+      title: [],
+      description: [],
       schema_version: 'ai@2026-04-16-beta',
       created_at: '2026-04-16T00:00:00.000Z',
       elements: [{ element_id: collidingId, priority: 0, variables: [], actions: [], sources: [] }],
@@ -263,6 +271,8 @@ describe('validateResolvedInstance — error paths', () => {
     }
     const wire = {
       id: 'x',
+      title: [],
+      description: [],
       schema_version: 'ai@2026-04-16-beta',
       created_at: '2026-04-16T00:00:00.000Z',
       elements: [{ element_id: 'accept_deny' }],
@@ -302,6 +312,8 @@ describe('validateResolvedInstance — error paths', () => {
     }
     const wire = {
       id: 'x',
+      title: [],
+      description: [],
       schema_version: 'ai@2026-04-16-beta',
       created_at: '2026-04-16T00:00:00.000Z',
       // Placement only covers the optional category; required category
