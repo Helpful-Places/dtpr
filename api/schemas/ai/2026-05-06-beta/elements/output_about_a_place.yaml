@@ -16,6 +16,4 @@ description:
       L'IA produit une sortie de localisation, d'itinéraire, de zone ou de plan. Exemples : un
       itinéraire affiché sur une borne, une carte de chaleur de la densité piétonne, les limites
       d'une géoclôture publiées à des systèmes en aval.
-citation: []
 symbol_id: spatial
-variables: []

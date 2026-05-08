@@ -18,6 +18,4 @@ description:
       non vocaux. Inclut la transcription parole-vers-texte, la synthèse vocale, la détection de
       mots-clés et la détection d'événements sonores. La voix comme identité (reconnaître qui parle)
       relève de la reconnaissance biométrique.
-citation: []
 symbol_id: processing_text-to-speech
-variables: []

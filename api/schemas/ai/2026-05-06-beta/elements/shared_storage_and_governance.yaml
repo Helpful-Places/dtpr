@@ -17,6 +17,4 @@ description:
       plusieurs parties et, comme l'infrastructure est partagée, il devient possible d'appliquer la
       gouvernance autour de la conservation, de l'accés et de la destruction des données par des
       politiques intégrées à la structure des données elles-mêmes.
-citation: []
 symbol_id: stored
-variables: []

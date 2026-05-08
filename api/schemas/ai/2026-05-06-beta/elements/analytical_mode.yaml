@@ -19,4 +19,3 @@ description:
       Il ne génère pas de nouveau contenu. Exemples : un score de risque de crédit, un signalement
       de fraude, une prévision de longueur de file, un classement de recommandations.
 symbol_id: mode_analytical
-variables: []

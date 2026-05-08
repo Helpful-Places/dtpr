@@ -19,4 +19,3 @@ description:
       robot, changer la phase d'un feu de circulation, ouvrir un portail, régler une vanne CVC,
       lever une barrière de parking.
 symbol_id: mode_physical
-variables: []

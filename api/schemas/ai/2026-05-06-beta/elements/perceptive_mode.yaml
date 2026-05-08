@@ -20,4 +20,3 @@ description:
       pipeline. Exemples : détecter un véhicule dans une image, transcrire une phrase parlée, lire
       les champs d'un formulaire papier.
 symbol_id: mode_perceptive
-variables: []

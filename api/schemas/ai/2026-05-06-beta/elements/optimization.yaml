@@ -19,6 +19,4 @@ description:
       synchronisation des feux, la planification énergétique et CVC, la planification du personnel
       et l'allocation de ressources. Fonctionne en explorant des possibilités pour maximiser ou
       minimiser un objectif comme le coût, le temps ou les émissions.
-citation: []
 symbol_id: processing_optimization-algorithm
-variables: []
