@@ -160,12 +160,27 @@ export function buildResolvedSections(
     }
 
     // Category placement: drop into the element's declared category
-    // bucket if that category appears in the datachain-type's ordered
-    // list; silently skip otherwise (the semantic validator already
-    // rejects elements whose category_id is not in the schema). The
-    // helper is presentational, not enforcing.
+    // bucket. The schema-level CATEGORY_REF_MISSING rule guarantees
+    // every element.category_id resolves to a defined category, but
+    // it does not guarantee that category appears in
+    // datachain_type.categories[] — a suggested element promoted into
+    // the snapshot can land on a category that the type does not
+    // declare. validateResolvedInstance re-runs checkInstance against
+    // the merged pool, not a full schema-level validation, so this
+    // case isn't caught upstream. Throw to surface the mismatch
+    // rather than silently rendering a section list with the
+    // placement dropped.
     const bucket = byCategory.get(element.category_id)
-    if (bucket) bucket.push(display)
+    if (!bucket) {
+      throw new Error(
+        `buildResolvedSections: element "${element.id}" has category_id ` +
+          `"${element.category_id}" which is not in ` +
+          `schema_snapshot.datachain_type.categories. The placement cannot ` +
+          'be rendered. Add the category to datachain_type.categories or ' +
+          'pick an element whose category is declared.',
+      )
+    }
+    bucket.push(display)
   }
 
   // Materialize sections in declared category order. Categories that

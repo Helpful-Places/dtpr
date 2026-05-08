@@ -44,7 +44,7 @@ import {
   setVersionHeaders,
 } from './responses.ts'
 import { reorderByIds, searchElementIds } from './search.ts'
-import { resolveKnownVersion } from './version-resolver.ts'
+import { normalizeVersionParam, resolveKnownVersion } from './version-resolver.ts'
 
 /**
  * Allowed shape names as a Set for O(1) validation. Derived from
@@ -583,17 +583,25 @@ export function createRestApp() {
     // pin. Canonical items are run through the same locale normalizer
     // the resolver uses so drift detection compares apples-to-apples
     // against any snapshot the resolver produced.
+    //
+    // The snapshot is pinned to `resolved.schema_version`, which may
+    // differ from the URL `:version` — store reads, manifest, and
+    // locale normalization all key off the snapshot's pinned version,
+    // not the URL handle.
     const loadCanonicalSchema: LoadCanonicalSchema = async (
       schemaVersion,
     ): Promise<CanonicalSchema | null> => {
       const index = await loadSchemaIndex(ctx)
       const known = index.versions.some((entry) => entry.id === schemaVersion)
       if (!known) return null
-      const dt = await loadDatachainType(ctx, version)
-      const cats = (await loadCategories(ctx, version)) ?? []
-      const els = (await loadElements(ctx, version)) ?? []
+      const snapVersion = normalizeVersionParam(schemaVersion)
+      const snapManifest = await loadManifest(ctx, snapVersion)
+      if (!snapManifest) return null
+      const dt = await loadDatachainType(ctx, snapVersion)
+      const cats = (await loadCategories(ctx, snapVersion)) ?? []
+      const els = (await loadElements(ctx, snapVersion)) ?? []
       if (!dt) return null
-      const locales = manifest.locales
+      const locales = snapManifest.locales
       // `loadElements` returns MaterializedElement with `shape` +
       // `icon_variants` denormalized for icon-URL resolution; the
       // canonical Element schema (and the snapshot) does not carry

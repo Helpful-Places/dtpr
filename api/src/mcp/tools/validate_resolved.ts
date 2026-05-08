@@ -129,15 +129,23 @@ export function validateResolvedTool(ctx: LoadContext): ToolDef {
         // (graceful degradation). Canonical items are run through the
         // same locale normalizer the resolver uses so drift detection
         // compares apples-to-apples.
+        //
+        // The snapshot is pinned to `resolved.schema_version`, which
+        // may differ from the tool-arg `version` — store reads,
+        // manifest, and locale normalization all key off the snapshot's
+        // pinned version, not the tool-arg handle.
         const loadCanonicalSchema: LoadCanonicalSchema = async (
           schemaVersion,
         ): Promise<CanonicalSchema | null> => {
           const index = await loadSchemaIndex(ctx)
           const known = index.versions.some((entry) => entry.id === schemaVersion)
           if (!known) return null
-          const dt = await loadDatachainType(ctx, version)
-          const cats = (await loadCategories(ctx, version)) ?? []
-          const els = (await loadElements(ctx, version)) ?? []
+          const snapVersion = normalizeVersionParam(schemaVersion)
+          const snapManifest = await loadManifest(ctx, snapVersion)
+          if (!snapManifest) return null
+          const dt = await loadDatachainType(ctx, snapVersion)
+          const cats = (await loadCategories(ctx, snapVersion)) ?? []
+          const els = (await loadElements(ctx, snapVersion)) ?? []
           if (!dt) return null
           // Strip MaterializedElement enrichments (shape, icon_variants)
           // — same as the REST handler.
@@ -148,7 +156,7 @@ export function validateResolvedTool(ctx: LoadContext): ToolDef {
             }
             return rest
           })
-          const locales = manifest.locales
+          const locales = snapManifest.locales
           return {
             datachainType: normalizeDatachainTypeLocales(dt, locales),
             categories: cats.map((c) => normalizeCategoryLocales(c, locales)),

@@ -130,7 +130,10 @@ export async function validateResolvedInstance(
   const syntheticSource: SchemaVersionSource = {
     manifest: {
       version: resolved.schema_version,
-      status: 'beta',
+      // 'beta' is a safe conservative default; if the schema version's
+      // actual status matters to any checkInstance rule, wire the real
+      // status down through ValidateResolvedOptions instead.
+      status: 'beta' as const,
       created_at: '1970-01-01T00:00:00.000Z',
       notes: '',
       content_hash: `sha256-${'0'.repeat(64)}`,
