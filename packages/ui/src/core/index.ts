@@ -25,9 +25,6 @@ export type {
   RenderedSection,
 } from './build-resolved-sections.js'
 
-export { bucketConfidence } from './confidence-bucket.js'
-export type { ConfidenceBucket } from './confidence-bucket.js'
-
 export { validateDatachain } from './validate.js'
 export type {
   SchemaVersionSource,
@@ -48,11 +45,15 @@ export type {
   DatachainInstance,
   SchemaManifest,
   AuthoringProvenance,
+  ConfidenceLevel,
+  ElementProvenance,
   ResolvedDatachain,
   SchemaSnapshot,
+  SourceReference,
   VariableType,
   InterpolateSegment,
   ElementDisplay,
   ElementDisplayIcon,
   ElementDisplayVariable,
+  ElementDisplayProvenance,
 } from './types.js'

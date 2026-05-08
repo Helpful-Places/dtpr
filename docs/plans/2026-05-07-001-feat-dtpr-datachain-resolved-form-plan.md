@@ -814,3 +814,19 @@ ResolvedDatachain ──┐
 - Tests: `api/test/api/rest.test.ts`, `api/test/api/seed.ts`, `api/test/unit/json-schema-emit.test.ts`, `api/test/unit/semantic.test.ts`, `api/test/api/mcp/render_datachain.test.ts`
 - Docs: `dtpr-ai/content/en/6.concepts/1.datachains.md`, `dtpr-ai/content/en/3.rest/6.validate.md`, `dtpr-ai/content/en/2.mcp/4.tools/7.validate-datachain.md`
 - Related plan: [docs/plans/2026-04-16-001-feat-dtpr-api-mcp-plan.md](2026-04-16-001-feat-dtpr-api-mcp-plan.md) (origin of the v2 API + MCP surface this plan extends)
+
+---
+
+## Post-completion amendment — 2026-05-08: `authoring_provenance` moved to per-element
+
+After shipping, `authoring_provenance.{rationale, confidence, source_references, variable_rationale}` were moved off the whole-disclosure level and onto a per-element keyed map (`authoring_provenance.element_provenance[<element_id>]`). Drove the change: the canonical Ruby generator (`hp-app` `DatachainGenerator`) emits one `ai_generation` block per element pick, not one per disclosure — the original whole-disclosure shape collapsed that fidelity and made the proposal context unusable for an agent justifying each element pick.
+
+Concrete deltas vs the original plan:
+
+- `confidence` is now an enum `'high' | 'medium' | 'low'` (was numeric `[0, 1]`). The `bucketConfidence` helper and its `ConfidenceBucket` type were deleted; renderers display the value verbatim.
+- `source_references` is now `{ quote: string, context?: string }[]` (was `URL[]` with https/http scheme refinement). They are verbatim quotes lifted from input documents, not URLs.
+- `rationale`, `variable_rationale`, `confidence`, and `source_references` are nested under `authoring_provenance.element_provenance[<element_id>]`. Whole-disclosure level retains only `kind`, `model`, and `generated_at`.
+- New semantic-validator rule `element_provenance_unknown_element` rejects orphan keys whose `element_id` does not match any placement.
+- Renderer (`buildResolvedSections`) composes per-element entries with whole-disclosure `model` / `generated_at` and attaches them to each `ElementDisplay.provenance`. Human-authored disclosures and AI disclosures lacking an entry leave `provenance` undefined for that placement.
+
+Schema is in beta — no migration shim. Old payloads that ship the legacy whole-disclosure fields parse cleanly but lose those fields (Zod's default strip behavior).

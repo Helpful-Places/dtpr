@@ -204,23 +204,16 @@ describe('DtprElementDetail', () => {
     })
   })
 
-  // R15c: AI proposal context (expandable section between
-  // after-variables and citation; renders only for ai_generated
-  // provenance, never for the human marker).
-  describe('AI proposal context (R15c)', () => {
+  // AI proposal context (expandable section between after-variables
+  // and citation; renders only when the placement carries a
+  // composed per-element provenance entry).
+  describe('AI proposal context', () => {
     it('does not render the section when display.provenance is undefined', () => {
       const w = mount(DtprElementDetail, { props: { display: makeDisplay() } })
       expect(w.find('[data-dtpr-provenance]').exists()).toBe(false)
     })
 
-    it('does not render the section when provenance.kind is human', () => {
-      const w = mount(DtprElementDetail, {
-        props: { display: makeDisplay({ provenance: { kind: 'human' } }) },
-      })
-      expect(w.find('[data-dtpr-provenance]').exists()).toBe(false)
-    })
-
-    it('renders the section with rationale when kind is ai_generated', () => {
+    it('renders the section with rationale when an entry is composed', () => {
       const w = mount(DtprElementDetail, {
         props: {
           display: makeDisplay({
@@ -233,22 +226,44 @@ describe('DtprElementDetail', () => {
       expect(details.text()).toContain('Inferred from system docs.')
     })
 
-    it('renders confidence as a qualitative bucket label, not the raw decimal', () => {
+    it('renders confidence as the qualitative enum value verbatim', () => {
       const w = mount(DtprElementDetail, {
         props: {
           display: makeDisplay({
-            provenance: { kind: 'ai_generated', confidence: 0.85 },
+            provenance: { kind: 'ai_generated', confidence: 'high' },
           }),
         },
       })
       const dd = w.get('[data-dtpr-confidence]')
       expect(dd.attributes('data-dtpr-confidence')).toBe('high')
       expect(dd.text()).toBe('high')
-      // The raw decimal MUST NOT leak to the rendered surface.
-      expect(w.text()).not.toContain('0.85')
     })
 
-    it('escapes rationale containing a script tag (R10 HTML-escape policy)', () => {
+    it('renders source_references as blockquote + cite, never as anchors', () => {
+      const w = mount(DtprElementDetail, {
+        props: {
+          display: makeDisplay({
+            provenance: {
+              kind: 'ai_generated',
+              source_references: [
+                { quote: 'data is stored in AWS S3', context: 'Architecture §2' },
+                { quote: 'no PII is retained' },
+              ],
+            },
+          }),
+        },
+      })
+      const quotes = w.findAll('.dtpr-element-detail__provenance-quote')
+      expect(quotes).toHaveLength(2)
+      expect(quotes[0]!.text()).toBe('data is stored in AWS S3')
+      const cites = w.findAll('.dtpr-element-detail__provenance-quote-context')
+      expect(cites).toHaveLength(1)
+      expect(cites[0]!.text()).toBe('Architecture §2')
+      // No anchor tags rendered for sources.
+      expect(w.find('.dtpr-element-detail__provenance-sources a').exists()).toBe(false)
+    })
+
+    it('escapes rationale containing a script tag (HTML-escape policy)', () => {
       const w = mount(DtprElementDetail, {
         props: {
           display: makeDisplay({
@@ -263,6 +278,24 @@ describe('DtprElementDetail', () => {
       expect(w.find('script').exists()).toBe(false)
     })
 
+    it('escapes source_reference quote/context containing tag-like input', () => {
+      const w = mount(DtprElementDetail, {
+        props: {
+          display: makeDisplay({
+            provenance: {
+              kind: 'ai_generated',
+              source_references: [
+                { quote: '<img src=x onerror=alert(1)>', context: '<b>bold?</b>' },
+              ],
+            },
+          }),
+        },
+      })
+      expect(w.html()).toContain('&lt;img src=x onerror=alert(1)&gt;')
+      expect(w.html()).toContain('&lt;b&gt;bold?&lt;/b&gt;')
+      expect(w.find('img[onerror]').exists()).toBe(false)
+    })
+
     it('escapes variable_rationale values containing tag-like input', () => {
       const w = mount(DtprElementDetail, {
         props: {
@@ -274,12 +307,6 @@ describe('DtprElementDetail', () => {
           }),
         },
       })
-      // The escaped form is present in the HTML; the dangerous tag
-      // never materializes as a real element. (Substring assertions
-      // are noisy here — the element's own icon renders an <img> and
-      // the escaped string `&lt;img ... onerror=alert(1)&gt;`
-      // contains the literal token. The right check is structural:
-      // no DOM element with the live `onerror` attribute.)
       expect(w.html()).toContain('&lt;img src=x onerror=alert(1)&gt;')
       expect(w.find('img[onerror]').exists()).toBe(false)
     })

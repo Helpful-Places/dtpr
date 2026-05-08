@@ -4,6 +4,7 @@ import { checkCategoryRefs } from './rules/category-refs.ts'
 import { checkColorContrast } from './rules/color-contrast.ts'
 import { checkColors } from './rules/colors.ts'
 import { checkElementIdCollision } from './rules/element-id-collision.ts'
+import { checkElementProvenanceKeys } from './rules/element-provenance-keys.ts'
 import { checkInstance } from './rules/instance.ts'
 import { checkLocales } from './rules/locales.ts'
 import { checkProvenanceRequired } from './rules/provenance-required.ts'
@@ -107,6 +108,9 @@ export async function validateResolvedInstance(
   // R14 wire enforcement — see provenance-required for why this can't
   // live in the JSON Schema.
   findings.push(...checkProvenanceRequired(resolved))
+
+  // Per-element provenance keys must reference placed element_ids.
+  findings.push(...checkElementProvenanceKeys(resolved))
 
   // Build the merged element-id lookup once and reuse for resolution +
   // instance-level rule re-run.

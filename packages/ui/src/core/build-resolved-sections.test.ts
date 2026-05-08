@@ -140,11 +140,26 @@ describe('buildResolvedSections', () => {
     }
   })
 
-  it('1 snapshot + 1 suggested + ai_generated provenance: per-element proposed flags are correct; provenance attached identically', () => {
+  it('1 snapshot + 1 suggested + ai_generated provenance: per-element provenance composed from element_provenance map', () => {
     const cats = [makeCategory('storage', 'Storage'), makeCategory('purpose', 'Purpose')]
     const snap = [makeElement('cloud_storage', 'storage', 'Cloud storage')]
     const sug = [makeElement('analytics', 'purpose', 'Analytics')]
-    const provenance: AuthoringProvenance = { kind: 'ai_generated', rationale: 'foo' }
+    const provenance: AuthoringProvenance = {
+      kind: 'ai_generated',
+      model: 'claude-sonnet-4-6',
+      generated_at: '2026-05-08T00:00:00.000Z',
+      element_provenance: {
+        cloud_storage: {
+          rationale: 'Document mentions S3 buckets.',
+          confidence: 'high',
+          source_references: [{ quote: 'data is stored in AWS S3', context: 'Architecture §2' }],
+        },
+        analytics: {
+          rationale: 'Inferred from KPI dashboard reference.',
+          confidence: 'medium',
+        },
+      },
+    }
     const resolved = makeResolved({
       categories: cats,
       snapshotElements: snap,
@@ -161,15 +176,68 @@ describe('buildResolvedSections', () => {
     const analytics = all.find((e) => e.title === 'Analytics')!
     expect(cloud.proposed).toBe(false)
     expect(analytics.proposed).toBe(true)
-    // Same provenance object attached to every element (R10 — whole-disclosure).
-    expect(cloud.provenance).toBe(provenance)
-    expect(analytics.provenance).toBe(provenance)
+    // Each element gets its own composed provenance (per-element entry +
+    // whole-disclosure model/generated_at).
+    expect(cloud.provenance).toEqual({
+      kind: 'ai_generated',
+      rationale: 'Document mentions S3 buckets.',
+      confidence: 'high',
+      source_references: [{ quote: 'data is stored in AWS S3', context: 'Architecture §2' }],
+      model: 'claude-sonnet-4-6',
+      generated_at: '2026-05-08T00:00:00.000Z',
+    })
+    expect(analytics.provenance).toEqual({
+      kind: 'ai_generated',
+      rationale: 'Inferred from KPI dashboard reference.',
+      confidence: 'medium',
+      model: 'claude-sonnet-4-6',
+      generated_at: '2026-05-08T00:00:00.000Z',
+    })
+  })
+
+  it('ai_generated provenance with no element_provenance entry leaves provenance undefined for that element', () => {
+    const cats = [makeCategory('storage', 'Storage')]
+    const snap = [makeElement('cloud_storage', 'storage', 'Cloud storage')]
+    const provenance: AuthoringProvenance = {
+      kind: 'ai_generated',
+      element_provenance: {
+        // intentionally no entry for cloud_storage
+        somewhere_else: { rationale: 'nope' },
+      },
+    }
+    const resolved = makeResolved({
+      categories: cats,
+      snapshotElements: snap,
+      placements: [makePlacement('cloud_storage')],
+      provenance,
+    })
+
+    const sections = buildResolvedSections(resolved, 'en')
+    expect(sections[0]?.elements[0]?.provenance).toBeUndefined()
+  })
+
+  it('human provenance: per-element provenance is undefined (nothing to render per element)', () => {
+    const cats = [makeCategory('storage', 'Storage')]
+    const snap = [makeElement('cloud_storage', 'storage', 'Cloud storage')]
+    const provenance: AuthoringProvenance = { kind: 'human' }
+    const resolved = makeResolved({
+      categories: cats,
+      snapshotElements: snap,
+      placements: [makePlacement('cloud_storage')],
+      provenance,
+    })
+
+    const sections = buildResolvedSections(resolved, 'en')
+    expect(sections[0]?.elements[0]?.provenance).toBeUndefined()
   })
 
   it('options.proposedIndicator: false suppresses the proposed flag on suggested elements', () => {
     const cats = [makeCategory('purpose', 'Purpose')]
     const sug = [makeElement('analytics', 'purpose', 'Analytics')]
-    const provenance: AuthoringProvenance = { kind: 'ai_generated' }
+    const provenance: AuthoringProvenance = {
+      kind: 'ai_generated',
+      element_provenance: { analytics: { rationale: 'because' } },
+    }
     const resolved = makeResolved({
       categories: cats,
       snapshotElements: [],
@@ -181,8 +249,8 @@ describe('buildResolvedSections', () => {
     const sections = buildResolvedSections(resolved, 'en', { proposedIndicator: false })
     const el = sections[0]?.elements[0]!
     expect(el.proposed).toBe(false)
-    // Provenance still attached — opt-out is on the indicator, not on provenance.
-    expect(el.provenance).toBe(provenance)
+    // Per-element provenance still composed — opt-out is on the indicator, not on provenance.
+    expect(el.provenance).toMatchObject({ kind: 'ai_generated', rationale: 'because' })
   })
 
   it('locale fallthrough is delegated to deriveElementDisplay (helper does not interfere)', () => {
@@ -206,7 +274,10 @@ describe('buildResolvedSections', () => {
     const cats = [makeCategory('storage', 'Storage')]
     const snapshotEl = makeElement('cloud_storage', 'storage', 'Cloud storage (snapshot)')
     const suggestedEl = makeElement('cloud_storage', 'storage', 'Cloud storage (suggested)')
-    const provenance: AuthoringProvenance = { kind: 'ai_generated' }
+    const provenance: AuthoringProvenance = {
+      kind: 'ai_generated',
+      element_provenance: { cloud_storage: { confidence: 'low' } },
+    }
     // Use an unsafe build so we can exercise the collision case (the
     // schema's R15a refinement would otherwise reject this input).
     const resolved: ResolvedDatachain = {
@@ -281,7 +352,10 @@ describe('buildResolvedSections', () => {
     const cats = [makeCategory('storage', 'Storage'), makeCategory('purpose', 'Purpose')]
     const snap = [makeElement('cloud_storage', 'storage', 'Cloud storage')]
     const sug = [makeElement('analytics', 'purpose', 'Analytics')]
-    const provenance: AuthoringProvenance = { kind: 'ai_generated' }
+    const provenance: AuthoringProvenance = {
+      kind: 'ai_generated',
+      element_provenance: { analytics: { confidence: 'high' } },
+    }
     const resolved = makeResolved({
       categories: cats,
       snapshotElements: snap,
@@ -315,8 +389,13 @@ describe('ElementDisplay type extension (U7)', () => {
   // Type-level smoke: `proposed` and `provenance` are optional and
   // accept the expected values. If the type extension regresses, this
   // test fails to compile.
-  it('accepts proposed and provenance fields without runtime impact on deriveElementDisplay', () => {
-    const provenance: AuthoringProvenance = { kind: 'human' }
+  it('accepts proposed and per-element provenance fields without runtime impact on deriveElementDisplay', () => {
+    const provenance: import('./types.js').ElementDisplayProvenance = {
+      kind: 'ai_generated',
+      rationale: 'because reasons',
+      confidence: 'high',
+      source_references: [{ quote: 'evidence', context: '§1' }],
+    }
     // Hand-built ElementDisplay with the new fields populated.
     const display: import('./types.js').ElementDisplay = {
       title: 't',
@@ -328,6 +407,6 @@ describe('ElementDisplay type extension (U7)', () => {
       provenance,
     }
     expect(display.proposed).toBe(true)
-    expect(display.provenance).toEqual({ kind: 'human' })
+    expect(display.provenance?.confidence).toBe('high')
   })
 })

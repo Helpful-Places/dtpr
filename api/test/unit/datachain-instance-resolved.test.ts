@@ -92,20 +92,46 @@ describe('AuthoringProvenanceSchema', () => {
     expect(r.kind).toBe('ai_generated')
   })
 
-  it('parses ai_generated with all candidate fields', () => {
+  it('parses ai_generated with model + generated_at + element_provenance map', () => {
     const r = AuthoringProvenanceSchema.parse({
       kind: 'ai_generated',
-      rationale: 'because reasons',
-      confidence: 0.42,
-      source_references: ['https://example.com', 'http://example.org/foo'],
-      variable_rationale: { retention: 'because' },
       model: 'claude-sonnet-4-6',
       generated_at: '2026-05-07T00:00:00.000Z',
+      element_provenance: {
+        accept_deny: {
+          rationale: 'Document explicitly mentions a binary decision.',
+          confidence: 'high',
+          source_references: [
+            { quote: 'either accept or deny the application', context: 'Operations §3' },
+            { quote: 'no human review of the result' },
+          ],
+          variable_rationale: { retention_period: '90 days specified in the same paragraph' },
+        },
+      },
     })
     expect(r.kind).toBe('ai_generated')
     if (r.kind !== 'ai_generated') throw new Error('discriminator')
-    expect(r.confidence).toBe(0.42)
-    expect(r.source_references).toEqual(['https://example.com', 'http://example.org/foo'])
+    expect(r.model).toBe('claude-sonnet-4-6')
+    expect(r.element_provenance?.accept_deny?.confidence).toBe('high')
+    expect(r.element_provenance?.accept_deny?.source_references).toHaveLength(2)
+    expect(r.element_provenance?.accept_deny?.source_references?.[0]?.quote).toBe(
+      'either accept or deny the application',
+    )
+  })
+
+  it('parses ai_generated with sparse element_provenance entries (rationale only / confidence only)', () => {
+    const r = AuthoringProvenanceSchema.parse({
+      kind: 'ai_generated',
+      element_provenance: {
+        a: { rationale: 'just rationale' },
+        b: { confidence: 'low' },
+        c: {}, // empty entry — still valid (marker-only for an element pick)
+      },
+    })
+    if (r.kind !== 'ai_generated') throw new Error('discriminator')
+    expect(r.element_provenance?.a?.rationale).toBe('just rationale')
+    expect(r.element_provenance?.b?.confidence).toBe('low')
+    expect(r.element_provenance?.c).toEqual({})
   })
 
   it('rejects an unknown kind', () => {
@@ -113,40 +139,32 @@ describe('AuthoringProvenanceSchema', () => {
     expect(r.success).toBe(false)
   })
 
-  it('clamps confidence to [0, 1] — accepts 0 and 1', () => {
-    expect(AuthoringProvenanceSchema.safeParse({ kind: 'ai_generated', confidence: 0 }).success).toBe(
-      true,
-    )
-    expect(AuthoringProvenanceSchema.safeParse({ kind: 'ai_generated', confidence: 1 }).success).toBe(
-      true,
-    )
-  })
-
-  it('rejects confidence outside [0, 1]', () => {
-    expect(
-      AuthoringProvenanceSchema.safeParse({ kind: 'ai_generated', confidence: -0.1 }).success,
-    ).toBe(false)
-    expect(
-      AuthoringProvenanceSchema.safeParse({ kind: 'ai_generated', confidence: 1.1 }).success,
-    ).toBe(false)
-  })
-
-  it('accepts source_references with https/http schemes', () => {
-    const r = AuthoringProvenanceSchema.safeParse({
-      kind: 'ai_generated',
-      source_references: ['https://example.com', 'http://example.org'],
-    })
-    expect(r.success).toBe(true)
-  })
-
-  it('rejects source_references with ftp:, javascript:, data: schemes', () => {
-    for (const bad of ['ftp://example.com', 'javascript:alert(1)', 'data:text/html,foo']) {
+  it('rejects confidence values outside the high/medium/low enum', () => {
+    for (const bad of [0.5, 'super-high', 'unknown', null]) {
       const r = AuthoringProvenanceSchema.safeParse({
         kind: 'ai_generated',
-        source_references: [bad],
+        element_provenance: { a: { confidence: bad as unknown as 'high' } },
       })
-      expect(r.success, `expected reject for ${bad}`).toBe(false)
+      expect(r.success, `expected reject for confidence=${String(bad)}`).toBe(false)
     }
+  })
+
+  it('rejects source_references entries missing a quote', () => {
+    const r = AuthoringProvenanceSchema.safeParse({
+      kind: 'ai_generated',
+      element_provenance: {
+        a: { source_references: [{ context: 'no quote here' } as unknown as { quote: string }] },
+      },
+    })
+    expect(r.success).toBe(false)
+  })
+
+  it('rejects source_references entries with empty-string quotes', () => {
+    const r = AuthoringProvenanceSchema.safeParse({
+      kind: 'ai_generated',
+      element_provenance: { a: { source_references: [{ quote: '' }] } },
+    })
+    expect(r.success).toBe(false)
   })
 
   it('rejects malformed generated_at', () => {
@@ -155,6 +173,26 @@ describe('AuthoringProvenanceSchema', () => {
       generated_at: 'not-a-date',
     })
     expect(r.success).toBe(false)
+  })
+
+  it('strips legacy datachain-level rationale / confidence / source_references / variable_rationale (moved to per-element)', () => {
+    // The old datachain-level fields are no longer part of the schema.
+    // Zod's default `strip` behavior silently drops them — the parsed
+    // value never carries them. Authors who still emit the old shape
+    // get a clean parse but lose their data; the breaking change is
+    // documented at the schema-comment level.
+    const r = AuthoringProvenanceSchema.parse({
+      kind: 'ai_generated',
+      rationale: 'whole-disclosure',
+      confidence: 0.7,
+      source_references: ['https://example.com'],
+      variable_rationale: { x: 'y' },
+    })
+    if (r.kind !== 'ai_generated') throw new Error('discriminator')
+    expect((r as Record<string, unknown>).rationale).toBeUndefined()
+    expect((r as Record<string, unknown>).confidence).toBeUndefined()
+    expect((r as Record<string, unknown>).source_references).toBeUndefined()
+    expect((r as Record<string, unknown>).variable_rationale).toBeUndefined()
   })
 })
 
@@ -199,7 +237,10 @@ describe('ResolvedDatachainSchema', () => {
     const input = {
       ...baseResolvedInput(),
       suggested_elements: [baseElement('proposed_element')],
-      authoring_provenance: { kind: 'ai_generated' as const, confidence: 0.7 },
+      authoring_provenance: {
+        kind: 'ai_generated' as const,
+        element_provenance: { proposed_element: { confidence: 'high' as const } },
+      },
     }
     const r = ResolvedDatachainSchema.parse(input)
     expect(r.suggested_elements).toHaveLength(1)
@@ -273,7 +314,10 @@ describe('ResolvedDatachainSchema', () => {
     const resolved = ResolvedDatachainSchema.parse({
       ...baseResolvedInput(),
       suggested_elements: [baseElement('proposed')],
-      authoring_provenance: { kind: 'ai_generated' as const, confidence: 0.5 },
+      authoring_provenance: {
+        kind: 'ai_generated' as const,
+        element_provenance: { proposed: { confidence: 'medium' as const } },
+      },
     })
     // Strip the three resolved-only fields.
     const { schema_snapshot: _ss, suggested_elements: _se, authoring_provenance: _ap, ...stripped } =

@@ -62,10 +62,12 @@ type SourceTag = 'snapshot' | 'suggested'
  *     Pass `options.proposedIndicator: false` to opt out (the field
  *     is then `false` on every element regardless of source).
  *
- *   - `display.provenance` is the resolved datachain's
- *     `authoring_provenance` (verbatim — the same object is attached
- *     to every element). `undefined` when the datachain omits the
- *     field.
+ *   - `display.provenance` is composed from
+ *     `authoring_provenance.element_provenance[element_id]` merged
+ *     with whole-disclosure `model` / `generated_at`. Only attached
+ *     for AI-authored disclosures with an entry for this placement;
+ *     `undefined` otherwise (human-authored, no provenance, or no
+ *     per-element entry).
  *
  *   - Section order honors `schema_snapshot.datachain_type.categories`
  *     (R18) — categories declared but absent from the instance still
@@ -115,6 +117,8 @@ export function buildResolvedSections(
   for (const id of declaredCategoryIds) byCategory.set(id, [])
 
   const provenance = resolved.authoring_provenance
+  const aiProvenance =
+    provenance && provenance.kind === 'ai_generated' ? provenance : undefined
 
   for (const placement of resolved.elements) {
     const resolvedDef = elementById.get(placement.element_id)
@@ -137,10 +141,22 @@ export function buildResolvedSections(
     // unconditionally so downstream renderers see no badge.
     display.proposed = proposedIndicator && source === 'suggested'
 
-    // R10: whole-disclosure provenance — attach the same object to
-    // every element. Omitted when the datachain has no provenance.
-    if (provenance !== undefined) {
-      display.provenance = provenance
+    // Per-element AI provenance: compose the per-element entry with
+    // whole-disclosure `model` / `generated_at`. Only attach when an
+    // entry exists for this placement; human-authored disclosures and
+    // AI disclosures without an entry leave `provenance` undefined.
+    if (aiProvenance) {
+      const entry = aiProvenance.element_provenance?.[placement.element_id]
+      if (entry !== undefined) {
+        display.provenance = {
+          kind: 'ai_generated',
+          ...entry,
+          ...(aiProvenance.model !== undefined ? { model: aiProvenance.model } : {}),
+          ...(aiProvenance.generated_at !== undefined
+            ? { generated_at: aiProvenance.generated_at }
+            : {}),
+        }
+      }
     }
 
     // Category placement: drop into the element's declared category

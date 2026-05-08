@@ -109,7 +109,12 @@ describe('validateResolvedInstance — happy paths', () => {
           title: [loc('en', 'Novel decision shape')],
         },
       ],
-      authoring_provenance: { kind: 'ai_generated', confidence: 0.7 },
+      authoring_provenance: {
+        kind: 'ai_generated',
+        element_provenance: {
+          novel_decision: { confidence: 'high', rationale: 'Document calls this out explicitly.' },
+        },
+      },
     }
     const resolved = ResolvedDatachainSchema.parse(wire)
     const r = await validateResolvedInstance(resolved)

@@ -5,24 +5,93 @@ import { DatachainInstanceSchema } from './datachain-instance.ts'
 import { ElementSchema } from './element.ts'
 
 /**
+ * Qualitative confidence level for a per-element AI proposal.
+ * Matches the canonical Ruby generator (`hp-app` `DatachainGenerator`)
+ * which has Claude emit one of three buckets per element pick.
+ */
+export const ConfidenceLevelSchema = z
+  .enum(['high', 'medium', 'low'])
+  .describe('Qualitative confidence bucket for an AI-proposed element pick')
+
+export type ConfidenceLevel = z.infer<typeof ConfidenceLevelSchema>
+
+/**
+ * A single piece of evidence the model cited to justify an element
+ * pick. `quote` is verbatim text lifted from the source document
+ * (e.g. an AI register entry, model card row, policy doc paragraph).
+ * `context` is an optional locator — section heading, page number,
+ * row id — that helps a reviewer find where the quote came from.
+ *
+ * Free-text by design: the renderer escapes via Vue's `{{ }}`
+ * interpolation. Never `v-html` these fields.
+ */
+export const SourceReferenceSchema = z
+  .object({
+    quote: z
+      .string()
+      .min(1)
+      .describe('Verbatim quote from the source document supporting this element pick'),
+    context: z
+      .string()
+      .optional()
+      .describe('Optional locator (section, page, row id) for the quote'),
+  })
+  .describe('A single quoted source reference cited by an AI proposal for one element')
+
+export type SourceReference = z.infer<typeof SourceReferenceSchema>
+
+/**
+ * Per-element AI proposal context — the rationale, confidence,
+ * cited evidence, and per-variable explanations the model produced
+ * for one element pick. Keyed by `element_id` on
+ * `AuthoringProvenance.element_provenance`.
+ *
+ * Every field is optional: the model may emit a sparse entry (e.g.
+ * just confidence + rationale, no quotes) and the renderer hides
+ * empty subsections. Empty entries are still meaningful as a marker
+ * that this element pick was AI-authored.
+ */
+export const ElementProvenanceSchema = z
+  .object({
+    rationale: z
+      .string()
+      .optional()
+      .describe('1–2 sentence explanation of why the model picked this specific element'),
+    confidence: ConfidenceLevelSchema.optional().describe(
+      'Qualitative confidence bucket for this element pick',
+    ),
+    source_references: z
+      .array(SourceReferenceSchema)
+      .optional()
+      .describe('Verbatim quotes from input documents supporting this element pick'),
+    variable_rationale: z
+      .record(z.string(), z.string())
+      .optional()
+      .describe('Per-variable explanation map keyed by variable id'),
+  })
+  .describe('Per-element AI proposal context — rationale, confidence, cited quotes, variable notes')
+
+export type ElementProvenance = z.infer<typeof ElementProvenanceSchema>
+
+/**
  * Authoring provenance — describes who/what produced a
- * `ResolvedDatachain` and (when AI-assisted) the rationale and
- * source references that justify the proposal. Discriminated by
- * `kind` so consumers can switch on a single literal field.
+ * `ResolvedDatachain`. Discriminated by `kind` so consumers can
+ * switch on a single literal field.
  *
  * Two shapes:
  *
  *   - `'human'`: marker only. The disclosure was authored by a
- *     person; no model rationale is recorded. Equivalent to omitting
- *     `authoring_provenance` for parse purposes (R14 only fires on
- *     `'ai_generated'`); kept as an explicit signal for downstream
- *     UI.
- *   - `'ai_generated'`: every candidate field optional per the plan's
- *     Scope Boundaries. `confidence` is clamped to [0, 1].
- *     `source_references` are URL strings restricted to `https:` /
- *     `http:` schemes (no `ftp:`, `javascript:`, `data:`) — defended
- *     at the schema layer so a malformed proposal cannot smuggle
- *     unsafe URIs into the wire shape.
+ *     person; no model rationale is recorded.
+ *   - `'ai_generated'`: optional whole-disclosure model metadata
+ *     (`model`, `generated_at`) plus a per-element rationale map
+ *     (`element_provenance`) keyed by `element_id`. Per-element
+ *     rationale, confidence, and cited quotes mirror the canonical
+ *     Ruby generator's intent (`hp-app` `DatachainGenerator`).
+ *
+ * R14 implication (`suggested_elements.length > 0 ⟹
+ * kind === 'ai_generated'`) lives on `ResolvedDatachainSchema` as a
+ * `.refine(...)` and is mirrored on the wire path by
+ * `checkProvenanceRequired`.
  */
 export const AuthoringProvenanceSchema = z
   .discriminatedUnion('kind', [
@@ -34,43 +103,12 @@ export const AuthoringProvenanceSchema = z
     z
       .object({
         kind: z.literal('ai_generated').describe('AI-assisted authoring marker'),
-        rationale: z
-          .string()
-          .optional()
-          .describe('Free-text rationale explaining why the model proposed these elements'),
-        confidence: z
-          .number()
-          .min(0)
-          .max(1)
-          .optional()
-          .describe('Overall confidence score in [0, 1] (renderer buckets to low/medium/high)'),
-        source_references: z
-          .array(
-            z
-              .string()
-              .url()
-              .refine(
-                (s) => {
-                  try {
-                    const u = new URL(s)
-                    return u.protocol === 'https:' || u.protocol === 'http:'
-                  } catch {
-                    return false
-                  }
-                },
-                {
-                  message: 'source_references must use https: or http: scheme',
-                },
-              ),
-          )
+        element_provenance: z
+          .record(z.string(), ElementProvenanceSchema)
           .optional()
           .describe(
-            'Optional list of source URLs the model cited (constrained to https:/http: schemes — no ftp:/javascript:/data: smuggling).',
+            'Per-element AI proposal context, keyed by element_id. Each entry carries rationale, confidence, source quotes, and variable rationales for one element pick.',
           ),
-        variable_rationale: z
-          .record(z.string(), z.string())
-          .optional()
-          .describe('Optional per-variable rationale map keyed by variable id'),
         model: z
           .string()
           .optional()
@@ -81,7 +119,7 @@ export const AuthoringProvenanceSchema = z
           .optional()
           .describe('Optional ISO 8601 timestamp at which the proposal was generated'),
       })
-      .describe('AI-assisted authoring with optional rationale, confidence, and source citations'),
+      .describe('AI-assisted authoring with per-element rationale and optional model metadata'),
   ])
   .describe('Authoring provenance for a ResolvedDatachain — discriminated by `kind`')
 

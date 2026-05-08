@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { ElementDisplay, ElementDisplayVariable } from '../core/index.js'
-import { bucketConfidence, interpolateSegments } from '../core/index.js'
+import { interpolateSegments } from '../core/index.js'
 import DtprIcon from './DtprIcon.vue'
 
 interface YesNoLabels {
@@ -49,26 +49,21 @@ const missingRequired = computed(() =>
   props.display.variables.filter((v) => v.required && v.value === ''),
 )
 
-// R15c: AI-proposal-context surface. Surfaces only when the disclosure
-// carries `provenance.kind === 'ai_generated'`; the marker `kind:
-// 'human'` does not produce a render surface (a human reviewer's
-// claim is the default, not a disclosure that needs reviewer
-// metadata).
+// AI-proposal-context surface. Surfaces only when the placement
+// carries a per-element provenance entry composed by
+// `buildResolvedSections` — a `kind: 'ai_generated'` disclosure with
+// an entry in `authoring_provenance.element_provenance` for this
+// element's id. Human-authored disclosures, AI disclosures with no
+// per-element entry, and non-resolved render paths leave
+// `display.provenance` undefined.
 //
-// R10 HTML-escape policy: every free-text provenance field — rationale,
-// variable_rationale values, model, generated_at, source_references URLs
-// — is LLM-authored and MUST render via Vue's `{{ }}` interpolation.
-// Never switch to `v-html` on these fields; that would open an XSS
-// surface for any agent skill that produces a malformed disclosure.
-const aiProvenance = computed(() => {
-  const p = props.display.provenance
-  return p && p.kind === 'ai_generated' ? p : undefined
-})
-
-const confidenceLabel = computed(() => {
-  const c = aiProvenance.value?.confidence
-  return typeof c === 'number' ? bucketConfidence(c) : undefined
-})
+// HTML-escape policy: every free-text provenance field — rationale,
+// variable_rationale values, source_reference quote/context, model,
+// generated_at — is LLM-authored and MUST render via Vue's `{{ }}`
+// interpolation. Never switch to `v-html` on these fields; that
+// would open an XSS surface for any agent skill that produces a
+// malformed disclosure.
+const aiProvenance = computed(() => props.display.provenance)
 
 const variableRationaleEntries = computed(() => {
   const r = aiProvenance.value?.variable_rationale
@@ -290,19 +285,23 @@ function renderVariable(v: ElementDisplayVariable): RenderedVariable {
           class="dtpr-element-detail__provenance-sources"
         >
           <li v-for="(src, idx) in aiProvenance.source_references" :key="idx">
-            <a :href="src" rel="noopener noreferrer">{{ src }}</a>
+            <blockquote class="dtpr-element-detail__provenance-quote">{{ src.quote }}</blockquote>
+            <cite
+              v-if="src.context"
+              class="dtpr-element-detail__provenance-quote-context"
+            >{{ src.context }}</cite>
           </li>
         </ul>
         <dl
-          v-if="confidenceLabel || aiProvenance.model || aiProvenance.generated_at"
+          v-if="aiProvenance.confidence || aiProvenance.model || aiProvenance.generated_at"
           class="dtpr-element-detail__provenance-meta"
         >
-          <template v-if="confidenceLabel">
+          <template v-if="aiProvenance.confidence">
             <dt>Confidence</dt>
             <dd
               class="dtpr-element-detail__provenance-confidence"
-              :data-dtpr-confidence="confidenceLabel"
-            >{{ confidenceLabel }}</dd>
+              :data-dtpr-confidence="aiProvenance.confidence"
+            >{{ aiProvenance.confidence }}</dd>
           </template>
           <template v-if="aiProvenance.model">
             <dt>Model</dt>
