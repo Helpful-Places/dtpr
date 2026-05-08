@@ -196,12 +196,12 @@ export function renderDatachainTool(ctx: LoadContext, sessionId: string): ToolDe
         try {
           const resolved: ResolvedDatachain = resolvedParse.data
           const sections = buildResolvedSections(resolved, args.locale)
-          const headline = pickLocale(resolved.title, args.locale)
-          const subhead = pickLocale(resolved.description, args.locale)
+          const title = pickLocale(resolved.title, args.locale)
+          const description = pickLocale(resolved.description, args.locale)
           const html = await renderDatachainDocument(sections, {
             locale: args.locale,
-            ...(headline !== undefined ? { headline, title: headline } : {}),
-            ...(subhead !== undefined ? { subhead } : {}),
+            ...(title !== undefined ? { title } : {}),
+            ...(description !== undefined ? { description } : {}),
           })
           setDatachainHtml(sessionId, html)
           const summary = buildAgentSummary(sections, DATACHAIN_RESOURCE_URI)
@@ -277,12 +277,12 @@ export function renderDatachainTool(ctx: LoadContext, sessionId: string): ToolDe
         }
 
         const sections = buildSections(parsedInstance, categories, elements, args.locale)
-        const headline = pickLocale(parsedInstance.title, args.locale)
-        const subhead = pickLocale(parsedInstance.description, args.locale)
+        const title = pickLocale(parsedInstance.title, args.locale)
+        const description = pickLocale(parsedInstance.description, args.locale)
         const html = await renderDatachainDocument(sections, {
           locale: args.locale,
-          ...(headline !== undefined ? { headline, title: headline } : {}),
-          ...(subhead !== undefined ? { subhead } : {}),
+          ...(title !== undefined ? { title } : {}),
+          ...(description !== undefined ? { description } : {}),
         })
         setDatachainHtml(sessionId, html)
 

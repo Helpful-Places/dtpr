@@ -94,4 +94,55 @@ describe('DtprDatachain', () => {
     expect(w.get('.sa').text()).toBe('SLOT A')
     expect(w.get('.sb').text()).toBe('SLOT B')
   })
+
+  // Instance-level title + description matching `DatachainInstance.title`
+  // and `.description`. Locale resolution is the caller's responsibility;
+  // this component renders the strings as-is via Vue text interpolation.
+  describe('instance title + description', () => {
+    it('renders the header block when title is supplied', () => {
+      const w = mount(DtprDatachain, {
+        props: { sections, title: 'Worcester license plate reader' },
+      })
+      const header = w.get('.dtpr-document-header')
+      expect(header.find('.dtpr-document-header__title').text()).toBe(
+        'Worcester license plate reader',
+      )
+      expect(header.find('.dtpr-document-header__description').exists()).toBe(false)
+    })
+
+    it('renders both title + description when both supplied', () => {
+      const w = mount(DtprDatachain, {
+        props: {
+          sections,
+          title: 'Worcester license plate reader',
+          description: 'Parking enforcement automation that flags vehicles for review.',
+        },
+      })
+      expect(w.get('.dtpr-document-header__title').text()).toBe(
+        'Worcester license plate reader',
+      )
+      expect(w.get('.dtpr-document-header__description').text()).toBe(
+        'Parking enforcement automation that flags vehicles for review.',
+      )
+    })
+
+    it('omits the header block when neither title nor description is supplied', () => {
+      const w = mount(DtprDatachain, { props: { sections } })
+      expect(w.find('.dtpr-document-header').exists()).toBe(false)
+    })
+
+    it('escapes XSS in title + description (Vue {{ }} interpolation)', () => {
+      const w = mount(DtprDatachain, {
+        props: {
+          sections,
+          title: '<script>alert(1)</script>',
+          description: '<img src=x onerror=alert(1)>',
+        },
+      })
+      expect(w.html()).toContain('&lt;script&gt;alert(1)&lt;/script&gt;')
+      expect(w.html()).toContain('&lt;img src=x onerror=alert(1)&gt;')
+      // No live <script> tag rendered into the DOM from the prop.
+      expect(w.find('script').exists()).toBe(false)
+    })
+  })
 })
