@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { ElementDisplay, ElementDisplayVariable } from '../core/index.js'
-import { interpolateSegments } from '../core/index.js'
+import { bucketConfidence, interpolateSegments } from '../core/index.js'
 import DtprIcon from './DtprIcon.vue'
 
 interface YesNoLabels {
@@ -48,6 +48,33 @@ const descriptionSegments = computed(() => {
 const missingRequired = computed(() =>
   props.display.variables.filter((v) => v.required && v.value === ''),
 )
+
+// R15c: AI-proposal-context surface. Surfaces only when the disclosure
+// carries `provenance.kind === 'ai_generated'`; the marker `kind:
+// 'human'` does not produce a render surface (a human reviewer's
+// claim is the default, not a disclosure that needs reviewer
+// metadata).
+//
+// R10 HTML-escape policy: every free-text provenance field — rationale,
+// variable_rationale values, model, generated_at, source_references URLs
+// — is LLM-authored and MUST render via Vue's `{{ }}` interpolation.
+// Never switch to `v-html` on these fields; that would open an XSS
+// surface for any agent skill that produces a malformed disclosure.
+const aiProvenance = computed(() => {
+  const p = props.display.provenance
+  return p && p.kind === 'ai_generated' ? p : undefined
+})
+
+const confidenceLabel = computed(() => {
+  const c = aiProvenance.value?.confidence
+  return typeof c === 'number' ? bucketConfidence(c) : undefined
+})
+
+const variableRationaleEntries = computed(() => {
+  const r = aiProvenance.value?.variable_rationale
+  if (!r) return [] as Array<{ id: string; rationale: string }>
+  return Object.entries(r).map(([id, rationale]) => ({ id, rationale }))
+})
 
 function truncate(value: string, max: number): string {
   return value.length > max ? value.slice(0, max - 1) + '…' : value
@@ -237,6 +264,57 @@ function renderVariable(v: ElementDisplayVariable): RenderedVariable {
     </ul>
 
     <slot name="after-variables" />
+
+    <details
+      v-if="aiProvenance"
+      class="dtpr-element-detail__provenance"
+      data-dtpr-provenance="ai_generated"
+    >
+      <summary class="dtpr-element-detail__provenance-summary">AI proposal context</summary>
+      <div class="dtpr-element-detail__provenance-body">
+        <p
+          v-if="aiProvenance.rationale"
+          class="dtpr-element-detail__provenance-rationale"
+        >{{ aiProvenance.rationale }}</p>
+        <ul
+          v-if="variableRationaleEntries.length > 0"
+          class="dtpr-element-detail__provenance-variable-rationale"
+        >
+          <li v-for="entry in variableRationaleEntries" :key="entry.id">
+            <span class="dtpr-element-detail__provenance-variable-id">{{ entry.id }}</span>:
+            {{ entry.rationale }}
+          </li>
+        </ul>
+        <ul
+          v-if="aiProvenance.source_references && aiProvenance.source_references.length > 0"
+          class="dtpr-element-detail__provenance-sources"
+        >
+          <li v-for="(src, idx) in aiProvenance.source_references" :key="idx">
+            <a :href="src" rel="noopener noreferrer">{{ src }}</a>
+          </li>
+        </ul>
+        <dl
+          v-if="confidenceLabel || aiProvenance.model || aiProvenance.generated_at"
+          class="dtpr-element-detail__provenance-meta"
+        >
+          <template v-if="confidenceLabel">
+            <dt>Confidence</dt>
+            <dd
+              class="dtpr-element-detail__provenance-confidence"
+              :data-dtpr-confidence="confidenceLabel"
+            >{{ confidenceLabel }}</dd>
+          </template>
+          <template v-if="aiProvenance.model">
+            <dt>Model</dt>
+            <dd>{{ aiProvenance.model }}</dd>
+          </template>
+          <template v-if="aiProvenance.generated_at">
+            <dt>Generated at</dt>
+            <dd>{{ aiProvenance.generated_at }}</dd>
+          </template>
+        </dl>
+      </div>
+    </details>
 
     <p v-if="display.citation" class="dtpr-element-detail__citation">
       {{ display.citation }}

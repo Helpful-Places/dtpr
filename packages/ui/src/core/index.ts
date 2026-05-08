@@ -25,6 +25,9 @@ export type {
   RenderedSection,
 } from './build-resolved-sections.js'
 
+export { bucketConfidence } from './confidence-bucket.js'
+export type { ConfidenceBucket } from './confidence-bucket.js'
+
 export { validateDatachain } from './validate.js'
 export type {
   SchemaVersionSource,

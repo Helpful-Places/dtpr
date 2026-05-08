@@ -30,7 +30,10 @@ const hasFooter = computed(() => !!slots.footer)
 <template>
   <article
     class="dtpr-element"
-    :class="{ 'dtpr-element--has-footer': hasFooter }"
+    :class="{
+      'dtpr-element--has-footer': hasFooter,
+      'dtpr-element--proposed': display.proposed === true,
+    }"
   >
     <div class="dtpr-element__main">
       <div class="dtpr-element__header">
@@ -43,6 +46,18 @@ const hasFooter = computed(() => !!slots.footer)
         />
         <div class="dtpr-element__title-block">
           <span class="dtpr-element__title">{{ display.title }}</span>
+          <!--
+            R15b: AI-proposed indicator. Visible by default whenever
+            `display.proposed === true` (set by `buildResolvedSections`
+            for elements drawn from `suggested_elements`). The compact
+            view surfaces ONLY this badge — no provenance detail
+            (R15c is reserved for the detail surface).
+          -->
+          <span
+            v-if="display.proposed === true"
+            class="dtpr-element__proposed-badge"
+            data-dtpr-proposed="true"
+          >Proposed</span>
           <span
             v-if="display.contextValue"
             class="dtpr-element__context-tag"
