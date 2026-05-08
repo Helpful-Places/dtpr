@@ -31,7 +31,21 @@ export interface RenderedSection {
 
 export interface RenderDatachainOptions {
   locale?: string
+  // Fallback for the HTML `<title>` tag when no `title` is supplied.
+  // Defaults to "DTPR datachain". When `title` is set, the document
+  // <title> uses it instead of `pageTitle`.
+  pageTitle?: string
+  // The datachain instance's title resolved into the requested locale
+  // (e.g. "Worcester license plate reader"). Renders as the `<h1>`
+  // headline of the document body and replaces the HTML `<title>` tag
+  // when set. Matches `DatachainInstance.title`. When omitted, no
+  // header block is rendered.
   title?: string
+  // The datachain instance's description (one or two sentences, or
+  // longer prose) resolved into the requested locale. Renders as the
+  // body's lead paragraph below the title. Matches
+  // `DatachainInstance.description`.
+  description?: string
   // Optional HTML for the empty state, inserted unescaped. Declare trust
   // via `trustAsHtml(...)` — the brand prevents raw user input from
   // reaching the v-html boundary. When omitted and no sections are
@@ -57,7 +71,9 @@ export async function renderDatachainDocument(
   options: RenderDatachainOptions = {},
 ): Promise<string> {
   const locale = options.locale ?? 'en'
-  const title = options.title ?? 'DTPR datachain'
+  // The instance title (when supplied) becomes the HTML <title>;
+  // otherwise fall back to `pageTitle` and finally the generic default.
+  const docTitle = options.title ?? options.pageTitle ?? 'DTPR datachain'
   const datachainSections = sections.map((s) => ({ id: s.id, title: s.title }))
 
   const sectionSlots: Record<string, () => unknown> = {}
@@ -80,12 +96,20 @@ export async function renderDatachainDocument(
       ? h('div', { class: 'dtpr-empty', role: 'status', innerHTML: options.emptyHtml })
       : h('p', { class: 'dtpr-empty', role: 'status' })
 
+  // The Vue `<DtprDatachain>` component owns the title/description
+  // header rendering — the SSR path passes them through as props so
+  // the same DOM shape (and the same Vue-level XSS escaping) holds
+  // for both server-rendered docs and client-side consumers.
+  const datachainProps: Record<string, unknown> = { sections: datachainSections }
+  if (options.title !== undefined) datachainProps.title = options.title
+  if (options.description !== undefined) datachainProps.description = options.description
+
   const Root = defineComponent({
     setup() {
       return () =>
         h(
           DtprDatachain,
-          { sections: datachainSections },
+          datachainProps,
           { empty: emptySlot, ...sectionSlots },
         )
     },
@@ -99,7 +123,7 @@ export async function renderDatachainDocument(
     `<head>` +
     `<meta charset="utf-8">` +
     `<meta name="viewport" content="width=device-width, initial-scale=1">` +
-    `<title>${escapeHtml(title)}</title>` +
+    `<title>${escapeHtml(docTitle)}</title>` +
     `<style>${stylesCss}</style>` +
     `</head>` +
     `<body>${body}<script>${accordionScript}</script></body>` +

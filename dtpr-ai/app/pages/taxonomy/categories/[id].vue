@@ -251,6 +251,26 @@ useHead(() => ({
           </p>
         </section>
 
+        <section class="taxonomy-detail-page__raw">
+          <h2 class="taxonomy-detail-page__raw-heading">Raw JSON</h2>
+          <p class="taxonomy-detail-page__raw-hint">
+            Live API response from
+            <code>GET /schemas/{{ activeVersion }}/categories</code>
+            (this category) and
+            <code>GET /schemas/{{ activeVersion }}/elements?category_id={{ categoryId }}</code>.
+          </p>
+          <div class="taxonomy-detail-page__raw-list">
+            <JsonViewer
+              :value="category"
+              :label="`category &quot;${categoryId}&quot;`"
+            />
+            <JsonViewer
+              :value="elementsData?.elements ?? []"
+              :label="`elements in &quot;${categoryId}&quot; (${elements.length})`"
+            />
+          </div>
+        </section>
+
         <section v-if="overlay" class="taxonomy-detail-page__overlay">
           <ContentRenderer :value="overlay" />
         </section>
@@ -400,5 +420,40 @@ useHead(() => ({
 .taxonomy-detail-page__overlay {
   border-top: 1px solid var(--ui-border, rgb(229, 231, 235));
   padding-top: 2rem;
+}
+
+.taxonomy-detail-page__raw {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.taxonomy-detail-page__raw-heading {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ui-text-dimmed, rgb(107, 114, 128));
+  margin: 0;
+}
+
+.taxonomy-detail-page__raw-hint {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  color: var(--ui-text-muted, rgb(107, 114, 128));
+}
+
+.taxonomy-detail-page__raw-hint code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.85em;
+  background: var(--ui-bg-muted, rgb(243, 244, 246));
+  padding: 0.05rem 0.3rem;
+  border-radius: 0.25rem;
+}
+
+.taxonomy-detail-page__raw-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 </style>

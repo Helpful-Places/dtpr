@@ -32,7 +32,7 @@ export interface MaterializedElement extends Element {
   shape: ShapeType
   /**
    * Variant keys the pre-bake step emits composed SVGs for:
-   * `['default', 'dark', ...category.context?.values.map(v => v.id) ?? []]`.
+   * `['default', 'dark', ...category.element_context?.values.map(v => v.id) ?? []]`.
    */
   icon_variants: string[]
 }
@@ -80,8 +80,8 @@ export function materializeVariables(element: Element, categories: Category[]): 
 function effectiveContext(
   element: Element,
   category: Category | undefined,
-): Category['context'] | undefined {
-  return element.context ?? category?.context
+): Category['element_context'] | undefined {
+  return element.context ?? category?.element_context
 }
 
 /**
@@ -95,7 +95,7 @@ function effectiveContext(
  */
 export function iconVariantsFor(category: Category | undefined): string[] {
   const extras =
-    category?.context?.values.flatMap((v) => [v.id, `${v.id}${DARK_SUFFIX}`]) ?? []
+    category?.element_context?.values.flatMap((v) => [v.id, `${v.id}${DARK_SUFFIX}`]) ?? []
   return [...RESERVED_VARIANTS, ...extras]
 }
 

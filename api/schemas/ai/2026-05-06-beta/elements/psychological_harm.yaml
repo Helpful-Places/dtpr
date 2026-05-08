@@ -22,16 +22,4 @@ description:
       avertissements de contenu, des garde-fous pour le bien-être, une conception adaptée à l'âge,
       des canaux d'assistance accessibles et des limites sur les comportements qui maximisent
       l'engagement.
-citation:
-  - locale: en
-    value: >-
-      Adapted from AIAAIC harm type "Psychological" — Abercrombie et al. (2024), A Collaborative,
-      Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA
-      4.0.
-  - locale: fr
-    value: >-
-      Adapté du type de préjudice AIAAIC « Psychologique » — Abercrombie et al. (2024), A
-      Collaborative, Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms,
-      arXiv:2407.01294. CC BY-SA 4.0.
 symbol_id: risks_psychological
-variables: []

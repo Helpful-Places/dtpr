@@ -20,7 +20,6 @@ function makeElement(overrides: Partial<Element> = {}): Element {
       loc('en', 'Data held for {{retention_period}}.'),
       loc('es', 'Datos almacenados durante {{retention_period}}.'),
     ],
-    citation: [loc('en', 'See RFC 1234'), loc('es', 'Véase RFC 1234')],
     symbol_id: 'cloud',
     variables: [
       {
@@ -51,7 +50,6 @@ describe('deriveElementDisplay', () => {
     })
     expect(result.title).toBe('Cloud storage')
     expect(result.description).toBe('Data held for 30 days.')
-    expect(result.citation).toBe('See RFC 1234')
     expect(result.icon.url).toBe('/icons/cloud.svg')
     expect(result.icon.alt).toBe('Cloud')
     expect(result.variables).toEqual([
@@ -116,9 +114,19 @@ describe('deriveElementDisplay', () => {
   })
 
   it('returns empty strings for locales that have no entry (instead of throwing)', () => {
-    const el = makeElement({ citation: [] })
+    const el = makeElement({ description: [] })
     const result = deriveElementDisplay(el, makeInstanceElement(), 'en')
-    expect(result.citation).toBe('')
+    expect(result.description).toBe('')
+  })
+
+  it('does not set proposed or provenance — those are merged in by buildResolvedSections (U7 type extension)', () => {
+    // ElementDisplay was extended in U7 to carry optional `proposed`
+    // and `provenance` fields. `deriveElementDisplay` itself remains
+    // unchanged: it does not populate either field. The resolved-form
+    // helper (`buildResolvedSections`) merges them in after derivation.
+    const result = deriveElementDisplay(makeElement(), makeInstanceElement(), 'en')
+    expect(result.proposed).toBeUndefined()
+    expect(result.provenance).toBeUndefined()
   })
 
   it('plumbs iconUrlDark through to icon.urlDark', () => {
@@ -157,7 +165,7 @@ describe('deriveElementDisplay', () => {
         datachain_type: 'ai',
         shape: 'rounded-square',
         element_variables: [],
-        context: {
+        element_context: {
           id: 'pii',
           name: [loc('en', 'PII')],
           description: [loc('en', 'Personal-info classification.')],

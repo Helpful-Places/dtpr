@@ -17,19 +17,11 @@ description:
       exemple, notation de récidive, triage hospitalier, signalements de risque en protection de
       l'enfance. À distinguer de Planification et prise de décision, qui prévoit à l'échelle d'une
       population ou d'un système.
-citation:
-  - locale: en
-    value: >-
-      Risk profiling of natural persons listed as Annex III high-risk under the EU AI Act
-      (Regulation (EU) 2024/1689), Article 6(2) — including law-enforcement profiling (Annex III §6)
-      and individual risk assessment in the administration of justice (§8). AIAAIC repository
-      documents incidents in COMPAS recidivism scoring (US), Dutch SyRI welfare-fraud risk, and UK
-      Gangs Matrix.
-  - locale: fr
-    value: >-
-      Le profilage de risque des personnes physiques est classé à haut risque à l'Annexe III du
-      Règlement (UE) 2024/1689 (loi européenne sur l'IA), Article 6(2) — y compris le profilage
-      policier (Annexe III §6) et l'évaluation individuelle du risque dans l'administration de la
-      justice (§8).
+sources:
+  - type: regulation
+    title: EU AI Act Annex III §6 and §8 — Law-enforcement profiling and individual risk assessment in the administration of justice
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+    citation: >-
+      Regulation (EU) 2024/1689, Article 6(2). AIAAIC repository documents incidents in COMPAS
+      recidivism scoring (US), Dutch SyRI welfare-fraud risk, and UK Gangs Matrix.
 symbol_id: risk_assessment
-variables: []

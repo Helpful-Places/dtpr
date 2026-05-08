@@ -272,4 +272,63 @@ describe('render_datachain tool (end-to-end via /mcp)', () => {
     })) as McpResponse<RenderResult>
     expect(res.result?.structuredContent?.ok).toBe(false)
   })
+
+  // Instance-level title + description plumb through to the rendered
+  // HTML's <header> block (and the document <title>).
+  it('renders the instance title + description as headline + subhead', async () => {
+    const client = createMcpClient()
+    await client.initialize()
+    const datachain = {
+      ...validInstance(),
+      title: [{ locale: 'en', value: 'Worcester license plate reader' }],
+      description: [{ locale: 'en', value: 'Parking enforcement automation.' }],
+    }
+    await client.callTool<RenderResult>('render_datachain', {
+      version: VERSION,
+      datachain,
+    })
+    const { body } = await postMcp({
+      jsonrpc: '2.0',
+      id: 50,
+      method: 'resources/read',
+      params: { uri: 'ui://dtpr/datachain/view.html' },
+    })
+    const result = body.result as {
+      contents?: Array<{ uri: string; text: string }>
+    }
+    const html = result?.contents?.[0]?.text ?? ''
+    expect(html).toContain('<header class="dtpr-document-header">')
+    expect(html).toContain('Worcester license plate reader')
+    expect(html).toContain('Parking enforcement automation.')
+    // Document <title> defaults to the headline when one is supplied.
+    expect(html).toContain('<title>Worcester license plate reader</title>')
+  })
+
+  it('accepts a ResolvedDatachainInstance input directly (R18) — no schema fetch', async () => {
+    const client = createMcpClient()
+    await client.initialize()
+    // Build a resolved-form fixture by first calling resolve over REST.
+    const resolveRes = await SELF.fetch(
+      `https://example.com/api/v2/schemas/${VERSION}/resolve`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(validInstance()),
+      },
+    )
+    expect(resolveRes.status).toBe(200)
+    const resolved = (await resolveRes.json()) as Record<string, unknown>
+    const res = (await client.callTool<RenderResult>('render_datachain', {
+      version: VERSION,
+      datachain: resolved,
+    })) as McpResponse<RenderResult>
+    expect(res.error).toBeUndefined()
+    expect(res.result?.isError).toBeUndefined()
+    expect(res.result?.structuredContent?.ok).toBe(true)
+    expect(res.result?._meta?.ui?.resourceUri).toBe('ui://dtpr/datachain/view.html')
+    // Snapshot is self-contained; same elements as the thin path.
+    expect(res.result?.structuredContent?.data?.element_count).toBe(2)
+    const summary = res.result?.content?.[0]?.text
+    expect(summary).toContain('Accept / Deny')
+  })
 })

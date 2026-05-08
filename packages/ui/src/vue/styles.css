@@ -207,12 +207,6 @@
     color: var(--dtpr-color-text-muted);
   }
 
-  .dtpr-element-detail__citation {
-    margin: 0;
-    font-size: 0.875rem;
-    color: var(--dtpr-color-text-muted);
-  }
-
   .dtpr-element-detail__warning {
     color: var(--dtpr-color-warning);
     font-size: 0.875rem;

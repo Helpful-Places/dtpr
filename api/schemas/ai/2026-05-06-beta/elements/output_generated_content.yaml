@@ -17,10 +17,21 @@ description:
       n'existaient pas auparavant. Exemples : un avis de service rédigé par un LLM affiché sur un
       panneau, une annonce vocale synthétisée diffusée par un système de sonorisation, une
       illustration générée sur une borne numérique.
-citation:
-  - locale: en
-    value: >-
-      Output class "content" from EU AI Act Article 3(1); synthetic-content disclosure obligations
-      under Art. 50; provenance under NIST AI 100-4 and C2PA.
+sources:
+  - type: regulation
+    title: EU AI Act Article 3(1) — output class "content"
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+    citation: Regulation (EU) 2024/1689, Article 3(1).
+  - type: regulation
+    title: EU AI Act Article 50 — Synthetic-content disclosure
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+    citation: Regulation (EU) 2024/1689, Article 50.
+  - type: standard
+    title: NIST AI 100-4 — AI Risk Management Framework
+    url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-4.pdf
+    citation: NIST.
+  - type: standard
+    title: C2PA — Coalition for Content Provenance and Authenticity
+    url: https://c2pa.org
+    citation: C2PA.
 symbol_id: generated_content
-variables: []

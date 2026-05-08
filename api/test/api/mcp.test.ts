@@ -133,7 +133,9 @@ describe('MCP: handshake + tools/list', () => {
         'list_elements',
         'list_schema_versions',
         'render_datachain',
+        'resolve_datachain',
         'validate_datachain',
+        'validate_resolved',
       ].sort(),
     )
   })
@@ -450,6 +452,136 @@ describe('MCP: validate_datachain', () => {
     const env = structured(res)
     expect(env.ok).toBe(false)
     expect(env.errors?.every((e) => e.code === 'parse_error')).toBe(true)
+  })
+})
+
+describe('MCP: resolve_datachain', () => {
+  it('valid thin instance returns a ResolvedDatachainInstance envelope', async () => {
+    const client = createMcpClient()
+    await client.initialize()
+    const datachain = {
+      id: 'i1',
+      schema_version: SAMPLE_VERSION.canonical,
+      created_at: '2026-04-16T00:00:00.000Z',
+      elements: [{ element_id: 'accept_deny' }],
+    }
+    const res = await client.callTool<
+      ToolCallResult<{
+        ok: true
+        data: {
+          schema_snapshot: { datachain_type: { id: string }; elements: Array<{ id: string }> }
+          suggested_elements: unknown[]
+          authoring_provenance?: unknown
+        }
+      }>
+    >('resolve_datachain', {
+      version: SAMPLE_VERSION.canonical,
+      datachain,
+    })
+    const env = structured(res)
+    expect(env.ok).toBe(true)
+    expect(env.data?.schema_snapshot.datachain_type.id).toBe('ai')
+    expect(env.data?.schema_snapshot.elements.map((e) => e.id)).toContain('accept_deny')
+    expect(env.data?.suggested_elements).toEqual([])
+    expect(env.data?.authoring_provenance).toBeUndefined()
+    expect(res.result?.isError).toBeUndefined()
+  })
+
+  it('semantic-failing thin returns soft-failure (R7)', async () => {
+    const client = createMcpClient()
+    await client.initialize()
+    const datachain = {
+      id: 'bad',
+      schema_version: SAMPLE_VERSION.canonical,
+      created_at: '2026-04-16T00:00:00.000Z',
+      elements: [{ element_id: 'nonexistent' }],
+    }
+    const res = await client.callTool<ToolCallResult<{ ok: false }>>('resolve_datachain', {
+      version: SAMPLE_VERSION.canonical,
+      datachain,
+    })
+    const env = structured(res)
+    expect(env.ok).toBe(false)
+    expect(res.result?.isError).toBeUndefined()
+  })
+
+  it('appears in tools/list', async () => {
+    const client = createMcpClient()
+    await client.initialize()
+    const list = await client.listTools()
+    const names = list.result?.tools.map((t) => t.name) ?? []
+    expect(names).toContain('resolve_datachain')
+  })
+})
+
+describe('MCP: validate_resolved', () => {
+  it('valid resolved input returns ok:true', async () => {
+    const client = createMcpClient()
+    await client.initialize()
+    // Build a resolved fixture by calling resolve_datachain first.
+    const resolveRes = await client.callTool<
+      ToolCallResult<{ ok: true; data: Record<string, unknown> }>
+    >('resolve_datachain', {
+      version: SAMPLE_VERSION.canonical,
+      datachain: {
+        id: 'vr-seed',
+        schema_version: SAMPLE_VERSION.canonical,
+        created_at: '2026-04-16T00:00:00.000Z',
+        elements: [{ element_id: 'accept_deny' }],
+      },
+    })
+    const resolved = structured(resolveRes).data
+    const res = await client.callTool<ToolCallResult<{ ok: true }>>('validate_resolved', {
+      version: SAMPLE_VERSION.canonical,
+      datachain: resolved,
+    })
+    const env = structured(res)
+    expect(env.ok).toBe(true)
+    expect(res.result?.isError).toBeUndefined()
+  })
+
+  it('non-empty suggested + no provenance returns soft-failure (R14)', async () => {
+    const client = createMcpClient()
+    await client.initialize()
+    const resolveRes = await client.callTool<
+      ToolCallResult<{
+        ok: true
+        data: {
+          schema_snapshot: { elements: Array<{ id: string }> }
+          [k: string]: unknown
+        }
+      }>
+    >('resolve_datachain', {
+      version: SAMPLE_VERSION.canonical,
+      datachain: {
+        id: 'vr-bad',
+        schema_version: SAMPLE_VERSION.canonical,
+        created_at: '2026-04-16T00:00:00.000Z',
+        elements: [{ element_id: 'accept_deny' }],
+      },
+    })
+    const resolved = structured(resolveRes).data as Record<string, unknown> & {
+      schema_snapshot: { elements: Array<Record<string, unknown> & { id: string }> }
+      suggested_elements: unknown[]
+    }
+    // Add a suggested element distinct from snapshot ids; omit provenance.
+    const proposed = { ...resolved.schema_snapshot.elements[0], id: 'proposed_decision' }
+    const bad = { ...resolved, suggested_elements: [proposed] }
+    const res = await client.callTool<ToolCallResult<{ ok: false }>>('validate_resolved', {
+      version: SAMPLE_VERSION.canonical,
+      datachain: bad,
+    })
+    const env = structured(res)
+    expect(env.ok).toBe(false)
+    expect(res.result?.isError).toBeUndefined()
+  })
+
+  it('appears in tools/list', async () => {
+    const client = createMcpClient()
+    await client.initialize()
+    const list = await client.listTools()
+    const names = list.result?.tools.map((t) => t.name) ?? []
+    expect(names).toContain('validate_resolved')
   })
 })
 

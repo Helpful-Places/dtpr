@@ -49,6 +49,28 @@ const missingRequired = computed(() =>
   props.display.variables.filter((v) => v.required && v.value === ''),
 )
 
+// AI-proposal-context surface. Surfaces only when the placement
+// carries a per-element provenance entry composed by
+// `buildResolvedSections` — a `kind: 'ai_generated'` disclosure with
+// an entry in `authoring_provenance.element_provenance` for this
+// element's id. Human-authored disclosures, AI disclosures with no
+// per-element entry, and non-resolved render paths leave
+// `display.provenance` undefined.
+//
+// HTML-escape policy: every free-text provenance field — rationale,
+// variable_rationale values, source_reference quote/context, model,
+// generated_at — is LLM-authored and MUST render via Vue's `{{ }}`
+// interpolation. Never switch to `v-html` on these fields; that
+// would open an XSS surface for any agent skill that produces a
+// malformed disclosure.
+const aiProvenance = computed(() => props.display.provenance)
+
+const variableRationaleEntries = computed(() => {
+  const r = aiProvenance.value?.variable_rationale
+  if (!r) return [] as Array<{ id: string; rationale: string }>
+  return Object.entries(r).map(([id, rationale]) => ({ id, rationale }))
+})
+
 function truncate(value: string, max: number): string {
   return value.length > max ? value.slice(0, max - 1) + '…' : value
 }
@@ -238,10 +260,60 @@ function renderVariable(v: ElementDisplayVariable): RenderedVariable {
 
     <slot name="after-variables" />
 
-    <p v-if="display.citation" class="dtpr-element-detail__citation">
-      {{ display.citation }}
-    </p>
+    <details
+      v-if="aiProvenance"
+      class="dtpr-element-detail__provenance"
+      data-dtpr-provenance="ai_generated"
+    >
+      <summary class="dtpr-element-detail__provenance-summary">AI proposal context</summary>
+      <div class="dtpr-element-detail__provenance-body">
+        <p
+          v-if="aiProvenance.rationale"
+          class="dtpr-element-detail__provenance-rationale"
+        >{{ aiProvenance.rationale }}</p>
+        <ul
+          v-if="variableRationaleEntries.length > 0"
+          class="dtpr-element-detail__provenance-variable-rationale"
+        >
+          <li v-for="entry in variableRationaleEntries" :key="entry.id">
+            <span class="dtpr-element-detail__provenance-variable-id">{{ entry.id }}</span>:
+            {{ entry.rationale }}
+          </li>
+        </ul>
+        <ul
+          v-if="aiProvenance.source_references && aiProvenance.source_references.length > 0"
+          class="dtpr-element-detail__provenance-sources"
+        >
+          <li v-for="(src, idx) in aiProvenance.source_references" :key="idx">
+            <blockquote class="dtpr-element-detail__provenance-quote">{{ src.quote }}</blockquote>
+            <cite
+              v-if="src.context"
+              class="dtpr-element-detail__provenance-quote-context"
+            >{{ src.context }}</cite>
+          </li>
+        </ul>
+        <dl
+          v-if="aiProvenance.confidence || aiProvenance.model || aiProvenance.generated_at"
+          class="dtpr-element-detail__provenance-meta"
+        >
+          <template v-if="aiProvenance.confidence">
+            <dt>Confidence</dt>
+            <dd
+              class="dtpr-element-detail__provenance-confidence"
+              :data-dtpr-confidence="aiProvenance.confidence"
+            >{{ aiProvenance.confidence }}</dd>
+          </template>
+          <template v-if="aiProvenance.model">
+            <dt>Model</dt>
+            <dd>{{ aiProvenance.model }}</dd>
+          </template>
+          <template v-if="aiProvenance.generated_at">
+            <dt>Generated at</dt>
+            <dd>{{ aiProvenance.generated_at }}</dd>
+          </template>
+        </dl>
+      </div>
+    </details>
 
-    <slot name="after-citation" />
   </article>
 </template>

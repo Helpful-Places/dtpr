@@ -97,7 +97,6 @@ describe('transformElement — characterization', () => {
       { locale: 'en', value: 'Accept or deny' },
       { locale: 'es', value: 'Aceptar o denegar' },
     ])
-    expect(el!.citation).toEqual([]) // seeded empty
     expect(warnings).toEqual([])
   })
 
@@ -266,10 +265,10 @@ describe('transformCategory — characterization', () => {
       { locale: 'en', value: 'Decision Type' },
       { locale: 'es', value: 'Tipo de decisión' },
     ])
-    expect(cat!.context?.id).toBe('level_of_autonomy')
-    expect(cat!.context?.values).toHaveLength(1)
-    expect(cat!.context?.values[0]!.color).toBe('#F28C28')
-    expect(cat!.context?.values[0]!.name).toEqual([
+    expect(cat!.element_context?.id).toBe('level_of_autonomy')
+    expect(cat!.element_context?.values).toHaveLength(1)
+    expect(cat!.element_context?.values[0]!.color).toBe('#F28C28')
+    expect(cat!.element_context?.values[0]!.name).toEqual([
       { locale: 'en', value: 'AI decides and executes' },
       { locale: 'es', value: 'La IA decide y ejecuta' },
     ])

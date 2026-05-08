@@ -15,17 +15,12 @@ description:
       Soutient le recrutement, la planification, l'évaluation de la performance ou les opérations
       sur le lieu de travail — par exemple, le tri de CV, l'attribution des postes, le suivi de la
       productivité.
-citation:
-  - locale: en
-    value: >-
-      Employment, workers management, and access to self-employment listed as Annex III high-risk
-      under the EU AI Act (Regulation (EU) 2024/1689), Article 6(2) and Annex III §4 — including
-      recruitment, work-relationship monitoring, and task-allocation decisions. AIAAIC repository
-      documents recurring incidents in resume screening and workforce monitoring.
-  - locale: fr
-    value: >-
-      Emploi, gestion des travailleurs et accès au travail indépendant classés à haut risque à
-      l'Annexe III du Règlement (UE) 2024/1689 (loi européenne sur l'IA), Article 6(2) et Annexe III
-      §4.
+sources:
+  - type: regulation
+    title: EU AI Act Annex III §4 — Employment, workers management, and access to self-employment
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+    citation: >-
+      Regulation (EU) 2024/1689, Article 6(2) and Annex III §4 — including recruitment,
+      work-relationship monitoring, and task-allocation decisions. AIAAIC repository documents
+      recurring incidents in resume screening and workforce monitoring.
 symbol_id: employment
-variables: []

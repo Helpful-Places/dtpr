@@ -84,7 +84,7 @@ export function makeCategories(): Category[] {
       datachain_type: 'ai',
       shape: 'hexagon',
       element_variables: [],
-      context: {
+      element_context: {
         id: 'actor',
         name: [loc('en', 'Actor'), loc('fr', 'Acteur')],
         description: [
@@ -126,7 +126,6 @@ export function makeElements(): MaterializedElement[] {
         loc('en', 'Binary outcome: yes or no.'),
         loc('fr', 'Résultat binaire: oui ou non.'),
       ],
-      citation: [],
       authoring_guidance: [],
       examples: [],
       sources: [],
@@ -143,7 +142,6 @@ export function makeElements(): MaterializedElement[] {
         loc('en', 'Video that can identify a person.'),
         loc('fr', 'Vidéo qui peut identifier une personne.'),
       ],
-      citation: [],
       authoring_guidance: [],
       examples: [],
       sources: [],
@@ -160,7 +158,6 @@ export function makeElements(): MaterializedElement[] {
         loc('en', 'Flagging unusual patterns.'),
         loc('fr', 'Signaler des modèles inhabituels.'),
       ],
-      citation: [],
       authoring_guidance: [],
       examples: [],
       sources: [],

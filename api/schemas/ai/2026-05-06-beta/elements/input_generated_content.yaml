@@ -17,10 +17,17 @@ description:
       traite encore. Exemples : un résumé écrit par un LLM transmis à un traducteur, une photo
       générée passée à un modèle de modération, un extrait synthèse vocale acheminé vers un système
       audio.
-citation:
-  - locale: en
-    value: >-
-      Output class "content" from EU AI Act Article 3(1); synthetic-content disclosure under Art. 50
-      and NIST AI 100-4.
+sources:
+  - type: regulation
+    title: EU AI Act Article 3(1) — output class "content"
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+    citation: Regulation (EU) 2024/1689, Article 3(1).
+  - type: regulation
+    title: EU AI Act Article 50 — Synthetic-content disclosure
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+    citation: Regulation (EU) 2024/1689, Article 50.
+  - type: standard
+    title: NIST AI 100-4 — AI Risk Management Framework
+    url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-4.pdf
+    citation: NIST.
 symbol_id: generated_content
-variables: []

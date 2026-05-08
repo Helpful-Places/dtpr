@@ -46,7 +46,7 @@ export const CategorySchema = z.object({
   description: z.array(LocaleValueSchema),
   prompt: z.array(LocaleValueSchema),
   element_variables: z.array(VariableSchema),
-  context: ContextSchema.optional(),
+  element_context: ContextSchema.optional(),
 })
 
 export const ElementSchema = z.object({
@@ -54,7 +54,6 @@ export const ElementSchema = z.object({
   category_id: z.string(),
   title: z.array(LocaleValueSchema),
   description: z.array(LocaleValueSchema),
-  citation: z.array(LocaleValueSchema),
   symbol_id: z.string(),
   variables: z.array(VariableSchema),
 })

@@ -18,16 +18,4 @@ description:
       des entrées numériques ou catégorielles et renvoie une étiquette, une note ou un classement.
       Il ne génère pas de nouveau contenu. Exemples : un score de risque de crédit, un signalement
       de fraude, une prévision de longueur de file, un classement de recommandations.
-citation:
-  - locale: en
-    value: >-
-      Verb framing ("decides") and the six-mode partition adapted from Narain Jashanmal, *AI
-      Taxonomy — An Operational Framework for Precision in AI Discourse*, v1.1, January 2026.
-      https://dropleaf.app/d/AlXez8scbd
-  - locale: fr
-    value: >-
-      Le verbe-cadre (« décide ») et la partition en six modes sont adaptés de Narain Jashanmal, *AI
-      Taxonomy — An Operational Framework for Precision in AI Discourse*, v1.1, janvier 2026.
-      https://dropleaf.app/d/AlXez8scbd
 symbol_id: mode_analytical
-variables: []

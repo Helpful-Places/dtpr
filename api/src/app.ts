@@ -62,6 +62,15 @@ export function createApp(options: CreateAppOptions = {}) {
   // validate request hitting several R2 reads could then trip a
   // spurious 504 before its real budget expired.
   app.use('/api/v2/schemas/:version/validate', timeout({ budgetMs: validateBudget }))
+  // Resolve + validate_resolved share the validate budget — same
+  // semantic-rule cost profile (full schema slice + instance rules),
+  // and resolve additionally runs canonicalStringify for the cap
+  // check.
+  app.use('/api/v2/schemas/:version/resolve', timeout({ budgetMs: validateBudget }))
+  app.use(
+    '/api/v2/schemas/:version/validate_resolved',
+    timeout({ budgetMs: validateBudget }),
+  )
   app.use('/healthz', timeout({ budgetMs: readBudget }))
   app.use('/api/v2/schemas', timeout({ budgetMs: readBudget }))
   app.use('/api/v2/schemas/:version/manifest', timeout({ budgetMs: readBudget }))
@@ -98,10 +107,21 @@ export function createApp(options: CreateAppOptions = {}) {
   )
   app.use('/mcp', timeout({ budgetMs: readBudget }))
 
-  // Rate limits (two buckets — validate is tighter). Middleware is a
-  // no-op when the bindings are absent, so dev / test / preview
-  // builds don't need to provision them.
+  // Rate limits (three buckets — validate is tighter, resolve is
+  // tightest). Middleware is a no-op when the bindings are absent, so
+  // dev / test / preview builds don't need to provision them.
+  //
+  // Mount order matters: Hono runs `app.use` middleware in declaration
+  // order, so the route-specific RL_VALIDATE / RL_RESOLVE mounts must
+  // precede the wildcard RL_READ mount, otherwise the wildcard would
+  // consume an RL_READ token first and the dedicated buckets would
+  // see traffic only on requests that survived the RL_READ ceiling.
   app.use('/api/v2/schemas/:version/validate', rateLimit({ binding: 'RL_VALIDATE' }))
+  app.use('/api/v2/schemas/:version/resolve', rateLimit({ binding: 'RL_RESOLVE' }))
+  app.use(
+    '/api/v2/schemas/:version/validate_resolved',
+    rateLimit({ binding: 'RL_RESOLVE' }),
+  )
   app.use('/api/v2/*', rateLimit({ binding: 'RL_READ' }))
   app.use('/mcp', rateLimit({ binding: 'RL_READ' }))
 

@@ -6,5 +6,4 @@ title:
 description:
   - locale: en
     value: Data retained for {{retention_period}}.
-citation: []
 symbol_id: cloud

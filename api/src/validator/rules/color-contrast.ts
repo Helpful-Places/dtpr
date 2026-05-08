@@ -33,8 +33,8 @@ export function checkColorContrast(source: SchemaVersionSource): SemanticError[]
   const findings: SemanticError[] = []
 
   for (const [ci, cat] of source.categories.entries()) {
-    if (!cat.context) continue
-    for (const [vi, v] of cat.context.values.entries()) {
+    if (!cat.element_context) continue
+    for (const [vi, v] of cat.element_context.values.entries()) {
       if (v.color === null) continue
       if (!parseHex(v.color)) continue // Rule 13 reports this as an error.
       const innerShort = innerColorForShape(v.color)
@@ -46,7 +46,7 @@ export function checkColorContrast(source: SchemaVersionSource): SemanticError[]
             'LOW_CONTRAST_CONTEXT_COLOR',
             `Context value '${v.id}' color ${v.color} has low contrast (${ratio.toFixed(2)}:1) against its composed inner color ${innerShort}`,
             {
-              path: `categories[${ci}].context.values[${vi}].color`,
+              path: `categories[${ci}].element_context.values[${vi}].color`,
               fix_hint: `Choose a darker or lighter color so the 4.5:1 WCAG AA ratio is met against ${innerShort}. Current ratio ${ratio.toFixed(2)}:1 is below 4.5:1.`,
             },
           ),

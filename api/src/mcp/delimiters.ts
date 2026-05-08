@@ -1,7 +1,7 @@
 /**
  * Provenance tagging for element prose surfaced to LLMs.
  *
- * When an element's `description` or `citation` is rendered into the
+ * When an element's `title` or `description` is rendered into the
  * `text` content block of a tool response, wrap it in
  * `<dtpr_element>` tags so the receiving LLM treats the content as
  * data rather than instructions. The structured-content block is left
@@ -52,9 +52,6 @@ export function wrapElementContent(element: Element, opts: WrapElementOptions): 
   }
   for (const d of element.description) {
     parts.push(wrapText(d.value, { id: element.id, version: opts.version, locale: d.locale as LocaleCode }))
-  }
-  for (const c of element.citation) {
-    parts.push(wrapText(c.value, { id: element.id, version: opts.version, locale: c.locale as LocaleCode }))
   }
   return parts.join('\n')
 }

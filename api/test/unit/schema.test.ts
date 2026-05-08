@@ -35,7 +35,6 @@ describe('ElementSchema', () => {
 
   it('parses a minimal element with defaults', () => {
     const el = ElementSchema.parse(base)
-    expect(el.citation).toEqual([])
     expect(el.variables).toEqual([])
     expect(el.symbol_id).toBe('signal')
     expect(el.category_id).toBe('ai__decision')
@@ -119,7 +118,7 @@ describe('CategorySchema', () => {
     expect(cat.order).toBe(0)
     expect(cat.element_variables).toEqual([])
     expect(cat.prompt).toEqual([])
-    expect(cat.context).toBeUndefined()
+    expect(cat.element_context).toBeUndefined()
     expect(cat.shape).toBe('hexagon')
   })
 
@@ -142,10 +141,10 @@ describe('CategorySchema', () => {
     }
   })
 
-  it('accepts an optional context block with values', () => {
+  it('accepts an optional element_context block with values', () => {
     const withCtx = CategorySchema.parse({
       ...base,
-      context: {
+      element_context: {
         id: 'level_of_autonomy',
         name: [loc('en', 'Level of Autonomy')],
         description: [loc('en', 'Human involvement.')],
@@ -159,13 +158,13 @@ describe('CategorySchema', () => {
         ],
       },
     })
-    expect(withCtx.context?.values).toHaveLength(1)
+    expect(withCtx.element_context?.values).toHaveLength(1)
   })
 
-  it('rejects invalid color in context value', () => {
+  it('rejects invalid color in element_context value', () => {
     const result = CategorySchema.safeParse({
       ...base,
-      context: {
+      element_context: {
         id: 'x',
         name: [loc('en', 'X')],
         description: [loc('en', 'X')],

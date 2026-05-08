@@ -3,5 +3,4 @@ packages:
   - 'api'
   - 'docs-site'
   - 'dtpr-ai'
-  - 'studio'
   - 'packages/*'

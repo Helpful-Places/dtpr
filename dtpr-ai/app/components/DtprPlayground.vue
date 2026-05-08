@@ -40,7 +40,7 @@ watch(
 const contextId = ref<string | null>(null)
 const styleMode = ref<'default' | 'dark'>('default')
 
-const contextValues = computed(() => props.category?.context?.values ?? [])
+const contextValues = computed(() => props.category?.element_context?.values ?? [])
 const hasContext = computed(() => contextValues.value.length > 0)
 
 watch(

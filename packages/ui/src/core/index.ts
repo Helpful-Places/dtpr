@@ -19,6 +19,12 @@ export {
 export { deriveElementDisplay } from './element-display.js'
 export type { DeriveElementDisplayOptions } from './element-display.js'
 
+export { buildResolvedSections } from './build-resolved-sections.js'
+export type {
+  BuildResolvedSectionsOptions,
+  RenderedSection,
+} from './build-resolved-sections.js'
+
 export { validateDatachain } from './validate.js'
 export type {
   SchemaVersionSource,
@@ -38,9 +44,16 @@ export type {
   InstanceVariableValue,
   DatachainInstance,
   SchemaManifest,
+  AuthoringProvenance,
+  ConfidenceLevel,
+  ElementProvenance,
+  ResolvedDatachainInstance,
+  SchemaSnapshot,
+  SourceReference,
   VariableType,
   InterpolateSegment,
   ElementDisplay,
   ElementDisplayIcon,
   ElementDisplayVariable,
+  ElementDisplayProvenance,
 } from './types.js'

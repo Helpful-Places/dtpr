@@ -17,6 +17,4 @@ description:
       langage humain. Cela inclut les grands modèles de langage (LLM), les chatbots et les systèmes
       de génération de texte. Ils fonctionnent en prédisant les jetons les plus probables à partir
       de l'entrée et du contexte antérieur.
-citation: []
 symbol_id: processing_llm
-variables: []

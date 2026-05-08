@@ -61,7 +61,6 @@ const sampleElement = {
   category_id: 'ai__decision',
   title: [{ locale: 'en', value: 'Accept / Deny' }],
   description: [{ locale: 'en', value: 'Binary outcome.' }],
-  citation: [],
   symbol_id: 'accept_deny',
   variables: [],
 }

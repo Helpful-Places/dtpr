@@ -22,6 +22,78 @@ required: true
 order: 3
 datachain_type: ai
 shape: hexagon
+sources:
+  - type: framework
+    title: AI Taxonomy — An Operational Framework for Precision in AI Discourse
+    url: https://dropleaf.app/d/AlXez8scbd
+    citation: Narain Jashanmal, v1.1, January 2026.
+element_context:
+  id: autonomy
+  name:
+    - locale: en
+      value: Autonomy
+    - locale: fr
+      value: Autonomie
+  description:
+    - locale: en
+      value: >-
+        How much this mode decides and acts on its own. The element name says what the mode does;
+        this label says who chooses and who carries out the result.
+    - locale: fr
+      value: >-
+        Dans quelle mesure ce mode décide et agit par lui-même. Le nom de l’élément indique ce que
+        fait le mode ; cette étiquette indique qui choisit et qui exécute le résultat.
+  values:
+    - id: human_decides
+      name:
+        - locale: en
+          value: Human decides
+        - locale: fr
+          value: L’humain décide
+      description:
+        - locale: en
+          value: >-
+            This mode suggests; a person decides what to do next. The AI is always advisory — a
+            human is in the loop on every decision. Example: a triage tool ranks cases for a
+            clinician who chooses which to see first.
+        - locale: fr
+          value: >-
+            Ce mode suggère ; une personne décide de la suite. L’IA est toujours consultative — un
+            humain est dans la boucle à chaque décision. Exemple : un outil de triage classe les cas
+            pour qu’un clinicien choisisse lesquels examiner en premier.
+      color: "#2A9D8F"
+    - id: human_executes
+      name:
+        - locale: en
+          value: Human executes
+        - locale: fr
+          value: L’humain exécute
+      description:
+        - locale: en
+          value: >-
+            This mode decides; a person carries out the result. Example: an optimizer plans the
+            day’s trash-collection routes, and drivers run them.
+        - locale: fr
+          value: >-
+            Ce mode décide ; une personne exécute le résultat. Exemple : un optimiseur planifie les
+            itinéraires de collecte des ordures de la journée, et les chauffeurs les exécutent.
+      color: "#E76F51"
+    - id: autonomous
+      name:
+        - locale: en
+          value: Autonomous
+        - locale: fr
+          value: Autonome
+      description:
+        - locale: en
+          value: >-
+            This mode decides and acts on its own. No person reviews each decision or carries out
+            the resulting action.
+        - locale: fr
+          value: >-
+            Ce mode décide et agit par lui-même. Aucune personne n’examine chaque décision ni
+            n’exécute l’action résultante.
+      color: "#6A1B7A"
 element_variables:
   - id: additional_description
     label:

@@ -19,15 +19,15 @@ const RESERVED_VARIANT_TOKENS = new Set(['default', 'dark'])
 export function checkVariantReserved(source: SchemaVersionSource): SemanticError[] {
   const findings: SemanticError[] = []
   for (const [ci, cat] of source.categories.entries()) {
-    if (!cat.context) continue
-    for (const [vi, v] of cat.context.values.entries()) {
+    if (!cat.element_context) continue
+    for (const [vi, v] of cat.element_context.values.entries()) {
       if (RESERVED_VARIANT_TOKENS.has(v.id)) {
         findings.push(
           err(
             'RESERVED_VARIANT_TOKEN',
             `Context value '${v.id}' on category '${cat.id}' collides with reserved variant token`,
             {
-              path: `categories[${ci}].context.values[${vi}].id`,
+              path: `categories[${ci}].element_context.values[${vi}].id`,
               fix_hint: `Rename this context value to something other than ${[...RESERVED_VARIANT_TOKENS]
                 .map((t) => `'${t}'`)
                 .join(' or ')} — these names are reserved by the icon compositor.`,

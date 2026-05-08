@@ -22,14 +22,14 @@ export function categoriesFingerprint(data: CategoriesResponse) {
     .map((category) => ({
       id: category.id,
       datachain_type: category.datachain_type,
-      has_context: !!category.context,
+      has_context: !!category.element_context,
       order: category.order ?? null,
       required: category.required ?? false,
       shape: category.shape,
       locales: [...new Set(category.name.map((n) => n.locale))].sort(),
       variable_ids: category.element_variables.map((v) => v.id).sort(),
-      context_value_ids: category.context
-        ? category.context.values.map((v) => v.id).sort()
+      context_value_ids: category.element_context
+        ? category.element_context.values.map((v) => v.id).sort()
         : [],
     }))
     .sort((a, b) => a.id.localeCompare(b.id))

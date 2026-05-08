@@ -9,7 +9,6 @@ function makeDisplay(overrides: Partial<ElementDisplay> = {}): ElementDisplay {
     description: 'Data held for 30 days.',
     icon: { url: '/icons/cloud.svg', alt: 'Cloud' },
     variables: [],
-    citation: 'See RFC 1234',
     ...overrides,
   }
 }
@@ -91,5 +90,28 @@ describe('DtprElement', () => {
       },
     })
     expect(w.find('.dtpr-element__description').exists()).toBe(false)
+  })
+
+  // R15b: AI-proposed indicator. Visible by default whenever
+  // `display.proposed === true`; absent for snapshot-resolved
+  // elements and undefined (legacy thin path) values alike.
+  it('does not render the proposed indicator when display.proposed is undefined', () => {
+    const w = mount(DtprElement, { props: { display: makeDisplay() } })
+    expect(w.find('[data-dtpr-proposed]').exists()).toBe(false)
+    expect(w.classes()).not.toContain('dtpr-element--proposed')
+  })
+
+  it('does not render the proposed indicator when display.proposed is false', () => {
+    const w = mount(DtprElement, { props: { display: makeDisplay({ proposed: false }) } })
+    expect(w.find('[data-dtpr-proposed]').exists()).toBe(false)
+    expect(w.classes()).not.toContain('dtpr-element--proposed')
+  })
+
+  it('renders the proposed indicator when display.proposed is true', () => {
+    const w = mount(DtprElement, { props: { display: makeDisplay({ proposed: true }) } })
+    const badge = w.find('[data-dtpr-proposed="true"]')
+    expect(badge.exists()).toBe(true)
+    expect(badge.text()).toBe('Proposed')
+    expect(w.classes()).toContain('dtpr-element--proposed')
   })
 })

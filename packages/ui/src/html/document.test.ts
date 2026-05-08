@@ -8,7 +8,6 @@ function makeDisplay(title: string): ElementDisplay {
     description: 'desc',
     icon: { url: '/i.svg', alt: `alt for ${title}` },
     variables: [],
-    citation: '',
   }
 }
 
@@ -65,8 +64,8 @@ describe('renderDatachainDocument', () => {
     expect(html).toMatch(/&lt;script&gt;alert\(/)
   })
 
-  it('escapes XSS in the document title option', async () => {
-    const html = await renderDatachainDocument([], { title: '<img src=x onerror=1>' })
+  it('escapes XSS in the page-title fallback option', async () => {
+    const html = await renderDatachainDocument([], { pageTitle: '<img src=x onerror=1>' })
     expect(html).not.toContain('<img src=x onerror=1>')
     expect(html).toContain('&lt;img src=x onerror=1&gt;')
   })
@@ -80,6 +79,51 @@ describe('renderDatachainDocument', () => {
   it('honors custom locale in <html lang>', async () => {
     const html = await renderDatachainDocument(sampleSections(1, 1), { locale: 'pt' })
     expect(html).toContain('<html lang="pt">')
+  })
+
+  // Instance-level title + description (from `DatachainInstance.title`
+  // and `.description` after locale resolution).
+  it('renders the instance title + description block above the sections', async () => {
+    const html = await renderDatachainDocument(sampleSections(1, 1), {
+      title: 'Worcester license plate reader',
+      description: 'Parking enforcement automation.',
+    })
+    expect(html).toContain('<header class="dtpr-document-header">')
+    expect(html).toContain(
+      '<h1 class="dtpr-document-header__title">Worcester license plate reader</h1>',
+    )
+    expect(html).toContain(
+      '<p class="dtpr-document-header__description">Parking enforcement automation.</p>',
+    )
+  })
+
+  it('uses the instance title as the document <title> when supplied', async () => {
+    const html = await renderDatachainDocument(sampleSections(1, 1), {
+      title: 'Worcester license plate reader',
+    })
+    expect(html).toContain('<title>Worcester license plate reader</title>')
+  })
+
+  it('falls back to pageTitle for the document <title> when no instance title is set', async () => {
+    const html = await renderDatachainDocument(sampleSections(1, 1), {
+      pageTitle: 'Custom page title',
+    })
+    expect(html).toContain('<title>Custom page title</title>')
+  })
+
+  it('omits the header block when neither title nor description is set', async () => {
+    const html = await renderDatachainDocument(sampleSections(1, 1))
+    expect(html).not.toContain('dtpr-document-header')
+  })
+
+  it('escapes XSS in instance title + description', async () => {
+    const html = await renderDatachainDocument(sampleSections(1, 1), {
+      title: '<script>alert(1)</script>',
+      description: '<img src=x onerror=alert(1)>',
+    })
+    expect(html).not.toContain('<script>alert(1)</script>')
+    expect(html).toContain('&lt;script&gt;alert(1)&lt;/script&gt;')
+    expect(html).toContain('&lt;img src=x onerror=alert(1)&gt;')
   })
 
   // Soft ceiling. Unit 0.5 measured p99 ~10ms in workerd for the same

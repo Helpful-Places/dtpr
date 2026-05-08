@@ -20,19 +20,17 @@ function makeDisplay(overrides: Partial<ElementDisplay> = {}): ElementDisplay {
     description: 'Data held for {{retention_period}}.',
     icon: { url: '/icons/cloud.svg', alt: 'Cloud' },
     variables: [makeVar()],
-    citation: 'See RFC 1234',
     ...overrides,
   }
 }
 
 describe('DtprElementDetail', () => {
-  it('renders title, description (interpolated), variables list, and citation', () => {
+  it('renders title, description (interpolated), and variables list', () => {
     const w = mount(DtprElementDetail, { props: { display: makeDisplay() } })
     expect(w.text()).toContain('Cloud storage')
     expect(w.text()).toContain('Data held for')
     expect(w.text()).toContain('30 days')
     expect(w.text()).toContain('Retention period')
-    expect(w.text()).toContain('See RFC 1234')
   })
 
   it('highlights variable segments in the plain-text description path', () => {
@@ -106,22 +104,19 @@ describe('DtprElementDetail', () => {
     expect(w.find('h2.dtpr-element-detail__title').exists()).toBe(false)
   })
 
-  it('#after-description, #after-variables, #after-citation slots render in order', () => {
+  it('#after-description and #after-variables slots render in order', () => {
     const w = mount(DtprElementDetail, {
       props: { display: makeDisplay() },
       slots: {
         'after-description': '<div data-test="after-desc">AD</div>',
         'after-variables': '<div data-test="after-vars">AV</div>',
-        'after-citation': '<div data-test="after-cite">AC</div>',
       },
     })
     const html = w.html()
     const i1 = html.indexOf('after-desc')
     const i2 = html.indexOf('after-vars')
-    const i3 = html.indexOf('after-cite')
     expect(i1).toBeGreaterThan(-1)
     expect(i2).toBeGreaterThan(i1)
-    expect(i3).toBeGreaterThan(i2)
   })
 
   describe('variable-type rendering', () => {
@@ -201,6 +196,114 @@ describe('DtprElementDetail', () => {
       const span = w.get('[data-dtpr-unknown-type]')
       expect(span.attributes('data-dtpr-unknown-type')).toBe('mystery')
       expect(span.text()).toBe('hey')
+    })
+  })
+
+  // AI proposal context (expandable section after after-variables;
+  // renders only when the placement carries a composed per-element
+  // provenance entry).
+  describe('AI proposal context', () => {
+    it('does not render the section when display.provenance is undefined', () => {
+      const w = mount(DtprElementDetail, { props: { display: makeDisplay() } })
+      expect(w.find('[data-dtpr-provenance]').exists()).toBe(false)
+    })
+
+    it('renders the section with rationale when an entry is composed', () => {
+      const w = mount(DtprElementDetail, {
+        props: {
+          display: makeDisplay({
+            provenance: { kind: 'ai_generated', rationale: 'Inferred from system docs.' },
+          }),
+        },
+      })
+      const details = w.get('[data-dtpr-provenance="ai_generated"]')
+      expect(details.text()).toContain('AI proposal context')
+      expect(details.text()).toContain('Inferred from system docs.')
+    })
+
+    it('renders confidence as the qualitative enum value verbatim', () => {
+      const w = mount(DtprElementDetail, {
+        props: {
+          display: makeDisplay({
+            provenance: { kind: 'ai_generated', confidence: 'high' },
+          }),
+        },
+      })
+      const dd = w.get('[data-dtpr-confidence]')
+      expect(dd.attributes('data-dtpr-confidence')).toBe('high')
+      expect(dd.text()).toBe('high')
+    })
+
+    it('renders source_references as blockquote + cite, never as anchors', () => {
+      const w = mount(DtprElementDetail, {
+        props: {
+          display: makeDisplay({
+            provenance: {
+              kind: 'ai_generated',
+              source_references: [
+                { quote: 'data is stored in AWS S3', context: 'Architecture §2' },
+                { quote: 'no PII is retained' },
+              ],
+            },
+          }),
+        },
+      })
+      const quotes = w.findAll('.dtpr-element-detail__provenance-quote')
+      expect(quotes).toHaveLength(2)
+      expect(quotes[0]!.text()).toBe('data is stored in AWS S3')
+      const cites = w.findAll('.dtpr-element-detail__provenance-quote-context')
+      expect(cites).toHaveLength(1)
+      expect(cites[0]!.text()).toBe('Architecture §2')
+      // No anchor tags rendered for sources.
+      expect(w.find('.dtpr-element-detail__provenance-sources a').exists()).toBe(false)
+    })
+
+    it('escapes rationale containing a script tag (HTML-escape policy)', () => {
+      const w = mount(DtprElementDetail, {
+        props: {
+          display: makeDisplay({
+            provenance: {
+              kind: 'ai_generated',
+              rationale: '<script>alert(1)</script>',
+            },
+          }),
+        },
+      })
+      expect(w.html()).toContain('&lt;script&gt;alert(1)&lt;/script&gt;')
+      expect(w.find('script').exists()).toBe(false)
+    })
+
+    it('escapes source_reference quote/context containing tag-like input', () => {
+      const w = mount(DtprElementDetail, {
+        props: {
+          display: makeDisplay({
+            provenance: {
+              kind: 'ai_generated',
+              source_references: [
+                { quote: '<img src=x onerror=alert(1)>', context: '<b>bold?</b>' },
+              ],
+            },
+          }),
+        },
+      })
+      expect(w.html()).toContain('&lt;img src=x onerror=alert(1)&gt;')
+      expect(w.html()).toContain('&lt;b&gt;bold?&lt;/b&gt;')
+      expect(w.find('img[onerror]').exists()).toBe(false)
+    })
+
+    it('escapes variable_rationale values containing tag-like input', () => {
+      const w = mount(DtprElementDetail, {
+        props: {
+          display: makeDisplay({
+            provenance: {
+              kind: 'ai_generated',
+              variable_rationale: { x: '<img src=x onerror=alert(1)>' },
+            },
+          }),
+        },
+      })
+      expect(w.html()).toContain('&lt;img src=x onerror=alert(1)&gt;')
+      expect(w.find('img[onerror]').exists()).toBe(false)
     })
   })
 })

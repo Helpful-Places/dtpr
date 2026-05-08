@@ -48,7 +48,7 @@ function makeIconCategories(): Category[] {
       datachain_type: 'ai',
       shape: 'hexagon',
       element_variables: [],
-      context: {
+      element_context: {
         id: 'actor',
         name: [loc('en', 'Actor')],
         description: [loc('en', 'Who made the decision.')],
@@ -81,7 +81,6 @@ function makeIconElements(): Element[] {
         loc('en', 'Binary outcome: yes or no.'),
         loc('fr', 'Résultat binaire: oui ou non.'),
       ],
-      citation: [],
       authoring_guidance: [],
       examples: [],
       sources: [],

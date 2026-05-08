@@ -18,7 +18,7 @@ required: true
 order: 2
 datachain_type: ai
 shape: hexagon
-context:
+element_context:
   id: role
   name:
     - locale: en

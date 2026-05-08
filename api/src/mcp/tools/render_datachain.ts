@@ -1,9 +1,13 @@
 import { z, ZodError } from 'zod'
-import { deriveElementDisplay, type ElementDisplay } from '@dtpr/ui/core'
+import { buildResolvedSections, deriveElementDisplay, type ElementDisplay } from '@dtpr/ui/core'
 import { renderDatachainDocument, type RenderedSection } from '@dtpr/ui/html'
 import type { Category } from '../../schema/category.ts'
 import type { Element } from '../../schema/element.ts'
 import { DatachainInstanceSchema, type DatachainInstance } from '../../schema/datachain-instance.ts'
+import {
+  ResolvedDatachainInstanceSchema,
+  type ResolvedDatachainInstance,
+} from '../../schema/datachain-instance-resolved.ts'
 import { LocaleCodeSchema } from '../../schema/locale.ts'
 import {
   loadCategories,
@@ -62,6 +66,18 @@ function errorsFrom(e: unknown): ApiErrorShape[] {
 // read-path tools' provenance convention.
 function wrapVariableValue(value: string): string {
   return `<dtpr_variable_value>${value}</dtpr_variable_value>`
+}
+
+// Pick the locale-appropriate value from a `LocaleValue[]`. Falls
+// through to the first entry when the requested locale is absent;
+// returns undefined when the array is empty so callers can branch on
+// presence (the field is optional on the wire — `default([])`).
+function pickLocale(
+  values: ReadonlyArray<{ locale: string; value: string }>,
+  locale: string,
+): string | undefined {
+  if (values.length === 0) return undefined
+  return (values.find((v) => v.locale === locale) ?? values[0])?.value
 }
 
 function buildAgentSummary(
@@ -146,9 +162,14 @@ export function renderDatachainTool(ctx: LoadContext, sessionId: string): ToolDe
       name: 'render_datachain',
       description:
         'Render a DTPR datachain instance as an interactive HTML document. ' +
-        'The document URL is returned in _meta.ui.resourceUri and can be ' +
-        'fetched via resources/read; the tool also returns a plaintext ' +
-        'summary of the rendered categories and elements.',
+        'Accepts either a thin DatachainInstance or a ResolvedDatachainInstance. ' +
+        'When a ResolvedDatachainInstance is supplied, the embedded schema_snapshot ' +
+        'is used directly and no schema fetch is performed; suggested_elements ' +
+        'render with a "proposed" indicator. Precedence: an input that strictly ' +
+        'matches DatachainInstance parses thin; an input adding schema_snapshot ' +
+        'parses resolved. The document URL is returned in _meta.ui.resourceUri ' +
+        'and can be fetched via resources/read; the tool also returns a ' +
+        'plaintext summary of the rendered categories and elements.',
       inputSchema: schemaToJson(InputSchema),
     },
     handler: async (raw: Record<string, unknown>) => {
@@ -162,6 +183,49 @@ export function renderDatachainTool(ctx: LoadContext, sessionId: string): ToolDe
         normalizeVersionParam(args.version)
       } catch (e) {
         return toToolResult(errEnvelope(errorsFrom(e)))
+      }
+
+      // Resolved-input branch (R18, R19): try ResolvedDatachainInstanceSchema
+      // first. ResolvedDatachainInstance is a strict superset, so a thin
+      // instance never matches and falls through. When a resolved
+      // input matches, the schema_snapshot is self-contained — no
+      // R2 reads, no validateInstance run (the resolved form has its
+      // own validate_resolved surface).
+      const resolvedParse = ResolvedDatachainInstanceSchema.safeParse(args.datachain)
+      if (resolvedParse.success) {
+        try {
+          const resolved: ResolvedDatachainInstance = resolvedParse.data
+          const sections = buildResolvedSections(resolved, args.locale)
+          const title = pickLocale(resolved.title, args.locale)
+          const description = pickLocale(resolved.description, args.locale)
+          const html = await renderDatachainDocument(sections, {
+            locale: args.locale,
+            ...(title !== undefined ? { title } : {}),
+            ...(description !== undefined ? { description } : {}),
+          })
+          setDatachainHtml(sessionId, html)
+          const summary = buildAgentSummary(sections, DATACHAIN_RESOURCE_URI)
+          return {
+            structuredContent: okEnvelope({
+              resource_uri: DATACHAIN_RESOURCE_URI,
+              section_count: sections.length,
+              element_count: sections.reduce((n, s) => n + s.elements.length, 0),
+              warnings: [],
+            }) as unknown as Record<string, unknown>,
+            content: [{ type: 'text' as const, text: summary }],
+            _meta: {
+              ui: {
+                resourceUri: DATACHAIN_RESOURCE_URI,
+                csp: { resourceDomains: [], connectDomains: [] },
+              },
+            },
+          }
+        } catch (e) {
+          // buildResolvedSections throws on missing element_id (where
+          // the thin path silently skips). Surface as soft-failure
+          // matching validate_resolved's posture.
+          return toSoftFailureResult(errEnvelope(errorsFrom(e)))
+        }
       }
 
       let parsedInstance: DatachainInstance
@@ -213,7 +277,13 @@ export function renderDatachainTool(ctx: LoadContext, sessionId: string): ToolDe
         }
 
         const sections = buildSections(parsedInstance, categories, elements, args.locale)
-        const html = await renderDatachainDocument(sections, { locale: args.locale })
+        const title = pickLocale(parsedInstance.title, args.locale)
+        const description = pickLocale(parsedInstance.description, args.locale)
+        const html = await renderDatachainDocument(sections, {
+          locale: args.locale,
+          ...(title !== undefined ? { title } : {}),
+          ...(description !== undefined ? { description } : {}),
+        })
         setDatachainHtml(sessionId, html)
 
         const summary = buildAgentSummary(sections, DATACHAIN_RESOURCE_URI)

@@ -18,10 +18,13 @@ description:
       personnelles porteuses de risque légal et social. L'IA reçoit ce type de données protégées.
       Exemples : éligibilité à une assurance sur une borne de clinique, état d'une demande de
       prestation, pronom auto-déclaré.
-citation:
-  - locale: en
-    value: >-
-      Categories drawn from GDPR Article 9 "special categories of personal data" and Apple App Store
-      privacy "Sensitive Info" / "Health & Fitness" / "Financial Info" labels.
+sources:
+  - type: regulation
+    title: GDPR Article 9 — Special categories of personal data
+    url: https://eur-lex.europa.eu/eli/reg/2016/679/oj
+    citation: Regulation (EU) 2016/679, Article 9.
+  - type: other
+    title: Apple App Store privacy labels — Sensitive Info / Health & Fitness / Financial Info
+    url: https://developer.apple.com/app-store/app-privacy-details/
+    citation: Apple.
 symbol_id: sensitive_personal
-variables: []

@@ -86,10 +86,10 @@ export function checkInstance(
 
     // Rule 4: context_type_id must match a value defined on the
     // element's effective context. Element.context overrides
-    // Category.context fully (no merge); resolve in that order.
+    // Category.element_context fully (no merge); resolve in that order.
     if (ie.context_type_id) {
       const cat = categoryById.get(el.category_id)
-      const effectiveCtx = el.context ?? cat?.context
+      const effectiveCtx = el.context ?? cat?.element_context
       const matched = !!effectiveCtx?.values.some((v) => v.id === ie.context_type_id)
       if (!matched) {
         findings.push(

@@ -20,6 +20,4 @@ description:
       k-anonymisation, la confidentialité différentielle et la génération de données synthétiques.
       Sert de barrière entre les données brutes collectées et celles utilisées pour l'analyse ou les
       décisions.
-citation: []
 symbol_id: processing_privacy-preserving-transformation
-variables: []

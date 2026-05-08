@@ -11,6 +11,15 @@ interface Props {
   // Ordered list of sections. The parent renders a CategorySection per
   // entry and slots content via the dynamic `#section-<id>` slot.
   sections: readonly SectionDescriptor[]
+  // The datachain instance's title — locale-resolved by the caller.
+  // Renders as the document headline above the sections. Matches
+  // `DatachainInstance.title`. Omit to suppress the header block.
+  title?: string
+  // The datachain instance's description — locale-resolved by the
+  // caller. Renders as the lead paragraph beneath the title. Matches
+  // `DatachainInstance.description`. May be longer prose; use the
+  // schema's free-text policy.
+  description?: string
   // Controlled open-section id (via v-model:openSectionId).
   openSectionId?: string | null
   // When true, every section is always expanded and accordion coordination
@@ -19,6 +28,8 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  title: undefined,
+  description: undefined,
   openSectionId: undefined,
   disableAccordion: false,
 })
@@ -51,6 +62,13 @@ function onSectionToggle(sectionId: string, nextExpanded: boolean) {
 
 <template>
   <div class="dtpr-datachain">
+    <header
+      v-if="title || description"
+      class="dtpr-document-header"
+    >
+      <h1 v-if="title" class="dtpr-document-header__title">{{ title }}</h1>
+      <p v-if="description" class="dtpr-document-header__description">{{ description }}</p>
+    </header>
     <template v-if="sections.length > 0">
       <DtprCategorySection
         v-for="section in sections"

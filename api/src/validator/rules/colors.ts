@@ -14,8 +14,8 @@ export function checkColors(source: SchemaVersionSource): SemanticError[] {
   const findings: SemanticError[] = []
 
   for (const [ci, cat] of source.categories.entries()) {
-    if (!cat.context) continue
-    for (const [vi, v] of cat.context.values.entries()) {
+    if (!cat.element_context) continue
+    for (const [vi, v] of cat.element_context.values.entries()) {
       if (v.color === null) continue
       if (!HEX_PATTERN.test(v.color)) {
         findings.push(
@@ -23,7 +23,7 @@ export function checkColors(source: SchemaVersionSource): SemanticError[] {
             'CONTEXT_VALUE_COLOR_INVALID',
             `Context value '${v.id}' has invalid color '${v.color}'`,
             {
-              path: `categories[${ci}].context.values[${vi}].color`,
+              path: `categories[${ci}].element_context.values[${vi}].color`,
               fix_hint: `Use a six-digit hex color (e.g. '#F28C28') or null for tag rendering.`,
             },
           ),

@@ -40,7 +40,6 @@ function asStringArray(v: unknown): string[] {
  *  - updated_at, element-level context_type_id, legacy `icon` block: dropped
  *  - v1 `symbol: /dtpr-icons/symbols/<name>.svg` → `symbol_id: <name>`
  *    (basename without extension)
- *  - citation: seeded as empty array (optional authored field)
  *
  * Returns `null` when the element has no `ai__*` category reference or
  * lacks required fields (e.g. missing id/title/symbol).
@@ -112,7 +111,6 @@ export function transformElement(
     category_id: aiCategories[0]!,
     title,
     description,
-    citation: [],
     authoring_guidance: [],
     examples: [],
     sources: [],

@@ -54,7 +54,6 @@ function makeSource(): SchemaVersionSource {
       category_id: 'ai__storage',
       title: [loc('en', 'Cloud storage'), loc('fr', 'Stockage cloud')],
       description: [loc('en', 'Held for {{retention_period}}.')],
-      citation: [],
       authoring_guidance: [],
       examples: [],
       sources: [],
@@ -66,7 +65,6 @@ function makeSource(): SchemaVersionSource {
       category_id: 'ai__decision',
       title: [loc('en', 'Accept or deny')],
       description: [loc('en', 'Binary yes/no.')],
-      citation: [],
       authoring_guidance: [],
       examples: [],
       sources: [],
@@ -155,11 +153,13 @@ describe('buildBundle', () => {
   it('emits JSON Schema for every content schema', () => {
     const bundle = buildBundle(makeSource())
     expect(Object.keys(bundle.schemaJson).sort()).toEqual([
+      'AuthoringProvenance',
       'Category',
       'DatachainInstance',
       'DatachainType',
       'Element',
       'Manifest',
+      'ResolvedDatachainInstance',
     ])
   })
 })
@@ -190,7 +190,7 @@ describe('bundleToFiles', () => {
 /** Build a source whose `ai__decision` category carries a context. */
 function makeSourceWithContext(): SchemaVersionSource {
   const src = makeSource()
-  src.categories[1]!.context = {
+  src.categories[1]!.element_context = {
     id: 'level_of_autonomy',
     name: [loc('en', 'Autonomy')],
     description: [loc('en', 'Autonomy')],
@@ -234,7 +234,7 @@ describe('iconVariantsFor', () => {
   it('includes null-color (tag-style) values alongside their .dark companions', () => {
     const src = makeSourceWithContext()
     const decision = src.categories.find((c) => c.id === 'ai__decision')!
-    decision.context!.values.push({
+    decision.element_context!.values.push({
       id: 'tag_only',
       name: [loc('en', 'Tag-style')],
       description: [loc('en', 'No icon color')],
@@ -302,7 +302,7 @@ describe('buildBundle — composed icons + hashing', () => {
 
   it('null-color variant composes default; null-color.dark composes dark', () => {
     const src = makeSourceWithContext()
-    src.categories[1]!.context!.values.push({
+    src.categories[1]!.element_context!.values.push({
       id: 'tag_only',
       name: [loc('en', 'Tag-style')],
       description: [loc('en', 'No icon color')],
@@ -341,7 +341,7 @@ describe('buildBundle — composed icons + hashing', () => {
   it('editing a ContextValue.color changes composed bytes and content_hash', () => {
     const src1 = makeSourceWithContext()
     const src2 = makeSourceWithContext()
-    src2.categories[1]!.context!.values[0]!.color = '#BB4400'
+    src2.categories[1]!.element_context!.values[0]!.color = '#BB4400'
     const a = buildBundle(src1)
     const b = buildBundle(src2)
     expect(a.composedIcons['accept_deny/ai_only']).not.toBe(

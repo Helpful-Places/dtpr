@@ -18,8 +18,9 @@ description:
       classement. Distincte d'une décision contraignante parce qu'elle conseille sans trancher.
       Exemples : un système de signalisation proposant un itinéraire alternatif d'après l'affluence
       prévue, une courbe de demande prévue pour demain, une destination suggérée sur une borne.
-citation:
-  - locale: en
-    value: Output classes "predictions, recommendations" enumerated in EU AI Act Article 3(1).
+sources:
+  - type: regulation
+    title: EU AI Act Article 3(1) — output classes "predictions, recommendations"
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+    citation: Regulation (EU) 2024/1689, Article 3(1).
 symbol_id: dm_priority-ranking
-variables: []

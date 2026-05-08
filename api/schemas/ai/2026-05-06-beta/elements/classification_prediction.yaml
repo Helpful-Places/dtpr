@@ -19,6 +19,4 @@ description:
       d'attente attendu) et prévisions de séries temporelles (fréquentation à la prochaine heure,
       charge énergétique). Construits à partir de données historiques étiquetées par des modèles
       statistiques ou d'apprentissage automatique.
-citation: []
 symbol_id: processing_time-series-forecasting
-variables: []

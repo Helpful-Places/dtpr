@@ -66,27 +66,38 @@ export function checkLocales(source: SchemaVersionSource): SemanticError[] {
       checkOptional(ex.scenario, `categories[${ci}].examples[${exi}].scenario`)
       checkOptional(ex.narrative, `categories[${ci}].examples[${exi}].narrative`)
     }
-    if (cat.context) {
-      check(cat.context.name, `categories[${ci}].context.name`, 'context.name')
-      check(cat.context.description, `categories[${ci}].context.description`, 'context.description')
-      for (const [vi, cv] of cat.context.values.entries()) {
-        check(cv.name, `categories[${ci}].context.values[${vi}].name`, 'context value name')
+    if (cat.element_context) {
+      check(
+        cat.element_context.name,
+        `categories[${ci}].element_context.name`,
+        'element_context.name',
+      )
+      check(
+        cat.element_context.description,
+        `categories[${ci}].element_context.description`,
+        'element_context.description',
+      )
+      for (const [vi, cv] of cat.element_context.values.entries()) {
+        check(
+          cv.name,
+          `categories[${ci}].element_context.values[${vi}].name`,
+          'element_context value name',
+        )
         check(
           cv.description,
-          `categories[${ci}].context.values[${vi}].description`,
-          'context value description',
+          `categories[${ci}].element_context.values[${vi}].description`,
+          'element_context value description',
         )
       }
     }
   }
 
-  // Elements: title, description (required non-empty); citation/
+  // Elements: title, description (required non-empty);
   // authoring_guidance/examples (optional locale check); element-level
   // context (optional override) localized strings.
   for (const [ei, el] of source.elements.entries()) {
     check(el.title, `elements[${ei}].title`, 'title')
     check(el.description, `elements[${ei}].description`, 'description')
-    checkOptional(el.citation, `elements[${ei}].citation`)
     checkOptional(el.authoring_guidance, `elements[${ei}].authoring_guidance`)
     for (const [exi, ex] of el.examples.entries()) {
       checkOptional(ex.scenario, `elements[${ei}].examples[${exi}].scenario`)

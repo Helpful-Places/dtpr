@@ -19,8 +19,7 @@ import { ExampleSchema } from './example.ts'
  *
  * See plan "Key Technical Decisions" for the field transformations
  * applied during the v1→new migration (drop updated_at/symbol/
- * element-level context_type_id, rename name→title, add optional
- * citation, etc.).
+ * element-level context_type_id, rename name→title, etc.).
  */
 export const ElementSchema = z
   .object({
@@ -38,9 +37,6 @@ export const ElementSchema = z
     description: LocaleValueArraySchema.describe(
       'Longer description. May reference variables via {{variable_id}} (rule 8).',
     ),
-    citation: LocaleValueArraySchema.default([]).describe(
-      'DEPRECATED. Free-text citation/source string per locale; superseded by `sources` (structured ProvenanceRef[]). Kept for one beta to allow content migration; will be removed before the next stable release.',
-    ),
     authoring_guidance: LocaleValueArraySchema.default([]).describe(
       'Longer author-facing help text — when to pick this element vs a sibling, edge cases, disambiguation cues. Not rendered on public datachains.',
     ),
@@ -54,7 +50,7 @@ export const ElementSchema = z
       .array(ProvenanceRefSchema)
       .default([])
       .describe(
-        'Optional schema-design provenance: the research, framework sections, or prior art that justify this element. Replaces the legacy `citation` field with a structured shape.',
+        'Optional schema-design provenance: the research, framework sections, or prior art that justify this element.',
       ),
     symbol_id: z
       .string()
@@ -74,10 +70,10 @@ export const ElementSchema = z
     /**
      * Optional element-level context override. When present, it fully
      * replaces the parent category's context for this element (no
-     * merge). Renderer resolution: `Element.context ?? Category.context
-     * ?? null`. Used when a single category hosts elements that need
-     * different context dimensions (e.g. per-mode autonomy semantics
-     * on the functional_modes category).
+     * merge). Renderer resolution: `Element.context ??
+     * Category.element_context ?? null`. Used when a single category
+     * hosts elements that need different context dimensions (e.g.
+     * per-mode autonomy semantics on the functional_modes category).
      */
     context: ContextSchema.optional().describe(
       'Optional element-level context dimension. Fully overrides the parent category context for this element (no merge).',

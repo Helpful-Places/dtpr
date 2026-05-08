@@ -143,6 +143,12 @@ export type InstanceSource = ProvenanceRef
 export const DatachainInstanceSchema = z
   .object({
     id: z.string().min(1).describe('Instance id (author-supplied, unique per deployment)'),
+    title: LocaleValueArraySchema.default([]).describe(
+      'Localized human-readable title of the system being described (e.g. "Worcester license plate reader"). The id is opaque; this is what renderers and agents display.',
+    ),
+    description: LocaleValueArraySchema.default([]).describe(
+      'Optional localized prose summary of the system. A paragraph for non-technical readers; longer prose belongs on linked documentation referenced via `sources`.',
+    ),
     schema_version: VersionStringSchema.describe('Pinned schema version, e.g. "ai@2026-04-16"'),
     created_at: z.string().datetime().describe('ISO 8601 timestamp of instance authoring'),
     updated_at: z

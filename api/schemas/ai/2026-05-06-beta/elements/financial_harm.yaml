@@ -22,16 +22,4 @@ description:
       de la chaîne d'approvisionnement résultant d'un usage abusif. Les mesures d'atténuation
       peuvent inclure des garde-fous d'accessibilité financière, des audits d'équité des modèles de
       tarification, des couches de détection de la fraude et des procédures claires de recours.
-citation:
-  - locale: en
-    value: >-
-      Adapted from AIAAIC harm type "Financial & Business" — Abercrombie et al. (2024), A
-      Collaborative, Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms,
-      arXiv:2407.01294. CC BY-SA 4.0.
-  - locale: fr
-    value: >-
-      Adapté du type de préjudice AIAAIC « Financier et commercial » — Abercrombie et al. (2024), A
-      Collaborative, Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms,
-      arXiv:2407.01294. CC BY-SA 4.0.
 symbol_id: risks_financial
-variables: []

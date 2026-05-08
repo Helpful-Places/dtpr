@@ -90,8 +90,8 @@ export const CategorySchema = z
       .array(VariableSchema)
       .default([])
       .describe('Variables inherited by elements placed in this category (source of truth)'),
-    context: ContextSchema.optional().describe(
-      'Optional context dimension that datachain instances can pick a value from',
+    element_context: ContextSchema.optional().describe(
+      'Optional context dimension inherited by elements placed in this category. Renderer/validator resolves an element\'s effective context as `Element.context ?? Category.element_context`. Symmetric with `element_variables`: both apply to every element in the category unless an element overrides.',
     ),
   })
   .describe('A DTPR category definition')

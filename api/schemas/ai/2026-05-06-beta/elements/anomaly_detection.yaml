@@ -19,6 +19,4 @@ description:
       la détection de fraude, la détection d'intrusion, la surveillance des fuites d'eau et les
       alertes de flux de foule inhabituels. Les sorties sont en général des scores seuillés plutôt
       que des décisions directes.
-citation: []
 symbol_id: dm_anomaly-detection
-variables: []

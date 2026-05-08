@@ -44,8 +44,8 @@ export interface DeriveElementDisplayOptions {
 /**
  * Merge an element definition with an optional datachain-instance
  * placement and a locale, yielding display-ready strings + variables
- * for the presentation layer. All localized fields (title, description,
- * citation) are resolved via `extract`. Icons are resolved externally
+ * for the presentation layer. All localized fields (title, description)
+ * are resolved via `extract`. Icons are resolved externally
  * — callers pass `options.iconUrl` (e.g. the URL returned by the REST
  * `/elements/:id/icon.svg` route) and fall back to
  * `HEXAGON_FALLBACK_DATA_URI` when none is supplied.
@@ -67,7 +67,6 @@ export function deriveElementDisplay(
   const fallbackLocale = options.fallbackLocale ?? 'en'
 
   const title = extract(element.title, locale, fallbackLocale)
-  const citation = extract(element.citation, locale, fallbackLocale)
   const rawDescription = extract(element.description, locale, fallbackLocale)
   const iconUrl =
     options.iconUrl && options.iconUrl.length > 0
@@ -126,7 +125,6 @@ export function deriveElementDisplay(
     description,
     icon: { url: iconUrl, urlDark: iconUrlDark, alt: iconAlt },
     variables,
-    citation,
     ...(contextValue ? { contextValue } : {}),
   }
 }
@@ -134,7 +132,7 @@ export function deriveElementDisplay(
 /**
  * Resolve the selected context value into display-ready
  * `{ id, name, color }`. The element's own context overrides the
- * category's context (no merge), per `Element.context` semantics.
+ * category's `element_context` (no merge), per `Element.context` semantics.
  * Returns `undefined` when no instance/no selection/no match.
  */
 function resolveContextValue(
@@ -146,7 +144,7 @@ function resolveContextValue(
 ): ElementDisplayContextValue | undefined {
   const selectedId = instance?.context_type_id
   if (!selectedId) return undefined
-  const ctx = element.context ?? category?.context
+  const ctx = element.context ?? category?.element_context
   const value = ctx?.values.find((v) => v.id === selectedId)
   if (!value) return undefined
   return {

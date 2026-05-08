@@ -8,6 +8,7 @@ declare global {
     interface Env {
       RL_READ?: RateLimit
       RL_VALIDATE?: RateLimit
+      RL_RESOLVE?: RateLimit
     }
   }
 }

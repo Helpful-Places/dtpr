@@ -15,16 +15,9 @@ description:
       Soutient le crédit, l'assurance, la détection de fraude ou d'autres décisions financières
       concernant des personnes — par exemple, l'évaluation du crédit, la souscription d'assurance,
       le signalement de fraude transactionnelle.
-citation:
-  - locale: en
-    value: >-
-      Credit-scoring of natural persons and risk assessment / pricing in life and health insurance
-      listed as Annex III high-risk under the EU AI Act (Regulation (EU) 2024/1689), Article 6(2)
-      and Annex III §5(b) and §5(c).
-  - locale: fr
-    value: >-
-      L'évaluation du crédit des personnes physiques et l'évaluation du risque et la tarification en
-      assurance vie et santé sont classées à haut risque à l'Annexe III du Règlement (UE) 2024/1689
-      (loi européenne sur l'IA), Article 6(2) et Annexe III §5(b) et §5(c).
+sources:
+  - type: regulation
+    title: EU AI Act Annex III §5(b)+(c) — Credit-scoring and life/health insurance risk assessment & pricing
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+    citation: Regulation (EU) 2024/1689, Article 6(2) and Annex III §5(b) and §5(c).
 symbol_id: financial_services
-variables: []

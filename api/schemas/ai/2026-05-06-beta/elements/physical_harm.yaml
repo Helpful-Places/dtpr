@@ -22,16 +22,4 @@ description:
       d'atténuation peuvent inclure des tests de sécurité rigoureux, des paramètres par défaut à
       sécurité intégrée, le géorepérage des comportements dangereux et la supervision humaine des
       actions physiques à enjeux élevés.
-citation:
-  - locale: en
-    value: >-
-      Adapted from AIAAIC harm type "Physical" — Abercrombie et al. (2024), A Collaborative,
-      Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA
-      4.0.
-  - locale: fr
-    value: >-
-      Adapté du type de préjudice AIAAIC « Physique » — Abercrombie et al. (2024), A Collaborative,
-      Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms, arXiv:2407.01294. CC BY-SA
-      4.0.
 symbol_id: risks_physical
-variables: []

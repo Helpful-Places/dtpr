@@ -11,7 +11,7 @@ order: 1
 datachain_type: ai
 shape: hexagon
 element_variables: []
-context:
+element_context:
   id: level_of_autonomy
   name:
     - locale: en
