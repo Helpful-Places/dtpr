@@ -2,7 +2,7 @@
 
 Standalone DTPR API (REST + MCP) served from Cloudflare Workers at `api.dtpr.io`.
 
-This workspace is fully self-contained — it does not import from `../app`, `../docs-site`, or `../studio`. The Nuxt-hosted `dtpr.io/api/dtpr/v0|v1` endpoints continue running independently.
+This workspace is fully self-contained — it does not import from `../app` or `../docs-site`. The Nuxt-hosted `dtpr.io/api/dtpr/v0|v1` endpoints continue running independently.
 
 ## Quickstart
 
