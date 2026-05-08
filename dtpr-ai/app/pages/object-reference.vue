@@ -6,6 +6,83 @@
 // `.data/object-reference.json` before `nuxt dev` / `nuxt build` —
 // so this page stays in lockstep with the runtime contract.
 import schemas from '../../.data/object-reference.json'
+import {
+  DTPR_API_BASE,
+  DTPR_FETCH_TIMEOUT_MS,
+  useDtprState,
+} from '../composables/useDtprState'
+
+const {
+  activeVersion,
+  activeLocale,
+} = useDtprState()
+
+interface CategoriesResponse {
+  ok: boolean
+  version: string
+  categories: unknown[]
+}
+
+interface ElementsResponse {
+  ok: boolean
+  version: string
+  elements: unknown[]
+}
+
+interface ManifestResponse {
+  ok: boolean
+  version: string
+  manifest: unknown
+}
+
+const categoriesUrl = computed(() =>
+  activeVersion.value
+    ? `${DTPR_API_BASE}/schemas/${activeVersion.value}/categories?locales=${activeLocale.value},en`
+    : null,
+)
+
+const elementsUrl = computed(() =>
+  activeVersion.value
+    ? `${DTPR_API_BASE}/schemas/${activeVersion.value}/elements?fields=all&limit=200&locales=${activeLocale.value},en`
+    : null,
+)
+
+const manifestUrl = computed(() =>
+  activeVersion.value
+    ? `${DTPR_API_BASE}/schemas/${activeVersion.value}/manifest`
+    : null,
+)
+
+const { data: liveManifest } = await useAsyncData<ManifestResponse | undefined>(
+  'object-reference-manifest',
+  () =>
+    manifestUrl.value
+      ? $fetch<ManifestResponse>(manifestUrl.value, { timeout: DTPR_FETCH_TIMEOUT_MS })
+      : Promise.resolve(undefined),
+  { watch: [activeVersion] },
+)
+
+const { data: liveCategories } = await useAsyncData<CategoriesResponse | undefined>(
+  'object-reference-categories',
+  () =>
+    categoriesUrl.value
+      ? $fetch<CategoriesResponse>(categoriesUrl.value, { timeout: DTPR_FETCH_TIMEOUT_MS })
+      : Promise.resolve(undefined),
+  { watch: [activeVersion, activeLocale] },
+)
+
+const { data: liveElements } = await useAsyncData<ElementsResponse | undefined>(
+  'object-reference-elements',
+  () =>
+    elementsUrl.value
+      ? $fetch<ElementsResponse>(elementsUrl.value, { timeout: DTPR_FETCH_TIMEOUT_MS })
+      : Promise.resolve(undefined),
+  { watch: [activeVersion, activeLocale] },
+)
+
+const liveManifestValue = computed(() => liveManifest.value?.manifest ?? null)
+const liveCategoriesValue = computed(() => liveCategories.value?.categories ?? [])
+const liveElementsValue = computed(() => liveElements.value?.elements ?? [])
 
 useHead({
   title: 'Object reference — DTPR for AI',
@@ -113,6 +190,9 @@ const objects: ObjectEntry[] = [
         <li v-for="obj in objects" :key="obj.name">
           <a :href="`#${obj.name}`"><code>{{ obj.name }}</code></a>
         </li>
+        <li>
+          <a href="#live-data">Live data</a>
+        </li>
       </ul>
     </nav>
 
@@ -138,6 +218,31 @@ const objects: ObjectEntry[] = [
         {{ obj.schema.description }}
       </p>
       <SchemaTree :schema="obj.schema" />
+    </section>
+
+    <section class="object-reference__live" id="live-data">
+      <h2 class="object-reference__live-title">Live data</h2>
+      <p class="object-reference__live-hint">
+        Real payloads from the active schema version
+        (<code>{{ activeVersion || '…' }}</code>) at locale
+        <code>{{ activeLocale }}</code>. These are the same responses the
+        renderer and MCP tools receive — every field maps to the schema
+        breakdowns above.
+      </p>
+      <div class="object-reference__live-list">
+        <JsonViewer
+          :value="liveManifestValue"
+          :label="`GET /schemas/${activeVersion || ':version'}/manifest`"
+        />
+        <JsonViewer
+          :value="liveCategoriesValue"
+          :label="`GET /schemas/${activeVersion || ':version'}/categories — ${liveCategoriesValue.length} categor${liveCategoriesValue.length === 1 ? 'y' : 'ies'}`"
+        />
+        <JsonViewer
+          :value="liveElementsValue"
+          :label="`GET /schemas/${activeVersion || ':version'}/elements — ${liveElementsValue.length} element${liveElementsValue.length === 1 ? '' : 's'}`"
+        />
+      </div>
     </section>
   </main>
 </template>
@@ -286,6 +391,32 @@ const objects: ObjectEntry[] = [
   background: var(--ui-bg-muted, rgb(243, 244, 246));
   padding: 0.05rem 0.3rem;
   border-radius: 0.25rem;
+}
+
+.object-reference__live {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--ui-border, rgb(229, 231, 235));
+  scroll-margin-top: calc(var(--ui-header-height, 0) + 1rem);
+}
+
+.object-reference__live-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
+.object-reference__live-hint {
+  font-size: 0.9rem;
+  color: var(--ui-text-muted, rgb(107, 114, 128));
+  line-height: 1.5;
+  margin: 0 0 1.25rem;
+}
+
+.object-reference__live-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
 }
 
 .object-reference__lede code,
