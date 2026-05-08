@@ -84,7 +84,9 @@ export function deriveElementDisplay(
   const instanceVarValues = new Map<string, string>()
   const instanceVariables = instance?.variables ?? []
   for (const v of instanceVariables) {
-    instanceVarValues.set(v.id, v.value)
+    // Variable values are LocaleValueArrays — pick the requested locale
+    // with the same fallback chain used for title/description.
+    instanceVarValues.set(v.id, extract(v.value, locale, fallbackLocale))
   }
 
   const variables: ElementDisplayVariable[] = (element.variables ?? []).map((decl) => {

@@ -36,7 +36,12 @@ function makeInstanceElement(overrides: Partial<InstanceElement> = {}): Instance
   return {
     element_id: 'cloud_storage',
     priority: 0,
-    variables: [{ id: 'retention_period', value: '30 days' }],
+    variables: [
+      {
+        id: 'retention_period',
+        value: [loc('en', '30 days'), loc('es', '30 días')],
+      },
+    ],
     actions: [],
     ...overrides,
   }
@@ -66,7 +71,7 @@ describe('deriveElementDisplay', () => {
   it('resolves strings in the requested non-default locale', () => {
     const result = deriveElementDisplay(makeElement(), makeInstanceElement(), 'es')
     expect(result.title).toBe('Almacenamiento en la nube')
-    expect(result.description).toBe('Datos almacenados durante 30 days.')
+    expect(result.description).toBe('Datos almacenados durante 30 días.')
     // Alt defaults to the resolved title when no override is supplied.
     expect(result.icon.alt).toBe('Almacenamiento en la nube')
     expect(result.variables[0]?.label).toBe('Periodo de retención')
