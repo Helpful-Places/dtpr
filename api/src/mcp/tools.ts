@@ -39,6 +39,8 @@ import {
   toToolResult,
 } from './envelope.ts'
 import { renderDatachainTool } from './tools/render_datachain.ts'
+import { resolveDatachainTool } from './tools/resolve_datachain.ts'
+import { validateResolvedTool } from './tools/validate_resolved.ts'
 
 /** Cap on bulk `get_elements` requests. Keeps the corpus shippable in one call. */
 export const GET_ELEMENTS_MAX = 100
@@ -110,6 +112,8 @@ export function buildToolRegistry(ctx: LoadContext, sessionId: string): ToolRegi
     getElementTool(ctx),
     getElementsTool(ctx),
     validateDatachainTool(ctx),
+    resolveDatachainTool(ctx),
+    validateResolvedTool(ctx),
     renderDatachainTool(ctx, sessionId),
     getIconUrlTool(ctx),
   ]
