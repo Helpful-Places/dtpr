@@ -35,6 +35,7 @@ export default defineNuxtConfig({
   // here registers it after docus's, so it runs last.
   modules: [
     '@nuxtjs/i18n',
+    'nuxt-schema-org',
     (_options, nuxt) => {
       nuxt.hook('pages:extend', (pages) => {
         const landing = pages.find(p => p.name === 'lang-index')
@@ -47,6 +48,7 @@ export default defineNuxtConfig({
 
   site: {
     name: 'DTPR for AI',
+    url: 'https://dtpr.ai',
   },
 
   ogImage: { enabled: false },
