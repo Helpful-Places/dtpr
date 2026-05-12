@@ -12,7 +12,7 @@
 //
 // Usage in markdown:  ::cite-this
 import { computed, ref } from 'vue'
-import { useAppConfig, useSchemaOrg } from '#imports'
+import { useAppConfig, useI18n, useSchemaOrg } from '#imports'
 
 interface CitationConfig {
   title: string
@@ -27,6 +27,7 @@ interface CitationConfig {
 
 const appConfig = useAppConfig()
 const c = appConfig.citation as CitationConfig
+const { locales } = useI18n()
 
 const apaAuthors = computed(() => {
   const a = c.authors
@@ -40,17 +41,52 @@ const apa = computed(() =>
   `${apaAuthors.value} (${c.year}). ${c.title} (Version ${c.version}) [Documentation, MCP server, REST API]. ${c.url}`
 )
 
+// Escape characters that BibTeX/LaTeX treat as control characters,
+// so the Copy button output matches the static `public/dtpr-for-ai.bib`
+// file and survives a traditional pdflatex/BibTeX pipeline. Author
+// names containing no comma are treated as institutional ("Helpful
+// Places", "MIT") and wrapped in `{{...}}` so BibTeX doesn't try to
+// split them into First/Last.
+function bibtexEscape(s: string): string {
+  return s
+    .replace(/\\/g, '\\textbackslash{}')
+    .replace(/&/g, '\\&')
+    .replace(/%/g, '\\%')
+    .replace(/\$/g, '\\$')
+    .replace(/#/g, '\\#')
+    .replace(/_/g, '\\_')
+    .replace(/\{/g, '\\{')
+    .replace(/\}/g, '\\}')
+    .replace(/—/g, '---')
+    .replace(/–/g, '--')
+    .replace(/‘|’/g, "'")
+    .replace(/“|”/g, '"')
+}
+
+function bibtexAuthor(name: string): string {
+  const escaped = bibtexEscape(name)
+  return name.includes(',') ? escaped : `{${escaped}}`
+}
+
 const bibtexKey = computed(() => `dtpr-ai-${c.year}`)
 const bibtex = computed(() =>
   `@misc{${bibtexKey.value},
-  title        = {${c.title}},
-  author       = {${c.authors.join(' and ')}},
+  title        = {${bibtexEscape(c.title)}},
+  author       = {${c.authors.map(bibtexAuthor).join(' and ')}},
   year         = {${c.year}},
   version      = {${c.version}},
   url          = {${c.url}},
   howpublished = {\\url{${c.repository}}},
-  note         = {${c.license}}
+  note         = {Licensed ${bibtexEscape(c.license)}}
 }`
+)
+
+// Pull the live locale code list from `@nuxtjs/i18n` rather than
+// hardcoding ['en', 'fr'] — when a new locale ships in
+// `nuxt.config.ts:i18n.locales`, the Dataset JSON-LD picks it up
+// automatically and Google Dataset Search stops undercounting.
+const datasetLocales = computed(() =>
+  (locales.value as Array<{ code: string }>).map(l => l.code)
 )
 
 // `@unhead/schema-org` doesn't ship a `defineDataset` helper (only
@@ -69,7 +105,7 @@ useSchemaOrg([
     url: c.url,
     codeRepository: c.repository,
     version: String(c.version),
-    inLanguage: ['en', 'fr'],
+    inLanguage: datasetLocales.value,
   },
   {
     '@type': 'SoftwareSourceCode',
@@ -104,6 +140,25 @@ function setTab(tab: Tab) {
   active.value = tab
   copyState.value = 'idle'
 }
+
+// Arrow-key + Home/End navigation between tabs (WAI-ARIA Tabs
+// pattern). Click handlers stay on each button — this only adds
+// keyboard parity for screen reader / keyboard users.
+const TAB_ORDER: Tab[] = ['apa', 'bibtex']
+function onTabKey(event: KeyboardEvent) {
+  const idx = TAB_ORDER.indexOf(active.value)
+  let next: Tab | null = null
+  if (event.key === 'ArrowRight') next = TAB_ORDER[(idx + 1) % TAB_ORDER.length]
+  else if (event.key === 'ArrowLeft') next = TAB_ORDER[(idx - 1 + TAB_ORDER.length) % TAB_ORDER.length]
+  else if (event.key === 'Home') next = TAB_ORDER[0]
+  else if (event.key === 'End') next = TAB_ORDER[TAB_ORDER.length - 1]
+  if (!next) return
+  event.preventDefault()
+  setTab(next)
+  // Move focus to the newly active tab so the next arrow press lands.
+  const el = document.getElementById(`cite-this-tab-${next}`)
+  el?.focus()
+}
 </script>
 
 <template>
@@ -119,20 +174,28 @@ function setTab(tab: Tab) {
 
     <div class="cite-this__tabs" role="tablist" aria-label="Citation format">
       <button
+        id="cite-this-tab-apa"
         type="button"
         role="tab"
+        aria-controls="cite-this-panel-apa"
         :aria-selected="active === 'apa'"
+        :tabindex="active === 'apa' ? 0 : -1"
         :class="['cite-this__tab', { 'cite-this__tab--active': active === 'apa' }]"
         @click="setTab('apa')"
+        @keydown="onTabKey"
       >
         APA
       </button>
       <button
+        id="cite-this-tab-bibtex"
         type="button"
         role="tab"
+        aria-controls="cite-this-panel-bibtex"
         :aria-selected="active === 'bibtex'"
+        :tabindex="active === 'bibtex' ? 0 : -1"
         :class="['cite-this__tab', { 'cite-this__tab--active': active === 'bibtex' }]"
         @click="setTab('bibtex')"
+        @keydown="onTabKey"
       >
         BibTeX
       </button>
@@ -147,8 +210,22 @@ function setTab(tab: Tab) {
       </button>
     </div>
 
-    <pre v-if="active === 'apa'" class="cite-this__pre"><code>{{ apa }}</code></pre>
-    <pre v-else class="cite-this__pre"><code>{{ bibtex }}</code></pre>
+    <pre
+      v-show="active === 'apa'"
+      id="cite-this-panel-apa"
+      role="tabpanel"
+      aria-labelledby="cite-this-tab-apa"
+      tabindex="0"
+      class="cite-this__pre"
+    ><code>{{ apa }}</code></pre>
+    <pre
+      v-show="active === 'bibtex'"
+      id="cite-this-panel-bibtex"
+      role="tabpanel"
+      aria-labelledby="cite-this-tab-bibtex"
+      tabindex="0"
+      class="cite-this__pre"
+    ><code>{{ bibtex }}</code></pre>
 
     <p class="cite-this__meta">
       Version {{ c.version }} · Source repository:
