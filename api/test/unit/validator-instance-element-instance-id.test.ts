@@ -53,13 +53,24 @@ function source(): SchemaVersionSource {
         symbol_id: 'institution',
         variables: [],
       },
+      {
+        id: 'vendor_acs',
+        category_id: 'ai__decision',
+        title: [loc('en', 'Vendor ACS')],
+        description: [],
+        authoring_guidance: [],
+        examples: [],
+        sources: [],
+        symbol_id: 'vendor_acs',
+        variables: [],
+      },
     ],
     symbols: {},
   }
 }
 
 function instance(
-  placements: Array<{ element_instance_id?: string }>,
+  placements: Array<{ element_id?: string; element_instance_id?: string }>,
 ): DatachainInstance {
   return {
     id: 'inst',
@@ -68,7 +79,7 @@ function instance(
     schema_version: 'ai@2026-05-06-beta',
     created_at: '2026-05-06T00:00:00.000Z',
     elements: placements.map((p) => ({
-      element_id: 'institution',
+      element_id: p.element_id ?? 'institution',
       priority: 0,
       variables: [],
       actions: [],
@@ -116,6 +127,39 @@ describe('checkInstance — element_instance_id uniqueness', () => {
     const findings = checkInstance(source(), instance([{}, {}]))
     expect(
       findings.some((f) => f.code === 'INSTANCE_ELEMENT_INSTANCE_ID_DUPLICATE'),
+    ).toBe(false)
+  })
+
+  it('emits INSTANCE_ELEMENT_INSTANCE_ID_COLLIDES_WITH_ELEMENT_ID when an element_instance_id matches a placed element_id', () => {
+    // Greptile case: placement A has element_instance_id 'vendor_acs',
+    // and a separate placement B has element_id 'vendor_acs'. The
+    // renderer would resolve the provenance key under both branches.
+    const findings = checkInstance(
+      source(),
+      instance([
+        { element_id: 'institution', element_instance_id: 'vendor_acs' },
+        { element_id: 'vendor_acs' },
+      ]),
+    )
+    const collide = findings.filter(
+      (f) => f.code === 'INSTANCE_ELEMENT_INSTANCE_ID_COLLIDES_WITH_ELEMENT_ID',
+    )
+    expect(collide).toHaveLength(1)
+    expect(collide[0]?.path).toBe('instance.elements[0].element_instance_id')
+  })
+
+  it('no collision finding when element_instance_id is disjoint from every element_id', () => {
+    const findings = checkInstance(
+      source(),
+      instance([
+        { element_id: 'institution', element_instance_id: 'deployer_acs' },
+        { element_id: 'institution', element_instance_id: 'partner_acs' },
+      ]),
+    )
+    expect(
+      findings.some(
+        (f) => f.code === 'INSTANCE_ELEMENT_INSTANCE_ID_COLLIDES_WITH_ELEMENT_ID',
+      ),
     ).toBe(false)
   })
 })

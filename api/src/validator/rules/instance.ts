@@ -81,6 +81,32 @@ export function checkInstance(
     }
   }
 
+  // Cross-namespace collision: an element_instance_id must not equal
+  // any element_id on this instance's `elements[]`. If it did, a
+  // provenance map key matching that string would resolve under the
+  // element_instance_id branch (validator + renderer accept it) AND
+  // under the bare-element_id backward-compat branch in the renderer
+  // (when the colliding element_id is placed exactly once with no
+  // element_instance_id of its own), silently attaching the same
+  // entry to two distinct placements.
+  const placedElementIds = new Set(instance.elements.map((p) => p.element_id))
+  for (const [ii, ie] of instance.elements.entries()) {
+    if (!ie.element_instance_id) continue
+    if (placedElementIds.has(ie.element_instance_id)) {
+      findings.push(
+        err(
+          'INSTANCE_ELEMENT_INSTANCE_ID_COLLIDES_WITH_ELEMENT_ID',
+          `element_instance_id '${ie.element_instance_id}' collides with an element_id placed on this instance; the two namespaces must be disjoint`,
+          {
+            path: `instance.elements[${ii}].element_instance_id`,
+            fix_hint:
+              'Rename the element_instance_id so it does not match any element_id placed on this instance.',
+          },
+        ),
+      )
+    }
+  }
+
   for (const [ii, ie] of instance.elements.entries()) {
     // Element existence is foundational to the rest of the rules.
     const el = elementById.get(ie.element_id)
