@@ -34,6 +34,10 @@ useHead({
   ],
   link: [
     { rel: 'icon', href: '/favicon.ico' },
+    // Reference-manager auto-discovery: Zotero and similar will offer
+    // to import this when users save the page. Mirrors the BibTeX
+    // shown by <CiteThis> on /cite.
+    { rel: 'alternate', type: 'application/x-bibtex', href: '/dtpr-for-ai.bib', title: 'Cite DTPR for AI (BibTeX)' },
   ],
   htmlAttrs: {
     lang,
