@@ -1,7 +1,34 @@
 import type { DatachainInstance } from '../../schema/datachain-instance.ts'
-import type { Variable } from '../../schema/variable.ts'
+import { isMultiSelectEnumVariable, type Variable } from '../../schema/variable.ts'
+import type { LocaleValue } from '../../schema/locale.ts'
 import type { SchemaVersionSource, SemanticError } from '../types.ts'
 import { err } from '../types.ts'
+
+/**
+ * Distinguish the two value shapes carried by InstanceVariableValue.
+ * The Zod union accepts either; the semantic layer routes on the
+ * declared variable's kind. A LocaleValueArray is an array of
+ * objects with `locale` + `value` keys; a multi_select_enum value is
+ * an array of plain strings.
+ */
+function isStringArrayValue(value: unknown): value is string[] {
+  return Array.isArray(value) && value.every((v) => typeof v === 'string')
+}
+
+function isLocaleValueArray(value: unknown): value is LocaleValue[] {
+  return (
+    Array.isArray(value) &&
+    value.every(
+      (v) =>
+        v !== null &&
+        typeof v === 'object' &&
+        'locale' in v &&
+        'value' in v &&
+        typeof (v as { locale: unknown }).locale === 'string' &&
+        typeof (v as { value: unknown }).value === 'string',
+    )
+  )
+}
 
 /**
  * Instance-level rules. These run against a DatachainInstance in the
@@ -107,14 +134,16 @@ export function checkInstance(
 
     // Rule 9 and 10: instance variables validated against element's inherited definitions.
     // Rule 12 (mirrored on instances): a provided variable must carry at
-    // least one localized entry — Zod accepts `value: []` because
-    // LocaleValueArraySchema has no min, so the check lives here.
-    // Without it, `extract([])` returns `''` at render time and silently
-    // collapses `{{var}}` placeholders to an empty string.
+    // least one localized entry for localized_text — Zod accepts `value: []`
+    // because LocaleValueArraySchema has no min, so the check lives here.
+    // Rule 20 (new): for multi_select_enum variables, value must be a
+    // list of option ids; each id must exist in options[]; each option's
+    // applies_to must include this element_id.
     const defined = variablesForElement(el.id)
     const providedIds = new Set(ie.variables.map((v) => v.id))
     for (const [vi, iv] of ie.variables.entries()) {
-      if (!defined.has(iv.id)) {
+      const declared = defined.get(iv.id)
+      if (!declared) {
         findings.push(
           err(
             'INSTANCE_VARIABLE_UNKNOWN',
@@ -125,6 +154,95 @@ export function checkInstance(
             },
           ),
         )
+        continue
+      }
+      if (isMultiSelectEnumVariable(declared)) {
+        if (!isStringArrayValue(iv.value)) {
+          findings.push(
+            err(
+              'INSTANCE_VARIABLE_VALUE_SHAPE',
+              `Element '${el.id}' instance variable '${iv.id}' is a multi_select_enum; value must be a list of option ids`,
+              {
+                path: `instance.elements[${ii}].variables[${vi}].value`,
+                fix_hint: `Provide value as ["option_id_a", "option_id_b"] referencing declared options on the variable.`,
+              },
+            ),
+          )
+          continue
+        }
+        if (iv.value.length === 0) {
+          findings.push(
+            err(
+              'INSTANCE_VARIABLE_VALUE_EMPTY',
+              `Element '${el.id}' instance variable '${iv.id}' has no selected options`,
+              {
+                path: `instance.elements[${ii}].variables[${vi}].value`,
+                fix_hint: `Select at least one option id, or omit the variable entirely if not required.`,
+              },
+            ),
+          )
+          continue
+        }
+        const optionsById = new Map(declared.options.map((o) => [o.id, o] as const))
+        const seenSelections = new Map<string, number>()
+        for (const [si, selectedId] of iv.value.entries()) {
+          const prev = seenSelections.get(selectedId)
+          if (prev !== undefined) {
+            findings.push(
+              err(
+                'INSTANCE_VARIABLE_VALUE_DUPLICATE',
+                `Element '${el.id}' instance variable '${iv.id}' selects '${selectedId}' more than once`,
+                {
+                  path: `instance.elements[${ii}].variables[${vi}].value[${si}]`,
+                  fix_hint: `Remove the duplicate selection (first seen at index ${prev}).`,
+                },
+              ),
+            )
+            continue
+          }
+          seenSelections.set(selectedId, si)
+          const option = optionsById.get(selectedId)
+          if (!option) {
+            findings.push(
+              err(
+                'INSTANCE_VARIABLE_OPTION_UNKNOWN',
+                `Element '${el.id}' instance variable '${iv.id}' selects unknown option '${selectedId}'`,
+                {
+                  path: `instance.elements[${ii}].variables[${vi}].value[${si}]`,
+                  fix_hint: `Use an option id declared on the variable's options[] (see get_schema).`,
+                },
+              ),
+            )
+            continue
+          }
+          if (!option.applies_to.includes(el.id)) {
+            findings.push(
+              err(
+                'INSTANCE_VARIABLE_OPTION_NOT_APPLICABLE',
+                `Option '${selectedId}' of variable '${iv.id}' does not apply to parent element '${el.id}'`,
+                {
+                  path: `instance.elements[${ii}].variables[${vi}].value[${si}]`,
+                  fix_hint: `Pick a different option whose applies_to includes '${el.id}', or attach this option to a parent element it does apply to.`,
+                },
+              ),
+            )
+          }
+        }
+        continue
+      }
+      // localized_text branch: value must be a LocaleValueArray.
+      if (!isLocaleValueArray(iv.value)) {
+        findings.push(
+          err(
+            'INSTANCE_VARIABLE_VALUE_SHAPE',
+            `Element '${el.id}' instance variable '${iv.id}' is a localized_text variable; value must be a LocaleValueArray`,
+            {
+              path: `instance.elements[${ii}].variables[${vi}].value`,
+              fix_hint: `Provide value as [{ locale: 'en', value: '...' }] entries.`,
+            },
+          ),
+        )
+        continue
       }
       if (iv.value.length === 0) {
         findings.push(
@@ -141,13 +259,16 @@ export function checkInstance(
     }
     for (const v of defined.values()) {
       if (v.required && !providedIds.has(v.id)) {
+        const fixShape = isMultiSelectEnumVariable(v)
+          ? `["option_id"]`
+          : `[{ locale: 'en', value: '...' }]`
         findings.push(
           err(
             'INSTANCE_REQUIRED_VARIABLE_MISSING',
             `Element '${el.id}' is missing required variable '${v.id}'`,
             {
               path: `instance.elements[${ii}].variables`,
-              fix_hint: `Add an entry { id: '${v.id}', value: [{ locale: 'en', value: '...' }] } to this element's variables.`,
+              fix_hint: `Add an entry { id: '${v.id}', value: ${fixShape} } to this element's variables.`,
             },
           ),
         )

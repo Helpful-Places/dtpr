@@ -1,5 +1,6 @@
 import type { LocaleCode, LocaleValue } from '../../src/schema/locale.ts'
 import type { Element } from '../../src/schema/element.ts'
+import type { LocalizedTextVariable } from '../../src/schema/variable.ts'
 import { MIGRATION_LOCALES, type LocaleBundle, type MigrationWarning } from './types.ts'
 
 /**
@@ -124,10 +125,8 @@ export function transformElement(
  * structure carries `label: <plain string>` in each locale file (not a
  * LocaleValue[]), so the merger accumulates labels across all locales.
  */
-export function mergeCategoryElementVariables(
-  bundle: LocaleBundle,
-): Array<{ id: string; label: LocaleValue[]; required: boolean }> {
-  const byId = new Map<string, { id: string; label: LocaleValue[]; required: boolean }>()
+export function mergeCategoryElementVariables(bundle: LocaleBundle): LocalizedTextVariable[] {
+  const byId = new Map<string, LocalizedTextVariable>()
   for (const locale of MIGRATION_LOCALES) {
     const fm = bundle[locale]
     const raw = fm?.element_variables
@@ -140,7 +139,7 @@ export function mergeCategoryElementVariables(
       const required = (item as Record<string, unknown>).required
       let current = byId.get(id)
       if (!current) {
-        current = { id, label: [], required: required === true }
+        current = { kind: 'localized_text', id, label: [], required: required === true }
         byId.set(id, current)
       }
       if (typeof label === 'string' && label.length > 0) {

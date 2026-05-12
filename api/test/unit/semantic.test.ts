@@ -68,6 +68,7 @@ function baseSource(): SchemaVersionSource {
         shape: 'rounded-square',
         element_variables: [
           {
+            kind: 'localized_text',
             id: 'retention_period',
             label: [loc('en', 'Retention period')],
             required: true,
