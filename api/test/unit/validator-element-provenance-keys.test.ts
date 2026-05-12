@@ -51,8 +51,10 @@ function el(id: string): Element {
   }
 }
 
+type PlacementSpec = string | { element_id: string; element_instance_id?: string }
+
 function makeResolved(opts: {
-  placedIds: string[]
+  placedIds: PlacementSpec[]
   snapshotIds: string[]
   elementProvenance?: Record<string, { rationale?: string }>
   kind?: 'human' | 'ai_generated'
@@ -71,13 +73,19 @@ function makeResolved(opts: {
     description: [],
     schema_version: 'ai@2026-04-16-beta',
     created_at: '2026-04-16T00:00:00.000Z',
-    elements: opts.placedIds.map((id) => ({
-      element_id: id,
-      priority: 0,
-      variables: [],
-      actions: [],
-      sources: [],
-    })),
+    elements: opts.placedIds.map((p) => {
+      const spec = typeof p === 'string' ? { element_id: p } : p
+      return {
+        element_id: spec.element_id,
+        priority: 0,
+        variables: [],
+        actions: [],
+        sources: [],
+        ...(spec.element_instance_id !== undefined
+          ? { element_instance_id: spec.element_instance_id }
+          : {}),
+      }
+    }),
     subchain_instances: [],
     sources: [],
     linked_instance_ids: [],
@@ -166,5 +174,63 @@ describe('checkElementProvenanceKeys', () => {
     const findings = checkElementProvenanceKeys(r)
     expect(findings).toHaveLength(1)
     expect(findings[0]?.path).toBe('authoring_provenance.element_provenance.unused_element')
+  })
+
+  it('multi-placement same element_id with distinct element_instance_ids keyed by element_instance_id → no findings', () => {
+    const r = makeResolved({
+      placedIds: [
+        { element_id: 'accept_deny', element_instance_id: 'deployer_acs' },
+        { element_id: 'accept_deny', element_instance_id: 'vendor_acs' },
+      ],
+      snapshotIds: ['accept_deny'],
+      elementProvenance: {
+        deployer_acs: { rationale: 'as deployer' },
+        vendor_acs: { rationale: 'as vendor' },
+      },
+    })
+    expect(checkElementProvenanceKeys(r)).toEqual([])
+  })
+
+  it('multi-placement same element_id keyed by bare element_id → element_provenance_ambiguous', () => {
+    const r = makeResolved({
+      placedIds: ['accept_deny', 'accept_deny'],
+      snapshotIds: ['accept_deny'],
+      elementProvenance: { accept_deny: { rationale: 'ambig' } },
+    })
+    const findings = checkElementProvenanceKeys(r)
+    expect(findings).toHaveLength(1)
+    expect(findings[0]?.code).toBe('element_provenance_ambiguous')
+    expect(findings[0]?.path).toBe('authoring_provenance.element_provenance.accept_deny')
+  })
+
+  it('single placement with no element_instance_id keyed by bare element_id → no findings (backward compat)', () => {
+    const r = makeResolved({
+      placedIds: ['accept_deny'],
+      snapshotIds: ['accept_deny'],
+      elementProvenance: { accept_deny: { rationale: 'ok' } },
+    })
+    expect(checkElementProvenanceKeys(r)).toEqual([])
+  })
+
+  it('single placement with an element_instance_id keyed by bare element_id → unknown_element', () => {
+    const r = makeResolved({
+      placedIds: [{ element_id: 'accept_deny', element_instance_id: 'deployer_acs' }],
+      snapshotIds: ['accept_deny'],
+      elementProvenance: { accept_deny: { rationale: 'wrong key shape' } },
+    })
+    const findings = checkElementProvenanceKeys(r)
+    expect(findings).toHaveLength(1)
+    expect(findings[0]?.code).toBe('element_provenance_unknown_element')
+  })
+
+  it('unknown element_instance_id key → unknown_element', () => {
+    const r = makeResolved({
+      placedIds: [{ element_id: 'accept_deny', element_instance_id: 'deployer_acs' }],
+      snapshotIds: ['accept_deny'],
+      elementProvenance: { ghost_id: { rationale: 'orphan' } },
+    })
+    const findings = checkElementProvenanceKeys(r)
+    expect(findings).toHaveLength(1)
+    expect(findings[0]?.code).toBe('element_provenance_unknown_element')
   })
 })

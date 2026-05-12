@@ -57,6 +57,30 @@ export function checkInstance(
     }
   }
 
+  // element_instance_id uniqueness within a single instance (see plan
+  // `element_instance_id` Option 1). Same scope as
+  // `subchain_instances[].id`.
+  const seenInstanceIds = new Map<string, number>()
+  for (const [ii, ie] of instance.elements.entries()) {
+    if (!ie.element_instance_id) continue
+    const firstIdx = seenInstanceIds.get(ie.element_instance_id)
+    if (firstIdx !== undefined) {
+      findings.push(
+        err(
+          'INSTANCE_ELEMENT_INSTANCE_ID_DUPLICATE',
+          `element_instance_id '${ie.element_instance_id}' is used by more than one placement (first at elements[${firstIdx}])`,
+          {
+            path: `instance.elements[${ii}].element_instance_id`,
+            fix_hint:
+              'element_instance_id must be unique within `elements[]`. Rename one of the placements.',
+          },
+        ),
+      )
+    } else {
+      seenInstanceIds.set(ie.element_instance_id, ii)
+    }
+  }
+
   for (const [ii, ie] of instance.elements.entries()) {
     // Element existence is foundational to the rest of the rules.
     const el = elementById.get(ie.element_id)

@@ -109,7 +109,10 @@ export async function validateResolvedInstance(
   // live in the JSON Schema.
   findings.push(...checkProvenanceRequired(resolved))
 
-  // Per-element provenance keys must reference placed element_ids.
+  // Per-element provenance keys must reference a placement's
+  // element_instance_id (preferred) or an element_id that is placed
+  // exactly once and carries no element_instance_id. See
+  // `rules/element-provenance-keys.ts` for the full rule.
   findings.push(...checkElementProvenanceKeys(resolved))
 
   // Build the merged element-id lookup once and reuse for resolution +

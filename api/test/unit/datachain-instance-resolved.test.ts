@@ -399,4 +399,33 @@ describe('ResolvedDatachainInstanceSchema', () => {
       expect(thin.description).toEqual(resolved.description)
     })
   })
+
+  describe('InstanceElement.element_instance_id', () => {
+    it('parses and re-emits a valid element_instance_id round-trip', () => {
+      const input = {
+        ...baseResolvedInput(),
+        elements: [
+          { element_id: 'accept_deny', element_instance_id: 'deployer_acs' },
+        ],
+      }
+      const r = ResolvedDatachainInstanceSchema.parse(input)
+      expect(r.elements[0]?.element_instance_id).toBe('deployer_acs')
+    })
+
+    it('omits element_instance_id when absent (optional field)', () => {
+      const r = ResolvedDatachainInstanceSchema.parse(baseResolvedInput())
+      expect(r.elements[0]?.element_instance_id).toBeUndefined()
+    })
+
+    it('rejects element_instance_id with disallowed characters', () => {
+      const input = {
+        ...baseResolvedInput(),
+        elements: [
+          { element_id: 'accept_deny', element_instance_id: 'has spaces' },
+        ],
+      }
+      const r = ResolvedDatachainInstanceSchema.safeParse(input)
+      expect(r.success).toBe(false)
+    })
+  })
 })

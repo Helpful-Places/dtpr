@@ -43,8 +43,15 @@ export type SourceReference = z.infer<typeof SourceReferenceSchema>
 /**
  * Per-element AI proposal context — the rationale, confidence,
  * cited evidence, and per-variable explanations the model produced
- * for one element pick. Keyed by `element_id` on
+ * for one element pick. Stored on
  * `AuthoringProvenance.element_provenance`.
+ *
+ * Keyed by either an `InstanceElement.element_instance_id` (preferred,
+ * required when the same `element_id` is placed multiple times) or by
+ * `InstanceElement.element_id` (only when that element_id is placed
+ * exactly once and the placement does not carry an
+ * `element_instance_id`). The semantic validator
+ * (`checkElementProvenanceKeys`) enforces this.
  *
  * Every field is optional: the model may emit a sparse entry (e.g.
  * just confidence + rationale, no quotes) and the renderer hides
@@ -107,7 +114,13 @@ export const AuthoringProvenanceSchema = z
           .record(z.string(), ElementProvenanceSchema)
           .optional()
           .describe(
-            'Per-element AI proposal context, keyed by element_id. Each entry carries rationale, confidence, source quotes, and variable rationales for one element pick.',
+            'Per-element AI proposal context. Keys are either an ' +
+              '`InstanceElement.element_instance_id` (preferred; required when the ' +
+              'same element_id is placed multiple times) or an ' +
+              '`InstanceElement.element_id` (only valid when that element_id is ' +
+              'placed exactly once and the placement carries no ' +
+              '`element_instance_id`). Each entry carries rationale, confidence, ' +
+              'source quotes, and variable rationales for one element pick.',
           ),
         model: z
           .string()
