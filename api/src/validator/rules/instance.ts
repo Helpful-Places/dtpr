@@ -171,13 +171,16 @@ export function checkInstance(
           continue
         }
         if (iv.value.length === 0) {
+          const emptyHint = declared.required
+            ? `Select at least one option id (the variable is required, so omitting the entry would fail INSTANCE_REQUIRED_VARIABLE_MISSING).`
+            : `Select at least one option id, or omit the variable entirely.`
           findings.push(
             err(
               'INSTANCE_VARIABLE_VALUE_EMPTY',
               `Element '${el.id}' instance variable '${iv.id}' has no selected options`,
               {
                 path: `instance.elements[${ii}].variables[${vi}].value`,
-                fix_hint: `Select at least one option id, or omit the variable entirely if not required.`,
+                fix_hint: emptyHint,
               },
             ),
           )

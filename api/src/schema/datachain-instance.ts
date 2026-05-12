@@ -24,6 +24,18 @@ export const InstanceVariableValueSchema = z
       .string()
       .regex(/^[a-zA-Z0-9_-]+$/)
       .describe('Variable id (must match a variable declared on the element\'s category, rule 9)'),
+    // Known Zod-layer ambiguity: `z.union` tries branches in order and
+    // both `LocaleValueArraySchema` and `z.array(z.string().min(1))`
+    // accept `[]`. A `value: []` always narrows to `LocaleValueArray`
+    // at the Zod layer regardless of the declared variable kind.
+    // The semantic validator re-discriminates on the declared kind
+    // (see `isStringArrayValue` / `isLocaleValueArray` in
+    // `validator/rules/instance.ts`) and emits
+    // `INSTANCE_VARIABLE_VALUE_EMPTY` for either kind, so behavior is
+    // correct in practice. Consumers downstream of the Zod parse
+    // MUST look at the declared variable's `kind` to interpret an
+    // empty value — never rely on the inferred TypeScript union
+    // narrowing alone.
     value: z
       .union([
         LocaleValueArraySchema,
@@ -32,7 +44,7 @@ export const InstanceVariableValueSchema = z
           .describe('Selected option ids for a multi_select_enum variable'),
       ])
       .describe(
-        'Either a LocaleValueArray (localized_text) or a list of option ids (multi_select_enum). Kind-correctness enforced by the semantic validator.',
+        'Either a LocaleValueArray (localized_text) or a list of option ids (multi_select_enum). Kind-correctness enforced by the semantic validator; empty arrays are ambiguous at the Zod layer (see comment above).',
       ),
   })
   .describe('Variable value bound on a datachain instance element')
