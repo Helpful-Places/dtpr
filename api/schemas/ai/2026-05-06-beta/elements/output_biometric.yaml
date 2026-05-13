@@ -1,10 +1,10 @@
-id: output_about_a_body
+id: output_biometric
 category_id: output_dataset
 title:
   - locale: en
-    value: About a body
+    value: Biometric
   - locale: fr
-    value: À propos d'un corps
+    value: Biométrie
 description:
   - locale: en
     value: >-
@@ -17,4 +17,4 @@ description:
       faciaux, empreintes vocales, vecteurs de démarche, séquences de gestes. Exemples : un modèle
       facial enrôlé stocké en aval, une empreinte vocale pour appariement ultérieur, une signature
       de démarche exportée vers un autre système.
-symbol_id: about_a_body
+symbol_id: biometric

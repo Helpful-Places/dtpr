@@ -1,10 +1,10 @@
-id: input_about_a_body
+id: input_biometric
 category_id: input_dataset
 title:
   - locale: en
-    value: About a body
+    value: Biometric
   - locale: fr
-    value: À propos d'un corps
+    value: Biométrie
 description:
   - locale: en
     value: >-
@@ -17,4 +17,4 @@ description:
       reçoit des signaux biologiques provenant du corps d'une personne. Exemples : un visage capturé
       à un tourniquet, une voix enregistrée par le microphone d'une borne, une démarche analysée par
       une caméra zénithale.
-symbol_id: about_a_body
+symbol_id: biometric
