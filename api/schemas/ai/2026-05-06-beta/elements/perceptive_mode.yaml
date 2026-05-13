@@ -2,9 +2,9 @@ id: perceptive_mode
 category_id: functional_modes
 title:
   - locale: en
-    value: Perceptive — senses
+    value: Sensing (Perceptive AI)
   - locale: fr
-    value: Perceptif — perçoit
+    value: Percevoir (IA perceptive)
 description:
   - locale: en
     value: >-

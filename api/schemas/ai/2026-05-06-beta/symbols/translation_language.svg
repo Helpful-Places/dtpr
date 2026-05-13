@@ -1,4 +1,6 @@
 <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(18 18) scale(0.78) translate(-18 -18)">
 <path d="M4 8 H18 V20 H10 L6 24 V20 H4 Z" fill="currentColor"/>
 <path d="M32 16 H18 V28 H26 L30 32 V28 H32 Z" fill="currentColor"/>
+</g>
 </svg>

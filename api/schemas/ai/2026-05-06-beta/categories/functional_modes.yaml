@@ -15,7 +15,7 @@ description:
       sémantique, génératif, agentique, perceptif, physique) qu’il compose.
 prompt:
   - locale: en
-    value: What does this AI system do? Pick one or more functional modes.
+    value: What is the AI system doing? Pick one or more functional modes.
   - locale: fr
     value: Que fait ce système d’IA ? Choisissez un ou plusieurs modes fonctionnels.
 required: true
@@ -77,7 +77,7 @@ element_context:
           value: >-
             Ce mode décide ; une personne exécute le résultat. Exemple : un optimiseur planifie les
             itinéraires de collecte des ordures de la journée, et les chauffeurs les exécutent.
-      color: "#E76F51"
+      color: "#6A1B7A"
     - id: autonomous
       name:
         - locale: en
@@ -93,7 +93,7 @@ element_context:
           value: >-
             Ce mode décide et agit par lui-même. Aucune personne n’examine chaque décision ni
             n’exécute l’action résultante.
-      color: "#6A1B7A"
+      color: "#E76F51"
 element_variables:
   - id: additional_description
     label:
