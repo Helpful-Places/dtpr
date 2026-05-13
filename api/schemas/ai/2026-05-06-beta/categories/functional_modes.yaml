@@ -15,7 +15,7 @@ description:
       sémantique, génératif, agentique, perceptif, physique) qu’il compose.
 prompt:
   - locale: en
-    value: What does this AI system do? Pick one or more functional modes.
+    value: What is the AI system doing? Pick one or more functional modes.
   - locale: fr
     value: Que fait ce système d’IA ? Choisissez un ou plusieurs modes fonctionnels.
 required: true

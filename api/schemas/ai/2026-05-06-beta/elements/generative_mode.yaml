@@ -2,9 +2,9 @@ id: generative_mode
 category_id: functional_modes
 title:
   - locale: en
-    value: Generative — creates
+    value: Creating (Generative AI)
   - locale: fr
-    value: Génératif — crée
+    value: Créer (IA générative)
 description:
   - locale: en
     value: >-
