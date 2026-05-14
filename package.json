@@ -14,7 +14,10 @@
     "test:plugin": "node plugin/dtpr/evals/verify.mjs",
     "types:api": "pnpm --filter ./api types",
     "build:ui": "pnpm --filter @dtpr/ui build",
-    "test:ui": "pnpm --filter @dtpr/ui test"
+    "test:ui": "pnpm --filter @dtpr/ui test",
+    "dev:talk:makeshift": "pnpm --filter ./talks/makeshift-2026 dev",
+    "build:talk:makeshift": "pnpm --filter ./talks/makeshift-2026 build",
+    "export:talk:makeshift": "pnpm --filter ./talks/makeshift-2026 export"
   },
   "pnpm": {
     "onlyBuiltDependencies": [

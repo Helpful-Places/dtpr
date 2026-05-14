@@ -4,3 +4,4 @@ packages:
   - 'docs-site'
   - 'dtpr-ai'
   - 'packages/*'
+  - 'talks/*'
