@@ -14,5 +14,8 @@
     "@slidev/theme-default": "*",
     "@slidev/theme-seriph": "*",
     "vue": "^3.4.0"
+  },
+  "devDependencies": {
+    "@slidev/types": "^52.15.2"
   }
 }
