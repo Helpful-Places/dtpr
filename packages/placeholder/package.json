@@ -1,0 +1,19 @@
+{
+  "name": "@dtpr/placeholder",
+  "version": "0.0.2",
+  "description": "Placeholder package reserving the @dtpr npm scope. See https://dtpr.io.",
+  "license": "MIT",
+  "homepage": "https://dtpr.io",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/helpful-places/dtpr"
+  },
+  "files": [
+    "index.js",
+    "README.md"
+  ],
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  }
+}
