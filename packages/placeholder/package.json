@@ -6,7 +6,7 @@
   "homepage": "https://dtpr.io",
   "repository": {
     "type": "git",
-    "url": "https://github.com/helpfulplaces/dtpr"
+    "url": "https://github.com/helpful-places/dtpr"
   },
   "files": [
     "index.js",
