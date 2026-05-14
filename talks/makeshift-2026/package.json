@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@dtpr/ui": "workspace:*",
-    "@slidev/cli": "^0.51.0",
+    "@slidev/cli": "^52.15.2",
     "@slidev/theme-default": "*",
     "@slidev/theme-seriph": "*",
     "vue": "^3.4.0"
