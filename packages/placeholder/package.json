@@ -1,6 +1,6 @@
 {
   "name": "@dtpr/placeholder",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Placeholder package reserving the @dtpr npm scope. See https://dtpr.io.",
   "license": "MIT",
   "homepage": "https://dtpr.io",
