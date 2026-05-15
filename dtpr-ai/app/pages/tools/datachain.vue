@@ -1,17 +1,30 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import type { ResolvedDatachainInstance } from '@dtpr/ui/core'
 import {
   validateAndResolve,
   type ApiError,
 } from '../../utils/datachain-visualizer-api'
+import {
+  collectPresentLocales,
+  pickDefaultLocale,
+} from '../../utils/datachain-visualizer-locales'
+import { SUPPORTED_LOCALES, useDtprState } from '../../composables/useDtprState'
 
 useHead({ title: 'Datachain visualizer' })
+
+const { activeLocale } = useDtprState()
 
 const inputJson = ref('')
 const loading = ref(false)
 const apiErrors = ref<ApiError[]>([])
 const resolvedInstance = ref<ResolvedDatachainInstance | null>(null)
+const renderLocale = ref<string>(activeLocale.value)
+
+const availableLocales = computed<string[]>(() => {
+  if (!resolvedInstance.value) return []
+  return collectPresentLocales(resolvedInstance.value, SUPPORTED_LOCALES)
+})
 
 async function onSubmit() {
   if (loading.value || inputJson.value.length === 0) return
@@ -22,6 +35,8 @@ async function onSubmit() {
     if (result.ok) {
       apiErrors.value = []
       resolvedInstance.value = result.resolved
+      const present = collectPresentLocales(result.resolved, SUPPORTED_LOCALES)
+      renderLocale.value = pickDefaultLocale(present, activeLocale.value)
     } else {
       apiErrors.value = result.errors
       resolvedInstance.value = null
@@ -51,6 +66,18 @@ async function onSubmit() {
         />
 
         <DatachainVisualizerErrors :errors="apiErrors" />
+
+        <template v-if="resolvedInstance">
+          <DatachainVisualizerLocaleSwitcher
+            :available="availableLocales"
+            :locale="renderLocale"
+            @update:locale="renderLocale = $event"
+          />
+          <DatachainVisualizerRender
+            :resolved="resolvedInstance"
+            :locale="renderLocale"
+          />
+        </template>
       </main>
     </div>
   </div>
