@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@dtpr/api": "workspace:*",
-    "happy-dom": "^15.11.0",
+    "jsdom": "^25.0.1",
     "tsx": "^4.19.0",
     "vitest": "^3.0.0",
     "wrangler": "^4.83.0"

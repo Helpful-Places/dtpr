@@ -9,8 +9,9 @@ import { defineConfig } from 'vitest/config'
 // cold checkout without first booting Nuxt.
 export default defineConfig({
   test: {
-    environment: 'happy-dom',
+    environment: 'jsdom',
     include: ['test/**/*.test.ts'],
+    setupFiles: ['./test/setup.ts'],
   },
   esbuild: {
     tsconfigRaw: {
