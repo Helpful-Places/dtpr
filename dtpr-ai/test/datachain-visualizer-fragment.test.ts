@@ -71,6 +71,12 @@ describe('decodeFragment', () => {
     )
   })
 
+  it('rejects fragments with malformed percent-encoding (e.g. %GG)', async () => {
+    await expect(decodeFragment('#data=%GG')).rejects.toBeInstanceOf(
+      FragmentUnsupportedError,
+    )
+  })
+
   it('rejects valid base64url that is not gzip data', async () => {
     const bytes = new TextEncoder().encode('{"not":"gzip"}')
     const hash = `#data=${bytesToBase64Url(bytes)}`

@@ -185,19 +185,3 @@ export function deleteEntry(id: string): Collection {
   return next
 }
 
-// Test seam: clear the entire collection. Not exposed in the UI; used
-// by Vitest specs to start each scenario from a known state.
-export function __clearCollectionForTests(): void {
-  const storage = getStorage()
-  try {
-    storage.removeItem(STORAGE_KEY)
-  } catch (err) {
-    throw new CollectionUnavailableError(err)
-  }
-}
-
-export const __INTERNAL = {
-  STORAGE_KEY,
-  MAX_SERIALIZED_BYTES,
-  SCHEMA_VERSION,
-}

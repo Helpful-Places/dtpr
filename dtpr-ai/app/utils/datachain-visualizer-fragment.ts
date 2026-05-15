@@ -84,7 +84,14 @@ function readDataParam(hash: string): string | null {
     if (key !== 'data') continue
     const value = part.slice(eq + 1)
     if (value.length === 0) return null
-    return decodeURIComponent(value)
+    try {
+      return decodeURIComponent(value)
+    } catch (err) {
+      throw new FragmentUnsupportedError(
+        'Deep-link fragment contains invalid percent-encoding.',
+        err,
+      )
+    }
   }
   return null
 }

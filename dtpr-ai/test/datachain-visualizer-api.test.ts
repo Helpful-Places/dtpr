@@ -23,12 +23,7 @@ function fakeResponse(spec: MockResponse): Response {
   } as unknown as Response
 }
 
-beforeEach(() => {
-  vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout'] })
-})
-
 afterEach(() => {
-  vi.useRealTimers()
   vi.unstubAllGlobals()
 })
 
@@ -169,6 +164,29 @@ describe('validateAndResolve', () => {
     expect(result.errors[0].code).toBe('network_error')
     expect(result.errors[0].message).toContain('fetch failed')
   })
+
+  it('returns a typed timeout error (not network_error) when fetch is aborted', async () => {
+    const fetchMock = vi.fn(async (_url: string | URL | Request, init?: RequestInit) => {
+      // Simulate a fetch that respects the AbortSignal — reject with the
+      // standard AbortError shape the platform fetch produces on timeout.
+      return new Promise<Response>((_resolve, reject) => {
+        init?.signal?.addEventListener('abort', () => {
+          const err =
+            typeof DOMException !== 'undefined'
+              ? new DOMException('The operation was aborted.', 'AbortError')
+              : Object.assign(new Error('The operation was aborted.'), { name: 'AbortError' })
+          reject(err)
+        })
+      })
+    })
+    vi.stubGlobal('fetch', fetchMock)
+
+    const result = await validateAndResolve(VALID_INSTANCE)
+    expect(result.ok).toBe(false)
+    if (result.ok) throw new Error('expected failure')
+    expect(result.errors[0].code).toBe('timeout')
+    expect(result.errors[0].message).toContain('validate')
+  }, 15000)
 
   it('falls back to api_error on a non-envelope 5xx', async () => {
     const fetchMock = vi.fn(async () =>

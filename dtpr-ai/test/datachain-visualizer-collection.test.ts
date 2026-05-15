@@ -2,20 +2,24 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import {
   CollectionFullError,
   CollectionUnavailableError,
-  __INTERNAL,
-  __clearCollectionForTests,
   deleteEntry,
   loadCollection,
   renameEntry,
   saveEntry,
 } from '../app/utils/datachain-visualizer-collection'
 
+// Mirror the production module's storage shape. Kept here (not exported
+// from the production module) so the visualizer's public surface is the
+// CRUD API only — no test seams ship in the bundle.
+const STORAGE_KEY = 'dtpr-ai.datachain-visualizer.collection.v1'
+const MAX_SERIALIZED_BYTES = 4 * 1024 * 1024
+
 function safeClearStorage() {
   try {
     if (typeof window.localStorage?.clear === 'function') {
       window.localStorage.clear()
     } else if (typeof window.localStorage?.removeItem === 'function') {
-      window.localStorage.removeItem(__INTERNAL.STORAGE_KEY)
+      window.localStorage.removeItem(STORAGE_KEY)
     }
   } catch {
     // localStorage may have been swapped out by a test; ignore.
@@ -62,7 +66,7 @@ describe('collection round-trip', () => {
 
   it('discards a corrupt stored value and returns empty', () => {
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
-    window.localStorage.setItem(__INTERNAL.STORAGE_KEY, '{ not json')
+    window.localStorage.setItem(STORAGE_KEY, '{ not json')
     expect(loadCollection()).toEqual({ entries: [], schemaVersion: 1 })
     expect(warn).toHaveBeenCalled()
     warn.mockRestore()
@@ -70,7 +74,7 @@ describe('collection round-trip', () => {
 
   it('returns empty when the stored schemaVersion is unknown (forward-compat)', () => {
     window.localStorage.setItem(
-      __INTERNAL.STORAGE_KEY,
+      STORAGE_KEY,
       JSON.stringify({ schemaVersion: 99, entries: [{ id: 'x', name: 'x', savedAt: 'x', json: '{}' }] }),
     )
     expect(loadCollection()).toEqual({ entries: [], schemaVersion: 1 })
@@ -78,11 +82,11 @@ describe('collection round-trip', () => {
 
   it('throws CollectionFullError without writing when the new size exceeds the cap', () => {
     saveEntry({ name: 'small', json: '{}' })
-    const before = window.localStorage.getItem(__INTERNAL.STORAGE_KEY)
-    const huge = 'x'.repeat(__INTERNAL.MAX_SERIALIZED_BYTES + 1)
+    const before = window.localStorage.getItem(STORAGE_KEY)
+    const huge = 'x'.repeat(MAX_SERIALIZED_BYTES + 1)
     expect(() => saveEntry({ name: 'huge', json: `"${huge}"` })).toThrow(CollectionFullError)
     // Prior state unchanged.
-    expect(window.localStorage.getItem(__INTERNAL.STORAGE_KEY)).toBe(before)
+    expect(window.localStorage.getItem(STORAGE_KEY)).toBe(before)
   })
 
   it('surfaces CollectionUnavailableError when localStorage throws', () => {
@@ -105,9 +109,4 @@ describe('collection round-trip', () => {
     }
   })
 
-  it('uses test seam to clear collection state', () => {
-    saveEntry({ name: 'A', json: '{}' })
-    __clearCollectionForTests()
-    expect(loadCollection().entries).toHaveLength(0)
-  })
 })

@@ -95,23 +95,50 @@ function readSchemaVersion(jsonText: string):
   return { ok: true, version: versionRaw }
 }
 
-async function postJson<T>(url: string, body: string, signal: AbortSignal): Promise<{
+interface PostJsonResult<T> {
   status: number
   envelope: T | null
-}> {
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: { 'content-type': 'application/json' },
-    body,
-    signal,
-  })
-  let envelope: T | null = null
-  try {
-    envelope = (await response.json()) as T
-  } catch {
-    envelope = null
+}
+
+class TimeoutError extends Error {
+  constructor() {
+    super('Request exceeded the visualizer timeout budget.')
+    this.name = 'TimeoutError'
   }
-  return { status: response.status, envelope }
+}
+
+function isAbortError(err: unknown): boolean {
+  if (err instanceof DOMException && err.name === 'AbortError') return true
+  return err instanceof Error && err.name === 'AbortError'
+}
+
+async function postJsonWithTimeout<T>(
+  url: string,
+  body: string,
+  timeoutMs: number,
+): Promise<PostJsonResult<T>> {
+  const controller = new AbortController()
+  const timer = setTimeout(() => controller.abort(), timeoutMs)
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body,
+      signal: controller.signal,
+    })
+    let envelope: T | null = null
+    try {
+      envelope = (await response.json()) as T
+    } catch {
+      envelope = null
+    }
+    return { status: response.status, envelope }
+  } catch (err) {
+    if (isAbortError(err)) throw new TimeoutError()
+    throw err
+  } finally {
+    clearTimeout(timer)
+  }
 }
 
 function unsupportedVersionErrors(version: string, envelope: ValidateErrorEnvelope | null): ApiError[] {
@@ -141,6 +168,22 @@ function networkErrors(err: unknown): ApiError[] {
   ]
 }
 
+function timeoutErrors(stage: 'validate' | 'resolve'): ApiError[] {
+  return [
+    {
+      code: 'timeout',
+      message: `The DTPR API ${stage} request did not respond within ${DTPR_FETCH_TIMEOUT_MS} ms.`,
+      fix_hint:
+        'Retry. If the chain is large or the network is slow, allow a fresh request the full timeout budget.',
+    },
+  ]
+}
+
+function failureFromRequestError(err: unknown, stage: 'validate' | 'resolve'): ApiError[] {
+  if (err instanceof TimeoutError) return timeoutErrors(stage)
+  return networkErrors(err)
+}
+
 /**
  * Validate the JSON against `/validate`, then resolve via `/resolve`.
  * Returns the resolved instance on success; an `ApiError[]` on any
@@ -156,74 +199,78 @@ export async function validateAndResolve(jsonText: string): Promise<ValidateAndR
   const validateUrl = `${DTPR_API_BASE}/schemas/${encodedVersion}/validate`
   const resolveUrl = `${DTPR_API_BASE}/schemas/${encodedVersion}/resolve`
 
-  const controller = new AbortController()
-  const timeout = setTimeout(() => controller.abort(), DTPR_FETCH_TIMEOUT_MS)
-
+  // Per-request timeout budgets so a slow validate doesn't shorten the
+  // resolve window, and so a timeout surfaces with a typed `timeout`
+  // code rather than a misleading `network_error` from the AbortError.
+  let validateResp: PostJsonResult<ValidateEnvelope>
   try {
-    let validateResp: { status: number; envelope: ValidateEnvelope | null }
-    try {
-      validateResp = await postJson<ValidateEnvelope>(validateUrl, jsonText, controller.signal)
-    } catch (err) {
-      return { ok: false, errors: networkErrors(err) }
-    }
-
-    if (validateResp.status === 404) {
-      return {
-        ok: false,
-        errors: unsupportedVersionErrors(
-          version,
-          validateResp.envelope as ValidateErrorEnvelope | null,
-        ),
-      }
-    }
-    if (validateResp.status >= 400 || !validateResp.envelope) {
-      const fallback: ApiError[] = (validateResp.envelope as ValidateErrorEnvelope | null)
-        ?.errors ?? [
-        {
-          code: 'api_error',
-          message: `Validate request failed with HTTP ${validateResp.status}.`,
-          fix_hint: 'Retry; if persistent, the DTPR API may be degraded.',
-        },
-      ]
-      return { ok: false, errors: fallback }
-    }
-    if (validateResp.envelope.ok === false) {
-      return { ok: false, errors: validateResp.envelope.errors }
-    }
-
-    let resolveResp: { status: number; envelope: ResolveEnvelope | null }
-    try {
-      resolveResp = await postJson<ResolveEnvelope>(resolveUrl, jsonText, controller.signal)
-    } catch (err) {
-      return { ok: false, errors: networkErrors(err) }
-    }
-
-    if (resolveResp.status === 404) {
-      return {
-        ok: false,
-        errors: unsupportedVersionErrors(
-          version,
-          resolveResp.envelope as ValidateErrorEnvelope | null,
-        ),
-      }
-    }
-    if (resolveResp.status >= 400 || !resolveResp.envelope) {
-      const fallback: ApiError[] = (resolveResp.envelope as ValidateErrorEnvelope | null)
-        ?.errors ?? [
-        {
-          code: 'api_error',
-          message: `Resolve request failed with HTTP ${resolveResp.status}.`,
-          fix_hint: 'Retry; if persistent, the DTPR API may be degraded.',
-        },
-      ]
-      return { ok: false, errors: fallback }
-    }
-    if (resolveResp.envelope.ok === false) {
-      return { ok: false, errors: resolveResp.envelope.errors }
-    }
-
-    return { ok: true, resolved: resolveResp.envelope.resolved }
-  } finally {
-    clearTimeout(timeout)
+    validateResp = await postJsonWithTimeout<ValidateEnvelope>(
+      validateUrl,
+      jsonText,
+      DTPR_FETCH_TIMEOUT_MS,
+    )
+  } catch (err) {
+    return { ok: false, errors: failureFromRequestError(err, 'validate') }
   }
+
+  if (validateResp.status === 404) {
+    return {
+      ok: false,
+      errors: unsupportedVersionErrors(
+        version,
+        validateResp.envelope as ValidateErrorEnvelope | null,
+      ),
+    }
+  }
+  if (validateResp.status >= 400 || !validateResp.envelope) {
+    const fallback: ApiError[] = (validateResp.envelope as ValidateErrorEnvelope | null)
+      ?.errors ?? [
+      {
+        code: 'api_error',
+        message: `Validate request failed with HTTP ${validateResp.status}.`,
+        fix_hint: 'Retry; if persistent, the DTPR API may be degraded.',
+      },
+    ]
+    return { ok: false, errors: fallback }
+  }
+  if (validateResp.envelope.ok === false) {
+    return { ok: false, errors: validateResp.envelope.errors }
+  }
+
+  let resolveResp: PostJsonResult<ResolveEnvelope>
+  try {
+    resolveResp = await postJsonWithTimeout<ResolveEnvelope>(
+      resolveUrl,
+      jsonText,
+      DTPR_FETCH_TIMEOUT_MS,
+    )
+  } catch (err) {
+    return { ok: false, errors: failureFromRequestError(err, 'resolve') }
+  }
+
+  if (resolveResp.status === 404) {
+    return {
+      ok: false,
+      errors: unsupportedVersionErrors(
+        version,
+        resolveResp.envelope as ValidateErrorEnvelope | null,
+      ),
+    }
+  }
+  if (resolveResp.status >= 400 || !resolveResp.envelope) {
+    const fallback: ApiError[] = (resolveResp.envelope as ValidateErrorEnvelope | null)
+      ?.errors ?? [
+      {
+        code: 'api_error',
+        message: `Resolve request failed with HTTP ${resolveResp.status}.`,
+        fix_hint: 'Retry; if persistent, the DTPR API may be degraded.',
+      },
+    ]
+    return { ok: false, errors: fallback }
+  }
+  if (resolveResp.envelope.ok === false) {
+    return { ok: false, errors: resolveResp.envelope.errors }
+  }
+
+  return { ok: true, resolved: resolveResp.envelope.resolved }
 }
