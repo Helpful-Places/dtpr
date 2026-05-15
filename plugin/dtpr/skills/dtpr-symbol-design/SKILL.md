@@ -244,6 +244,14 @@ When finalizing a chosen variant, replace the **Variants** section with a single
 
 Tool parameter shapes are documented on the MCP itself — see `https://dtpr.ai/mcp/tools/` for each tool's schema. This skill names tools in workflow order; for exact argument shapes, trust the live tool description.
 
+## Whole-version preview (optional)
+
+Phase 3 produces a preview of one symbol's variants. When the user wants to see how a symbol edit lands **across the whole version** — every element composed with its shape and all context-colored variants, the way the production API would serve them — point them at the example script:
+
+- `plugin/dtpr/skills/dtpr-symbol-design/examples/compose-gallery.mjs`
+
+Run from the repo root: `node plugin/dtpr/skills/dtpr-symbol-design/examples/compose-gallery.mjs [<schema-dir>] [<out-html>]`. It mirrors the same compositor logic as `api/src/icons/compositor.ts` (shape primitive + WCAG-0.179 inner-color rule) and writes a single static HTML gallery. It is a standalone dev tool — not part of the per-symbol workflow above. See the README next to the script for details.
+
 ## Non-goals
 
 - **No raster output.** SVG only. The skill does not generate PNG, screenshot the preview, or produce design comps.
