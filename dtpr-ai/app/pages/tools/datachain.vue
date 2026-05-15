@@ -1,5 +1,35 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import type { ResolvedDatachainInstance } from '@dtpr/ui/core'
+import {
+  validateAndResolve,
+  type ApiError,
+} from '../../utils/datachain-visualizer-api'
+
 useHead({ title: 'Datachain visualizer' })
+
+const inputJson = ref('')
+const loading = ref(false)
+const apiErrors = ref<ApiError[]>([])
+const resolvedInstance = ref<ResolvedDatachainInstance | null>(null)
+
+async function onSubmit() {
+  if (loading.value || inputJson.value.length === 0) return
+  loading.value = true
+  apiErrors.value = []
+  try {
+    const result = await validateAndResolve(inputJson.value)
+    if (result.ok) {
+      apiErrors.value = []
+      resolvedInstance.value = result.resolved
+    } else {
+      apiErrors.value = result.errors
+      resolvedInstance.value = null
+    }
+  } finally {
+    loading.value = false
+  }
+}
 </script>
 
 <template>
@@ -7,16 +37,20 @@ useHead({ title: 'Datachain visualizer' })
     <header class="datachain-visualizer__header">
       <h1 class="datachain-visualizer__title">Datachain visualizer</h1>
       <p class="datachain-visualizer__subtitle">
-        Paste or drop a <code>DatachainInstance</code> JSON to validate and render it.
+        Paste or drop a <code>DatachainInstance</code> JSON to validate and render it
+        through the public DTPR API.
       </p>
     </header>
 
     <div class="datachain-visualizer__layout">
       <main class="datachain-visualizer__main">
-        <p class="datachain-visualizer__placeholder">
-          The visualizer is being built. Subsequent units fill in the input,
-          validation, render, locale, collection, and deep-link surfaces.
-        </p>
+        <DatachainVisualizerInput
+          v-model:json="inputJson"
+          :loading="loading"
+          @submit="onSubmit"
+        />
+
+        <DatachainVisualizerErrors :errors="apiErrors" />
       </main>
     </div>
   </div>
@@ -56,8 +90,9 @@ useHead({ title: 'Datachain visualizer' })
   padding: 1.5rem;
 }
 
-.datachain-visualizer__placeholder {
-  color: var(--ui-text-dimmed, rgb(107, 114, 128));
-  font-size: 0.9375rem;
+.datachain-visualizer__main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 </style>

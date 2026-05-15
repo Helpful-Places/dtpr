@@ -6,7 +6,7 @@
     "dev": "pnpm --filter @dtpr/api build:schema && pnpm --filter @dtpr/ui build && pnpm emit:object-reference && NODE_OPTIONS=--max-old-space-size=4096 nuxt dev",
     "emit:object-reference": "tsx scripts/emit-object-reference.ts",
     "preview": "nuxt preview",
-    "test": "vitest run --passWithNoTests",
+    "test": "nuxt prepare && vitest run --passWithNoTests",
     "test:watch": "vitest"
   },
   "dependencies": {
