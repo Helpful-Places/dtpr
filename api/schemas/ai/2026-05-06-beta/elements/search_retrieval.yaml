@@ -19,4 +19,4 @@ description:
       vectorielle et les pipelines de génération augmentée par récupération (RAG) qui injectent des
       passages pertinents dans un modèle de langage. Utilisé dans la QA documentaire, la
       consultation de registres publics et la recherche en bibliothèque ou en archives.
-symbol_id: connectivity
+symbol_id: search_retrieval
