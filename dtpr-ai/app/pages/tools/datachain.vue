@@ -19,6 +19,10 @@ import {
   saveEntry as saveCollectionEntry,
   type CollectionEntry,
 } from '../../utils/datachain-visualizer-collection'
+import {
+  decodeFragment,
+  FragmentUnsupportedError,
+} from '../../utils/datachain-visualizer-fragment'
 import { SUPPORTED_LOCALES, useDtprState } from '../../composables/useDtprState'
 
 useHead({ title: 'Datachain visualizer' })
@@ -35,6 +39,7 @@ const collection = ref<CollectionEntry[]>([])
 const collectionUnavailable = ref(false)
 const collectionMessage = ref<string | null>(null)
 const selectedEntryId = ref<string | null>(null)
+const fragmentMessage = ref<string | null>(null)
 
 const availableLocales = computed<string[]>(() => {
   if (!resolvedInstance.value) return []
@@ -55,8 +60,38 @@ function refreshCollection() {
   }
 }
 
+function clearHashFragment() {
+  if (typeof window === 'undefined') return
+  const url = window.location.pathname + window.location.search
+  history.replaceState(null, '', url)
+}
+
+async function ingestFragmentIfPresent() {
+  if (typeof window === 'undefined') return
+  const hash = window.location.hash
+  if (!hash || hash.indexOf('data=') === -1) return
+  let decoded: string | null
+  try {
+    decoded = await decodeFragment(hash)
+  } catch (err) {
+    if (err instanceof FragmentUnsupportedError) {
+      fragmentMessage.value = err.message
+      clearHashFragment()
+      return
+    }
+    throw err
+  }
+  if (!decoded) return
+  inputJson.value = decoded
+  // Clear the fragment before validation so the encoded blob does not
+  // linger in the URL while the API call is in flight.
+  clearHashFragment()
+  await runValidatePipeline(decoded)
+}
+
 onMounted(() => {
   refreshCollection()
+  void ingestFragmentIfPresent()
 })
 
 async function runValidatePipeline(jsonText: string) {
@@ -153,6 +188,10 @@ function onDeleteEntry(id: string) {
 
     <div class="datachain-visualizer__layout">
       <main class="datachain-visualizer__main">
+        <p v-if="fragmentMessage" class="datachain-visualizer__fragment-message" role="alert">
+          {{ fragmentMessage }} Paste the JSON below to render it.
+        </p>
+
         <DatachainVisualizerInput
           v-model:json="inputJson"
           :loading="loading"
@@ -260,7 +299,8 @@ function onDeleteEntry(id: string) {
   justify-content: space-between;
 }
 
-.datachain-visualizer__collection-message {
+.datachain-visualizer__collection-message,
+.datachain-visualizer__fragment-message {
   margin: 0;
   font-size: 0.8125rem;
   color: var(--ui-warning, #d97706);
