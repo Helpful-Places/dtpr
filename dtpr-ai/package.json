@@ -5,7 +5,9 @@
     "build": "pnpm --filter @dtpr/api build:schema && pnpm --filter @dtpr/ui build && pnpm emit:object-reference && NODE_OPTIONS=--max-old-space-size=4096 nuxt build",
     "dev": "pnpm --filter @dtpr/api build:schema && pnpm --filter @dtpr/ui build && pnpm emit:object-reference && NODE_OPTIONS=--max-old-space-size=4096 nuxt dev",
     "emit:object-reference": "tsx scripts/emit-object-reference.ts",
-    "preview": "nuxt preview"
+    "preview": "nuxt preview",
+    "test": "nuxt prepare && vitest run --passWithNoTests",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@dtpr/ui": "workspace:*",
@@ -18,7 +20,9 @@
   },
   "devDependencies": {
     "@dtpr/api": "workspace:*",
+    "jsdom": "^25.0.1",
     "tsx": "^4.19.0",
+    "vitest": "^3.0.0",
     "wrangler": "^4.83.0"
   }
 }
