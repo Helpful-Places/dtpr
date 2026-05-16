@@ -1,5 +1,6 @@
 <script setup>
 var isOpen = ref(false);
+var dropdownOpen = ref(false);
 </script>
 
 <template>
@@ -19,15 +20,15 @@ var isOpen = ref(false);
           </button>
         </div>
       </div>
-      <div class=" print:hidden">
-        <nav class="flex items-center">
+      <div class="print:hidden">
+        <nav class="lg:flex lg:items-center">
           <ul :class="isOpen ? 'block' : 'hidden'" class="mt-4 lg:flex lg:items-center lg:m-0">
-            <li class="external bg-dtpr-blue-100 font-[700] text-sm rounded-xl py-1 px-3;"><a target="_blank" href="https://dtpr.guide/landing">DTPR in the World</a> </li>
+            <li class="external bg-dtpr-blue-100 font-[700] text-sm rounded-xl py-1 px-3"><a target="_blank" href="https://dtpr.guide/landing">DTPR in the World</a></li>
 
-            <li class="dropdown-toggle external bg-dtpr-blue-100 font-[700] text-sm rounded-xl py- px-3;">Documentation  <Icon name="icons8:angle-down"/>
+            <li :class="{ 'open': dropdownOpen }" class="dropdown-toggle external bg-dtpr-blue-100 font-[700] text-sm rounded-xl py-1 px-3" @click="dropdownOpen = !dropdownOpen">Documentation  <Icon name="icons8:angle-down" class="dropdown-chevron"/>
               <ul class="dropdown bg-dtpr-blue-950">
-                <a class="text-white" href="https://docs.dtpr.io" target="_blank"><li class="bg-dtpr-blue-950 font-[700] text-sm text-white rounded-xl py-1 px-3;">For Humans</li></a>
-                <a class="text-white" href="https://www.dtpr.ai" target="_blank"><li class="bg-dtpr-blue-950 text-white font-[700] text-sm rounded-xl py-1 px-3;">For AI</li></a>
+                <li class="font-[700] text-sm text-white py-1 px-3"><a class="text-white" href="https://docs.dtpr.io" target="_blank">For Sensors</a></li>
+                <li class="font-[700] text-sm text-white py-1 px-3"><a class="text-white" href="https://www.dtpr.ai" target="_blank">For AI</a></li>
               </ul>
             </li>
 
@@ -65,51 +66,97 @@ nav {
     }
   
     li:not(:last-child) {
-      @apply mr-3; 
+      @apply mb-2 lg:mb-0 lg:mr-3;
     }
 
     .external{
-      display:inline-block;
+      display:block;
       padding:0.5rem 1rem;
 
       &:hover{
         @apply text-white bg-dtpr-blue-950;
       }
     }
+
+    @media (min-width: 1024px) {
+      .external{
+        display:inline-block;
+      }
+    }
+
     .dropdown-toggle{
       cursor:pointer;
       margin-left:0;
-      
+      position:relative;
+      transition: border-radius 150ms ease;
     }
 
-    .dropdown-toggle:hover{
+    .dropdown-chevron{
+      transition: transform 200ms ease;
+    }
+
+    .dropdown-toggle:hover,
+    .dropdown-toggle.open{
       border-radius: 0.75rem 0.75rem 0 0;
     }
 
-    .dropdown-toggle:hover ul{
-      display:flex;
-      flex-direction:column;
-      position:absolute;
-      padding:0;
-
-      
+    .dropdown-toggle:hover .dropdown-chevron,
+    .dropdown-toggle.open .dropdown-chevron{
+      transform: rotate(180deg);
     }
 
     .dropdown{
-      display:none;
-      width:156px;
-      margin-left:-1rem; 
-      
+      display:flex;
+      flex-direction:column;
+      padding:0.25rem 0;
+      border-radius: 0 0 0.75rem 0.75rem;
+      overflow:hidden;
+      opacity:0;
+      visibility:hidden;
+      max-height:0;
+      transition: opacity 180ms ease, max-height 220ms ease, visibility 220ms;
+      pointer-events:none;
+    }
+
+    @media (min-width: 1024px) {
+      .dropdown{
+        position:absolute;
+        width:156px;
+        margin-left:-1rem;
+        max-height:none;
+        transform: translateY(-6px);
+        transition: opacity 180ms ease, transform 180ms ease, visibility 180ms;
+        box-shadow: 0 6px 16px -8px rgba(0,0,0,0.25);
+        z-index:50;
+      }
+    }
+
+    .dropdown-toggle:hover .dropdown,
+    .dropdown-toggle.open .dropdown{
+      opacity:1;
+      visibility:visible;
+      max-height:20rem;
+      pointer-events:auto;
+    }
+
+    @media (min-width: 1024px) {
+      .dropdown-toggle:hover .dropdown,
+      .dropdown-toggle.open .dropdown{
+        transform: translateY(0);
+      }
     }
 
     .dropdown li{
-      margin:1rem 0;
+      margin:0;
       border-radius:0;
-      display:inline-block;
+      display:block;
       padding:0.5rem 1rem;
-
+      transition: background-color 150ms ease;
     }
-    .dropdown li a{width:100%; }
+    .dropdown li:hover{
+      @apply bg-dtpr-blue-900;
+    }
+    .dropdown li a{display:block; width:100%; }
 
     
 
