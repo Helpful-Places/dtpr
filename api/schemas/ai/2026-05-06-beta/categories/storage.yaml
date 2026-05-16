@@ -6,14 +6,14 @@ name:
     value: Stockage de données
 description:
   - locale: en
-    value: Where the data produced by the AI system is stored.
+    value: Where the data produced by this AI system is kept.
   - locale: fr
-    value: Où sont stockées les données produites par le système d'IA.
+    value: Où sont conservées les données produites par ce système d’IA.
 prompt:
   - locale: en
-    value: Where is the data produced by the AI system stored?
+    value: Where is the data stored?
   - locale: fr
-    value: Où sont stockées les données produites par le système d’IA ?
+    value: Où sont stockées les données ?
 required: false
 order: 11
 datachain_type: ai

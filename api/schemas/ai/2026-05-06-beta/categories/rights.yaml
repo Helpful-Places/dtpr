@@ -6,14 +6,16 @@ name:
     value: Droits
 description:
   - locale: en
-    value: The user's rights in relation to the AI system.
+    value: What you can do in relation to this AI system — how to access, contest, or opt out.
   - locale: fr
-    value: Les droits de l'utilisateur par rapport au système d'IA.
+    value: >-
+      Ce que vous pouvez faire par rapport à ce système d’IA — comment y accéder, le contester ou
+      vous y soustraire.
 prompt:
   - locale: en
-    value: What are the user's rights in relation to the AI system?
+    value: What are your rights?
   - locale: fr
-    value: Quels sont les droits de l’utilisateur par rapport au système d’IA ?
+    value: Quels sont vos droits ?
 required: false
 order: 5
 datachain_type: ai
