@@ -5,7 +5,6 @@ useHead({
 
 const links = [[
   { label: 'Devices', to: '/taxonomy/device' },
-  { label: 'AI / Algorithms (beta)', to: '/taxonomy/ai' },
 ]];
 </script>
 
@@ -18,8 +17,21 @@ const links = [[
       </p>
       
       <p>
-      For more information on how to use the DTPR standard in practice, check out <a class="u-line border-dtpr-green-lighter" href="https://helpful-places.gitbook.io/a-guide-to-dtpr">our guide</a> 
+      For more information on how to use the DTPR standard in practice, check out <a class="u-line border-dtpr-green-lighter" href="https://helpful-places.gitbook.io/a-guide-to-dtpr">our guide</a>
       </p>
+
+      <p class="mt-6 mb-4">
+      The AI / Algorithms taxonomy has moved to its own site.
+      </p>
+      <UButton
+        to="https://dtpr.ai/en/taxonomy"
+        target="_blank"
+        size="lg"
+        color="primary"
+        trailing-icon="i-heroicons-arrow-top-right-on-square"
+      >
+        View the AI / Algorithms taxonomy at dtpr.ai
+      </UButton>
     </UCard>
     
     <UHorizontalNavigation :links="links" class="border-b border-gray-200 dark:border-gray-800 mb-4" />
