@@ -15,16 +15,18 @@
  * Outputs land under `dtpr-ai/public/skills/<version>/` and are
  * served from `dtpr.ai/skills/<version>/...` once the site deploys.
  *
- * Uses the pure-Node `archiver` library rather than spawning the
- * system `zip` binary — Cloudflare Workers Builds and other minimal
- * CI containers don't always ship `zip`, and an environment-dependent
- * build is worse than a small dev-dependency.
+ * Implements its own minimal ZIP writer in pure Node so the build has
+ * no external deps: an `archiver` dependency triggers `pnpm install`
+ * lockfile churn that upgrades unrelated transitive packages, and a
+ * `zip` shell-out fails on minimal CI containers (Cloudflare Workers
+ * Builds) that don't ship Info-ZIP. Node 22's `zlib.crc32` makes the
+ * in-house path small and reliable.
  */
 import { createHash } from 'node:crypto'
-import { createWriteStream, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs'
+import { mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs'
 import { dirname, relative, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import archiver from 'archiver'
+import { crc32, deflateRawSync } from 'node:zlib'
 
 const DESCRIPTION_LIMIT = 1024
 
@@ -127,39 +129,149 @@ function sha256(filepath: string): string {
   return hash.digest('hex')
 }
 
-async function zipSkillDirectory(skillName: string, outPath: string): Promise<void> {
-  // The skill folder must sit at the top of the zip (e.g.
-  // `dtpr-translate/SKILL.md`) — that's the layout Claude Desktop
-  // expects on upload. `archive.directory(src, name)` writes `src`'s
-  // contents under `name` in the archive.
-  rmSync(outPath, { force: true })
-  await new Promise<void>((resolveZip, rejectZip) => {
-    const output = createWriteStream(outPath)
-    const archive = archiver('zip', { zlib: { level: 9 } })
-    output.on('close', () => resolveZip())
-    output.on('error', rejectZip)
-    archive.on('error', rejectZip)
-    archive.pipe(output)
-    archive.directory(resolve(skillsRoot, skillName), skillName)
-    archive.finalize()
-  })
+// ---------------------------------------------------------------------------
+// Minimal in-process ZIP writer.
+//
+// Implements ZIP file format spec (APPNOTE.TXT) — local file headers,
+// central directory, end-of-central-directory record — with deflate
+// compression (method=8). No ZIP64 (file sizes here are tiny). No
+// extra fields, no comments, no encryption. CRC32 comes from Node's
+// built-in zlib.crc32 (Node 22+).
+//
+// Each entry is `{ name, data }`. `name` uses forward slashes; trailing
+// `/` denotes a directory entry (zero-length data). Returns a Buffer
+// suitable for writing to disk with the `.zip` / `.skill` extension.
+// ---------------------------------------------------------------------------
+
+interface ZipEntry {
+  name: string
+  data: Buffer
 }
 
-async function zipBundle(versionDir: string, outPath: string, fileNames: string[]): Promise<void> {
-  rmSync(outPath, { force: true })
-  await new Promise<void>((resolveZip, rejectZip) => {
-    const output = createWriteStream(outPath)
-    const archive = archiver('zip', { zlib: { level: 9 } })
-    output.on('close', () => resolveZip())
-    output.on('error', rejectZip)
-    archive.on('error', rejectZip)
-    archive.pipe(output)
-    for (const name of fileNames) {
-      archive.file(resolve(versionDir, name), { name })
-    }
-    archive.finalize()
-  })
+function dosTime(date: Date): { time: number; date: number } {
+  // DOS time: bits 0-4 = seconds/2, 5-10 = minute, 11-15 = hour
+  // DOS date: bits 0-4 = day, 5-8 = month, 9-15 = year - 1980
+  const time =
+    (Math.floor(date.getSeconds() / 2) & 0x1f) |
+    ((date.getMinutes() & 0x3f) << 5) |
+    ((date.getHours() & 0x1f) << 11)
+  const dateField =
+    (date.getDate() & 0x1f) |
+    (((date.getMonth() + 1) & 0x0f) << 5) |
+    (((date.getFullYear() - 1980) & 0x7f) << 9)
+  return { time, date: dateField }
 }
+
+function buildZip(entries: ZipEntry[]): Buffer {
+  const now = new Date()
+  const { time: dosT, date: dosD } = dosTime(now)
+  const chunks: Buffer[] = []
+  const central: Buffer[] = []
+  let offset = 0
+
+  for (const entry of entries) {
+    const nameBytes = Buffer.from(entry.name, 'utf8')
+    const isDir = entry.name.endsWith('/')
+    const uncompressed = entry.data
+    const uncompSize = uncompressed.length
+    const crc = uncompSize === 0 ? 0 : crc32(uncompressed)
+    // Directory entries: store empty. File entries: deflate.
+    const compressed = isDir || uncompSize === 0 ? Buffer.alloc(0) : deflateRawSync(uncompressed, { level: 9 })
+    const compSize = compressed.length
+    const method = isDir || uncompSize === 0 ? 0 : 8
+
+    // Local file header (30 bytes + name).
+    const localHeader = Buffer.alloc(30)
+    localHeader.writeUInt32LE(0x04034b50, 0) // signature
+    localHeader.writeUInt16LE(20, 4)          // version needed (2.0)
+    localHeader.writeUInt16LE(0x0800, 6)      // general purpose: UTF-8 filename
+    localHeader.writeUInt16LE(method, 8)      // compression method
+    localHeader.writeUInt16LE(dosT, 10)
+    localHeader.writeUInt16LE(dosD, 12)
+    localHeader.writeUInt32LE(crc, 14)
+    localHeader.writeUInt32LE(compSize, 18)
+    localHeader.writeUInt32LE(uncompSize, 22)
+    localHeader.writeUInt16LE(nameBytes.length, 26)
+    localHeader.writeUInt16LE(0, 28)          // extra field length
+    chunks.push(localHeader, nameBytes, compressed)
+
+    // Central directory entry (46 bytes + name).
+    const centralEntry = Buffer.alloc(46)
+    centralEntry.writeUInt32LE(0x02014b50, 0) // signature
+    centralEntry.writeUInt16LE(20, 4)          // version made by (2.0, Unix)
+    centralEntry.writeUInt16LE(20, 6)          // version needed
+    centralEntry.writeUInt16LE(0x0800, 8)      // general purpose: UTF-8 filename
+    centralEntry.writeUInt16LE(method, 10)
+    centralEntry.writeUInt16LE(dosT, 12)
+    centralEntry.writeUInt16LE(dosD, 14)
+    centralEntry.writeUInt32LE(crc, 16)
+    centralEntry.writeUInt32LE(compSize, 20)
+    centralEntry.writeUInt32LE(uncompSize, 24)
+    centralEntry.writeUInt16LE(nameBytes.length, 28)
+    centralEntry.writeUInt16LE(0, 30)          // extra field
+    centralEntry.writeUInt16LE(0, 32)          // comment
+    centralEntry.writeUInt16LE(0, 34)          // disk number start
+    centralEntry.writeUInt16LE(0, 36)          // internal attrs
+    centralEntry.writeUInt32LE(isDir ? 0x10 : 0, 38) // external attrs (dir flag)
+    centralEntry.writeUInt32LE(offset, 42)     // relative offset of local header
+    central.push(centralEntry, nameBytes)
+
+    offset += localHeader.length + nameBytes.length + compressed.length
+  }
+
+  const centralBuf = Buffer.concat(central)
+  const centralOffset = offset
+  const centralSize = centralBuf.length
+
+  // End of central directory record (22 bytes).
+  const eocd = Buffer.alloc(22)
+  eocd.writeUInt32LE(0x06054b50, 0)     // signature
+  eocd.writeUInt16LE(0, 4)               // disk number
+  eocd.writeUInt16LE(0, 6)               // disk where central starts
+  eocd.writeUInt16LE(entries.length, 8)  // records on this disk
+  eocd.writeUInt16LE(entries.length, 10) // total records
+  eocd.writeUInt32LE(centralSize, 12)
+  eocd.writeUInt32LE(centralOffset, 16)
+  eocd.writeUInt16LE(0, 20)              // comment length
+
+  return Buffer.concat([...chunks, centralBuf, eocd])
+}
+
+function readDirRecursive(root: string, base = ''): ZipEntry[] {
+  const entries: ZipEntry[] = []
+  for (const d of readdirSync(resolve(skillsRoot, root, base), { withFileTypes: true })) {
+    const rel = base ? `${base}/${d.name}` : d.name
+    if (d.isDirectory()) {
+      entries.push({ name: `${root}/${rel}/`, data: Buffer.alloc(0) })
+      entries.push(...readDirRecursive(root, rel))
+    } else if (d.isFile()) {
+      const full = resolve(skillsRoot, root, rel)
+      entries.push({ name: `${root}/${rel}`, data: readFileSync(full) })
+    }
+  }
+  return entries
+}
+
+function writeSkillZip(skillName: string, outPath: string): void {
+  // Top-level dir entry, then everything inside the skill folder. The
+  // dir entry isn't strictly required, but Claude Desktop's upload UI
+  // and most unzip tools render the archive more cleanly with it.
+  const entries: ZipEntry[] = [
+    { name: `${skillName}/`, data: Buffer.alloc(0) },
+    ...readDirRecursive(skillName),
+  ]
+  writeFileSync(outPath, buildZip(entries))
+}
+
+function writeBundleZip(versionDir: string, outPath: string, fileNames: string[]): void {
+  const entries: ZipEntry[] = fileNames.map((name) => ({
+    name,
+    data: readFileSync(resolve(versionDir, name)),
+  }))
+  writeFileSync(outPath, buildZip(entries))
+}
+
+// ---------------------------------------------------------------------------
 
 function bundleReadme(plugin: PluginManifest, skills: string[]): string {
   const lines = [
@@ -189,7 +301,7 @@ function bundleReadme(plugin: PluginManifest, skills: string[]): string {
   return lines.join('\n')
 }
 
-async function main() {
+function main() {
   const plugin = readPluginManifest()
   const skills = listSkills()
   console.log(`[build-skills] plugin ${plugin.name} v${plugin.version}, ${skills.length} skills`)
@@ -208,7 +320,7 @@ async function main() {
   const skillEntries: SkillEntry[] = []
   for (const v of validated) {
     const outPath = resolve(versionDir, `${v.name}.skill`)
-    await zipSkillDirectory(v.name, outPath)
+    writeSkillZip(v.name, outPath)
     const size = statSync(outPath).size
     skillEntries.push({
       name: v.name,
@@ -222,7 +334,7 @@ async function main() {
   // Combined bundle: INSTALL.txt + the per-skill .skill files.
   writeFileSync(resolve(versionDir, 'INSTALL.txt'), bundleReadme(plugin, validated.map((v) => v.name)))
   const bundlePath = resolve(versionDir, 'dtpr-skills.zip')
-  await zipBundle(versionDir, bundlePath, ['INSTALL.txt', ...validated.map((v) => `${v.name}.skill`)])
+  writeBundleZip(versionDir, bundlePath, ['INSTALL.txt', ...validated.map((v) => `${v.name}.skill`)])
   const bundleSize = statSync(bundlePath).size
   const bundle: BundleEntry = {
     path: `${plugin.version}/dtpr-skills.zip`,
@@ -262,8 +374,10 @@ async function main() {
   console.log('[build-skills] done')
 }
 
-main().catch((err) => {
+try {
+  main()
+} catch (err) {
   console.error('[build-skills] FAILED')
   console.error(err instanceof Error ? err.message : err)
   process.exit(1)
-})
+}

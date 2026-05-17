@@ -21,8 +21,6 @@
   },
   "devDependencies": {
     "@dtpr/api": "workspace:*",
-    "@types/archiver": "^6.0.3",
-    "archiver": "^7.0.1",
     "jsdom": "^25.0.1",
     "tsx": "^4.19.0",
     "vitest": "^3.0.0",
