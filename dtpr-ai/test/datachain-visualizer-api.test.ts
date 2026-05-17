@@ -155,6 +155,30 @@ describe('validateAndResolve', () => {
     expect(result.errors[0].code).toBe('unsupported_schema_version')
   })
 
+  it('forwards a resolve-side semantic failure (HTTP 200 + ok:false)', async () => {
+    // Resolve is the only stage where success is bare and failure is
+    // enveloped; exercise that discriminant explicitly.
+    const resolveError = {
+      code: 'INSTANCE_ELEMENT_UNKNOWN',
+      message: 'Unknown element id "not_a_real_element".',
+      path: 'elements[0]',
+    }
+    const fetchMock = vi.fn(async (url: string | URL | Request) => {
+      const u = String(url)
+      if (u.endsWith('/validate')) return fakeResponse({ status: 200, body: { ok: true } })
+      if (u.endsWith('/resolve'))
+        return fakeResponse({ status: 200, body: { ok: false, errors: [resolveError] } })
+      throw new Error(`unexpected url: ${u}`)
+    })
+    vi.stubGlobal('fetch', fetchMock)
+
+    const result = await validateAndResolve(VALID_INSTANCE)
+    expect(result.ok).toBe(false)
+    if (result.ok) throw new Error('expected failure')
+    expect(result.errors).toEqual([resolveError])
+    expect(fetchMock).toHaveBeenCalledTimes(2)
+  })
+
   it('returns network_error when fetch rejects', async () => {
     const fetchMock = vi.fn(async () => {
       throw new TypeError('fetch failed')

@@ -265,12 +265,21 @@ export async function validateAndResolve(jsonText: string): Promise<ValidateAndR
     ]
     return { ok: false, errors: fallback }
   }
-  const resolveEnvelope = resolveResp.envelope as
-    | ValidateErrorEnvelope
-    | ResolvedDatachainInstance
-  if ((resolveEnvelope as ValidateErrorEnvelope).ok === false) {
-    return { ok: false, errors: (resolveEnvelope as ValidateErrorEnvelope).errors }
+  const envelope = resolveResp.envelope
+  if (isResolveErrorEnvelope(envelope)) {
+    return { ok: false, errors: envelope.errors }
   }
+  return { ok: true, resolved: envelope }
+}
 
-  return { ok: true, resolved: resolveEnvelope as ResolvedDatachainInstance }
+// `ResolvedDatachainInstance` has no `ok` field, so `'ok' in envelope`
+// uniquely identifies the soft-failure envelope. Wrapped as a real type
+// guard so both branches narrow without manual casts at the call site.
+function isResolveErrorEnvelope(
+  envelope: ResolveEnvelope,
+): envelope is ValidateErrorEnvelope {
+  return (
+    'ok' in envelope &&
+    (envelope as { ok: unknown }).ok === false
+  )
 }
