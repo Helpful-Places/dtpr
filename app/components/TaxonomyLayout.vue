@@ -26,9 +26,6 @@ const props = defineProps({
 const searchQuery = ref('')
 const activeCategory = ref(null)
 
-// Sidebar navigation state
-const isSidebarOpen = ref(true)
-
 // Count elements per category
 const getElementCount = (categoryId) => {
   let elements = props.elements.filter(element => 
@@ -169,13 +166,18 @@ onUnmounted(() => {
     <!-- Header with Search -->
     <div class="sticky top-0 z-40 bg-white dark:bg-gray-800 border-b dark:border-gray-700">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-          <h1 class="text-2xl font-bold text-gray-900 dark:text-white">
-            {{ title }}
-          </h1>
-          
+        <div class="flex flex-col sm:flex-row sm:items-center sm:h-16 py-3 sm:py-0 gap-3 sm:gap-0">
+          <div class="flex items-center justify-between gap-3 sm:flex-none">
+            <h1 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white truncate">
+              {{ title }}
+            </h1>
+            <div class="sm:hidden">
+              <LocaleSwitcher />
+            </div>
+          </div>
+
           <!-- Search Bar -->
-          <div class="flex-1 max-w-md mx-4 sm:mx-8">
+          <div class="flex-1 sm:max-w-md sm:mx-8">
             <UInput
               v-model="searchQuery"
               placeholder="Search elements..."
@@ -196,18 +198,9 @@ onUnmounted(() => {
             </UInput>
           </div>
 
-          <div class="flex items-center gap-4">
+          <div class="hidden sm:flex items-center gap-4">
             <!-- Locale Switcher -->
             <LocaleSwitcher />
-            
-            <!-- Mobile Sidebar Toggle -->
-            <UButton
-              class="lg:hidden"
-              color="gray"
-              variant="ghost"
-              icon="i-heroicons-bars-3"
-              @click="isSidebarOpen = !isSidebarOpen"
-            />
           </div>
         </div>
       </div>
@@ -225,42 +218,14 @@ onUnmounted(() => {
       </div>
       
       <div class="flex flex-col lg:flex-row gap-0 lg:gap-8">
-        <!-- Mobile Overlay -->
-        <div 
-          v-if="isSidebarOpen"
-          class="fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden"
-          @click="isSidebarOpen = false"
-        />
-        
-        <!-- Sidebar Navigation -->
-        <aside 
-          :class="[
-            'w-full lg:w-64 flex-shrink-0',
-            isSidebarOpen ? 'block' : 'hidden lg:block',
-            'fixed lg:relative inset-y-0 left-0 z-30 lg:z-0',
-            'bg-white dark:bg-gray-800 lg:bg-transparent',
-            'border-r dark:border-gray-700 lg:border-0',
-            'transform transition-transform duration-300 ease-in-out',
-            isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
-          ]"
-        >
-          <div class="sticky top-24 p-4 lg:p-0">
-            <!-- Mobile Close Button -->
-            <div class="flex items-center justify-between lg:hidden mb-4">
-              <h3 class="text-lg font-semibold">Navigation</h3>
-              <UButton
-                color="gray"
-                variant="ghost"
-                icon="i-heroicons-x-mark"
-                @click="isSidebarOpen = false"
-              />
-            </div>
-            
+        <!-- Sidebar Navigation (desktop only) -->
+        <aside class="hidden lg:block w-64 flex-shrink-0">
+          <div class="sticky top-24">
             <nav class="space-y-1">
               <h3 class="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
                 Datachain Categories
               </h3>
-              
+
               <UVerticalNavigation :links="navigationItems" />
             </nav>
           </div>

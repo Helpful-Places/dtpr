@@ -25,7 +25,11 @@ var dropdownOpen = ref(false);
           <ul :class="isOpen ? 'block' : 'hidden'" class="mt-4 lg:flex lg:items-center lg:m-0">
             <li class="external bg-dtpr-blue-100 font-[700] text-sm rounded-xl py-1 px-3"><a target="_blank" href="https://dtpr.guide/landing">DTPR in the World</a></li>
 
-            <li :class="{ 'open': dropdownOpen }" class="dropdown-toggle external bg-dtpr-blue-100 font-[700] text-sm rounded-xl py-1 px-3" @click="dropdownOpen = !dropdownOpen">Documentation  <Icon name="icons8:angle-down" class="dropdown-chevron"/>
+            <li :class="{ 'open': dropdownOpen }" class="dropdown-toggle external bg-dtpr-blue-100 font-[700] text-sm rounded-xl py-1 px-3" @click="dropdownOpen = !dropdownOpen">
+              <span class="dropdown-toggle-label">
+                Documentation
+                <Icon name="icons8:angle-down" class="dropdown-chevron"/>
+              </span>
               <ul class="dropdown bg-dtpr-blue-950">
                 <li class="font-[700] text-sm text-white py-1 px-3"><a class="text-white" href="https://docs.dtpr.io" target="_blank">For Sensors</a></li>
                 <li class="font-[700] text-sm text-white py-1 px-3"><a class="text-white" href="https://www.dtpr.ai" target="_blank">For AI</a></li>
@@ -88,16 +92,33 @@ nav {
       cursor:pointer;
       margin-left:0;
       position:relative;
-      transition: border-radius 150ms ease;
+      transition: border-radius 150ms ease, padding 150ms ease;
+    }
+
+    .dropdown-toggle-label{
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      line-height: 1;
     }
 
     .dropdown-chevron{
       transition: transform 200ms ease;
+      display: inline-block;
+      flex-shrink: 0;
     }
 
     .dropdown-toggle:hover,
     .dropdown-toggle.open{
       border-radius: 0.75rem 0.75rem 0 0;
+    }
+
+    @media (max-width: 1023px){
+      .dropdown-toggle.open{
+        padding-bottom: 0;
+        border-radius: 0.75rem;
+        overflow: hidden;
+      }
     }
 
     .dropdown-toggle:hover .dropdown-chevron,
@@ -109,6 +130,7 @@ nav {
       display:flex;
       flex-direction:column;
       padding:0.25rem 0;
+      margin: 0 -0.75rem;
       border-radius: 0 0 0.75rem 0.75rem;
       overflow:hidden;
       opacity:0;
@@ -121,8 +143,11 @@ nav {
     @media (min-width: 1024px) {
       .dropdown{
         position:absolute;
-        width:156px;
-        margin-left:-1rem;
+        left:0;
+        right:0;
+        width:auto;
+        min-width:156px;
+        margin:0;
         max-height:none;
         transform: translateY(-6px);
         transition: opacity 180ms ease, transform 180ms ease, visibility 180ms;
