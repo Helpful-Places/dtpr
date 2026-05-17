@@ -1,5 +1,26 @@
 # Changelog
 
+## 0.3.1 — 2026-05-17
+
+**Description trim for Claude Desktop's 1024-char cap.** Six of seven skills had `description:` fields that exceeded the per-skill cap Claude Desktop enforces on upload, blocking installation. The fat was the repeated `For X use sibling-A; for Y use sibling-B; …` block — already documented in each SKILL.md body's "Sibling routing" section. Compressed to a single `See also: …` line; trigger phrases and the "what it does" framing are untouched so dispatch fidelity is preserved.
+
+### Changed
+
+- **`dtpr-translate`** — 1552 → 963 chars. Dropped the implementation-detail sentence on `get_schema.manifest.locales`; collapsed sibling-routing to `See also`.
+- **`dtpr-element-design`** — 1355 → 880 chars. Locale-skeleton clause tightened; symbol hand-off kept as a single sentence since it is a genuine workflow dependency, not a router note.
+- **`dtpr-datachain-structure`** — 1341 → 1015 chars. Sibling-routing collapsed to `See also`.
+- **`dtpr-category-audit`** — 1282 → 921 chars. Sibling-routing collapsed to `See also`.
+- **`dtpr-symbol-design`** — 1129 → 854 chars. Sibling-routing collapsed; `dtpr-element-design` hand-off framing retained as a parenthetical because that is the primary inbound path.
+- **`dtpr-comprehension-audit`** — 1128 → 896 chars. Sibling-routing collapsed to `See also`.
+- **`dtpr-describe-system`** — unchanged (already 998 chars).
+- **`.claude-plugin/plugin.json`** — version bumped to 0.3.1.
+- **`.mcp.json`** — `User-Agent` header synced to `dtpr-claude-plugin/0.3.1`.
+
+### Added
+
+- **`dtpr-ai/scripts/build-skills.ts`** — build-time packager. Validates each `SKILL.md` frontmatter (description ≤ 1024 chars, name matches dir), zips each skill into a `.skill` file, builds a single combined `dtpr-skills.zip` with all seven, and emits `manifest.json` with file sizes and SHA-256 digests. Wired into `dtpr-ai`'s `prebuild` script so every site deploy ships fresh artifacts. Outputs land at `dtpr-ai/public/skills/<version>/` and are served from the same path on `dtpr.ai`.
+- **dtpr.ai install page** — new section under Install for Claude Desktop / Claude.ai users, linking the per-skill `.skill` zips and the combined bundle. The plugin-install path (Claude Code marketplace) remains the recommended one-click flow.
+
 ## 0.3.0 — 2026-05-07
 
 **Symbol-design skill split out.** Symbol drafting is no longer mixed into element drafting. The new sibling produces multiple variants per round with a local HTML preview, so a session can compare silhouette strategies before committing to one icon.

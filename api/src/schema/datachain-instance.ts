@@ -67,7 +67,7 @@ export const InstanceElementSchema = z
       .min(1)
       .optional()
       .describe(
-        'Selected context value id from the element\'s category context. Must exist (rule 4).',
+        "Required (warning-only) when the element's category declares an element_context (see get_schema / list_categories). Selects one value from that context's values[] as the per-instance discriminator (e.g. accountable.role → vendor|deployer; functional_modes.autonomy → human_decides|human_executes|autonomous; input_dataset.pii → de_identified|pseudonymous|identifiable). Validated by rule 4 (CONTEXT_TYPE_UNKNOWN if the id is not on the context; CONTEXT_TYPE_MISSING warning if absent).",
       ),
     variables: z
       .array(InstanceVariableValueSchema)
