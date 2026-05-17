@@ -1,4 +1,9 @@
-import type { Category, Element, ResolvedDatachainInstance } from './types.js'
+import type {
+  Category,
+  Element,
+  InstanceElement,
+  ResolvedDatachainInstance,
+} from './types.js'
 import { deriveElementDisplay } from './element-display.js'
 import { extract } from './locale.js'
 
@@ -40,6 +45,25 @@ export interface RenderedSection {
 export interface BuildResolvedSectionsOptions {
   proposedIndicator?: boolean
   fallbackLocale?: string
+  /**
+   * Resolver for the light-mode icon URL for a placement. Receives the
+   * resolved element definition and the instance placement (so callers
+   * can branch on `placement.context_type_id` to compose a context
+   * variant suffix — e.g. `icon.${context_type_id}.svg`). Return an
+   * empty string to fall through to the hexagon fallback. When the
+   * option is omitted entirely, `deriveElementDisplay`'s own
+   * fallback applies (hexagon data URI).
+   */
+  iconUrlFor?: (element: Element, placement: InstanceElement) => string
+  /**
+   * Resolver for the dark-mode icon URL. Symmetric to `iconUrlFor`.
+   * Return `undefined` (or an empty string) to skip the dark variant —
+   * `<DtprIcon>` will then keep the light url in both modes.
+   */
+  iconUrlDarkFor?: (
+    element: Element,
+    placement: InstanceElement,
+  ) => string | undefined
 }
 
 type SourceTag = 'snapshot' | 'suggested'
@@ -131,9 +155,13 @@ export function buildResolvedSections(
     }
     const { element, source } = resolvedDef
     const category = categoryById.get(element.category_id)
+    const iconUrl = options.iconUrlFor?.(element, placement)
+    const iconUrlDark = options.iconUrlDarkFor?.(element, placement)
     const display = deriveElementDisplay(element, placement, locale, {
       fallbackLocale,
       ...(category ? { category } : {}),
+      ...(iconUrl !== undefined ? { iconUrl } : {}),
+      ...(iconUrlDark !== undefined ? { iconUrlDark } : {}),
     })
 
     // R15b: proposed indicator is default-on. Opting out

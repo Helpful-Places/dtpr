@@ -2,7 +2,7 @@
 // Wraps DtprDatachain for the visualizer page. Owns the section build
 // and the expand-all toggle; the parent provides the resolved instance
 // and the active locale.
-import { computed, ref, watch } from 'vue'
+import { computed, ref, watch, watchEffect } from 'vue'
 import {
   DtprDatachain,
   DtprElementDetail,
@@ -10,7 +10,19 @@ import {
 } from '@dtpr/ui/vue'
 import '@dtpr/ui/vue/styles.css'
 import { buildResolvedSections, extract } from '@dtpr/ui/core'
-import type { ResolvedDatachainInstance } from '@dtpr/ui/core'
+import type {
+  Category,
+  Element,
+  InstanceElement,
+  ResolvedDatachainInstance,
+} from '@dtpr/ui/core'
+import { DTPR_API_BASE, DTPR_FETCH_TIMEOUT_MS } from '../utils/dtpr-api-config'
+
+interface CategoriesResponse {
+  ok: boolean
+  version: string
+  categories: Category[]
+}
 
 interface Props {
   resolved: ResolvedDatachainInstance
@@ -19,9 +31,89 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const expandAll = ref(false)
+// Default to all-expanded — the visualizer is a debugging surface,
+// so seeing the whole resolved chain at a glance is the common case.
+// The "Collapse to one" button still drops back to single-section
+// accordion behavior.
+const expandAll = ref(true)
 
-const sections = computed(() => buildResolvedSections(props.resolved, props.locale))
+// Empty / unreferenced categories aren't pinned into `schema_snapshot.categories`
+// (R6 — the resolver only freezes referenced + required categories), so
+// `buildResolvedSections` falls back to the bare category id for the
+// section title. Fetch the full category list for the pinned
+// `schema_version` and use it to backfill those titles. Kept as a
+// best-effort enrichment: on fetch failure the section just keeps its
+// id-fallback title rather than blocking the whole render.
+const liveCategories = ref<Category[]>([])
+
+watchEffect(async () => {
+  const version = props.resolved.schema_version
+  const locale = props.locale
+  try {
+    const res = await $fetch<CategoriesResponse>(
+      `${DTPR_API_BASE}/schemas/${encodeURIComponent(version)}/categories?locales=${encodeURIComponent(locale)},en`,
+      { timeout: DTPR_FETCH_TIMEOUT_MS },
+    )
+    liveCategories.value = res.categories ?? []
+  } catch {
+    liveCategories.value = []
+  }
+})
+
+const categoryTitleById = computed<Map<string, string>>(() => {
+  const map = new Map<string, string>()
+  for (const c of liveCategories.value) {
+    const name = extract(c.name, props.locale, 'en')
+    if (name) map.set(c.id, name)
+  }
+  return map
+})
+
+// Compose the composed-icon URLs served by the public DTPR API. The
+// resolved instance pins `schema_version`, so the URL stays stable
+// even if the live schema evolves. The composed-icon route accepts a
+// variant token of `{base}[.dark]` (parseVariantToken in api/src/rest
+// — `icon.vendor.dark.svg` is a real, served variant), so a placement
+// with `context_type_id` gets the colored icon in both light and dark
+// modes rather than dropping the dark counterpart when context is
+// active.
+const iconBase = computed(
+  () =>
+    `${DTPR_API_BASE}/schemas/${encodeURIComponent(props.resolved.schema_version)}/elements`,
+)
+
+function iconUrlFor(element: Element, placement: InstanceElement): string {
+  const ctx = placement.context_type_id
+  const variant = ctx ? `icon.${encodeURIComponent(ctx)}` : 'icon'
+  return `${iconBase.value}/${encodeURIComponent(element.id)}/${variant}.svg`
+}
+
+function iconUrlDarkFor(
+  element: Element,
+  placement: InstanceElement,
+): string {
+  const ctx = placement.context_type_id
+  const variant = ctx ? `icon.${encodeURIComponent(ctx)}.dark` : 'icon.dark'
+  return `${iconBase.value}/${encodeURIComponent(element.id)}/${variant}.svg`
+}
+
+const sections = computed(() => {
+  const built = buildResolvedSections(props.resolved, props.locale, {
+    iconUrlFor,
+    iconUrlDarkFor,
+  })
+  // `buildResolvedSections` returns the bare id as title for any
+  // declared category whose definition isn't pinned in the snapshot
+  // (R6 keeps the snapshot to referenced + required categories).
+  // Swap in the live category name when available.
+  const titleMap = categoryTitleById.value
+  if (titleMap.size === 0) return built
+  return built.map((s) => {
+    if (s.title !== s.id) return s
+    const live = titleMap.get(s.id)
+    return live ? { ...s, title: live } : s
+  })
+})
 
 const title = computed(() => extract(props.resolved.title, props.locale))
 const description = computed(() =>
