@@ -166,7 +166,7 @@ function getSchemaTool(ctx: LoadContext): ToolDef {
     descriptor: {
       name: 'get_schema',
       description:
-        'Fetch a schema version. By default returns manifest + categories + datachain-type; pass include="full" to also inline every element.',
+        'Fetch a schema version. By default returns manifest + categories + datachain-type; pass include="full" to also inline every element. Each returned category may carry an element_context block (a per-instance discriminator with allowed values); authors must read it and set context_type_id on every instance element placed in such a category.',
       inputSchema: schemaToJson(inputSchema),
     },
     handler: async (raw) => {
@@ -216,7 +216,8 @@ function listCategoriesTool(ctx: LoadContext): ToolDef {
   return {
     descriptor: {
       name: 'list_categories',
-      description: 'List the categories defined in a schema version, with locale filtering.',
+      description:
+        'List the categories defined in a schema version, with locale filtering. A category may carry an element_context block (a per-instance discriminator with allowed values); when present, every instance element in that category must set context_type_id to one of those values.',
       inputSchema: schemaToJson(inputSchema),
     },
     handler: async (raw) => {
@@ -474,7 +475,15 @@ function getElementsTool(ctx: LoadContext): ToolDef {
 function validateDatachainTool(ctx: LoadContext): ToolDef {
   const inputSchema = z.object({
     version: VersionString,
-    datachain: z.unknown().describe('Datachain instance JSON. See schema_json.DatachainInstance.'),
+    // `z.unknown()` emits JSON Schema with no `type`, which makes some
+    // MCP harnesses (including the Claude Code function-calling
+    // harness) pass the value as a string. Pin the JSON-Schema type
+    // to `object` so the body travels structurally; downstream Zod
+    // still parses against DatachainInstanceSchema for the real shape.
+    datachain: z
+      .object({})
+      .passthrough()
+      .describe('Datachain instance JSON. See schema_json.DatachainInstance.'),
   })
   return {
     descriptor: {
