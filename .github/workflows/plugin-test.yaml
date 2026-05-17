@@ -6,12 +6,14 @@ on:
       - 'plugin/**'
       - '.claude-plugin/**'
       - 'api/src/mcp/tools.ts'
+      - 'dtpr-ai/content/en/7.plugin/1.install.md'
       - '.github/workflows/plugin-test.yaml'
   pull_request:
     paths:
       - 'plugin/**'
       - '.claude-plugin/**'
       - 'api/src/mcp/tools.ts'
+      - 'dtpr-ai/content/en/7.plugin/1.install.md'
       - '.github/workflows/plugin-test.yaml'
 
 jobs:
@@ -22,7 +24,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           # Full history so verify.mjs can compute `git merge-base origin/main HEAD`
-          # for the INDEX.md append-only check.
+          # for the INDEX.md append-only check and the plugin-version bump check.
           fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
