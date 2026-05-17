@@ -8,7 +8,12 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 400, statusMessage: 'Email and action are required' });
   }
 
-  const { hostname } = new URL(action);
+  let hostname: string;
+  try {
+    ({ hostname } = new URL(action));
+  } catch {
+    throw createError({ statusCode: 400, statusMessage: 'Invalid action URL' });
+  }
   if (hostname !== ALLOWED_ACTION_HOST) {
     throw createError({ statusCode: 400, statusMessage: 'Invalid action URL' });
   }
@@ -19,11 +24,15 @@ export default defineEventHandler(async (event) => {
     formData.append('tags', tags);
   }
 
-  await $fetch(action, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: formData.toString(),
-  });
+  try {
+    await $fetch(action, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: formData.toString(),
+    });
+  } catch {
+    throw createError({ statusCode: 502, statusMessage: 'Subscription service unavailable' });
+  }
 
   return { success: true };
 });
