@@ -37,15 +37,12 @@ interface ValidateErrorEnvelope {
   warnings?: ApiError[]
 }
 
-interface ResolveOkEnvelope {
-  ok: true
-  version: string
-  resolved: ResolvedDatachainInstance
-  warnings?: ApiError[]
-}
-
+// /resolve returns the bare ResolvedDatachainInstance on success (no
+// envelope), and the same `{ ok: false, errors }` shape on semantic
+// failure. We type the success branch as `ResolvedDatachainInstance`
+// directly and rely on the `ok === false` check to discriminate.
 type ValidateEnvelope = ValidateOkEnvelope | ValidateErrorEnvelope
-type ResolveEnvelope = ResolveOkEnvelope | ValidateErrorEnvelope
+type ResolveEnvelope = ResolvedDatachainInstance | ValidateErrorEnvelope
 
 function readSchemaVersion(jsonText: string):
   | { ok: true; version: string }
@@ -268,9 +265,21 @@ export async function validateAndResolve(jsonText: string): Promise<ValidateAndR
     ]
     return { ok: false, errors: fallback }
   }
-  if (resolveResp.envelope.ok === false) {
-    return { ok: false, errors: resolveResp.envelope.errors }
+  const envelope = resolveResp.envelope
+  if (isResolveErrorEnvelope(envelope)) {
+    return { ok: false, errors: envelope.errors }
   }
+  return { ok: true, resolved: envelope }
+}
 
-  return { ok: true, resolved: resolveResp.envelope.resolved }
+// `ResolvedDatachainInstance` has no `ok` field, so `'ok' in envelope`
+// uniquely identifies the soft-failure envelope. Wrapped as a real type
+// guard so both branches narrow without manual casts at the call site.
+function isResolveErrorEnvelope(
+  envelope: ResolveEnvelope,
+): envelope is ValidateErrorEnvelope {
+  return (
+    'ok' in envelope &&
+    (envelope as { ok: unknown }).ok === false
+  )
 }

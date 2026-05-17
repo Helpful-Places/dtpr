@@ -23,9 +23,9 @@ const expandAll = ref(false)
 
 const sections = computed(() => buildResolvedSections(props.resolved, props.locale))
 
-const title = computed(() => extract(props.resolved.instance.title, props.locale))
+const title = computed(() => extract(props.resolved.title, props.locale))
 const description = computed(() =>
-  extract(props.resolved.instance.description, props.locale),
+  extract(props.resolved.description, props.locale),
 )
 
 // Keep the accordion's open id stable as long as that section still

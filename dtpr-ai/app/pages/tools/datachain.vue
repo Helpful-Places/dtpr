@@ -123,8 +123,8 @@ function onSave() {
   if (!resolvedInstance.value) return
   collectionMessage.value = null
   const fallbackName =
-    extract(resolvedInstance.value.instance.title, activeLocale.value) ||
-    resolvedInstance.value.instance.id ||
+    extract(resolvedInstance.value.title, activeLocale.value) ||
+    resolvedInstance.value.id ||
     'Untitled chain'
   try {
     const entry = saveCollectionEntry({ name: fallbackName, json: inputJson.value })
