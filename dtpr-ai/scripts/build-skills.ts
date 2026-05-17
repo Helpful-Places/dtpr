@@ -15,14 +15,16 @@
  * Outputs land under `dtpr-ai/public/skills/<version>/` and are
  * served from `dtpr.ai/skills/<version>/...` once the site deploys.
  *
- * Uses the system `zip` command (Info-ZIP, ships on macOS/Linux/WSL)
- * rather than a JS zip library so the build is dependency-free.
+ * Uses the pure-Node `archiver` library rather than spawning the
+ * system `zip` binary — Cloudflare Workers Builds and other minimal
+ * CI containers don't always ship `zip`, and an environment-dependent
+ * build is worse than a small dev-dependency.
  */
-import { spawnSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
-import { mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs'
+import { createWriteStream, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs'
 import { dirname, relative, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import archiver from 'archiver'
 
 const DESCRIPTION_LIMIT = 1024
 
@@ -125,35 +127,45 @@ function sha256(filepath: string): string {
   return hash.digest('hex')
 }
 
-function runZip(cwd: string, args: string[]): void {
-  const result = spawnSync('zip', args, { cwd, stdio: ['ignore', 'ignore', 'inherit'] })
-  if (result.error) {
-    throw new Error(`zip command failed: ${result.error.message}`)
-  }
-  if (result.status !== 0) {
-    throw new Error(`zip exited with status ${result.status}`)
-  }
+async function zipSkillDirectory(skillName: string, outPath: string): Promise<void> {
+  // The skill folder must sit at the top of the zip (e.g.
+  // `dtpr-translate/SKILL.md`) — that's the layout Claude Desktop
+  // expects on upload. `archive.directory(src, name)` writes `src`'s
+  // contents under `name` in the archive.
+  rmSync(outPath, { force: true })
+  await new Promise<void>((resolveZip, rejectZip) => {
+    const output = createWriteStream(outPath)
+    const archive = archiver('zip', { zlib: { level: 9 } })
+    output.on('close', () => resolveZip())
+    output.on('error', rejectZip)
+    archive.on('error', rejectZip)
+    archive.pipe(output)
+    archive.directory(resolve(skillsRoot, skillName), skillName)
+    archive.finalize()
+  })
 }
 
-function zipSkillDirectory(skillName: string, outPath: string): void {
-  // `zip -r -X` recurses and strips extended attributes; cwd at
-  // skillsRoot keeps the skill folder as the top-level entry inside
-  // the zip (e.g. `dtpr-translate/SKILL.md`), which is the layout
-  // Claude Desktop expects on upload.
+async function zipBundle(versionDir: string, outPath: string, fileNames: string[]): Promise<void> {
   rmSync(outPath, { force: true })
-  runZip(skillsRoot, ['-r', '-q', '-X', outPath, skillName])
-}
-
-function zipBundle(versionDir: string, outPath: string, fileNames: string[]): void {
-  rmSync(outPath, { force: true })
-  runZip(versionDir, ['-q', '-X', outPath, ...fileNames])
+  await new Promise<void>((resolveZip, rejectZip) => {
+    const output = createWriteStream(outPath)
+    const archive = archiver('zip', { zlib: { level: 9 } })
+    output.on('close', () => resolveZip())
+    output.on('error', rejectZip)
+    archive.on('error', rejectZip)
+    archive.pipe(output)
+    for (const name of fileNames) {
+      archive.file(resolve(versionDir, name), { name })
+    }
+    archive.finalize()
+  })
 }
 
 function bundleReadme(plugin: PluginManifest, skills: string[]): string {
   const lines = [
     `DTPR Claude plugin — skill bundle v${plugin.version}`,
     '',
-    'This zip contains seven Agent Skills, each pre-packaged as a `.skill`',
+    `This zip contains ${skills.length} Agent Skills, each pre-packaged as a \`.skill\``,
     'file (a renamed zip). To install on Claude Desktop or Claude.ai:',
     '',
     '  1. Unzip this archive.',
@@ -177,7 +189,7 @@ function bundleReadme(plugin: PluginManifest, skills: string[]): string {
   return lines.join('\n')
 }
 
-function main() {
+async function main() {
   const plugin = readPluginManifest()
   const skills = listSkills()
   console.log(`[build-skills] plugin ${plugin.name} v${plugin.version}, ${skills.length} skills`)
@@ -196,7 +208,7 @@ function main() {
   const skillEntries: SkillEntry[] = []
   for (const v of validated) {
     const outPath = resolve(versionDir, `${v.name}.skill`)
-    zipSkillDirectory(v.name, outPath)
+    await zipSkillDirectory(v.name, outPath)
     const size = statSync(outPath).size
     skillEntries.push({
       name: v.name,
@@ -207,10 +219,10 @@ function main() {
     console.log(`  → ${relative(outRoot, outPath)} (${size} bytes)`)
   }
 
-  // Combined bundle: INSTALL.txt + the seven .skill files.
+  // Combined bundle: INSTALL.txt + the per-skill .skill files.
   writeFileSync(resolve(versionDir, 'INSTALL.txt'), bundleReadme(plugin, validated.map((v) => v.name)))
   const bundlePath = resolve(versionDir, 'dtpr-skills.zip')
-  zipBundle(versionDir, bundlePath, ['INSTALL.txt', ...validated.map((v) => `${v.name}.skill`)])
+  await zipBundle(versionDir, bundlePath, ['INSTALL.txt', ...validated.map((v) => `${v.name}.skill`)])
   const bundleSize = statSync(bundlePath).size
   const bundle: BundleEntry = {
     path: `${plugin.version}/dtpr-skills.zip`,
@@ -250,10 +262,8 @@ function main() {
   console.log('[build-skills] done')
 }
 
-try {
-  main()
-} catch (err) {
+main().catch((err) => {
   console.error('[build-skills] FAILED')
   console.error(err instanceof Error ? err.message : err)
   process.exit(1)
-}
+})

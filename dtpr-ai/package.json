@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "pnpm --filter @dtpr/api build:schema && pnpm --filter @dtpr/ui build && pnpm emit:object-reference && pnpm build:skills && NODE_OPTIONS=--max-old-space-size=4096 nuxt build",
-    "dev": "pnpm --filter @dtpr/api build:schema && pnpm --filter @dtpr/ui build && pnpm emit:object-reference && pnpm build:skills && NODE_OPTIONS=--max-old-space-size=4096 nuxt dev",
+    "dev": "pnpm --filter @dtpr/api build:schema && pnpm --filter @dtpr/ui build && pnpm emit:object-reference && NODE_OPTIONS=--max-old-space-size=4096 nuxt dev",
     "emit:object-reference": "tsx scripts/emit-object-reference.ts",
     "build:skills": "tsx scripts/build-skills.ts",
     "preview": "nuxt preview",
@@ -21,6 +21,8 @@
   },
   "devDependencies": {
     "@dtpr/api": "workspace:*",
+    "@types/archiver": "^6.0.3",
+    "archiver": "^7.0.1",
     "jsdom": "^25.0.1",
     "tsx": "^4.19.0",
     "vitest": "^3.0.0",
