@@ -32,7 +32,8 @@ const pageList = Array.from({ length: props.pages }, (_, i) => {
         :src="src"
         :alt="`LL35 Report 2025 — page ${i + 1}`"
         class="ll35-scroll__page"
-        loading="lazy"
+        :loading="i < 3 ? 'eager' : 'lazy'"
+        :fetchpriority="i === 0 ? 'high' : 'auto'"
         decoding="async"
       />
     </div>
@@ -53,7 +54,7 @@ const pageList = Array.from({ length: props.pages }, (_, i) => {
   top: 0;
   left: 50%;
   width: var(--width);
-  transform: translate(-50%, 100vh);
+  transform: translate(-50%, 0);
   animation: ll35-scroll-up var(--duration) linear forwards;
   display: flex;
   flex-direction: column;
@@ -78,7 +79,7 @@ const pageList = Array.from({ length: props.pages }, (_, i) => {
 
 @keyframes ll35-scroll-up {
   from {
-    transform: translate(-50%, 100vh);
+    transform: translate(-50%, 0);
   }
   to {
     transform: translate(-50%, -100%);

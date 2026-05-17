@@ -13,43 +13,29 @@ background: https://dtpr.io/images/intro_header.svg
 transition: slide-left
 mdc: true
 fonts:
-  sans: 'Inter'
-  serif: 'Source Serif Pro'
+  sans: 'Helvetica Neue'
+  serif: 'Sorts Mill Goudy'
   mono: 'JetBrains Mono'
+  weights: '400,600,700'
+  local: 'Helvetica Neue'
 ---
 
-<div class="inline-block bg-black text-white px-8 py-4">
-  <h1 class="!m-0 !p-0">DTPR for AI</h1>
+<div class="inline-block bg-hp-blue text-white px-8 py-4">
+  <h1 class="!m-0 !p-0 !text-white">DTPR for AI</h1>
 </div>
 
-<div class="mt-6 inline-block bg-black text-white px-6 py-3 text-2xl">
+<div class="mt-6 inline-block bg-hp-blue text-white px-6 py-3 text-2xl">
 An Open-Source Communication Standard for AI
 </div>
 
-<div class="mt-12 inline-block bg-black text-white px-6 py-3 text-lg">
+<div class="mt-12 inline-block bg-hp-blue text-white px-6 py-3 text-lg">
 MakeShift 2026 · School of Visual Arts, NYC<br>
 Jonathan Pichot · Helpful Places
 </div>
 
 <!--
-SLIDE 1 · 15s · Title card
+15s
 A grounded hello. Don't promise what the talk will do — let the audience discover it.
-
----
-
-*Walk on. Smile. Look at the room before speaking.*
-
-> Hello, I'm Jonathan Pichot, from Helpful Places. I'm here to talk to you about DTPR for AI — an open-source communication standard. Thanks for coming.
-
----
-
-**Deck-wide practice notes**
-
-- Word count target: ~140 wpm. If a slide feels tight in practice, cut a sentence rather than speed up.
-- Pause discipline: every `[beat]` is roughly one second. The `[beat] [beat]` markers (slides 7, 27, 39) are load-bearing — resist filling them.
-- Demo slides (16, 19): the temptation will be to narrate over the video. Don't. The artifact speaks.
-- Slide 33 live demo: rehearse against the actual `nyc.clarable.ai/register` URL the week of. If the live version is even slightly slow, switch to the recorded fallback without apologizing for it.
-- The repeated sentence (slide 27) and the final line (slide 39) are the only two places committing to *exact* wording. Everything else can drift naturally between runs.
 -->
 
 ---
@@ -57,16 +43,19 @@ layout: image-right
 image: https://images.unsplash.com/photo-1568515387631-8b650bbcdb90?w=1600&q=80
 ---
 
-# We're in NYC
+# NYC
 
-NYC has done more than most cities to make AI transparent and understandable, thanks to
+On the forefront of municipal innovation
 
+### AI transparency and disclosure
 - Local Law 35 of 2022
-- the Office of Technology & Innovation
-
-<div class="absolute bottom-2 right-3 text-[10px] opacity-70 text-white drop-shadow">
-  Photo by <a href="https://unsplash.com/@eejermaine" class="underline">Jermaine Ee</a> on <a href="https://unsplash.com/photos/new-york-central-park-A2CChTZvzTE" class="underline">Unsplash</a>
-</div>
+- The Office of Technology & Innovation
+<br>
+<br>
+### ..built on the foundation <br> of open data
+- Local Law 11 of 2012
+- Mayor's Office of Data Analytics
+- BetaNYC
 
 <!--
 SLIDE 2 · 20s · We're in NYC
@@ -75,6 +64,199 @@ Set the location. Pay homage to LL35 + OTI. Constructive, humble.
 ---
 
 > We're in New York City. New York City has done more than most cities to make AI transparent and understandable — thanks to Local Law 35 of 2022 and the Office of Technology and Innovation. [beat] We wanted to pay homage to that work.
+-->
+
+---
+class: '!p-0'
+---
+
+<Ll35ReportScroll :duration-sec="300" />
+
+<!--
+SLIDE 6 · 30s · LL35 Report — full scroll
+The 127-page LL35 Report 2025 scrolls slowly upward when the slide loads. Default duration 360s (the speaker controls when to advance). Continuous beat with slide 5: this slide is where the "I applaud them" line lands AS the volume of the report becomes visible.
+Tune via :duration-sec on <Ll35ReportScroll />.
+Source PDF: public/LL35 Report 2025 - Final - 2026-03-27.pdf, rendered to public/images/ll35-report/page-NNN.jpg at 100dpi.
+
+---
+
+*Slide loads. The report starts scrolling. Let it do the work.*
+
+> *(Continuing from slide 5.)* And every year they publish a report like this — one hundred and twenty-seven pages this year. [beat] Every algorithmic tool the city uses, declared. In machine-readable form. [beat] I really want to applaud them on this work.
+-->
+
+---
+class: text-center flex flex-col items-center justify-center
+---
+
+# Disclosure is the first step
+# Public understanding comes next
+
+<div class="mt-8 text-2xl opacity-80">
+DTPR is designed to move from PDFs and CSVs,<br>to understanding
+</div>
+
+<!--
+SLIDE 7 · 30s · Disclosure is step one (bridge into Act 1)
+Pivot from "applauding NYC" to "what we're here to add." Don't make the talk's promise — frame it as a shared question. Humble bridge into the DTPR translation-layer setup.
+
+---
+
+*Title large; subtitle small. Brief pause before delivering.*
+
+> So — what we're here to do is to introduce the next step. [beat] Disclosure is step one. Getting the data out there, in machine-readable form, is step one — and New York has done that. [beat] [beat] But how do we make this information usable by a lot of people? [beat] How can we bring what we've learned — working with communities around the world on making data collection in public space transparent — to AI?
+-->
+
+---
+layout: image-right
+image: /sopa.png
+---
+
+# DTPR, 6 years later
+
+- Initially released in 2020
+- Grounded in conversations and co-design sessions with hundreds of experts and public participants
+- Focused on bringing transparency to data collection in public space
+- Released as Creative Commons Attribution-ShareAlike 4.0 International
+- Translated in 6 languages
+- Covered in media around the world
+
+<div class="absolute bottom-2 right-3 text-[10px] opacity-70 text-white drop-shadow">
+Early DTPR deployment · Sydney Olympic Park
+</div>
+
+<!--
+SLIDE 8 · 30s · DTPR, 6 years later
+Photo (sopa.png) carries the "you've seen these" beat. Frontmatter `image:` resolves through Slidev's layout, which bypasses the markdown-image import guard that flagged `<img src="/sopa.png">` and `![](/sopa.png)`.
+Skip the origin story.
+
+---
+
+*Origin photo: DTPR signage panel + CCTV at Sydney Olympic Park.*
+
+> Many of you already know DTPR. [beat] You've seen these shapes. The icons. The colors. It's a visual grammar for what a connected thing in public space is doing — the same hexagon in Boston means the same thing as the same hexagon in Helsinki. [beat] I'll skip the origin story.
+-->
+
+---
+layout: image
+image: /dtpr-map.png
+backgroundSize: contain
+---
+
+<div class="absolute top-3 left-6 bg-black/80 text-white px-4 py-2 rounded text-2xl font-semibold backdrop-blur">
+Deployed in 15 cities on 3 continents, and counting
+</div>
+
+<!--
+SLIDE 10 · 30s · DTPR in production today
+Static map of every original-DTPR deployment, sourced from dtpr.guide/landing. Replaces the prior live iframe (blocked by the import guard / X-Frame-Options uncertainty).
+
+---
+
+*Map fills the slide. Title chip top-left; URL chip bottom-left.*
+
+> And this isn't a thought experiment. The original DTPR is deployed in fifteen cities — Boston, Sydney, Paris, Detroit, on and on. It's been doing translation work, for connected things in public space, for years.
+-->
+
+---
+
+# DTPR as a translation layer
+
+Making sense of piles of PDFs
+
+<div class="mt-8 grid grid-cols-[1fr_auto_1fr] gap-8 items-center">
+
+<div class="text-lg opacity-80">
+
+**Heterogeneous source-of-truth**  
+*scattered across agencies and vendors*
+
+- Privacy Impact Assessments
+- Vendor specs
+- Procurement records
+
+</div>
+
+<div class="text-5xl opacity-70 text-center">→</div>
+
+<div>
+
+**DTPR datachain**  
+*tells the story of data collection*
+
+- Visual language
+- Design system
+- Standard taxonomy
+
+</div>
+
+</div>
+
+<!--
+SLIDE 9 · 45s · It was always a translation layer
+"Take heterogeneous inputs from any city or vendor. Produce one comparable nugget a person can read."
+This is the THESIS slide. Set up the reframe that DTPR for AI extends the same translation function.
+
+---
+
+*Split slide: privacy notice PDF, vendor spec, signage standard on the left → datachain on the right.*
+
+> Here's the thing about DTPR. [beat] It takes heterogeneous inputs — a privacy notice in legal English, a vendor spec sheet, a regulatory filing — and it produces one comparable, readable nugget that a non-expert can actually parse. [beat] DTPR has always been a translation layer.
+-->
+
+---
+
+# January 2025, first proposal of DTPR for AI
+
+<div class="text-base mt-1 opacity-70">
+<a href="https://github.com/Helpful-Places/dtpr/issues/228" class="underline">RFC #228</a> · <em>Create a new datachain pattern to describe an AI model or algorithm</em>
+</div>
+
+<table class="text-xs mt-4 mx-auto">
+<thead>
+<tr class="bg-gray-100">
+<th class="px-2 py-1 text-left">Shape</th>
+<th class="px-2 py-1 text-left">Sensor datachain</th>
+<th class="px-2 py-1 text-left">AI datachain</th>
+<th class="px-2 py-1 text-left"><em>Contextual color</em></th>
+</tr>
+</thead>
+<tbody>
+<tr><td class="px-2 py-1">hexagon</td><td class="px-2 py-1">Accountable</td><td class="px-2 py-1">Accountable</td><td class="px-2 py-1"></td></tr>
+<tr><td class="px-2 py-1">hexagon</td><td class="px-2 py-1">Purpose</td><td class="px-2 py-1">Purpose</td><td class="px-2 py-1"></td></tr>
+<tr class="bg-blue-50"><td class="px-2 py-1">hexagon</td><td class="px-2 py-1 opacity-40">—</td><td class="px-2 py-1"><strong>Decision Making</strong> 🆕</td><td class="px-2 py-1 italic">Level of autonomy in decision-making</td></tr>
+<tr><td class="px-2 py-1">hexagon</td><td class="px-2 py-1">(Data-collection) Technology</td><td class="px-2 py-1 opacity-40">—</td><td class="px-2 py-1 italic">Data collected is personally identifiable</td></tr>
+<tr><td class="px-2 py-1">circle</td><td class="px-2 py-1">Data Type <span class="opacity-60">[deprecate]</span> 🗑️</td><td class="px-2 py-1 opacity-40">—</td><td class="px-2 py-1"></td></tr>
+<tr class="bg-blue-50"><td class="px-2 py-1">circle</td><td class="px-2 py-1 opacity-40">—</td><td class="px-2 py-1"><strong>Input Datasets</strong> 🆕</td><td class="px-2 py-1"></td></tr>
+<tr><td class="px-2 py-1">circle</td><td class="px-2 py-1">Processing (Technology)</td><td class="px-2 py-1">Processing (Technology) ♻️ <em>+ location</em></td><td class="px-2 py-1"></td></tr>
+<tr class="bg-blue-50"><td class="px-2 py-1">circle</td><td class="px-2 py-1">Output Datasets 🆕</td><td class="px-2 py-1"><strong>Output Datasets</strong> 🆕</td><td class="px-2 py-1"></td></tr>
+<tr><td class="px-2 py-1">square</td><td class="px-2 py-1">Access</td><td class="px-2 py-1">Access</td><td class="px-2 py-1"></td></tr>
+<tr><td class="px-2 py-1">square</td><td class="px-2 py-1">Storage <em>+ location</em></td><td class="px-2 py-1">Storage <em>+ location</em></td><td class="px-2 py-1"></td></tr>
+<tr class="bg-blue-50"><td class="px-2 py-1">octagon</td><td class="px-2 py-1 opacity-40">—</td><td class="px-2 py-1"><strong>Risks &amp; Mitigation</strong> 🆕</td><td class="px-2 py-1"></td></tr>
+<tr><td class="px-2 py-1">octagon</td><td class="px-2 py-1">Rights 🆕</td><td class="px-2 py-1">Rights 🆕</td><td class="px-2 py-1"></td></tr>
+</tbody>
+</table>
+
+<div class="mt-3 text-xs text-center opacity-60">
+Opened 2025-01-15 on github.com/Helpful-Places/dtpr · the seed of what we now call DTPR for AI
+</div>
+
+<!--
+SLIDE 11 · 45s · January 2025 — the first proposal (RFC #228)
+The pivot from sensors to AI. Replaces the "Same mission. New domain." title-card. Plants the flag that DTPR for AI didn't appear overnight — it started as a public RFC sixteen months ago, in the open, in the repo.
+
+The table is verbatim from issue #228 — the side-by-side that compares the existing Sensor datachain to a proposed AI datachain. Highlighted rows are the new categories the RFC introduced: Decision Making, Input Datasets, Output Datasets, Risks & Mitigation. Most have survived into the current schema, sometimes renamed (Decision Making → Functional Modes).
+
+Don't read the whole table. Land three beats:
+  - We opened this in the open, in January 2025.
+  - The shape of the AI datachain — what categories exist, which are new vs. reused — was a public conversation from day one.
+  - Most of what's highlighted is still in the schema today, sometimes renamed. The rest of this talk is the result of sixteen months of iteration on this table.
+
+---
+
+*Side-by-side comparison table fills the slide.*
+
+> In January 2025 — sixteen months ago — we opened an RFC in the DTPR repo. Issue two-twenty-eight. The first proposal to adapt DTPR to AI. [beat] This is the table from that issue. The Sensor datachain on the left — what DTPR had been describing for six years. A proposed AI datachain on the right. [beat] The highlighted rows are what was new — Decision Making, Input and Output Datasets, Risks and Mitigation. [beat] Most of these survived into the schema you'll see in a few slides, sometimes renamed. The rest of this talk is what sixteen months of iteration on this table produced.
 -->
 
 ---
@@ -103,265 +285,23 @@ Source: NYC Admin Code § 3-119.5(a) · Local Law 35 of 2022.
 
 ---
 
-# The work this builds on
+# What we should know about AI systems?
 
-NYC's leadership on AI builds on its open-data history — **Local Law 11 of 2012** ushered in a wave of civic tech that many people in this room helped accomplish.
-
-I was lucky to be part of that era — from the early days of **Code for America** in 2010 to my time at NYC's **Department of City Planning**, building software for urban planners and helping open new datasets for the city.
-
-<!--
-SLIDE 4 · 30s · The work this builds on (personal history)
-NYC's AI work isn't a one-off; it builds on a decade-plus of open-data work that this room helped accomplish. Personal credibility beat: speaker was part of that era. Sets up slide 5's "I know how hard this is" without overclaiming.
-
----
-
-*List on screen: LL11 of 2012 · Code for America · NYC Department of City Planning. Personal, warm, brief.*
-
-> The work New York City has done on AI builds on its history with open data. [beat] Local Law 11 of 2012 ushered in the wave of civic tech that many of you in this room helped create. [beat] I was lucky enough to be part of that era — from the early days of Code for America in 2010, to my time at New York City's Department of City Planning, where I helped build software for urban planners that took advantage of open data, and worked with colleagues to open new datasets for the city. [beat] That tradition is what makes this AI disclosure work possible today.
--->
-
----
-class: text-center
----
-
-# NYC OTI 2025 AI Report
-
-86 systems · 20 agencies
-
-<div class="mt-10 max-w-3xl mx-auto space-y-3 text-left">
-<div class="text-xl"><strong>17</strong> · Department of Health and Mental Hygiene</div>
-<div class="text-xl"><strong>10</strong> · Mayor's Office</div>
-<div class="text-xl"><strong>8</strong> · Office of Technology and Innovation</div>
-<div class="text-xl"><strong>7</strong> · New York City Public Schools</div>
-<div class="text-xl"><strong>4</strong> · Administration for Children's Services</div>
-<div class="text-xl text-gray-500"><strong>40</strong> · across 15 more agencies</div>
-</div>
-
-<!--
-SLIDE 5 · 40s · 86 systems / 20 organizations
-From the outside looking in: this kind of work is foundational. Speaker leans on "I was a public servant" continuity from slide 4. Continuous beat with slide 6 (the report scroll) — don't fully close out the "I really want to applaud them" line here; carry it into the scroll.
-TODO: replace inline grid with a heat-map visualization rendered from register data.
-
----
-
-*Let the numbers breathe.*
-
-> Now from the outside looking in, it's impressive — the latest 2025 report from OTI registers eighty-six different algorithmic systems across twenty agencies. [beat] Department of Health: seventeen. The Mayor's Office: ten. OTI itself: eight. [beat] This kind of work is foundational. As a former public servant, I understand the difficulty — the work it takes to get this kind of information out the door, collated across agencies, consistently, every year. [beat] *(Click into slide 6 — the report begins to scroll.)*
--->
-
----
-class: '!p-0'
----
-
-<Ll35ReportScroll :duration-sec="360" />
-
-<!--
-SLIDE 6 · 30s · LL35 Report — full scroll
-The 127-page LL35 Report 2025 scrolls slowly upward when the slide loads. Default duration 360s (the speaker controls when to advance). Continuous beat with slide 5: this slide is where the "I applaud them" line lands AS the volume of the report becomes visible.
-Tune via :duration-sec on <Ll35ReportScroll />.
-Source PDF: public/LL35 Report 2025 - Final - 2026-03-27.pdf, rendered to public/images/ll35-report/page-NNN.jpg at 100dpi.
-
----
-
-*Slide loads. The report starts scrolling. Let it do the work.*
-
-> *(Continuing from slide 5.)* And every year they publish a report like this — one hundred and twenty-seven pages this year. [beat] Every algorithmic tool the city uses, declared. In machine-readable form. [beat] I really want to applaud them on this work.
--->
-
----
-class: text-center flex flex-col items-center justify-center
----
-
-# Disclosure is the first step
-
-<div class="mt-8 text-2xl opacity-80">
-Moving from PDFs and CSVs to understanding
-</div>
-
-<!--
-SLIDE 7 · 30s · Disclosure is step one (bridge into Act 1)
-Pivot from "applauding NYC" to "what we're here to add." Don't make the talk's promise — frame it as a shared question. Humble bridge into the DTPR translation-layer setup.
-
----
-
-*Title large; subtitle small. Brief pause before delivering.*
-
-> So — what we're here to do is to introduce the next step. [beat] Disclosure is step one. Getting the data out there, in machine-readable form, is step one — and New York has done that. [beat] [beat] But how do we make this information usable by a lot of people? [beat] How can we bring what we've learned — working with communities around the world on making data collection in public space transparent — to AI?
--->
-
----
-layout: image-right
-image: /sopa.png
----
-
-# DTPR, 6 years later
-
-<ul>
-<li>Initially developed in 2019 and 2020</li>
-<li>Focused on bringing transparency and understandability to <em>data collection in public space</em></li>
-</ul>
-
-<div class="absolute bottom-2 right-3 text-[10px] opacity-70 text-white drop-shadow">
-Early DTPR deployment · Sydney Olympic Park
-</div>
-
-<!--
-SLIDE 8 · 30s · DTPR, 6 years later
-Photo (sopa.png) carries the "you've seen these" beat. Frontmatter `image:` resolves through Slidev's layout, which bypasses the markdown-image import guard that flagged `<img src="/sopa.png">` and `![](/sopa.png)`.
-Skip the origin story.
-
----
-
-*Origin photo: DTPR signage panel + CCTV at Sydney Olympic Park.*
-
-> Many of you already know DTPR. [beat] You've seen these shapes. The icons. The colors. It's a visual grammar for what a connected thing in public space is doing — the same hexagon in Boston means the same thing as the same hexagon in Helsinki. [beat] I'll skip the origin story.
--->
-
----
-layout: image
-image: /dtpr-map.png
-backgroundSize: contain
----
-
-<div class="absolute top-3 left-6 bg-black/80 text-white px-4 py-2 rounded text-2xl font-semibold backdrop-blur">
-Deployed in 15 cities and counting
-</div>
-
-<!--
-SLIDE 10 · 30s · DTPR in production today
-Static map of every original-DTPR deployment, sourced from dtpr.guide/landing. Replaces the prior live iframe (blocked by the import guard / X-Frame-Options uncertainty).
-
----
-
-*Map fills the slide. Title chip top-left; URL chip bottom-left.*
-
-> And this isn't a thought experiment. The original DTPR is deployed in fifteen cities — Boston, Sydney, Paris, Detroit, on and on. It's been doing translation work, for connected things in public space, for years.
--->
-
----
-
-# DTPR as translation layer
-
-Making sense of piles of PDFs
-
-<div class="mt-8 grid grid-cols-[1fr_auto_1fr] gap-8 items-center">
-
-<div class="text-lg opacity-80">
-
-**Heterogeneous source-of-truth**
-
-- Vendor specs
-- Privacy notices
-- Signage standards
-- Procurement records
-
-</div>
-
-<div class="text-5xl opacity-70 text-center">→</div>
-
-<div>
-
-**DTPR datachain**<br>
-*a person can read*
-
-- Visual language
-- Design system
-- Standard taxonomy
-
-</div>
-
-</div>
-
-<!--
-SLIDE 9 · 45s · It was always a translation layer
-"Take heterogeneous inputs from any city or vendor. Produce one comparable nugget a person can read."
-This is the THESIS slide. Set up the reframe that DTPR for AI extends the same translation function.
-
----
-
-*Split slide: privacy notice PDF, vendor spec, signage standard on the left → datachain on the right.*
-
-> Here's the thing about DTPR. [beat] It takes heterogeneous inputs — a privacy notice in legal English, a vendor spec sheet, a regulatory filing — and it produces one comparable, readable nugget that a non-expert can actually parse. [beat] DTPR has always been a translation layer.
--->
-
----
-class: text-center
----
-
-# DTPR for AI
-
-<div class="mt-16 text-5xl text-center font-bold">
-Same mission.
-</div>
-
-<div class="mt-6 text-5xl text-center font-bold opacity-60">
-New domain.
-</div>
-
-<!--
-SLIDE 11 · 30s · DTPR for AI — same mission, new functions
-The pivot from sensors to AI. Title introduces "DTPR for AI" as a phrase for the first time. Body lands the parallel statement. Pace slowly.
-
----
-
-*Pace slowly. This is the pivot.*
-
-> So — DTPR for AI. Same mission. New functions.
--->
-
----
-
-
-<div class="mt-8 text-xl opacity-80 text-center">
-AI is not physical the same way sensors are.
-</div>
-
-<div class="grid grid-cols-3 gap-6 mt-10 text-3xl text-center">
-<div><strong>Decides</strong></div>
-<div><strong>Acts</strong></div>
-<div><strong>Generates</strong></div>
-</div>
-
-<div class="mt-10 text-xl opacity-80 text-center">
-New risks. Composed with other systems.
-</div>
-
-<div class="mt-10 text-3xl text-center font-bold">
-More complicated. More critical.
-</div>
-
-<!--
-SLIDE 12 · 45s · AI is a different beast
-Four moves: not physical → decides/acts/generates → new risks + composition → "more complicated, more critical" punch line. Autonomy-gradients material now lives entirely on slide 25 (Function · Jashanmal) — don't enumerate it here.
-
----
-
-*Three crisp moves. Don't enumerate failure modes — they live on slide 25.*
-
-> AI is not physical the same way sensors are. It has other kinds of affordances — it *does* things. It can decide. It can act. It can generate. [beat] It has new risks. It can be composed with other kinds of systems. [beat] All of which makes the disclosure and transparency work both more complicated — and more critical.
--->
-
----
-
-# The disclosure floor everyone agrees on
-
-<div class="text-base mt-2 opacity-70">NYC Local Law 35 and the EU AI Act converge on the same minimum.</div>
+<div class="text-base mt-2 opacity-70">Regulations are converging on similar disclosure requirements.</div>
 
 <table class="text-base mt-6 mx-auto">
+  <thead>
+    <tr class="bg-gray-100"><th class="px-3 py-1"></th><th class="px-3 py-1">EU AI Act</th></tr>
+  </thead>
 <tbody>
-<tr><td class="px-3 py-1"><strong>What it is</strong> — name &amp; purpose</td><td class="px-3 py-1">✓</td><td class="px-3 py-1">Art. 13 · Annex IV</td></tr>
-<tr><td class="px-3 py-1"><strong>What it does</strong> — function &amp; autonomy</td><td class="px-3 py-1 opacity-50">—</td><td class="px-3 py-1">Art. 13, 50 · Annex III</td></tr>
-<tr><td class="px-3 py-1"><strong>What data it uses</strong> — type &amp; source</td><td class="px-3 py-1">✓</td><td class="px-3 py-1">Art. 10 · Annex IV</td></tr>
-<tr><td class="px-3 py-1"><strong>How outputs are used</strong></td><td class="px-3 py-1">✓</td><td class="px-3 py-1">Art. 13</td></tr>
-<tr><td class="px-3 py-1"><strong>Who's accountable</strong> — vendor &amp; contact</td><td class="px-3 py-1">✓</td><td class="px-3 py-1">Art. 16, 50</td></tr>
-<tr><td class="px-3 py-1"><strong>What could go wrong</strong> — risks &amp; mitigation</td><td class="px-3 py-1 opacity-50">—</td><td class="px-3 py-1">Art. 9, 27 · Annex IV</td></tr>
-<tr><td class="px-3 py-1"><strong>What rights you have</strong> — contest, opt-out, human review</td><td class="px-3 py-1 opacity-50">—</td><td class="px-3 py-1">Art. 14, 86</td></tr>
+<tr><td class="px-3 py-1"><strong>What is it for</strong> — name &amp; purpose</td><td class="px-3 py-1">Art. 13 · Annex IV</td></tr>
+<tr><td class="px-3 py-1"><strong>What does it do</strong> — function &amp; autonomy</td><td class="px-3 py-1">Art. 13, 50 · Annex III</td></tr>
+<tr><td class="px-3 py-1"><strong>What data and algorithms does it use</strong> — type &amp; source</td><td class="px-3 py-1">Art. 10 · Annex IV</td></tr>
+<tr><td class="px-3 py-1"><strong>Who built it, who deployed it</strong> — vendor &amp; deployer</td><td class="px-3 py-1">Art. 16, 50</td></tr>
+<tr><td class="px-3 py-1"><strong>What could go wrong</strong> — risks &amp; mitigation</td><td class="px-3 py-1">Art. 9, 27 · Annex IV</td></tr>
+<tr><td class="px-3 py-1"><strong>What rights does one have</strong> — contest, opt-out, human review</td><td class="px-3 py-1">Art. 14, 86</td></tr>
 </tbody>
 </table>
-
-<div class="mt-6 text-lg text-center opacity-80">
-DTPR for AI's 11 categories surface every one of these. <span class="opacity-60 text-sm">(specific LL35 mapping → slide 26)</span>
-</div>
 
 <!--
 SLIDE 14 · 60s · The disclosure floor
@@ -384,266 +324,368 @@ LL35 dashes are not gaps in DTPR — they're gaps in LL35. Don't slag LL35 here;
 class: text-center flex flex-col items-center justify-center
 ---
 
-# DTPR for AI
+<div class="relative inline-flex items-center gap-6">
+  <img :src="'/images/dtpr-black.png'" alt="DTPR" class="h-32 w-auto" />
+  <div class="text-7xl font-bold tracking-tight text-hp-blue-900">for&nbsp;AI</div>
+  <span class="absolute -top-3 -right-14 bg-hp-blue text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-md rotate-6">beta</span>
+</div>
 
-<div class="mt-6 text-3xl">dtpr.ai</div>
+<div class="mt-12">
+  <a href="https://dtpr.ai" class="text-4xl font-mono text-hp-blue-700 no-underline border-b-2 border-hp-blue pb-1">dtpr.ai</a>
+</div>
 
-<div class="mt-12 text-xl opacity-80 max-w-2xl">
-An open communication standard for the algorithms in our cities.
+<div class="mt-10 text-xl opacity-80 max-w-2xl mx-auto">
+An open-source communication standard for algorithms and AI
 </div>
 
 <!--
-SLIDE 14 · 20s · DTPR for AI — name the thing
-First time the audience sees the URL on its own slide. Land the name, the URL, the one-line definition. Keep it short — the taxonomy slide that follows does the unpacking.
+SLIDE 14 · 25s · DTPR for AI — name the thing
+First time the audience sees the URL on its own slide. Land the name, the URL, the one-line definition. Then set the beta expectation — this is the next iteration of an active beta, not a finished standard. Keep it short.
 
 ---
 
 *Title-card style.*
 
-> So — let me introduce DTPR for AI. [beat] Lives at dtpr.ai. An open communication standard for the algorithms in our cities. [beat] Here's how it's organized.
+> So — let me introduce DTPR for AI. [beat] Lives at dtpr.ai. An open communication standard for the algorithms in our cities. [beat] Important framing before we go further: this is the next version of the beta. Still a work in progress. I'm showing you where it is — not where it lands. [beat] Here's how it's organized.
 -->
 
 ---
+clicks: 4
+---
 
-# The DTPR for AI taxonomy
+# MySchools — Match
 
-<div class="text-base mt-2 opacity-70">10 categories, organized into 3 sections — <em>Context</em>, <em>Data Flow</em>, <em>Data Storage</em>.</div>
-
-<table class="text-sm mt-6 mx-auto">
-<thead>
-<tr class="bg-gray-100">
-<th class="px-3 py-2 text-left">Section</th>
-<th class="px-3 py-2 text-left">Category</th>
-<th class="px-3 py-2 text-left">Question</th>
-<th class="px-3 py-2 text-left">Visual modifier</th>
-</tr>
-</thead>
-<tbody>
-<tr><td class="px-3 py-1 font-semibold">Context</td><td class="px-3 py-1">Accountable</td><td class="px-3 py-1">Who is responsible for this system?</td><td class="px-3 py-1">Role <span class="opacity-60">(vendor / deployer)</span></td></tr>
-<tr><td class="px-3 py-1 font-semibold">Context</td><td class="px-3 py-1">Functional Modes</td><td class="px-3 py-1">What does this system do, and how does the public encounter it?</td><td class="px-3 py-1">Autonomy level <span class="opacity-60">(color)</span></td></tr>
-<tr><td class="px-3 py-1 font-semibold">Context</td><td class="px-3 py-1">Purpose</td><td class="px-3 py-1">Why is this system deployed?</td><td class="px-3 py-1 opacity-50">—</td></tr>
-<tr><td class="px-3 py-1 font-semibold">Context</td><td class="px-3 py-1">Risks &amp; Mitigation</td><td class="px-3 py-1">What are the identified risks and safeguards?</td><td class="px-3 py-1 opacity-50">—</td></tr>
-<tr><td class="px-3 py-1 font-semibold">Context</td><td class="px-3 py-1">Rights</td><td class="px-3 py-1">What rights do citizens have?</td><td class="px-3 py-1">Actions</td></tr>
-<tr><td class="px-3 py-1 font-semibold text-blue-700">Data Flow</td><td class="px-3 py-1">Input Datasets</td><td class="px-3 py-1 opacity-50">—</td><td class="px-3 py-1">Level of PII <span class="opacity-60">(color)</span></td></tr>
-<tr><td class="px-3 py-1 font-semibold text-blue-700">Data Flow</td><td class="px-3 py-1">Processing Algorithm or AI</td><td class="px-3 py-1 opacity-50">—</td><td class="px-3 py-1 opacity-50">—</td></tr>
-<tr><td class="px-3 py-1 font-semibold text-blue-700">Data Flow</td><td class="px-3 py-1">Output Datasets</td><td class="px-3 py-1 opacity-50">—</td><td class="px-3 py-1">Level of PII <span class="opacity-60">(color)</span></td></tr>
-<tr><td class="px-3 py-1 font-semibold text-purple-700">Data Storage</td><td class="px-3 py-1">Access</td><td class="px-3 py-1">Who has access to the system and its outputs?</td><td class="px-3 py-1 opacity-50">—</td></tr>
-<tr><td class="px-3 py-1 font-semibold text-purple-700">Data Storage</td><td class="px-3 py-1">Storage</td><td class="px-3 py-1">Where is data stored, and for how long?</td><td class="px-3 py-1 opacity-50">—</td></tr>
-</tbody>
-</table>
+<MySchoolsMatchZoom
+  :steps="[
+    { cx: 0.5,  cy: 0.5,  scale: 1 },
+    { cx: 0.28, cy: 0.09, scale: 2.2, label: 'Purpose Type' },
+    { cx: 0.5,  cy: 0.91, scale: 1.8, label: 'Vendor' },
+    { cx: 0.5,  cy: 1.4, scale: 1.8, label: 'Data Analyzed — Input' },
+    { cx: 0.5,  cy: 1.7, scale: 1.8, label: 'Vendor' },
+  ]"
+  :duration="700"
+/>
 
 <!--
-SLIDE 15 · 60s · The DTPR for AI taxonomy
-Land the structure: 3 sections, 10 categories. Don't read every row. Hover on Functional Modes ("autonomy level encoded as color"), Input/Output Datasets ("PII level encoded as color"), Rights ("actions citizens can take"). Set up the three section deep-dives that follow.
+SLIDE 7 · 90s · One row — NYC HS Admissions Matching (the threaded example)
+Loads with the full disclosure visible (matches the previous static-image state); each click pans/zooms through the disclosure — header → how matches are computed → oversight & rights → back to full. Tune cx/cy/scale against the live image before the talk.
+
+The example we'll keep returning to across the rest of the talk. Picked because every parent in the room either lived through it or will, and because it exercises every modifier DTPR for AI carries: identifiable PII in *and* out, matching computation running in "Monitored" autonomy (no per-pairing human review; oversight asserted but unspecified), documented equity/segregation stakes, limited but real appeal rights.
+
+The NYC HS admissions process is the famous deferred-acceptance Gale-Shapley variant designed by Roth, Sönmez, and Pathak. ~80,000 students go through it annually. Equity and segregation impacts have been studied extensively — including by the city itself in iterative reforms (Diversity in Admissions, screened-school changes).
+
+Don't make this a takedown of NYCPS. The frame is: this is one of the eighty-six systems the report disclosed; the prose is dense; let's see whether a parent could read it.
+
+TODO: verify all Patternizr → admissions value substitutions on subsequent slides against the live register entry before the talk.
 
 ---
 
-*Full taxonomy table; section column color-coded by group.*
+*Page screenshot on left (loads as the full disclosure), key facts pulled out on right. Clicks walk through the sections.*
 
-> Ten categories. Three sections. [beat] **Context** — five categories that frame *who, what, why, what could go wrong, what you can do.* [beat] **Data Flow** — three categories that follow the data through the system. [beat] **Data Storage** — two categories for *who has access* and *where it lives.* [beat] You'll notice the right column. Some categories carry a visual modifier that encodes a key attribute right on the icon. The icon itself isn't just a label — it's a reading.
+> Out of those eighty-six, I want to pull out one — and I'm going to keep coming back to it for the rest of the talk. [beat] *AI-powered school admissions matching.* The algorithm that assigns roughly eighty thousand New York City eighth-graders to a high-school seat every year. [beat] Maybe you've been on the receiving end of this. Maybe your kid has. Maybe you will. [beat] Read this page on the OTI report. Tell me — could a parent staring at their child's match tell you what this thing did? *(Click through to walk the room through the header, the matching computation, and what oversight and rights the disclosure names.)*
+-->
+
+---
+clicks: 1
+class: flex flex-col items-center justify-center
+---
+
+<div class="w-full max-w-5xl mx-auto">
+  <AlgorithmHeader
+    src="/data/nyc-myschools-match.datachain.json"
+    :highlight-category-id="$clicks >= 1 ? 'functional_modes' : null"
+  />
+</div>
+
+<!--
+Centered <AlgorithmHeader> — Slidev port of apps/guide-app/app/components/AlgorithmHeader.vue.
+Reads /data/nyc-myschools-match.datachain.json, fetches the schema snapshot at mount,
+renders the same context + flow rows the live guide-app page uses.
+
+Click 1 draws a red rounded outline around the Functional Modes cell.
 -->
 
 ---
 
 # Context — who, what, why, risks, rights
 
-<div class="text-base mt-2 opacity-70">5 categories that frame the system.</div>
-
-<table class="text-base mt-6 mx-auto">
+<table class="text-sm mt-6 mx-auto">
 <thead>
 <tr class="bg-gray-100">
-<th class="px-4 py-2 text-left">Category</th>
-<th class="px-4 py-2 text-left">Question</th>
-<th class="px-4 py-2 text-left">Visual modifier</th>
+<th class="px-3 py-2 text-left">Category</th>
+<th class="px-3 py-2 text-left">Question</th>
+<th class="px-3 py-2 text-left">Contextual Information</th>
 </tr>
 </thead>
 <tbody>
-<tr><td class="px-4 py-1"><strong>Accountable</strong></td><td class="px-4 py-1">Who is responsible for this system?</td><td class="px-4 py-1">Role <span class="opacity-60">(vendor / deployer)</span></td></tr>
-<tr><td class="px-4 py-1"><strong>Functional Modes</strong></td><td class="px-4 py-1">What does this system do?</td><td class="px-4 py-1">Autonomy level <span class="opacity-60">(color)</span></td></tr>
-<tr><td class="px-4 py-1"><strong>Purpose</strong></td><td class="px-4 py-1">Why is this system deployed?</td><td class="px-4 py-1 opacity-50">—</td></tr>
-<tr><td class="px-4 py-1"><strong>Risks &amp; Mitigation</strong></td><td class="px-4 py-1">What are the identified risks and safeguards?</td><td class="px-4 py-1 opacity-50">—</td></tr>
-<tr><td class="px-4 py-1"><strong>Rights</strong></td><td class="px-4 py-1">What rights do citizens have?</td><td class="px-4 py-1">Actions</td></tr>
+<tr>
+  <td class="px-3 py-2"><strong>Accountable</strong></td>
+  <td class="px-3 py-2">Who is accountable for this AI system?</td>
+  <td class="px-3 py-2">
+    <div class="text-[10px] uppercase tracking-wide opacity-60 mb-1">Role</div>
+    <div class="flex flex-wrap gap-1">
+      <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-gray-100 text-xs">Vendor</span>
+      <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-gray-100 text-xs">Deployer</span>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="px-3 py-2"><strong>Functional Modes</strong></td>
+  <td class="px-3 py-2">What does this AI system do? Pick one or more functional modes.</td>
+  <td class="px-3 py-2">
+    <div class="text-[10px] uppercase tracking-wide opacity-60 mb-1">Autonomy</div>
+    <div class="flex flex-wrap gap-1">
+      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-gray-100 text-xs"><span class="w-2 h-2 rounded-full" style="background:#2A9D8F"></span>Human decides</span>
+      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-gray-100 text-xs"><span class="w-2 h-2 rounded-full" style="background:#6A1B7A"></span>Human executes</span>
+      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-gray-100 text-xs"><span class="w-2 h-2 rounded-full" style="background:#E76F51"></span>Autonomous</span>
+    </div>
+  </td>
+</tr>
+<tr><td class="px-3 py-2"><strong>Purpose</strong></td><td class="px-3 py-2">What is the purpose of this AI system?</td><td class="px-3 py-2 opacity-50">—</td></tr>
+<tr><td class="px-3 py-2"><strong>Risks &amp; Mitigation</strong></td><td class="px-3 py-2">What are the risks associated with this AI system and what mitigation strategies are in place?</td><td class="px-3 py-2 opacity-50">—</td></tr>
+<tr><td class="px-3 py-2"><strong>Rights</strong></td><td class="px-3 py-2">What are the user's rights in relation to the AI system?</td><td class="px-3 py-2 opacity-50">—</td></tr>
 </tbody>
 </table>
 
 <!--
-SLIDE 16 · 45s · Context section deep-dive
-The frame around the system: agency, function, motivation, harm, recourse. These five categories carry the most weight in establishing whether the public should trust this deployment. Functional Modes and Rights both carry visual modifiers — the autonomy color is what tells someone at a glance "this thing acts on its own" vs. "a person reviews it first."
+SLIDE 16 · 45s · Context section deep-dive (HS Admissions Matching)
+Same five-category structure, filled in with the admissions matcher's disclosed values. Three things to land:
+  - Autonomy is *Monitored* — the OTI report's third autonomy tier. The match runs without per-pairing human review, but the disclosure asserts oversight. Land this honestly: monitored is not autonomous and not human-decides.
+  - Risks named: societal & cultural harm (school segregation, sorting effects) plus loss of autonomy (limited recourse for individual matches). Foreshadows the AIAAIC slide.
+  - Rights: algorithmic transparency + a formal appeal process. Not "trust us."
+
+TODO: verify the exact risk/rights values against the live register entry: https://nyc.clarable.ai/algorithms/3ce01f79-a2c6-4e7b-8f7c-561f2bf02f34. The values here are based on what NYCPS plausibly discloses, given the public record on segregation impact and the appeal process — confirm before delivering.
 
 ---
 
-*Five-row context table.*
+*Five-row context table with admissions matcher column populated.*
 
-> Context is the frame. [beat] *Accountable* — who's on the hook. Vendor or deployer is encoded on the icon itself. *Functional Modes* — what the system does, with autonomy color showing how much rope it has. *Purpose* — why it's there. *Risks and Mitigation* — what could go wrong and what's being done about it. *Rights* — what a citizen can actually do.
+> Context. The frame around the system. [beat] *Accountable* is NYC Public Schools. *Functional Modes* — it matches students to schools, and the autonomy is *Monitored*. The match runs on its own; the report says the system is overseen, but the OTI report doesn't tell us by whom, how often, or against what. *Purpose* — place eighty thousand 8th-graders into a high school seat. *Risks* — societal and cultural harm, and loss of autonomy. The disclosure names them. *Rights* — algorithmic transparency, and a formal appeal process. [beat] All of this is in the OTI report. We haven't added anything yet. We've just made it readable.
 -->
 
 ---
 
-# Three categories read as a sentence
+# Data flow — input, processing, output, storage
 
-<div class="text-base mt-2 opacity-70"><em>Accountable</em> + <em>Functional Modes</em> + <em>Purpose</em> → plain English.</div>
+<table class="text-sm mt-6 mx-auto">
+<thead>
+<tr class="bg-gray-100">
+<th class="px-3 py-2 text-left">Category</th>
+<th class="px-3 py-2 text-left">Question</th>
+<th class="px-3 py-2 text-left">Contextual Information</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td class="px-3 py-2"><strong>Input Dataset</strong></td>
+  <td class="px-3 py-2">What live data does this AI system process at runtime?</td>
+  <td class="px-3 py-2">
+    <div class="text-[10px] uppercase tracking-wide opacity-60 mb-1">Personal Information</div>
+    <div class="flex flex-wrap gap-1">
+      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-gray-100 text-xs"><span class="w-2 h-2 rounded-full" style="background:#4A90D9"></span>Anonymous</span>
+      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-gray-100 text-xs"><span class="w-2 h-2 rounded-full" style="background:#9575CD"></span>Pseudonymous</span>
+      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-gray-100 text-xs"><span class="w-2 h-2 rounded-full" style="background:#FFD700"></span>Identifiable</span>
+    </div>
+  </td>
+</tr>
+<tr><td class="px-3 py-2"><strong>Processing</strong></td><td class="px-3 py-2">What algorithm family or model class processes inputs into outputs in this system?</td><td class="px-3 py-2 opacity-50">—</td></tr>
+<tr>
+  <td class="px-3 py-2"><strong>Output Dataset</strong></td>
+  <td class="px-3 py-2">What does this AI system produce — what decisions, content, or signals come out?</td>
+  <td class="px-3 py-2">
+    <div class="text-[10px] uppercase tracking-wide opacity-60 mb-1">Personal Information</div>
+    <div class="flex flex-wrap gap-1">
+      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-gray-100 text-xs"><span class="w-2 h-2 rounded-full" style="background:#4A90D9"></span>Anonymous</span>
+      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-gray-100 text-xs"><span class="w-2 h-2 rounded-full" style="background:#9575CD"></span>Pseudonymous</span>
+      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-gray-100 text-xs"><span class="w-2 h-2 rounded-full" style="background:#FFD700"></span>Identifiable</span>
+    </div>
+  </td>
+</tr>
+<tr><td class="px-3 py-2"><strong>Retention</strong></td><td class="px-3 py-2">How long is the data kept?</td><td class="px-3 py-2 opacity-50">—</td></tr>
+<tr><td class="px-3 py-2"><strong>Access</strong></td><td class="px-3 py-2">Who has access to the data produced by the AI system?</td><td class="px-3 py-2 opacity-50">—</td></tr>
+<tr><td class="px-3 py-2"><strong>Storage</strong></td><td class="px-3 py-2">Where is the data produced by the AI system stored?</td><td class="px-3 py-2 opacity-50">—</td></tr>
+</tbody>
+</table>
 
-<div class="mt-8 grid grid-cols-[1fr_auto_1fr_auto_1fr] gap-4 items-stretch">
+<!--
+SLIDE 16b · 45s · Data flow section deep-dive (HS Admissions Matching)
+Same four-column structure as the Context slide. Three things to land:
+  - Identifiable in, identifiable out — the PII never de-identifies, it just routes. Every student stays named through the entire flow.
+  - The processing step names the algorithm (Gale-Shapley deferred-acceptance) — that's the part that does the matching.
+  - Storage and Retention are silent on the OTI page. DTPR surfaces silence as a finding: "not specified" is itself a disclosure.
 
-<div class="p-5 border-2 border-emerald-600 rounded text-center">
-<div class="text-xs uppercase tracking-wider opacity-60">Accountable</div>
-<div class="font-semibold text-lg mt-2">NYC DOT</div>
-<div class="text-xs mt-2 opacity-60">deployer</div>
+TODO: verify the input/output/access values against the live register entry: https://nyc.clarable.ai/algorithms/3ce01f79-a2c6-4e7b-8f7c-561f2bf02f34. Storage and Retention should remain "not specified" only if the live entry truly omits them.
+
+---
+
+*Six-row data-flow table with admissions matcher column populated.*
+
+> Data flow. The path through the system. [beat] *Input Dataset* — student biographical info, academic records, school records. Identifiable. *Processing* — the Gale-Shapley deferred-acceptance match. *Output Dataset* — a school match for each student. Also identifiable. [beat] *Access* — the accountable organization, and the individual. *Storage* and *Retention* — silent on the OTI page. We render that silence as part of the disclosure. [beat] Same shape. Same source. Just legible.
+-->
+
+---
+
+# Context flow reads as a sentence
+
+<div class="text-base opacity-70 mb-6">
+<em>Accountable</em> + <em>Functional Modes</em> + <em>Purpose</em> → plain English.
 </div>
 
-<div class="text-4xl opacity-60 self-center">→</div>
-
-<div class="p-5 border-2 border-amber-600 rounded text-center">
-<div class="text-xs uppercase tracking-wider opacity-60">Functional Modes</div>
-<div class="font-semibold text-lg mt-2">understand</div>
-<div class="text-xs mt-2 opacity-60">semantic</div>
-</div>
-
-<div class="text-4xl opacity-60 self-center">→</div>
-
-<div class="p-5 border-2 border-sky-600 rounded text-center">
-<div class="text-xs uppercase tracking-wider opacity-60">Purpose</div>
-<div class="font-semibold text-lg mt-2">improving mobility</div>
-<div class="text-xs mt-2 opacity-60">&nbsp;</div>
-</div>
-
-</div>
+<ContextFlow />
 
 <div class="mt-10 text-xl text-center leading-relaxed max-w-4xl mx-auto">
-"<span class="text-emerald-700 font-semibold">NYC DOT</span> has deployed AI to <span class="text-amber-700 font-semibold">understand</span> traffic flows for the purpose of <span class="text-sky-700 font-semibold">improving mobility</span>."
+"<span class="text-emerald-700 font-semibold">NYC Public Schools</span> has deployed AI to <span class="text-amber-700 font-semibold">match</span> students to schools for the purpose of <span class="text-sky-700 font-semibold">placing 80,000 8th-graders into high-school seats</span>."
 </div>
 
 <!--
-SLIDE 17 · 30s · Context reads as a sentence
-A concrete payoff for the Context section: the three top categories aren't independent attributes — together they parse as a plain-English sentence a non-expert can read. Boxes mirror the Data Flow visual treatment so the parallel between "system frame" and "data path" is reinforced.
-
-Example was provided verbatim by the speaker — Midtown Traffic Signal-style framing, fits the second demo system later in the deck. If we change the demo system, update this example to match.
-
----
-
-*Three colored boxes — Accountable / Functional Modes / Purpose — then the rendered sentence beneath, with each clause highlighted in its category color.*
-
-> The three Context categories at the top — Accountable, Functional Modes, Purpose — aren't just attributes side by side. They read as a sentence. [beat] *"NYC DOT has deployed AI to understand traffic flows for the purpose of improving mobility."* [beat] That's a plain-English description, generated directly from the structured data. A non-expert reads it once and knows who's on the hook, what the system does, and why it's there.
+Three schema-driven DtprPlacement cards (institution + deployer,
+analytical_mode + human_executes, education). Context tag labels +
+composed-icon colours flow from the live schema. Sentence + framing
+copy live on the slide; ContextFlow.vue owns the row + arrows only.
 -->
 
 ---
 
-# Data Flow — input → processing → output
+# Disclosed risks and rights
 
-<div class="text-base mt-2 opacity-70">3 categories that follow the data through the system.</div>
+<div class="grid grid-cols-2 gap-10 max-w-5xl mx-auto">
 
-<div class="mt-8 grid grid-cols-[1fr_auto_1fr_auto_1fr] gap-4 items-stretch">
+<div>
 
-<div class="p-5 border-2 border-blue-500 rounded text-center">
-<div class="font-semibold text-lg">Input Datasets</div>
-<div class="text-sm mt-2 opacity-70">What goes in?</div>
-<div class="text-xs mt-3">Level of PII <span class="opacity-60">(color)</span></div>
-</div>
+<div class="text-xs uppercase tracking-wider opacity-60 mb-3">Risks &amp; Mitigations</div>
 
-<div class="text-4xl opacity-60 self-center">→</div>
-
-<div class="p-5 border-2 border-blue-500 rounded text-center">
-<div class="font-semibold text-lg">Processing Algorithm or AI</div>
-<div class="text-sm mt-2 opacity-70">What happens inside?</div>
-<div class="text-xs mt-3 opacity-50">—</div>
-</div>
-
-<div class="text-4xl opacity-60 self-center">→</div>
-
-<div class="p-5 border-2 border-blue-500 rounded text-center">
-<div class="font-semibold text-lg">Output Datasets</div>
-<div class="text-sm mt-2 opacity-70">What comes out?</div>
-<div class="text-xs mt-3">Level of PII <span class="opacity-60">(color)</span></div>
+<div class="flex flex-col gap-3">
+  <DtprPlacement element-id="reputational_harm" :show-description="false" :icon-size="56" />
+  <DtprPlacement element-id="societal_cultural_harm" :show-description="false" :icon-size="56" />
 </div>
 
 </div>
 
-<div class="mt-8 text-base text-center opacity-70">
-Input and output icons both carry a <strong>PII color</strong> — at a glance you can see whether a system ingests, produces, or transforms personal data.
+<div>
+
+<div class="text-xs uppercase tracking-wider opacity-60 mb-3">Rights</div>
+
+<div class="flex flex-col gap-3">
+  <DtprPlacement element-id="right_to_notice" :show-description="false" :icon-size="56" />
+  <DtprPlacement element-id="right_algorithmic_transparency" :show-description="false" :icon-size="56" />
+  <DtprPlacement element-id="right_contest" :show-description="false" :icon-size="56" />
 </div>
+
+</div>
+
+</div>
+
 
 <!--
-SLIDE 17 · 45s · Data Flow section deep-dive
-Three sequential boxes — input, processing, output — with arrows. The visual modifier story here is PII color: a green input chained to a red output tells a story without the viewer reading a word.
-
----
-
-*Three connected boxes; arrows between; PII-color callout below.*
-
-> Data Flow is the literal path through the system. [beat] Input datasets — what goes in. Processing — what happens inside. Output datasets — what comes out. [beat] Input and output icons carry a PII color, so at a glance you can see whether a system ingests personal data and produces something less sensitive, or — more concerning — produces something *more* sensitive than what went in.
+Pulled directly from the live LL35 register entry for HS admissions
+matching. Two risks named (reputational harm, societal & cultural
+harm) and three rights affirmed (notice, algorithmic transparency,
+contest). All five render as schema-driven <DtprPlacement> cards —
+titles and icons come from the published DTPR schema.
 -->
 
 ---
 
-# Data Storage — access &amp; storage
+# Data flow reads like a sentence
 
-<div class="text-base mt-2 opacity-70">2 categories for what happens after.</div>
+<div class="text-base opacity-70 mb-6">
+Admissions matching: identifiable student data in, identifiable assignment out.
+</div>
 
-<table class="text-base mt-6 mx-auto">
-<thead>
-<tr class="bg-gray-100">
-<th class="px-4 py-2 text-left">Category</th>
-<th class="px-4 py-2 text-left">Question</th>
-</tr>
-</thead>
-<tbody>
-<tr><td class="px-4 py-1"><strong>Access</strong></td><td class="px-4 py-1">Who has access to the system and its outputs?</td></tr>
-<tr><td class="px-4 py-1"><strong>Storage</strong></td><td class="px-4 py-1">Where is data stored, and for how long?</td></tr>
-</tbody>
-</table>
+<DataFlow />
+
+<div class="mt-10 text-base text-center opacity-75 max-w-4xl mx-auto">
+Identifiable in. Identifiable out. The PII never de-identifies — it
+routes. Every student stays named through the entire flow.
+</div>
 
 <!--
-SLIDE 18 · 30s · Data Storage section deep-dive
-The two categories most often missing from public AI disclosures. Access = who, Storage = where & how long. These are the questions that decide whether a deployment is governable after the fact.
-
----
-
-*Two-row table.*
-
-> And finally — Data Storage. [beat] Access — who can see the system and its outputs. Storage — where data lives, and how long it stays there. [beat] These two are the categories most often missing from public AI disclosures. They're also the ones that decide whether a deployment is governable after the fact.
+Three schema-driven DtprPlacement cards (input_about_a_person +
+identifiable, optimization, output_decision + identifiable). Tag
+colours and composed-icon fills come from the live schema. Caption +
+framing copy live on the slide; DataFlow.vue owns the row + arrows
+only.
 -->
 
 ---
 
-# Risks — what could happen to a person
+# Access, Storage &amp; Retention
 
-<div class="text-base mt-3 opacity-70">DTPR <code>risks_mitigation</code> adopts AIAAIC's victim-centered taxonomy</div>
+<div class="grid grid-cols-3 gap-8 max-w-6xl mx-auto">
 
-<table class="text-lg mt-6 mx-auto">
-<thead>
-<tr class="bg-gray-100">
-<th class="px-4 py-2 text-left">DTPR (victim-centered)</th>
-<th class="px-4 py-2 text-left">AIAAIC harm type</th>
-</tr>
-</thead>
-<tbody>
-<tr><td class="px-4 py-1">Loss of autonomy</td><td class="px-4 py-1">Autonomy</td></tr>
-<tr><td class="px-4 py-1">Physical harm</td><td class="px-4 py-1">Physical</td></tr>
-<tr><td class="px-4 py-1">Psychological harm</td><td class="px-4 py-1">Psychological</td></tr>
-<tr><td class="px-4 py-1">Reputational harm</td><td class="px-4 py-1">Reputational</td></tr>
-<tr><td class="px-4 py-1">Financial &amp; business harm</td><td class="px-4 py-1">Financial &amp; Business</td></tr>
-<tr><td class="px-4 py-1">Civil liberties harm</td><td class="px-4 py-1">Human Rights &amp; Civil Liberties</td></tr>
-<tr><td class="px-4 py-1">Societal &amp; cultural harm</td><td class="px-4 py-1">Societal &amp; Cultural</td></tr>
-<tr><td class="px-4 py-1">Political &amp; economic harm</td><td class="px-4 py-1">Political &amp; Economic</td></tr>
-<tr><td class="px-4 py-1">Environmental harm</td><td class="px-4 py-1">Environmental</td></tr>
-</tbody>
-</table>
+<div>
 
-<div class="mt-6 text-sm opacity-60 text-center">
+<div class="text-xs uppercase tracking-wider opacity-60 mb-3">Access</div>
+
+<div class="flex flex-col gap-3">
+  <DtprPlacement element-id="available_to_the_accountable_organization" :show-description="false" :icon-size="56" />
+  <DtprPlacement element-id="available_to_me" :show-description="false" :icon-size="56" />
+</div>
+
+</div>
+
+<div>
+
+<div class="text-xs uppercase tracking-wider opacity-60 mb-3">Storage</div>
+
+<div class="dtpr-empty-category">
+  <div class="dtpr-empty-category__label">Not specified</div>
+</div>
+
+</div>
+
+<div>
+
+<div class="text-xs uppercase tracking-wider opacity-60 mb-3">Retention</div>
+
+<div class="dtpr-empty-category">
+  <div class="dtpr-empty-category__label">Not specified</div>
+</div>
+
+</div>
+
+</div>
+
+<style scoped>
+.dtpr-empty-category {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 6rem;
+  padding: 1rem;
+  border: 1px dashed rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+}
+.dtpr-empty-category__label {
+  font-size: 0.95rem;
+  font-style: italic;
+  opacity: 0.55;
+}
+</style>
+
+<!--
+Pulled from the live LL35 register entry for HS admissions matching.
+Access discloses two elements (available to the accountable
+organization, available to me); Storage and Retention are silent —
+rendered as dashed "Not specified" placeholders that mirror DTPR's
+existing convention for legible gaps.
+-->
+
+---
+
+# Risks & Mitigations
+
+<DtprCategoryGrid category-id="risks_mitigation" />
+
+<div class="mt-3 text-xs opacity-60 text-center">
 Abercrombie et al. 2024 · <code>arXiv:2407.01294</code> · CC BY-SA 4.0
 </div>
 
 <!--
-SLIDE 23 · 60s · Risks mapping — AIAAIC
-"We adopted AIAAIC's victim-centered harm taxonomy. Their research, attribution preserved, ShareAlike license travels with the schema."
-This is the FIRST strong mapping. Lead with verbatim adoption + license preservation.
-Source: see MAPPING-TABLES.md § Risks.
-
----
-
-*Two columns: DTPR `risks_mitigation` ↔ AIAAIC taxonomy.*
-
-> Risks. [beat] We didn't invent a risk taxonomy — we adopted one. The AIAAIC taxonomy, from Abercrombie and colleagues, 2024, Creative Commons ShareAlike. A *victim-centered* cut at AI harms. [beat] Our nine risk-mitigation elements are a verbatim adoption of their nine harm types. Their research. Their wording where we could keep it. The license travels with it.
+TEST SLIDE · live <DtprElement> grid for the risks_mitigation category.
+Replaces the side-by-side AIAAIC mapping table with a grid of the 9
+risk-mitigation elements rendered as DTPR cards. Data + icons come
+straight from the dtpr.ai REST API.
 -->
 
 ---
@@ -693,265 +735,197 @@ This is the design-decision slide. Make the rationale concrete with an example p
 
 ---
 
-# Function — what does the AI do?
+# Functional Modes
 
-<div class="text-base mt-3 opacity-70">DTPR <code>functional_modes</code> adopts Jashanmal's verb framing</div>
+<DtprCategoryGrid category-id="functional_modes" />
 
-<table class="text-lg mt-6 mx-auto">
-<thead>
-<tr class="bg-gray-100">
-<th class="px-4 py-2 text-left">DTPR mode</th>
-<th class="px-4 py-2 text-left">Verb</th>
-<th class="px-4 py-2 text-left">Plain-language reading</th>
-</tr>
-</thead>
-<tbody>
-<tr><td class="px-4 py-1"><strong>Analytical</strong></td><td class="px-4 py-1">decides</td><td class="px-4 py-1 opacity-80">"decides who to flag"</td></tr>
-<tr><td class="px-4 py-1"><strong>Semantic</strong></td><td class="px-4 py-1">understands &amp; remembers</td><td class="px-4 py-1 opacity-80">"knows what you mean"</td></tr>
-<tr><td class="px-4 py-1"><strong>Generative</strong></td><td class="px-4 py-1">creates</td><td class="px-4 py-1 opacity-80">"writes the message"</td></tr>
-<tr><td class="px-4 py-1"><strong>Agentic</strong></td><td class="px-4 py-1">acts</td><td class="px-4 py-1 opacity-80">"takes the next step"</td></tr>
-<tr><td class="px-4 py-1"><strong>Perceptive</strong></td><td class="px-4 py-1">senses</td><td class="px-4 py-1 opacity-80">"watches the road"</td></tr>
-<tr><td class="px-4 py-1"><strong>Physical</strong></td><td class="px-4 py-1">moves</td><td class="px-4 py-1 opacity-80">"moves the gate"</td></tr>
-</tbody>
-</table>
-
-<div class="mt-6 text-sm opacity-60 text-center">
+<div class="mt-3 text-xs opacity-60 text-center">
 Jashanmal 2026 · <em>AI Taxonomy — An Operational Framework for Precision in AI Discourse</em> · v1.1
 </div>
 
-<div class="mt-6 text-base text-center opacity-80">
-Autonomy axis (orthogonal): <strong>human decides</strong> · <strong>human executes</strong> · <strong>autonomous</strong>
-</div>
+---
+class: text-center flex flex-col items-center justify-center
+---
+
+# Let's make a datachain!
 
 <!--
-SLIDE 25 · 60s · Function & autonomy — Jashanmal
-"Six verbs. Decides, understands, creates, acts, senses, moves. From Narain Jashanmal's framework. A citizen recognizes 'decides' without us defining 'agentic'."
-This is the SECOND strong mapping. Verb framing is the load-bearing claim.
-Land the orthogonality line second: "What the AI does is separate from who's on the hook."
-Source: see MAPPING-TABLES.md § Function & Autonomy.
+SLIDE · 15s · Demo intro
+One demo, not two. We've been looking at the admissions-matching datachain since slide 14 — now we show how it got made. Hand the OTI admissions-matching page to the Claude skill (over an MCP connection); the agent reads the prose, fills the categories, and re-renders the same datachain the audience has already been reading.
 
 ---
 
-*Three columns: DTPR functional modes ↔ Jashanmal's verbs ↔ plain-language reading. Autonomy axis below.*
+*Title large; subtitle small.*
 
-> Function. [beat] What the AI *does* — in plain-language verbs. Narain Jashanmal's AI Taxonomy gave us the verb framing: *decides, understands, creates, acts, senses, moves.* [beat] A citizen recognizes "decides" without us defining "agentic." That's why we adopted it. [beat] And the autonomy axis is orthogonal — what the AI *does* is separate from who's on the hook for the outcome. That distinction matters when something goes wrong.
--->
-
----
-class: text-center
----
-
-# Let me show you
-
-<div class="mt-12 text-2xl opacity-80">
-Two systems from the register. Same translation layer.
-</div>
-
-<!--
-SLIDE 15 · 10s · Demo intro
-Quick. Ramp into the demo.
-TODO: thumbnail of 311 Multilingual Translation row from OTI report.
-
----
-
-*Thumbnail: 311 row.*
-
-> Let me show you. Two systems from the register. Same translation layer.
+> So how did we *make* the datachain you've been looking at? [beat] We handed the admissions matcher's disclosure — the actual page from the OTI report — to an agent.
 -->
 
 ---
 layout: center
+class: '!p-0'
 ---
 
-<DemoVideo src="/videos/15-demo-311-translation.mp4" label="311 Translation row → Claude skill → datachain renders" />
+<video
+  :src="'/videos/dtpr-agent-skill.mp4'"
+  controls
+  autoplay
+  muted
+  loop
+  playsinline
+  class="absolute inset-0 w-full h-full object-contain bg-black"
+/>
 
 <!--
-SLIDE 16 · 40s · DEMO 1 — 311 Translation
-Pre-recorded sped-up screencast: register row → Claude skill → datachain renders.
-Silent or minimal narration; let the video carry it.
-TODO: record video, place at public/videos/15-demo-311-translation.mp4
-
----
-
-*Pre-recorded sped-up screencast. Stay quiet. Let the video do the work. Maybe one line at the end:*
-
-> *(Last five seconds, as the datachain finishes rendering:)* That. From that. In about a minute.
+SLIDE · DTPR Agent Skill — full-screen screencast
+Plays the DTPR Agent Skill screencast edge-to-edge on a black background. autoplay+muted+loop matches the other demo slide; controls are exposed so the speaker can scrub.
 -->
 
 ---
-class: text-center
+class: text-center flex flex-col items-center justify-center relative overflow-hidden
 ---
 
-# 311 Multilingual Translation
+<script setup>
+const elementIds = [
+  'accessibility', 'affect_emotion_analysis', 'agentic_mode', 'analytical_mode', 'anomaly_detection', 'arts_culture',
+  'autonomy_loss', 'available_for_resale', 'available_to_3rd_parties', 'available_to_download', 'available_to_me', 'available_to_the_accountable_organization',
+  'available_to_vendor', 'backed_up_internationally', 'backed_up_locally', 'biometric_recognition', 'border_immigration', 'civil_liberties_harm',
+  'classification_prediction', 'clustering_segmentation', 'commerce', 'computer_vision', 'content_moderation', 'data_retained',
+  'dining', 'ecology', 'education', 'eligibility_benefits', 'employment', 'energy_efficiency',
+  'enforcement', 'entry', 'environmental_harm', 'financial_harm', 'financial_services', 'fire_emergency',
+  'generative_mode', 'health', 'healthcare', 'inform', 'input_about_a_measurement', 'input_about_a_place',
+  'input_about_behaviour', 'input_biometric', 'input_decision', 'input_generated_content', 'input_operational_data', 'input_physical_action',
+  'input_recommendation', 'input_sensitive_personal', 'institution', 'language_models', 'logistics', 'marketing_personalization',
+  'mobility', 'no_data_retained', 'not_available_to_me', 'not_available_to_the_accountable_organization', 'not_available_to_vendor', 'optimization',
+  'organization', 'output_about_a_measurement', 'output_about_a_place', 'output_about_behaviour', 'output_biometric', 'output_decision',
+  'output_generated_content', 'output_operational_data', 'output_physical_action', 'output_recommendation', 'output_sensitive_personal', 'perceptive_mode',
+  'physical_harm', 'physical_mode', 'planning_decision_making', 'political_economic_harm', 'privacy_transformation', 'psychological_harm',
+  'recommendation_ranking', 'reputational_harm', 'research_development', 'right_access', 'right_algorithmic_transparency', 'right_be_forgotten',
+  'right_contest', 'right_correction', 'right_individual_decision_explanation', 'right_non_discrimination', 'right_object', 'right_purpose_limitation',
+  'right_to_human_review', 'right_to_notice', 'risk_assessment', 'safety_security', 'search_retrieval', 'semantic_mode',
+  'shared_storage_and_governance', 'social', 'societal_cultural_harm', 'speech_audio', 'stored_locally', 'stored_on_3rd_party_cloud',
+  'stored_primarily_internationally', 'stored_primarily_locally', 'translation_language', 'waste_management', 'water_efficiency', 'wayfinding_services',
+]
+const iconUrl = (id) => `https://api.dtpr.io/api/v2/schemas/ai@2026-05-06-beta/elements/${encodeURIComponent(id)}/icon.svg`
+</script>
 
-<div class="mt-8">
-
-*(311 Translation datachain — full size)*
-
+<div class="icon-wall">
+  <img
+    v-for="i in 135"
+    :key="i"
+    :src="iconUrl(elementIds[(i - 1) % elementIds.length])"
+    class="icon-tile"
+    :style="{ animationDelay: `${i * 18}ms` }"
+    alt=""
+    aria-hidden="true"
+  />
 </div>
 
-<div class="mt-6 text-xl opacity-80">Same row. New legibility.</div>
+<div class="relative z-10 bg-white/95 px-16 py-12 rounded-3xl shadow-2xl backdrop-blur-sm border border-hp-blue/10">
+  <div class="text-3xl uppercase tracking-[0.25em] text-hp-blue-900 font-semibold">
+    Let's put it all together
+  </div>
+  <div class="mt-8 text-5xl font-mono text-hp-blue-700 border-b-4 border-hp-blue pb-2 inline-block">
+    nyc.clarable.ai
+  </div>
+</div>
+
+<style scoped>
+.icon-wall {
+  position: absolute;
+  inset: -2rem;
+  z-index: 0;
+  display: grid;
+  grid-template-columns: repeat(15, minmax(0, 1fr));
+  gap: 0.75rem;
+  opacity: 0.55;
+  pointer-events: none;
+  overflow: hidden;
+}
+.icon-tile {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  opacity: 0;
+  transform: scale(0.6);
+  animation: icon-pop 600ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@keyframes icon-pop {
+  0%   { opacity: 0; transform: scale(0.6); }
+  100% { opacity: 1; transform: scale(1); }
+}
+</style>
 
 <!--
-SLIDE 17 · 15s · 311 datachain still
-TODO: render live <DtprDatachain :data="data311Translation" /> here using @dtpr/ui/vue.
-Until then, hold a screenshot.
+SLIDE 32 · 15s · Reveal transition (visual)
+A wall of 135 cells, each filled with a real DTPR element icon fetched live from
+api.dtpr.io. The icons cycle through all 108 elements in the AI schema (some repeat
+to fill the grid). Stagger-pops in over ~2.4s; pause through the cascade, then
+deliver and switch to the live browser on the next slide.
+
+Network: 108 unique SVG fetches at slide load. Cache-Control is `public, max-age=3600`
+so a rehearsal warms the cache before the live talk. If the venue Wi-Fi is shaky,
+pre-render the icons to public/images/dtpr-icons/ and swap the iconUrl helper to
+a relative path.
 
 ---
 
-*Finished datachain, full size. Caption: "311 Multilingual Translation."*
+*Icon wall fills the slide; centered card carries the line + URL.*
 
-> Same row from the OTI report. New legibility.
+> You've seen one row. [beat] Let me show you all eighty-six.
 -->
 
 ---
-layout: image
-image: /images/17-midtown-traffic-signal.jpg
-class: text-center text-white
+layout: iframe
+url: https://nyc.clarable.ai/register
 ---
-
-<div class="absolute bottom-12 left-0 right-0 text-3xl">
-Different deployment. Same translation layer.
-</div>
 
 <!--
-SLIDE 18 · 10s · Second system
-Visual cue for the next system. Either a register-row card or a Midtown traffic signal photo works — this is a transition, not a digital-vs-physical contrast.
-TODO: source visual at public/images/17-second-system.jpg
+SLIDE 33 · 3 min · LIVE register walkthrough
+Switch to a real browser at presentation time for full control. Iframe here is the slide-deck fallback.
+
+Speaker actions:
+- Land on register home; let people see the breadth (86 / 20 orgs).
+- Filter by Functional Mode → click Generative; click Perceptive.
+- Filter by Organization → DOHMH (17). Mayor's Office. OTI.
+- Pull up the 311 Translation system → show its datachain.
+- Pull up the Midtown Traffic Signal system → show its datachain.
+- One sentence on a more sensitive system without dwelling.
+
+Beat: "The OTI report — 86 systems, 20 organizations — rendered as DTPR datachains."
+TODO: record fallback screencast and reference here as a backup video tag if iframe fails.
 
 ---
 
-*Visual cue for the next system — a Midtown traffic signal photo, or a clean register-row card. Either works; the point is a transition, not a digital-vs-physical contrast.*
+*Live browser, full screen. Recorded fallback queued just in case.*
 
-> Different deployment. Same translation layer.
--->
-
----
-layout: center
----
-
-<DemoVideo src="/videos/18-demo-traffic-signal.mp4" label="Midtown Traffic Signal row → Claude skill → datachain renders" />
-
-<!--
-SLIDE 19 · 40s · DEMO 2 — Midtown Traffic Signal
-Pre-recorded sped-up screencast: DOT row → Claude skill → datachain renders.
-Silent; let the video carry it.
-TODO: record video, place at public/videos/18-demo-traffic-signal.mp4
-
----
-
-*Pre-recorded sped-up screencast. Stay quiet.*
-
-> *(Last five seconds:)* Same translation layer. Different system entirely.
--->
-
----
-class: text-center
----
-
-# Midtown Traffic Signal
-
-<div class="mt-8">
-
-*(Midtown Traffic Signal datachain — full size)*
-
-</div>
-
-<div class="mt-6 text-xl opacity-80">One register. Eighty-six of these.</div>
-
-<!--
-SLIDE 20 · 15s · Traffic datachain still
-TODO: live <DtprDatachain :data="dataMidtownTraffic" /> here.
-
----
-
-*Finished datachain. Caption: "Midtown Traffic Signal."*
-
-> One register. Eighty-six of these.
--->
-
----
-
-# Same vocabulary. Two systems.
-
-<div class="grid grid-cols-2 gap-8 mt-12">
-<div class="text-center">
-
-*(311 Translation datachain)*
-
-<div class="mt-4 text-lg opacity-70">311 Multilingual Translation</div>
-
-</div>
-<div class="text-center">
-
-*(Midtown Traffic Signal datachain)*
-
-<div class="mt-4 text-lg opacity-70">Midtown Traffic Signal</div>
-
-</div>
-</div>
-
-<!--
-SLIDE 21 · 30s · Same vocabulary, two systems
-"Same translation layer. Same visual vocabulary. Two very different systems."
-TODO: render both <DtprDatachain> components side-by-side.
-
----
-
-*Both datachains side-by-side.*
-
-> A translation system inside 311, and an adaptive signal at an intersection. [beat] Two very different deployments. Same visual vocabulary. Same four questions. [beat] That's the translation layer doing its job.
--->
-
----
-class: text-center
----
-
-# How do we decide what goes in?
-
-<div class="mt-12 text-xl opacity-80">
-If this is the translation layer,<br>
-we have to be honest about what we're translating <em>from</em>.
-</div>
-
-<!--
-SLIDE 22 · 20s · Methodology intro
-Set up the next 5 slides.
-
----
-
-*Question card.*
-
-> Now — fair question. How do we decide what goes *in*? [beat] If this is the translation layer, we have to be honest about what we're translating *from*.
+> *(Land on the register home. Let the room see the breadth.)*
+>
+> OTI published their 2025 AI Report openly — eighty-six systems, twenty organizations. [beat] We took that open data and rendered every entry as a DTPR datachain. This is `nyc.clarable.ai/register`. [beat]
+>
+> *(Filter by Functional Mode → Generative.)* Generative systems — anything that produces text, an image, a translation. *(Click Perceptive.)* Perceptive — anything that classifies, detects, recognizes. The shapes are doing the work.
+>
+> *(Filter by Organization → DOHMH.)* Department of Health, seventeen systems. *(Mayor's Office. OTI.)*
+>
+> *(Click into 311 Multilingual Translation.)* The one we demoed. Live, in production context. *(Click into the Midtown Traffic Signal entry.)* And this one.
+>
+> *(One sentence on a more sensitive entry — a risk-scoring tool, or a facial recognition entry — without dwelling.)* The visual vocabulary handles the hard cases too. We don't soften the disclosure. We make it readable.
+>
+> *(Back to register home.)* The OTI report. Eighty-six systems. Twenty organizations. Rendered as DTPR datachains.
 -->
 
 ---
 
-# Five surfaces. One vocabulary.
+# Lots of tools for DTPR for AI
 
-<div class="grid grid-cols-5 gap-4 mt-12 text-center">
-<div class="p-4 border rounded"><div class="text-2xl">📋</div>Schema</div>
-<div class="p-4 border rounded"><div class="text-2xl">🌐</div>REST</div>
-<div class="p-4 border rounded"><div class="text-2xl">🔌</div>MCP</div>
-<div class="p-4 border rounded"><div class="text-2xl">🎨</div>@dtpr/ui</div>
-<div class="p-4 border rounded"><div class="text-2xl">🤖</div>Claude plugin</div>
+<div class="grid grid-cols-2 gap-4 mt-12 max-w-3xl mx-auto text-center">
+<div class="p-4 border rounded"><div class="text-2xl">📋</div>Defined JSON Schema</div>
+<div class="p-4 border rounded"><div class="text-2xl">🌐</div>REST API</div>
+<div class="p-4 border rounded"><div class="text-2xl">🔌</div>MCP Server</div>
+<div class="p-4 border rounded"><div class="text-2xl">🎨</div>@dtpr/ui component library</div>
+<div class="p-4 border rounded"><div class="text-2xl">🤖</div>Agent skill</div>
+<div class="p-4 border rounded"><div class="text-2xl">🧭</div>Datachain Visualiser</div>
 </div>
-
-<div class="mt-12 text-xl text-center opacity-80">
-<strong>dtpr.ai</strong> · CC-BY-4.0
-</div>
-
-<!--
-SLIDE 28 · 45s · Five surfaces, one vocabulary
-"One open vocabulary. Five ways to consume it. So nobody has an excuse to leave the disclosure trapped in a PDF."
-Note: emojis are placeholders for proper iconography in design pass. (Speaker also generally avoids emojis in delivery.)
-
----
-
-*Pentagon diagram, `dtpr.ai` at the center, CC-BY-4.0 stamp.*
-
-> One open vocabulary. Five ways to consume it. [beat] A schema. A REST API. An MCP server. A UI component library — `at-dtpr-slash-ui`. And a Claude skill. [beat] Pick your stack. Pick your surface. The goal is that nobody has to leave AI disclosure trapped in a PDF.
--->
 
 ---
 
@@ -999,7 +973,7 @@ When AI helps draft a disclosure, the artifact carries:
 </div>
 <div>
 
-*(rendered datachain with `authoring_provenance` expanded)*
+*(Admissions-matching datachain with `authoring_provenance` expanded — each category shows the verbatim quote from the OTI page the agent drew from)*
 
 </div>
 </div>
@@ -1009,9 +983,9 @@ AI doesn't get to hide behind fluent text.
 </div>
 
 <!--
-SLIDE 30 · 60s · Authoring provenance
+SLIDE 30 · 60s · Authoring provenance (admissions matching)
 This is a crucial slide. The bold final line is load-bearing — deliver it clearly with a pause.
-TODO: real datachain screenshot with provenance section expanded.
+TODO: real admissions-matching datachain screenshot with provenance section expanded — each category needs to show the verbatim quote from the OTI report page the agent leaned on. This is the artifact that proves the demo we just watched isn't hallucination.
 
 ---
 
@@ -1021,240 +995,255 @@ TODO: real datachain screenshot with provenance section expanded.
 -->
 
 ---
-class: text-center
----
 
-# Open commons
+# Action affordances
 
-<div class="mt-8 text-2xl">
+<div class="text-base mt-2 opacity-70">
+Every element can carry first-class actions — so a right turns into a button, not a sentence.
+</div>
 
-CC-BY-4.0 · github.com/Helpful-Places/dtpr · **dtpr.ai**
+<div class="grid grid-cols-2 gap-10 mt-8 max-w-6xl mx-auto items-start">
+
+<div>
+
+<div class="text-xs uppercase tracking-wider opacity-60 mb-3">Action kinds (schema)</div>
+
+<div class="space-y-2 text-base">
+  <div><span class="inline-block w-20 font-mono text-sm bg-gray-100 px-2 py-0.5 rounded">email</span> DPO contact, info request</div>
+  <div><span class="inline-block w-20 font-mono text-sm bg-gray-100 px-2 py-0.5 rounded">url</span> appeal portal, opt-out page</div>
+  <div><span class="inline-block w-20 font-mono text-sm bg-gray-100 px-2 py-0.5 rounded">phone</span> language hotline, ombuds</div>
+  <div><span class="inline-block w-20 font-mono text-sm bg-gray-100 px-2 py-0.5 rounded">form</span> DSAR / complaint submission</div>
+  <div><span class="inline-block w-20 font-mono text-sm bg-gray-100 px-2 py-0.5 rounded">postal</span> mailing address for written requests</div>
+</div>
+
+<div class="mt-6 text-xs opacity-60">
+<code>InstanceAction</code> · <code>api/src/schema/datachain-instance.ts</code>
+</div>
 
 </div>
 
-<div class="mt-12 text-xl opacity-80">
-Free to use. Free to fork. Cite us.
+<div>
+
+<div class="text-xs uppercase tracking-wider opacity-60 mb-3">Admissions matcher · mock</div>
+
+<div class="space-y-3 text-sm">
+  <div class="p-3 border rounded">
+    <div class="font-semibold">Right to contest</div>
+    <div class="mt-2 flex flex-wrap gap-2">
+      <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-hp-blue text-white text-xs">form · File a Round 2 appeal</span>
+    </div>
+  </div>
+  <div class="p-3 border rounded">
+    <div class="font-semibold">Right to algorithmic transparency</div>
+    <div class="mt-2 flex flex-wrap gap-2">
+      <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-hp-blue text-white text-xs">email · NYCPS Privacy Officer</span>
+      <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-hp-blue text-white text-xs">url · OTI disclosure page</span>
+    </div>
+  </div>
+  <div class="p-3 border rounded">
+    <div class="font-semibold">Right to notice</div>
+    <div class="mt-2 flex flex-wrap gap-2">
+      <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-hp-blue text-white text-xs">phone · 311 (multilingual)</span>
+    </div>
+  </div>
+</div>
+
+<div class="mt-3 text-xs italic opacity-60">
+Coming to the visual layer next — schema-side already lives in <code>InstanceElement.actions</code>.
+</div>
+
+</div>
+
+</div>
+
+<div class="mt-10 text-2xl text-center font-bold">
+A right with no path to exercise it isn't a right. It's a footnote.
 </div>
 
 <!--
-SLIDE 31 · 20s · Open commons
-Quick. Land the license. Move to reveal.
+SLIDE · 45s · Action affordances
+Schema basis: `InstanceActionSchema` on `InstanceElement.actions` in api/src/schema/datachain-instance.ts. Kinds: email, url, phone, form, postal. Deliberately small — `other` is intentionally not in the enum. Each action has a localized label and a typed target (email address, URL, E.164 phone, form URL, or free-text postal address).
+
+Not yet rendered in the dtpr.ai visual layer — the schema carries it, the UI is coming. Be honest about that.
+
+The point: disclosure ends with paths a person can actually walk, not just labels. The Rights category names what you're entitled to; actions are how you reach it. For the admissions matcher, "right to contest" becomes a Round-2 appeal form; "right to algorithmic transparency" becomes a DPO email plus the OTI disclosure URL; "right to notice" becomes the 311 multilingual line for parents who need translation help.
+
+Pairs with slide 28 (authoring provenance) and the comprehension-audit slide — both are about the layers DTPR adds on top of the raw disclosure. Provenance answers "where did this come from"; actions answer "what do I do now."
 
 ---
 
-*CC-BY-4.0 logo, GitHub mark, `dtpr.ai`.*
+*Two-column: schema kinds on left; mocked admissions-matcher rights with action chips on right.*
 
-> Creative Commons. On GitHub. `dtpr.ai`. [beat] Free to use. Free to fork. Cite us.
+> One more layer — and like provenance, it's about turning the disclosure into something you can use. [beat] Every element in a datachain can carry actions. Email. URL. Phone. A form. A postal address. Five kinds, on purpose — small enough that a renderer always knows what to do with them. [beat] So when the disclosure says "you have the right to contest" — that stops being a sentence the page asserts. It becomes a button. The appeal form opens. The privacy officer's email composes. The 311 line dials. [beat] *(Honest beat.)* This part isn't in the visual layer yet — the schema carries it; the UI is next. [beat] But the principle is the one I want you to leave with: a right with no path to exercise it isn't a right. It's a footnote.
 -->
 
 ---
-class: text-center flex flex-col items-center justify-center
+class: flex flex-col items-center justify-center
 ---
 
-# You've seen one row.
-
-# Let me show you all 86.
+<div class="w-full max-w-5xl mx-auto">
+  <div class="text-center">
+    <div class="text-[11px] uppercase tracking-[0.3em] text-hp-blue-700 font-semibold mb-3">Hands-on session · MakeShift 2026</div>
+    <h1 class="!text-6xl !mb-3 !mt-0">Workshop</h1>
+    <div class="text-2xl font-serif italic opacity-75">From any disclosure to a shippable datachain — in an hour.</div>
+  </div>
+  <div class="mt-12 grid grid-cols-3 gap-0 bg-white/95 rounded-3xl shadow-2xl border border-hp-blue/10 overflow-hidden">
+    <div class="px-8 py-7 text-center border-r border-hp-blue/10">
+      <div class="text-[10px] uppercase tracking-[0.25em] text-hp-blue-700 font-semibold mb-2">When</div>
+      <div class="text-xs uppercase tracking-wider opacity-60">Thursday</div>
+      <div class="text-4xl font-bold text-hp-blue-900 leading-none mt-1">May 21</div>
+      <div class="mt-2 inline-block bg-hp-blue text-white text-sm font-semibold px-3 py-1 rounded-full">3 – 4 pm</div>
+    </div>
+    <div class="px-8 py-7 text-center border-r border-hp-blue/10">
+      <div class="text-[10px] uppercase tracking-[0.25em] text-hp-blue-700 font-semibold mb-2">Where</div>
+      <div class="text-xs uppercase tracking-wider opacity-60">School of Visual Arts</div>
+      <div class="text-4xl font-bold text-hp-blue-900 leading-none mt-1">Room 110</div>
+      <div class="text-sm opacity-70 mt-2">Classroom</div>
+    </div>
+    <div class="px-8 py-7 text-center">
+      <div class="text-[10px] uppercase tracking-[0.25em] text-hp-blue-700 font-semibold mb-2">Bring</div>
+      <div class="text-xs uppercase tracking-wider opacity-60">Your</div>
+      <div class="text-4xl font-bold text-hp-blue-900 leading-none mt-1">Laptop</div>
+      <div class="text-sm opacity-70 mt-2">+ a doc to render</div>
+    </div>
+  </div>
+  <div class="mt-10 max-w-3xl mx-auto text-center text-lg opacity-80 leading-relaxed">
+    Feed an <strong class="text-hp-blue-900">AIA</strong>, a <strong class="text-hp-blue-900">register row</strong>, or a <strong class="text-hp-blue-900">regulatory PDF</strong> through the agent skill — and walk out with a datachain you can ship.
+  </div>
+</div>
 
 <!--
-SLIDE 32 · 15s · Reveal transition
-Deliver. Pause. Then switch to the live browser on the next slide.
+SLIDE 31 · 30s · CTA 1 — Workshop (event-card layout)
+Save-the-date / event-poster style. Eyebrow + title + serif tagline up top; three-up info card (When / Where / Bring) in the middle; one-line value prop underneath. Clean white background — the visual motif is reserved for the reveal + finale slides.
+
+Confirmed slot: Thursday, May 21 · 3–4pm · Classroom 110, School of Visual Arts.
 
 ---
 
-*Large type: "You've seen one row. Let me show you all 86."*
+*Event-card layout. Three-up info row carries day/time, room, and what to bring.*
 
-> You've seen one row. [beat] Let me show you all eighty-six.
+> If any of this lands — come to the workshop. Thursday, three to four, Classroom 110. [beat] Bring your laptop, and bring a document — an AIA, a register row, a regulatory PDF, anything dense. [beat] We'll spend an hour feeding it through the agent skill and producing a datachain you can ship.
 -->
 
 ---
-layout: iframe
-url: https://nyc.clarable.ai/register
+class: text-center flex flex-col items-center justify-center relative overflow-hidden
 ---
+
+<script setup>
+const elementIds = [
+  'accessibility', 'affect_emotion_analysis', 'agentic_mode', 'analytical_mode', 'anomaly_detection', 'arts_culture',
+  'autonomy_loss', 'available_for_resale', 'available_to_3rd_parties', 'available_to_download', 'available_to_me', 'available_to_the_accountable_organization',
+  'available_to_vendor', 'backed_up_internationally', 'backed_up_locally', 'biometric_recognition', 'border_immigration', 'civil_liberties_harm',
+  'classification_prediction', 'clustering_segmentation', 'commerce', 'computer_vision', 'content_moderation', 'data_retained',
+  'dining', 'ecology', 'education', 'eligibility_benefits', 'employment', 'energy_efficiency',
+  'enforcement', 'entry', 'environmental_harm', 'financial_harm', 'financial_services', 'fire_emergency',
+  'generative_mode', 'health', 'healthcare', 'inform', 'input_about_a_measurement', 'input_about_a_place',
+  'input_about_behaviour', 'input_biometric', 'input_decision', 'input_generated_content', 'input_operational_data', 'input_physical_action',
+  'input_recommendation', 'input_sensitive_personal', 'institution', 'language_models', 'logistics', 'marketing_personalization',
+  'mobility', 'no_data_retained', 'not_available_to_me', 'not_available_to_the_accountable_organization', 'not_available_to_vendor', 'optimization',
+  'organization', 'output_about_a_measurement', 'output_about_a_place', 'output_about_behaviour', 'output_biometric', 'output_decision',
+  'output_generated_content', 'output_operational_data', 'output_physical_action', 'output_recommendation', 'output_sensitive_personal', 'perceptive_mode',
+  'physical_harm', 'physical_mode', 'planning_decision_making', 'political_economic_harm', 'privacy_transformation', 'psychological_harm',
+  'recommendation_ranking', 'reputational_harm', 'research_development', 'right_access', 'right_algorithmic_transparency', 'right_be_forgotten',
+  'right_contest', 'right_correction', 'right_individual_decision_explanation', 'right_non_discrimination', 'right_object', 'right_purpose_limitation',
+  'right_to_human_review', 'right_to_notice', 'risk_assessment', 'safety_security', 'search_retrieval', 'semantic_mode',
+  'shared_storage_and_governance', 'social', 'societal_cultural_harm', 'speech_audio', 'stored_locally', 'stored_on_3rd_party_cloud',
+  'stored_primarily_internationally', 'stored_primarily_locally', 'translation_language', 'waste_management', 'water_efficiency', 'wayfinding_services',
+]
+const iconUrl = (id) => `https://api.dtpr.io/api/v2/schemas/ai@2026-05-06-beta/elements/${encodeURIComponent(id)}/icon.svg`
+</script>
+
+<div class="icon-wall">
+  <img
+    v-for="i in 135"
+    :key="i"
+    :src="iconUrl(elementIds[(i - 1) % elementIds.length])"
+    class="icon-tile"
+    :style="{ animationDelay: `${i * 18}ms` }"
+    alt=""
+    aria-hidden="true"
+  />
+</div>
+
+<div class="relative z-10 w-full max-w-6xl mx-auto px-8">
+  <div class="inline-flex items-center gap-5 bg-white/95 rounded-3xl shadow-2xl backdrop-blur-sm border border-hp-blue/10 px-10 py-6">
+    <img :src="'/images/dtpr-black.png'" alt="DTPR" class="h-16 w-auto" />
+    <div class="text-5xl font-bold tracking-tight text-hp-blue-900">for&nbsp;AI</div>
+    <span class="bg-hp-blue text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full shadow-md">beta</span>
+  </div>
+  <div class="mt-10 grid grid-cols-3 gap-5 text-left">
+    <div class="bg-white/95 rounded-2xl shadow-xl backdrop-blur-sm border border-hp-blue/10 px-6 py-5">
+      <div class="text-[10px] uppercase tracking-[0.2em] text-hp-blue-700 font-semibold mb-2">The standard</div>
+      <div class="text-xl font-bold text-hp-blue-900">DTPR for AI</div>
+      <div class="mt-1 text-sm opacity-75">An open communication standard for the algorithms in our cities.</div>
+      <div class="mt-3 font-mono text-sm text-hp-blue-700 border-b border-hp-blue/40 inline-block pb-0.5">dtpr.ai</div>
+    </div>
+    <div class="bg-white/95 rounded-2xl shadow-xl backdrop-blur-sm border border-hp-blue/10 px-6 py-5">
+      <div class="text-[10px] uppercase tracking-[0.2em] text-hp-blue-700 font-semibold mb-2">In production</div>
+      <div class="text-xl font-bold text-hp-blue-900">Live registers</div>
+      <div class="mt-1 text-sm opacity-75">Eighty-six NYC systems today. Canada's federal AI inventory next door.</div>
+      <div class="mt-3 space-y-1">
+        <div class="font-mono text-sm text-hp-blue-700 border-b border-hp-blue/40 inline-block pb-0.5">nyc.clarable.ai</div>
+        <div class="font-mono text-xs opacity-70">canada.clarable.ai</div>
+      </div>
+    </div>
+    <div class="bg-white/95 rounded-2xl shadow-xl backdrop-blur-sm border border-hp-blue/10 px-6 py-5">
+      <div class="text-[10px] uppercase tracking-[0.2em] text-hp-blue-700 font-semibold mb-2">The stewards</div>
+      <div class="text-xl font-bold text-hp-blue-900">Helpful Places</div>
+      <div class="mt-1 text-sm opacity-75">We steward DTPR — the standard, the schema, the tooling — in the open.</div>
+      <div class="mt-3 font-mono text-sm text-hp-blue-700 border-b border-hp-blue/40 inline-block pb-0.5">helpfulplaces.com</div>
+    </div>
+  </div>
+  <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
+    <span class="inline-flex items-center gap-2 bg-hp-blue text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-lg"><span class="text-lg leading-none">🛠️</span> Help us build it</span>
+    <span class="inline-flex items-center gap-2 bg-hp-blue text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-lg"><span class="text-lg leading-none">🚀</span> Deploy it</span>
+    <span class="inline-flex items-center gap-2 bg-hp-blue text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-lg"><span class="text-lg leading-none">💬</span> Ask us anything</span>
+  </div>
+  <div class="mt-6 text-xs font-mono opacity-70 tracking-wide text-center">
+    github.com/Helpful-Places/dtpr · CITATION.cff in the repo
+  </div>
+</div>
+
+<style scoped>
+.icon-wall {
+  position: absolute;
+  inset: -2rem;
+  z-index: 0;
+  display: grid;
+  grid-template-columns: repeat(15, minmax(0, 1fr));
+  gap: 0.75rem;
+  opacity: 0.55;
+  pointer-events: none;
+  overflow: hidden;
+}
+.icon-tile {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  opacity: 0;
+  transform: scale(0.6);
+  animation: icon-pop 600ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@keyframes icon-pop {
+  0%   { opacity: 0; transform: scale(0.6); }
+  100% { opacity: 1; transform: scale(1); }
+}
+</style>
 
 <!--
-SLIDE 33 · 3 min · LIVE register walkthrough
-Switch to a real browser at presentation time for full control. Iframe here is the slide-deck fallback.
+SLIDE 32 · 45s · Finale — DTPR for AI, the deployments, and the stewards
+Visual continuity with slide 25: same icon-wall background, same stagger-pop, same 15-col grid. 135 DTPR element icons fetched live from api.dtpr.io cycle through the AI schema's 108 elements. Three white-card columns stack the project (dtpr.ai), the live deployments (nyc.clarable.ai + canada.clarable.ai aside), and the steward (Helpful Places). CTA pills underneath name the three asks: build, deploy, ask.
 
-Speaker actions:
-- Land on register home; let people see the breadth (86 / 20 orgs).
-- Filter by Functional Mode → click Generative; click Perceptive.
-- Filter by Organization → DOHMH (17). Mayor's Office. OTI.
-- Pull up the 311 Translation system → show its datachain.
-- Pull up the Midtown Traffic Signal system → show its datachain.
-- One sentence on a more sensitive system without dwelling.
+Network: 108 unique SVG fetches at slide load — already warmed from slide 25 if the audience came in linearly, so the cache hits should be free.
 
-Beat: "The OTI report — 86 systems, 20 organizations — rendered as DTPR datachains."
-TODO: record fallback screencast and reference here as a backup video tag if iframe fails.
+Canada framing: canada.clarable.ai renders Canada's federal Algorithmic Impact Assessment inventory as DTPR datachains — same engine, same approach, different jurisdiction. Don't dwell; it's an aside that says "this isn't NYC-only."
+
+Stewardship beat: this is the first time in the deck the audience hears "Helpful Places stewards DTPR" stated plainly. Land it. The standard is open (CC BY-SA 4.0); we're the people who hold the pen.
 
 ---
 
-*Live browser, full screen. Recorded fallback queued just in case.*
+*Hex wall fills the slide; three white cards across the middle; CTA pills below; small repo line at the very bottom.*
 
-> *(Land on the register home. Let the room see the breadth.)*
->
-> OTI published their 2025 AI Report openly — eighty-six systems, twenty organizations. [beat] We took that open data and rendered every entry as a DTPR datachain. This is `nyc.clarable.ai/register`. [beat]
->
-> *(Filter by Functional Mode → Generative.)* Generative systems — anything that produces text, an image, a translation. *(Click Perceptive.)* Perceptive — anything that classifies, detects, recognizes. The shapes are doing the work.
->
-> *(Filter by Organization → DOHMH.)* Department of Health, seventeen systems. *(Mayor's Office. OTI.)*
->
-> *(Click into 311 Multilingual Translation.)* The one we demoed. Live, in production context. *(Click into the Midtown Traffic Signal entry.)* And this one.
->
-> *(One sentence on a more sensitive entry — a risk-scoring tool, or a facial recognition entry — without dwelling.)* The visual vocabulary handles the hard cases too. We don't soften the disclosure. We make it readable.
->
-> *(Back to register home.)* The OTI report. Eighty-six systems. Twenty organizations. Rendered as DTPR datachains.
--->
-
----
-class: text-center
----
-
-# Built on open data
-
-<div class="mt-12 text-xl space-y-4">
-<div>Open data: <strong>NYC Office of Technology &amp; Innovation</strong></div>
-<div>Built by <strong>Helpful Places</strong> with <strong>Clarable</strong></div>
-<div>Powered by <strong>DTPR for AI</strong></div>
-</div>
-
-<!--
-SLIDE 34 · 30s · Credits
-NOT a partnership with OTI. OTI published their AI report openly; Helpful Places (with Clarable) took that open data and built this register on top of it. Speaker beat: credit OTI for the public-sector work, then name Helpful Places + Clarable explicitly. Standard is the commons; Clarable is one implementation.
-
----
-
-*"Open data: NYC OTI · Built by Helpful Places with Clarable · Powered by DTPR for AI."*
-
-> To be clear about how this got built: OTI did the hard public-sector work — they made eighty-six systems disclosable and they published the data openly. We — Helpful Places, with Clarable — took that open data and built this register on top of it. [beat] The standard is the commons. Clarable is one implementation of it. There can be — there should be — more.
--->
-
----
-layout: image
-image: /images/35-dtpr-guide-map.png
-backgroundSize: contain
-class: text-center
----
-
-<!--
-SLIDE 35 · 60s · Global map
-"NYC is one node in a growing global network. 15 deployments today. The original DTPR has been doing translation work for sensors in cities for years. DTPR for AI joins that commons."
-TODO: capture dtpr.guide map screenshot at the right zoom to show all 15 pins.
-Cities to ensure are visible: Boston, Charlotte, Long Beach, West Palm Beach, DC, Detroit, Miami, Angers, Paris, Lure, Sydney, Sydney Olympic Park (+ CA, UK, PT).
-
----
-
-*`dtpr.guide` map screenshot — fifteen pins.*
-
-> New York is one node. [beat] Fifteen deployments today, on this map. Boston. Sydney. Paris. Detroit. Lure. The original DTPR has been doing this translation work for years, for sensors, in cities all over the world. [beat] DTPR for AI joins that commons. Same vocabulary. Same idea. New beast.
--->
-
----
-class: text-center
----
-
-# This is the brick we're bringing
-
-<div class="mt-12 text-xl opacity-80">
-DTPR for AI is in beta.<br>
-The schema will evolve. The visual language will be refined.
-</div>
-
-<!--
-SLIDE 36 · 20s · The brick
-Set up the two CTAs.
-
----
-
-*Brick illustration, or the phrase in large type.*
-
-> DTPR for AI is in beta. The schema will evolve. The visual language will be refined. [beat] This is the brick we're bringing.
--->
-
----
-
-# Workshop
-
-<div class="mt-8 text-2xl space-y-4">
-<div>**[Day]** · **[Time]** · **[Room]**</div>
-<div class="opacity-80">Bring your laptop.</div>
-</div>
-
-<div class="mt-12 text-xl">
-We'll spend an hour walking you through feeding any AIA, register row, or regulatory document through the agent skill — and producing a datachain you can ship.
-</div>
-
-<!--
-SLIDE 37 · 30s · CTA 1 — Workshop
-TODO: fill in workshop slot once confirmed.
-
----
-
-*Workshop time, day, room.*
-
-> If any of this lands — come to the workshop. *(Time, day, room.)* Bring your laptop. We'll spend an hour walking you through feeding an Algorithmic Impact Assessment, or a register row, or a regulatory document, through the agent skill — and producing a datachain you can ship.
--->
-
----
-
-# Engage with the beta
-
-<div class="mt-8 text-xl space-y-4">
-<div>📍 <strong>dtpr.ai</strong></div>
-<div>📦 <strong>github.com/Helpful-Places/dtpr</strong></div>
-<div>📚 <strong>Cite us</strong> — CITATION.cff in the repo</div>
-<div>🚀 <strong>Deploy us</strong> · 🐛 <strong>File issues</strong></div>
-</div>
-
-<div class="mt-12 text-2xl text-center opacity-80">
-Come help us shape the schema.
-</div>
-
-<!--
-SLIDE 38 · 30s · CTA 2 — Engage with the beta
-Note: emojis here are placeholders for icon design.
-
----
-
-*`dtpr.ai` · GitHub · CITATION.cff · forum.*
-
-> `dtpr.ai`. GitHub. Cite us. Deploy us. File issues. [beat] Come help us shape the schema — it's early, and your input is going to make it better.
--->
-
----
-class: text-center flex flex-col items-center justify-center
----
-
-# Regulators write the rules.
-
-# Researchers describe the harms.
-
-# Vendors document their systems.
-
-<div class="mt-8 text-3xl font-bold">
-DTPR for AI is the layer that brings all of that<br>
-into something a person on the receiving end can read.
-</div>
-
-<div class="mt-16 text-lg opacity-60">
-Thank you · @jonathanpichot · jonathan@helpfulplaces.com
-</div>
-
-<!--
-SLIDE 39 · 30s · Final line + thanks
-Deliver the four sentences. Thank you. Hand off to Q&A.
-
----
-
-*Large type, verbatim.*
-
-> *(Slow. Eye contact. The load-bearing sentence.)*
->
-> Regulators write the rules. Researchers describe the harms. Vendors document their systems. [beat] DTPR for AI is the layer that brings all of that into something a person on the receiving end can read. [beat] [beat] Thank you.
-
-*Alternative closers to try in rehearsal — pick whichever lands best:*
-> *…into something the people affected can read.*
-> *…into something a person can read.*
-> *…into something a New Yorker can read.*
-
-*Hand off to Q&A.*
+> So — to close. [beat] DTPR for AI lives at `dtpr.ai`. Open standard. Open schema. Open tooling. [beat] You've seen the New York register tonight — `nyc.clarable.ai`. We did the same thing for Canada's federal AI inventory — `canada.clarable.ai`. Same engine. Different jurisdiction. The standard travels. [beat] We're Helpful Places. We steward DTPR — the standard, the schema, the icons, the tooling — in the open. [beat] Three asks. *Help us build it* — the repo is on GitHub, the schema is in beta, your issues land in our backlog. *Deploy it* — if you've got a register, an AIA, an inventory sitting in PDFs, we want to help you render it. *Ask us anything* — we're here for the rest of the conference. [beat] Thank you.
 -->

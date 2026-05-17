@@ -1,0 +1,82 @@
+/* Helpful Places brand styling — applied across the deck.
+   Palette + typography mirror https://www.helpfulplaces.com/ */
+
+:root {
+  --hp-blue-50:  #edf0ff;
+  --hp-blue-100: #dbe1ff;
+  --hp-blue-200: #b6c4ff;
+  --hp-blue-300: #8fa7ff;
+  --hp-blue-400: #618bff;
+  --hp-blue-500: #046eff;
+  --hp-blue-600: #0057ce;
+  --hp-blue-700: #00419e;
+  --hp-blue-800: #002c70;
+  --hp-blue-900: #001946;
+  --hp-blue-950: #000f31;
+
+  --slidev-theme-primary: var(--hp-blue-500);
+  --slidev-theme-accents-teal: var(--hp-blue-500);
+
+  --hp-sans: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  --hp-serif: "Sorts Mill Goudy", "Times New Roman", serif;
+}
+
+.slidev-layout {
+  font-family: var(--hp-sans);
+  font-weight: 400;
+}
+
+.slidev-layout h1,
+.slidev-layout h2,
+.slidev-layout h3,
+.slidev-layout h4,
+.slidev-layout h5,
+.slidev-layout h6 {
+  font-family: var(--hp-sans);
+  font-weight: 700;
+  color: var(--hp-blue-900);
+  letter-spacing: -0.01em;
+}
+
+.slidev-layout strong,
+.slidev-layout b {
+  font-weight: 600;
+}
+
+.slidev-layout a {
+  color: var(--hp-blue-500);
+}
+
+.slidev-layout a:hover {
+  color: var(--hp-blue-700);
+}
+
+.slidev-layout blockquote {
+  border-left-color: var(--hp-blue-500);
+}
+
+.slidev-layout code:not(pre code) {
+  color: var(--hp-blue-700);
+  background: var(--hp-blue-50);
+}
+
+/* Serif italics — used for verbatim quotes (LL35, definitions) */
+.slidev-layout .font-serif,
+.slidev-layout em,
+.slidev-layout i {
+  font-family: var(--hp-serif);
+}
+
+/* Map any bg-black title cards onto brand blue */
+.slidev-layout .bg-brand,
+.slidev-layout .bg-hp-blue {
+  background-color: var(--hp-blue-500) !important;
+  color: #fff;
+}
+
+.text-hp-blue { color: var(--hp-blue-500); }
+.text-hp-blue-700 { color: var(--hp-blue-700); }
+.text-hp-blue-900 { color: var(--hp-blue-900); }
+.bg-hp-blue-50 { background-color: var(--hp-blue-50); }
+.bg-hp-blue-500 { background-color: var(--hp-blue-500); }
+.border-hp-blue { border-color: var(--hp-blue-500); }
