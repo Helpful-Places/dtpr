@@ -31,7 +31,10 @@
 
     <div class="flex gap-8">
       <Card class="bg-dtpr-red-100 w-[100%] md:mt-8">
-        <NewsletterSignup />
+        <NewsletterSignup
+          action="https://helpful-places.mailcoach.app/subscribe/3f3c6a33-15d3-4607-9c07-fb49d65b5006"
+          tags="dtpr.io"
+        />
       </Card>
     </div>
   </div>
