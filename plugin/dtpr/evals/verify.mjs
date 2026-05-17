@@ -440,6 +440,25 @@ function verifyToolReferences(skills, toolNames) {
     // (element ids, symbol ids, schema field names) — not MCP tools.
     'symbol_id',
     'cloud_storage',
+    // Schema structural axes referenced from skill prose. `element_context`
+    // is the category-level discriminator block; `context_type_id` is its
+    // instance-side counterpart on InstanceElement. Surfaced in prose so
+    // authors recognize the obligation.
+    'element_context',
+    'context_type_id',
+    // Category ids that carry an `element_context` in current beta schemas.
+    'functional_modes',
+    'input_dataset',
+    'output_dataset',
+    // `accountable` is a single-word category id; excluded by the
+    // includes('_') guard above, no entry needed here.
+    // Context values shipped with those categories.
+    'human_decides',
+    'human_executes',
+    'de_identified',
+    // `autonomous`, `pseudonymous`, `identifiable`, `vendor`, `deployer`
+    // are single-word context values; the includes('_') guard already
+    // skips them.
     // Retired skill id appears in handoff prose during the transition.
     'schema_new',
   ])

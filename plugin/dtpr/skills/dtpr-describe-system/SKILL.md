@@ -127,6 +127,17 @@ For each category in the datachain-type's required set, search the element pool:
 
 **Do not invent element IDs.** Only use IDs that appeared in a `list_elements` or `get_elements` response. If no element matches a required category, say so and hand off to `dtpr-element-design` (to draft a candidate element), `dtpr-category-audit` (when many elements in a category feel off), or `dtpr-datachain-structure` (when the shape itself misses the system's nature).
 
+**Enumerate `element_context` discriminators.** As you walk the category list from `get_schema`, note every category whose `element_context` is non-null. Each such category requires every instance element placed under it to carry a `context_type_id` chosen from `element_context.values[].id`. This is a structural axis, not optional decoration — without it the disclosure can't say *which* role / autonomy / sensitivity applies to the placement. In the current `ai@2026-05-06-beta` schema these are:
+
+| category | context.id | allowed `context_type_id` values |
+| --- | --- | --- |
+| `accountable` | `role` | `vendor`, `deployer` |
+| `functional_modes` | `autonomy` | `human_decides`, `human_executes`, `autonomous` |
+| `input_dataset` | `pii` | `de_identified`, `pseudonymous`, `identifiable` |
+| `output_dataset` | `pii` | `de_identified`, `pseudonymous`, `identifiable` |
+
+Future schema versions may add or remove categories from that list — always re-read `get_schema` rather than memorize.
+
 ### Phase 4 — Construct the datachain
 
 Assemble a JSON object that conforms to the `DatachainInstance` shape in the schema:
@@ -134,6 +145,7 @@ Assemble a JSON object that conforms to the `DatachainInstance` shape in the sch
 - `version` — the canonical version string from Phase 2.
 - One entry per required category, each referencing one or more element IDs.
 - Any variable values the element definitions require (e.g. retention periods).
+- For every instance element whose category declared an `element_context` in Phase 3, set `context_type_id` to one of that context's `values[].id`. Missing this field is a `CONTEXT_TYPE_MISSING` warning today (the chain still validates) — treat the warning as a structural-completeness failure, not noise. Picking the wrong value is a `CONTEXT_TYPE_UNKNOWN` error and will block validation.
 
 Use one locale from `manifest.locales` (returned from `get_schema`) for the rendered output; default to `en` if the user hasn't specified. To produce the same disclosure across every locale in the allow-list, hand off to `dtpr-translate` after the JSON validates — that skill reads `manifest.locales` dynamically so it tracks whatever the live schema declares.
 
@@ -155,7 +167,9 @@ Return two artifacts:
 1. **The validated datachain JSON** — the exact object that passed `validate_datachain`, including the version string.
 2. **A short narrative** — one paragraph per category explaining why the chosen elements fit the system. Reference element titles (from `list_elements`) so the user can audit the choices without re-reading the schema. Begin the narrative with a brief **assumptions** paragraph that surfaces the Phase 0 inventory: which artifacts were loaded and in which band, which host tools were unavailable, any artifact-vs-verbal conflict resolutions, and any corpus citations (or the absence of them). This transparency lets the user see what was assumed before acting on the output.
 
-Close by asking whether the user wants to save the JSON to a file, iterate on any category, or hand off to a sibling skill for a schema-level change.
+Then point the user at the hosted **datachain visualizer**: <https://dtpr.ai/en/tools/datachain>. They can paste the JSON into that tool to render the chain as the public-facing disclosure (symbols, categories, locale switcher), save it to a browser-local collection, generate a shareable deep link, and audit how the chain reads to a non-technical viewer before publishing. The visualizer posts the pasted JSON to the DTPR API to validate and resolve it; the local collection and deep-link encoding stay in the browser.
+
+Close by asking whether the user wants to save the JSON to a file, paste it into the visualizer, iterate on any category, or hand off to a sibling skill for a schema-level change.
 
 ## Tool reference
 
