@@ -1,14 +1,18 @@
 import type { DatachainInstance } from '../../schema/datachain-instance.ts'
 import type { Variable } from '../../schema/variable.ts'
 import type { SchemaVersionSource, SemanticError } from '../types.ts'
-import { err } from '../types.ts'
+import { err, warn } from '../types.ts'
 
 /**
  * Instance-level rules. These run against a DatachainInstance in the
  * context of its pinned SchemaVersionSource.
  *
  * Rule 4: context_type_id on an instance element must be a value defined
- *         on the parent category's context.values.
+ *         on the parent category's context.values. If the effective
+ *         context exists but context_type_id is absent, the instance
+ *         is missing a structural discriminator — surfaced as a
+ *         `CONTEXT_TYPE_MISSING` warning so historic published chains
+ *         still pass.
  * Rule 7: required categories must have at least one element in the instance.
  * Rule 9: each instance variable id must be declared on the element's
  *         category element_variables.
@@ -87,9 +91,16 @@ export function checkInstance(
     // Rule 4: context_type_id must match a value defined on the
     // element's effective context. Element.context overrides
     // Category.element_context fully (no merge); resolve in that order.
+    // When the effective context exists but the instance omits
+    // context_type_id, emit a CONTEXT_TYPE_MISSING warning rather than
+    // an error — historic published chains predate this discriminator
+    // and must keep passing — but make the silence audible so authors
+    // can opt in. If a future taxonomy needs hard enforcement, add
+    // `Category.element_context.required: boolean` and promote this
+    // finding to `err(...)` when the flag is true.
+    const cat = categoryById.get(el.category_id)
+    const effectiveCtx = el.context ?? cat?.element_context
     if (ie.context_type_id) {
-      const cat = categoryById.get(el.category_id)
-      const effectiveCtx = el.context ?? cat?.element_context
       const matched = !!effectiveCtx?.values.some((v) => v.id === ie.context_type_id)
       if (!matched) {
         findings.push(
@@ -103,6 +114,18 @@ export function checkInstance(
           ),
         )
       }
+    } else if (effectiveCtx) {
+      const available = effectiveCtx.values.map((v) => v.id).join(', ')
+      findings.push(
+        warn(
+          'CONTEXT_TYPE_MISSING',
+          `Element '${el.id}' is in category '${el.category_id}' which declares an element_context ('${effectiveCtx.id}'); instance omits context_type_id.`,
+          {
+            path: `instance.elements[${ii}].context_type_id`,
+            fix_hint: `Set context_type_id to one of: ${available} (see get_schema or get_element).`,
+          },
+        ),
+      )
     }
 
     // Rule 9 and 10: instance variables validated against element's inherited definitions.
