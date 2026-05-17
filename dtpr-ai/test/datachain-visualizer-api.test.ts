@@ -29,18 +29,21 @@ afterEach(() => {
 
 describe('validateAndResolve', () => {
   it('returns the resolved instance when both calls succeed', async () => {
+    // The live /resolve endpoint returns the bare ResolvedDatachainInstance
+    // on success (no `{ ok, resolved }` envelope); only failures are
+    // enveloped. See content/en/3.rest/10.resolve.md.
     const resolved = {
+      id: 'demo',
       schema_version: VERSION,
+      title: [{ locale: 'en', value: 'Demo' }],
+      elements: [],
       schema_snapshot: { datachain_type: { categories: [] }, categories: [], elements: [] },
       suggested_elements: [],
-      elements: [],
-      instance: { schema_version: VERSION, id: 'demo' },
     }
     const fetchMock = vi.fn(async (url: string | URL | Request) => {
       const u = String(url)
       if (u.endsWith('/validate')) return fakeResponse({ status: 200, body: { ok: true } })
-      if (u.endsWith('/resolve'))
-        return fakeResponse({ status: 200, body: { ok: true, version: VERSION, resolved } })
+      if (u.endsWith('/resolve')) return fakeResponse({ status: 200, body: resolved })
       throw new Error(`unexpected url: ${u}`)
     })
     vi.stubGlobal('fetch', fetchMock)
