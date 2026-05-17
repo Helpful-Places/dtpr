@@ -7,17 +7,17 @@ name:
 description:
   - locale: en
     value: >-
-      The runtime input — the live data this deployed system processes when it operates. Distinct
-      from training data.
+      The input data this deployed system processes when it operates. Distinct from training
+      data.
   - locale: fr
     value: >-
-      L’entrée d’exécution — les données en direct que ce système déployé traite lorsqu’il
-      fonctionne. Distinct des données d’entraînement.
+      Les données d’entrée que ce système déployé traite lorsqu’il fonctionne. Distinctes des
+      données d’entraînement.
 prompt:
   - locale: en
-    value: What live data does this AI system process at runtime?
+    value: What input data does this AI system process?
   - locale: fr
-    value: "Quelles données en direct ce système d’IA traite-t-il à l’exécution\_?"
+    value: Quelles données d’entrée ce système d’IA traite-t-il ?
 required: false
 order: 6
 datachain_type: ai
