@@ -51,6 +51,14 @@ export default defineNuxtConfig({
   },
 
   hooks: {
+    'imports:extend'(imports) {
+      const bad = new Set(['config', 'bind']);
+      for (let i = imports.length - 1; i >= 0; i--) {
+        if (bad.has(imports[i].name) && imports[i].from?.includes('useFormGroup')) {
+          imports.splice(i, 1);
+        }
+      }
+    },
     'content:file:beforeParse': (ctx) => {
       // Skip if there's no body to parse
       if (!ctx.file.body) return;
