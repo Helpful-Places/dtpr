@@ -916,14 +916,13 @@ class: '!p-0'
   controls
   autoplay
   muted
-  loop
   playsinline
   class="absolute inset-0 w-full h-full object-contain bg-black"
 />
 
 <!--
 SLIDE · DTPR Agent Skill — full-screen screencast
-Plays the DTPR Agent Skill screencast edge-to-edge on a black background. autoplay+muted+loop matches the other demo slide; controls are exposed so the speaker can scrub.
+Plays the DTPR Agent Skill screencast edge-to-edge on a black background. autoplay+muted, no loop (plays once); controls are exposed so the speaker can scrub.
 -->
 
 ---
