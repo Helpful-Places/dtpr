@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.3.2 — 2026-05-18
+
+**Per-element authoring provenance on the thin DatachainInstance.** `dtpr-describe-system` now always captures `authoring_provenance.element_provenance[<element_id>]` — per-pick `rationale`, qualitative `confidence` (`high` / `medium` / `low`), `source_references` (verbatim quotes lifted from the loaded artifacts, with optional locator), and `variable_rationale` — and emits it on the thin `DatachainInstance` it produces. Verbatim quotes from a PDF or URL now land in the JSON itself, not just the prose narrative, so reviewers and the resolved-form renderer can audit each element pick against the source it was drawn from.
+
+### Changed
+
+- **`dtpr-describe-system`** — Phase 3 grew a "Capture per-element authoring provenance" sub-step that runs by default on every session. Phase 4's default flow emits a thin instance + `authoring_provenance: { kind: 'ai_generated', model, generated_at, element_provenance }`. The previous resolved-form path is now an explicit opt-in branch, taken only when the user asks the skill to propose new elements inline; that branch switches to `ResolvedDatachainInstance` + `validate_resolved` and is the only path that populates `suggested_elements` or `schema_snapshot`. Phase 5 picks the matching validator (`validate_datachain` for the thin form, `validate_resolved` for the opt-in form); both enforce orphan-key rules on `authoring_provenance.element_provenance` and `variable_rationale`. Tool reference table updated to list `resolve_datachain` + `validate_resolved` for the opt-in branch.
+- **`evals/verify.mjs`** — `authoring_provenance`, `element_provenance`, `element_provenance_unknown_element`, `source_references`, `variable_rationale`, `variable_rationale_unknown_variable`, `schema_snapshot`, `suggested_elements`, `schema_version`, `created_at`, and `generated_at` added to the `knownNonTools` allowlist. These are `DatachainInstance` / `ResolvedDatachainInstance` field names and validator error codes that now appear in the describe-system skill's prose; they are not MCP tools.
+- **`.claude-plugin/plugin.json`** — version bumped to 0.3.2.
+- **`.mcp.json`** — `User-Agent` header synced to `dtpr-claude-plugin/0.3.2`.
+
 ## 0.3.1 — 2026-05-17
 
 **Description trim for Claude Desktop's 1024-char cap.** Six of seven skills had `description:` fields that exceeded the per-skill cap Claude Desktop enforces on upload, blocking installation. The fat was the repeated `For X use sibling-A; for Y use sibling-B; …` block — already documented in each SKILL.md body's "Sibling routing" section. Compressed to a single `See also: …` line; trigger phrases and the "what it does" framing are untouched so dispatch fidelity is preserved.
