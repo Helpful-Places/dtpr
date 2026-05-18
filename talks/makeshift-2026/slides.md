@@ -20,22 +20,65 @@ fonts:
   local: 'Helvetica Neue'
 ---
 
-<div class="inline-block bg-hp-blue text-white px-8 py-4">
-  <h1 class="!m-0 !p-0 !text-white">DTPR for AI</h1>
+<div class="cover-card">
+  <h1>DTPR for AI</h1>
+  <p class="cover-tagline">An open-source communication standard <em>for algorithms&nbsp;and&nbsp;AI</em></p>
+  <div class="cover-meta">
+    <div class="cover-meta-event">MakeShift 2026 &middot; School of Visual Arts, NYC</div>
+    <div class="cover-meta-author">Jonathan Pichot &middot; Helpful Places</div>
+  </div>
 </div>
 
-<div class="mt-6 inline-block bg-hp-blue text-white px-6 py-3 text-2xl">
-An Open-Source Communication Standard for algorithms and AI
-</div>
-
-<div class="mt-12 inline-block bg-hp-blue text-white px-6 py-3 text-lg">
-MakeShift 2026 · School of Visual Arts, NYC<br>
-Jonathan Pichot · Helpful Places
-</div>
+<style>
+.cover-card {
+  display: inline-block;
+  text-align: center;
+  background: var(--hp-blue-500);
+  color: #fff;
+  padding: 2.5rem 4rem 2rem;
+  box-shadow: 0 24px 60px -20px rgba(0, 15, 49, 0.45);
+}
+.cover-card h1 {
+  color: #fff !important;
+  font-size: 4.75rem;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.25rem;
+}
+.cover-tagline {
+  font-size: 1.4rem;
+  font-weight: 300;
+  line-height: 1.4;
+  margin: 0 0 1.75rem;
+  opacity: 0.96;
+}
+.cover-tagline em {
+  font-family: var(--hp-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+.cover-meta {
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  padding-top: 1rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  line-height: 1.7;
+}
+.cover-meta-event {
+  font-weight: 600;
+}
+</style>
 
 <!--
-15s
+SLIDE 1 · 15s · Title card
 A grounded hello. Don't promise what the talk will do — let the audience discover it.
+
+Design notes:
+  - Single HP-blue brand card replaces the prior trio of stacked blue rectangles.
+  - Tagline uses the deck's serif italic ("Sorts Mill Goudy") for the "for algorithms and AI" phrase — same typographic move used on quote / definition slides.
+  - Event + author live below a thin white rule in small-caps, so the visual hierarchy reads title → tagline → metadata without three competing blocks.
 -->
 
 ---
