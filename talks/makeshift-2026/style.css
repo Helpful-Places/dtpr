@@ -1,18 +1,23 @@
 /* Helpful Places brand styling — applied across the deck.
-   Palette + typography mirror https://www.helpfulplaces.com/ */
+   Teal-on-cream palette anchored on the GRG site-visit doc:
+   primary #007b7a, secondary #00a5a3, pale tint #d4e9e7, cream surface #f6f4ee.
+   Variable names retain the `--hp-blue-*` slugs for back-compat with existing
+   slide/component references; the values are teal. */
 
 :root {
-  --hp-blue-50:  #edf0ff;
-  --hp-blue-100: #dbe1ff;
-  --hp-blue-200: #b6c4ff;
-  --hp-blue-300: #8fa7ff;
-  --hp-blue-400: #618bff;
-  --hp-blue-500: #046eff;
-  --hp-blue-600: #0057ce;
-  --hp-blue-700: #00419e;
-  --hp-blue-800: #002c70;
-  --hp-blue-900: #001946;
-  --hp-blue-950: #000f31;
+  --hp-blue-50:  #e6f2f1;
+  --hp-blue-100: #cfe6e4;
+  --hp-blue-200: #a8d3d0;
+  --hp-blue-300: #6fb8b4;
+  --hp-blue-400: #2da19c;
+  --hp-blue-500: #007b7a;
+  --hp-blue-600: #006a69;
+  --hp-blue-700: #005857;
+  --hp-blue-800: #003e3d;
+  --hp-blue-900: #002827;
+  --hp-blue-950: #001514;
+
+  --hp-cream: #f6f4ee;
 
   --slidev-theme-primary: var(--hp-blue-500);
   --slidev-theme-accents-teal: var(--hp-blue-500);
@@ -24,6 +29,7 @@
 .slidev-layout {
   font-family: var(--hp-sans);
   font-weight: 400;
+  background-color: var(--hp-cream);
 }
 
 .slidev-layout h1,
@@ -78,5 +84,6 @@
 .text-hp-blue-700 { color: var(--hp-blue-700); }
 .text-hp-blue-900 { color: var(--hp-blue-900); }
 .bg-hp-blue-50 { background-color: var(--hp-blue-50); }
+.bg-hp-blue-100 { background-color: var(--hp-blue-100); }
 .bg-hp-blue-500 { background-color: var(--hp-blue-500); }
 .border-hp-blue { border-color: var(--hp-blue-500); }
