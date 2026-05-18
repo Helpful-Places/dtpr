@@ -31,8 +31,13 @@ import DtprPlacement from './DtprPlacement.vue'
       :icon-size="64"
     />
     <div class="context-flow__arrow">→</div>
+    <!--
+      AlgorithmHeader's purpose cell renders the first purpose
+      element in the datachain (eligibility_benefits), so this row
+      mirrors that choice for consistency across the deck.
+    -->
     <DtprPlacement
-      element-id="education"
+      element-id="eligibility_benefits"
       :show-description="false"
       :icon-size="64"
     />

@@ -38,6 +38,7 @@ interface Props {
   imageSrc?: string
   locale?: string
   highlightCategoryId?: string | null
+  highlightRow?: 'context' | 'flow' | null
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -49,6 +50,7 @@ const props = withDefaults(defineProps<Props>(), {
   imageSrc: '',
   locale: 'en',
   highlightCategoryId: null,
+  highlightRow: null,
 })
 
 const payload = ref<ResolvedDatachainInstance | null>(null)
@@ -172,7 +174,7 @@ const hasContextRow = computed(() => !!(accountable.value || functionalModes.val
         <div v-if="loading" class="alg-header__status">Loading datachain…</div>
         <div v-else-if="error" class="alg-header__status alg-header__status--err">Failed to load: {{ error }}</div>
 
-        <div v-else-if="hasContextRow" class="alg-header__panel">
+        <div v-else-if="hasContextRow" class="alg-header__panel" :class="{ 'alg-header__panel--highlighted': highlightRow === 'context' }">
           <div class="alg-header__row">
             <div v-if="accountable" class="alg-header__cell" :class="{ 'alg-header__cell--highlighted': highlightCategoryId === 'accountable' }">
               <div class="alg-header__label-eyebrow">{{ categoryName('accountable') }}</div>
@@ -196,7 +198,7 @@ const hasContextRow = computed(() => !!(accountable.value || functionalModes.val
           </div>
         </div>
 
-        <div v-if="!loading && !error && flowSteps.length" class="alg-header__panel">
+        <div v-if="!loading && !error && flowSteps.length" class="alg-header__panel" :class="{ 'alg-header__panel--highlighted': highlightRow === 'flow' }">
           <div class="alg-header__row">
             <div v-for="step in flowSteps" :key="step.key" class="alg-header__cell" :class="{ 'alg-header__cell--highlighted': highlightCategoryId === step.categoryId }">
               <div class="alg-header__label-eyebrow">{{ categoryName(step.categoryId) }}</div>
@@ -309,6 +311,16 @@ const hasContextRow = computed(() => !!(accountable.value || functionalModes.val
 }
 
 .alg-header__cell--highlighted {
+  box-shadow: 0 0 0 3px #dc2626;
+  background: rgba(220, 38, 38, 0.04);
+}
+
+.alg-header__panel {
+  border-radius: 14px;
+  transition: box-shadow 250ms ease, background-color 250ms ease;
+}
+
+.alg-header__panel--highlighted {
   box-shadow: 0 0 0 3px #dc2626;
   background: rgba(220, 38, 38, 0.04);
 }

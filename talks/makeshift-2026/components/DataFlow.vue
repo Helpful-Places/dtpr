@@ -10,8 +10,13 @@ import DtprPlacement from './DtprPlacement.vue'
 
 <template>
   <div class="data-flow">
+    <!--
+      AlgorithmHeader's input cell renders the first input_dataset
+      element in the datachain (input_sensitive_personal), so this
+      row mirrors that choice for consistency across the deck.
+    -->
     <DtprPlacement
-      element-id="input_about_a_person"
+      element-id="input_sensitive_personal"
       context-type-id="identifiable"
       :show-description="false"
       :icon-size="64"

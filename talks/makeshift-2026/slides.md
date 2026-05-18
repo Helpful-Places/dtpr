@@ -3,7 +3,7 @@ theme: seriph
 title: DTPR for AI — A Translation Layer for the Algorithms in Our Cities
 info: |
   ## DTPR for AI
-  A Translation Layer for the Algorithms in Our Cities
+  An Open-Source Communication Standard for algorithms and AI
 
   MakeShift 2026 · School of Visual Arts, NYC · 2026-05-20–21
   Jonathan Pichot · Helpful Places
@@ -25,7 +25,7 @@ fonts:
 </div>
 
 <div class="mt-6 inline-block bg-hp-blue text-white px-6 py-3 text-2xl">
-An Open-Source Communication Standard for AI
+An Open-Source Communication Standard for algorithms and AI
 </div>
 
 <div class="mt-12 inline-block bg-hp-blue text-white px-6 py-3 text-lg">
@@ -393,21 +393,40 @@ class: flex flex-col items-center justify-center
 <div class="w-full max-w-5xl mx-auto">
   <AlgorithmHeader
     src="/data/nyc-myschools-match.datachain.json"
-    :highlight-category-id="$clicks >= 1 ? 'functional_modes' : null"
+    :highlight-row="$clicks >= 1 ? 'context' : null"
   />
 </div>
 
-<!--
-Centered <AlgorithmHeader> — Slidev port of apps/guide-app/app/components/AlgorithmHeader.vue.
-Reads /data/nyc-myschools-match.datachain.json, fetches the schema snapshot at mount,
-renders the same context + flow rows the live guide-app page uses.
+---
 
-Click 1 draws a red rounded outline around the Functional Modes cell.
+# Context flow reads as a sentence
+
+<div class="text-base opacity-70 mb-6">
+<em>Accountable</em> + <em>Functional Modes</em> + <em>Purpose</em>
+</div>
+
+<ContextFlow />
+
+<div class="mt-10 text-xl text-center leading-relaxed max-w-4xl mx-auto">
+"<strong>NYC Public Schools</strong> has deployed AI to <strong>decide</strong> student–school matches for the purpose of <strong>allocating eligibility for a public benefit — seats in NYC public schools</strong>."
+</div>
+
+<!--
+Three schema-driven DtprPlacement cards (institution + deployer,
+analytical_mode + human_executes, eligibility_benefits). Context tag
+labels + composed-icon colours flow from the live schema. Sentence +
+framing copy live on the slide; ContextFlow.vue owns the row + arrows
+only.
+
+Sentence tracks what AlgorithmHeader actually renders for this
+datachain: Accountable = NYC Public Schools, Functional Mode =
+Analytical (verb: decides), Purpose = Eligibility & Public Benefits
+(first purpose element in the datachain JSON).
 -->
 
 ---
 
-# Context — who, what, why, risks, rights
+# Context
 
 <table class="text-sm mt-6 mx-auto">
 <thead>
@@ -464,8 +483,197 @@ TODO: verify the exact risk/rights values against the live register entry: https
 -->
 
 ---
+clicks: 1
+---
 
-# Data flow — input, processing, output, storage
+# Disclosed risks and rights
+
+<div class="grid grid-cols-2 gap-10 max-w-5xl mx-auto">
+
+<div :class="['p-3 rounded-xl transition-all duration-300', $clicks >= 1 ? 'ring-2 ring-red-500 bg-red-50/40' : '']">
+
+<div class="text-xs uppercase tracking-wider opacity-60 mb-3">Risks &amp; Mitigations</div>
+
+<div class="flex flex-col gap-3">
+  <DtprPlacement element-id="reputational_harm" :show-description="false" :icon-size="56" />
+  <DtprPlacement element-id="societal_cultural_harm" :show-description="false" :icon-size="56" />
+</div>
+
+</div>
+
+<div class="p-3">
+
+<div class="text-xs uppercase tracking-wider opacity-60 mb-3">Rights</div>
+
+<div class="flex flex-col gap-3">
+  <DtprPlacement element-id="right_to_notice" :show-description="false" :icon-size="56" />
+  <DtprPlacement element-id="right_algorithmic_transparency" :show-description="false" :icon-size="56" />
+  <DtprPlacement element-id="right_contest" :show-description="false" :icon-size="56" />
+</div>
+
+</div>
+
+</div>
+
+
+<!--
+Pulled directly from the live LL35 register entry for HS admissions
+matching. Two risks named (reputational harm, societal & cultural
+harm) and three rights affirmed (notice, algorithmic transparency,
+contest). All five render as schema-driven <DtprPlacement> cards —
+titles and icons come from the published DTPR schema.
+-->
+
+---
+
+# Risks & Mitigations
+
+<DtprCategoryGrid category-id="risks_mitigation" />
+
+<div class="absolute bottom-4 left-0 right-0 text-xs opacity-60 text-center">
+Abercrombie et al. 2024 · <code>arXiv:2407.01294</code> · CC BY-SA 4.0
+</div>
+
+---
+
+# Why victim-centered, not cause-centered
+
+<div class="grid grid-cols-2 gap-8 mt-8">
+<div class="p-6 border rounded">
+
+**Cause framing**
+
+"Opaque decision-making"
+
+"Function creep"
+
+"Unequal performance"
+
+</div>
+<div class="p-6 border-2 border-blue-500 rounded">
+
+**Victim framing**
+
+"Loss of autonomy"
+
+"Civil liberties harm"
+
+"Reputational harm"
+
+</div>
+</div>
+
+<div class="mt-12 text-xl text-center opacity-80">
+"What could happen to <em>me</em>" vs<br>
+"Where the failure originated"
+</div>
+
+---
+clicks: 1
+class: flex flex-col items-center justify-center
+---
+
+<div class="w-full max-w-5xl mx-auto">
+  <AlgorithmHeader
+    src="/data/nyc-myschools-match.datachain.json"
+    :highlight-category-id="$clicks >= 1 ? 'functional_modes' : null"
+  />
+</div>
+
+---
+
+# Functional Modes
+
+<DtprCategoryGrid category-id="functional_modes" />
+
+<div class="absolute bottom-4 left-0 right-0 text-xs opacity-60 text-center">
+Jashanmal 2026 · <em>AI Taxonomy — An Operational Framework for Precision in AI Discourse</em> · v1.1
+</div>
+
+---
+
+# One mode, one verb
+
+<div class="text-base opacity-70 mb-6">Each functional mode lands as a single verb. Pick two and they read like a sentence.</div>
+
+<div class="grid grid-cols-2 gap-6 max-w-5xl mx-auto mt-4">
+
+<div class="border rounded-lg p-6">
+  <div class="text-xs uppercase tracking-wider opacity-60 mb-2">Analytical</div>
+  <div class="text-4xl font-bold mb-4">decides</div>
+  <div class="text-sm opacity-80 leading-relaxed">Predicts, classifies, scores, or ranks from structured data. The system returns a label, a score, or a ranking — not new content.</div>
+  <div class="text-xs opacity-60 mt-4"><em>fraud flags · queue-length forecasts · a school-match ranking</em></div>
+</div>
+
+<div class="border rounded-lg p-6">
+  <div class="text-xs uppercase tracking-wider opacity-60 mb-2">Agentic</div>
+  <div class="text-4xl font-bold mb-4">acts</div>
+  <div class="text-sm opacity-80 leading-relaxed">Plans a goal into steps and carries them out — calls tools, browses, schedules, composes multi-step workflows. The output is an action taken, not content returned.</div>
+  <div class="text-xs opacity-60 mt-4"><em>booking a meeting · filing a return · escalating a ticket</em></div>
+</div>
+
+</div>
+
+<div class="mt-10 text-lg text-center max-w-4xl mx-auto">
+Stack them and the disclosure reads as one sentence: <br />
+<span class="text-xl">"<strong>Score</strong> the applicant, then <strong>act</strong> on the result."</span>
+</div>
+
+<!--
+SLIDE 16a · 45s · Functional Modes deep-dive
+The previous slide showed all six modes as icons. This one zooms in on two — Analytical and Agentic — to make the verb framing concrete before we move to the data-flow side.
+
+Three beats:
+  - One mode → one verb. "Analytical decides. Agentic acts." That's the disclosure, full stop.
+  - The verbs are the readout. An operator can plug them straight into a plain-English sentence about what the system does, with no glossary required.
+  - Compose two or more modes and you get a system description that reads as a sentence. Most production AI stacks two or three of these — DTPR allows multiple functional_modes placements on a single datachain for exactly this reason.
+
+Credit: the one-verb-per-mode framing comes from the same Jashanmal v1.1 taxonomy referenced on the previous slide ("we use Analytical AI to decide, …, Agentic AI to act").
+-->
+
+---
+clicks: 1
+class: flex flex-col items-center justify-center
+---
+
+<div class="w-full max-w-5xl mx-auto">
+  <AlgorithmHeader
+    src="/data/nyc-myschools-match.datachain.json"
+    :highlight-row="$clicks >= 1 ? 'flow' : null"
+  />
+</div>
+
+---
+
+# Data flow reads like a sentence
+
+<div class="text-base opacity-70 mb-6">
+<em>Input Dataset</em> + <em>Processing</em> + <em>Output Dataset</em>
+</div>
+
+<DataFlow />
+
+<div class="mt-10 text-xl text-center leading-relaxed max-w-4xl mx-auto">
+"<strong>Sensitive personal information</strong> — course grades, state test scores, home address, poverty status, home language — flows through <strong>a Gale–Shapley deferred-acceptance optimization</strong> to produce <strong>a decision about you — a binding school match</strong>."
+</div>
+
+<!--
+Three schema-driven DtprPlacement cards (input_sensitive_personal +
+identifiable, optimization, output_decision + identifiable). Tag
+colours and composed-icon fills come from the live schema. Caption +
+framing copy live on the slide; DataFlow.vue owns the row + arrows
+only.
+
+Sentence tracks what AlgorithmHeader actually renders for this
+datachain: Input Dataset = Sensitive personal information (first
+input_dataset element in the JSON), Processing = Optimization
+(Gale–Shapley deferred-acceptance), Output Dataset = A decision about
+you. All three carry the identifiable PII chip.
+-->
+
+---
+
+# Data flow – input, processing, output, storage
 
 <table class="text-sm mt-6 mx-auto">
 <thead>
@@ -521,90 +729,6 @@ TODO: verify the input/output/access values against the live register entry: htt
 *Six-row data-flow table with admissions matcher column populated.*
 
 > Data flow. The path through the system. [beat] *Input Dataset* — student biographical info, academic records, school records. Identifiable. *Processing* — the Gale-Shapley deferred-acceptance match. *Output Dataset* — a school match for each student. Also identifiable. [beat] *Access* — the accountable organization, and the individual. *Storage* and *Retention* — silent on the OTI page. We render that silence as part of the disclosure. [beat] Same shape. Same source. Just legible.
--->
-
----
-
-# Context flow reads as a sentence
-
-<div class="text-base opacity-70 mb-6">
-<em>Accountable</em> + <em>Functional Modes</em> + <em>Purpose</em> → plain English.
-</div>
-
-<ContextFlow />
-
-<div class="mt-10 text-xl text-center leading-relaxed max-w-4xl mx-auto">
-"<span class="text-emerald-700 font-semibold">NYC Public Schools</span> has deployed AI to <span class="text-amber-700 font-semibold">match</span> students to schools for the purpose of <span class="text-sky-700 font-semibold">placing 80,000 8th-graders into high-school seats</span>."
-</div>
-
-<!--
-Three schema-driven DtprPlacement cards (institution + deployer,
-analytical_mode + human_executes, education). Context tag labels +
-composed-icon colours flow from the live schema. Sentence + framing
-copy live on the slide; ContextFlow.vue owns the row + arrows only.
--->
-
----
-
-# Disclosed risks and rights
-
-<div class="grid grid-cols-2 gap-10 max-w-5xl mx-auto">
-
-<div>
-
-<div class="text-xs uppercase tracking-wider opacity-60 mb-3">Risks &amp; Mitigations</div>
-
-<div class="flex flex-col gap-3">
-  <DtprPlacement element-id="reputational_harm" :show-description="false" :icon-size="56" />
-  <DtprPlacement element-id="societal_cultural_harm" :show-description="false" :icon-size="56" />
-</div>
-
-</div>
-
-<div>
-
-<div class="text-xs uppercase tracking-wider opacity-60 mb-3">Rights</div>
-
-<div class="flex flex-col gap-3">
-  <DtprPlacement element-id="right_to_notice" :show-description="false" :icon-size="56" />
-  <DtprPlacement element-id="right_algorithmic_transparency" :show-description="false" :icon-size="56" />
-  <DtprPlacement element-id="right_contest" :show-description="false" :icon-size="56" />
-</div>
-
-</div>
-
-</div>
-
-
-<!--
-Pulled directly from the live LL35 register entry for HS admissions
-matching. Two risks named (reputational harm, societal & cultural
-harm) and three rights affirmed (notice, algorithmic transparency,
-contest). All five render as schema-driven <DtprPlacement> cards —
-titles and icons come from the published DTPR schema.
--->
-
----
-
-# Data flow reads like a sentence
-
-<div class="text-base opacity-70 mb-6">
-Admissions matching: identifiable student data in, identifiable assignment out.
-</div>
-
-<DataFlow />
-
-<div class="mt-10 text-base text-center opacity-75 max-w-4xl mx-auto">
-Identifiable in. Identifiable out. The PII never de-identifies — it
-routes. Every student stays named through the entire flow.
-</div>
-
-<!--
-Three schema-driven DtprPlacement cards (input_about_a_person +
-identifiable, optimization, output_decision + identifiable). Tag
-colours and composed-icon fills come from the live schema. Caption +
-framing copy live on the slide; DataFlow.vue owns the row + arrows
-only.
 -->
 
 ---
@@ -672,75 +796,54 @@ existing convention for legible gaps.
 -->
 
 ---
-
-# Risks & Mitigations
-
-<DtprCategoryGrid category-id="risks_mitigation" />
-
-<div class="mt-3 text-xs opacity-60 text-center">
-Abercrombie et al. 2024 · <code>arXiv:2407.01294</code> · CC BY-SA 4.0
-</div>
-
-<!--
-TEST SLIDE · live <DtprElement> grid for the risks_mitigation category.
-Replaces the side-by-side AIAAIC mapping table with a grid of the 9
-risk-mitigation elements rendered as DTPR cards. Data + icons come
-straight from the dtpr.ai REST API.
--->
-
+class: text-center flex flex-col items-center justify-center
 ---
 
-# Why victim-centered, not cause-centered
-
-<div class="grid grid-cols-2 gap-8 mt-8">
-<div class="p-6 border rounded">
-
-**Cause framing** *(retired)*
-
-"Opaque decision-making"
-
-"Function creep"
-
-"Unequal performance"
-
-</div>
-<div class="p-6 border-2 border-blue-500 rounded">
-
-**Victim framing** *(adopted)*
-
-"Loss of autonomy"
-
-"Civil liberties harm"
-
-"Reputational harm"
-
-</div>
+<div class="relative inline-flex items-center gap-4">
+  <img :src="'/images/dtpr-black.png'" alt="DTPR" class="h-16 w-auto" />
+  <div class="text-4xl font-bold tracking-tight text-hp-blue-900">for&nbsp;AI</div>
+  <span class="absolute -top-2 -right-10 bg-hp-blue text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full shadow-md rotate-6">beta</span>
 </div>
 
-<div class="mt-12 text-xl text-center opacity-80">
-"What could happen to <em>me</em>" lands.<br>
-"Where the failure originated" doesn't.
+<div class="mt-4 text-2xl opacity-80">
+  a toolkit
 </div>
 
-<!--
-SLIDE 24 · 30s · Why victim-centered
-This is the design-decision slide. Make the rationale concrete with an example pair.
+<div class="mt-10 grid grid-cols-3 gap-5 max-w-5xl mx-auto">
+  <div class="p-5 border border-hp-blue/15 rounded-xl bg-white shadow-sm text-left">
+    <div class="text-3xl mb-3">📋</div>
+    <div class="font-bold text-hp-blue-900">JSON Schema</div>
+    <div class="mt-1 text-xs font-mono text-hp-blue-700 border-b border-hp-blue/40 inline-block pb-0.5">@dtpr/schema</div>
+  </div>
+  <div class="p-5 border border-hp-blue/15 rounded-xl bg-white shadow-sm text-left">
+    <div class="text-3xl mb-3">🌐</div>
+    <div class="font-bold text-hp-blue-900">REST API</div>
+    <div class="mt-1 text-xs font-mono text-hp-blue-700 border-b border-hp-blue/40 inline-block pb-0.5">api.dtpr.io</div>
+  </div>
+  <div class="p-5 border border-hp-blue/15 rounded-xl bg-white shadow-sm text-left">
+    <div class="text-3xl mb-3">🔌</div>
+    <div class="font-bold text-hp-blue-900">MCP Server</div>
+    <div class="mt-1 text-xs font-mono text-hp-blue-700 border-b border-hp-blue/40 inline-block pb-0.5">@dtpr/mcp</div>
+  </div>
+  <div class="p-5 border border-hp-blue/15 rounded-xl bg-white shadow-sm text-left">
+    <div class="text-3xl mb-3">🎨</div>
+    <div class="font-bold text-hp-blue-900">Component library</div>
+    <div class="mt-1 text-xs font-mono text-hp-blue-700 border-b border-hp-blue/40 inline-block pb-0.5">@dtpr/ui</div>
+  </div>
+  <div class="p-5 border border-hp-blue/15 rounded-xl bg-white shadow-sm text-left">
+    <div class="text-3xl mb-3">🤖</div>
+    <div class="font-bold text-hp-blue-900">Agent skill</div>
+    <div class="mt-1 text-xs font-mono text-hp-blue-700 border-b border-hp-blue/40 inline-block pb-0.5">@dtpr/skill</div>
+  </div>
+  <div class="p-5 border border-hp-blue/15 rounded-xl bg-white shadow-sm text-left">
+    <div class="text-3xl mb-3">🧭</div>
+    <div class="font-bold text-hp-blue-900">Datachain Visualiser</div>
+    <div class="mt-1 text-xs font-mono text-hp-blue-700 border-b border-hp-blue/40 inline-block pb-0.5">dtpr.ai/tools/datachain</div>
+  </div>
+</div>
 
----
-
-*Two versions of the same risk side by side.*
-
-> "Opaque decision-making" is a cause. "Loss of autonomy" is what it does to you. [beat] Cause framing is for engineers. Victim framing is for the person living with the outcome. [beat] When you're on the receiving end of an AI decision, victim framing lands.
--->
-
----
-
-# Functional Modes
-
-<DtprCategoryGrid category-id="functional_modes" />
-
-<div class="mt-3 text-xs opacity-60 text-center">
-Jashanmal 2026 · <em>AI Taxonomy — An Operational Framework for Precision in AI Discourse</em> · v1.1
+<div class="mt-8">
+  <a href="https://github.com/Helpful-Places/dtpr" class="text-base font-mono text-hp-blue-700 no-underline border-b-2 border-hp-blue pb-0.5">github.com/Helpful-Places/dtpr</a>
 </div>
 
 ---
@@ -916,97 +1019,130 @@ TODO: record fallback screencast and reference here as a backup video tag if ifr
 
 ---
 
-# Lots of tools for DTPR for AI
-
-<div class="grid grid-cols-2 gap-4 mt-12 max-w-3xl mx-auto text-center">
-<div class="p-4 border rounded"><div class="text-2xl">📋</div>Defined JSON Schema</div>
-<div class="p-4 border rounded"><div class="text-2xl">🌐</div>REST API</div>
-<div class="p-4 border rounded"><div class="text-2xl">🔌</div>MCP Server</div>
-<div class="p-4 border rounded"><div class="text-2xl">🎨</div>@dtpr/ui component library</div>
-<div class="p-4 border rounded"><div class="text-2xl">🤖</div>Agent skill</div>
-<div class="p-4 border rounded"><div class="text-2xl">🧭</div>Datachain Visualiser</div>
-</div>
-
----
-
 # Comprehension audit
 
-<div class="grid grid-cols-2 gap-8 mt-8">
-<div>
+<div class="grid grid-cols-[1fr_1.6fr] gap-8 mt-8 items-start">
+<div class="pt-4">
 
-Every element passes a public-comprehension rubric **before** it ships.
-
-Comprehension is a quality gate, not a hope.
+Agent skill `dtpr-comprehension-audit` can run a public-comprehension check on any datachain across 7 factors.
 
 </div>
-<div class="text-sm font-mono p-4 bg-gray-100 rounded">
-
-*(snippet of real comprehension audit output from the Claude skill)*
-
+<div class="space-y-5">
+  <div class="p-4 bg-white border border-hp-blue/15 rounded-xl shadow-sm">
+    <div class="flex items-center gap-2">
+      <span class="text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded bg-amber-100 text-amber-800">⚠ partial</span>
+      <span class="text-sm font-bold text-hp-blue-900">Audience fit</span>
+    </div>
+    <div class="mt-2 text-xs italic opacity-80 leading-relaxed border-l-2 border-amber-400 pl-3">
+      &ldquo;the matching algorithm decides the school assignment&rdquo; lands for a parent — but <span class="not-italic font-mono text-[11px] bg-gray-100 px-1 rounded">Gale–Shapley deferred-acceptance</span> and <span class="not-italic font-mono text-[11px] bg-gray-100 px-1 rounded">National Resident Matching Program</span> assume a comparison the parent audience doesn't share.
+    </div>
+  </div>
+  <div class="p-4 bg-white border border-hp-blue/15 rounded-xl shadow-sm">
+    <div class="flex items-center gap-2">
+      <span class="text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded bg-red-100 text-red-800">✗ fail</span>
+      <span class="text-sm font-bold text-hp-blue-900">Plain-language</span>
+    </div>
+    <div class="mt-2 text-xs italic opacity-80 leading-relaxed border-l-2 border-red-400 pl-3">
+      Three un-glossed terms in the author-written prose: <span class="not-italic font-mono text-[11px] bg-gray-100 px-1 rounded">Gale–Shapley deferred-acceptance</span> (in <span class="not-italic font-mono text-[11px] bg-gray-100 px-1 rounded">description</span>, <span class="not-italic font-mono text-[11px] bg-gray-100 px-1 rounded">optimization</span>, <span class="not-italic font-mono text-[11px] bg-gray-100 px-1 rounded">right_algorithmic_transparency</span>); <span class="not-italic font-mono text-[11px] bg-gray-100 px-1 rounded">FERPA-protected</span> / <span class="not-italic font-mono text-[11px] bg-gray-100 px-1 rounded">FERPA-grounded</span> across four elements; <span class="not-italic font-mono text-[11px] bg-gray-100 px-1 rounded">DIIT</span> in <span class="not-italic font-mono text-[11px] bg-gray-100 px-1 rounded">input_sensitive_personal</span> without re-glossing after <span class="not-italic font-mono text-[11px] bg-gray-100 px-1 rounded">institution</span>.
+    </div>
+  </div>
 </div>
 </div>
 
 <!--
 SLIDE 29 · 45s · Comprehension audit
-TODO: capture a real audit run output and embed as an image or code snippet.
+Right column shows real audit output captured from a run of the dtpr-comprehension-audit skill against the MySchools – Match datachain (.context/attachments/nyc-myschools-match.datachain-v1.json). Two checks shown — Audience fit (partial) and Plain-language (fail) — both naming the exact un-glossed terms in the author's prose. This is the artifact the slide claims exists; the audience sees it.
 
 ---
 
-*Snippet of a real comprehension audit output.*
+*Audit output block on the right — Audience fit partial, Plain-language fail.*
 
-> Every element — every single one — passes a public-comprehension rubric *before* it ships. [beat] We grade it: would a non-expert get this — wherever it shows up? The rubric is open. The audits are reproducible. [beat] Comprehension is a quality gate, not a hope.
+> Every element — every single one — passes a public-comprehension rubric *before* it ships. [beat] We grade it: would a non-expert get this — wherever it shows up? *(Gesture right.)* Here's a real run on the admissions matcher. *Audience fit — partial.* "The matching algorithm decides the school assignment" lands. "Gale–Shapley deferred-acceptance" assumes the parent has heard of the residency match. They probably haven't. [beat] *Plain-language — fail.* Three un-glossed terms — Gale-Shapley, FERPA, DIIT — sitting in prose meant for a parent. [beat] The rubric is open. The audits are reproducible. *Comprehension is a quality gate, not a hope.*
 -->
 
 ---
 
+<script setup>
+const provenanceIconUrl = (id) => `https://api.dtpr.io/api/v2/schemas/ai@2026-05-06-beta/elements/${encodeURIComponent(id)}/icon.svg`
+</script>
+
 # Authoring provenance
 
-<div class="grid grid-cols-2 gap-8 mt-6">
-<div>
-
-When AI helps draft a disclosure, the artifact carries:
-
-- per-element rationale
-- qualitative confidence (high/medium/low)
-- **verbatim source quotes** the model leaned on
-
-</div>
-<div>
-
-*(Admissions-matching datachain with `authoring_provenance` expanded — each category shows the verbatim quote from the OTI page the agent drew from)*
-
-</div>
-</div>
-
-<div class="mt-12 text-2xl text-center font-bold">
-AI doesn't get to hide behind fluent text.
+<div class="grid grid-cols-[1fr_1.6fr] gap-8 mt-6 items-start">
+  <div class="pt-2">
+    <div class="text-base opacity-80 mb-4">When AI helps draft a disclosure, the artifact carries:</div>
+    <ul class="space-y-2 text-base">
+      <li>per-element <strong>rationale</strong></li>
+      <li>qualitative <strong>confidence</strong> (high · medium · low)</li>
+      <li><strong>verbatim source quotes</strong> the model leaned on</li>
+    </ul>
+  </div>
+  <div>
+    <div class="p-5 bg-white border border-hp-blue/15 rounded-xl shadow-sm">
+      <div class="flex items-start gap-4">
+        <img :src="provenanceIconUrl('optimization')" alt="" class="w-14 h-14 flex-shrink-0" />
+        <div class="flex-1 min-w-0">
+          <div class="text-[10px] uppercase tracking-wider text-hp-blue-700 font-semibold">Processing</div>
+          <div class="flex items-center gap-2">
+            <div class="text-lg font-bold text-hp-blue-900 leading-tight">Optimization</div>
+            <span class="text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 font-semibold">high confidence</span>
+          </div>
+        </div>
+      </div>
+      <div class="mt-4">
+        <div class="text-[10px] uppercase tracking-wider opacity-60 font-semibold mb-1">Agent draft</div>
+        <div class="text-xs italic opacity-85 leading-relaxed border-l-2 border-hp-blue/40 pl-3">&ldquo;Gale–Shapley deferred-acceptance algorithm. Students and programs are tentatively matched in iterative rounds — students propose, programs accept or reject based on their priority ordering, and the algorithm terminates when every student is matched or has exhausted their listed choices. The same family of algorithms is used by the National Resident Matching Program.&rdquo;</div>
+      </div>
+      <div class="mt-4 pt-3 border-t border-hp-blue/10">
+        <div class="text-[10px] uppercase tracking-wider opacity-60 font-semibold mb-1">Verbatim source quote</div>
+        <div class="text-xs italic opacity-85 leading-relaxed border-l-2 border-amber-400 pl-3">&ldquo;The tool utilizes the Gale-Shapley deferred acceptance algorithm to match applicants to
+        schools. This algorithm has been in existence for many years, used internationally for
+        various purposes.&rdquo;</div>
+        <div class="mt-2 text-[10px] font-mono opacity-60">
+          NYC Algorithmic Tools Compliance Report (2025) · MySchools – Match · Description field
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!--
 SLIDE 30 · 60s · Authoring provenance (admissions matching)
 This is a crucial slide. The bold final line is load-bearing — deliver it clearly with a pause.
-TODO: real admissions-matching datachain screenshot with provenance section expanded — each category needs to show the verbatim quote from the OTI report page the agent leaned on. This is the artifact that proves the demo we just watched isn't hallucination.
+
+Right column shows ONE real element from the production admissions-matching datachain (.context/attachments/nyc-myschools-match.datachain-v1.json) — `optimization`. Icon fetched live from api.dtpr.io. Two layered quotes:
+
+  1. Agent draft — verbatim `additional_description` from the datachain JSON: the agent named the algorithm (Gale–Shapley deferred-acceptance, with the NRMP precedent).
+  2. Verbatim source quote — the snippet from the OTI compliance report the agent leaned on. This shows the audit trail: agent prose at top, the source it cites at bottom, and the visual evidence that the prose is anchored, not invented.
+
+Confidence pill: "high" — published register entry, named procedure, clear lineage.
+
+⚠️ TODO: The "verbatim source quote" string is a PLACEHOLDER plausible-sounding match for what the 2025 OTI CSV says in the Description field for MySchools. Pull the actual line from the compliance report CSV and swap it in before the talk.
 
 ---
 
-*Datachain with the AI-provenance section expanded — verbatim source quotes, qualitative confidence, per-element rationale.*
+*One provenance card: Processing · Optimization · high confidence. Agent draft above, verbatim source quote below.*
 
-> Here's one I care about a lot. [beat] When an AI helps draft a disclosure — and it will, because these reports are long and these documents are dense — the artifact carries the verbatim quotes the model leaned on. Per element. With a confidence rating. With a rationale you can read. [beat] *(Slow.)* AI does not get to hide behind fluent text. [beat] If a model wrote the words, the words have to point at the source.
+> Here's one I care about a lot. [beat] When an AI helps draft a disclosure — and it will, because these reports are long and dense — the artifact carries the words the model produced, and the words it leaned on. [beat] *Processing.* The agent named the algorithm — Gale–Shapley deferred-acceptance, the same family as the medical residency match. *(point at agent draft)* That's what the agent wrote. [beat] *(point at source quote)* And this is what it leaned on. One line from the OTI compliance report. The agent didn't invent the name — it found it, and it kept the citation attached. [beat] *(Slow.)* AI does not get to hide behind fluent text. [beat] If a model wrote the words, the words have to point at the source.
 -->
 
 ---
 
-# Action affordances
+<script setup>
+const rightIconUrl = (id) => `https://api.dtpr.io/api/v2/schemas/ai@2026-05-06-beta/elements/${encodeURIComponent(id)}/icon.svg`
+</script>
+
+# Actions
 
 <div class="text-base mt-2 opacity-70">
-Every element can carry first-class actions — so a right turns into a button, not a sentence.
+Every element can carry first-class actions in the schema so that implementations can empower users to directly exercise their rights.
 </div>
 
 <div class="grid grid-cols-2 gap-10 mt-8 max-w-6xl mx-auto items-start">
 
 <div>
 
-<div class="text-xs uppercase tracking-wider opacity-60 mb-3">Action kinds (schema)</div>
+<div class="text-xs uppercase tracking-wider opacity-60 mb-3">Action Schema</div>
 
 <div class="space-y-2 text-base">
   <div><span class="inline-block w-20 font-mono text-sm bg-gray-100 px-2 py-0.5 rounded">email</span> DPO contact, info request</div>
@@ -1016,49 +1152,51 @@ Every element can carry first-class actions — so a right turns into a button, 
   <div><span class="inline-block w-20 font-mono text-sm bg-gray-100 px-2 py-0.5 rounded">postal</span> mailing address for written requests</div>
 </div>
 
-<div class="mt-6 text-xs opacity-60">
-<code>InstanceAction</code> · <code>api/src/schema/datachain-instance.ts</code>
-</div>
-
 </div>
 
 <div>
 
-<div class="text-xs uppercase tracking-wider opacity-60 mb-3">Admissions matcher · mock</div>
+<div class="text-xs uppercase tracking-wider opacity-60 mb-3">Examples</div>
 
 <div class="space-y-3 text-sm">
-  <div class="p-3 border rounded">
-    <div class="font-semibold">Right to contest</div>
-    <div class="mt-2 flex flex-wrap gap-2">
-      <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-hp-blue text-white text-xs">form · File a Round 2 appeal</span>
+  <div class="p-3 border border-hp-blue/15 rounded bg-white flex items-start gap-3">
+    <img :src="rightIconUrl('right_contest')" alt="" class="w-10 h-10 flex-shrink-0" />
+    <div class="flex-1 min-w-0">
+      <div class="font-semibold text-hp-blue-900">Right to contest</div>
+      <div class="mt-2 flex flex-wrap gap-2">
+        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-hp-blue text-white text-xs">form · File a Round 2 appeal</span>
+      </div>
     </div>
   </div>
-  <div class="p-3 border rounded">
-    <div class="font-semibold">Right to algorithmic transparency</div>
-    <div class="mt-2 flex flex-wrap gap-2">
-      <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-hp-blue text-white text-xs">email · NYCPS Privacy Officer</span>
-      <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-hp-blue text-white text-xs">url · OTI disclosure page</span>
+  <div class="p-3 border border-hp-blue/15 rounded bg-white flex items-start gap-3">
+    <img :src="rightIconUrl('right_algorithmic_transparency')" alt="" class="w-10 h-10 flex-shrink-0" />
+    <div class="flex-1 min-w-0">
+      <div class="font-semibold text-hp-blue-900">Right to algorithmic transparency</div>
+      <div class="mt-2 flex flex-wrap gap-2">
+        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-hp-blue text-white text-xs">email · NYCPS Privacy Officer</span>
+        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-hp-blue text-white text-xs">url · OTI disclosure page</span>
+      </div>
     </div>
   </div>
-  <div class="p-3 border rounded">
-    <div class="font-semibold">Right to notice</div>
-    <div class="mt-2 flex flex-wrap gap-2">
-      <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-hp-blue text-white text-xs">phone · 311 (multilingual)</span>
+  <div class="p-3 border border-hp-blue/15 rounded bg-white flex items-start gap-3">
+    <img :src="rightIconUrl('right_to_notice')" alt="" class="w-10 h-10 flex-shrink-0" />
+    <div class="flex-1 min-w-0">
+      <div class="font-semibold text-hp-blue-900">Right to notice</div>
+      <div class="mt-2 flex flex-wrap gap-2">
+        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-hp-blue text-white text-xs">phone · 311 (multilingual)</span>
+      </div>
     </div>
   </div>
 </div>
 
 <div class="mt-3 text-xs italic opacity-60">
-Coming to the visual layer next — schema-side already lives in <code>InstanceElement.actions</code>.
+  Visual layer in progress
 </div>
 
 </div>
 
 </div>
 
-<div class="mt-10 text-2xl text-center font-bold">
-A right with no path to exercise it isn't a right. It's a footnote.
-</div>
 
 <!--
 SLIDE · 45s · Action affordances
@@ -1083,32 +1221,26 @@ class: flex flex-col items-center justify-center
 
 <div class="w-full max-w-5xl mx-auto">
   <div class="text-center">
-    <div class="text-[11px] uppercase tracking-[0.3em] text-hp-blue-700 font-semibold mb-3">Hands-on session · MakeShift 2026</div>
     <h1 class="!text-6xl !mb-3 !mt-0">Workshop</h1>
-    <div class="text-2xl font-serif italic opacity-75">From any disclosure to a shippable datachain — in an hour.</div>
+    <div class="text-2xl font-serif italic opacity-75">From any disclosure to a shippable datachain in an hour.</div>
   </div>
   <div class="mt-12 grid grid-cols-3 gap-0 bg-white/95 rounded-3xl shadow-2xl border border-hp-blue/10 overflow-hidden">
     <div class="px-8 py-7 text-center border-r border-hp-blue/10">
-      <div class="text-[10px] uppercase tracking-[0.25em] text-hp-blue-700 font-semibold mb-2">When</div>
-      <div class="text-xs uppercase tracking-wider opacity-60">Thursday</div>
-      <div class="text-4xl font-bold text-hp-blue-900 leading-none mt-1">May 21</div>
-      <div class="mt-2 inline-block bg-hp-blue text-white text-sm font-semibold px-3 py-1 rounded-full">3 – 4 pm</div>
+      <div class="text-xs uppercase tracking-wider opacity-60">Tomorrow</div>
+      <div class="text-4xl font-bold text-hp-blue-900 leading-none mt-1">3 – 4 pm</div>
     </div>
     <div class="px-8 py-7 text-center border-r border-hp-blue/10">
-      <div class="text-[10px] uppercase tracking-[0.25em] text-hp-blue-700 font-semibold mb-2">Where</div>
       <div class="text-xs uppercase tracking-wider opacity-60">School of Visual Arts</div>
       <div class="text-4xl font-bold text-hp-blue-900 leading-none mt-1">Room 110</div>
-      <div class="text-sm opacity-70 mt-2">Classroom</div>
     </div>
     <div class="px-8 py-7 text-center">
-      <div class="text-[10px] uppercase tracking-[0.25em] text-hp-blue-700 font-semibold mb-2">Bring</div>
-      <div class="text-xs uppercase tracking-wider opacity-60">Your</div>
-      <div class="text-4xl font-bold text-hp-blue-900 leading-none mt-1">Laptop</div>
+      <div class="text-xs uppercase tracking-wider opacity-60">Bring</div>
+      <div class="text-4xl font-bold text-hp-blue-900 leading-none mt-1">Your Laptop</div>
       <div class="text-sm opacity-70 mt-2">+ a doc to render</div>
     </div>
   </div>
   <div class="mt-10 max-w-3xl mx-auto text-center text-lg opacity-80 leading-relaxed">
-    Feed an <strong class="text-hp-blue-900">AIA</strong>, a <strong class="text-hp-blue-900">register row</strong>, or a <strong class="text-hp-blue-900">regulatory PDF</strong> through the agent skill — and walk out with a datachain you can ship.
+    Feed an <strong class="text-hp-blue-900">AIA</strong>, a <strong class="text-hp-blue-900">register row</strong>, or a <strong class="text-hp-blue-900">regulatory PDF</strong> through the agent skill and walk out with a datachain you can ship.
   </div>
 </div>
 
@@ -1175,22 +1307,22 @@ const iconUrl = (id) => `https://api.dtpr.io/api/v2/schemas/ai@2026-05-06-beta/e
     <div class="bg-white/95 rounded-2xl shadow-xl backdrop-blur-sm border border-hp-blue/10 px-6 py-5">
       <div class="text-[10px] uppercase tracking-[0.2em] text-hp-blue-700 font-semibold mb-2">The standard</div>
       <div class="text-xl font-bold text-hp-blue-900">DTPR for AI</div>
-      <div class="mt-1 text-sm opacity-75">An open communication standard for the algorithms in our cities.</div>
+      <div class="mt-1 text-sm opacity-75">An open-source communication standard for algorithms and AI</div>
       <div class="mt-3 font-mono text-sm text-hp-blue-700 border-b border-hp-blue/40 inline-block pb-0.5">dtpr.ai</div>
     </div>
     <div class="bg-white/95 rounded-2xl shadow-xl backdrop-blur-sm border border-hp-blue/10 px-6 py-5">
       <div class="text-[10px] uppercase tracking-[0.2em] text-hp-blue-700 font-semibold mb-2">In production</div>
       <div class="text-xl font-bold text-hp-blue-900">Live registers</div>
-      <div class="mt-1 text-sm opacity-75">Eighty-six NYC systems today. Canada's federal AI inventory next door.</div>
+      <div class="mt-1 text-sm opacity-75">Two DTPR for AI registries built on open data</div>
       <div class="mt-3 space-y-1">
-        <div class="font-mono text-sm text-hp-blue-700 border-b border-hp-blue/40 inline-block pb-0.5">nyc.clarable.ai</div>
-        <div class="font-mono text-xs opacity-70">canada.clarable.ai</div>
+        <div class="font-mono text-sm text-hp-blue-700 border-b border-hp-blue/40 inline-block pb-0.5">🗽 nyc.clarable.ai</div>
+        <div class="font-mono text-sm text-hp-blue-700 border-b border-hp-blue/40 inline-block pb-0.5">🇨🇦 canada.clarable.ai</div>
       </div>
     </div>
     <div class="bg-white/95 rounded-2xl shadow-xl backdrop-blur-sm border border-hp-blue/10 px-6 py-5">
       <div class="text-[10px] uppercase tracking-[0.2em] text-hp-blue-700 font-semibold mb-2">The stewards</div>
       <div class="text-xl font-bold text-hp-blue-900">Helpful Places</div>
-      <div class="mt-1 text-sm opacity-75">We steward DTPR — the standard, the schema, the tooling — in the open.</div>
+      <div class="mt-1 text-sm opacity-75">We steward DTPR, building towards a shared, sustainable governance</div>
       <div class="mt-3 font-mono text-sm text-hp-blue-700 border-b border-hp-blue/40 inline-block pb-0.5">helpfulplaces.com</div>
     </div>
   </div>
@@ -1199,8 +1331,10 @@ const iconUrl = (id) => `https://api.dtpr.io/api/v2/schemas/ai@2026-05-06-beta/e
     <span class="inline-flex items-center gap-2 bg-hp-blue text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-lg"><span class="text-lg leading-none">🚀</span> Deploy it</span>
     <span class="inline-flex items-center gap-2 bg-hp-blue text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-lg"><span class="text-lg leading-none">💬</span> Ask us anything</span>
   </div>
-  <div class="mt-6 text-xs font-mono opacity-70 tracking-wide text-center">
-    github.com/Helpful-Places/dtpr · CITATION.cff in the repo
+  <div class="mt-6 flex justify-center">
+    <div class="inline-block bg-white/95 backdrop-blur-sm border border-hp-blue/10 shadow-lg rounded-full px-5 py-2 text-xs font-mono tracking-wide text-hp-blue-900">
+      github.com/Helpful-Places/dtpr
+    </div>
   </div>
 </div>
 
