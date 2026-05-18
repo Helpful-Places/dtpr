@@ -82,10 +82,11 @@ export function resolveDatachainTool(ctx: LoadContext): ToolDef {
       description:
         'Compose a thin DatachainInstance + the pinned schema slice into a ' +
         'ResolvedDatachainInstance. The response carries `schema_snapshot` (referenced ' +
-        'subset of categories/elements + full datachain_type), `suggested_elements: []`, ' +
-        'and no authoring_provenance. Soft-failure (isError:false) on parse / ' +
-        'semantic validate errors. Capped at 512 KB; over-cap returns a ' +
-        'payload_too_large envelope.',
+        'subset of categories/elements + full datachain_type) and `suggested_elements: []`. ' +
+        '`authoring_provenance` carried by the thin input propagates onto the resolved ' +
+        'output verbatim; resolve never synthesizes provenance itself. Soft-failure ' +
+        '(isError:false) on parse / semantic validate errors. Capped at 512 KB; over-cap ' +
+        'returns a payload_too_large envelope.',
       inputSchema: schemaToJson(InputSchema),
     },
     handler: async (raw) => {

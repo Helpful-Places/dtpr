@@ -46,12 +46,21 @@ export function validateVersion(source: SchemaVersionSource): ValidationResult {
  * Runs instance-level rules in the context of a validated schema version.
  * Structural (Zod) validation of both source and instance is the caller's
  * responsibility — this layer assumes parsed content.
+ *
+ * Includes `checkElementProvenanceKeys`: the rule fires on the thin
+ * form too, because `authoring_provenance` is now allowed on the base
+ * `DatachainInstance`. Orphan keys are silent dead data regardless of
+ * which wire form carries them.
  */
 export function validateInstance(
   source: SchemaVersionSource,
   instance: DatachainInstance,
 ): ValidationResult {
-  return toResult(checkInstance(source, instance))
+  const findings: SemanticError[] = [
+    ...checkInstance(source, instance),
+    ...checkElementProvenanceKeys(instance),
+  ]
+  return toResult(findings)
 }
 
 /**
