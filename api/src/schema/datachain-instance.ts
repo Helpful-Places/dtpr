@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { AuthoringProvenanceSchema } from './authoring-provenance.ts'
 import { LocaleValueArraySchema } from './locale.ts'
 import { VersionStringSchema } from './manifest.ts'
 import { ProvenanceRefSchema, ProvenanceTypeSchema, type ProvenanceRef, type ProvenanceType } from './provenance.ts'
@@ -187,6 +188,9 @@ export const DatachainInstanceSchema = z
       .describe(
         'Optional cross-schema link extensibility seam (e.g. sensor↔AI). Forward-compatible hook; downstream schemas define how it is consumed.',
       ),
+    authoring_provenance: AuthoringProvenanceSchema.optional().describe(
+      'Optional authoring telemetry. Discriminated union on `kind`: `human` (marker only) or `ai_generated` (with optional `model`, `generated_at`, and per-element rationale/confidence/quotes under `element_provenance`). Distinct from per-element `sources` (citation provenance). On the resolved form, R14 requires `kind: "ai_generated"` when `suggested_elements` is non-empty.',
+    ),
   })
   .describe('A concrete datachain — e.g. "Worcester license plate reader"')
 

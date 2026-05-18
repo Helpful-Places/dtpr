@@ -461,6 +461,21 @@ function verifyToolReferences(skills, toolNames) {
     // skips them.
     // Retired skill id appears in handoff prose during the transition.
     'schema_new',
+    // Authoring-provenance schema fields surfaced in SKILL.md prose
+    // (DatachainInstance.authoring_provenance and ResolvedDatachainInstance
+    // structural fields). These are field names / validator error codes,
+    // not MCP tools.
+    'authoring_provenance',
+    'element_provenance',
+    'element_provenance_unknown_element',
+    'source_references',
+    'variable_rationale',
+    'variable_rationale_unknown_variable',
+    'schema_snapshot',
+    'suggested_elements',
+    'schema_version',
+    'created_at',
+    'generated_at',
   ])
   for (const { path, body } of skills) {
     const backtickTokens = [...body.matchAll(/`([a-z_][a-z0-9_]*)`/g)].map((m) => m[1])
