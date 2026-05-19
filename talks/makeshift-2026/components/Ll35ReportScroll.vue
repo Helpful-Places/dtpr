@@ -32,7 +32,9 @@ const pageList = Array.from({ length: props.pages }, (_, i) => {
         :src="src"
         :alt="`LL35 Report 2025 — page ${i + 1}`"
         class="ll35-scroll__page"
-        :loading="i < 3 ? 'eager' : 'lazy'"
+        width="850"
+        height="1100"
+        loading="eager"
         :fetchpriority="i === 0 ? 'high' : 'auto'"
         decoding="async"
       />

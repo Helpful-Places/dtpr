@@ -425,33 +425,8 @@ LL35 dashes are not gaps in DTPR — they're gaps in LL35. Don't slag LL35 here;
 -->
 
 ---
-class: text-center flex flex-col items-center justify-center
----
-
-<div class="relative inline-flex items-center gap-6">
-  <img :src="'/images/dtpr-black.png'" alt="DTPR" class="h-32 w-auto" />
-  <div class="text-7xl font-bold tracking-tight text-hp-blue-900">for&nbsp;AI</div>
-  <span class="absolute -top-3 -right-14 bg-hp-blue text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-md rotate-6">beta</span>
-</div>
-
-<div class="mt-12">
-  <a href="https://dtpr.ai" class="text-4xl font-mono text-hp-blue-700 no-underline border-b-2 border-hp-blue pb-1">dtpr.ai</a>
-</div>
-
-<div class="mt-10 text-xl opacity-80 max-w-2xl mx-auto">
-An open-source communication standard for algorithms and AI
-</div>
-
-<!--
-DTPR for AI — name the thing
-First time the audience sees the URL on its own slide. Land the name, the URL, the one-line definition. Then set the beta expectation — this is the next iteration of an active beta, not a finished standard. Keep it short.
--->
-
----
 clicks: 4
 ---
-
-# MySchools — Match
 
 <MySchoolsMatchZoom
   :steps="[
@@ -475,6 +450,29 @@ The NYC HS admissions process is the famous deferred-acceptance Gale-Shapley var
 Don't make this a takedown of NYCPS. The frame is: this is one of the eighty-six systems the report disclosed; the prose is dense; let's see whether a parent could read it.
 
 TODO: verify the admissions-register values against the live register entry before the talk.
+-->
+
+---
+class: text-center flex flex-col items-center justify-center
+---
+
+<div class="relative inline-flex items-center gap-6">
+  <img :src="'/images/dtpr-black.png'" alt="DTPR" class="h-32 w-auto" />
+  <div class="text-7xl font-bold tracking-tight text-hp-blue-900">for&nbsp;AI</div>
+  <span class="absolute -top-3 -right-14 bg-hp-blue text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-md rotate-6">beta</span>
+</div>
+
+<div class="mt-12">
+  <a href="https://dtpr.ai" class="text-4xl font-mono text-hp-blue-700 no-underline border-b-2 border-hp-blue pb-1">dtpr.ai</a>
+</div>
+
+<div class="mt-10 text-xl opacity-80 max-w-2xl mx-auto">
+An open-source communication standard for algorithms and AI
+</div>
+
+<!--
+DTPR for AI — name the thing
+First time the audience sees the URL on its own slide. Land the name, the URL, the one-line definition. Then set the beta expectation — this is the next iteration of an active beta, not a finished standard. Keep it short.
 -->
 
 ---
@@ -518,7 +516,7 @@ Analytical (verb: decides), Purpose = Eligibility & Public Benefits
 
 ---
 
-# Context
+# Context flow taxonomy
 
 <table class="text-sm mt-6 mx-auto">
 <thead>
@@ -633,7 +631,7 @@ Description text on the rights card is the verbatim `rights` variable from the d
 
 ---
 
-# Risks & Mitigations
+# Risks & Mitigations taxonomy
 
 <div class="flex flex-col gap-3 max-w-6xl mx-auto">
 
@@ -751,11 +749,6 @@ Bottom callout — AIAAIC (https://www.aiaaic.org/home): open AI/algorithmic inc
 </div>
 </div>
 
-<div class="mt-12 text-xl text-center opacity-80">
-"What could happen to <em>me</em>" vs<br>
-"Where the failure originated"
-</div>
-
 ---
 clicks: 1
 class: flex flex-col items-center justify-center
@@ -771,6 +764,16 @@ class: flex flex-col items-center justify-center
 ---
 
 # Functional Modes
+Beyond decisions
+
+<div class="flex items-center justify-center gap-3 mt-1 mb-4">
+  <div class="text-[10px] uppercase tracking-wide opacity-60">Autonomy</div>
+  <div class="flex flex-wrap gap-1">
+    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gray-100 text-xs"><span class="w-2 h-2 rounded-full" style="background:#2A9D8F"></span>Human decides</span>
+    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gray-100 text-xs"><span class="w-2 h-2 rounded-full" style="background:#E76F51"></span>Human executes</span>
+    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gray-100 text-xs"><span class="w-2 h-2 rounded-full" style="background:#6A1B7A"></span>Autonomous</span>
+  </div>
+</div>
 
 <DtprCategoryGrid category-id="functional_modes" />
 
@@ -855,7 +858,7 @@ you. All three carry the identifiable PII chip.
 
 ---
 
-# Data flow – input, processing, output, storage
+# Data flow taxonomy
 
 <table class="text-sm mt-6 mx-auto">
 <thead>
@@ -1012,14 +1015,14 @@ class: text-center flex flex-col items-center justify-center
   <span class="absolute -top-2 -right-10 bg-hp-blue text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full shadow-md rotate-6">beta</span>
 </div>
 
-<div class="mt-4 text-2xl opacity-80">
-  a toolkit
+<div class="mt-8">
+  <a href="https://github.com/Helpful-Places/dtpr" class="text-lg font-mono text-hp-blue-700 no-underline border-b-2 border-hp-blue pb-0.5">dtpr.ai</a>
 </div>
 
 <div class="mt-10 grid grid-cols-3 gap-5 max-w-5xl mx-auto">
   <div class="p-5 border border-hp-blue/15 rounded-xl bg-white shadow-sm text-left">
     <div class="text-3xl mb-3">📋</div>
-    <div class="font-bold text-hp-blue-900">JSON Schema</div>
+    <div class="font-bold text-hp-blue-900">Taxonomy & Schema</div>
     <div class="mt-1 text-xs font-mono text-hp-blue-700 border-b border-hp-blue/40 inline-block pb-0.5">@dtpr/schema</div>
   </div>
   <div class="p-5 border border-hp-blue/15 rounded-xl bg-white shadow-sm text-left">
@@ -1049,9 +1052,16 @@ class: text-center flex flex-col items-center justify-center
   </div>
 </div>
 
-<div class="mt-8">
-  <a href="https://github.com/Helpful-Places/dtpr" class="text-base font-mono text-hp-blue-700 no-underline border-b-2 border-hp-blue pb-0.5">github.com/Helpful-Places/dtpr</a>
-</div>
+---
+class: text-center flex flex-col items-center justify-center
+---
+
+# Let's make a datachain!
+
+<!--
+Demo intro
+One demo, not two. We've been looking at the admissions-matching datachain throughout the deep-dives — now we show how it got made. Hand the OTI admissions-matching page to the Claude skill (over an MCP connection); the agent reads the prose, fills the categories, and re-renders the same datachain the audience has already been reading.
+-->
 
 ---
 class: text-center flex flex-col items-center justify-center
@@ -1088,17 +1098,6 @@ class: text-center flex flex-col items-center justify-center
 <!--
 Two authoring paths
 Both humans and agents can produce a datachain against the same schema. Humans use the Datachain Builder inside Clarable (Helpful Places's app); agents use the DTPR Agent Skill. Same output, same schema — the demo on the next slide shows the agent path.
--->
-
----
-class: text-center flex flex-col items-center justify-center
----
-
-# Let's make a datachain!
-
-<!--
-Demo intro
-One demo, not two. We've been looking at the admissions-matching datachain throughout the deep-dives — now we show how it got made. Hand the OTI admissions-matching page to the Claude skill (over an MCP connection); the agent reads the prose, fills the categories, and re-renders the same datachain the audience has already been reading.
 -->
 
 ---
