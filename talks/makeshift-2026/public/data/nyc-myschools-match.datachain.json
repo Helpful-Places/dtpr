@@ -6,7 +6,7 @@
     { "locale": "en", "value": "MySchools – Match" }
   ],
   "description": [
-    { "locale": "en", "value": "NYC Public Schools' admissions matching engine. Uses the Gale–Shapley deferred-acceptance algorithm to assign students to seats across 3-K, pre-K, Gifted & Talented, middle school, and high school applications." }
+    { "locale": "en", "value": "NYC Dept of Education' admissions matching engine. Uses the Gale–Shapley deferred-acceptance algorithm to assign students to seats across 3-K, pre-K, Gifted & Talented, middle school, and high school applications." }
   ],
   "elements": [
     {
@@ -18,7 +18,7 @@
     {
       "element_id": "education",
       "variables": [
-        { "id": "additional_description", "value": [{ "locale": "en", "value": "Operates the centralized admissions pipeline and school directory for NYC Public Schools." }] }
+        { "id": "additional_description", "value": [{ "locale": "en", "value": "Operates the centralized admissions pipeline and school directory for NYC Dept of Education." }] }
       ]
     },
     {
@@ -80,7 +80,7 @@
     {
       "element_id": "available_to_the_accountable_organization",
       "variables": [
-        { "id": "additional_description", "value": [{ "locale": "en", "value": "NYC Public Schools accesses the data through the school-facing portal and the administrative portal." }] }
+        { "id": "additional_description", "value": [{ "locale": "en", "value": "NYC Dept of Education accesses the data through the school-facing portal and the administrative portal." }] }
       ]
     },
     {
@@ -98,25 +98,25 @@
     {
       "element_id": "right_algorithmic_transparency",
       "variables": [
-        { "id": "rights", "value": [{ "locale": "en", "value": "A plain-language description of the Gale–Shapley deferred-acceptance procedure is published in the public algorithmic-tools compliance report and on NYC Public Schools enrollment-support pages." }] }
+        { "id": "rights", "value": [{ "locale": "en", "value": "A plain-language description of the Gale–Shapley deferred-acceptance procedure is published in the public algorithmic-tools compliance report and on NYC Dept of Education enrollment-support pages." }] }
       ]
     },
     {
       "element_id": "right_access",
       "variables": [
-        { "id": "rights", "value": [{ "locale": "en", "value": "Families have FERPA-grounded rights to access education records held by NYC Public Schools, including the data used as inputs to the match." }] }
+        { "id": "rights", "value": [{ "locale": "en", "value": "Families have FERPA-grounded rights to access education records held by NYC Dept of Education, including the data used as inputs to the match." }] }
       ]
     },
     {
       "element_id": "right_correction",
       "variables": [
-        { "id": "rights", "value": [{ "locale": "en", "value": "Families have FERPA-grounded rights to correct inaccurate education records held by NYC Public Schools. Corrected inputs should be re-fed into the match where eligibility windows allow." }] }
+        { "id": "rights", "value": [{ "locale": "en", "value": "Families have FERPA-grounded rights to correct inaccurate education records held by NYC Dept of Education. Corrected inputs should be re-fed into the match where eligibility windows allow." }] }
       ]
     },
     {
       "element_id": "right_to_human_review",
       "variables": [
-        { "id": "rights", "value": [{ "locale": "en", "value": "Standard NYC Public Schools appeals processes exist for individual admissions decisions; applicants can request human review of a match outcome." }] }
+        { "id": "rights", "value": [{ "locale": "en", "value": "Standard NYC Dept of Education appeals processes exist for individual admissions decisions; applicants can request human review of a match outcome." }] }
       ]
     }
   ],
@@ -124,7 +124,7 @@
     {
       "type": "ai_register",
       "title": "NYC Algorithmic Tools Compliance Report (2025) — MySchools – Match",
-      "citation": "Year: 2025. Agency: NYC Public Schools. Department: Division of Instructional and Information Technology. Date first use: 2018/08. Source CSV provided by user."
+      "citation": "Year: 2025. Agency: NYC Dept of Education. Department: Division of Instructional and Information Technology. Date first use: 2018/08. Source CSV provided by user."
     }
   ]
 }

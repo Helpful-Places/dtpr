@@ -447,7 +447,7 @@ The example we'll keep returning to across the rest of the talk. Picked because 
 
 The NYC HS admissions process is the famous deferred-acceptance Gale-Shapley variant designed by Roth, Sönmez, and Pathak. ~80,000 students go through it annually. Equity and segregation impacts have been studied extensively — including by the city itself in iterative reforms (Diversity in Admissions, screened-school changes).
 
-Don't make this a takedown of NYCPS. The frame is: this is one of the eighty-six systems the report disclosed; the prose is dense; let's see whether a parent could read it.
+Don't make this a takedown of NYCDOE. The frame is: this is one of the eighty-six systems the report disclosed; the prose is dense; let's see whether a parent could read it.
 
 TODO: verify the admissions-register values against the live register entry before the talk.
 -->
@@ -498,7 +498,7 @@ class: flex flex-col items-center justify-center
 <ContextFlow />
 
 <div class="mt-10 text-xl text-center leading-relaxed max-w-4xl mx-auto">
-"<strong>NYC Public Schools</strong> has deployed AI to <strong>decide</strong> student–school matches for the purpose of <strong>allocating eligibility for a public benefit — seats in NYC public schools</strong>."
+"<strong>NYC Dept of Education</strong> has deployed AI to <strong>decide</strong> student–school matches for the purpose of <strong>allocating eligibility for a public benefit — seats in NYC public schools</strong>."
 </div>
 
 <!--
@@ -509,7 +509,7 @@ framing copy live on the slide; ContextFlow.vue owns the row + arrows
 only.
 
 Sentence tracks what AlgorithmHeader actually renders for this
-datachain: Accountable = NYC Public Schools, Functional Mode =
+datachain: Accountable = NYC Dept of Education, Functional Mode =
 Analytical (verb: decides), Purpose = Eligibility & Public Benefits
 (first purpose element in the datachain JSON).
 -->
@@ -563,7 +563,7 @@ Same five-category structure, filled in with the admissions matcher's disclosed 
   - Risks named: societal & cultural harm (school segregation, sorting effects) plus loss of autonomy (limited recourse for individual matches). Foreshadows the AIAAIC slide.
   - Rights: algorithmic transparency + a formal appeal process. Not "trust us."
 
-TODO: verify the exact risk/rights values against the live register entry: https://nyc.clarable.ai/algorithms/3ce01f79-a2c6-4e7b-8f7c-561f2bf02f34. The values here are based on what NYCPS plausibly discloses, given the public record on segregation impact and the appeal process — confirm before delivering.
+TODO: verify the exact risk/rights values against the live register entry: https://nyc.clarable.ai/algorithms/3ce01f79-a2c6-4e7b-8f7c-561f2bf02f34. The values here are based on what NYCDOE plausibly discloses, given the public record on segregation impact and the appeal process — confirm before delivering.
 -->
 
 ---
@@ -595,7 +595,7 @@ const risksRightsIconUrl = (id) => `https://api.dtpr.io/api/v2/schemas/ai@2026-0
       </div>
       <div>
         <div class="text-[10px] uppercase tracking-wider text-emerald-700 font-semibold mb-1">Mitigation</div>
-        <div class="text-xs italic opacity-85 leading-relaxed border-l-2 border-emerald-400 pl-3">The algorithm is monitored daily by NYCPS staff and uses an internationally recognized procedure in use since 2018. The register does not describe a formal bias or equity audit process — a gap in disclosed mitigation.</div>
+        <div class="text-xs italic opacity-85 leading-relaxed border-l-2 border-emerald-400 pl-3">The algorithm is monitored daily by NYCDOE staff and uses an internationally recognized procedure in use since 2018. The register does not describe a formal bias or equity audit process — a gap in disclosed mitigation.</div>
       </div>
     </div>
   </div>
@@ -612,7 +612,7 @@ const risksRightsIconUrl = (id) => `https://api.dtpr.io/api/v2/schemas/ai@2026-0
       </div>
     </div>
     <div class="mt-4">
-      <div class="text-xs italic opacity-85 leading-relaxed border-l-2 border-hp-blue/40 pl-3">Families can learn about how the MySchools matching algorithm works through the NYC Public Schools enrollment support website at https://enrollmentsupport.schools.nyc. The Gale-Shapley deferred acceptance algorithm is publicly documented and widely described in academic and public literature.</div>
+      <div class="text-xs italic opacity-85 leading-relaxed border-l-2 border-hp-blue/40 pl-3">Families can learn about how the MySchools matching algorithm works through the NYC Dept of Education enrollment support website at https://enrollmentsupport.schools.nyc. The Gale-Shapley deferred acceptance algorithm is publicly documented and widely described in academic and public literature.</div>
     </div>
   </div>
 </div>
@@ -931,7 +931,7 @@ const asrIconUrl = (id) => `https://api.dtpr.io/api/v2/schemas/ai@2026-05-06-bet
       </div>
     </div>
     <div class="mt-3">
-      <div class="text-[11px] italic opacity-85 leading-relaxed border-l-2 border-hp-blue/40 pl-2">&ldquo;NYC Public Schools accesses the data through the school-facing portal and the administrative portal.&rdquo;</div>
+      <div class="text-[11px] italic opacity-85 leading-relaxed border-l-2 border-hp-blue/40 pl-2">&ldquo;NYC Dept of Education accesses the data through the school-facing portal and the administrative portal.&rdquo;</div>
     </div>
   </div>
 </div>
@@ -948,7 +948,7 @@ const asrIconUrl = (id) => `https://api.dtpr.io/api/v2/schemas/ai@2026-05-06-bet
       </div>
     </div>
     <div class="mt-3">
-      <div class="text-[11px] italic opacity-85 leading-relaxed border-l-2 border-amber-400 pl-2">Application and match data is held primarily on NYC Public Schools infrastructure managed by DIIT, consistent with NYC's data-governance posture for student records. Some vendor-hosted components may persist during the contract wind-down.</div>
+      <div class="text-[11px] italic opacity-85 leading-relaxed border-l-2 border-amber-400 pl-2">Application and match data is held primarily on NYC Dept of Education infrastructure managed by DIIT, consistent with NYC's data-governance posture for student records. Some vendor-hosted components may persist during the contract wind-down.</div>
     </div>
   </div>
 </div>
@@ -996,9 +996,9 @@ const asrIconUrl = (id) => `https://api.dtpr.io/api/v2/schemas/ai@2026-05-06-bet
 <!--
 Access, Storage & Retention (admissions matching) — Access from the register; Storage and Retention are illustrative guesses grounded in NYC policy.
 
-Access: verbatim from the JSON. `available_to_the_accountable_organization` pairs with the institution element on the Context slide (NYC Public Schools / DIIT).
+Access: verbatim from the JSON. `available_to_the_accountable_organization` pairs with the institution element on the Context slide (NYC Dept of Education / DIIT).
 
-Storage (GUESS): `stored_primarily_locally`. NYC Public Schools / DIIT operates the system in-house and the vendor contract is winding down, so primary storage sits on city infrastructure. Vendor-hosted components may still hold copies during the transition. Flagged with an "illustrative guess" pill so the audience reads it as plausible-but-unverified.
+Storage (GUESS): `stored_primarily_locally`. NYC Dept of Education / DIIT operates the system in-house and the vendor contract is winding down, so primary storage sits on city infrastructure. Vendor-hosted components may still hold copies during the transition. Flagged with an "illustrative guess" pill so the audience reads it as plausible-but-unverified.
 
 Retention (GUESS): `data_retained` with duration framed as "per NY State Records Retention & Disposition Schedule ED-1" — the schedule that governs NYC DOE / Public Schools records. Six years is a representative figure for admissions/application records; the final school assignment flows into the student's permanent education record.
 
@@ -1371,7 +1371,7 @@ Every element can carry first-class actions in the schema so that implementation
     <div class="flex-1 min-w-0">
       <div class="font-semibold text-hp-blue-900">Right to algorithmic transparency</div>
       <div class="mt-2 flex flex-wrap gap-2">
-        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-hp-blue text-white text-xs">email · NYCPS Privacy Officer</span>
+        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-hp-blue text-white text-xs">email · NYCDOE Privacy Officer</span>
         <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-hp-blue text-white text-xs">url · OTI disclosure page</span>
       </div>
     </div>

@@ -13,7 +13,7 @@ import DtprPlacement from './DtprPlacement.vue'
     <DtprPlacement
       element-id="institution"
       context-type-id="deployer"
-      title-override="NYC Public Schools"
+      title-override="NYC Dept of Education"
       :show-description="false"
       :icon-size="64"
     />

@@ -29,7 +29,7 @@ interface Props {
   // Optional — instance-level title override. The schema-side element
   // title is the *type* ("Institution"), which is correct for taxonomy
   // views but wrong for a placement where the audience needs the
-  // specific actor ("NYC Public Schools"). Overrides the rendered
+  // specific actor ("NYC Dept of Education"). Overrides the rendered
   // `display.title` without touching the upstream element record.
   titleOverride?: string
   schemaVersion?: string
