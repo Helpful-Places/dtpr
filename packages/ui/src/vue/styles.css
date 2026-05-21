@@ -335,4 +335,97 @@
       grid-template-columns: repeat(3, 1fr);
     }
   }
+
+  .dtpr-citations {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dtpr-space-sm);
+    padding: var(--dtpr-space-md);
+    border-top: 1px solid var(--dtpr-color-border);
+    font-family: var(--dtpr-font-body);
+    color: var(--dtpr-color-text);
+  }
+
+  .dtpr-citations__heading {
+    margin: 0;
+    font-family: var(--dtpr-font-heading);
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--dtpr-color-text-muted);
+  }
+
+  .dtpr-citations__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--dtpr-space-xs);
+  }
+
+  .dtpr-citations__item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--dtpr-space-xs);
+    align-items: baseline;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    scroll-margin-top: var(--dtpr-space-md);
+  }
+
+  .dtpr-citations__item:target {
+    background: var(--dtpr-color-accent-soft);
+    border-radius: var(--dtpr-radius-sm);
+    padding: var(--dtpr-space-xs);
+  }
+
+  .dtpr-citations__number {
+    font-variant-numeric: tabular-nums;
+    color: var(--dtpr-color-text-muted);
+    min-width: 1.75rem;
+  }
+
+  .dtpr-citations__type {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    color: var(--dtpr-color-text-muted);
+    padding: 0 var(--dtpr-space-xs);
+    border: 1px solid var(--dtpr-color-border);
+    border-radius: var(--dtpr-radius-sm);
+  }
+
+  .dtpr-citations__title {
+    color: var(--dtpr-color-text);
+  }
+
+  .dtpr-citations__title[href]:hover {
+    text-decoration: underline;
+  }
+
+  .dtpr-citations__footnote {
+    color: var(--dtpr-color-text-muted);
+    font-style: italic;
+  }
+
+  .dtpr-element-detail__refs {
+    display: inline-flex;
+    gap: 0.125rem;
+    margin-left: 0.25rem;
+    font-size: 0.7em;
+    line-height: 1;
+    vertical-align: super;
+  }
+
+  .dtpr-element-detail__refs a {
+    color: var(--dtpr-color-accent);
+    text-decoration: none;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .dtpr-element-detail__refs a:hover {
+    text-decoration: underline;
+  }
 }

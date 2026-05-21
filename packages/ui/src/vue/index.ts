@@ -6,6 +6,7 @@ export { default as DtprElementDetail } from './DtprElementDetail.vue'
 export { default as DtprCategorySection } from './DtprCategorySection.vue'
 export { default as DtprDatachain } from './DtprDatachain.vue'
 export { default as DtprElementGrid } from './DtprElementGrid.vue'
+export { default as DtprCitations } from './DtprCitations.vue'
 
 export type {
   Element,
@@ -18,4 +19,6 @@ export type {
   ElementDisplayVariable,
   VariableType,
   InterpolateSegment,
+  ProvenanceRef,
+  ProvenanceType,
 } from '../core/index.js'
