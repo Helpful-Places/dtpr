@@ -57,10 +57,10 @@ const iconUrl = (id) => `https://api.dtpr.io/api/v2/schemas/ai@2026-05-06-beta/e
 
 <div class="cover-card">
   <h1>DTPR for AI</h1>
-  <p class="cover-tagline">An open-source communication standard <em>for algorithms&nbsp;and&nbsp;AI</em></p>
+  <p class="cover-tagline">An open-source communication standard for algorithms and AI</p>
   <div class="cover-meta">
-    <div class="cover-meta-event">MakeShift 2026 &middot; School of Visual Arts, NYC</div>
-    <div class="cover-meta-author">Jonathan Pichot &middot; Helpful Places</div>
+    <span class="cover-meta-author">Jonathan Pichot</span>
+    <img :src="'/images/hp-logo.svg'" alt="Helpful Places" class="cover-meta-logo" />
   </div>
 </div>
 
@@ -113,22 +113,25 @@ const iconUrl = (id) => `https://api.dtpr.io/api/v2/schemas/ai@2026-05-06-beta/e
   margin: 0 0 1.75rem;
   opacity: 0.96;
 }
-.cover-tagline em {
-  font-family: var(--hp-serif);
-  font-style: italic;
-  font-weight: 400;
-}
 .cover-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
   border-top: 1px solid rgba(255, 255, 255, 0.35);
-  padding-top: 1rem;
-  font-size: 0.8rem;
+  padding-top: 1.1rem;
+}
+.cover-meta-author {
+  font-size: 0.95rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  opacity: 0.85;
-  line-height: 1.7;
-}
-.cover-meta-event {
   font-weight: 600;
+  opacity: 0.9;
+}
+.cover-meta-logo {
+  height: 1.6rem;
+  width: auto;
+  display: block;
 }
 </style>
 
@@ -137,8 +140,8 @@ Title card
 A grounded hello. Don't promise what the talk will do — let the audience discover it.
 
 Design notes:
-  - Single HP-blue brand card; title → serif-italic tagline → small-caps metadata below a thin white rule.
-  - Tagline uses the deck's serif italic ("Sorts Mill Goudy") for the "for algorithms and AI" phrase — same typographic move used on quote / definition slides.
+  - Single teal brand card; title → plain tagline → author + HP logo below a thin white rule.
+  - Logo (public/images/hp-logo.svg) carries the stewardship signal; no conference/location meta on the cover.
 -->
 
 ---
@@ -287,6 +290,44 @@ Frame this as evidence, not promotion. The reframe later in the talk (DTPR for A
 
 ---
 
+# How DTPR works
+
+<div class="mt-6 grid grid-cols-[5fr_7fr] gap-8 items-stretch">
+
+<div class="flex flex-col">
+  <div class="relative rounded-2xl overflow-hidden shadow-xl border border-hp-blue/15 bg-black flex-1">
+    <img :src="'/images/dtpr-sign-scan.jpeg'" alt="A DTPR sign on a street pole being scanned by a phone camera; the on-screen QR action chip reads go.dtpr.guide" class="block w-full h-full object-cover" />
+  </div>
+  <div class="mt-2 text-[10px] font-mono opacity-60 text-right">photo · DTPR signage scanned in the wild</div>
+</div>
+
+<div class="flex flex-col">
+  <div class="relative rounded-2xl overflow-hidden shadow-xl border border-hp-blue/15 bg-white flex-1">
+    <iframe
+      src="https://long-beach.dtpr.guide/devices/1050ec6b-908b-489a-b39d-779fe3d0043a"
+      class="absolute top-0 left-0 border-0"
+      style="width: 125%; height: 125%; transform: scale(0.8); transform-origin: top left;"
+      loading="lazy"
+      referrerpolicy="no-referrer"
+      title="Long Beach DTPR datachain"
+    ></iframe>
+  </div>
+  <div class="mt-2 text-[10px] font-mono opacity-60 text-right">long-beach.dtpr.guide</div>
+</div>
+
+</div>
+
+<!--
+How DTPR works — sign + datachain side-by-side
+Sets up the mental model before the AI pivot. Left: a DTPR sign on a city pole, scanned by a phone camera (Angers Loire Métropole deployment — the QR action chip reading "go.dtpr.guide" is the point). Right: live iframe of a Long Beach device datachain — what the scan resolves to. Photo and datachain are from different deployments but the pattern is the same across every DTPR install: physical sign → resolvable, structured disclosure.
+
+If the venue Wi-Fi is shaky, the iframe falls back to a blank panel; the speaker can call this out and move on. Consider pre-recording a fallback screencast.
+
+> Here's how DTPR works in the wild. A sign on a pole. A QR code. You scan it, and you land on a page that tells you, in a visual grammar, what that thing is doing. The sign is the entry point. The datachain is the disclosure. Same pattern across every city.
+-->
+
+---
+
 # DTPR as a translation layer
 
 Making sense of piles of PDFs
@@ -419,7 +460,7 @@ Frame: "here's what the law + the research already agree on as the minimum a dis
 Cross-framework citations:
   - NYC LL35 § 3-119.5(c): the six required disclosures (name+desc, purpose, data type+source, output use, vendor, start date)
   - EU AI Act (Reg. 2024/1689): Art. 9 (risk mgmt), Art. 10 (data governance), Art. 13 (transparency/instructions for use), Art. 14 (human oversight), Art. 16 (provider obligations), Art. 27 (FRIA), Art. 50 (disclosure duties to natural persons), Art. 86 (right to explanation), Annex III (high-risk uses), Annex IV (technical documentation)
-  - Research: Model Cards (Mitchell et al. 2019), Datasheets for Datasets (Gebru et al. 2018/2021), NIST AI RMF 1.0 (2023), OECD AI Classification Framework (2022), AIAAIC harm taxonomy (Abercrombie et al. 2024), Jashanmal AI Taxonomy v1.1 (2026), GDPR Art. 22 (automated decision-making rights).
+  - Research: Model Cards (Mitchell et al. 2019), Datasheets for Datasets (Gebru et al. 2018/2021), NIST AI RMF 1.0 (2023), OECD AI Classification Framework (2022), AIAAIC harm taxonomy (Abercrombie et al. 2024), Narain Jashanmal AI Taxonomy v1.1 (2026), GDPR Art. 22 (automated decision-making rights).
 
 LL35 dashes are not gaps in DTPR — they're gaps in LL35. Don't slag LL35 here; the celebratory opener carries the goodwill.
 -->
@@ -778,7 +819,7 @@ Beyond decisions
 <DtprCategoryGrid category-id="functional_modes" />
 
 <div class="absolute bottom-4 left-0 right-0 text-xs opacity-60 text-center">
-Jashanmal 2026 · <em>AI Taxonomy — An Operational Framework for Precision in AI Discourse</em> · v1.1
+Narain Jashanmal 2026 · <em>AI Taxonomy — An Operational Framework for Precision in AI Discourse</em> · v1.1
 </div>
 
 ---
@@ -799,7 +840,7 @@ Jashanmal 2026 · <em>AI Taxonomy — An Operational Framework for Precision in 
 </div>
 
 <div class="absolute bottom-4 left-0 right-0 text-xs opacity-60 text-center">
-Jashanmal 2026 · <em>AI Taxonomy — An Operational Framework for Precision in AI Discourse</em> · v1.1
+Narain Jashanmal 2026 · <em>AI Taxonomy — An Operational Framework for Precision in AI Discourse</em> · v1.1
 </div>
 
 <style scoped>
@@ -813,7 +854,7 @@ tbody tr:nth-child(even) td { background: rgba(0, 123, 122, 0.04); }
 Functional Categories deep-dive
 The previous slide showed all six modes as icons. This table zooms out and names each one — what it does, the tech under it, and where it shows up in production.
 
-Credit: this six-category framing comes from the Jashanmal v1.1 taxonomy ("AI Taxonomy — An Operational Framework for Precision in AI Discourse") referenced on the previous slide.
+Credit: this six-category framing comes from the Narain Jashanmal v1.1 taxonomy ("AI Taxonomy — An Operational Framework for Precision in AI Discourse") referenced on the previous slide.
 -->
 
 ---
