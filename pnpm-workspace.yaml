@@ -4,10 +4,19 @@ packages:
   - 'docs-site'
   - 'dtpr-ai'
   - 'packages/*'
+# sharp is intentionally NOT in allowBuilds. Its install script forces a
+# from-source build whenever a global libvips is on PATH (e.g. Homebrew's
+# `vips` on macOS), which then fails because node-gyp isn't a dep. The
+# prebuilt platform binary from `@img/sharp-<platform>-<arch>` (pulled in
+# via sharp's optionalDependencies) is what sharp loads at runtime, so
+# skipping the install script is safe on darwin-arm64, darwin-x64, and
+# Linux CI. Re-enable only if you genuinely need a custom libvips link.
 allowBuilds:
   '@parcel/watcher': true
   better-sqlite3: true
   esbuild: true
-  sharp: true
+  # Explicitly false (not omitted) so pnpm doesn't warn with
+  # ERR_PNPM_IGNORED_BUILDS and exit non-zero on fresh installs.
+  sharp: false
   vue-demi: true
   workerd: true
