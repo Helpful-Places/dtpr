@@ -85,5 +85,6 @@ function onSectionToggle(sectionId: string, nextExpanded: boolean) {
     <template v-else>
       <slot name="empty" />
     </template>
+    <slot name="footer" />
   </div>
 </template>

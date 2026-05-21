@@ -65,6 +65,28 @@ const missingRequired = computed(() =>
 // malformed disclosure.
 const aiProvenance = computed(() => props.display.provenance)
 
+// Inline citation markers — composed from `display.sourceNumbers`
+// (chain-wide deduped indices) and `display.sources` (the raw rows,
+// used for the accessible name). Both are populated together by
+// `buildResolvedDatachain`; the empty-array fallback keeps callers
+// that route through plain `deriveElementDisplay` quiet.
+const sourceRefs = computed(() => {
+  const numbers = props.display.sourceNumbers ?? []
+  const rows = props.display.sources ?? []
+  return numbers.map((n, i) => {
+    const row = rows[i]
+    const title = row?.title ?? ''
+    return {
+      number: n,
+      href: `#dtpr-citation-${n}`,
+      // Spoken/hover label — falls back to a bare "Source N" when the
+      // row is somehow missing a title (defensive; the schema requires
+      // it).
+      label: title ? `Source ${n}: ${title}` : `Source ${n}`,
+    }
+  })
+})
+
 const variableRationaleEntries = computed(() => {
   const r = aiProvenance.value?.variable_rationale
   if (!r) return [] as Array<{ id: string; rationale: string }>
@@ -163,7 +185,18 @@ function renderVariable(v: ElementDisplayVariable): RenderedVariable {
           :size="iconSize"
         />
         <div class="dtpr-element-detail__title-block">
-          <h2 class="dtpr-element-detail__title">{{ display.title }}</h2>
+          <h2 class="dtpr-element-detail__title">
+            {{ display.title }}<sup
+              v-if="sourceRefs.length > 0"
+              class="dtpr-element-detail__refs"
+            ><a
+              v-for="ref in sourceRefs"
+              :key="ref.number"
+              :href="ref.href"
+              :aria-label="ref.label"
+              :title="ref.label"
+            >[{{ ref.number }}]</a></sup>
+          </h2>
           <span
             v-if="display.contextValue"
             class="dtpr-element-detail__context-tag"

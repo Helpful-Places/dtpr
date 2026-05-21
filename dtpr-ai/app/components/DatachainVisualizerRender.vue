@@ -4,12 +4,13 @@
 // and the active locale.
 import { computed, ref, watch, watchEffect } from 'vue'
 import {
+  DtprCitations,
   DtprDatachain,
   DtprElementDetail,
   DtprElementGrid,
 } from '@dtpr/ui/vue'
 import '@dtpr/ui/vue/styles.css'
-import { buildResolvedSections, extract } from '@dtpr/ui/core'
+import { buildResolvedDatachain, extract } from '@dtpr/ui/core'
 import type {
   Category,
   Element,
@@ -97,12 +98,21 @@ function iconUrlDarkFor(
   return `${iconBase.value}/${encodeURIComponent(element.id)}/${variant}.svg`
 }
 
-const sections = computed(() => {
-  const built = buildResolvedSections(props.resolved, props.locale, {
+// `buildResolvedDatachain` returns both the sections and the
+// chain-wide deduped citation list (instance-level + per-element
+// sources, first-seen ordering). The footer block below renders the
+// citations; inline `[n]` markers next to each element title come
+// from `display.sourceNumbers`, which the same call populates.
+const rendered = computed(() =>
+  buildResolvedDatachain(props.resolved, props.locale, {
     iconUrlFor,
     iconUrlDarkFor,
-  })
-  // `buildResolvedSections` returns the bare id as title for any
+  }),
+)
+
+const sections = computed(() => {
+  const built = rendered.value.sections
+  // `buildResolvedDatachain` returns the bare id as title for any
   // declared category whose definition isn't pinned in the snapshot
   // (R6 keeps the snapshot to referenced + required categories).
   // Swap in the live category name when available.
@@ -114,6 +124,8 @@ const sections = computed(() => {
     return live ? { ...s, title: live } : s
   })
 })
+
+const citations = computed(() => rendered.value.citations)
 
 const title = computed(() => extract(props.resolved.title, props.locale))
 const description = computed(() =>
@@ -189,6 +201,9 @@ function toggleExpandAll() {
         <p class="dcv-render__empty">
           The resolved chain has no sections to render.
         </p>
+      </template>
+      <template v-if="citations.length > 0" #footer>
+        <DtprCitations :citations="citations" />
       </template>
     </DtprDatachain>
   </section>

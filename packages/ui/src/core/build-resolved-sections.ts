@@ -2,6 +2,7 @@ import type {
   Category,
   Element,
   InstanceElement,
+  ProvenanceRef,
   ResolvedDatachainInstance,
 } from './types.js'
 import { deriveElementDisplay } from './element-display.js'
@@ -26,6 +27,18 @@ export interface RenderedSection {
   id: string
   title: string
   elements: ElementDisplay[]
+}
+
+/**
+ * Full rendered datachain payload returned by `buildResolvedDatachain`
+ * — sections in declared order, plus the deduped, chain-wide citation
+ * list (instance-level + per-element) ready for a footer renderer.
+ * Per-element placements in `sections[].elements` carry
+ * `sourceNumbers` indices into `citations` (1-based).
+ */
+export interface ResolvedDatachainRender {
+  sections: RenderedSection[]
+  citations: ProvenanceRef[]
 }
 
 /**
@@ -113,8 +126,61 @@ export function buildResolvedSections(
   locale: string,
   options: BuildResolvedSectionsOptions = {},
 ): RenderedSection[] {
+  return buildResolvedDatachain(resolved, locale, options).sections
+}
+
+/**
+ * Build the full rendered datachain payload — sections (as above) plus
+ * the chain-wide deduped citation list composed from
+ * `resolved.sources` (instance-level, walked first) and each
+ * `resolved.elements[].sources` (placement order). Used by the
+ * visualizer to render an inline-numbered citation footer; the
+ * `<sup>[n]</sup>` markers next to each element come from
+ * `display.sourceNumbers`, which are 1-based indices into the
+ * returned `citations` array.
+ *
+ * Dedup key: `type|url|title|citation`. Identical rows (same type +
+ * same url + same title + same citation) collapse to one citation.
+ * Missing url/citation are treated as empty strings, so two rows
+ * with no url but distinct titles still produce two citations. This
+ * is intentionally stricter than `type+url` alone — two AI-register
+ * rows that happen to share a type but lack URLs should not collapse
+ * just because the type matches.
+ */
+export function buildResolvedDatachain(
+  resolved: ResolvedDatachainInstance,
+  locale: string,
+  options: BuildResolvedSectionsOptions = {},
+): ResolvedDatachainRender {
   const proposedIndicator = options.proposedIndicator ?? true
   const fallbackLocale = options.fallbackLocale ?? 'en'
+
+  // Citation list state, shared across the whole chain. First-seen
+  // wins — instance-level sources are walked first (below, before the
+  // placement loop), then per-element sources fold in during the
+  // placement walk. The map keys are the dedup keys; the array
+  // preserves insertion order so renderers get stable numbering.
+  const citations: ProvenanceRef[] = []
+  const citationIndexByKey = new Map<string, number>()
+  function citationKey(ref: ProvenanceRef): string {
+    return [ref.type, ref.url ?? '', ref.title, ref.citation ?? ''].join('|')
+  }
+  function citationNumberFor(ref: ProvenanceRef): number {
+    const key = citationKey(ref)
+    const existing = citationIndexByKey.get(key)
+    if (existing !== undefined) return existing
+    citations.push(ref)
+    const n = citations.length
+    citationIndexByKey.set(key, n)
+    return n
+  }
+
+  // Walk instance-level sources first so footer ordering starts with
+  // the whole-disclosure citations (AI register, model card, etc.)
+  // before per-element rows.
+  for (const ref of resolved.sources ?? []) {
+    citationNumberFor(ref)
+  }
 
   // Build element-id resolution map: snapshot first, suggested fills
   // the gaps. Collision: snapshot wins (defensive — validate_resolved
@@ -169,6 +235,16 @@ export function buildResolvedSections(
     // unconditionally so downstream renderers see no badge.
     display.proposed = proposedIndicator && source === 'suggested'
 
+    // Per-element source rows + their indices into the chain-wide
+    // deduped citation list. Both fields are always set (default
+    // empty arrays) so the inline-marker renderer can branch on
+    // length without a null-check; non-`buildResolvedSections`
+    // callers (e.g. plain `deriveElementDisplay`) still leave both
+    // undefined.
+    const placementSources = placement.sources ?? []
+    display.sources = placementSources
+    display.sourceNumbers = placementSources.map((ref) => citationNumberFor(ref))
+
     // Per-element AI provenance: compose the per-element entry with
     // whole-disclosure `model` / `generated_at`. Only attach when an
     // entry exists for this placement; human-authored disclosures and
@@ -214,7 +290,7 @@ export function buildResolvedSections(
   // Materialize sections in declared category order. Categories that
   // are declared but missing from the snapshot's category list still
   // produce a section; the title falls back to the bare id.
-  return declaredCategoryIds.map((id) => {
+  const sections = declaredCategoryIds.map((id) => {
     const c = categoryById.get(id)
     const title = c ? extract(c.name, locale, fallbackLocale) || id : id
     return {
@@ -223,4 +299,6 @@ export function buildResolvedSections(
       elements: byCategory.get(id) ?? [],
     }
   })
+
+  return { sections, citations }
 }
