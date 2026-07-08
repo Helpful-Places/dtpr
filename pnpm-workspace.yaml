@@ -4,6 +4,7 @@ packages:
   - 'docs-site'
   - 'dtpr-ai'
   - 'packages/*'
+  - 'talks/*'
 allowBuilds:
   '@parcel/watcher': true
   better-sqlite3: true
@@ -11,3 +12,9 @@ allowBuilds:
   sharp: true
   vue-demi: true
   workerd: true
+overrides:
+  # Pin TypeScript to the version main's lockfile resolves. Adding the
+  # talks/* workspace (slidev) widened some peer ranges enough for pnpm to
+  # pull TypeScript 6.x, which fails the @dtpr/ui dts build (stricter Vue
+  # `h()` prop + CSS side-effect import checks).
+  typescript: 5.9.3
