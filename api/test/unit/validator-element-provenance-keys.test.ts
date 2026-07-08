@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { checkElementProvenanceKeys } from '../../src/validator/rules/element-provenance-keys.ts'
+import type { DatachainInstance } from '../../src/schema/datachain-instance.ts'
 import type { ResolvedDatachainInstance } from '../../src/schema/datachain-instance-resolved.ts'
 import type { LocaleCode, LocaleValue } from '../../src/schema/locale.ts'
 import type { Element } from '../../src/schema/element.ts'
@@ -166,5 +167,61 @@ describe('checkElementProvenanceKeys', () => {
     const findings = checkElementProvenanceKeys(r)
     expect(findings).toHaveLength(1)
     expect(findings[0]?.path).toBe('authoring_provenance.element_provenance.unused_element')
+  })
+
+  // The rule now accepts the base DatachainInstance shape so it can
+  // run from both `validate` and `validate_resolved`. These checks
+  // assert behaviour on the thin form (no schema_snapshot, no
+  // suggested_elements).
+  describe('thin DatachainInstance', () => {
+    function makeThin(opts: {
+      placedIds: string[]
+      elementProvenance?: Record<string, { rationale?: string }>
+    }): DatachainInstance {
+      return {
+        id: 'x',
+        title: [],
+        description: [],
+        schema_version: 'ai@2026-04-16-beta',
+        created_at: '2026-04-16T00:00:00.000Z',
+        elements: opts.placedIds.map((id) => ({
+          element_id: id,
+          priority: 0,
+          variables: [],
+          actions: [],
+          sources: [],
+        })),
+        subchain_instances: [],
+        sources: [],
+        linked_instance_ids: [],
+        ...(opts.elementProvenance
+          ? {
+              authoring_provenance: {
+                kind: 'ai_generated' as const,
+                element_provenance: opts.elementProvenance,
+              },
+            }
+          : {}),
+      }
+    }
+
+    it('passes when every key matches a placement', () => {
+      const t = makeThin({
+        placedIds: ['accept_deny'],
+        elementProvenance: { accept_deny: { rationale: 'ok' } },
+      })
+      expect(checkElementProvenanceKeys(t)).toEqual([])
+    })
+
+    it('emits a finding for an orphan key on the thin form', () => {
+      const t = makeThin({
+        placedIds: ['accept_deny'],
+        elementProvenance: { ghost: { rationale: 'orphan' } },
+      })
+      const findings = checkElementProvenanceKeys(t)
+      expect(findings).toHaveLength(1)
+      expect(findings[0]?.code).toBe('element_provenance_unknown_element')
+      expect(findings[0]?.path).toBe('authoring_provenance.element_provenance.ghost')
+    })
   })
 })

@@ -1,15 +1,16 @@
 ---
 category:
   - device__process
-name: Desidentificado
+name: Dé-identifié
 id: de_identified
 description: >-
-  Dados que são processados para remover valores de identificação, normalmente
-  para proteger a privacidade. A desidentificação pode ocorrer em qualquer ponto
-  de um processo de recolha de dados, por exemplo, antes de serem armazenados
-  numa base de dados ou antes de serem publicados. Aqui, definimo-la como sendo
-  depois de os dados já terem saído de um dispositivo de hardware, ou depois de
-  terem sido armazenados numa base de dados.
+  Données qui sont traitées pour supprimer les valeurs d'identification,
+  généralement afin de protéger la vie privée. La dé-identification peut
+  intervenir à n'importe quel moment d'un processus de collecte de données, par
+  exemple avant que les données soient stockées dans une base de données ou
+  avant leur publication. Ici, nous la définissons comme intervenant après que
+  les données ont déjà quitté un appareil matériel, ou après qu'elles ont été
+  stockées dans une base de données.
 icon: /dtpr-icons/de_identified.svg
 symbol: /dtpr-icons/symbols/privacy.svg
 updated_at: 2025-08-29T00:00:00Z

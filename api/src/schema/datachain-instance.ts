@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { AuthoringProvenanceSchema } from './authoring-provenance.ts'
 import { LocaleValueArraySchema } from './locale.ts'
 import { VersionStringSchema } from './manifest.ts'
 import { ProvenanceRefSchema, ProvenanceTypeSchema, type ProvenanceRef, type ProvenanceType } from './provenance.ts'
@@ -67,7 +68,7 @@ export const InstanceElementSchema = z
       .min(1)
       .optional()
       .describe(
-        'Selected context value id from the element\'s category context. Must exist (rule 4).',
+        "Required (warning-only) when the element's category declares an element_context (see get_schema / list_categories). Selects one value from that context's values[] as the per-instance discriminator (e.g. accountable.role → vendor|deployer; functional_modes.autonomy → human_decides|human_executes|autonomous; input_dataset.pii → de_identified|pseudonymous|identifiable). Validated by rule 4 (CONTEXT_TYPE_UNKNOWN if the id is not on the context; CONTEXT_TYPE_MISSING warning if absent).",
       ),
     variables: z
       .array(InstanceVariableValueSchema)
@@ -187,6 +188,9 @@ export const DatachainInstanceSchema = z
       .describe(
         'Optional cross-schema link extensibility seam (e.g. sensor↔AI). Forward-compatible hook; downstream schemas define how it is consumed.',
       ),
+    authoring_provenance: AuthoringProvenanceSchema.optional().describe(
+      'Optional authoring telemetry. Discriminated union on `kind`: `human` (marker only) or `ai_generated` (with optional `model`, `generated_at`, and per-element rationale/confidence/quotes under `element_provenance`). Distinct from per-element `sources` (citation provenance). On the resolved form, R14 requires `kind: "ai_generated"` when `suggested_elements` is non-empty.',
+    ),
   })
   .describe('A concrete datachain — e.g. "Worcester license plate reader"')
 

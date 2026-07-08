@@ -1,3 +1,5 @@
+import { fileURLToPath } from 'node:url'
+
 export default defineNuxtConfig({
   extends: ['docus'],
 
@@ -37,9 +39,17 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     'nuxt-schema-org',
     (_options, nuxt) => {
+      // Local override of docus's landing template, wrapping its
+      // ContentRenderer in <UContainer> so the homepage matches the
+      // top-bar width (`--ui-container`, 90rem) instead of stretching
+      // edge-to-edge. See app/templates/landing.vue.
+      const localLandingTemplate = fileURLToPath(new URL('./app/templates/landing.vue', import.meta.url))
       nuxt.hook('pages:extend', (pages) => {
         const landing = pages.find(p => p.name === 'lang-index')
-        if (landing) landing.path = '/'
+        if (landing) {
+          landing.path = '/'
+          landing.file = localLandingTemplate
+        }
         const docs = pages.find(p => p.name === 'lang-slug')
         if (docs) docs.path = '/:slug(.+)'
       })

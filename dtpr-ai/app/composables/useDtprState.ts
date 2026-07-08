@@ -11,10 +11,11 @@
 // `locales=` query parameter. Docus prose remains English-only until
 // translated `content/{locale}/` folders ship.
 import { computed } from 'vue'
-
-const API_BASE = 'https://api.dtpr.io/api/v2'
-const DATACHAIN_TYPE = 'ai'
-const FETCH_TIMEOUT_MS = 8000
+import {
+  DTPR_API_BASE as API_BASE,
+  DTPR_DATACHAIN_TYPE as DATACHAIN_TYPE,
+  DTPR_FETCH_TIMEOUT_MS as FETCH_TIMEOUT_MS,
+} from '../utils/dtpr-api-config'
 
 // Route locales — narrowed to languages whose prose translations are
 // (or are about to be) shipping. The schema itself may carry more
@@ -113,7 +114,8 @@ export function useDtprState() {
   }
 }
 
-export const DTPR_API_BASE = API_BASE
-export const DTPR_FETCH_TIMEOUT_MS = FETCH_TIMEOUT_MS
-export const DTPR_DATACHAIN_TYPE = DATACHAIN_TYPE
+// Re-export so existing call sites (`import { DTPR_API_BASE } from
+// '../composables/useDtprState'`) keep working. New non-Nuxt callers
+// should import the constants directly from `utils/dtpr-api-config`.
+export { DTPR_API_BASE, DTPR_DATACHAIN_TYPE, DTPR_FETCH_TIMEOUT_MS } from '../utils/dtpr-api-config'
 export { SUPPORTED_LOCALES }

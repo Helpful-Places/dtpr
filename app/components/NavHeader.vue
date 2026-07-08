@@ -1,5 +1,6 @@
 <script setup>
 var isOpen = ref(false);
+var dropdownOpen = ref(false);
 </script>
 
 <template>
@@ -19,20 +20,40 @@ var isOpen = ref(false);
           </button>
         </div>
       </div>
-      <div class="flex print:hidden">
-        <nav class="flex items-center">
+      <div class="print:hidden">
+        <nav class="lg:flex lg:items-center">
           <ul :class="isOpen ? 'block' : 'hidden'" class="mt-4 lg:flex lg:items-center lg:m-0">
-            <li><NuxtLinkLocale to="/tools-and-resources" @click="isOpen = false">Tools & Resources</NuxtLinkLocale></li>
-            <li><NuxtLinkLocale to="/how-we-got-here" @click="isOpen=false">Origins</NuxtLinkLocale></li>
-            <li><NuxtLinkLocale to="/governance" @click="isOpen-false">Governance</NuxtLinkLocale></li>
-            <li><NuxtLinkLocale to="/awards" @click="isOpen-false">Awards</NuxtLinkLocale></li>
-            <li><NuxtLinkLocale to="/get-involved" @click="isOpen = false">Get Involved</NuxtLinkLocale></li>
-            <li><NuxtLinkLocale to="/taxonomy/device" @click="isOpen = false">Taxonomy</NuxtLinkLocale></li>
+            <li class="external bg-dtpr-blue-100 font-[700] text-sm rounded-xl py-1 px-3"><a target="_blank" href="https://dtpr.guide/landing">DTPR in the World</a></li>
+
+            <li :class="{ 'open': dropdownOpen }" class="dropdown-toggle external bg-dtpr-blue-100 font-[700] text-sm rounded-xl py-1 px-3" @click="dropdownOpen = !dropdownOpen">
+              <span class="dropdown-toggle-label">
+                Documentation
+                <Icon name="icons8:angle-down" class="dropdown-chevron"/>
+              </span>
+              <ul class="dropdown bg-dtpr-blue-950">
+                <li class="font-[700] text-sm text-white py-1 px-3"><a class="text-white" href="https://docs.dtpr.io" target="_blank">For Sensors</a></li>
+                <li class="font-[700] text-sm text-white py-1 px-3"><a class="text-white" href="https://www.dtpr.ai" target="_blank">For AI</a></li>
+              </ul>
+            </li>
+
+            <li class="regular-nav"><NuxtLinkLocale to="/taxonomy/device" @click="isOpen = false">Taxonomy</NuxtLinkLocale></li>
+            
+            <!-- <li><NuxtLinkLocale to="/tools-and-resources" @click="isOpen = false">Tools & Resources</NuxtLinkLocale></li> -->
+            <li class="regular-nav"><NuxtLinkLocale to="/how-we-got-here" @click="isOpen=false">Origins</NuxtLinkLocale></li>
+            <!-- <li><NuxtLinkLocale to="/governance" @click="isOpen-false">Governance</NuxtLinkLocale></li> -->
+            <!-- <li><NuxtLinkLocale to="/awards" @click="isOpen-false">Awards</NuxtLinkLocale></li> -->
+            <li class="regular-nav"><NuxtLinkLocale to="/get-involved" @click="isOpen = false">Get Involved</NuxtLinkLocale></li>
+            
             <!-- <li><a href="https://vision.dtpr.io" class="flex items-center">Vision<Icon class="inline text-gray-400 ml-1" icon="fa6-solid:up-right-from-square" /></a></li> -->
+            
+            
           </ul>
+          
         </nav>
+        
         <!-- <LocaleSwitcher class="hidden lg:block ml-4" /> -->
       </div>
+      
     </div>
   </div>
 </template>
@@ -40,7 +61,7 @@ var isOpen = ref(false);
 <style lang="postcss" scoped>
 nav {  
   ul {
-    li a {
+    .regular-nav a {
       @apply text-black font-[700] text-sm rounded-xl py-1 px-3;
   
       &:hover {
@@ -49,8 +70,122 @@ nav {
     }
   
     li:not(:last-child) {
-      @apply mr-3;
+      @apply mb-2 lg:mb-0 lg:mr-3;
     }
+
+    .external{
+      display:block;
+      padding:0.5rem 1rem;
+
+      &:hover{
+        @apply text-white bg-dtpr-blue-950;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .external{
+        display:inline-block;
+      }
+    }
+
+    .dropdown-toggle{
+      cursor:pointer;
+      margin-left:0;
+      position:relative;
+      transition: border-radius 150ms ease, padding 150ms ease;
+    }
+
+    .dropdown-toggle-label{
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      line-height: 1;
+    }
+
+    .dropdown-chevron{
+      transition: transform 200ms ease;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .dropdown-toggle:hover,
+    .dropdown-toggle.open{
+      border-radius: 0.75rem 0.75rem 0 0;
+    }
+
+    @media (max-width: 1023px){
+      .dropdown-toggle.open{
+        padding-bottom: 0;
+        border-radius: 0.75rem;
+        overflow: hidden;
+      }
+    }
+
+    .dropdown-toggle:hover .dropdown-chevron,
+    .dropdown-toggle.open .dropdown-chevron{
+      transform: rotate(180deg);
+    }
+
+    .dropdown{
+      display:flex;
+      flex-direction:column;
+      padding:0.25rem 0;
+      margin: 0 -0.75rem;
+      border-radius: 0 0 0.75rem 0.75rem;
+      overflow:hidden;
+      opacity:0;
+      visibility:hidden;
+      max-height:0;
+      transition: opacity 180ms ease, max-height 220ms ease, visibility 220ms;
+      pointer-events:none;
+    }
+
+    @media (min-width: 1024px) {
+      .dropdown{
+        position:absolute;
+        left:0;
+        right:0;
+        width:auto;
+        min-width:156px;
+        margin:0;
+        max-height:none;
+        transform: translateY(-6px);
+        transition: opacity 180ms ease, transform 180ms ease, visibility 180ms;
+        box-shadow: 0 6px 16px -8px rgba(0,0,0,0.25);
+        z-index:50;
+      }
+    }
+
+    .dropdown-toggle:hover .dropdown,
+    .dropdown-toggle.open .dropdown{
+      opacity:1;
+      visibility:visible;
+      max-height:20rem;
+      pointer-events:auto;
+    }
+
+    @media (min-width: 1024px) {
+      .dropdown-toggle:hover .dropdown,
+      .dropdown-toggle.open .dropdown{
+        transform: translateY(0);
+      }
+    }
+
+    .dropdown li{
+      margin:0;
+      border-radius:0;
+      display:block;
+      padding:0.5rem 1rem;
+      transition: background-color 150ms ease;
+    }
+    .dropdown li:hover{
+      @apply bg-dtpr-blue-900;
+    }
+    .dropdown li a{display:block; width:100%; }
+
+    
+
+
   }
 }
 </style>

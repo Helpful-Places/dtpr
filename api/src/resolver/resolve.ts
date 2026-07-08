@@ -131,9 +131,11 @@ export function normalizeDatachainTypeLocales(
  * `canonicalStringify` time (consumers wanting byte-stable output run
  * the bundle through it).
  *
- * `suggested_elements` is always `[]` (R7); `authoring_provenance` is
- * never set by resolve (it only enters a `ResolvedDatachainInstance` from
- * authoring tools).
+ * `suggested_elements` is always `[]` (R7). `authoring_provenance`
+ * is allowed on the base `DatachainInstance`, so whatever the thin
+ * input carries propagates onto the resolved output verbatim. Resolve
+ * never synthesizes or modifies provenance — that comes from authoring
+ * tools.
  */
 export function resolve(thin: DatachainInstance, schema: SchemaContext): ResolvedDatachainInstance {
   const elementById = new Map(schema.elements.map((e) => [e.id, e] as const))

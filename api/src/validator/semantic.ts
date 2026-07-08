@@ -8,6 +8,7 @@ import { checkElementProvenanceKeys } from './rules/element-provenance-keys.ts'
 import { checkInstance } from './rules/instance.ts'
 import { checkLocales } from './rules/locales.ts'
 import { checkProvenanceRequired } from './rules/provenance-required.ts'
+import { checkVariableRationaleKeys } from './rules/variable-rationale-keys.ts'
 import {
   buildResolvedElementLookup,
   checkResolvedElementResolution,
@@ -46,12 +47,30 @@ export function validateVersion(source: SchemaVersionSource): ValidationResult {
  * Runs instance-level rules in the context of a validated schema version.
  * Structural (Zod) validation of both source and instance is the caller's
  * responsibility — this layer assumes parsed content.
+ *
+ * Includes the two `authoring_provenance` key-scoping rules:
+ *   - `checkElementProvenanceKeys` — every key in `element_provenance`
+ *     must reference a placement `element_id`. Pure-data rule; doesn't
+ *     need schema content.
+ *   - `checkVariableRationaleKeys` — every key inside a placement's
+ *     `variable_rationale` map must reference a variable declared on
+ *     the placed element's category. Mirrors `INSTANCE_VARIABLE_UNKNOWN`
+ *     for the AI-rationale lane so a stale entry after a schema
+ *     variable rename surfaces instead of sitting as dead data.
+ *
+ * Both rules fire on the thin form too because `authoring_provenance`
+ * is now allowed on the base `DatachainInstance`.
  */
 export function validateInstance(
   source: SchemaVersionSource,
   instance: DatachainInstance,
 ): ValidationResult {
-  return toResult(checkInstance(source, instance))
+  const findings: SemanticError[] = [
+    ...checkInstance(source, instance),
+    ...checkElementProvenanceKeys(instance),
+    ...checkVariableRationaleKeys(source, instance),
+  ]
+  return toResult(findings)
 }
 
 /**
@@ -145,6 +164,11 @@ export async function validateResolvedInstance(
     symbols: {},
   }
   findings.push(...checkInstance(syntheticSource, resolved))
+
+  // Variable-rationale key check runs against the merged element pool
+  // — same scope `checkInstance` just used. Mirrors the thin-form
+  // wiring in `validateInstance`.
+  findings.push(...checkVariableRationaleKeys(syntheticSource, resolved))
 
   // R9 snapshot consistency, when wired. Loader returning null means
   // the pinned version isn't in `INDEX_KEY` — graceful skip.

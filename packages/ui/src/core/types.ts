@@ -22,6 +22,8 @@ export type {
   AuthoringProvenance,
   ConfidenceLevel,
   ElementProvenance,
+  ProvenanceRef,
+  ProvenanceType,
   ResolvedDatachainInstance,
   SchemaSnapshot,
   SourceReference,
@@ -126,6 +128,26 @@ export interface ElementDisplay {
    * per-element entry for this placement.
    */
   provenance?: ElementDisplayProvenance
+  /**
+   * Per-element provenance references in original placement order
+   * (`InstanceElement.sources`). Populated by `buildResolvedSections`
+   * directly from the placement; the rows are *not* deduped against
+   * each other or against the instance-level pool — `sourceNumbers`
+   * carries the deduped indices for inline-marker rendering, this
+   * field carries the raw rows for tooltip / accessible-name use.
+   * Empty array when the placement declared no sources; absent when
+   * the helper had no placement to read from (e.g. plain
+   * `deriveElementDisplay` callers).
+   */
+  sources?: import('@dtpr/api/schema').ProvenanceRef[]
+  /**
+   * Indices into the chain-wide deduped citation list returned by
+   * `buildResolvedDatachain`, one per entry in `sources`, in the same
+   * order. `1`-based to match what the inline `<sup>[n]</sup>`
+   * markers render. Empty array when the placement declared no
+   * sources; absent for non-`buildResolvedSections` paths.
+   */
+  sourceNumbers?: number[]
 }
 
 /**

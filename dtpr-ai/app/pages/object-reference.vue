@@ -140,7 +140,7 @@ const objects: ObjectEntry[] = [
     name: 'DatachainInstance',
     group: 'instances',
     blurb:
-      'A concrete authored disclosure (e.g. "Worcester license plate reader"). Pins a `schema_version` and references elements by id. The raw, pre-resolution wire form.',
+      'A concrete authored disclosure (e.g. "Acme resume screener"). Pins a `schema_version` and references elements by id. The raw, pre-resolution wire form.',
     schema: (schemas as any).DatachainInstance,
   },
   {

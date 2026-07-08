@@ -125,37 +125,115 @@ For each category in the datachain-type's required set, search the element pool:
 | `list_elements` with `query` | Free-text BM25 search when the user's system doesn't map obviously to one category (e.g. "biometric", "third-party processor", "appeal process"). |
 | `get_elements` (bulk) | Once you have a short list of candidate IDs, fetch the full bodies in one call instead of N point reads. |
 
-**Do not invent element IDs.** Only use IDs that appeared in a `list_elements` or `get_elements` response. If no element matches a required category, say so and hand off to `dtpr-element-design` (to draft a candidate element), `dtpr-category-audit` (when many elements in a category feel off), or `dtpr-datachain-structure` (when the shape itself misses the system's nature).
+**Do not invent element IDs in the default flow.** Only use IDs that appeared in a `list_elements` or `get_elements` response. If no element matches a required category, say so and hand off to `dtpr-element-design` (to draft a candidate element), `dtpr-category-audit` (when many elements in a category feel off), or `dtpr-datachain-structure` (when the shape itself misses the system's nature). The opt-in branch in Phase 4 covers the case where the user explicitly asks the skill to propose new elements inline.
+
+**Enumerate `element_context` discriminators.** As you walk the category list from `get_schema`, note every category whose `element_context` is non-null. Each such category requires every instance element placed under it to carry a `context_type_id` chosen from `element_context.values[].id`. This is a structural axis, not optional decoration — without it the disclosure can't say *which* role / autonomy / sensitivity applies to the placement. In the current `ai@2026-05-06-beta` schema these are:
+
+| category | context.id | allowed `context_type_id` values |
+| --- | --- | --- |
+| `accountable` | `role` | `vendor`, `deployer` |
+| `functional_modes` | `autonomy` | `human_decides`, `human_executes`, `autonomous` |
+| `input_dataset` | `pii` | `de_identified`, `pseudonymous`, `identifiable` |
+| `output_dataset` | `pii` | `de_identified`, `pseudonymous`, `identifiable` |
+
+Future schema versions may add or remove categories from that list — always re-read `get_schema` rather than memorize.
+
+#### Capture per-element authoring provenance
+
+As you settle on each element pick, **record** the per-element authoring context that will populate `authoring_provenance.element_provenance[<element_id>]` in Phase 4. This runs by default on every session — it is not an opt-in. For each placement, capture whichever of these fields you can support with the artifacts and conversation in hand:
+
+- **`rationale`** — 1–2 sentences explaining why this specific element fits the system. Reference the element title and the system fact it lines up with.
+- **`confidence`** — one of `'high' | 'medium' | 'low'`. `high` only when the artifact or user statement explicitly maps to this element; `medium` when you inferred from adjacent context; `low` when the pick is a reasonable guess but not corroborated.
+- **`source_references`** — verbatim quotes from the loaded artifacts (PDF text, fetched URL body, pasted excerpts). Each entry is `{ quote, context? }` — `quote` is the exact text (no paraphrasing, no ellipses inside the quoted span), `context` is an optional locator the reviewer can use to find the passage ("Privacy notice §2 — Equipment", "Page 4, table row 3"). Skip this field entirely on a verbal-only session — quotes only come from artifacts the user supplied.
+- **`variable_rationale`** — per-variable map (keyed by variable id) explaining where each filled value came from. Only include variables you actually populated.
+
+Skip any field you cannot support. An empty `{}` entry is still meaningful — it marks the placement as AI-authored without claiming rationale you do not have. Do **not** fabricate quotes; if no artifact line supports the pick, omit `source_references` for that element.
 
 ### Phase 4 — Construct the datachain
 
+**Default flow — emit a thin `DatachainInstance` with `authoring_provenance`.**
+
 Assemble a JSON object that conforms to the `DatachainInstance` shape in the schema:
 
-- `version` — the canonical version string from Phase 2.
-- One entry per required category, each referencing one or more element IDs.
+- `schema_version` — the canonical version string from Phase 2.
+- `id`, `created_at` (ISO 8601 now), and optional `title`/`description` for the system.
+- One entry per required category in `elements[]`, each referencing one or more element IDs.
 - Any variable values the element definitions require (e.g. retention periods).
+- For every instance element whose category declared an `element_context` in Phase 3, set `context_type_id` to one of that context's `values[].id`. Missing this field is a `CONTEXT_TYPE_MISSING` warning today (the chain still validates) — treat the warning as a structural-completeness failure, not noise. Picking the wrong value is a `CONTEXT_TYPE_UNKNOWN` error and will block validation.
+- **`authoring_provenance` — always populate this on AI-authored output.** Set `kind: 'ai_generated'`, `model` to the current Claude model id (use `claude-opus-4-7` when running on Opus 4.7), `generated_at` to the current ISO 8601 timestamp, and `element_provenance` to the map you captured in Phase 3. Keys are placement `element_id`s — every key must reference an entry in `elements[]`, or `element_provenance_unknown_element` will fire on validate. Omit `authoring_provenance` only if the user explicitly says the disclosure is a human-authored draft being co-edited.
+
+Example skeleton:
+
+```json
+{
+  "id": "worcester-lpr",
+  "schema_version": "ai@2026-05-06-beta",
+  "created_at": "2026-05-17T18:00:00Z",
+  "title": [{ "locale": "en", "value": "Worcester license plate reader" }],
+  "elements": [
+    { "element_id": "accept_deny", "context_type_id": "autonomous", "variables": [] }
+  ],
+  "authoring_provenance": {
+    "kind": "ai_generated",
+    "model": "claude-opus-4-7",
+    "generated_at": "2026-05-17T18:00:00Z",
+    "element_provenance": {
+      "accept_deny": {
+        "rationale": "Operator's privacy notice describes a binary citation decision.",
+        "confidence": "high",
+        "source_references": [
+          { "quote": "the system either issues a citation or releases the plate", "context": "Privacy notice §3" }
+        ]
+      }
+    }
+  }
+}
+```
 
 Use one locale from `manifest.locales` (returned from `get_schema`) for the rendered output; default to `en` if the user hasn't specified. To produce the same disclosure across every locale in the allow-list, hand off to `dtpr-translate` after the JSON validates — that skill reads `manifest.locales` dynamically so it tracks whatever the live schema declares.
 
+#### Opt-in branch — propose new elements inline
+
+**Only when the user explicitly asks the skill to propose elements that do not exist in the pinned schema** ("invent an element for X", "make one up", "I want to see the suggestion even though there's no schema match"), switch to the resolved form:
+
+- Draft each proposed element as a full `Element` definition (id, category_id, title, description, symbol_id placeholder, etc.) and place them in `suggested_elements: [...]`.
+- Place a corresponding entry in `elements[]` referencing each suggested id.
+- Add `authoring_provenance.element_provenance[<suggested_id>]` with the same fields as snapshot elements — quotes and rationale matter more for proposed elements, not less.
+- Set `schema_snapshot` to the pinned schema slice (via `resolve_datachain` first if available, otherwise assemble from `get_schema`+`list_elements` results).
+- Emit a `ResolvedDatachainInstance` instead of a thin `DatachainInstance`. R14 requires `authoring_provenance.kind === 'ai_generated'` when `suggested_elements` is non-empty — your default-on provenance already satisfies this.
+
+The default flow does **not** populate `suggested_elements`. If Phase 3 finds no element matching a required category and the user has not opted in, the correct move is the existing hand-off to `dtpr-element-design` — not silent invention.
+
 ### Phase 5 — Validate and iterate
 
-Call `validate_datachain` with `version` + `datachain`. Two outcomes:
+Pick the validator that matches what Phase 4 emitted:
+
+| Output shape | Tool |
+| --- | --- |
+| Thin `DatachainInstance` (default flow) | `validate_datachain` |
+| `ResolvedDatachainInstance` (opt-in `suggested_elements`) | `validate_resolved` |
+
+Both run shape + semantic checks; both surface `element_provenance_unknown_element` if any key in `authoring_provenance.element_provenance` does not match a placement.
+
+Two outcomes:
 
 | Result | Action |
 | --- | --- |
 | `ok: true` | Proceed to the final output. `warnings[]` may still appear — surface them to the user verbatim. |
-| `ok: false` with `errors[]` | Each error carries a `fix_hint`. Apply the hint (swap a bogus ID, add a missing variable, choose a different element) and re-validate. Cap at 3 retries; if the chain still fails, stop and report the final errors to the user rather than guessing. |
+| `ok: false` with `errors[]` | Each error carries a `fix_hint`. Apply the hint (swap a bogus ID, add a missing variable, choose a different element, remove an orphan provenance key) and re-validate. Cap at 3 retries; if the chain still fails, stop and report the final errors to the user rather than guessing. |
 
-`validate_datachain` is a soft failure — `ok: false` still means the tool call succeeded (`isError: false`). Treat it as structured feedback, not an exception.
+Both validators soft-fail — `ok: false` still means the tool call succeeded (`isError: false`). Treat it as structured feedback, not an exception.
 
 ## Output
 
 Return two artifacts:
 
-1. **The validated datachain JSON** — the exact object that passed `validate_datachain`, including the version string.
-2. **A short narrative** — one paragraph per category explaining why the chosen elements fit the system. Reference element titles (from `list_elements`) so the user can audit the choices without re-reading the schema. Begin the narrative with a brief **assumptions** paragraph that surfaces the Phase 0 inventory: which artifacts were loaded and in which band, which host tools were unavailable, any artifact-vs-verbal conflict resolutions, and any corpus citations (or the absence of them). This transparency lets the user see what was assumed before acting on the output.
+1. **The validated datachain JSON** — the exact object that passed `validate_datachain` (default flow) or `validate_resolved` (opt-in flow), including the version string and the `authoring_provenance` block. The per-element `rationale`, `confidence`, and `source_references` quotes carry forward to the renderer — `<DtprElementDetail>` surfaces them in an "AI proposal context" expandable section. Strip nothing in the name of brevity; the structured shape is what makes the disclosure auditable.
+2. **A short narrative** — one paragraph per category explaining why the chosen elements fit the system. Reference element titles (from `list_elements`) so the user can audit the choices without re-reading the schema. Begin the narrative with a brief **assumptions** paragraph that surfaces the Phase 0 inventory: which artifacts were loaded and in which band, which host tools were unavailable, any artifact-vs-verbal conflict resolutions, and any corpus citations (or the absence of them). This transparency lets the user see what was assumed before acting on the output. The narrative is for fast human review; the structured `authoring_provenance` carries the machine-readable form of the same justifications.
 
-Close by asking whether the user wants to save the JSON to a file, iterate on any category, or hand off to a sibling skill for a schema-level change.
+Then point the user at the hosted **datachain visualizer**: <https://dtpr.ai/en/tools/datachain>. They can paste the JSON into that tool to render the chain as the public-facing disclosure (symbols, categories, locale switcher), save it to a browser-local collection, generate a shareable deep link, and audit how the chain reads to a non-technical viewer before publishing. The visualizer posts the pasted JSON to the DTPR API to validate and resolve it; the local collection and deep-link encoding stay in the browser.
+
+Close by asking whether the user wants to save the JSON to a file, paste it into the visualizer, iterate on any category, or hand off to a sibling skill for a schema-level change.
 
 ## Tool reference
 
@@ -171,7 +249,9 @@ Close by asking whether the user wants to save the JSON to a file, iterate on an
 | Phase 3 | `list_elements` | Category-scoped + BM25 search over elements. | MCP |
 | Phase 3 | `get_elements` | Bulk fetch element bodies once candidates are chosen. | MCP |
 | Phase 3 | `get_element` | Point read when you only need one element by ID. | MCP |
-| Phase 5 | `validate_datachain` | Structured pass/fail with `fix_hint` per error. | MCP |
+| Phase 4 (opt-in) | `resolve_datachain` | Compose the thin instance + pinned schema slice into a `ResolvedDatachainInstance`. Only reached when the user opts into `suggested_elements`. `authoring_provenance` from the thin input propagates onto the resolved output. | MCP |
+| Phase 5 (default) | `validate_datachain` | Structured pass/fail for the thin form. Now also enforces `element_provenance_unknown_element`. | MCP |
+| Phase 5 (opt-in) | `validate_resolved` | Structured pass/fail for the resolved form. Enforces R14 + R15a in addition to the rules `validate_datachain` runs. | MCP |
 
 MCP tool parameter shapes are documented on the MCP itself — see `https://dtpr.ai/mcp/tools/` for each tool's schema. `Read`, `WebFetch`, `Task`, and `Write` are host tools; their availability and parameter shapes vary by host, which is why Phase 0 probes before relying on them. This skill names tools in workflow order; for exact argument shapes, trust the live tool description.
 

@@ -2,9 +2,9 @@ id: semantic_mode
 category_id: functional_modes
 title:
   - locale: en
-    value: Semantic — understands and remembers
+    value: Understanding (Semantic AI)
   - locale: fr
-    value: Sémantique — comprend et se souvient
+    value: Comprendre (IA sémantique)
 description:
   - locale: en
     value: >-

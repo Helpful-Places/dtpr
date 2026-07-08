@@ -72,7 +72,7 @@
             </div>
           </div>
 
-          <div class="items-center mt-8">
+          <!-- <div class="items-center mt-8">
             <div class="items-center mt-12">
               <h3 class="text-center text-2xl">Partners that have supported and enabled DTPR deployments in
                 collaboration with Helpful Places</h3>
@@ -195,11 +195,11 @@
                 </PartnerCard>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
-  </div>
+  </div> 
 </template>
 
 <style lang="postcss" scoped>
