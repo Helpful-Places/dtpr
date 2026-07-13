@@ -2,9 +2,9 @@ id: physical_mode
 category_id: functional_modes
 title:
   - locale: en
-    value: Physical — moves
+    value: Moving (Physical AI)
   - locale: fr
-    value: Physique — déplace
+    value: Bouger (IA physique)
 description:
   - locale: en
     value: >-

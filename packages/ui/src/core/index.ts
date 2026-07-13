@@ -19,10 +19,14 @@ export {
 export { deriveElementDisplay } from './element-display.js'
 export type { DeriveElementDisplayOptions } from './element-display.js'
 
-export { buildResolvedSections } from './build-resolved-sections.js'
+export {
+  buildResolvedSections,
+  buildResolvedDatachain,
+} from './build-resolved-sections.js'
 export type {
   BuildResolvedSectionsOptions,
   RenderedSection,
+  ResolvedDatachainRender,
 } from './build-resolved-sections.js'
 
 export { validateDatachain } from './validate.js'
@@ -56,4 +60,6 @@ export type {
   ElementDisplayIcon,
   ElementDisplayVariable,
   ElementDisplayProvenance,
+  ProvenanceRef,
+  ProvenanceType,
 } from './types.js'

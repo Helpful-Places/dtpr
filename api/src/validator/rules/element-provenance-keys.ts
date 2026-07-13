@@ -1,4 +1,4 @@
-import type { ResolvedDatachainInstance } from '../../schema/datachain-instance-resolved.ts'
+import type { DatachainInstance } from '../../schema/datachain-instance.ts'
 import type { SemanticError } from '../types.ts'
 import { err } from '../types.ts'
 
@@ -22,10 +22,15 @@ import { err } from '../types.ts'
  *     (no element with that id, or single placement that carries an
  *     `element_instance_id` and so no longer accepts the bare key).
  *
+ * Runs against both wire forms. On the thin `DatachainInstance` the
+ * placement set is just `instance.elements[]`; on the resolved form
+ * the same set is used (snapshot vs suggested distinction lives in
+ * the resolution rule, not here).
+ *
  * Empty / missing `element_provenance` is a no-op.
  */
-export function checkElementProvenanceKeys(resolved: ResolvedDatachainInstance): SemanticError[] {
-  const provenance = resolved.authoring_provenance
+export function checkElementProvenanceKeys(instance: DatachainInstance): SemanticError[] {
+  const provenance = instance.authoring_provenance
   if (!provenance || provenance.kind !== 'ai_generated') return []
   const map = provenance.element_provenance
   if (!map) return []
@@ -36,7 +41,7 @@ export function checkElementProvenanceKeys(resolved: ResolvedDatachainInstance):
   const placementsByInstanceId = new Set<string>()
   const placementCountByElementId = new Map<string, number>()
   const placementHasInstanceIdByElementId = new Map<string, boolean>()
-  for (const p of resolved.elements) {
+  for (const p of instance.elements) {
     if (p.element_instance_id) placementsByInstanceId.add(p.element_instance_id)
     placementCountByElementId.set(
       p.element_id,

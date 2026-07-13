@@ -161,6 +161,18 @@ describe('MCP: handshake + tools/list', () => {
       expect.arrayContaining(['version', 'category_id', 'locale', 'query', 'limit', 'cursor']),
     )
   })
+
+  it('validate_datachain inputSchema declares datachain as type:object so MCP harnesses transmit it structurally', async () => {
+    const client = createMcpClient()
+    await client.initialize()
+    const res = await client.listTools()
+    const validate = (res.result as ToolListResult).tools.find(
+      (t) => t.name === 'validate_datachain',
+    )
+    const datachain = (validate?.inputSchema?.properties as Record<string, { type?: string }>)
+      ?.datachain
+    expect(datachain?.type).toBe('object')
+  })
 })
 
 describe('MCP: list_schema_versions', () => {

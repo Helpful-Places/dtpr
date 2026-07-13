@@ -42,24 +42,24 @@ const getElementAnchorId = (element) => `element-${element.dtpr_id}`
 <template>
   <div v-if="filteredElements.length > 0 || !searchQuery" :id="categoryAnchorId" class="mb-12 scroll-mt-24">
     <!-- Category Header -->
-    <div class="flex items-center justify-between mb-6">
-      <div class="flex items-center gap-3">
-        <h2 class="text-2xl font-bold text-dtpr-green uppercase">
-          {{ category.name }}
-        </h2>
-        <UButton
-          size="sm"
-          color="gray"
-          variant="ghost"
-          icon="i-heroicons-link"
-          @click="$emit('category-clicked', category)"
-        >
-          Copy Link
-        </UButton>
-      </div>
+    <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-6">
+      <h2 class="text-xl sm:text-2xl font-bold text-dtpr-green uppercase break-words">
+        {{ category.name }}
+      </h2>
       <UBadge v-if="filteredElements.length > 0" color="gray" variant="subtle">
         {{ filteredElements.length }} {{ filteredElements.length === 1 ? 'element' : 'elements' }}
       </UBadge>
+      <UButton
+        size="sm"
+        color="gray"
+        variant="ghost"
+        icon="i-heroicons-link"
+        class="ml-auto shrink-0"
+        :aria-label="`Copy link to ${category.name}`"
+        @click="$emit('category-clicked', category)"
+      >
+        <span class="hidden sm:inline">Copy Link</span>
+      </UButton>
     </div>
 
     <!-- Context Info -->

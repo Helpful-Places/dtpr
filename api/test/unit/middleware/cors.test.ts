@@ -1,51 +1,46 @@
 import { describe, it, expect } from 'vitest'
 import { createApp } from '../../../src/app.ts'
-import { _test as corsTest } from '../../../src/middleware/cors.ts'
 
 describe('middleware: cors', () => {
-  it('allows explicit allow-list origins', () => {
-    expect(corsTest.isAllowedOrigin('https://dtpr.io')).toBe(true)
-    expect(corsTest.isAllowedOrigin('https://www.dtpr.io')).toBe(true)
-    expect(corsTest.isAllowedOrigin('https://docs.dtpr.io')).toBe(true)
-    expect(corsTest.isAllowedOrigin('https://dtpr.ai')).toBe(true)
-    expect(corsTest.isAllowedOrigin('https://www.dtpr.ai')).toBe(true)
+  it('preflight returns Access-Control-Allow-Origin: * for any origin', async () => {
+    const app = createApp()
+    for (const origin of [
+      'https://dtpr.io',
+      'https://example.com',
+      'https://evil.com',
+      'http://localhost:3000',
+    ]) {
+      const res = await app.request('/healthz', {
+        method: 'OPTIONS',
+        headers: {
+          Origin: origin,
+          'Access-Control-Request-Method': 'GET',
+        },
+      })
+      expect(res.headers.get('Access-Control-Allow-Origin')).toBe('*')
+    }
   })
 
-  it('allows preview subdomains by pattern', () => {
-    expect(corsTest.isAllowedOrigin('https://pr-42-preview.api.dtpr.io')).toBe(true)
-  })
-
-  it('allows localhost for development', () => {
-    expect(corsTest.isAllowedOrigin('http://localhost:3000')).toBe(true)
-    expect(corsTest.isAllowedOrigin('http://127.0.0.1:8787')).toBe(true)
-  })
-
-  it('rejects arbitrary origins', () => {
-    expect(corsTest.isAllowedOrigin('https://evil.com')).toBe(false)
-    expect(corsTest.isAllowedOrigin('https://dtpr.io.evil.com')).toBe(false)
-  })
-
-  it('preflight returns matching Access-Control-Allow-Origin for allowed origin', async () => {
+  it('preflight advertises allowed methods and headers', async () => {
     const app = createApp()
     const res = await app.request('/healthz', {
       method: 'OPTIONS',
       headers: {
-        Origin: 'https://dtpr.io',
-        'Access-Control-Request-Method': 'GET',
+        Origin: 'https://example.com',
+        'Access-Control-Request-Method': 'POST',
+        'Access-Control-Request-Headers': 'content-type',
       },
     })
-    expect(res.headers.get('Access-Control-Allow-Origin')).toBe('https://dtpr.io')
+    expect(res.headers.get('Access-Control-Allow-Methods')).toContain('GET')
+    expect(res.headers.get('Access-Control-Allow-Methods')).toContain('POST')
+    expect(res.headers.get('Access-Control-Allow-Headers')).toContain('Content-Type')
   })
 
-  it('preflight does not set allow-origin for a disallowed origin', async () => {
+  it('actual requests also receive Access-Control-Allow-Origin: *', async () => {
     const app = createApp()
     const res = await app.request('/healthz', {
-      method: 'OPTIONS',
-      headers: {
-        Origin: 'https://evil.com',
-        'Access-Control-Request-Method': 'GET',
-      },
+      headers: { Origin: 'https://example.com' },
     })
-    expect(res.headers.get('Access-Control-Allow-Origin')).toBeNull()
+    expect(res.headers.get('Access-Control-Allow-Origin')).toBe('*')
   })
 })

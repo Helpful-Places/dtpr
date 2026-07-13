@@ -7,18 +7,17 @@ name:
 description:
   - locale: en
     value: >-
-      The runtime output — the live data this deployed system produces when it operates, including
-      decisions it makes, content it generates, and actions it triggers.
+      The output data this deployed system produces when it operates — decisions, content, and
+      actions.
   - locale: fr
     value: >-
-      La sortie d’exécution — les données en direct que ce système déployé produit lorsqu’il
-      fonctionne, y compris les décisions qu’il prend, le contenu qu’il génère et les actions qu’il
-      déclenche.
+      Les données de sortie que ce système déployé produit lorsqu’il fonctionne — décisions,
+      contenu et actions.
 prompt:
   - locale: en
-    value: What does this AI system produce — what decisions, content, or signals come out?
+    value: What does this AI system produce?
   - locale: fr
-    value: "Que produit ce système d’IA — quelles décisions, quel contenu ou quels signaux en sortent\_?"
+    value: Que produit ce système d’IA ?
 required: false
 order: 8
 datachain_type: ai
@@ -44,9 +43,9 @@ element_context:
     - id: de_identified
       name:
         - locale: en
-          value: Anonymous
+          value: Anonymized data
         - locale: fr
-          value: Anonyme
+          value: Données anonymisées
       description:
         - locale: en
           value: >-
@@ -61,9 +60,9 @@ element_context:
     - id: pseudonymous
       name:
         - locale: en
-          value: Pseudonymous
+          value: Pseudonymous data
         - locale: fr
-          value: Pseudonyme
+          value: Données pseudonymes
       description:
         - locale: en
           value: >-
@@ -79,9 +78,9 @@ element_context:
     - id: identifiable
       name:
         - locale: en
-          value: Identifiable
+          value: Identifiable data
         - locale: fr
-          value: Identifiable
+          value: Données identifiables
       description:
         - locale: en
           value: >-
