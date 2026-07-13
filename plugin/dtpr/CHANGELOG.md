@@ -1,5 +1,37 @@
 # Changelog
 
+## 0.3.2 — 2026-05-18
+
+**Per-element authoring provenance on the thin DatachainInstance.** `dtpr-describe-system` now always captures `authoring_provenance.element_provenance[<element_id>]` — per-pick `rationale`, qualitative `confidence` (`high` / `medium` / `low`), `source_references` (verbatim quotes lifted from the loaded artifacts, with optional locator), and `variable_rationale` — and emits it on the thin `DatachainInstance` it produces. Verbatim quotes from a PDF or URL now land in the JSON itself, not just the prose narrative, so reviewers and the resolved-form renderer can audit each element pick against the source it was drawn from.
+
+### Changed
+
+- **`dtpr-describe-system`** — Phase 3 grew a "Capture per-element authoring provenance" sub-step that runs by default on every session. Phase 4's default flow emits a thin instance + `authoring_provenance: { kind: 'ai_generated', model, generated_at, element_provenance }`. The previous resolved-form path is now an explicit opt-in branch, taken only when the user asks the skill to propose new elements inline; that branch switches to `ResolvedDatachainInstance` + `validate_resolved` and is the only path that populates `suggested_elements` or `schema_snapshot`. Phase 5 picks the matching validator (`validate_datachain` for the thin form, `validate_resolved` for the opt-in form); both enforce orphan-key rules on `authoring_provenance.element_provenance` and `variable_rationale`. Tool reference table updated to list `resolve_datachain` + `validate_resolved` for the opt-in branch.
+- **`evals/verify.mjs`** — `authoring_provenance`, `element_provenance`, `element_provenance_unknown_element`, `source_references`, `variable_rationale`, `variable_rationale_unknown_variable`, `schema_snapshot`, `suggested_elements`, `schema_version`, `created_at`, and `generated_at` added to the `knownNonTools` allowlist. These are `DatachainInstance` / `ResolvedDatachainInstance` field names and validator error codes that now appear in the describe-system skill's prose; they are not MCP tools.
+- **`.claude-plugin/plugin.json`** — version bumped to 0.3.2.
+- **`.mcp.json`** — `User-Agent` header synced to `dtpr-claude-plugin/0.3.2`.
+
+## 0.3.1 — 2026-05-17
+
+**Description trim for Claude Desktop's 1024-char cap.** Six of seven skills had `description:` fields that exceeded the per-skill cap Claude Desktop enforces on upload, blocking installation. The fat was the repeated `For X use sibling-A; for Y use sibling-B; …` block — already documented in each SKILL.md body's "Sibling routing" section. Compressed to a single `See also: …` line; trigger phrases and the "what it does" framing are untouched so dispatch fidelity is preserved.
+
+### Changed
+
+- **`dtpr-translate`** — 1552 → 963 chars. Dropped the implementation-detail sentence on `get_schema.manifest.locales`; collapsed sibling-routing to `See also`.
+- **`dtpr-element-design`** — 1355 → 880 chars. Locale-skeleton clause tightened; symbol hand-off kept as a single sentence since it is a genuine workflow dependency, not a router note.
+- **`dtpr-datachain-structure`** — 1341 → 1015 chars. Sibling-routing collapsed to `See also`.
+- **`dtpr-category-audit`** — 1282 → 921 chars. Sibling-routing collapsed to `See also`.
+- **`dtpr-symbol-design`** — 1129 → 854 chars. Sibling-routing collapsed; `dtpr-element-design` hand-off framing retained as a parenthetical because that is the primary inbound path.
+- **`dtpr-comprehension-audit`** — 1128 → 896 chars. Sibling-routing collapsed to `See also`.
+- **`dtpr-describe-system`** — unchanged (already 998 chars).
+- **`.claude-plugin/plugin.json`** — version bumped to 0.3.1.
+- **`.mcp.json`** — `User-Agent` header synced to `dtpr-claude-plugin/0.3.1`.
+
+### Added
+
+- **`dtpr-ai/scripts/build-skills.ts`** — build-time packager. Validates each `SKILL.md` frontmatter (description ≤ 1024 chars, name matches dir), zips each skill into a `.skill` file, builds a single combined `dtpr-skills.zip` with all seven, and emits `manifest.json` with file sizes and SHA-256 digests. Wired into `dtpr-ai`'s `prebuild` script so every site deploy ships fresh artifacts. Outputs land at `dtpr-ai/public/skills/<version>/` and are served from the same path on `dtpr.ai`.
+- **dtpr.ai install page** — new section under Install for Claude Desktop / Claude.ai users, linking the per-skill `.skill` zips and the combined bundle. The plugin-install path (Claude Code marketplace) remains the recommended one-click flow.
+
 ## 0.3.0 — 2026-05-07
 
 **Symbol-design skill split out.** Symbol drafting is no longer mixed into element drafting. The new sibling produces multiple variants per round with a local HTML preview, so a session can compare silhouette strategies before committing to one icon.

@@ -2,9 +2,9 @@ id: analytical_mode
 category_id: functional_modes
 title:
   - locale: en
-    value: Analytical — decides
+    value: Deciding (Analytical AI)
   - locale: fr
-    value: Analytique — décide
+    value: Décider (IA analytique)
 description:
   - locale: en
     value: >-

@@ -1,6 +1,6 @@
 ---
 name: dtpr-symbol-design
-description: Propose and refine SVG symbols for DTPR (Digital Trust for Places and Routines) elements in the established house style — emit three distinct variants per round with a local HTML preview, iterate to a single chosen icon, and hand off the save path. Use whenever the focus of the request is the icon itself rather than the element's YAML, locale rows, or category fit. Triggers on phrases like "draft an SVG for X", "design an icon for the Y element", "give me three icon options for cloud storage", "iterate on the symbol for Z", "redesign the X icon", "what would the icon for differential privacy look like in DTPR style", or any request to create, redesign, or refine a single symbol. For drafting a full element (YAML fragment + symbol + comprehension check together), use `dtpr-element-design` — it hands off to this skill for the symbol step. For auditing a whole category's icon coherence, use `dtpr-category-audit`. For describing a real AI system as a datachain, use `dtpr-describe-system`. For grading an existing symbol against the public-comprehension rubric without proposing changes, use `dtpr-comprehension-audit`.
+description: Propose and refine SVG symbols for DTPR (Digital Trust for Places and Routines) elements in the established house style — emit three distinct variants per round with a local HTML preview, iterate to a single chosen icon, and hand off the save path. Use whenever the focus of the request is the icon itself rather than the element's YAML, locale rows, or category fit. Triggers on phrases like "draft an SVG for X", "design an icon for the Y element", "give me three icon options for cloud storage", "iterate on the symbol for Z", "redesign the X icon", "what would the icon for differential privacy look like in DTPR style", or any request to create, redesign, or refine a single symbol. See also — `dtpr-element-design` (full element drafting hands off here for the symbol step), `dtpr-category-audit`, `dtpr-describe-system`, `dtpr-comprehension-audit`.
 ---
 
 # Design one DTPR symbol
@@ -243,6 +243,14 @@ When finalizing a chosen variant, replace the **Variants** section with a single
 | Phase 3 | `Bash` | Resolve the absolute path of the preview directory (e.g., `pwd`, `mktemp -d`) for the `file://` URL. |
 
 Tool parameter shapes are documented on the MCP itself — see `https://dtpr.ai/mcp/tools/` for each tool's schema. This skill names tools in workflow order; for exact argument shapes, trust the live tool description.
+
+## Whole-version preview (optional)
+
+Phase 3 produces a preview of one symbol's variants. When the user wants to see how a symbol edit lands **across the whole version** — every element composed with its shape and all context-colored variants, the way the production API would serve them — point them at the example script:
+
+- `plugin/dtpr/skills/dtpr-symbol-design/examples/compose-gallery.mjs`
+
+Run from the repo root: `node plugin/dtpr/skills/dtpr-symbol-design/examples/compose-gallery.mjs [<schema-dir>] [<out-html>]`. It mirrors the same compositor logic as `api/src/icons/compositor.ts` (shape primitive + WCAG-0.179 inner-color rule) and writes a single static HTML gallery. It is a standalone dev tool — not part of the per-symbol workflow above. See the README next to the script for details.
 
 ## Non-goals
 

@@ -6,9 +6,9 @@ name:
     value: Responsable
 description:
   - locale: en
-    value: The organization accountable for the deployment of this AI system.
+    value: The organization responsible for deploying and operating this AI system.
   - locale: fr
-    value: L'organisation responsable du déploiement de ce système d'IA.
+    value: L’organisation responsable du déploiement et de l’exploitation de ce système d’IA.
 prompt:
   - locale: en
     value: Who is accountable for this AI system?

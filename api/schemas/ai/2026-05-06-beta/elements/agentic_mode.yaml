@@ -2,9 +2,9 @@ id: agentic_mode
 category_id: functional_modes
 title:
   - locale: en
-    value: Agentic — acts
+    value: Acting (Agentic AI)
   - locale: fr
-    value: Agentique — agit
+    value: Agir (IA agentique)
 description:
   - locale: en
     value: >-

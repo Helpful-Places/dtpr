@@ -428,6 +428,32 @@ describe('validateInstance — instance-level rules', () => {
     expect(r.errors.some((e) => e.code === 'CONTEXT_TYPE_UNKNOWN')).toBe(true)
   })
 
+  it('Rule 4 (context_type_missing): warns when category declares a context but instance omits context_type_id', () => {
+    const inst = validInstance()
+    // accept_deny is in ai__decision which declares element_context with
+    // values: [ai_only]. Strip the discriminator off and expect a warning.
+    delete (inst.elements[0] as { context_type_id?: string }).context_type_id
+    const r = validateInstance(baseSource(), inst)
+    expect(r.ok).toBe(true) // warning-only — historic chains keep passing
+    const w = r.warnings.find((x) => x.code === 'CONTEXT_TYPE_MISSING')
+    expect(w).toBeDefined()
+    expect(w!.path).toBe('instance.elements[0].context_type_id')
+    expect(w!.fix_hint).toMatch(/ai_only/)
+  })
+
+  it('Rule 4 (context_type_missing): no warning when category has no element_context', () => {
+    const inst = validInstance()
+    // cloud_storage is in ai__storage which has no element_context.
+    // It already lacks context_type_id and should not warn.
+    const r = validateInstance(baseSource(), inst)
+    const w = r.warnings.find(
+      (x) =>
+        x.code === 'CONTEXT_TYPE_MISSING' &&
+        x.path === 'instance.elements[1].context_type_id',
+    )
+    expect(w).toBeUndefined()
+  })
+
   it('Rule 7 (required_category_missing): missing element from required category', () => {
     const inst = validInstance()
     // accept_deny is the only decision-category element; remove it.

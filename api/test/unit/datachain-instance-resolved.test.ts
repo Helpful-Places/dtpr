@@ -309,21 +309,22 @@ describe('ResolvedDatachainInstanceSchema', () => {
     }
   })
 
-  it('round-trip equivalence (R3, R4): strip 3 new fields → parses as thin with same shape', () => {
+  it('round-trip equivalence (R3, R4): strip resolved-only fields → parses as thin with same shape', () => {
+    // After authoring_provenance moved to the base DatachainInstance,
+    // only `schema_snapshot` and `suggested_elements` are resolved-
+    // only fields. `authoring_provenance` round-trips on the thin
+    // form, so the comparison includes it.
     const resolved = ResolvedDatachainInstanceSchema.parse({
       ...baseResolvedInput(),
       suggested_elements: [baseElement('proposed')],
       authoring_provenance: {
         kind: 'ai_generated' as const,
-        element_provenance: { proposed: { confidence: 'medium' as const } },
+        element_provenance: { accept_deny: { confidence: 'medium' as const } },
       },
     })
-    // Strip the three resolved-only fields.
-    const { schema_snapshot: _ss, suggested_elements: _se, authoring_provenance: _ap, ...stripped } =
-      resolved
+    const { schema_snapshot: _ss, suggested_elements: _se, ...stripped } = resolved
     void _ss
     void _se
-    void _ap
 
     const thinFromResolved = DatachainInstanceSchema.parse(stripped)
     const thinDirect = DatachainInstanceSchema.parse({
@@ -331,8 +332,37 @@ describe('ResolvedDatachainInstanceSchema', () => {
       schema_version: 'ai@2026-04-16-beta',
       created_at: '2026-04-16T00:00:00.000Z',
       elements: [{ element_id: 'accept_deny' }],
+      authoring_provenance: {
+        kind: 'ai_generated' as const,
+        element_provenance: { accept_deny: { confidence: 'medium' as const } },
+      },
     })
     expect(thinFromResolved).toEqual(thinDirect)
+  })
+
+  it('authoring_provenance is allowed on the thin DatachainInstance', () => {
+    const thin = DatachainInstanceSchema.parse({
+      id: 'worcester-lpr',
+      schema_version: 'ai@2026-04-16-beta',
+      created_at: '2026-04-16T00:00:00.000Z',
+      elements: [{ element_id: 'accept_deny' }],
+      authoring_provenance: {
+        kind: 'ai_generated' as const,
+        model: 'claude-opus-4-7',
+        generated_at: '2026-05-17T00:00:00.000Z',
+        element_provenance: {
+          accept_deny: {
+            rationale: 'Privacy notice describes a binary accept/deny outcome.',
+            confidence: 'high' as const,
+            source_references: [{ quote: 'either accept or deny the request', context: 'Page 3' }],
+          },
+        },
+      },
+    })
+    expect(thin.authoring_provenance?.kind).toBe('ai_generated')
+    if (thin.authoring_provenance?.kind !== 'ai_generated') throw new Error('discriminator')
+    expect(thin.authoring_provenance.model).toBe('claude-opus-4-7')
+    expect(thin.authoring_provenance.element_provenance?.accept_deny?.source_references).toHaveLength(1)
   })
 
   // Instance-level title + description (the system being described).
@@ -389,14 +419,41 @@ describe('ResolvedDatachainInstanceSchema', () => {
         },
       }
       const resolved = ResolvedDatachainInstanceSchema.parse(wire)
-      const { schema_snapshot: _ss, suggested_elements: _se, authoring_provenance: _ap, ...stripped } =
-        resolved
+      const { schema_snapshot: _ss, suggested_elements: _se, ...stripped } = resolved
       void _ss
       void _se
-      void _ap
       const thin = DatachainInstanceSchema.parse(stripped)
       expect(thin.title).toEqual(resolved.title)
       expect(thin.description).toEqual(resolved.description)
+    })
+  })
+
+  describe('InstanceElement.element_instance_id', () => {
+    it('parses and re-emits a valid element_instance_id round-trip', () => {
+      const input = {
+        ...baseResolvedInput(),
+        elements: [
+          { element_id: 'accept_deny', element_instance_id: 'deployer_acs' },
+        ],
+      }
+      const r = ResolvedDatachainInstanceSchema.parse(input)
+      expect(r.elements[0]?.element_instance_id).toBe('deployer_acs')
+    })
+
+    it('omits element_instance_id when absent (optional field)', () => {
+      const r = ResolvedDatachainInstanceSchema.parse(baseResolvedInput())
+      expect(r.elements[0]?.element_instance_id).toBeUndefined()
+    })
+
+    it('rejects element_instance_id with disallowed characters', () => {
+      const input = {
+        ...baseResolvedInput(),
+        elements: [
+          { element_id: 'accept_deny', element_instance_id: 'has spaces' },
+        ],
+      }
+      const r = ResolvedDatachainInstanceSchema.safeParse(input)
+      expect(r.success).toBe(false)
     })
   })
 })

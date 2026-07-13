@@ -6,14 +6,14 @@ name:
     value: Accéder
 description:
   - locale: en
-    value: The access controls and permissions for the data produced by the AI system.
+    value: Who can see or use the data produced by this AI system.
   - locale: fr
-    value: Les contrôles d’accès et les autorisations pour les données produites par le système d’IA.
+    value: Qui peut voir ou utiliser les données produites par ce système d’IA.
 prompt:
   - locale: en
-    value: Who has access to the data produced by the AI system?
+    value: Who has access to the data?
   - locale: fr
-    value: Qui a accès aux données produites par le système d’IA ?
+    value: Qui a accès aux données ?
 required: false
 order: 9
 datachain_type: ai

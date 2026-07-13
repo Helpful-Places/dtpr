@@ -2,7 +2,7 @@ import type { DatachainInstance } from '../../schema/datachain-instance.ts'
 import { isMultiSelectEnumVariable, type Variable } from '../../schema/variable.ts'
 import type { LocaleValue } from '../../schema/locale.ts'
 import type { SchemaVersionSource, SemanticError } from '../types.ts'
-import { err } from '../types.ts'
+import { err, warn } from '../types.ts'
 
 /**
  * Distinguish the two value shapes carried by InstanceVariableValue.
@@ -35,7 +35,11 @@ function isLocaleValueArray(value: unknown): value is LocaleValue[] {
  * context of its pinned SchemaVersionSource.
  *
  * Rule 4: context_type_id on an instance element must be a value defined
- *         on the parent category's context.values.
+ *         on the parent category's context.values. If the effective
+ *         context exists but context_type_id is absent, the instance
+ *         is missing a structural discriminator — surfaced as a
+ *         `CONTEXT_TYPE_MISSING` warning so historic published chains
+ *         still pass.
  * Rule 7: required categories must have at least one element in the instance.
  * Rule 9: each instance variable id must be declared on the element's
  *         category element_variables.
@@ -84,6 +88,56 @@ export function checkInstance(
     }
   }
 
+  // element_instance_id uniqueness within a single instance (see plan
+  // `element_instance_id` Option 1). Same scope as
+  // `subchain_instances[].id`.
+  const seenInstanceIds = new Map<string, number>()
+  for (const [ii, ie] of instance.elements.entries()) {
+    if (!ie.element_instance_id) continue
+    const firstIdx = seenInstanceIds.get(ie.element_instance_id)
+    if (firstIdx !== undefined) {
+      findings.push(
+        err(
+          'INSTANCE_ELEMENT_INSTANCE_ID_DUPLICATE',
+          `element_instance_id '${ie.element_instance_id}' is used by more than one placement (first at elements[${firstIdx}])`,
+          {
+            path: `instance.elements[${ii}].element_instance_id`,
+            fix_hint:
+              'element_instance_id must be unique within `elements[]`. Rename one of the placements.',
+          },
+        ),
+      )
+    } else {
+      seenInstanceIds.set(ie.element_instance_id, ii)
+    }
+  }
+
+  // Cross-namespace collision: an element_instance_id must not equal
+  // any element_id on this instance's `elements[]`. If it did, a
+  // provenance map key matching that string would resolve under the
+  // element_instance_id branch (validator + renderer accept it) AND
+  // under the bare-element_id backward-compat branch in the renderer
+  // (when the colliding element_id is placed exactly once with no
+  // element_instance_id of its own), silently attaching the same
+  // entry to two distinct placements.
+  const placedElementIds = new Set(instance.elements.map((p) => p.element_id))
+  for (const [ii, ie] of instance.elements.entries()) {
+    if (!ie.element_instance_id) continue
+    if (placedElementIds.has(ie.element_instance_id)) {
+      findings.push(
+        err(
+          'INSTANCE_ELEMENT_INSTANCE_ID_COLLIDES_WITH_ELEMENT_ID',
+          `element_instance_id '${ie.element_instance_id}' collides with an element_id placed on this instance; the two namespaces must be disjoint`,
+          {
+            path: `instance.elements[${ii}].element_instance_id`,
+            fix_hint:
+              'Rename the element_instance_id so it does not match any element_id placed on this instance.',
+          },
+        ),
+      )
+    }
+  }
+
   for (const [ii, ie] of instance.elements.entries()) {
     // Element existence is foundational to the rest of the rules.
     const el = elementById.get(ie.element_id)
@@ -114,9 +168,16 @@ export function checkInstance(
     // Rule 4: context_type_id must match a value defined on the
     // element's effective context. Element.context overrides
     // Category.element_context fully (no merge); resolve in that order.
+    // When the effective context exists but the instance omits
+    // context_type_id, emit a CONTEXT_TYPE_MISSING warning rather than
+    // an error — historic published chains predate this discriminator
+    // and must keep passing — but make the silence audible so authors
+    // can opt in. If a future taxonomy needs hard enforcement, add
+    // `Category.element_context.required: boolean` and promote this
+    // finding to `err(...)` when the flag is true.
+    const cat = categoryById.get(el.category_id)
+    const effectiveCtx = el.context ?? cat?.element_context
     if (ie.context_type_id) {
-      const cat = categoryById.get(el.category_id)
-      const effectiveCtx = el.context ?? cat?.element_context
       const matched = !!effectiveCtx?.values.some((v) => v.id === ie.context_type_id)
       if (!matched) {
         findings.push(
@@ -130,6 +191,18 @@ export function checkInstance(
           ),
         )
       }
+    } else if (effectiveCtx) {
+      const available = effectiveCtx.values.map((v) => v.id).join(', ')
+      findings.push(
+        warn(
+          'CONTEXT_TYPE_MISSING',
+          `Element '${el.id}' is in category '${el.category_id}' which declares an element_context ('${effectiveCtx.id}'); instance omits context_type_id.`,
+          {
+            path: `instance.elements[${ii}].context_type_id`,
+            fix_hint: `Set context_type_id to one of: ${available} (see get_schema or get_element).`,
+          },
+        ),
+      )
     }
 
     // Rule 9 and 10: instance variables validated against element's inherited definitions.

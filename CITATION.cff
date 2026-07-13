@@ -1,0 +1,42 @@
+# GitHub renders this file as a "Cite this repository" sidebar button
+# (APA + BibTeX) and Zotero / Zenodo / cffconvert read it as a
+# canonical citation source. Validate with `cffconvert --validate` or
+# https://citation-file-format.github.io/cff-initializer-javascript/.
+#
+# Keep this file in sync with `dtpr-ai/app.config.ts:citation`. The
+# microsite's <CiteThis> component reads the runtime config; this
+# file is what GitHub and academic tooling read.
+cff-version: 1.2.0
+message: "If you use DTPR for AI in research, teaching, or product disclosure, please cite it using the metadata below."
+title: "DTPR for AI: Digital Trust for Places & Routines — AI extension"
+abstract: "A taxonomy and disclosure standard for AI systems deployed in places and routines. DTPR for AI extends the Digital Trust for Places & Routines (DTPR) standard with categories, elements, and machine-readable schema for transparently describing how AI systems collect data, make decisions, mitigate risk, and respect rights."
+type: software
+authors:
+  - name: "Helpful Places"
+    website: "https://helpfulplaces.com/"
+repository-code: "https://github.com/helpful-places/dtpr"
+url: "https://dtpr.ai"
+license: CC-BY-4.0
+version: 0.1.0
+date-released: 2026-05-11
+keywords:
+  - AI transparency
+  - algorithmic accountability
+  - public realm
+  - data ethics
+  - taxonomy
+  - DTPR
+identifiers:
+  - type: url
+    value: "https://github.com/helpful-places/dtpr"
+    description: "Source repository (canonical)"
+preferred-citation:
+  type: software
+  title: "DTPR for AI: Digital Trust for Places & Routines — AI extension"
+  authors:
+    - name: "Helpful Places"
+  year: 2026
+  version: 0.1.0
+  url: "https://dtpr.ai"
+  repository-code: "https://github.com/helpful-places/dtpr"
+  license: CC-BY-4.0

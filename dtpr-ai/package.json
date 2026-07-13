@@ -2,10 +2,13 @@
   "name": "dtpr-ai",
   "private": true,
   "scripts": {
-    "build": "pnpm --filter @dtpr/api build:schema && pnpm --filter @dtpr/ui build && pnpm emit:object-reference && NODE_OPTIONS=--max-old-space-size=4096 nuxt build",
+    "build": "pnpm --filter @dtpr/api build:schema && pnpm --filter @dtpr/ui build && pnpm emit:object-reference && pnpm build:skills && NODE_OPTIONS=--max-old-space-size=6144 nuxt build",
     "dev": "pnpm --filter @dtpr/api build:schema && pnpm --filter @dtpr/ui build && pnpm emit:object-reference && NODE_OPTIONS=--max-old-space-size=4096 nuxt dev",
     "emit:object-reference": "tsx scripts/emit-object-reference.ts",
-    "preview": "nuxt preview"
+    "build:skills": "tsx scripts/build-skills.ts",
+    "preview": "nuxt preview",
+    "test": "nuxt prepare && vitest run --passWithNoTests",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@dtpr/ui": "workspace:*",
@@ -13,11 +16,14 @@
     "@nuxtjs/i18n": "^10.2.4",
     "docus": "latest",
     "mermaid": "^11.14.0",
-    "nuxt": "^4.0.0"
+    "nuxt": "^4.0.0",
+    "nuxt-schema-org": "^6.0.4"
   },
   "devDependencies": {
     "@dtpr/api": "workspace:*",
+    "jsdom": "^25.0.1",
     "tsx": "^4.19.0",
+    "vitest": "^3.0.0",
     "wrangler": "^4.83.0"
   }
 }

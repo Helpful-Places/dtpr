@@ -1,4 +1,10 @@
-import type { Category, Element, ResolvedDatachainInstance } from './types.js'
+import type {
+  Category,
+  Element,
+  InstanceElement,
+  ProvenanceRef,
+  ResolvedDatachainInstance,
+} from './types.js'
 import { deriveElementDisplay } from './element-display.js'
 import { extract } from './locale.js'
 
@@ -24,6 +30,18 @@ export interface RenderedSection {
 }
 
 /**
+ * Full rendered datachain payload returned by `buildResolvedDatachain`
+ * — sections in declared order, plus the deduped, chain-wide citation
+ * list (instance-level + per-element) ready for a footer renderer.
+ * Per-element placements in `sections[].elements` carry
+ * `sourceNumbers` indices into `citations` (1-based).
+ */
+export interface ResolvedDatachainRender {
+  sections: RenderedSection[]
+  citations: ProvenanceRef[]
+}
+
+/**
  * Options for `buildResolvedSections`.
  *
  * - `proposedIndicator` (default `true`): when `false`, suppress the
@@ -40,6 +58,25 @@ export interface RenderedSection {
 export interface BuildResolvedSectionsOptions {
   proposedIndicator?: boolean
   fallbackLocale?: string
+  /**
+   * Resolver for the light-mode icon URL for a placement. Receives the
+   * resolved element definition and the instance placement (so callers
+   * can branch on `placement.context_type_id` to compose a context
+   * variant suffix — e.g. `icon.${context_type_id}.svg`). Return an
+   * empty string to fall through to the hexagon fallback. When the
+   * option is omitted entirely, `deriveElementDisplay`'s own
+   * fallback applies (hexagon data URI).
+   */
+  iconUrlFor?: (element: Element, placement: InstanceElement) => string
+  /**
+   * Resolver for the dark-mode icon URL. Symmetric to `iconUrlFor`.
+   * Return `undefined` (or an empty string) to skip the dark variant —
+   * `<DtprIcon>` will then keep the light url in both modes.
+   */
+  iconUrlDarkFor?: (
+    element: Element,
+    placement: InstanceElement,
+  ) => string | undefined
 }
 
 type SourceTag = 'snapshot' | 'suggested'
@@ -89,8 +126,61 @@ export function buildResolvedSections(
   locale: string,
   options: BuildResolvedSectionsOptions = {},
 ): RenderedSection[] {
+  return buildResolvedDatachain(resolved, locale, options).sections
+}
+
+/**
+ * Build the full rendered datachain payload — sections (as above) plus
+ * the chain-wide deduped citation list composed from
+ * `resolved.sources` (instance-level, walked first) and each
+ * `resolved.elements[].sources` (placement order). Used by the
+ * visualizer to render an inline-numbered citation footer; the
+ * `<sup>[n]</sup>` markers next to each element come from
+ * `display.sourceNumbers`, which are 1-based indices into the
+ * returned `citations` array.
+ *
+ * Dedup key: `type|url|title|citation`. Identical rows (same type +
+ * same url + same title + same citation) collapse to one citation.
+ * Missing url/citation are treated as empty strings, so two rows
+ * with no url but distinct titles still produce two citations. This
+ * is intentionally stricter than `type+url` alone — two AI-register
+ * rows that happen to share a type but lack URLs should not collapse
+ * just because the type matches.
+ */
+export function buildResolvedDatachain(
+  resolved: ResolvedDatachainInstance,
+  locale: string,
+  options: BuildResolvedSectionsOptions = {},
+): ResolvedDatachainRender {
   const proposedIndicator = options.proposedIndicator ?? true
   const fallbackLocale = options.fallbackLocale ?? 'en'
+
+  // Citation list state, shared across the whole chain. First-seen
+  // wins — instance-level sources are walked first (below, before the
+  // placement loop), then per-element sources fold in during the
+  // placement walk. The map keys are the dedup keys; the array
+  // preserves insertion order so renderers get stable numbering.
+  const citations: ProvenanceRef[] = []
+  const citationIndexByKey = new Map<string, number>()
+  function citationKey(ref: ProvenanceRef): string {
+    return [ref.type, ref.url ?? '', ref.title, ref.citation ?? ''].join('|')
+  }
+  function citationNumberFor(ref: ProvenanceRef): number {
+    const key = citationKey(ref)
+    const existing = citationIndexByKey.get(key)
+    if (existing !== undefined) return existing
+    citations.push(ref)
+    const n = citations.length
+    citationIndexByKey.set(key, n)
+    return n
+  }
+
+  // Walk instance-level sources first so footer ordering starts with
+  // the whole-disclosure citations (AI register, model card, etc.)
+  // before per-element rows.
+  for (const ref of resolved.sources ?? []) {
+    citationNumberFor(ref)
+  }
 
   // Build element-id resolution map: snapshot first, suggested fills
   // the gaps. Collision: snapshot wins (defensive — validate_resolved
@@ -120,6 +210,17 @@ export function buildResolvedSections(
   const aiProvenance =
     provenance && provenance.kind === 'ai_generated' ? provenance : undefined
 
+  // Count placements per element_id so the per-element provenance
+  // lookup can decide when a bare `element_id` key is unambiguous
+  // (placed exactly once, no `element_instance_id` on the placement).
+  const placementCountByElementId = new Map<string, number>()
+  for (const p of resolved.elements) {
+    placementCountByElementId.set(
+      p.element_id,
+      (placementCountByElementId.get(p.element_id) ?? 0) + 1,
+    )
+  }
+
   for (const placement of resolved.elements) {
     const resolvedDef = elementById.get(placement.element_id)
     if (!resolvedDef) {
@@ -131,9 +232,13 @@ export function buildResolvedSections(
     }
     const { element, source } = resolvedDef
     const category = categoryById.get(element.category_id)
+    const iconUrl = options.iconUrlFor?.(element, placement)
+    const iconUrlDark = options.iconUrlDarkFor?.(element, placement)
     const display = deriveElementDisplay(element, placement, locale, {
       fallbackLocale,
       ...(category ? { category } : {}),
+      ...(iconUrl !== undefined ? { iconUrl } : {}),
+      ...(iconUrlDark !== undefined ? { iconUrlDark } : {}),
     })
 
     // R15b: proposed indicator is default-on. Opting out
@@ -141,12 +246,41 @@ export function buildResolvedSections(
     // unconditionally so downstream renderers see no badge.
     display.proposed = proposedIndicator && source === 'suggested'
 
+    // Per-element source rows + their indices into the chain-wide
+    // deduped citation list. Both fields are always set (default
+    // empty arrays) so the inline-marker renderer can branch on
+    // length without a null-check; non-`buildResolvedSections`
+    // callers (e.g. plain `deriveElementDisplay`) still leave both
+    // undefined.
+    const placementSources = placement.sources ?? []
+    display.sources = placementSources
+    display.sourceNumbers = placementSources.map((ref) => citationNumberFor(ref))
+
     // Per-element AI provenance: compose the per-element entry with
     // whole-disclosure `model` / `generated_at`. Only attach when an
     // entry exists for this placement; human-authored disclosures and
     // AI disclosures without an entry leave `provenance` undefined.
+    //
+    // Key resolution mirrors `checkElementProvenanceKeys`:
+    //   1. Prefer `placement.element_instance_id`.
+    //   2. Fall back to `placement.element_id` only when the placement
+    //      has no `element_instance_id` AND that element_id is placed
+    //      exactly once. Two placements of the same element_id with no
+    //      `element_instance_id` and a single bare-element_id entry are
+    //      ambiguous; leave both `provenance` undefined rather than
+    //      attaching the same entry to both.
     if (aiProvenance) {
-      const entry = aiProvenance.element_provenance?.[placement.element_id]
+      const map = aiProvenance.element_provenance
+      let entry = undefined as
+        | NonNullable<typeof aiProvenance.element_provenance>[string]
+        | undefined
+      if (map) {
+        if (placement.element_instance_id !== undefined) {
+          entry = map[placement.element_instance_id]
+        } else if ((placementCountByElementId.get(placement.element_id) ?? 0) === 1) {
+          entry = map[placement.element_id]
+        }
+      }
       if (entry !== undefined) {
         display.provenance = {
           kind: 'ai_generated',
@@ -186,7 +320,7 @@ export function buildResolvedSections(
   // Materialize sections in declared category order. Categories that
   // are declared but missing from the snapshot's category list still
   // produce a section; the title falls back to the bare id.
-  return declaredCategoryIds.map((id) => {
+  const sections = declaredCategoryIds.map((id) => {
     const c = categoryById.get(id)
     const title = c ? extract(c.name, locale, fallbackLocale) || id : id
     return {
@@ -195,4 +329,6 @@ export function buildResolvedSections(
       elements: byCategory.get(id) ?? [],
     }
   })
+
+  return { sections, citations }
 }

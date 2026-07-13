@@ -1,5 +1,8 @@
 import { describe, it, expect } from 'vitest'
-import { buildResolvedSections } from './build-resolved-sections.js'
+import {
+  buildResolvedDatachain,
+  buildResolvedSections,
+} from './build-resolved-sections.js'
 import type {
   AuthoringProvenance,
   Category,
@@ -7,6 +10,7 @@ import type {
   Element,
   InstanceElement,
   LocaleValue,
+  ProvenanceRef,
   ResolvedDatachainInstance,
   SchemaSnapshot,
 } from './types.js'
@@ -58,13 +62,17 @@ function makeElement(id: string, category_id: string, title: string): Element {
   } as Element
 }
 
-function makePlacement(element_id: string, priority: number = 0): InstanceElement {
+function makePlacement(
+  element_id: string,
+  priority: number = 0,
+  sources: ProvenanceRef[] = [],
+): InstanceElement {
   return {
     element_id,
     priority,
     variables: [],
     actions: [],
-    sources: [],
+    sources,
   } as InstanceElement
 }
 
@@ -75,6 +83,7 @@ interface MakeResolvedOpts {
   suggestedElements?: Element[]
   placements: InstanceElement[]
   provenance?: AuthoringProvenance
+  instanceSources?: ProvenanceRef[]
 }
 
 function makeResolved(opts: MakeResolvedOpts): ResolvedDatachainInstance {
@@ -99,7 +108,7 @@ function makeResolved(opts: MakeResolvedOpts): ResolvedDatachainInstance {
     created_at: '2026-05-07T00:00:00.000Z',
     elements: opts.placements,
     subchain_instances: [],
-    sources: [],
+    sources: opts.instanceSources ?? [],
     linked_instance_ids: [],
   }
 
@@ -381,6 +390,205 @@ describe('buildResolvedSections', () => {
 
     const sections = buildResolvedSections(resolved, 'en')
     expect(sections[0]?.elements.map((e) => e.title)).toEqual(['Second', 'First'])
+  })
+
+  it('multi-placement: each placement gets its own provenance keyed by element_instance_id', () => {
+    const cats = [makeCategory('decision', 'Decision')]
+    const snap = [makeElement('institution', 'decision', 'Institution')]
+    const provenance: AuthoringProvenance = {
+      kind: 'ai_generated',
+      element_provenance: {
+        deployer_acs: { rationale: 'as deployer' },
+        vendor_acs: { rationale: 'as vendor' },
+      },
+    }
+    const placements: InstanceElement[] = [
+      { ...makePlacement('institution'), element_instance_id: 'deployer_acs' } as InstanceElement,
+      { ...makePlacement('institution'), element_instance_id: 'vendor_acs' } as InstanceElement,
+    ]
+    const resolved = makeResolved({
+      categories: cats,
+      snapshotElements: snap,
+      placements,
+      provenance,
+    })
+
+    const sections = buildResolvedSections(resolved, 'en')
+    const els = sections[0]!.elements
+    expect(els).toHaveLength(2)
+    expect(els[0]?.provenance?.rationale).toBe('as deployer')
+    expect(els[1]?.provenance?.rationale).toBe('as vendor')
+  })
+
+  it('single placement: bare element_id key still composes provenance (backward compat)', () => {
+    const cats = [makeCategory('storage', 'Storage')]
+    const snap = [makeElement('cloud_storage', 'storage', 'Cloud')]
+    const provenance: AuthoringProvenance = {
+      kind: 'ai_generated',
+      element_provenance: { cloud_storage: { rationale: 'sole placement' } },
+    }
+    const resolved = makeResolved({
+      categories: cats,
+      snapshotElements: snap,
+      placements: [makePlacement('cloud_storage')],
+      provenance,
+    })
+
+    const sections = buildResolvedSections(resolved, 'en')
+    expect(sections[0]?.elements[0]?.provenance?.rationale).toBe('sole placement')
+  })
+
+  it('multi-placement with no element_instance_id and a bare element_id entry leaves both provenance undefined (ambiguous)', () => {
+    const cats = [makeCategory('decision', 'Decision')]
+    const snap = [makeElement('institution', 'decision', 'Institution')]
+    const provenance: AuthoringProvenance = {
+      kind: 'ai_generated',
+      element_provenance: { institution: { rationale: 'ambiguous' } },
+    }
+    const resolved = makeResolved({
+      categories: cats,
+      snapshotElements: snap,
+      placements: [makePlacement('institution'), makePlacement('institution')],
+      provenance,
+    })
+
+    const sections = buildResolvedSections(resolved, 'en')
+    const els = sections[0]!.elements
+    expect(els).toHaveLength(2)
+    expect(els[0]?.provenance).toBeUndefined()
+    expect(els[1]?.provenance).toBeUndefined()
+  })
+})
+
+describe('buildResolvedDatachain — citations', () => {
+  it('returns an empty citation list when nothing declares sources', () => {
+    const cat = makeCategory('storage', 'Storage')
+    const el = makeElement('cloud_storage', 'storage', 'Cloud storage')
+    const resolved = makeResolved({
+      categories: [cat],
+      snapshotElements: [el],
+      placements: [makePlacement('cloud_storage')],
+    })
+
+    const { sections, citations } = buildResolvedDatachain(resolved, 'en')
+    expect(citations).toEqual([])
+    expect(sections[0]?.elements[0]?.sources).toEqual([])
+    expect(sections[0]?.elements[0]?.sourceNumbers).toEqual([])
+  })
+
+  it('numbers instance-level sources first, then per-element in placement order', () => {
+    const cat = makeCategory('storage', 'Storage')
+    const e1 = makeElement('e1', 'storage', 'E1')
+    const e2 = makeElement('e2', 'storage', 'E2')
+    const instanceRef: ProvenanceRef = {
+      type: 'ai_register',
+      title: 'NYC AI register',
+      url: 'https://nyc.gov/register',
+    }
+    const e1Ref: ProvenanceRef = {
+      type: 'model_card',
+      title: 'License plate model card',
+      url: 'https://example.com/lpr',
+    }
+    const e2Ref: ProvenanceRef = {
+      type: 'policy_document',
+      title: 'City surveillance policy',
+      url: 'https://example.com/policy',
+    }
+    const resolved = makeResolved({
+      categories: [cat],
+      snapshotElements: [e1, e2],
+      placements: [
+        makePlacement('e1', 0, [e1Ref]),
+        makePlacement('e2', 0, [e2Ref]),
+      ],
+      instanceSources: [instanceRef],
+    })
+
+    const { sections, citations } = buildResolvedDatachain(resolved, 'en')
+    expect(citations.map((c) => c.title)).toEqual([
+      'NYC AI register',
+      'License plate model card',
+      'City surveillance policy',
+    ])
+    expect(sections[0]?.elements[0]?.sourceNumbers).toEqual([2])
+    expect(sections[0]?.elements[1]?.sourceNumbers).toEqual([3])
+  })
+
+  it('dedupes identical rows by type|url|title|citation across instance + per-element scopes', () => {
+    const cat = makeCategory('storage', 'Storage')
+    const e1 = makeElement('e1', 'storage', 'E1')
+    const e2 = makeElement('e2', 'storage', 'E2')
+    const shared: ProvenanceRef = {
+      type: 'model_card',
+      title: 'Model card',
+      url: 'https://example.com/m',
+    }
+    const resolved = makeResolved({
+      categories: [cat],
+      snapshotElements: [e1, e2],
+      placements: [
+        makePlacement('e1', 0, [shared]),
+        makePlacement('e2', 0, [{ ...shared }]),
+      ],
+      instanceSources: [{ ...shared }],
+    })
+
+    const { sections, citations } = buildResolvedDatachain(resolved, 'en')
+    expect(citations).toHaveLength(1)
+    expect(sections[0]?.elements[0]?.sourceNumbers).toEqual([1])
+    expect(sections[0]?.elements[1]?.sourceNumbers).toEqual([1])
+  })
+
+  it('keeps url-less rows with distinct titles as separate citations', () => {
+    const cat = makeCategory('storage', 'Storage')
+    const el = makeElement('e1', 'storage', 'E1')
+    const a: ProvenanceRef = { type: 'internal_memo', title: 'Memo A' }
+    const b: ProvenanceRef = { type: 'internal_memo', title: 'Memo B' }
+    const resolved = makeResolved({
+      categories: [cat],
+      snapshotElements: [el],
+      placements: [makePlacement('e1', 0, [a, b])],
+    })
+
+    const { citations, sections } = buildResolvedDatachain(resolved, 'en')
+    expect(citations.map((c) => c.title)).toEqual(['Memo A', 'Memo B'])
+    expect(sections[0]?.elements[0]?.sourceNumbers).toEqual([1, 2])
+  })
+
+  it('preserves placement-declared source order within an element', () => {
+    const cat = makeCategory('storage', 'Storage')
+    const el = makeElement('e1', 'storage', 'E1')
+    const ref1: ProvenanceRef = { type: 'framework', title: 'F1' }
+    const ref2: ProvenanceRef = { type: 'standard', title: 'S1' }
+    const resolved = makeResolved({
+      categories: [cat],
+      snapshotElements: [el],
+      placements: [makePlacement('e1', 0, [ref2, ref1])],
+    })
+
+    const { citations, sections } = buildResolvedDatachain(resolved, 'en')
+    expect(citations.map((c) => c.title)).toEqual(['S1', 'F1'])
+    expect(sections[0]?.elements[0]?.sourceNumbers).toEqual([1, 2])
+  })
+
+  it('buildResolvedSections remains a thin wrapper that returns just the sections array', () => {
+    const cat = makeCategory('storage', 'Storage')
+    const el = makeElement('e1', 'storage', 'E1')
+    const ref: ProvenanceRef = { type: 'model_card', title: 'M' }
+    const resolved = makeResolved({
+      categories: [cat],
+      snapshotElements: [el],
+      placements: [makePlacement('e1', 0, [ref])],
+    })
+
+    const sections = buildResolvedSections(resolved, 'en')
+    expect(Array.isArray(sections)).toBe(true)
+    // The wrapper still populates per-element source fields on the
+    // displays it returns; only the chain-wide citation array is
+    // dropped by the wrapper's return shape.
+    expect(sections[0]?.elements[0]?.sources).toEqual([ref])
+    expect(sections[0]?.elements[0]?.sourceNumbers).toEqual([1])
   })
 })
 

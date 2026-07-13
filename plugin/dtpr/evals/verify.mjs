@@ -10,6 +10,9 @@
  * Checks:
  *   1. Each SKILL.md parses and has required YAML frontmatter
  *      (`name`, `description`) with non-empty values and a non-empty body.
+ *      Description is also capped at 1024 characters — Claude Desktop's
+ *      hard limit on skill upload — so a regression here is caught before
+ *      it ships.
  *   2. Each eval set parses as JSON and has `should_trigger` +
  *      `should_not_trigger` arrays with unique `id` fields and non-empty
  *      `prompt` strings. Each list must have at least one entry.
@@ -28,6 +31,13 @@
  *   6. Every cross-sibling should_not_trigger entry (id prefixed with
  *      `cross-sibling:<sibling-skill>:<positive-id>`) has a matching
  *      `should_trigger` entry on the named sibling skill.
+ *   7. Plugin version is coherent across `plugin.json`, the `.mcp.json`
+ *      `User-Agent`, the CHANGELOG heading, and the install-doc download
+ *      URL on dtpr.ai.
+ *   8. When git history is available, any PR that touches `skills/`,
+ *      `.mcp.json`, or `references/` must also bump the plugin version
+ *      relative to origin/main. Catches the "shipped a skill change
+ *      without bumping" regression.
  *
  * Exits 0 on success, 1 on any failure, with a human-readable
  * explanation of what failed and where.
@@ -56,6 +66,25 @@ const PROMPTS_BUNDLE_PATH = join(
   'skills.generated.ts',
 )
 const INDEX_RELPATH = 'plugin/dtpr/research/INDEX.md'
+
+const PLUGIN_MANIFEST_PATH = join(PLUGIN_ROOT, '.claude-plugin', 'plugin.json')
+const MCP_CONFIG_PATH = join(PLUGIN_ROOT, '.mcp.json')
+const CHANGELOG_PATH = join(PLUGIN_ROOT, 'CHANGELOG.md')
+const INSTALL_DOC_PATH = join(REPO_ROOT, 'dtpr-ai', 'content', 'en', '7.plugin', '1.install.md')
+
+// Claude Desktop's skill-upload UI rejects descriptions longer than this.
+// Surfacing the cap here means a regression fails the offline conformance
+// check rather than bouncing at install time on someone's laptop.
+const DESCRIPTION_LIMIT = 1024
+
+// Bumping is required when any of these paths change. CHANGELOG /
+// README / docs-only PRs are exempt — they describe work, they aren't
+// the work itself.
+const BUMP_TRIGGERING_PATHS = [
+  'plugin/dtpr/skills/',
+  'plugin/dtpr/.mcp.json',
+  'plugin/dtpr/references/',
+]
 
 const AUTHORITY_TIER_ENUM = [
   'primary-source',
@@ -162,8 +191,142 @@ function verifySkill(skillDir) {
   if (body.trim().length === 0) {
     fail(`${skillPath}: body is empty.`)
   }
+  if (frontmatter.description && frontmatter.description.length > DESCRIPTION_LIMIT) {
+    fail(
+      `${skillPath}: description is ${frontmatter.description.length} chars, exceeds Claude Desktop's ${DESCRIPTION_LIMIT}-char cap. Trim the description before shipping — the routing-to-siblings block is the usual fat; sibling routing belongs in the body, not the description.`,
+    )
+  }
 
-  return { path: skillPath, body }
+  return { path: skillPath, body, frontmatter }
+}
+
+function verifyPluginVersionCoherence() {
+  // Read the canonical version from plugin.json. If that fails, the rest
+  // of this check has no anchor — fail and bail.
+  let manifest
+  try {
+    manifest = JSON.parse(readFileSync(PLUGIN_MANIFEST_PATH, 'utf8'))
+  } catch (e) {
+    fail(`${PLUGIN_MANIFEST_PATH}: cannot read or parse plugin manifest (${e.message}).`)
+    return null
+  }
+  const version = manifest.version
+  if (typeof version !== 'string' || !/^\d+\.\d+\.\d+/.test(version)) {
+    fail(`${PLUGIN_MANIFEST_PATH}: 'version' must be a SemVer string, got ${JSON.stringify(version)}.`)
+    return null
+  }
+
+  // .mcp.json's User-Agent should track the plugin version so api.dtpr.io
+  // can see which plugin build hit it.
+  try {
+    const mcp = JSON.parse(readFileSync(MCP_CONFIG_PATH, 'utf8'))
+    const ua = mcp?.dtpr?.headers?.['User-Agent']
+    const expectedUa = `dtpr-claude-plugin/${version}`
+    if (ua !== expectedUa) {
+      fail(
+        `${MCP_CONFIG_PATH}: User-Agent header is ${JSON.stringify(ua)}, expected ${JSON.stringify(expectedUa)} to match plugin.json version.`,
+      )
+    }
+  } catch (e) {
+    fail(`${MCP_CONFIG_PATH}: cannot read or parse MCP config (${e.message}).`)
+  }
+
+  // CHANGELOG must have a heading for this version. If a contributor
+  // bumped without adding release notes, that's a regression we want to
+  // catch before merge — the changelog is the only place future-us can
+  // reconstruct what the bump meant.
+  try {
+    const changelog = readFileSync(CHANGELOG_PATH, 'utf8')
+    const headingRe = new RegExp(`^##\\s+${version.replace(/[.+]/g, '\\$&')}(?:\\s|$)`, 'm')
+    if (!headingRe.test(changelog)) {
+      fail(
+        `${CHANGELOG_PATH}: no '## ${version}' heading found. Add a changelog entry for the bump so the version is reconstructable from this file.`,
+      )
+    }
+  } catch (e) {
+    fail(`${CHANGELOG_PATH}: cannot read changelog (${e.message}).`)
+  }
+
+  // Install doc's bundled-zip section must point at the current version
+  // — otherwise the download links 404 after a bump. The site's
+  // build-skills script also warns on this; this check makes it a hard
+  // failure so a bumped PR can't ship with stale URLs.
+  try {
+    const installDoc = readFileSync(INSTALL_DOC_PATH, 'utf8')
+    if (!installDoc.includes(`/skills/${version}/`)) {
+      fail(
+        `${INSTALL_DOC_PATH}: bundled-zip section does not reference /skills/${version}/. Update the download URLs to match the bumped plugin version.`,
+      )
+    }
+  } catch (e) {
+    // Install doc lives in dtpr-ai, which may not be present in every
+    // checkout (e.g. a shallow plugin-only clone). Warn rather than
+    // fail in that case.
+    warn(`${INSTALL_DOC_PATH}: cannot read install doc; skipping version-URL check (${e.message}).`)
+  }
+
+  return version
+}
+
+function verifyPluginVersionBumped(currentVersion) {
+  if (!currentVersion) return // upstream check already failed
+
+  // Compute the merge base with origin/main. Same protocol as the
+  // INDEX.md append-only check: if git context isn't available
+  // (offline checkout, no remote), warn and skip rather than fail.
+  let base
+  try {
+    base = execSync('git merge-base origin/main HEAD', {
+      cwd: REPO_ROOT,
+      stdio: ['ignore', 'pipe', 'ignore'],
+    })
+      .toString()
+      .trim()
+  } catch {
+    warn('git merge-base origin/main unavailable; skipping plugin-version bump check.')
+    return
+  }
+  if (!base) return
+
+  let changedFiles
+  try {
+    changedFiles = execSync(`git diff --name-only ${base}..HEAD`, {
+      cwd: REPO_ROOT,
+      stdio: ['ignore', 'pipe', 'ignore'],
+    })
+      .toString()
+      .split('\n')
+      .map((s) => s.trim())
+      .filter(Boolean)
+  } catch (e) {
+    warn(`git diff against merge base failed; skipping plugin-version bump check (${e.message}).`)
+    return
+  }
+
+  const triggered = changedFiles.some((f) =>
+    BUMP_TRIGGERING_PATHS.some((p) => (p.endsWith('/') ? f.startsWith(p) : f === p)),
+  )
+  if (!triggered) return
+
+  let baseVersion
+  try {
+    const baseManifest = execSync(
+      `git show ${base}:plugin/dtpr/.claude-plugin/plugin.json`,
+      { cwd: REPO_ROOT, stdio: ['ignore', 'pipe', 'ignore'] },
+    ).toString()
+    baseVersion = JSON.parse(baseManifest).version
+  } catch (e) {
+    warn(
+      `cannot read plugin.json from merge base ${base}; skipping plugin-version bump check (${e.message}).`,
+    )
+    return
+  }
+
+  if (baseVersion === currentVersion) {
+    fail(
+      `plugin.json version is still ${currentVersion} relative to origin/main, but this PR changes ${BUMP_TRIGGERING_PATHS.join(', ')} content. Bump the version (and add a CHANGELOG entry + sync the install-doc download URL) before merging.`,
+    )
+  }
 }
 
 function verifyEvalSet(evalFile, skillDirNames) {
@@ -277,8 +440,42 @@ function verifyToolReferences(skills, toolNames) {
     // (element ids, symbol ids, schema field names) — not MCP tools.
     'symbol_id',
     'cloud_storage',
+    // Schema structural axes referenced from skill prose. `element_context`
+    // is the category-level discriminator block; `context_type_id` is its
+    // instance-side counterpart on InstanceElement. Surfaced in prose so
+    // authors recognize the obligation.
+    'element_context',
+    'context_type_id',
+    // Category ids that carry an `element_context` in current beta schemas.
+    'functional_modes',
+    'input_dataset',
+    'output_dataset',
+    // `accountable` is a single-word category id; excluded by the
+    // includes('_') guard above, no entry needed here.
+    // Context values shipped with those categories.
+    'human_decides',
+    'human_executes',
+    'de_identified',
+    // `autonomous`, `pseudonymous`, `identifiable`, `vendor`, `deployer`
+    // are single-word context values; the includes('_') guard already
+    // skips them.
     // Retired skill id appears in handoff prose during the transition.
     'schema_new',
+    // Authoring-provenance schema fields surfaced in SKILL.md prose
+    // (DatachainInstance.authoring_provenance and ResolvedDatachainInstance
+    // structural fields). These are field names / validator error codes,
+    // not MCP tools.
+    'authoring_provenance',
+    'element_provenance',
+    'element_provenance_unknown_element',
+    'source_references',
+    'variable_rationale',
+    'variable_rationale_unknown_variable',
+    'schema_snapshot',
+    'suggested_elements',
+    'schema_version',
+    'created_at',
+    'generated_at',
   ])
   for (const { path, body } of skills) {
     const backtickTokens = [...body.matchAll(/`([a-z_][a-z0-9_]*)`/g)].map((m) => m[1])
@@ -593,6 +790,9 @@ function main() {
 
   verifyEvalSymmetry(evalSets, skillDirNames)
   verifyPromptsBundle(skillDirNames)
+
+  const currentVersion = verifyPluginVersionCoherence()
+  verifyPluginVersionBumped(currentVersion)
 
   for (const w of warnings) console.warn(`plugin/dtpr conformance warning: ${w}`)
 

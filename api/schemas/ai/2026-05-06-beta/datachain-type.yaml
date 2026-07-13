@@ -4,7 +4,15 @@ name:
     value: AI / Algorithm
   - locale: fr
     value: IA / Algorithme
-description: []
+description:
+  - locale: en
+    value: >-
+      A snapshot of how this AI system works — its purpose, what it processes, who's responsible,
+      and your rights.
+  - locale: fr
+    value: >-
+      Un aperçu du fonctionnement de ce système d’IA — son objectif, ce qu’il traite, qui en est
+      responsable et vos droits.
 categories:
   - purpose
   - accountable

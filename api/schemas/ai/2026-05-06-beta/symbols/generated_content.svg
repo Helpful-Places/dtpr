@@ -1,4 +1,3 @@
 <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-<!-- placeholder: sparkle indicating generated/synthetic content; refine in design pass -->
-<path d="M18 6L20 12L26 14L20 16L18 22L16 16L10 14L16 12L18 6ZM26 22L27 25L30 26L27 27L26 30L25 27L22 26L25 25L26 22ZM10 22L11 24L13 25L11 26L10 28L9 26L7 25L9 24L10 22Z" fill="currentColor"/>
+<path d="M18 9L19.5 13.5L24 15L19.5 16.5L18 21L16.5 16.5L12 15L16.5 13.5ZM24 21L24.7 23.3L27 24L24.7 24.7L24 27L23.3 24.7L21 24L23.3 23.3ZM11 22L11.5 23.5L13 24L11.5 24.5L11 26L10.5 24.5L9 24L10.5 23.5Z" fill="currentColor"/>
 </svg>

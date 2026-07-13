@@ -1,0 +1,21 @@
+{
+  "name": "@dtpr/talk-makeshift-2026",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "slidev --open",
+    "build": "slidev build",
+    "export": "slidev export",
+    "export:notes": "slidev export-notes"
+  },
+  "dependencies": {
+    "@dtpr/ui": "workspace:*",
+    "@slidev/cli": "^52.15.2",
+    "@slidev/theme-default": "*",
+    "@slidev/theme-seriph": "*",
+    "vue": "^3.4.0"
+  },
+  "devDependencies": {
+    "@slidev/types": "^52.15.2"
+  }
+}

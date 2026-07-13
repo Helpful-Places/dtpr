@@ -4,7 +4,7 @@ description: MCP server, REST v2 API, icon composition, UI library, and the Clau
 navigation: false
 ---
 
-**DTPR for AI** is the AI-focused surface of the [Digital Trust for Places & Routines](https://docs.dtpr.io) standard. It bundles five integration surfaces so an AI agent, a web client, a server-side renderer, or an authoring team using Agent Skills can describe data-collecting technologies in public spaces with a shared vocabulary.
+**DTPR for AI** is the AI-focused surface of the [Digital Trust for Places & Routines](https://docs.dtpr.io) standard. It bundles five integration surfaces so an AI agent, a web client, a server-side renderer, or an authoring team using Agent Skills can describe AI systems and the data they collect with a shared vocabulary.
 
 ::card-group
   ::card{title="MCP server" to="/mcp"}
