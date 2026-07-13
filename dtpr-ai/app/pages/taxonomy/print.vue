@@ -90,6 +90,18 @@ const { data: elsData } = await useAsyncData(
 
 const categories = computed<Category[]>(() => catsData.value?.categories ?? [])
 
+// Mirror the index page's truncation guard: the elements endpoint caps at
+// ELEMENTS_PAGE_LIMIT and this page ignores `meta.next_cursor`, so a schema
+// with more elements would silently print an incomplete reference. Surface
+// the shortfall — and keep it visible in the printed output (not `.no-print`)
+// so a reader of the paper copy knows categories may be missing elements.
+const elementsTotal = computed(() => elsData.value?.meta?.total ?? 0)
+
+const elementsTruncated = computed(() => {
+  const total = elsData.value?.meta?.total
+  return typeof total === 'number' && total > ELEMENTS_PAGE_LIMIT
+})
+
 const elements = computed<Array<Element & { category_ids: string[] }>>(() => {
   const raw = elsData.value?.elements ?? []
   return raw.map((el) => {
@@ -128,7 +140,7 @@ interface PrintCategorySection {
   contextName: string
   contextDescription: string
   contextValues: Array<{ id: string; name: string; description: string; color: string | null }>
-  elements: ReturnType<typeof deriveElementDisplay>[]
+  elements: Array<ReturnType<typeof deriveElementDisplay> & { id: string }>
 }
 
 const sections = computed<PrintCategorySection[]>(() => {
@@ -151,11 +163,14 @@ const sections = computed<PrintCategorySection[]>(() => {
             color: v.color ?? null,
           }))
         : [],
-      elements: group.elements.map((el) =>
-        deriveElementDisplay(el, undefined, activeLocale.value, {
+      elements: group.elements.map((el) => ({
+        ...deriveElementDisplay(el, undefined, activeLocale.value, {
           iconUrl: iconUrlFor(el.id),
         }),
-      ),
+        // Carry the element id through as a stable, unique v-for key —
+        // titles can collide within a category.
+        id: el.id,
+      })),
     }
   })
 })
@@ -184,6 +199,14 @@ function triggerPrint() {
           Tip: print to PDF at A4 / Letter, margins “Default”, background graphics on.
         </p>
       </div>
+    </div>
+
+    <div v-if="elementsTruncated" class="print-truncation" role="alert">
+      <strong>Incomplete taxonomy.</strong>
+      This schema declares {{ elementsTotal }} elements but this layout renders
+      only the first {{ ELEMENTS_PAGE_LIMIT }}. The remaining
+      {{ elementsTotal - ELEMENTS_PAGE_LIMIT }} are not shown — pagination is
+      needed to surface them.
     </div>
 
     <article
@@ -235,7 +258,7 @@ function triggerPrint() {
       <section v-if="section.elements.length > 0" class="print-elements">
         <div
           v-for="el in section.elements"
-          :key="el.title"
+          :key="el.id"
           class="print-element"
         >
           <img
@@ -309,6 +332,22 @@ function triggerPrint() {
   color: #6b7280;
   max-width: 18rem;
   text-align: right;
+}
+
+.print-truncation {
+  margin: 0 0 2rem;
+  padding: 0.75rem 1rem;
+  background: #fef3c7;
+  border: 1px solid #f59e0b;
+  border-radius: 0.375rem;
+  color: #92400e;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  /* Keep the warning on the first page and never split it across pages. */
+  break-inside: avoid;
+  page-break-inside: avoid;
+  break-after: avoid;
+  page-break-after: avoid;
 }
 
 .print-category {
