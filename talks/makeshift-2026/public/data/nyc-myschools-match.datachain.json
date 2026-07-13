@@ -1,0 +1,130 @@
+{
+  "id": "nyc-myschools-match",
+  "schema_version": "ai@2026-05-06-beta",
+  "created_at": "2026-05-17T00:00:00Z",
+  "title": [
+    { "locale": "en", "value": "MySchools – Match" }
+  ],
+  "description": [
+    { "locale": "en", "value": "NYC Dept of Education' admissions matching engine. Uses the Gale–Shapley deferred-acceptance algorithm to assign students to seats across 3-K, pre-K, Gifted & Talented, middle school, and high school applications." }
+  ],
+  "elements": [
+    {
+      "element_id": "eligibility_benefits",
+      "variables": [
+        { "id": "additional_description", "value": [{ "locale": "en", "value": "Allocates seats in NYC public schools — a public benefit — across 3-K, pre-K, Gifted & Talented, middle school, and high school admissions." }] }
+      ]
+    },
+    {
+      "element_id": "education",
+      "variables": [
+        { "id": "additional_description", "value": [{ "locale": "en", "value": "Operates the centralized admissions pipeline and school directory for NYC Dept of Education." }] }
+      ]
+    },
+    {
+      "element_id": "institution",
+      "context_type_id": "deployer",
+      "variables": [
+        { "id": "title", "value": [{ "locale": "en", "value": "New York City Public Schools" }] },
+        { "id": "description", "value": [{ "locale": "en", "value": "Accountable agency. Operated by the Division of Instructional and Information Technology (DIIT), which is taking over the system from the vendor as the current contract winds down." }] }
+      ]
+    },
+    {
+      "element_id": "organization",
+      "context_type_id": "vendor",
+      "variables": [
+        { "id": "title", "value": [{ "locale": "en", "value": "Blenderbox" }] },
+        { "id": "description", "value": [{ "locale": "en", "value": "Vendor that designed and implemented the algorithmic matching functionality under a 5-year professional-services contract; work is transitioning in-house to DIIT." }] }
+      ]
+    },
+    {
+      "element_id": "analytical_mode",
+      "context_type_id": "human_executes",
+      "variables": [
+        { "id": "additional_description", "value": [{ "locale": "en", "value": "The matching algorithm decides the school assignment for each applicant; schools and families then execute the resulting enrollment. Runs daily during admissions cycles under DIIT monitoring." }] }
+      ]
+    },
+    {
+      "element_id": "optimization",
+      "variables": [
+        { "id": "additional_description", "value": [{ "locale": "en", "value": "Gale–Shapley deferred-acceptance algorithm. Students and programs are tentatively matched in iterative rounds — students propose, programs accept or reject based on their priority ordering, and the algorithm terminates when every student is matched or has exhausted their listed choices. The same family of algorithms is used by the National Resident Matching Program." }] }
+      ]
+    },
+    {
+      "element_id": "input_sensitive_personal",
+      "context_type_id": "identifiable",
+      "variables": [
+        { "id": "additional_description", "value": [{ "locale": "en", "value": "Student biographical information (home address, poverty status, home language), academic information (course grades, state test scores), and school records (sending school). FERPA-protected." }] }
+      ]
+    },
+    {
+      "element_id": "input_about_behaviour",
+      "context_type_id": "identifiable",
+      "variables": [
+        { "id": "additional_description", "value": [{ "locale": "en", "value": "The family's ranked list of school choices, submitted via the family-facing MySchools portal." }] }
+      ]
+    },
+    {
+      "element_id": "output_decision",
+      "context_type_id": "identifiable",
+      "variables": [
+        { "id": "additional_description", "value": [{ "locale": "en", "value": "A binding school match per student — the seat the algorithm assigned, which feeds enrollment confirmation." }] }
+      ]
+    },
+    {
+      "element_id": "available_to_me",
+      "variables": [
+        { "id": "additional_description", "value": [{ "locale": "en", "value": "Students and their families see their own application status and matched school in the family-facing MySchools portal." }] }
+      ]
+    },
+    {
+      "element_id": "available_to_the_accountable_organization",
+      "variables": [
+        { "id": "additional_description", "value": [{ "locale": "en", "value": "NYC Dept of Education accesses the data through the school-facing portal and the administrative portal." }] }
+      ]
+    },
+    {
+      "element_id": "available_to_vendor",
+      "variables": [
+        { "id": "additional_description", "value": [{ "locale": "en", "value": "Blenderbox has access for the duration of its design / implementation contract; access is expected to be wound down as DIIT takes over operation." }] }
+      ]
+    },
+    {
+      "element_id": "right_to_notice",
+      "variables": [
+        { "id": "rights", "value": [{ "locale": "en", "value": "NYC publishes the use of an algorithmic matching system in the annual algorithmic-tools compliance report and in family-facing application materials." }] }
+      ]
+    },
+    {
+      "element_id": "right_algorithmic_transparency",
+      "variables": [
+        { "id": "rights", "value": [{ "locale": "en", "value": "A plain-language description of the Gale–Shapley deferred-acceptance procedure is published in the public algorithmic-tools compliance report and on NYC Dept of Education enrollment-support pages." }] }
+      ]
+    },
+    {
+      "element_id": "right_access",
+      "variables": [
+        { "id": "rights", "value": [{ "locale": "en", "value": "Families have FERPA-grounded rights to access education records held by NYC Dept of Education, including the data used as inputs to the match." }] }
+      ]
+    },
+    {
+      "element_id": "right_correction",
+      "variables": [
+        { "id": "rights", "value": [{ "locale": "en", "value": "Families have FERPA-grounded rights to correct inaccurate education records held by NYC Dept of Education. Corrected inputs should be re-fed into the match where eligibility windows allow." }] }
+      ]
+    },
+    {
+      "element_id": "right_to_human_review",
+      "variables": [
+        { "id": "rights", "value": [{ "locale": "en", "value": "Standard NYC Dept of Education appeals processes exist for individual admissions decisions; applicants can request human review of a match outcome." }] }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "type": "ai_register",
+      "title": "NYC Algorithmic Tools Compliance Report (2025) — MySchools – Match",
+      "citation": "Year: 2025. Agency: NYC Dept of Education. Department: Division of Instructional and Information Technology. Date first use: 2018/08. Source CSV provided by user."
+    }
+  ]
+}

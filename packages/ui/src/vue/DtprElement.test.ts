@@ -114,4 +114,5 @@ describe('DtprElement', () => {
     expect(badge.text()).toBe('Proposed')
     expect(w.classes()).toContain('dtpr-element--proposed')
   })
+
 })
