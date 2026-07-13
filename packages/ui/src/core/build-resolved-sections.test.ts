@@ -391,6 +391,73 @@ describe('buildResolvedSections', () => {
     const sections = buildResolvedSections(resolved, 'en')
     expect(sections[0]?.elements.map((e) => e.title)).toEqual(['Second', 'First'])
   })
+
+  it('multi-placement: each placement gets its own provenance keyed by element_instance_id', () => {
+    const cats = [makeCategory('decision', 'Decision')]
+    const snap = [makeElement('institution', 'decision', 'Institution')]
+    const provenance: AuthoringProvenance = {
+      kind: 'ai_generated',
+      element_provenance: {
+        deployer_acs: { rationale: 'as deployer' },
+        vendor_acs: { rationale: 'as vendor' },
+      },
+    }
+    const placements: InstanceElement[] = [
+      { ...makePlacement('institution'), element_instance_id: 'deployer_acs' } as InstanceElement,
+      { ...makePlacement('institution'), element_instance_id: 'vendor_acs' } as InstanceElement,
+    ]
+    const resolved = makeResolved({
+      categories: cats,
+      snapshotElements: snap,
+      placements,
+      provenance,
+    })
+
+    const sections = buildResolvedSections(resolved, 'en')
+    const els = sections[0]!.elements
+    expect(els).toHaveLength(2)
+    expect(els[0]?.provenance?.rationale).toBe('as deployer')
+    expect(els[1]?.provenance?.rationale).toBe('as vendor')
+  })
+
+  it('single placement: bare element_id key still composes provenance (backward compat)', () => {
+    const cats = [makeCategory('storage', 'Storage')]
+    const snap = [makeElement('cloud_storage', 'storage', 'Cloud')]
+    const provenance: AuthoringProvenance = {
+      kind: 'ai_generated',
+      element_provenance: { cloud_storage: { rationale: 'sole placement' } },
+    }
+    const resolved = makeResolved({
+      categories: cats,
+      snapshotElements: snap,
+      placements: [makePlacement('cloud_storage')],
+      provenance,
+    })
+
+    const sections = buildResolvedSections(resolved, 'en')
+    expect(sections[0]?.elements[0]?.provenance?.rationale).toBe('sole placement')
+  })
+
+  it('multi-placement with no element_instance_id and a bare element_id entry leaves both provenance undefined (ambiguous)', () => {
+    const cats = [makeCategory('decision', 'Decision')]
+    const snap = [makeElement('institution', 'decision', 'Institution')]
+    const provenance: AuthoringProvenance = {
+      kind: 'ai_generated',
+      element_provenance: { institution: { rationale: 'ambiguous' } },
+    }
+    const resolved = makeResolved({
+      categories: cats,
+      snapshotElements: snap,
+      placements: [makePlacement('institution'), makePlacement('institution')],
+      provenance,
+    })
+
+    const sections = buildResolvedSections(resolved, 'en')
+    const els = sections[0]!.elements
+    expect(els).toHaveLength(2)
+    expect(els[0]?.provenance).toBeUndefined()
+    expect(els[1]?.provenance).toBeUndefined()
+  })
 })
 
 describe('buildResolvedDatachain — citations', () => {

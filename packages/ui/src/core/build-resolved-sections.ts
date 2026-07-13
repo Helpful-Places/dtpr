@@ -210,6 +210,17 @@ export function buildResolvedDatachain(
   const aiProvenance =
     provenance && provenance.kind === 'ai_generated' ? provenance : undefined
 
+  // Count placements per element_id so the per-element provenance
+  // lookup can decide when a bare `element_id` key is unambiguous
+  // (placed exactly once, no `element_instance_id` on the placement).
+  const placementCountByElementId = new Map<string, number>()
+  for (const p of resolved.elements) {
+    placementCountByElementId.set(
+      p.element_id,
+      (placementCountByElementId.get(p.element_id) ?? 0) + 1,
+    )
+  }
+
   for (const placement of resolved.elements) {
     const resolvedDef = elementById.get(placement.element_id)
     if (!resolvedDef) {
@@ -249,8 +260,27 @@ export function buildResolvedDatachain(
     // whole-disclosure `model` / `generated_at`. Only attach when an
     // entry exists for this placement; human-authored disclosures and
     // AI disclosures without an entry leave `provenance` undefined.
+    //
+    // Key resolution mirrors `checkElementProvenanceKeys`:
+    //   1. Prefer `placement.element_instance_id`.
+    //   2. Fall back to `placement.element_id` only when the placement
+    //      has no `element_instance_id` AND that element_id is placed
+    //      exactly once. Two placements of the same element_id with no
+    //      `element_instance_id` and a single bare-element_id entry are
+    //      ambiguous; leave both `provenance` undefined rather than
+    //      attaching the same entry to both.
     if (aiProvenance) {
-      const entry = aiProvenance.element_provenance?.[placement.element_id]
+      const map = aiProvenance.element_provenance
+      let entry = undefined as
+        | NonNullable<typeof aiProvenance.element_provenance>[string]
+        | undefined
+      if (map) {
+        if (placement.element_instance_id !== undefined) {
+          entry = map[placement.element_instance_id]
+        } else if ((placementCountByElementId.get(placement.element_id) ?? 0) === 1) {
+          entry = map[placement.element_id]
+        }
+      }
       if (entry !== undefined) {
         display.provenance = {
           kind: 'ai_generated',

@@ -8,6 +8,13 @@ notes: |
   Element.sources (kept valid for one beta). Also lands the icon
   design-pass priority queue from .context/icon-design-pass.md (20 SVGs
   revised to the post-PR-#281 house style).
+
+  Adds optional `element_instance_id` to `InstanceElement` so
+  `authoring_provenance.element_provenance` can carry distinct entries
+  when the same `element_id` appears multiple times in `elements[]`
+  (canonical case: `institution` placed as both deployer + vendor).
+  Existing single-placement disclosures continue to key provenance by
+  `element_id`. See proposal `.context/proposals/element_instance_id.md`.
 content_hash: sha256-0000000000000000000000000000000000000000000000000000000000000000
 locales:
   - en

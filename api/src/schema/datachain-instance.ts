@@ -81,6 +81,17 @@ export const InstanceElementSchema = z
       .describe(
         'Optional reference to a `subchain_instances[].id` on this datachain instance. Elements without this field render at the datachain root.',
       ),
+    element_instance_id: z
+      .string()
+      .regex(/^[a-zA-Z0-9_-]+$/)
+      .optional()
+      .describe(
+        'Stable id for this specific placement, unique within `elements[]`. ' +
+          'Required when the same `element_id` appears more than once and the ' +
+          'instance carries per-element authoring provenance — provenance is ' +
+          'keyed by this id instead of `element_id`. Parallels ' +
+          '`subchain_instance_id` on this same shape.',
+      ),
     actions: z
       .array(InstanceActionSchema)
       .default([])

@@ -352,4 +352,24 @@ describe('resolve', () => {
     expect(out.schema_snapshot.categories.map((c) => c.id)).toEqual(['cat-a', 'cat-m', 'cat-z'])
     expect(out.schema_snapshot.elements.map((e) => e.id)).toEqual(['el-a1', 'el-m1', 'el-z1'])
   })
+
+  it('round-trips two placements of the same element_id with distinct element_instance_ids', () => {
+    const ctx = makeSchemaContext({
+      categories: [makeCategory('cat-a')],
+      elements: [makeElement('institution', 'cat-a')],
+    })
+    const thin = DatachainInstanceSchema.parse({
+      id: 'inst-multi',
+      schema_version: 'ai@2026-04-16-beta',
+      created_at: '2026-04-16T00:00:00.000Z',
+      elements: [
+        { element_id: 'institution', element_instance_id: 'deployer_acs' },
+        { element_id: 'institution', element_instance_id: 'vendor_acs' },
+      ],
+    })
+    const out = resolve(thin, ctx)
+    expect(out.elements).toHaveLength(2)
+    expect(out.elements[0]?.element_instance_id).toBe('deployer_acs')
+    expect(out.elements[1]?.element_instance_id).toBe('vendor_acs')
+  })
 })
