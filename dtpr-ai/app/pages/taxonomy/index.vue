@@ -305,6 +305,15 @@ function handleScroll() {
           <code>{{ activeVersion || 'ai' }}</code> schema.
         </p>
       </template>
+      <template #actions>
+        <NuxtLinkLocale
+          :to="`/taxonomy/print${queryString}`"
+          class="taxonomy-page__print-link"
+        >
+          <UIcon name="i-heroicons-printer" />
+          Print layout
+        </NuxtLinkLocale>
+      </template>
     </DtprPageHeader>
 
     <div class="taxonomy-page__layout">
@@ -383,6 +392,23 @@ function handleScroll() {
 .taxonomy-page__subtitle code {
   font-family: ui-monospace, SFMono-Regular, monospace;
   font-size: 0.85em;
+}
+
+.taxonomy-page__print-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--ui-text, inherit);
+  text-decoration: none;
+  padding: 0.375rem 0.625rem;
+  border: 1px solid var(--ui-border, rgb(229, 231, 235));
+  border-radius: 0.375rem;
+}
+
+.taxonomy-page__print-link:hover {
+  background: var(--ui-bg-elevated, rgb(243, 244, 246));
 }
 
 .taxonomy-page__layout {

@@ -7,5 +7,6 @@
     "outDir": "./dist",
     "rootDir": "./src"
   },
-  "include": ["src/schema/**/*.ts", "src/validator/**/*.ts"]
+  "include": ["src/schema/**/*.ts", "src/validator/**/*.ts"],
+  "exclude": ["dist"]
 }
