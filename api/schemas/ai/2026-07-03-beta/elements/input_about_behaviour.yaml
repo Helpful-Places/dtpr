@@ -1,0 +1,19 @@
+id: input_about_behaviour
+category_id: input_dataset
+title:
+  - locale: en
+    value: About behaviour
+  - locale: fr
+    value: À propos du comportement
+description:
+  - locale: en
+    value: >-
+      Taps, choices, paths walked, dwell time, purchases, or queries. The AI takes in records of
+      what people did. Examples: tapped destinations on a wayfinding kiosk, items added to a cart, a
+      search query typed into a public terminal.
+  - locale: fr
+    value: >-
+      Touchers d'écran, choix, déplacements, temps de présence, achats ou requêtes. L'IA reçoit des
+      registres de ce que les personnes ont fait. Exemples : destinations touchées sur une borne de
+      signalisation, articles ajoutés à un panier, une requête tapée sur un terminal public.
+symbol_id: about_behaviour

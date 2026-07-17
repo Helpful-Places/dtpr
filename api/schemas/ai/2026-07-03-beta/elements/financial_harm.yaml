@@ -1,0 +1,25 @@
+id: financial_harm
+category_id: risks_mitigation
+title:
+  - locale: en
+    value: Financial & business harm
+  - locale: fr
+    value: Préjudice financier et commercial
+description:
+  - locale: en
+    value: >-
+      The risk that the AI system causes financial losses to individuals or organizational damage
+      through erroneous pricing, denied services, fraud, or market manipulation. This includes risks
+      from automated credit decisions, dynamic-pricing inequities, AI-enabled scams, and
+      supply-chain disruption from misuse. Mitigations may include affordability guards, fairness
+      audits of pricing models, fraud-detection layers, and clear redress procedures.
+  - locale: fr
+    value: >-
+      Le risque que le système d'IA cause des pertes financières à des personnes ou des dommages
+      organisationnels par une tarification erronée, des refus de services, des fraudes ou une
+      manipulation du marché. Cela inclut les risques liés aux décisions de crédit automatisées, aux
+      inégalités de tarification dynamique, aux escroqueries activées par l'IA et aux perturbations
+      de la chaîne d'approvisionnement résultant d'un usage abusif. Les mesures d'atténuation
+      peuvent inclure des garde-fous d'accessibilité financière, des audits d'équité des modèles de
+      tarification, des couches de détection de la fraude et des procédures claires de recours.
+symbol_id: risks_financial

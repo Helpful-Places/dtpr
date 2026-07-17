@@ -1,0 +1,22 @@
+id: search_retrieval
+category_id: processing
+title:
+  - locale: en
+    value: Search & Retrieval
+  - locale: fr
+    value: Recherche et récupération
+description:
+  - locale: en
+    value: >-
+      AI systems that find and surface relevant content from a body of documents, records, or media
+      in response to a query. Includes semantic search, vector retrieval, and retrieval-augmented
+      generation (RAG) pipelines that feed relevant passages into a language model. Used in document
+      QA, public-records lookup, and library or archive search.
+  - locale: fr
+    value: >-
+      Systèmes d'IA qui trouvent et présentent du contenu pertinent dans un ensemble de documents,
+      dossiers ou médias en réponse à une requête. Inclut la recherche sémantique, la récupération
+      vectorielle et les pipelines de génération augmentée par récupération (RAG) qui injectent des
+      passages pertinents dans un modèle de langage. Utilisé dans la QA documentaire, la
+      consultation de registres publics et la recherche en bibliothèque ou en archives.
+symbol_id: search_retrieval

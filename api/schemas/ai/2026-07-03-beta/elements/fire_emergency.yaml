@@ -1,0 +1,15 @@
+id: fire_emergency
+category_id: purpose
+title:
+  - locale: en
+    value: Fire & Emergency
+  - locale: fr
+    value: Incendie et urgence
+description:
+  - locale: en
+    value: Supports services that ensure public safety and health related to emergencies.
+  - locale: fr
+    value: >-
+      Contribue au fonctionnement des services qui assurent la sécurité et la santé publiques en cas
+      d'urgences.
+symbol_id: fire_emergency

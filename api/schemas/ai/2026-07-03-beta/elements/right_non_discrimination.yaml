@@ -1,0 +1,22 @@
+id: right_non_discrimination
+category_id: rights
+title:
+  - locale: en
+    value: Right to Non-discrimination
+  - locale: fr
+    value: Droit à la non-discrimination
+description:
+  - locale: en
+    value: >-
+      The right to be free from discriminatory treatment by AI systems based on protected
+      characteristics such as race, gender, age, religion, disability, or sexual orientation.
+      Organizations must implement and demonstrate appropriate technical and organizational measures
+      to prevent discriminatory outcomes from their AI systems.
+  - locale: fr
+    value: >-
+      Le droit de ne pas être traité de manière discriminatoire par les systèmes d'IA sur la base de
+      caractéristiques protégées telles que la race, le sexe, l'âge, la religion, le handicap ou
+      l'orientation sexuelle. Les organisations doivent mettre en œuvre et démontrer des mesures
+      techniques et organisationnelles appropriées pour éviter que leurs systèmes d'IA ne produisent
+      des résultats discriminatoires.
+symbol_id: rights_non-discrimination

@@ -1,0 +1,27 @@
+id: risk_assessment
+category_id: purpose
+title:
+  - locale: en
+    value: Risk Assessment & Triage
+  - locale: fr
+    value: Évaluation des risques et triage
+description:
+  - locale: en
+    value: >-
+      Scores or prioritizes individuals or cases for further attention or action — for example,
+      recidivism scoring, hospital triage, child-welfare risk flags. Distinct from Planning &
+      Decision-making, which forecasts at a population or system level.
+  - locale: fr
+    value: >-
+      Note ou hiérarchise des personnes ou des cas pour une attention ou une action accrue — par
+      exemple, notation de récidive, triage hospitalier, signalements de risque en protection de
+      l'enfance. À distinguer de Planification et prise de décision, qui prévoit à l'échelle d'une
+      population ou d'un système.
+sources:
+  - type: regulation
+    title: EU AI Act Annex III §6 and §8 — Law-enforcement profiling and individual risk assessment in the administration of justice
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+    citation: >-
+      Regulation (EU) 2024/1689, Article 6(2). AIAAIC repository documents incidents in COMPAS
+      recidivism scoring (US), Dutch SyRI welfare-fraud risk, and UK Gangs Matrix.
+symbol_id: risk_assessment

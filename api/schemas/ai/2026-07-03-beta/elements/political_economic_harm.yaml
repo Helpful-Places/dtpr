@@ -1,0 +1,27 @@
+id: political_economic_harm
+category_id: risks_mitigation
+title:
+  - locale: en
+    value: Political & economic harm
+  - locale: fr
+    value: Préjudice politique et économique
+description:
+  - locale: en
+    value: >-
+      The risk that the AI system manipulates political discourse, interferes with elections,
+      concentrates market power, or damages public institutions. This includes risks of synthetic
+      media targeting voters, opaque ad-targeting, competitive distortion from monopoly access to
+      data and compute, and erosion of institutional trust. Mitigations may include disclosure of
+      synthetic content, antitrust attention to AI markets, audit access for regulators, and
+      political-ad transparency requirements.
+  - locale: fr
+    value: >-
+      Le risque que le système d'IA manipule le discours politique, interfère avec les élections,
+      concentre le pouvoir de marché ou porte atteinte aux institutions publiques. Cela inclut les
+      risques liés aux médias synthétiques ciblant les électeurs, au ciblage publicitaire opaque, à
+      la distorsion concurrentielle due à l'accès monopolistique aux données et au calcul, et à
+      l'érosion de la confiance institutionnelle. Les mesures d'atténuation peuvent inclure la
+      divulgation des contenus synthétiques, l'attention antitrust portée aux marchés de l'IA,
+      l'accès d'audit pour les régulateurs et des obligations de transparence pour les publicités
+      politiques.
+symbol_id: risks_political-economic

@@ -1,0 +1,22 @@
+id: right_individual_decision_explanation
+category_id: rights
+title:
+  - locale: en
+    value: Right to an Explanation of a Decision
+  - locale: fr
+    value: Droit à une explication d'une décision
+description:
+  - locale: en
+    value: >-
+      The right to a clear and meaningful explanation of how an AI system contributed to a specific
+      decision affecting you — what role the system played, the main factors that led to the
+      outcome, and what it means for you. This right covers the decision actually made about you;
+      the right to be informed about how the system works in general is a separate right.
+  - locale: fr
+    value: >-
+      Le droit à une explication claire et significative de la manière dont un système d'IA a
+      contribué à une décision particulière vous concernant — le rôle joué par le système, les
+      principaux facteurs qui ont conduit au résultat et ce que cela signifie pour vous. Ce droit
+      couvre la décision effectivement prise à votre sujet ; le droit d'être informé du
+      fonctionnement général du système est un droit distinct.
+symbol_id: dtpr_api

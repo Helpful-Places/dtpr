@@ -1,0 +1,21 @@
+id: input_about_a_measurement
+category_id: input_dataset
+title:
+  - locale: en
+    value: About a measurement
+  - locale: fr
+    value: À propos d'une mesure
+description:
+  - locale: en
+    value: >-
+      Sensor readings — air quality, temperature, sound level, energy, water flow. The AI takes in
+      numeric measurements from physical sensors, usually with no person attached. Examples: PM2.5
+      readings from an air-quality monitor, decibel levels from a sound sensor, kilowatt-hours from
+      a meter.
+  - locale: fr
+    value: >-
+      Relevés de capteurs : qualité de l'air, température, niveau sonore, énergie, débit d'eau. L'IA
+      reçoit des mesures numériques issues de capteurs physiques, généralement non rattachées à une
+      personne. Exemples : des relevés PM2,5 d'un moniteur de qualité de l'air, des décibels d'un
+      capteur acoustique, des kilowattheures d'un compteur.
+symbol_id: values_time

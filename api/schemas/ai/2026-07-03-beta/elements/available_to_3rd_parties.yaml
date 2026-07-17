@@ -1,0 +1,15 @@
+id: available_to_3rd_parties
+category_id: access
+title:
+  - locale: en
+    value: Available to 3rd parties
+  - locale: fr
+    value: Données mise à la disposition de tiers
+description:
+  - locale: en
+    value: >-
+      Data is available to 3rd parties not involved in the data activity. This does not always mean
+      that data is being resold.
+  - locale: fr
+    value: Les données sont disponibles pour des tiers non impliqués dans l'activité de données
+symbol_id: available_to_3rd_parties

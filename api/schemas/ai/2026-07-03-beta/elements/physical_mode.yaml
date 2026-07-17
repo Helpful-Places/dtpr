@@ -1,0 +1,21 @@
+id: physical_mode
+category_id: functional_modes
+title:
+  - locale: en
+    value: Moving (Physical AI)
+  - locale: fr
+    value: Bouger (IA physique)
+description:
+  - locale: en
+    value: >-
+      Moves — acts on the physical environment. The system drives motors, valves, signals, or other
+      actuators and changes something in the world. Examples: steering a robot, changing a
+      traffic-signal phase, opening a gate, adjusting an HVAC valve, releasing a parking-garage
+      barrier.
+  - locale: fr
+    value: >-
+      Déplace — agit sur l'environnement physique. Le système commande des moteurs, des vannes, des
+      signaux ou d'autres actionneurs et modifie quelque chose dans le monde. Exemples : piloter un
+      robot, changer la phase d'un feu de circulation, ouvrir un portail, régler une vanne CVC,
+      lever une barrière de parking.
+symbol_id: mode_physical
