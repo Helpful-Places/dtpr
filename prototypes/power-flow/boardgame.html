@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>DTPR Board Game — throwaway prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    /* real DTPR schema colors */
+    --auto-human-decides:#2A9D8F;   /* human decides (advisory) */
+    --auto-human-executes:#6A1B7A;  /* AI decides, human executes */
+    --auto-autonomous:#E76F51;      /* autonomous */
+    --pii-anon:#4A90D9;             /* anonymized */
+    --pii-pseudo:#9575CD;           /* pseudonymous */
+    --pii-ident:#FFD700;            /* identifiable */
+
+    /* family felt colors (by card shape) */
+    --fam-who:#1f6f5c;      /* hexagons — who & what it does */
+    --fam-data:#2f5d86;     /* circles — the data */
+    --fam-where:#7a5a2f;    /* rounded squares — where it lives */
+    --fam-people:#8a3b2f;   /* octagons — for the people */
+
+    --card:#f7f2e6; --card-edge:#e4dcc6; --card-ink:#26221a; --card-sub:#7a7161;
+    --gold:#d9b25e;
+    --font:'Red Hat Text',system-ui,-apple-system,sans-serif;
+    --display:'Fraunces',Georgia,serif;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;font-family:var(--font);color:#f2ede2;line-height:1.45;-webkit-font-smoothing:antialiased;
+    background:
+      radial-gradient(1200px 700px at 50% -10%, #3a3327, #221e17 60%, #17140f 100%);
+    min-height:100vh;
+  }
+  .wrap{max-width:1120px;margin:0 auto;padding:34px 22px 90px}
+
+  .kicker{display:inline-block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.16em;color:#d9b25e;border:1px solid rgba(217,178,94,.4);background:rgba(217,178,94,.08);padding:4px 11px;border-radius:999px;margin-bottom:16px}
+  h1{font-family:var(--display);font-size:2.5rem;font-weight:600;margin:0 0 8px;letter-spacing:-.01em;color:#f7f2e6}
+  h1 .em{color:var(--gold)}
+  .sub{color:#c7bfae;font-size:1.04rem;max-width:70ch;margin:0 0 4px}
+  .concept{border-left:3px solid var(--gold);padding:6px 0 6px 15px;margin:18px 0 4px;max-width:80ch;font-size:.95rem;color:#ded6c4}
+  .concept b{color:var(--gold)}
+
+  /* ---- scenario selector: pick a "deck" ---- */
+  .setup{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0 20px;align-items:stretch}
+  .setup-label{align-self:center;font-size:.74rem;text-transform:uppercase;letter-spacing:.12em;color:#9c9583;font-weight:700;margin-right:2px}
+  .deck{cursor:pointer;text-align:left;font-family:var(--font);border:1px solid rgba(255,255,255,.12);background:linear-gradient(160deg,#2c2820,#211d17);color:#e9e2d2;padding:11px 15px 12px;border-radius:13px;min-width:190px;position:relative;transition:transform .12s ease,border-color .15s ease,box-shadow .15s ease}
+  .deck:hover{transform:translateY(-2px)}
+  .deck.on{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 14px 30px -18px #000;background:linear-gradient(160deg,#332d21,#262016)}
+  .deck .dno{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#9c9583;font-weight:700}
+  .deck .dnm{font-family:var(--display);font-size:1.02rem;font-weight:600;color:#f5efe0;margin-top:1px;line-height:1.2}
+  .deck .meeple{position:absolute;top:10px;right:11px;opacity:.85}
+
+  /* ---- the physical board ---- */
+  .board{
+    border-radius:24px;padding:16px;position:relative;
+    background:
+      repeating-linear-gradient(90deg, rgba(0,0,0,.05) 0 2px, transparent 2px 7px),
+      linear-gradient(180deg,#6b4c28,#4e371c);
+    box-shadow:inset 0 0 0 2px rgba(255,255,255,.06), 0 30px 60px -30px #000, 0 4px 0 #2c1f10;
+    border:1px solid #3a2913;
+  }
+  .felt{
+    border-radius:16px;padding:16px 16px 20px;
+    background:
+      radial-gradient(140% 120% at 50% -10%, rgba(255,255,255,.05), transparent 55%),
+      radial-gradient(80% 90% at 50% 120%, rgba(0,0,0,.35), transparent 60%),
+      #1c3a30;
+    box-shadow:inset 0 2px 18px rgba(0,0,0,.55), inset 0 0 0 1px rgba(255,255,255,.04);
+  }
+  .board-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin:2px 4px 14px;flex-wrap:wrap}
+  .board-head .title{font-family:var(--display);font-size:1.35rem;font-weight:600;color:#f4eede}
+  .board-head .verdict{font-size:.86rem;color:#cde3d8;max-width:60ch}
+  .board-head .verdict .w{color:#8fe0c4;font-weight:600}
+  .board-head .verdict .t{color:#ffcf8f;font-weight:600}
+  .board-head .verdict .x{color:#ff9d8a;font-weight:700}
+
+  /* region grid */
+  .regions{display:grid;gap:14px;grid-template-columns:repeat(2,1fr)}
+  @media(max-width:820px){.regions{grid-template-columns:1fr}}
+
+  .region{border-radius:14px;padding:30px 12px 13px 12px;position:relative;
+    background:color-mix(in srgb,var(--fc) 26%, #10231c);
+    border:1.5px dashed color-mix(in srgb,var(--fc) 55%, transparent);
+    box-shadow:inset 0 0 22px rgba(0,0,0,.28);
+  }
+  .region .plate{position:absolute;top:-11px;left:14px;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    color:#241d13;background:color-mix(in srgb,var(--fc) 62%, #d8cba8);
+    padding:3px 10px;border-radius:999px;box-shadow:0 2px 6px rgba(0,0,0,.4);border:1px solid rgba(0,0,0,.2)}
+  .region .plate .shp{opacity:.75;font-weight:600}
+  .r-who{--fc:var(--fam-who)}
+  .r-data{--fc:var(--fam-data)}
+  .r-where{--fc:var(--fam-where)}
+  .r-people{--fc:var(--fam-people)}
+
+  .slots{display:flex;flex-wrap:wrap;gap:10px}
+
+  /* ---- a card ---- */
+  .card{
+    position:relative;width:172px;min-height:118px;background:linear-gradient(175deg,var(--card),#efe7d4);
+    color:var(--card-ink);border:1px solid var(--card-edge);padding:11px 11px 10px;
+    box-shadow:0 10px 18px -12px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.7);
+    display:flex;flex-direction:column;gap:4px;transition:transform .13s ease,box-shadow .13s ease;
+  }
+  .card:hover{transform:translateY(-4px) rotate(-.6deg);box-shadow:0 20px 30px -14px rgba(0,0,0,.75)}
+  /* card corners echo the category SHAPE */
+  .card.sq{border-radius:14px}
+  .card.hexr{border-radius:14px 5px 14px 5px}
+  .card.circ{border-radius:26px}
+  .card.octa{border-radius:11px;clip-path:polygon(9px 0,calc(100% - 9px) 0,100% 9px,100% calc(100% - 9px),calc(100% - 9px) 100%,9px 100%,0 calc(100% - 9px),0 9px)}
+  .card .chead{display:flex;align-items:center;gap:8px}
+  .card .badge{flex:none}
+  .card .cat{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--card-sub)}
+  .card .nm{font-weight:700;font-size:.96rem;line-height:1.18}
+  .card .ds{font-size:.76rem;color:var(--card-sub);line-height:1.32}
+  .card.empty{background:repeating-linear-gradient(45deg,#efe7d4,#efe7d4 8px,#e7ddc6 8px,#e7ddc6 16px);align-items:center;justify-content:center;text-align:center}
+  .card.empty .warn{color:#a3341f;font-weight:700;font-size:.82rem;display:flex;flex-direction:column;gap:4px;align-items:center}
+
+  /* ---- chips / tokens sitting ON the card ---- */
+  .tokens{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
+  .chip{
+    --cc:#888;display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:700;color:#26221a;
+    background:radial-gradient(circle at 32% 28%, #fff9, transparent 42%), var(--cc);
+    border-radius:999px;padding:3px 9px 3px 4px;
+    box-shadow:0 2px 4px rgba(0,0,0,.35), inset 0 0 0 2px rgba(255,255,255,.35), inset 0 0 0 3px var(--cc);
+  }
+  .chip .disc{width:14px;height:14px;border-radius:50%;background:var(--cc);
+    box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.55), inset 0 -2px 3px rgba(0,0,0,.25);
+    /* dashed poker-chip rim */
+    background-image:repeating-conic-gradient(from 0deg, #fff6 0 12deg, transparent 12deg 30deg), radial-gradient(var(--cc),var(--cc))}
+  .chip.dark{color:#f7f2e6}
+  .ribbon{display:inline-flex;align-items:center;gap:5px;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
+    color:#f7f2e6;background:var(--cc,#444);padding:3px 8px;border-radius:5px 5px 5px 5px;box-shadow:0 2px 4px rgba(0,0,0,.3)}
+
+  /* autonomy dial — a bigger token */
+  .dial{display:inline-flex;align-items:center;gap:7px;background:#241d13;border-radius:999px;padding:3px 10px 3px 3px;box-shadow:0 2px 5px rgba(0,0,0,.4)}
+  .dial .knob{width:20px;height:20px;border-radius:50%;position:relative;background:var(--cc);
+    box-shadow:inset 0 0 0 2px rgba(255,255,255,.4), inset 0 -3px 5px rgba(0,0,0,.35), 0 0 8px -1px var(--cc)}
+  .dial .knob::after{content:"";position:absolute;top:2px;left:50%;width:2px;height:7px;background:#fff;border-radius:2px;transform:translateX(-50%)}
+  .dial .dl{font-size:.68rem;font-weight:700;color:#f2ede2;letter-spacing:.02em}
+
+  /* ---- component reference / rules card ---- */
+  .rules{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+  @media(max-width:820px){.rules{grid-template-columns:1fr}}
+  .rulecard{background:linear-gradient(170deg,#2a251c,#201b14);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:16px 17px 17px}
+  .rulecard h4{margin:0 0 3px;font-family:var(--display);font-weight:600;font-size:1.05rem;color:#f4eede}
+  .rulecard .rsub{font-size:.8rem;color:#a89f8c;margin:0 0 13px}
+  .legrow{display:flex;align-items:flex-start;gap:11px;padding:8px 0;border-top:1px dashed rgba(255,255,255,.09)}
+  .legrow:first-of-type{border-top:none}
+  .legrow .swatch{flex:none;width:26px;height:26px;border-radius:50%;margin-top:1px;
+    box-shadow:inset 0 0 0 2px rgba(255,255,255,.4), inset 0 -3px 5px rgba(0,0,0,.3);
+    background-image:repeating-conic-gradient(from 0deg, #fff6 0 12deg, transparent 12deg 30deg), radial-gradient(var(--cc),var(--cc))}
+  .legrow .lgnm{font-weight:700;font-size:.86rem;color:#f0e9d8}
+  .legrow .lgds{font-size:.78rem;color:#a89f8c;line-height:1.35}
+  .shapekey{display:flex;flex-wrap:wrap;gap:9px}
+  .shapekey .sk{display:flex;align-items:center;gap:7px;font-size:.78rem;color:#cfc7b4;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:6px 10px 6px 7px;border-radius:10px}
+
+  footer{margin-top:40px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);color:#9c9583;font-size:.84rem;max-width:88ch}
+  footer code{background:rgba(255,255,255,.06);padding:1px 6px;border-radius:5px;border:1px solid rgba(255,255,255,.1);font-size:.85em}
+  footer b{color:#d9b25e}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="kicker">Throwaway prototype · board-game framing</span>
+  <h1>DTPR, as a <span class="em">board game</span></h1>
+  <p class="sub">The play mat has permanent, labelled regions. You <b>deal a card</b> into each slot — one card per DTPR element — then drop <b>coloured chips</b> on the cards to show the loaded stuff: who identifies whom (PII), and how much the machine decides (autonomy).</p>
+  <div class="concept">
+    The schema already thinks like a board game: every category has a <b>shape</b> (hexagon, circle, rounded-square, octagon) and the touchy attributes are already <b>coloured discriminators</b> — <b>autonomy</b> is teal/purple/orange, <b>PII</b> is blue/purple/gold. So the pieces here are the <em>real</em> DTPR components, not a metaphor bolted on.
+  </div>
+
+  <div class="setup" id="setup"><span class="setup-label">Deal a scenario</span></div>
+
+  <div class="board">
+    <div class="felt">
+      <div class="board-head">
+        <div class="title" id="btitle"></div>
+        <div class="verdict" id="bverdict"></div>
+      </div>
+      <div class="regions" id="regions"></div>
+    </div>
+  </div>
+
+  <div class="rules">
+    <div class="rulecard">
+      <h4>Autonomy chips</h4>
+      <p class="rsub">One dial sits on the <b>Functional Modes</b> card — how much the machine decides on its own.</p>
+      <div id="autonomyKey"></div>
+    </div>
+    <div class="rulecard">
+      <h4>Personal-information chips</h4>
+      <p class="rsub">A chip sits on each <b>data</b> card — how directly it points at a person.</p>
+      <div id="piiKey"></div>
+    </div>
+    <div class="rulecard" style="grid-column:1/-1">
+      <h4>Card shapes = category families</h4>
+      <p class="rsub">The corner shape tells you which region a card belongs to — so a loose card always has a home.</p>
+      <div class="shapekey" id="shapeKey"></div>
+    </div>
+  </div>
+
+  <footer>
+    Pieces map straight to <code>ai@2026-05-06-beta</code>: card shapes are the category <code>shape</code> field; the autonomy dial is the <code>functional_modes.autonomy</code> context; PII chips are the <code>input/output_dataset.pii</code> context; the role ribbon is <code>accountable.role</code>. An empty <b>Rights</b> slot is the “no recourse” alarm. Productionizing: a <code>&lt;DtprBoard&gt;</code> that deals from any datachain instance. Companion to the fixed <code>canvas.html</code> layout.
+  </footer>
+</div>
+
+<script>
+/* ---------- shape badges (echo the real category shapes) ---------- */
+const HEX="M31.86 8.85 19 1.42a2 2 0 0 0-2 0L4.14 8.85a2 2 0 0 0-1 1.73v14.84a2 2 0 0 0 1 1.73L17 34.58a2 2 0 0 0 2 0l12.86-7.43a2 2 0 0 0 1-1.73V10.58a2 2 0 0 0-1-1.73Z";
+function badge(shape,color){
+  const s=26, stroke=color, fill='none';
+  if(shape==='hexagon')  return `<svg class="badge" width="${s}" height="${s}" viewBox="0 0 36 36"><path d="${HEX}" fill="${fill}" stroke="${stroke}" stroke-width="2.2"/></svg>`;
+  if(shape==='circle')   return `<svg class="badge" width="${s}" height="${s}" viewBox="0 0 36 36"><circle cx="18" cy="18" r="14.5" fill="${fill}" stroke="${stroke}" stroke-width="2.2"/></svg>`;
+  if(shape==='octagon')  return `<svg class="badge" width="${s}" height="${s}" viewBox="0 0 36 36"><polygon points="11,3 25,3 33,11 33,25 25,33 11,33 3,25 3,11" fill="${fill}" stroke="${stroke}" stroke-width="2.2"/></svg>`;
+  return `<svg class="badge" width="${s}" height="${s}" viewBox="0 0 36 36"><rect x="4" y="4" width="28" height="28" rx="8" fill="${fill}" stroke="${stroke}" stroke-width="2.2"/></svg>`; /* rounded-square */
+}
+const SHAPECLASS={hexagon:'hexr',circle:'circ',octagon:'octa','rounded-square':'sq'};
+
+/* ---------- schema-true palettes ---------- */
+const AUTONOMY={
+  human_decides:{c:'var(--auto-human-decides)',label:'Human decides',blurb:'Advisory — the machine suggests, a person decides every time.'},
+  human_executes:{c:'var(--auto-human-executes)',label:'Human executes',blurb:'The machine decides; a person carries the result out.'},
+  autonomous:{c:'var(--auto-autonomous)',label:'Autonomous',blurb:'Decides and acts on its own — no one reviews each call.'},
+};
+const PII={
+  de_identified:{c:'var(--pii-anon)',label:'Anonymized',dark:true,blurb:'Link to who-it-is is broken — can’t reasonably tie a record to a person.'},
+  pseudonymous:{c:'var(--pii-pseudo)',label:'Pseudonymous',dark:true,blurb:'Tied to a token that tracks the same person, but hides their name.'},
+  identifiable:{c:'var(--pii-ident)',label:'Identifiable',dark:false,blurb:'Names a person directly — face, plate, account, or a name lookup.'},
+};
+const ROLE={vendor:{c:'#3f6d8c',label:'Vendor'},deployer:{c:'#1f6f5c',label:'Deployer'}};
+
+/* ---------- category → shape / family / region ---------- */
+const CAT={
+  purpose:{shape:'hexagon',fam:'who',cat:'Purpose'},
+  accountable:{shape:'hexagon',fam:'who',cat:'Accountable'},
+  functional_modes:{shape:'hexagon',fam:'who',cat:'Functional Modes'},
+  processing:{shape:'circle',fam:'data',cat:'Algorithm / Model'},
+  input_dataset:{shape:'circle',fam:'data',cat:'Input Data'},
+  output_dataset:{shape:'circle',fam:'data',cat:'Output Data'},
+  storage:{shape:'rounded-square',fam:'where',cat:'Storage'},
+  access:{shape:'rounded-square',fam:'where',cat:'Access'},
+  retention:{shape:'rounded-square',fam:'where',cat:'Retention'},
+  risks_mitigation:{shape:'octagon',fam:'people',cat:'Risks & Mitigation'},
+  rights:{shape:'octagon',fam:'people',cat:'Rights'},
+};
+const FAMCOLOR={who:'var(--fam-who)',data:'var(--fam-data)',where:'var(--fam-where)',people:'var(--fam-people)'};
+
+/* ---------- scenarios (mapped to real categories) ---------- */
+const SCEN=[
+ {no:'Scenario 1', name:'Face-matching fare gates', meeple:'#E76F51',
+  verdict:`<span class="w">Metro Transit</span> runs face gates that decide on their own who may pass — <span class="t">used on every rider</span>, and it works on your live face.`,
+  cards:{
+   purpose:{nm:'Fare entry',ds:'Decide who may pass the gate.'},
+   accountable:[{nm:'FaceGate Inc.',ds:'Biometrics vendor.',role:'vendor'},{nm:'Metro Transit',ds:'Transit authority.',role:'deployer'}],
+   functional_modes:{nm:'Perceptive · face match',ds:'Reads a face and rules on it.',autonomy:'autonomous'},
+   processing:{nm:'Face-recognition model',ds:'1:N biometric matcher.'},
+   input_dataset:{nm:'Your live face',ds:'Camera capture at the gate.',pii:'identifiable'},
+   output_dataset:{nm:'Match / no-match + rider ID',ds:'Pass decision tied to your account.',pii:'identifiable'},
+   storage:{nm:'Vendor cloud',ds:'FaceGate-hosted.'},
+   access:{nm:'Transit staff + police',ds:'Operations and enforcement.'},
+   retention:{nm:'24 hours',ds:'Then purged.'},
+   risks_mitigation:{nm:'Misidentification → wrongful stop',ds:'Mitigation: human review on request.'},
+   rights:{nm:'Opt out · contest · human review',ds:'Tap card to skip; challenge a match.'},
+  }},
+ {no:'Scenario 2', name:'Benefits eligibility scoring', meeple:'#6A1B7A',
+  verdict:`The <span class="w">County Benefits Dept.</span> runs a vendor score a caseworker acts on — it <span class="t">decides applicants’ benefits</span>, with <span class="x">no notice and no appeal</span>.`,
+  cards:{
+   purpose:{nm:'Determine eligibility',ds:'Flag applicants by risk.'},
+   accountable:[{nm:'RiskModel Co.',ds:'Model vendor.',role:'vendor'},{nm:'County Benefits Dept.',ds:'Operator.',role:'deployer'}],
+   functional_modes:{nm:'Analytical · risk score',ds:'Scores a case; a worker executes.',autonomy:'human_executes'},
+   processing:{nm:'Gradient-boosted model',ds:'Tabular risk classifier.'},
+   input_dataset:{nm:'Case records + income history',ds:'Full applicant file.',pii:'identifiable'},
+   output_dataset:{nm:'Risk score',ds:'Token-keyed number.',pii:'pseudonymous'},
+   storage:{nm:'County servers',ds:'On-prem.'},
+   access:{nm:'Caseworkers + vendor',ds:'Vendor retains a copy.'},
+   retention:{nm:'7 years',ds:'Records-retention policy.'},
+   risks_mitigation:{nm:'Wrong denial of benefits',ds:'No safeguard listed.',alarm:true},
+   rights:null, /* empty slot → the alarm */
+  }},
+ {no:'Scenario 3', name:'Sidewalk people-counting sensor', meeple:'#2A9D8F',
+  verdict:`<span class="w">City DOT</span> runs a Numina sensor to plan mobility — it only <span class="t">counts passers-by</span> and anonymizes on the device.`,
+  cards:{
+   purpose:{nm:'Mobility planning',ds:'Count foot traffic for design.'},
+   accountable:[{nm:'Numina',ds:'Sensor vendor.',role:'vendor'},{nm:'City DOT',ds:'Transport dept.',role:'deployer'}],
+   functional_modes:{nm:'Perceptive · counting',ds:'Counts; planners decide.',autonomy:'human_decides'},
+   processing:{nm:'On-device computer vision',ds:'Edge inference, no upload.'},
+   input_dataset:{nm:'Live video',ds:'Never leaves the device.',pii:'identifiable'},
+   output_dataset:{nm:'Counts (no images)',ds:'Aggregate tallies only.',pii:'de_identified'},
+   storage:{nm:'On-device → city open data',ds:'Counts published openly.'},
+   access:{nm:'Public',ds:'Open-data portal.'},
+   retention:{nm:'Counts only; images discarded',ds:'Frames dropped in-memory.'},
+   risks_mitigation:{nm:'Re-identification if video kept',ds:'Mitigation: anonymized on device; images discarded.'},
+   rights:{nm:'Be informed (signage)',ds:'Posted notice at the sensor.'},
+  }},
+];
+
+/* ---------- region layout ---------- */
+const REGIONS=[
+ {fam:'who',   label:'Who & what it does', shape:'hexagons', keys:['purpose','accountable','functional_modes']},
+ {fam:'data',  label:'The data',           shape:'circles',  keys:['processing','input_dataset','output_dataset']},
+ {fam:'where', label:'Where it lives',      shape:'rounded squares', keys:['storage','access','retention']},
+ {fam:'people',label:'For the people',      shape:'octagons', keys:['risks_mitigation','rights']},
+];
+
+/* ---------- renderers ---------- */
+function tokenAutonomy(a){const t=AUTONOMY[a];return `<span class="dial" title="${t.blurb}"><span class="knob" style="--cc:${t.c}"></span><span class="dl">${t.label}</span></span>`;}
+function tokenPII(p){const t=PII[p];return `<span class="chip ${t.dark?'dark':''}" style="--cc:${t.c}" title="${t.blurb}"><span class="disc" style="--cc:${t.c}"></span>${t.label}</span>`;}
+function ribbon(role){const r=ROLE[role];return `<span class="ribbon" style="--cc:${r.c}">${r.label}</span>`;}
+
+function cardHTML(catKey,data){
+  const meta=CAT[catKey], color=FAMCOLOR[meta.fam], cls=SHAPECLASS[meta.shape];
+  if(!data){ // empty slot
+    return `<div class="card ${cls} empty"><div class="chead">${badge(meta.shape,color)}<span class="cat">${meta.cat}</span></div>
+      <div class="warn">⚠<span>No card dealt<br><small style="font-weight:600;opacity:.8">no recourse offered</small></span></div></div>`;
+  }
+  let tokens='';
+  if(catKey==='functional_modes' && data.autonomy) tokens=tokenAutonomy(data.autonomy);
+  else if((catKey==='input_dataset'||catKey==='output_dataset') && data.pii) tokens=tokenPII(data.pii);
+  else if(data.role) tokens=ribbon(data.role);
+  const nmClass = data.alarm ? 'nm' : 'nm';
+  const nmStyle = data.alarm ? 'color:#a3341f' : '';
+  return `<div class="card ${cls}">
+    <div class="chead">${badge(meta.shape,color)}<span class="cat">${meta.cat}</span></div>
+    <div class="${nmClass}" style="${nmStyle}">${data.nm}</div>
+    <div class="ds">${data.ds}</div>
+    ${tokens?`<div class="tokens">${tokens}</div>`:''}
+  </div>`;
+}
+
+function slotCards(catKey,cards){
+  const d=cards[catKey];
+  if(catKey==='accountable' && Array.isArray(d)) return d.map(x=>cardHTML('accountable',x)).join('');
+  if(d===undefined) return cardHTML(catKey,null); // shouldn't happen
+  return cardHTML(catKey,d); // d may be null (empty slot)
+}
+
+function render(idx){
+  const s=SCEN[idx];
+  document.getElementById('btitle').textContent=s.name;
+  document.getElementById('bverdict').innerHTML=s.verdict;
+  document.getElementById('regions').innerHTML=REGIONS.map(r=>`
+    <div class="region r-${r.fam}">
+      <span class="plate">${r.label} <span class="shp">· ${r.shape}</span></span>
+      <div class="slots">${r.keys.map(k=>slotCards(k,s.cards)).join('')}</div>
+    </div>`).join('');
+  document.querySelectorAll('.deck').forEach((b,i)=>b.classList.toggle('on',i===idx));
+}
+
+/* deck selector */
+function meeple(c){return `<svg class="meeple" width="18" height="20" viewBox="0 0 16 20"><circle cx="8" cy="4.5" r="3.2" fill="${c}"/><path d="M2 20c0-4 2.7-6.2 6-6.2s6 2.2 6 6.2z" fill="${c}"/></svg>`;}
+document.getElementById('setup').insertAdjacentHTML('beforeend',
+  SCEN.map((s,i)=>`<button class="deck" data-i="${i}">${meeple(s.meeple)}<div class="dno">${s.no}</div><div class="dnm">${s.name}</div></button>`).join(''));
+document.querySelectorAll('.deck').forEach(b=>b.addEventListener('click',()=>render(+b.dataset.i)));
+
+/* legends */
+document.getElementById('autonomyKey').innerHTML=Object.values(AUTONOMY).map(t=>`
+  <div class="legrow"><span class="swatch" style="--cc:${t.c}"></span><div><div class="lgnm">${t.label}</div><div class="lgds">${t.blurb}</div></div></div>`).join('');
+document.getElementById('piiKey').innerHTML=Object.values(PII).map(t=>`
+  <div class="legrow"><span class="swatch" style="--cc:${t.c}"></span><div><div class="lgnm">${t.label}</div><div class="lgds">${t.blurb}</div></div></div>`).join('');
+document.getElementById('shapeKey').innerHTML=REGIONS.map(r=>{
+  const shape={who:'hexagon',data:'circle',where:'rounded-square',people:'octagon'}[r.fam];
+  return `<span class="sk">${badge(shape,FAMCOLOR[r.fam])}${r.label}</span>`;}).join('');
+
+render(0);
+</script>
+</body>
+</html>

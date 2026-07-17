@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>DTPR Power Flow — throwaway prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  /* ---- Tokens mirrored from @dtpr/ui (packages/ui/src/vue/styles.css) ---- */
+  :root {
+    --accent: #0f5153;          /* DTPR teal */
+    --accent-soft: rgba(15,81,83,.08);
+    --ink: #111;
+    --muted: #555;
+    --surface: #fff;
+    --panel: #fafafa;
+    --border: rgba(0,0,0,.12);
+    --warning: #f04a4a;
+    /* semantic EDGE palette — each verb is a relation type.
+       Colour is redundant (every edge is also labelled) for accessibility. */
+    --e-structure: #334155;     /* builds / operates — who acts */
+    --e-affects:   #c2410c;     /* affects — reaches people (the "TO") */
+    --e-answers:   #0f5153;     /* accountable-to — the obligation owed */
+    --e-can:       #15803d;     /* can / rights — deontic (ODRL) */
+    --e-gap:       #f04a4a;     /* missing forum — the accountability gap */
+    --font: 'Red Hat Text', system-ui, -apple-system, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not(.light) {
+      --accent:#5fb6b8; --accent-soft:rgba(95,182,184,.16);
+      --ink:#f5f5f5; --muted:#a3a3a3; --surface:#161616; --panel:#1e1e1e;
+      --border:rgba(255,255,255,.14); --warning:#ff7676;
+      --e-structure:#94a3b8; --e-affects:#fb923c; --e-answers:#5fb6b8;
+      --e-can:#4ade80; --e-gap:#ff7676;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: var(--font); color: var(--ink);
+    background: var(--surface); line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 40px 24px 80px; }
+  header h1 { font-size: 1.9rem; font-weight: 700; margin: 0 0 6px; letter-spacing:-.01em; }
+  header .sub { color: var(--muted); font-size: 1.02rem; max-width: 70ch; margin: 0 0 4px; }
+  .tag { display:inline-block; font-size:.72rem; font-weight:600; text-transform:uppercase;
+    letter-spacing:.06em; color:var(--accent); background:var(--accent-soft);
+    padding:3px 9px; border-radius:999px; margin-bottom:18px; }
+  .thesis { border-left: 3px solid var(--accent); padding: 10px 0 10px 16px; margin: 22px 0 8px;
+    color: var(--ink); font-size:.98rem; max-width: 78ch; }
+  .thesis b { color: var(--accent); }
+
+  /* legend */
+  .legend { display:flex; flex-wrap:wrap; gap:14px 22px; margin:26px 0 8px; padding:16px 18px;
+    border:1px solid var(--border); border-radius:12px; background:var(--panel); }
+  .legend .li { display:flex; align-items:center; gap:9px; font-size:.86rem; }
+  .legend .sw { width:26px; height:0; border-top-width:3px; border-top-style:solid; flex:none; }
+  .legend .li.node .sw { height:14px; border:2px solid; border-top-width:2px; border-radius:4px; }
+
+  /* example card */
+  .card { border:1px solid var(--border); border-radius:16px; margin:30px 0; overflow:hidden;
+    background:var(--surface); }
+  .card .head { padding:20px 22px 14px; border-bottom:1px solid var(--border); }
+  .card .head .no { font-size:.74rem; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); }
+  .card .head h2 { margin:2px 0 8px; font-size:1.28rem; font-weight:700; }
+  .card .reads { font-size:.98rem; color:var(--ink); max-width:82ch; }
+  .card .reads .who { color: var(--e-structure); font-weight:600; }
+  .card .reads .to  { color: var(--e-affects); font-weight:600; }
+  .card .reads .ans { color: var(--e-answers); font-weight:600; }
+  .card .reads .no  { color: var(--warning); font-weight:600; }
+
+  .tier { padding: 6px 22px 20px; }
+  .tier .lbl { font-size:.78rem; font-weight:600; text-transform:uppercase; letter-spacing:.05em;
+    color:var(--muted); margin:16px 0 8px; display:flex; align-items:center; gap:8px; }
+  .tier .lbl .hint { text-transform:none; letter-spacing:0; font-weight:400; color:var(--muted); }
+
+  /* tier 1 — the flat chain (today) */
+  .chain { display:flex; align-items:stretch; gap:0; flex-wrap:wrap; opacity:.92; }
+  .chain .tile { display:flex; flex-direction:column; align-items:center; gap:6px; width:96px; padding:8px 4px; }
+  .chain .tile .cap { font-size:.72rem; color:var(--muted); text-align:center; line-height:1.25; }
+  .chain .tile .cat { font-size:.62rem; text-transform:uppercase; letter-spacing:.04em; color:var(--accent); font-weight:600; }
+  .chain-note { font-size:.84rem; color:var(--muted); margin-top:8px; font-style:italic; }
+
+  .callout { margin:2px 22px 22px; padding:12px 16px; border-radius:10px; font-size:.9rem;
+    border:1px solid var(--border); background:var(--panel); }
+  .callout.gap { border-color: color-mix(in srgb, var(--warning) 55%, transparent);
+    background: color-mix(in srgb, var(--warning) 8%, var(--surface)); }
+  .callout.gap b { color: var(--warning); }
+  .callout.ok b { color: var(--accent); }
+
+  svg.graph { width:100%; height:auto; display:block; }
+  svg text { font-family: var(--font); }
+  footer { margin-top:44px; padding-top:20px; border-top:1px solid var(--border); color:var(--muted); font-size:.86rem; }
+  footer code { background:var(--panel); padding:1px 6px; border-radius:5px; border:1px solid var(--border); font-size:.82em; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="tag">Throwaway prototype · not production</span>
+    <h1>DTPR Power Flow</h1>
+    <p class="sub">What if a datachain weren't a flat list of tiles, but a small graph of <em>typed relationships</em> — showing not just who a system is done <b>for</b>, but who it's done <b>to</b>, and who answers to whom?</p>
+    <div class="thesis">
+      The linear <b>chain</b> stays the default, glanceable read. The <b>power flow</b> is an opt-in deep view that adds the one thing a list can't hold: the <b>edges</b>. It reads left-to-right like a sentence, and it makes the <b>accountability gap</b> — <em>affects the public, but answers only to the vendor</em> — visible at a glance.
+    </div>
+  </header>
+
+  <div class="legend" id="legend"></div>
+
+  <div id="examples"></div>
+
+  <footer>
+    Prototype mirrors <code>@dtpr/ui</code> tokens (teal <code>#0f5153</code>, Red&nbsp;Hat&nbsp;Text, warning <code>#f04a4a</code>) and DTPR's hexagon-tile motif. Edge verbs and the <em>affects</em>/<em>accountable-to</em> split follow the research corpus entry <code>relational-accountability-graph-model</code> (Bovens' actor→forum; ODRL deontic <code>can</code> edges; Ghoniem's "keep it a short path"). Next step would be a real <code>&lt;DtprPowerFlow&gt;</code> component in <code>packages/ui</code>.
+  </footer>
+</div>
+
+<!-- ============ node symbols: DTPR hexagon + simple glyph, one per role ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <!-- DTPR hexagon path (lifted from dtpr_icons/accountable/org.svg) reused for every node -->
+  <g id="hexpath"><path d="M31.8564 8.8453L19 1.42265C18.3812 1.06538 17.6188 1.06538 17 1.42265L4.14359 8.8453C3.52479 9.20257 3.14359 9.86282 3.14359 10.5774V25.4226C3.14359 26.1372 3.52479 26.7974 4.14359 27.1547L17 34.5774C17.6188 34.9346 18.3812 34.9346 19 34.5774L31.8564 27.1547C32.4752 26.7974 32.8564 26.1372 32.8564 25.4226V10.5774C32.8564 9.86282 32.4752 9.20256 31.8564 8.8453Z"/></g>
+</defs></svg>
+
+<script>
+/* -------------------------------------------------------------------------
+   Tiny declarative renderer. Each example is DATA (nodes + edges); the
+   renderer draws the DTPR-hexagon nodes and the typed, labelled, directed
+   edges. Edit the EXAMPLES array to try other systems.
+   ------------------------------------------------------------------------- */
+const HEX = "M31.8564 8.8453L19 1.42265C18.3812 1.06538 17.6188 1.06538 17 1.42265L4.14359 8.8453C3.52479 9.20257 3.14359 9.86282 3.14359 10.5774V25.4226C3.14359 26.1372 3.52479 26.7974 4.14359 27.1547L17 34.5774C17.6188 34.9346 18.3812 34.9346 19 34.5774L31.8564 27.1547C32.4752 26.7974 32.8564 26.1372 32.8564 25.4226V10.5774C32.8564 9.86282 32.4752 9.20256 31.8564 8.8453Z";
+
+// role -> {hex fill/stroke tint, glyph paths}. Glyphs drawn in 36x36 space.
+const ROLES = {
+  vendor:   { tint:'#334155', fill:'var(--surface)', label:'BUILDS IT',    glyph:'<path d="M18 9l7 4v9l-7 4-7-4v-9z" fill="none" stroke="CC" stroke-width="1.7"/><path d="M11 13l7 4 7-4M18 17v9" fill="none" stroke="CC" stroke-width="1.5"/>' },
+  deployer: { tint:'#0f5153', fill:'var(--accent-soft)', label:'RUNS IT', glyph:'<path d="M9 15l9-5 9 5" fill="none" stroke="CC" stroke-width="1.7" stroke-linejoin="round"/><rect x="11.5" y="15" width="13" height="9.5" fill="none" stroke="CC" stroke-width="1.6"/><line x1="14.5" y1="15" x2="14.5" y2="24.5" stroke="CC" stroke-width="1.3"/><line x1="18" y1="15" x2="18" y2="24.5" stroke="CC" stroke-width="1.3"/><line x1="21.5" y1="15" x2="21.5" y2="24.5" stroke="CC" stroke-width="1.3"/>' },
+  system:   { tint:'#111', fill:'#111', dark:true, label:'THE SYSTEM', glyph:'<path d="M8 18s4-6 10-6 10 6 10 6-4 6-10 6-10-6-10-6z" fill="none" stroke="#fff" stroke-width="1.7"/><circle cx="18" cy="18" r="3.2" fill="#fff"/>' },
+  affected: { tint:'#c2410c', fill:'color-mix(in srgb,#c2410c 12%,var(--surface))', label:'USED ON', glyph:'<circle cx="14" cy="15" r="3" fill="none" stroke="CC" stroke-width="1.6"/><circle cx="23" cy="16" r="2.4" fill="none" stroke="CC" stroke-width="1.5"/><path d="M9 26c0-3.3 2.6-5.5 5-5.5s5 2.2 5 5.5" fill="none" stroke="CC" stroke-width="1.6"/><path d="M20 25.5c.2-2.6 2-4.2 3.8-4.2 1.7 0 3.2 1.3 3.4 3.4" fill="none" stroke="CC" stroke-width="1.4"/>' },
+  forum:    { tint:'#0f5153', fill:'color-mix(in srgb,#0f5153 10%,var(--surface))', label:'ANSWERS TO', glyph:'<line x1="18" y1="9.5" x2="18" y2="25" stroke="CC" stroke-width="1.6"/><line x1="11" y1="13" x2="25" y2="13" stroke="CC" stroke-width="1.6"/><path d="M11 13l-2.3 5h4.6zM25 13l-2.3 5h4.6z" fill="none" stroke="CC" stroke-width="1.3" stroke-linejoin="round"/><rect x="14.5" y="24.5" width="7" height="1.8" fill="CC"/>' },
+  right:    { tint:'#15803d', fill:'color-mix(in srgb,#15803d 11%,var(--surface))', label:'YOU CAN', glyph:'<path d="M18 9l6.5 2.6v5.4c0 4-3.4 6.8-6.5 8-3.1-1.2-6.5-4-6.5-8v-5.4z" fill="none" stroke="CC" stroke-width="1.6" stroke-linejoin="round"/><path d="M15 17.6l2.2 2.2 4-4.3" fill="none" stroke="CC" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>' },
+  gap:      { tint:'#f04a4a', fill:'var(--surface)', dashed:true, label:'NO FORUM', glyph:'<text x="18" y="24" text-anchor="middle" font-size="17" font-weight="700" fill="CC" font-family="Red Hat Text">?</text>' },
+};
+
+const EDGE_KIND = {
+  build:   { color:'var(--e-structure)', label:'built by' },
+  operate: { color:'var(--e-structure)', label:'run by' },
+  affects: { color:'var(--e-affects)',   label:'used on', weight:3.4 },
+  affects_light: { color:'var(--e-affects)', label:'incidentally affects', weight:1.8, dash:'2 4' },
+  answers: { color:'var(--e-answers)',   label:'answers to' },
+  can:     { color:'var(--e-can)',       label:'you can', dash:'1 5' },
+  gap:     { color:'var(--e-gap)',       label:'no one to answer to', dash:'5 5' },
+};
+
+const R = 30;                 // node hex radius (px)
+const W = 980, H = 300;       // graph viewBox
+
+function nodeSVG(n) {
+  const role = ROLES[n.role];
+  const g = role.glyph.replaceAll('CC', role.tint);
+  const chips = (n.chips || []).map((c,i) =>
+    `<g transform="translate(${(i-(n.chips.length-1)/2)*0}, 0)"></g>`).join('');
+  // hexagon sized 2R x 2R, centred at 0,0 (symbol space 36 -> scale)
+  const s = (2*R)/36;
+  return `
+    <g transform="translate(${n.x},${n.y})">
+      <g transform="translate(${-R},${-R}) scale(${s})">
+        <path d="${HEX}" fill="${role.fill}" stroke="${role.tint}" stroke-width="1.6"
+              ${role.dashed?'stroke-dasharray="3 2.4"':''}/>
+        ${g}
+      </g>
+      <text x="0" y="${R+15}" text-anchor="middle" font-size="8.5" font-weight="700"
+            letter-spacing=".04em" fill="${role.tint}">${role.label}</text>
+      <text x="0" y="${R+28}" text-anchor="middle" font-size="11.5" font-weight="600"
+            fill="var(--ink)">${escape_(n.name)}</text>
+      ${n.sub?`<text x="0" y="${R+42}" text-anchor="middle" font-size="10" fill="var(--muted)">${escape_(n.sub)}</text>`:''}
+    </g>`;
+}
+
+function edgeSVG(e, nodes, idx, ei) {
+  const a = nodes[e.from], b = nodes[e.to];
+  const kind = EDGE_KIND[e.kind];
+  const dx = b.x-a.x, dy = b.y-a.y, len = Math.hypot(dx,dy) || 1;
+  const ux = dx/len, uy = dy/len;
+  const pad = R + 6, padB = R + 12;              // leave room for hex + arrowhead
+  const ax = a.x+ux*pad, ay = a.y+uy*pad;
+  const bx = b.x-ux*padB, by = b.y-uy*padB;
+  const curve = e.curve || 0;                    // perpendicular bow
+  const mx = (ax+bx)/2 + (-uy)*curve, my = (ay+by)/2 + (ux)*curve;
+  const path = `M${ax.toFixed(1)},${ay.toFixed(1)} Q${mx.toFixed(1)},${my.toFixed(1)} ${bx.toFixed(1)},${by.toFixed(1)}`;
+  const w = kind.weight || 2.4;
+  const mid = `${(0.25*ax+0.5*mx+0.25*bx).toFixed(1)},${(0.25*ay+0.5*my+0.25*by).toFixed(1)}`;
+  const [lx,ly] = mid.split(',').map(Number);
+  const label = e.label || kind.label;
+  const lw = label.length*5.7 + 14;
+  return `
+    <path d="${path}" fill="none" stroke="${kind.color}" stroke-width="${w}"
+          ${kind.dash?`stroke-dasharray="${kind.dash}"`:''} marker-end="url(#arw-${ei}-${idx})"/>
+    <defs><marker id="arw-${ei}-${idx}" markerWidth="9" markerHeight="9" refX="7" refY="4.5"
+          orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="${kind.color}"/></marker></defs>
+    <g transform="translate(${lx.toFixed(1)},${ly.toFixed(1)})">
+      <rect x="${-lw/2}" y="-9" width="${lw}" height="18" rx="9"
+            fill="var(--surface)" stroke="${kind.color}" stroke-width="1"/>
+      <text x="0" y="4" text-anchor="middle" font-size="10.5" font-weight="600"
+            fill="${kind.color}">${escape_(label)}</text>
+    </g>`;
+}
+
+function escape_(s){return String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
+
+function graphSVG(spec, ei) {
+  const nodes = spec.nodes;
+  const edges = spec.edges.map((e,i)=>edgeSVG(e,nodes,i,ei)).join('');
+  const ns = Object.values(nodes).map(nodeSVG).join('');
+  // system attribute chips (purpose + mode) floated above the system node
+  let chips = '';
+  if (spec.system && spec.chips) {
+    const s = nodes[spec.system];
+    chips = spec.chips.map((c,i)=>{
+      const cw = c.length*6+18, cx = s.x, cy = s.y - R - 16 - i*20;
+      return `<g transform="translate(${cx},${cy})"><rect x="${-cw/2}" y="-10" width="${cw}" height="18" rx="9"
+        fill="var(--panel)" stroke="var(--border)"/><text x="0" y="4" text-anchor="middle"
+        font-size="10" fill="var(--muted)">${escape_(c)}</text></g>`;
+    }).join('');
+  }
+  return `<svg class="graph" viewBox="0 0 ${W} ${H}" role="img">${edges}${chips}${ns}</svg>`;
+}
+
+function chainSVG(tiles){
+  return `<div class="chain">` + tiles.map(t=>`
+    <div class="tile">
+      <div class="cat">${t.cat}</div>
+      <svg width="46" height="46" viewBox="0 0 36 36"><path d="${HEX}" fill="${t.fill||'var(--accent-soft)'}"
+        stroke="var(--accent)" stroke-width="1.6"/></svg>
+      <div class="cap">${t.cap}</div>
+    </div>`).join('') + `</div>`;
+}
+
+/* ================================ THE EXAMPLES ================================ */
+const EXAMPLES = [
+  {
+    no:'Example 1 · a forum exists',
+    title:'Face-matching fare gates',
+    reads:`<span class="who">Metro Transit</span> runs a face-matching gate built by FaceGate Inc.,
+           deciding on its own who may pass; it is <span class="to">used on every rider</span>;
+           riders can opt out with a card and <span class="ans">appeal to the transit ombudsman</span>.`,
+    chain:[
+      {cat:'Purpose', cap:'Entry / fare'},
+      {cat:'Accountable', cap:'Metro Transit', fill:'var(--accent)'},
+      {cat:'Mode', cap:'Autonomous'},
+      {cat:'Input', cap:'Face (biometric)'},
+      {cat:'Rights', cap:'Contest · opt out'},
+    ],
+    chainNote:'Today: you can read every tile — but not who it is used on, nor who Metro answers to. Those are relationships; the strip has no arrows.',
+    system:'sys', chips:['Purpose: fare entry','Mode: autonomous'],
+    nodes:{
+      ven:{role:'vendor',   name:'FaceGate Inc.', sub:'biometrics vendor', x:150, y:80},
+      dep:{role:'deployer', name:'Metro Transit', sub:'operator',          x:150, y:215},
+      sys:{role:'system',   name:'Fare gate',     sub:'face match',        x:440, y:150},
+      aff:{role:'affected', name:'All riders',    sub:'~2.3M / day',       x:730, y:150},
+      forum:{role:'forum',  name:'Transit ombudsman', sub:'+ rider appeal',x:730, y:262, },
+      rgt:{role:'right',    name:'Opt out · contest', sub:'human review',  x:915, y:150},
+    },
+    edges:[
+      {from:'ven',to:'sys',kind:'build', curve:-14},
+      {from:'dep',to:'sys',kind:'operate', curve:14},
+      {from:'sys',to:'aff',kind:'affects'},
+      {from:'aff',to:'rgt',kind:'can'},
+      {from:'dep',to:'forum',kind:'answers', curve:20, label:'answers to'},
+    ],
+    callout:{cls:'ok', html:'<b>Closed loop.</b> The people it is <em>used on</em> (riders) are also part of the <em>forum</em> it answers to — they can appeal. <em>Affects</em> and <em>accountable-to</em> point at overlapping parties. This is what accountability looks like when it isn\'t just a label.'},
+  },
+  {
+    no:'Example 2 · the accountability gap',
+    title:'Benefits eligibility scoring',
+    reads:`The <span class="who">County Benefits Dept.</span> runs a risk score built by RiskModel Co.;
+           a caseworker acts on the score; it <span class="to">decides applicants’ benefits</span> —
+           but applicants get <span class="no">no notice and no appeal</span>, and the department
+           <span class="no">answers only to the vendor’s contract</span>.`,
+    chain:[
+      {cat:'Purpose', cap:'Eligibility'},
+      {cat:'Accountable', cap:'County Dept.', fill:'var(--accent)'},
+      {cat:'Mode', cap:'Human executes'},
+      {cat:'Output', cap:'Risk score'},
+      {cat:'Rights', cap:'— none listed —', fill:'var(--surface)'},
+    ],
+    chainNote:'The chain can even look complete while the most important fact — that the people scored have no way to answer back — is simply absent. A missing tile reads as "n/a", not as alarm.',
+    system:'sys', chips:['Purpose: eligibility','Mode: human executes'],
+    nodes:{
+      ven:{role:'vendor',   name:'RiskModel Co.', sub:'model vendor',   x:150, y:80},
+      dep:{role:'deployer', name:'County Dept.',  sub:'operator',       x:150, y:215},
+      sys:{role:'system',   name:'Eligibility score', sub:'risk model', x:440, y:150},
+      aff:{role:'affected', name:'Applicants',    sub:'benefit seekers',x:720, y:150},
+      gap:{role:'gap',      name:'No external forum', sub:'vendor SLA only', x:720, y:265},
+    },
+    edges:[
+      {from:'ven',to:'sys',kind:'build', curve:-14},
+      {from:'dep',to:'sys',kind:'operate', curve:14},
+      {from:'sys',to:'aff',kind:'affects', label:'decides for'},
+      {from:'dep',to:'gap',kind:'gap', curve:20},
+    ],
+    callout:{cls:'gap', html:'<b>The accountability gap, made visible.</b> The <em>affects</em> edge lands on applicants; the <em>accountable-to</em> edge lands nowhere they can reach (a vendor SLA, in red). No <em>you-can</em> edge exists at all — the rights are floating, attached to no one. On the flat chain this is an empty cell; here it is an <span style="color:var(--warning);font-weight:600">alarm</span>.'},
+  },
+  {
+    no:'Example 3 · light footprint, well governed',
+    title:'Sidewalk people-counting sensor',
+    reads:`<span class="who">City DOT</span> runs a Numina sidewalk sensor to plan mobility; it only
+           <span class="to">counts passers-by incidentally</span> and anonymizes on the device; it is
+           listed in the <span class="ans">city’s public algorithm register</span>.`,
+    chain:[
+      {cat:'Purpose', cap:'Planning'},
+      {cat:'Accountable', cap:'City DOT', fill:'var(--accent)'},
+      {cat:'Mode', cap:'Advisory'},
+      {cat:'Input', cap:'Counts (anon.)'},
+      {cat:'Rights', cap:'Be informed'},
+    ],
+    chainNote:'Not every system has a heavy "TO". The graph shows that too — a thin, dashed affects-edge reads as "lightly, incidentally", where the chain would give counting the same weight as face-matching.',
+    system:'sys', chips:['Purpose: mobility planning','Mode: advisory'],
+    nodes:{
+      ven:{role:'vendor',   name:'Numina',       sub:'sensor vendor',  x:150, y:80},
+      dep:{role:'deployer', name:'City DOT',     sub:'operator',       x:150, y:215},
+      sys:{role:'system',   name:'Sidewalk sensor', sub:'counts people', x:440, y:150},
+      aff:{role:'affected', name:'Passers-by',   sub:'anonymized',     x:720, y:150},
+      forum:{role:'forum',  name:'Algorithm register', sub:'+ privacy office', x:720, y:265},
+    },
+    edges:[
+      {from:'ven',to:'sys',kind:'build', curve:-14},
+      {from:'dep',to:'sys',kind:'operate', curve:14},
+      {from:'sys',to:'aff',kind:'affects_light'},
+      {from:'dep',to:'forum',kind:'answers', curve:20},
+    ],
+    callout:{cls:'ok', html:'<b>Proportionate.</b> Weight encodes intensity: the thin dashed <em>affects</em> edge says "incidental + anonymized", and there is still a real <em>forum</em> (the public register). The power flow distinguishes <em>heavy-impact-no-forum</em> from <em>light-impact-with-forum</em> — a distinction the flat chain flattens away.'},
+  },
+];
+
+/* ---- legend ---- */
+document.getElementById('legend').innerHTML = [
+  ['structure','var(--e-structure)','builds / runs — who acts'],
+  ['affects','var(--e-affects)','affects — who it’s used on (the "TO")'],
+  ['answers','var(--e-answers)','accountable-to — the obligation owed'],
+  ['can','var(--e-can)','you can — rights (deontic)'],
+  ['gap','var(--e-gap)','no forum — the accountability gap'],
+].map(([k,c,t])=>`<div class="li"><span class="sw" style="border-top-color:${c}"></span><span>${t}</span></div>`).join('');
+
+/* ---- render examples ---- */
+document.getElementById('examples').innerHTML = EXAMPLES.map((ex,ei)=>`
+  <div class="card">
+    <div class="head">
+      <div class="no">${ex.no}</div>
+      <h2>${ex.title}</h2>
+      <div class="reads">${ex.reads}</div>
+    </div>
+    <div class="tier">
+      <div class="lbl">Tier 1 — the chain <span class="hint">· today · glanceable &amp; comparable</span></div>
+      ${chainSVG(ex.chain)}
+      <div class="chain-note">${ex.chainNote}</div>
+    </div>
+    <div class="tier">
+      <div class="lbl">Tier 2 — the power flow <span class="hint">· opt-in · reads left-to-right like a sentence</span></div>
+      ${graphSVG(ex, ei)}
+    </div>
+    <div class="callout ${ex.callout.cls}">${ex.callout.html}</div>
+  </div>`).join('');
+</script>
+</body>
+</html>

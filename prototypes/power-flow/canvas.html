@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>DTPR Power Canvas — throwaway prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --accent:#0f5153; --accent-soft:rgba(15,81,83,.08);
+    --ink:#141414; --muted:#5b5b5b; --surface:#fff; --panel:#f6f6f4; --border:rgba(0,0,0,.1);
+    --warning:#e23b3b;
+    --power:#0f5153;      /* who acts (top) */
+    --data:#3f6d8c;       /* the data band */
+    --risk:#b45309;       /* risks & safeguards */
+    --people:#c2410c;     /* the affected (bottom-left) */
+    --can:#15803d;        /* rights (bottom-right) */
+    --font:'Red Hat Text',system-ui,-apple-system,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){:root:not(.light){
+    --accent:#5fb6b8; --accent-soft:rgba(95,182,184,.16);
+    --ink:#f3f3f3; --muted:#a6a6a6; --surface:#151515; --panel:#1d1d1d; --border:rgba(255,255,255,.13);
+    --warning:#ff6b6b; --power:#5fb6b8; --data:#7aa7c4; --risk:#e0913f; --people:#fb923c; --can:#4ade80;
+  }}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:var(--font);color:var(--ink);background:var(--panel);line-height:1.45;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:980px;margin:0 auto;padding:40px 24px 90px}
+  .tag{display:inline-block;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);background:var(--accent-soft);padding:3px 9px;border-radius:999px;margin-bottom:16px}
+  h1{font-size:1.95rem;font-weight:700;margin:0 0 6px;letter-spacing:-.01em}
+  .sub{color:var(--muted);font-size:1.02rem;max-width:74ch;margin:0 0 6px}
+  .thesis{border-left:3px solid var(--accent);padding:8px 0 8px 16px;margin:20px 0 8px;max-width:82ch;font-size:.97rem}
+  .thesis b{color:var(--accent)}
+  h3.section{font-size:1.15rem;margin:40px 0 6px;font-weight:700}
+  .section-sub{color:var(--muted);font-size:.92rem;margin:0 0 14px;max-width:80ch}
+
+  /* ---------------- THE BOARD ---------------- */
+  .board{
+    position:relative;display:grid;gap:9px;padding:14px;border-radius:20px;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "builtby builtby runby   runby"
+      "system  system  system  system"
+      "usedon  usedon  youcan  youcan";
+    background:linear-gradient(180deg,color-mix(in srgb,var(--power) 7%,transparent),transparent 45%,color-mix(in srgb,var(--people) 8%,transparent));
+    border:1px solid var(--border);box-shadow:0 18px 40px -28px rgba(0,0,0,.35);
+  }
+  .board.map{
+    grid-template-areas:
+      "builtby builtby runby   runby"
+      "system  system  system  system"
+      "data    data    data    data"
+      "risks   risks   risks   risks"
+      "usedon  usedon  youcan  youcan";
+  }
+  .zone{position:relative;border-radius:13px;border:1px solid var(--border);background:var(--surface);padding:26px 14px 14px;min-width:0}
+  .zone::before{content:attr(data-label);position:absolute;top:9px;left:12px;font-size:.66rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--zc,var(--muted))}
+  .z-builtby{grid-area:builtby;--zc:var(--power)}
+  .z-runby{grid-area:runby;--zc:var(--power)}
+  .z-system{grid-area:system;--zc:#fff;background:#141414;color:#fff;border-color:#141414;display:flex;flex-direction:column;gap:12px;padding:30px 18px 16px}
+  .z-data{grid-area:data;--zc:var(--data);background:color-mix(in srgb,var(--data) 6%,var(--surface))}
+  .z-risks{grid-area:risks;--zc:var(--risk);background:color-mix(in srgb,var(--risk) 6%,var(--surface))}
+  .z-usedon{grid-area:usedon;--zc:var(--people);background:color-mix(in srgb,var(--people) 6%,var(--surface))}
+  .z-youcan{grid-area:youcan;--zc:var(--can);background:color-mix(in srgb,var(--can) 6%,var(--surface))}
+
+  .piece{display:flex;align-items:center;gap:11px;min-width:0}
+  .piece .name{font-weight:600;font-size:1rem;min-width:0}
+  .piece .nsub{display:block;font-weight:400;font-size:.8rem;color:var(--muted)}
+  .hex{flex:none}
+
+  .sys-title{font-size:1.15rem;font-weight:700}
+  .sys-attrs{display:flex;flex-wrap:wrap;gap:7px}
+  .attr{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);color:#fff;padding:4px 9px;border-radius:999px}
+  .attr .k{opacity:.6;text-transform:uppercase;letter-spacing:.04em;font-size:.66rem}
+  .data-line{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:.82rem;color:rgba(255,255,255,.9);border-top:1px solid rgba(255,255,255,.14);padding-top:11px}
+  .data-line .flow{display:inline-flex;align-items:center;gap:7px}
+  .data-line .pill{background:rgba(255,255,255,.12);border-radius:6px;padding:2px 8px}
+  .data-line .arrow{opacity:.55}
+  .data-line .held{color:rgba(255,255,255,.6);font-size:.76rem}
+  .risk-line{display:flex;gap:8px;font-size:.8rem;color:var(--risk);margin-top:2px}
+  .risk-line.none{color:var(--warning);font-weight:600}
+
+  .people-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .crowd{display:flex;gap:2px}
+  .count{font-weight:700;font-size:1.02rem;color:var(--people)}
+  .intensity{font-size:.76rem;color:var(--muted)}
+  .meter{display:inline-block;width:58px;height:7px;border-radius:4px;background:color-mix(in srgb,var(--people) 20%,var(--surface));position:relative;margin-left:5px;vertical-align:middle}
+  .meter i{position:absolute;inset:0 auto 0 0;border-radius:4px;background:var(--people)}
+
+  .rights-list{display:flex;flex-wrap:wrap;gap:6px}
+  .right-chip{font-size:.8rem;background:color-mix(in srgb,var(--can) 10%,var(--surface));border:1px solid color-mix(in srgb,var(--can) 35%,transparent);color:var(--can);padding:3px 9px;border-radius:999px;font-weight:500}
+  .zone.empty{--zc:var(--warning)}
+  .zone.empty .none{font-size:.86rem;color:var(--warning);font-weight:600;font-style:normal;display:flex;align-items:center;gap:8px}
+
+  .system-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin:34px 0 8px}
+  .system-head .no{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+  .system-head h2{margin:0;font-size:1.3rem;font-weight:700}
+  .reads{font-size:.98rem;max-width:84ch;margin:0 0 14px}
+  .reads .w{color:var(--power);font-weight:600}
+  .reads .t{color:var(--people);font-weight:600}
+  .reads .x{color:var(--warning);font-weight:600}
+
+  /* map annotations */
+  .catrow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+  .cat{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.74rem;background:color-mix(in srgb,var(--zc) 12%,var(--surface));border:1px solid color-mix(in srgb,var(--zc) 40%,transparent);color:var(--zc);padding:2px 7px;border-radius:6px}
+  .zone .znote{font-size:.8rem;color:var(--muted);margin-top:6px}
+  .z-system .znote{color:rgba(255,255,255,.62)}
+  .zone.isnew{border:1.6px dashed var(--people);background:color-mix(in srgb,var(--people) 9%,var(--surface))}
+  .newflag{display:inline-block;font-size:.64rem;font-weight:700;letter-spacing:.05em;color:#fff;background:var(--people);border-radius:5px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+
+  .maptable{width:100%;border-collapse:collapse;margin-top:16px;font-size:.9rem}
+  .maptable th,.maptable td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+  .maptable th{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+  .maptable code{font-family:ui-monospace,Menlo,monospace;font-size:.82em;background:var(--panel);padding:1px 5px;border-radius:4px;border:1px solid var(--border)}
+  .maptable tr.new td{background:color-mix(in srgb,var(--people) 7%,transparent)}
+
+  footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--border);color:var(--muted);font-size:.86rem}
+  footer code{background:var(--surface);padding:1px 6px;border-radius:5px;border:1px solid var(--border);font-size:.82em}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="tag">Throwaway prototype · v3 · fixed canvas</span>
+  <h1>DTPR Power Canvas</h1>
+  <p class="sub">A board with permanent zones, read top-to-bottom: who's behind it → what it is → the people it's used on and what they can do. Same places every time.</p>
+  <div class="thesis">
+    Changes this pass: <b>removed “Answers&nbsp;to”</b>; <b>moved “You&nbsp;can” beside “Used&nbsp;on”</b> so the bottom band is <em>the people</em> — what's done <b>to</b> them (left) and what they <b>can do</b> (right). The “no&nbsp;recourse” alarm now lives in an <b>empty “You&nbsp;can”</b> cell.
+  </div>
+
+  <h3 class="section">The board, filled — three systems, one layout</h3>
+  <p class="section-sub">Because the zones never move, you can scan across systems and the differences pop.</p>
+  <div id="systems"></div>
+
+  <h3 class="section">Where today's DTPR categories land</h3>
+  <p class="section-sub">Every one of the 11 AI-taxonomy categories has a home on the board — and exactly one zone, <b>Used on</b>, has no category today. That empty seat is the whole argument.</p>
+  <div id="map"></div>
+  <table class="maptable" id="maptable"></table>
+
+  <footer>
+    Reuses <code>@dtpr/ui</code> tokens + the DTPR hexagon token. The fixed layout keeps <b>comparability</b> (why registers/nutrition labels use fixed fields) while adding the relational read. See corpus entry <code>relational-accountability-graph-model</code>. Productionization: a <code>&lt;DtprPowerCanvas&gt;</code> in <code>packages/ui</code>, data-driven from a datachain instance.
+  </footer>
+</div>
+
+<script>
+const HEX="M31.8564 8.8453L19 1.42265C18.3812 1.06538 17.6188 1.06538 17 1.42265L4.14359 8.8453C3.52479 9.20257 3.14359 9.86282 3.14359 10.5774V25.4226C3.14359 26.1372 3.52479 26.7974 4.14359 27.1547L17 34.5774C17.6188 34.9346 18.3812 34.9346 19 34.5774L31.8564 27.1547C32.4752 26.7974 32.8564 26.1372 32.8564 25.4226V10.5774C32.8564 9.86282 32.4752 9.20256 31.8564 8.8453Z";
+const GLYPH={
+  vendor:'<path d="M18 9l7 4v9l-7 4-7-4v-9z" fill="none" stroke="C" stroke-width="1.7"/><path d="M11 13l7 4 7-4M18 17v9" fill="none" stroke="C" stroke-width="1.4"/>',
+  deployer:'<path d="M9 15l9-5 9 5" fill="none" stroke="C" stroke-width="1.7" stroke-linejoin="round"/><rect x="11.5" y="15" width="13" height="9.5" fill="none" stroke="C" stroke-width="1.5"/><line x1="14.5" y1="15" x2="14.5" y2="24.5" stroke="C" stroke-width="1.2"/><line x1="18" y1="15" x2="18" y2="24.5" stroke="C" stroke-width="1.2"/><line x1="21.5" y1="15" x2="21.5" y2="24.5" stroke="C" stroke-width="1.2"/>',
+  person:'<circle cx="18" cy="14.5" r="3.4" fill="none" stroke="C" stroke-width="1.7"/><path d="M11 26c0-4 3.2-6.5 7-6.5s7 2.5 7 6.5" fill="none" stroke="C" stroke-width="1.7"/>',
+};
+function hex(kind,color,fill,size=42){return `<svg class="hex" width="${size}" height="${size}" viewBox="0 0 36 36"><path d="${HEX}" fill="${fill}" stroke="${color}" stroke-width="1.6"/>${GLYPH[kind].replaceAll('C',color)}</svg>`;}
+function miniPerson(c){return `<svg width="15" height="19" viewBox="0 0 16 20"><circle cx="8" cy="5" r="3.4" fill="${c}"/><path d="M1.5 20c0-4 2.9-6.5 6.5-6.5s6.5 2.5 6.5 6.5z" fill="${c}"/></svg>`;}
+
+const SYSTEMS=[
+ {
+  no:'System 1', title:'Face-matching fare gates',
+  reads:`<span class="w">Metro Transit</span> runs face-matching gates that decide on their own who may pass; they're <span class="t">used on every rider</span>; riders can opt out and get a human review.`,
+  builtby:{name:'FaceGate Inc.',sub:'biometrics vendor'},
+  runby:{name:'Metro Transit',sub:'transit authority'},
+  system:{name:'Fare gate — face match',purpose:'Fare entry',decides:'Autonomous',
+          takes:'Your face',gives:'Match / no-match',held:'kept 24h · vendor cloud · seen by transit police'},
+  risk:{r:'Misidentification → wrongful stop',s:'human review on request'},
+  usedon:{name:'All riders',sub:'everyone who enters',count:'~2.3M / day',intensity:1.0,ilabel:'direct · every entry'},
+  rights:['Opt out (tap card)','Contest a match','Human review'],
+ },
+ {
+  no:'System 2', title:'Benefits eligibility scoring',
+  reads:`The <span class="w">County Benefits Dept.</span> runs a vendor risk score a caseworker acts on; it <span class="t">decides applicants' benefits</span> — but there's <span class="x">no notice and no appeal</span>.`,
+  builtby:{name:'RiskModel Co.',sub:'model vendor'},
+  runby:{name:'County Benefits Dept.',sub:'operator'},
+  system:{name:'Eligibility risk score',purpose:'Eligibility',decides:'Human executes',
+          takes:'Case records',gives:'Risk score',held:'kept 7y · county servers · seen by caseworkers + vendor'},
+  risk:{none:'Risk: wrong denial of benefits — no safeguard listed'},
+  usedon:{name:'Benefit applicants',sub:'people seeking support',count:'every applicant',intensity:1.0,ilabel:'decides their benefits'},
+  rights:[],                                    // ← empty → the alarm
+ },
+ {
+  no:'System 3', title:'Sidewalk people-counting sensor',
+  reads:`<span class="w">City DOT</span> runs a Numina sensor to plan mobility; it only <span class="t">counts passers-by incidentally</span> and anonymizes on the device.`,
+  builtby:{name:'Numina',sub:'sensor vendor'},
+  runby:{name:'City DOT',sub:'transport dept.'},
+  system:{name:'Sidewalk sensor',purpose:'Mobility planning',decides:'Advisory',
+          takes:'Live video',gives:'Counts (no images)',held:'counts only · on-device → city · open data'},
+  risk:{r:'Re-identification if video kept',s:'anonymized on device; images discarded'},
+  usedon:{name:'Passers-by',sub:'anonymized on device',count:'incidental',intensity:0.28,ilabel:'incidental · not identified'},
+  rights:['Be informed (signage)','Anonymized by design'],
+ },
+];
+
+function piece(kind,color,fill,p){return `<div class="piece">${hex(kind,color,fill)}<div class="name">${p.name}<span class="nsub">${p.sub}</span></div></div>`;}
+function usedOnZone(u){
+  const n=Math.max(3,Math.round(u.intensity*7));
+  const crowd=Array.from({length:8},(_,i)=>miniPerson(i<n?'var(--people)':'color-mix(in srgb,var(--people) 22%,var(--surface))')).join('');
+  return `<div class="zone z-usedon" data-label="Used on">
+    <div class="people-row">${hex('person','var(--people)','color-mix(in srgb,var(--people) 12%,var(--surface))',42)}
+      <div class="name" style="font-size:1rem">${u.name}<span class="nsub">${u.sub}</span></div>
+      <div class="crowd">${crowd}</div>
+      <div><span class="count">${u.count}</span> <span class="intensity">· ${u.ilabel}<span class="meter"><i style="width:${Math.round(u.intensity*100)}%"></i></span></span></div>
+    </div></div>`;
+}
+function youCanZone(r){
+  if(!r.length) return `<div class="zone z-youcan empty" data-label="You can"><div class="none">⚠ no notice · no appeal path</div></div>`;
+  return `<div class="zone z-youcan" data-label="You can"><div class="rights-list">${r.map(x=>`<span class="right-chip">${x}</span>`).join('')}</div></div>`;
+}
+function riskLine(rk){
+  if(!rk) return '';
+  if(rk.none) return `<div class="risk-line none">⚠ ${rk.none}</div>`;
+  return `<div class="risk-line">⚠ <span>${rk.r} · <b>safeguard:</b> ${rk.s}</span></div>`;
+}
+function board(s){const y=s.system;return `<div class="board">
+  <div class="zone z-builtby" data-label="Built by">${piece('vendor','var(--power)','var(--surface)',s.builtby)}</div>
+  <div class="zone z-runby" data-label="Run by">${piece('deployer','var(--power)','var(--accent-soft)',s.runby)}</div>
+  <div class="zone z-system">
+    <div class="sys-title">${y.name}</div>
+    <div class="sys-attrs"><span class="attr"><span class="k">for</span>${y.purpose}</span><span class="attr"><span class="k">decides</span>${y.decides}</span></div>
+    <div class="data-line"><span class="flow"><span class="pill">${y.takes}</span><span class="arrow">→</span><span class="pill">${y.gives}</span></span><span class="held">· ${y.held}</span></div>
+    ${riskLine(s.risk)}
+  </div>
+  ${usedOnZone(s.usedon)}
+  ${youCanZone(s.rights)}
+</div>`;}
+
+document.getElementById('systems').innerHTML = SYSTEMS.map(s=>`
+  <div class="system-head"><h2>${s.title}</h2><span class="no">${s.no}</span></div>
+  <p class="reads">${s.reads}</p>${board(s)}`).join('');
+
+/* -------- category map -------- */
+const MAP=[
+  {area:'builtby',label:'Built by',color:'var(--power)',cats:['accountable · vendor'],note:'the org that builds or licenses it'},
+  {area:'runby',label:'Run by',color:'var(--power)',cats:['accountable · deployer'],note:'the org operating it here'},
+  {area:'system',label:'The system',color:'#fff',cats:['purpose','processing','functional_modes'],note:'what it’s for · the model · how much it decides',dark:true},
+  {area:'data',label:'The data',color:'var(--data)',cats:['input_dataset','output_dataset','storage','access','retention'],note:'what goes in & out · where it’s held · who reaches it · how long'},
+  {area:'risks',label:'Risks & safeguards',color:'var(--risk)',cats:['risks_mitigation'],note:'what could go wrong for people, and what reduces it'},
+  {area:'usedon',label:'Used on',color:'var(--people)',cats:['— no category today —'],note:'the affected people — the proposed NEW category',isNew:true},
+  {area:'youcan',label:'You can',color:'var(--can)',cats:['rights'],note:'the affected’s recourse — moved beside Used on'},
+];
+function mapZone(m){
+  const cats=`<div class="catrow">${m.cats.map(c=>`<span class="cat">${c}</span>`).join('')}</div>`;
+  return `<div class="zone z-${m.area} ${m.isNew?'isnew':''}" data-label="${m.label}" style="--zc:${m.color}">
+    ${m.isNew?'<span class="newflag">NEW</span>':''}${cats}<div class="znote">${m.note}</div></div>`;
+}
+document.getElementById('map').innerHTML = `<div class="board map">${MAP.map(mapZone).join('')}</div>`;
+document.getElementById('maptable').innerHTML =
+  `<thead><tr><th>Canvas zone</th><th>DTPR category</th><th>reads as</th></tr></thead><tbody>` +
+  MAP.map(m=>`<tr class="${m.isNew?'new':''}"><td><b>${m.label}</b></td><td>${m.cats.map(c=>c.startsWith('—')?c:`<code>${c}</code>`).join(' ')}</td><td>${m.note}</td></tr>`).join('') +
+  `</tbody>`;
+</script>
+</body>
+</html>
