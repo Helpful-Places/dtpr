@@ -1,3 +1,7 @@
+<script lang="ts">
+import theme from '#build/ui/prose/a'
+</script>
+
 <script setup lang="ts">
 // Override of `@nuxt/ui`'s ProseA so markdown links inside content
 // resolve through `useLocalePath` — markdown source uses bare `/mcp`,
@@ -9,8 +13,17 @@
 //   - paths that already start with a known locale (`/en/...`, `/fr`),
 //     so cross-locale references like `[English](/en)` in `fr/index.md`
 //     don't get re-prefixed into `/fr/en`.
+//
+// Applies the upstream `prose.a` theme class (via `tv`) so markdown
+// links keep their styling — the earlier version passed only
+// `props.class` alongside `raw`, which stripped all link styling and
+// rendered bare, uncolored `<a>` elements. On a `@nuxt/ui` bump,
+// re-sync the theme wiring against upstream A.vue; the
+// `useLocalePath` rewrite is the only intentional divergence.
 import { computed } from 'vue'
+import { useAppConfig } from '#imports'
 import { useI18n } from '#i18n'
+import { tv } from '#ui/utils/tv'
 import ULink from '#ui/components/Link.vue'
 
 const props = defineProps<{
@@ -19,6 +32,9 @@ const props = defineProps<{
   class?: unknown
   ui?: Record<string, unknown>
 }>()
+
+const appConfig = useAppConfig()
+const ui = computed(() => tv({ extend: tv(theme), ...appConfig.ui?.prose?.a || {} }))
 
 const localePath = useLocalePath()
 const { locales } = useI18n()
@@ -42,7 +58,7 @@ const resolvedHref = computed(() => {
 </script>
 
 <template>
-  <ULink :href="resolvedHref" :target="target" :class="props.class" raw>
+  <ULink :href="resolvedHref" :target="target" :class="ui({ class: [props.ui?.base, props.class] })" raw>
     <slot />
   </ULink>
 </template>
