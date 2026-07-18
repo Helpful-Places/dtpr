@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>DTPR Power Canvas — v5 · compare view</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#f6f6f4; --card:#ffffff; --ink:#1b1b19; --muted:#72726c;
+    --line:#e6e5e0; --chip:#f3f3ef;
+    --signal:#c2410c; --alarm:#b42318; --teal:#0f5153;
+    --mono:ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Public Sans',system-ui,-apple-system,sans-serif;color:var(--ink);
+    background:var(--paper);line-height:1.45;-webkit-font-smoothing:antialiased}
+  a{color:var(--teal);font-weight:600}
+  a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:3px}
+  .wrap{max-width:1180px;margin:0 auto;padding:48px 24px 90px}
+
+  .eyebrow{display:inline-block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;
+    color:var(--teal);border:1px solid color-mix(in srgb,var(--teal) 30%,transparent);
+    padding:4px 11px;border-radius:999px;margin-bottom:18px;background:var(--card)}
+  h1{font-size:2rem;font-weight:700;letter-spacing:-.015em;margin:0 0 8px}
+  .sub{color:var(--muted);font-size:1rem;max-width:70ch;margin:0}
+  .views{margin:14px 0 30px;font-size:.85rem;color:var(--muted)}
+  .views b{color:var(--ink);font-weight:600}
+  code{font-family:var(--mono);font-size:.84em;background:var(--chip);border:1px solid var(--line);
+    padding:1px 5px;border-radius:5px}
+
+  /* ---- the matrix ---- */
+  .scroller{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:var(--card);
+    box-shadow:0 1px 2px rgba(27,27,25,.04),0 16px 36px -30px rgba(27,27,25,.3)}
+  table{border-collapse:collapse;width:100%;min-width:980px}
+  th,td{text-align:left;vertical-align:top;padding:16px 18px;border-bottom:1px solid var(--line);
+    border-left:1px solid var(--line);min-width:0}
+  tr:last-child th,tr:last-child td{border-bottom:none}
+  th:first-child,td:first-child{border-left:none}
+  /* seat labels */
+  tbody th{width:104px;min-width:104px;font-size:.62rem;font-weight:700;letter-spacing:.13em;
+    text-transform:uppercase;color:var(--muted);padding-top:20px;background:var(--chip)}
+  /* name row — the canvas top */
+  thead td{border-bottom:2px solid var(--ink);background:var(--card)}
+  thead th{background:var(--chip);border-bottom:2px solid var(--ink)}
+  .sysno{display:block;font-size:.62rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+  .sysname{font-size:1.02rem;font-weight:700;letter-spacing:-.005em;line-height:1.25}
+  .purpose{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:600;margin-top:8px;
+    background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:3px 10px 3px 5px;white-space:nowrap}
+
+  .piece{display:flex;align-items:center;gap:9px;min-width:0}
+  .piece img,.piece svg{flex:none;display:block}
+  .pn{font-weight:600;font-size:.85rem;line-height:1.3}
+  .ps{display:block;font-weight:400;font-size:.72rem;color:var(--muted)}
+  .stack{display:flex;flex-direction:column;gap:10px}
+  .mode-icons{display:flex;gap:6px}
+  .sys-sentence{margin:8px 0 0;font-size:.78rem;color:var(--ink)}
+  .sys-sentence strong{font-weight:700;padding-bottom:1px}
+  .chip{display:inline-flex;align-items:center;gap:5px;font-size:.7rem;font-weight:600;
+    background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:2px 9px;white-space:nowrap}
+  .chip .k{font-weight:600;font-size:.6rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+  .dot{flex:none;width:7px;height:7px;border-radius:50%;display:inline-block;border:1px solid rgba(0,0,0,.12)}
+  .arrow{color:var(--muted);margin:0 2px}
+  .tiny{font-size:.72rem;color:var(--muted)}
+  .tiny b{color:var(--ink);font-weight:600}
+  .safeguard{font-size:.72rem;margin-top:2px}
+  .safeguard .k{font-size:.58rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-right:6px}
+
+  /* the affected row */
+  tr.usedon td{background:color-mix(in srgb,var(--signal) 4%,var(--card))}
+  tr.usedon th{background:color-mix(in srgb,var(--signal) 9%,var(--chip));color:var(--signal);position:relative}
+  tr.usedon th::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;
+    background:repeating-linear-gradient(-45deg,var(--signal) 0 5px,transparent 5px 10px)}
+  .rel-word{display:block;font-style:italic;font-weight:700;font-size:.85rem;color:var(--signal);margin-bottom:8px}
+  .rel-line{font-size:.7rem;color:var(--muted);margin:8px 0 0}
+
+  .alarm{display:inline-flex;align-items:center;gap:8px;font-size:.74rem;font-weight:600;color:var(--alarm);
+    border:1.5px dashed color-mix(in srgb,var(--alarm) 45%,transparent);border-radius:8px;padding:6px 10px;
+    background:color-mix(in srgb,var(--alarm) 4%,var(--card))}
+  .bang{flex:none;width:15px;height:15px;border-radius:50%;background:var(--alarm);color:#fff;
+    font-size:.62rem;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+  .racts{display:flex;gap:5px;flex-wrap:wrap;margin-top:5px}
+  a.act{display:inline-flex;align-items:center;gap:5px;font-size:.66rem;font-weight:600;color:var(--teal);
+    text-decoration:none;background:var(--card);border:1px solid color-mix(in srgb,var(--teal) 34%,transparent);
+    border-radius:999px;padding:2px 9px;transition:background .12s,color .12s,border-color .12s;white-space:nowrap}
+  a.act:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  a.act svg{flex:none;width:10px;height:10px}
+  .esc{margin-top:12px;padding-top:10px;border-top:1px dashed var(--line)}
+  .esc .ek{display:block;font-size:.56rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+
+  footer{margin-top:40px;color:var(--muted);font-size:.84rem;max-width:80ch}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="eyebrow">Prototype · v5 · real DTPR icons</span>
+  <h1>DTPR Power Canvas — compare</h1>
+  <p class="sub">The point of fixed seats: put four systems side by side and the differences pop. Each column is one system, its name at the top of the canvas; each row is a seat that never moves. The <code>affected</code> row carries the <code>relationship</code> discriminator.</p>
+  <nav class="views"><a href="canvas-affected-v5.html">← Board view</a> · <b>Compare view</b></nav>
+
+  <div class="scroller"><table id="matrix"></table></div>
+
+  <footer>Icons load live from <code>api.dtpr.io/api/v2</code> (schema <code>ai@2026-05-06-beta</code>); the <code>people</code> icon for the <code>affected</code> seat (added in <code>ai@2026-07-03-beta</code>) is composed in-page from the schema’s own symbol until that version deploys. Rights actions follow the instance schema’s first-class <code>actions</code> (<code>email · url · phone · form · postal</code>); addresses and URLs are demo stubs.</footer>
+</div>
+
+<script>
+const API='https://api.dtpr.io/api/v2/schemas/ai@2026-05-06-beta/elements/';
+const ic=(id,s=30)=>`<img src="${API}${id}/icon.svg" width="${s}" height="${s}" alt="" loading="lazy" style="object-fit:contain">`;
+const HEXPATH='M31.8564 8.8453L19 1.42265C18.3812 1.06538 17.6188 1.06538 17 1.42265L4.14359 8.8453C3.52479 9.20257 3.14359 9.86282 3.14359 10.5774V25.4226C3.14359 26.1372 3.52479 26.7974 4.14359 27.1547L17 34.5774C17.6188 34.9346 18.3812 34.9346 19 34.5774L31.8564 27.1547C32.4752 26.7974 32.8564 26.1372 32.8564 25.4226V10.5774C32.8564 9.86282 32.4752 9.20256 31.8564 8.8453Z';
+const PEOPLE='<path d="M13.5 10.6667C15.1569 10.6667 16.5 12.0098 16.5 13.6667C16.5 15.3235 15.1569 16.6667 13.5 16.6667C11.8431 16.6667 10.5 15.3235 10.5 13.6667C10.5 12.0098 11.8431 10.6667 13.5 10.6667Z"/><path d="M22.5 10.6667C24.1569 10.6667 25.5 12.0098 25.5 13.6667C25.5 15.3235 24.1569 16.6667 22.5 16.6667C20.8431 16.6667 19.5 15.3235 19.5 13.6667C19.5 12.0098 20.8431 10.6667 22.5 10.6667Z"/><path d="M13.5 18C10.1863 18 7.5 20.6863 7.5 24V25.3333H19.5V24C19.5 20.6863 16.8137 18 13.5 18Z"/><path d="M22.5 18C21.9316 18 21.3818 18.0791 20.8608 18.2266C22.1863 19.7061 23 21.6589 23 24V25.3333H28.5V24C28.5 20.6863 25.8137 18 22.5 18Z"/>';
+const peopleIc=(s=30)=>`<svg width="${s}" height="${s}" viewBox="0 0 36 36" aria-hidden="true"><path d="${HEXPATH}" fill="none" stroke="#000" stroke-width="2"/><g fill="#000">${PEOPLE}</g></svg>`;
+
+const REL={
+  subject:{word:'individuals',tail:'Output affects them directly'},
+  bystander:{word:'bystanders',tail:'No decision made about them'},
+  community:{word:'a community',tail:'Affected together, as a place'},
+};
+/* element_context value colors, verbatim from the API schema (role + relationship are null → no dot) */
+const CTX={human_decides:'#2A9D8F',human_executes:'#6A1B7A',autonomous:'#E76F51'};
+
+/* action affordances — modeled on the instance schema's first-class actions */
+const G={
+  email:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M3.5 7.5l8.5 6 8.5-6"/></svg>',
+  url:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9.2 6.6h8.2v8.2"/></svg>',
+  form:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12.5 5H5.7A1.7 1.7 0 004 6.7v11.6A1.7 1.7 0 005.7 20h11.6a1.7 1.7 0 001.7-1.7V11.5"/><path d="M17.6 3.7l2.7 2.7-8.6 8.6-3.5.8.8-3.5z"/></svg>',
+  phone:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M5.2 4h3.6l1.6 4.2-2.2 1.8a13.4 13.4 0 005.8 5.8l1.8-2.2 4.2 1.6v3.6a1.8 1.8 0 01-1.9 1.8A16.2 16.2 0 013.4 5.9 1.8 1.8 0 015.2 4z"/></svg>',
+};
+const VERBS={
+  perceptive_mode:{d:'senses'}, semantic_mode:{d:'understands'},
+  analytical_mode:{d:'decides',human_decides:'recommends'},
+  generative_mode:{d:'creates',human_decides:'drafts'},
+  agentic_mode:{d:'acts',human_executes:'plans actions',human_decides:'proposes actions'},
+  physical_mode:{d:'moves',human_executes:'plans movements',human_decides:'proposes movements'},
+};
+const TEMPLATES={
+  autonomous:'The system {verbs} *on its own*.',
+  human_executes:'The system {verbs}, and *a person carries out the result*.',
+  human_decides:'The system {verbs}, and *a person decides what to do next*.',
+};
+const LIST=new Intl.ListFormat('en',{type:'conjunction'});
+function sentence(sy){
+  const a=sy.autonomy.id;
+  const verbs=LIST.format(sy.modes.map(m=>(VERBS[m.id]&&(VERBS[m.id][a]||VERBS[m.id].d))||m.t.toLowerCase()));
+  return TEMPLATES[a].replace('{verbs}',verbs)
+    .replace(/\*(.+?)\*/,(_,t)=>`<strong style="border-bottom:2px solid ${CTX[a]}">${t}</strong>`);
+}
+const TAX={perceptive_mode:'Perceptive AI',semantic_mode:'Semantic AI',analytical_mode:'Analytical AI',generative_mode:'Generative AI',agentic_mode:'Agentic AI',physical_mode:'Physical AI'};
+const icT=(m,s=26)=>`<img src="${API}${m.id}/icon.svg" width="${s}" height="${s}" alt="${m.t} (${TAX[m.id]})" title="${m.t} (${TAX[m.id]})" loading="lazy" style="object-fit:contain">`;
+
+const mailBody=(sy,right)=>`To whom it may concern,
+
+I am exercising my "${right}" under the DTPR disclosure for:
+
+  System: ${sy.name} (ref ${sy.ref})
+  Operated by: ${sy.runby.name}
+
+Details of my request:
+
+`;
+const actHref=(a,sy,right)=>{
+  if(a.type==='email')return `mailto:${a.target}?subject=${encodeURIComponent(`[${sy.ref}] ${right} — ${sy.name}`)}&body=${encodeURIComponent(mailBody(sy,right))}`;
+  if(a.type==='phone')return `tel:${a.target}`;
+  return a.target;
+};
+const actBtn=(a,sy,right)=>`<a class="act" href="${actHref(a,sy,right)}"${a.type==='url'||a.type==='form'?' target="_blank" rel="noopener"':''}>${G[a.type]||''}${a.label}</a>`;
+
+const SYSTEMS=[
+ {
+  no:'System 1', ref:'MT-FG-104', name:'Face-matching fare gates',
+  purpose:{id:'entry',t:'Entry'},
+  builtby:{el:'organization',name:'FaceGate Inc.',sub:'Vendor'},
+  runby:{el:'institution',name:'Metro Transit',sub:'Deployer'},
+  modes:[{id:'perceptive_mode',t:'Sensing'},{id:'analytical_mode',t:'Deciding'}],
+  processing:{id:'biometric_recognition',t:'Biometric Recognition'},
+  autonomy:{id:'autonomous',t:'Autonomous'},
+  input:{id:'input_biometric',t:'Your face'},
+  output:{id:'output_decision',t:'Match / no-match'},
+  inCtx:'Retained <b>24 hours</b> · vendor cloud', outCtx:'Available to transit police',
+  risk:{id:'civil_liberties_harm',t:'Civil liberties harm',d:'misID → wrongful stop',safeguard:'Human review on request'},
+  usedon:{name:'All riders',sub:'~2.3M a day',rel:'subject'},
+  rights:[
+    {id:'right_object',t:'Opt out',acts:[{type:'url',label:'Get a fare card',target:'https://metrotransit.example/farecard'}]},
+    {id:'right_contest',t:'Contest a match',acts:[{type:'form',label:'Start an appeal',target:'https://metrotransit.example/appeals'}]},
+    {id:'right_to_human_review',t:'Human review',acts:[{type:'email',label:'Email the review desk',target:'review@metrotransit.example'}]}],
+  escalate:{k:'If that fails',acts:[{type:'email',label:'Transit Ombudsman',target:'complaints@transitombudsman.example'}]},
+ },
+ {
+  no:'System 2', ref:'CB-ELG-207', name:'Benefits eligibility scoring',
+  purpose:{id:'eligibility_benefits',t:'Eligibility & Public Benefits'},
+  builtby:{el:'organization',name:'RiskModel Co.',sub:'Vendor'},
+  runby:{el:'institution',name:'County Benefits Dept.',sub:'Deployer'},
+  modes:[{id:'analytical_mode',t:'Deciding'}],
+  processing:{id:'classification_prediction',t:'Classification & Prediction'},
+  autonomy:{id:'human_executes',t:'Human executes'},
+  input:{id:'input_sensitive_personal',t:'Your case records'},
+  output:{id:'output_recommendation',t:'A risk score'},
+  inCtx:'Retained <b>7 years</b> · county servers', outCtx:'Available to vendor + caseworkers',
+  risk:{id:'financial_harm',t:'Financial & business harm',d:'wrong score → wrong denial',safeguard:null},
+  usedon:{name:'Benefit applicants',sub:'every applicant',rel:'subject'},
+  rights:[],
+  escalate:{k:'Outside routes still exist',acts:[
+    {type:'email',label:'State Benefits Ombudsman',target:'ombudsman@benefits.state.example'},
+    {type:'form',label:'Privacy Commissioner',target:'https://privacy.state.example/complaints'}]},
+ },
+ {
+  no:'System 3', ref:'DOT-NUM-58', name:'Sidewalk people-counting sensor',
+  purpose:{id:'mobility',t:'Mobility'},
+  builtby:{el:'organization',name:'Numina',sub:'Vendor'},
+  runby:{el:'institution',name:'City DOT',sub:'Deployer'},
+  modes:[{id:'perceptive_mode',t:'Sensing'}],
+  processing:{id:'computer_vision',t:'Computer Vision'},
+  autonomy:{id:'human_decides',t:'Human decides'},
+  input:{id:'input_about_behaviour',t:'Live video'},
+  output:{id:'output_about_a_measurement',t:'Counts — no images'},
+  inCtx:'<b>No data retained</b> · discarded on device', outCtx:'Stored on device → city · open data',
+  risk:{id:'civil_liberties_harm',t:'Civil liberties harm',d:'re-ID if video were kept',safeguard:'Anonymized on device'},
+  usedon:{name:'Passers-by',sub:'anyone crossing',rel:'bystander'},
+  rights:[
+    {id:'right_to_notice',t:'Be informed (signage)',acts:[{type:'url',label:'View public page',target:'https://dtpr.ai'}]},
+    {id:'right_purpose_limitation',t:'Purpose limitation',acts:[{type:'email',label:'Report a misuse',target:'privacy@citydot.example'}]}],
+  escalate:{k:'If that fails',acts:[{type:'phone',label:'Call 311',target:'311'}]},
+ },
+ {
+  no:'System 4', ref:'PD-HSP-12', name:'Predictive patrol allocation',
+  purpose:{id:'enforcement',t:'Enforcement'},
+  builtby:{el:'organization',name:'PredictOps',sub:'Vendor'},
+  runby:{el:'institution',name:'City Police',sub:'Deployer'},
+  modes:[{id:'analytical_mode',t:'Deciding'}],
+  processing:{id:'clustering_segmentation',t:'Clustering & Segmentation'},
+  autonomy:{id:'human_decides',t:'Human decides'},
+  input:{id:'input_operational_data',t:'Past incident logs'},
+  output:{id:'output_recommendation',t:'A patrol heat-map'},
+  inCtx:'Retained <b>2 years</b> · police servers', outCtx:'Available to patrol command',
+  risk:{id:'societal_cultural_harm',t:'Societal & cultural harm',d:'feedback loops entrench over-policing',safeguard:'Quarterly bias audit'},
+  usedon:{name:'Precinct 7 residents',sub:'~40,000 residents',rel:'community'},
+  rights:[
+    {id:'right_to_notice',t:'Transparency report',acts:[{type:'url',label:'Read the report',target:'https://citypolice.example/ai-report'}]},
+    {id:'right_algorithmic_transparency',t:'Oversight board',acts:[{type:'email',label:'Write to the board',target:'board@police-oversight.example'}]}],
+  escalate:{k:'If that fails',acts:[{type:'form',label:'Inspector General',target:'https://oig.city.example/complaints'}]},
+ },
+];
+
+const piece=(icon,n,s)=>`<div class="piece">${icon}<div class="pn">${n}${s?`<span class="ps">${s}</span>`:''}</div></div>`;
+
+const row=(label,cls,cell)=>`<tr class="${cls||''}"><th scope="row">${label}</th>${SYSTEMS.map(cell).join('')}</tr>`;
+
+document.getElementById('matrix').innerHTML=`
+<thead><tr><th></th>${SYSTEMS.map(s=>`<td>
+  <span class="sysno">${s.no} · ${s.ref}</span><div class="sysname">${s.name}</div>
+  <span class="purpose">${ic(s.purpose.id,20)}${s.purpose.t}</span></td>`).join('')}</tr></thead>
+<tbody>
+${row('Run by','',s=>`<td>${piece(ic(s.runby.el,30),s.runby.name,s.runby.sub)}</td>`)}
+${row('Built by','',s=>`<td>${piece(ic(s.builtby.el,30),s.builtby.name,s.builtby.sub)}</td>`)}
+${row('The system','',s=>`<td>
+   <div class="mode-icons">${s.modes.map(m=>icT(m,26)).join('')}</div>
+   <p class="sys-sentence">${sentence(s)}</p></td>`)}
+${row('Data flow','',s=>`<td><div class="stack">
+   ${piece(ic(s.input.id,26),s.input.t)}
+   <span class="tiny">${s.inCtx}</span>
+   <span class="arrow">↓</span>
+   ${piece(ic(s.processing.id,26),s.processing.t)}
+   <span class="arrow">↓</span>
+   ${piece(ic(s.output.id,26),s.output.t)}
+   <span class="tiny">${s.outCtx}</span></div></td>`)}
+${row('Risks & safeguards','',s=>`<td><div class="stack">
+   ${piece(ic(s.risk.id,26),s.risk.t,s.risk.d)}
+   ${s.risk.safeguard?`<span class="safeguard"><span class="k">Safeguard</span>${s.risk.safeguard}</span>`
+     :`<span class="alarm"><span class="bang">!</span>No safeguard listed</span>`}</div></td>`)}
+${row('Used on','usedon',s=>`<td><em class="rel-word">${REL[s.usedon.rel].word}</em>
+   ${piece(peopleIc(30),s.usedon.name,s.usedon.sub)}
+   <p class="rel-line">${REL[s.usedon.rel].tail}</p></td>`)}
+${row('You can','',s=>{
+   const acts=r=>r.acts?`<div class="racts">${r.acts.map(a=>actBtn(a,s,r.t)).join('')}</div>`:'';
+   const esc=s.escalate?`<div class="esc"><span class="ek">${s.escalate.k}</span><div class="racts" style="margin-top:0">${s.escalate.acts.map(a=>actBtn(a,s,'Complaint')).join('')}</div></div>`:'';
+   return s.rights.length
+    ?`<td><div class="stack">${s.rights.map(r=>`<div>${piece(ic(r.id,22),r.t)}${acts(r)}</div>`).join('')}</div>${esc}</td>`
+    :`<td><span class="alarm"><span class="bang">!</span>No notice. No appeal path.</span>${esc}</td>`;})}
+</tbody>`;
+</script>
+</body>
+</html>

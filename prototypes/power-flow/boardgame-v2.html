@@ -1,0 +1,913 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Power Flow v2 — the negotiation game (throwaway prototype)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    /* real DTPR schema colors (carried from v1) */
+    --auto-human-decides:#2A9D8F;
+    --auto-human-executes:#6A1B7A;
+    --auto-autonomous:#E76F51;
+    --pii-anon:#4A90D9;
+    --pii-pseudo:#9575CD;
+    --pii-ident:#FFD700;
+
+    /* affected.relationship discriminator (new in ai@2026-07-03-beta; colors ours) */
+    --rel-subject:#b0503c;
+    --rel-bystander:#7d6b9e;
+    --rel-community:#4a7c59;
+
+    /* family felt colors (by card shape, from v1) */
+    --fam-who:#1f6f5c;
+    --fam-data:#2f5d86;
+    --fam-where:#7a5a2f;
+    --fam-people:#8a3b2f;
+
+    /* player seats */
+    --seat-deployer:#1f6f5c;
+    --seat-community:#8a3b2f;
+    --vendor:#3f6d8c;
+    --forum:#3e7c6f;
+    --event:#a3341f;
+
+    --card:#f7f2e6; --card-edge:#e4dcc6; --card-ink:#26221a; --card-sub:#7a7161;
+    --gold:#d9b25e;
+    --good:#8fe0c4; --bad:#ff9d8a; --warn:#ffcf8f;
+    --font:'Red Hat Text',system-ui,-apple-system,sans-serif;
+    --display:'Fraunces',Georgia,serif;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;font-family:var(--font);color:#f2ede2;line-height:1.45;-webkit-font-smoothing:antialiased;
+    background:radial-gradient(1200px 700px at 50% -10%, #3a3327, #221e17 60%, #17140f 100%);
+    min-height:100vh;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:34px 22px 90px}
+
+  .kicker{display:inline-block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.16em;color:#d9b25e;border:1px solid rgba(217,178,94,.4);background:rgba(217,178,94,.08);padding:4px 11px;border-radius:999px;margin-bottom:16px}
+  h1{font-family:var(--display);font-size:2.5rem;font-weight:600;margin:0 0 8px;letter-spacing:-.01em;color:#f7f2e6}
+  h1 .em{color:var(--gold)}
+  .sub{color:#c7bfae;font-size:1.04rem;max-width:76ch;margin:0 0 4px}
+  .concept{border-left:3px solid var(--gold);padding:6px 0 6px 15px;margin:18px 0 4px;max-width:86ch;font-size:.95rem;color:#ded6c4}
+  .concept b{color:var(--gold)}
+  .concept .rule{color:#8fe0c4;font-weight:600}
+
+  h2{font-family:var(--display);font-size:1.5rem;font-weight:600;margin:44px 0 4px;color:#f4eede}
+  h2 .dk{color:#9c9583;font-weight:500;font-size:1rem}
+  .decksub{color:#a89f8c;font-size:.9rem;max-width:86ch;margin:0 0 16px}
+  .decksub b{color:#d5cbb4}
+
+  /* ---- carry-over badges ---- */
+  .carry{position:absolute;top:7px;right:8px;font-size:.56rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;display:inline-flex;align-items:center;gap:4px;color:var(--card-sub);z-index:3}
+  .carry .dot{width:8px;height:8px;border-radius:50%;border:1.5px solid #8a8172;display:inline-block}
+  .carry.core .dot{background:var(--gold);border-color:#a8853c}
+  .carry.core{color:#8a6f33}
+  .carry.pattern .dot{background:linear-gradient(90deg,var(--gold) 50%,transparent 50%)}
+  .carry.scenario .dot{background:transparent}
+  .legend{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 6px}
+  .legend .lg{display:flex;align-items:center;gap:8px;font-size:.78rem;color:#cfc7b4;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:6px 11px;border-radius:10px}
+  .legend .dot{width:9px;height:9px;border-radius:50%;border:1.5px solid #8a8172}
+  .legend .d-core{background:var(--gold);border-color:#a8853c}
+  .legend .d-pattern{background:linear-gradient(90deg,var(--gold) 50%,transparent 50%)}
+  .legend .d-scenario{background:transparent}
+
+  /* ---- setup row: scenario brief + round structure ---- */
+  .setup2{display:grid;grid-template-columns:minmax(300px,380px) 1fr;gap:16px;margin:24px 0 18px;align-items:stretch}
+  @media(max-width:900px){.setup2{grid-template-columns:1fr}}
+
+  .brief{position:relative;background:linear-gradient(175deg,var(--card),#efe7d4);color:var(--card-ink);border:1px solid var(--card-edge);border-radius:16px;padding:18px 18px 16px;box-shadow:0 14px 26px -14px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.7)}
+  .brief .bk{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:#8a6f33}
+  .brief h3{font-family:var(--display);font-size:1.5rem;margin:2px 0 6px;font-weight:700}
+  .brief .prem{font-size:.86rem;color:#4d463a;margin:0 0 12px}
+  .brief .facts{display:grid;grid-template-columns:1fr 1fr;gap:5px 14px;font-size:.76rem;border-top:1px dashed #d8cfb8;padding-top:10px}
+  .brief .facts .k{color:var(--card-sub);font-weight:600}
+  .brief .facts .v{font-weight:700}
+
+  .rounds{background:linear-gradient(170deg,#2a251c,#201b14);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:15px 17px}
+  .rounds h4{margin:0 0 2px;font-family:var(--display);font-weight:600;font-size:1.05rem;color:#f4eede}
+  .rounds .rsub{font-size:.78rem;color:#a89f8c;margin:0 0 12px}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+  @media(max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+  .step{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:11px;padding:9px 10px}
+  .step .n{font-size:.62rem;font-weight:700;color:var(--gold);letter-spacing:.1em}
+  .step .t{font-weight:700;font-size:.8rem;margin:1px 0 2px;color:#f0e9d8}
+  .step .d{font-size:.7rem;color:#a89f8c;line-height:1.35}
+
+  /* ---- dials + endings ---- */
+  .scorewrap{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0 0 18px}
+  @media(max-width:900px){.scorewrap{grid-template-columns:1fr}}
+  .dials{background:linear-gradient(170deg,#2a251c,#201b14);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:15px 17px}
+  .dials h4,.endings h4{margin:0 0 2px;font-family:var(--display);font-weight:600;font-size:1.05rem;color:#f4eede}
+  .dials .rsub,.endings .rsub{font-size:.78rem;color:#a89f8c;margin:0 0 12px}
+  .track{margin:12px 0 4px}
+  .track .tl{display:flex;justify-content:space-between;align-items:baseline;font-size:.78rem;font-weight:700;margin-bottom:5px}
+  .track .tl .who{color:#a89f8c;font-weight:500;font-size:.7rem}
+  .cells{display:flex;gap:3px}
+  .cell{flex:1;height:16px;border-radius:4px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.07);position:relative}
+  .cell.fill-u{background:linear-gradient(180deg,#3a8f7d,#2a6f60);border-color:#4aa38f}
+  .cell.fill-l{background:linear-gradient(180deg,#c9a24f,#a5813a);border-color:#d9b25e}
+  .cell.floor{box-shadow:inset 0 0 0 2px var(--event)}
+  .cell.goal{box-shadow:inset 0 0 0 2px var(--good)}
+  .tick{display:flex;gap:3px;margin-top:3px}
+  .tick span{flex:1;text-align:center;font-size:.58rem;color:#7c745f}
+  .tick .fl{color:var(--bad);font-weight:700}
+  .tick .gl{color:var(--good);font-weight:700}
+
+  .endings{background:linear-gradient(170deg,#2a251c,#201b14);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:15px 17px}
+  .endgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .ending{position:relative;border-radius:11px;padding:9px 11px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);overflow:hidden}
+  .ending .et{font-weight:700;font-size:.8rem}
+  .ending .ec{font-size:.68rem;color:#a89f8c;line-height:1.35;margin-top:2px}
+  .ending.win .et{color:var(--good)}
+  .ending.solo .et{color:var(--warn)}
+  .ending.lose .et{color:var(--bad)}
+  .ending .lockover{position:absolute;inset:0;background:rgba(20,17,12,.82);display:flex;align-items:center;justify-content:center;text-align:center;font-size:.66rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#c9a24f;padding:8px;backdrop-filter:blur(1px)}
+  .ending .lockover .lk{display:block}
+  .ending.unlocked .lockover{display:none}
+
+  /* ---- the physical board (from v1) ---- */
+  .board{border-radius:24px;padding:16px;position:relative;
+    background:repeating-linear-gradient(90deg, rgba(0,0,0,.05) 0 2px, transparent 2px 7px),linear-gradient(180deg,#6b4c28,#4e371c);
+    box-shadow:inset 0 0 0 2px rgba(255,255,255,.06), 0 30px 60px -30px #000, 0 4px 0 #2c1f10;border:1px solid #3a2913;}
+  .felt{border-radius:16px;padding:16px 16px 20px;
+    background:radial-gradient(140% 120% at 50% -10%, rgba(255,255,255,.05), transparent 55%),radial-gradient(80% 90% at 50% 120%, rgba(0,0,0,.35), transparent 60%),#1c3a30;
+    box-shadow:inset 0 2px 18px rgba(0,0,0,.55), inset 0 0 0 1px rgba(255,255,255,.04);}
+  .board-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin:2px 4px 14px;flex-wrap:wrap}
+  .board-head .title{font-family:var(--display);font-size:1.35rem;font-weight:600;color:#f4eede}
+  .board-head .meta{font-size:.8rem;color:#9fc4b5}
+  .board-head .meta b{color:#8fe0c4}
+
+  /* player mats */
+  .mat{border-radius:14px;padding:30px 12px 13px;position:relative;margin-bottom:14px;
+    background:color-mix(in srgb,var(--mc) 22%, #10231c);
+    border:1.5px dashed color-mix(in srgb,var(--mc) 55%, transparent);
+    box-shadow:inset 0 0 22px rgba(0,0,0,.28);}
+  .mat.deployer{--mc:var(--seat-deployer)}
+  .mat.community{--mc:var(--seat-community)}
+  .mat .plate{position:absolute;top:-11px;left:14px;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    color:#241d13;background:color-mix(in srgb,var(--mc) 62%, #d8cba8);padding:3px 10px;border-radius:999px;box-shadow:0 2px 6px rgba(0,0,0,.4);border:1px solid rgba(0,0,0,.2)}
+  .mat .plate .shp{opacity:.75;font-weight:600}
+  .mat .matnote{position:absolute;top:-10px;right:14px;font-size:.64rem;color:#cbbfa4;background:#241d13;border:1px solid rgba(255,255,255,.14);padding:2px 9px;border-radius:999px}
+  .slots{display:flex;flex-wrap:wrap;gap:10px}
+
+  /* the table strip (forum row) */
+  .tablestrip{border-radius:14px;padding:26px 12px 12px;position:relative;margin-bottom:14px;
+    background:color-mix(in srgb,var(--forum) 20%, #10231c);
+    border:1.5px dashed color-mix(in srgb,var(--forum) 60%, transparent);
+    box-shadow:inset 0 0 22px rgba(0,0,0,.28);min-height:74px}
+  .tablestrip .plate{position:absolute;top:-11px;left:14px;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    color:#241d13;background:color-mix(in srgb,var(--forum) 62%, #d8cba8);padding:3px 10px;border-radius:999px;box-shadow:0 2px 6px rgba(0,0,0,.4);border:1px solid rgba(0,0,0,.2)}
+  .tablestrip .zerosum{display:flex;align-items:center;gap:10px;color:#e8b9a5;font-size:.8rem;padding:4px 4px}
+  .tablestrip .zerosum b{color:#ffcf8f}
+  .seatedrow{display:flex;flex-wrap:wrap;gap:8px}
+  .seatplate{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(175deg,var(--card),#efe7d4);color:var(--card-ink);font-weight:700;font-size:.78rem;padding:6px 12px;border-radius:9px;border:1px solid var(--card-edge);box-shadow:0 6px 12px -8px #000}
+  .seatplate .rm{cursor:pointer;color:#a3341f;font-weight:700;font-size:.85rem;padding:0 2px}
+
+  /* ---- cards ---- */
+  .card{position:relative;width:176px;min-height:126px;background:linear-gradient(175deg,var(--card),#efe7d4);
+    color:var(--card-ink);border:1px solid var(--card-edge);padding:11px 11px 10px;
+    box-shadow:0 10px 18px -12px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.7);
+    display:flex;flex-direction:column;gap:4px;transition:transform .13s ease,box-shadow .13s ease;}
+  .card:hover{transform:translateY(-4px) rotate(-.6deg);box-shadow:0 20px 30px -14px rgba(0,0,0,.75)}
+  .card.sq{border-radius:14px}
+  .card.hexr{border-radius:14px 5px 14px 5px}
+  .card.circ{border-radius:26px}
+  .card.octa{border-radius:11px;clip-path:polygon(9px 0,calc(100% - 9px) 0,100% 9px,100% calc(100% - 9px),calc(100% - 9px) 100%,9px 100%,0 calc(100% - 9px),0 9px)}
+  .card .chead{display:flex;align-items:center;gap:8px;padding-right:46px}
+  .card .badge{flex:none}
+  .card .cat{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--card-sub)}
+  .card .nm{font-weight:700;font-size:.94rem;line-height:1.18}
+  .card .ds{font-size:.75rem;color:var(--card-sub);line-height:1.34}
+  .card .schema{font-size:.6rem;color:#a49a86;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;border-top:1px dashed #ddd3ba;margin-top:auto;padding-top:5px}
+  .card .icon{color:#5c5545}
+  .card .icon svg{display:block}
+
+  .tokens{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px;padding-top:2px}
+  .chip{--cc:#888;display:inline-flex;align-items:center;gap:6px;font-size:.68rem;font-weight:700;color:#26221a;
+    background:radial-gradient(circle at 32% 28%, #fff9, transparent 42%), var(--cc);
+    border-radius:999px;padding:3px 9px 3px 4px;
+    box-shadow:0 2px 4px rgba(0,0,0,.35), inset 0 0 0 2px rgba(255,255,255,.35), inset 0 0 0 3px var(--cc);}
+  .chip .disc{width:13px;height:13px;border-radius:50%;background:var(--cc);
+    box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.55), inset 0 -2px 3px rgba(0,0,0,.25);
+    background-image:repeating-conic-gradient(from 0deg, #fff6 0 12deg, transparent 12deg 30deg), radial-gradient(var(--cc),var(--cc))}
+  .chip.dark{color:#f7f2e6}
+  .ribbon{display:inline-flex;align-items:center;gap:5px;font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
+    color:#f7f2e6;background:var(--cc,#444);padding:3px 8px;border-radius:5px;box-shadow:0 2px 4px rgba(0,0,0,.3)}
+  .dial{display:inline-flex;align-items:center;gap:7px;background:#241d13;border-radius:999px;padding:3px 10px 3px 3px;box-shadow:0 2px 5px rgba(0,0,0,.4)}
+  .dial .knob{width:18px;height:18px;border-radius:50%;position:relative;background:var(--cc);
+    box-shadow:inset 0 0 0 2px rgba(255,255,255,.4), inset 0 -3px 5px rgba(0,0,0,.35), 0 0 8px -1px var(--cc)}
+  .dial .knob::after{content:"";position:absolute;top:2px;left:50%;width:2px;height:6px;background:#fff;border-radius:2px;transform:translateX(-50%)}
+  .dial .dl{font-size:.66rem;font-weight:700;color:#f2ede2;letter-spacing:.02em}
+
+  /* cost / effect tokens in card text */
+  .coin{display:inline-flex;align-items:center;gap:4px;font-weight:800;font-size:.7rem;color:#6b5417}
+  .coin::before{content:"";width:11px;height:11px;border-radius:50%;display:inline-block;
+    background:radial-gradient(circle at 35% 30%, #ffe9a8, #d9b25e 60%, #a8853c);box-shadow:inset 0 0 0 1px #a8853c}
+  .att{display:inline-flex;align-items:center;gap:4px;font-weight:800;font-size:.7rem;color:#7c3a2c}
+  .att::before{content:"";width:11px;height:11px;border-radius:50%;display:inline-block;
+    background:radial-gradient(circle at 35% 30%, #f0b9a0, #b0503c 60%, #7c2f1f);box-shadow:inset 0 0 0 1px #7c2f1f}
+  .fx{font-size:.7rem;line-height:1.4}
+  .fx .up{color:#1f6f5c;font-weight:700}
+  .fx .dn{color:#a3341f;font-weight:700}
+  .fx .wn{color:#8a6f33;font-weight:700}
+
+  /* face-down / flip */
+  .flip{perspective:900px;width:176px}
+  .flip .inner{position:relative;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.4,.1,.2,1);min-height:216px}
+  .flip.flipped .inner{transform:rotateY(180deg)}
+  .flip .face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+  .flip .front{transform:rotateY(0)}
+  .flip .back{transform:rotateY(180deg)}
+  .flip .card{width:100%;height:100%}
+  .cardback{cursor:pointer;background:
+    radial-gradient(120% 100% at 50% 0%, rgba(255,255,255,.06), transparent 50%),
+    repeating-linear-gradient(45deg, #2c2820 0 9px, #262218 9px 18px);
+    color:#c9c0aa;border:1px solid #453d2c;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px}
+  .cardback .cat{color:#a89f8c}
+  .cardback .fd{font-size:.7rem;font-weight:700;color:#d9b25e;letter-spacing:.06em;text-transform:uppercase}
+  .cardback .hint{font-size:.66rem;color:#8d8471}
+  .cardback .icon{color:#8d8471}
+
+  /* sealed card */
+  .sealedwrap{display:flex;flex-direction:column;gap:7px;align-items:center}
+  .cardback.sealed{cursor:not-allowed}
+  .waxseal{position:absolute;bottom:10px;right:10px;width:34px;height:34px;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #d0604a, #8a2f1f 65%, #611f13);
+    box-shadow:0 3px 6px rgba(0,0,0,.5), inset 0 0 0 2px rgba(255,255,255,.15);
+    display:flex;align-items:center;justify-content:center;color:#f7d9c9;font-size:.8rem;font-weight:800}
+  .shake{animation:shake .35s ease}
+  @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px) rotate(-1deg)}75%{transform:translateX(5px) rotate(1deg)}}
+  .auditlink{cursor:pointer;font-size:.66rem;color:#8fe0c4;background:rgba(143,224,196,.08);border:1px solid rgba(143,224,196,.3);padding:3px 10px;border-radius:999px}
+  .auditlink:hover{background:rgba(143,224,196,.16)}
+
+  /* question card */
+  .qmark{font-family:var(--display);font-size:2rem;font-weight:700;color:#8a6f33;line-height:1}
+  .card .bigq{font-family:var(--display);font-size:1.06rem;font-weight:700;line-height:1.2}
+  .card .target{font-size:.66rem;color:var(--card-sub);display:flex;align-items:center;gap:5px}
+  .card .target b{color:#4d463a}
+  .resfoot{font-size:.58rem;color:#8d8471;border-top:1px dashed #ddd3ba;margin-top:auto;padding-top:5px;line-height:1.5}
+  .resfoot b{color:#6b5417}
+
+  /* forum card */
+  .card.forum{cursor:pointer;border-left:4px solid var(--forum)}
+  .card.forum .seatcue{position:absolute;bottom:8px;right:10px;font-size:.6rem;color:#3e7c6f;font-weight:700;opacity:0;transition:opacity .15s}
+  .card.forum:hover .seatcue{opacity:1}
+  .card.forum.seated{outline:2px solid var(--forum);outline-offset:2px;opacity:.55}
+
+  /* deck sections */
+  .deckrow{display:flex;flex-wrap:wrap;gap:12px;align-items:stretch}
+  .decksec{margin-top:34px}
+  .deckhead{display:flex;align-items:center;gap:10px}
+  .decktag{font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:3px 10px;border-radius:999px;border:1px solid}
+  .dt-deployer{color:#8fe0c4;border-color:rgba(143,224,196,.4);background:rgba(143,224,196,.07)}
+  .dt-community{color:#f0b9a0;border-color:rgba(240,185,160,.4);background:rgba(240,185,160,.07)}
+  .dt-both{color:#d9e6b5;border-color:rgba(217,230,181,.4);background:rgba(217,230,181,.07)}
+  .dt-npc{color:#a8c6de;border-color:rgba(168,198,222,.4);background:rgba(168,198,222,.07)}
+  .dt-world{color:#ffb4a1;border-color:rgba(255,180,161,.4);background:rgba(255,180,161,.07)}
+
+  .card.qcard{border-left:4px solid var(--seat-community)}
+  .card.rcard{border-left:4px solid var(--seat-deployer)}
+  .card.vcard{border-left:4px solid var(--vendor)}
+  .card.ecard{border-left:4px solid var(--event)}
+  .card.bcard{border-left:4px solid #6e2417;background:linear-gradient(175deg,#f2e6d8,#e9d9c4)}
+  .card.ctxcard{border-left:4px solid var(--rel-subject)}
+
+  .swap{font-size:.7rem;line-height:1.4}
+  .swap .from{color:#a3341f;text-decoration:line-through;text-decoration-thickness:1.5px}
+  .swap .to{color:#1f6f5c;font-weight:700}
+  .swap .arr{color:#8d8471}
+
+  .resolve{font-size:.68rem;line-height:1.42;display:flex;flex-direction:column;gap:4px}
+  .resolve .rl{padding-left:9px;border-left:2px solid #ddd3ba}
+  .resolve .cond{font-weight:700;color:#4d463a}
+
+  .keys{font-size:.64rem;color:#8d8471;line-height:1.4}
+  .keys b{color:#6b5417;font-weight:700}
+
+  .vq{font-family:var(--display);font-style:italic;font-weight:600;font-size:.98rem;line-height:1.25}
+
+  /* what carries over */
+  .rules{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:30px}
+  @media(max-width:900px){.rules{grid-template-columns:1fr}}
+  .rulecard{background:linear-gradient(170deg,#2a251c,#201b14);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:16px 17px 17px}
+  .rulecard h4{margin:0 0 3px;font-family:var(--display);font-weight:600;font-size:1.05rem;color:#f4eede;display:flex;align-items:center;gap:8px}
+  .rulecard .rsub{font-size:.8rem;color:#a89f8c;margin:0 0 10px}
+  .rulecard ul{margin:0;padding-left:17px;font-size:.8rem;color:#cfc7b4}
+  .rulecard li{margin:4px 0}
+  .rulecard li b{color:#f0e9d8}
+
+  footer{margin-top:40px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);color:#9c9583;font-size:.84rem;max-width:96ch}
+  footer code{background:rgba(255,255,255,.06);padding:1px 6px;border-radius:5px;border:1px solid rgba(255,255,255,.1);font-size:.85em}
+  footer b{color:#d9b25e}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="kicker">Throwaway prototype · v2 · the negotiation game</span>
+  <h1>Power Flow — <span class="em">a negotiation</span> in five rounds</h1>
+  <p class="sub">Two seats, one system. The <b>Deployer</b> holds the system cards — most of them face-down. The <b>Community</b> holds the context cards — the lived knowledge the deployer can't see. Neither hand can price the risk alone.</p>
+  <div class="concept">
+    Three moves from v1 → v2: <b>(1)</b> the information is split — face-down cards are undisclosed fields, and flipping one <em>is</em> the disclosure; <b>(2)</b> the turn structure is the Bovens loop — question → account → judgment → consequences; <b>(3)</b> the chips are now rules, not decoration — events resolve against whatever chips are on the table. And the house rule that carries the thesis: <span class="rule">while no Forum card is on the table, the shared endings are locked and every Deflect seeds two Backlash cards.</span> Accountability isn't a concession — it's what makes the cooperative endings reachable.
+  </div>
+
+  <div class="legend">
+    <span class="lg"><span class="dot d-core"></span><b>core</b>&nbsp;— identical card in every scenario</span>
+    <span class="lg"><span class="dot d-pattern"></span><b>pattern</b>&nbsp;— slot recurs every scenario, text re-flavored</span>
+    <span class="lg"><span class="dot d-scenario"></span><b>scenario</b>&nbsp;— bespoke to this deck</span>
+    <span class="lg"><span class="coin"></span>&nbsp;deployer budget</span>
+    <span class="lg"><span class="att"></span>&nbsp;community attention</span>
+  </div>
+
+  <!-- setup: scenario brief + how a round works -->
+  <div class="setup2">
+    <div class="brief">
+      <span class="carry scenario"><span class="dot"></span>scenario</span>
+      <div class="bk">Scenario deck · 1 of 3</div>
+      <h3>Face Value</h3>
+      <p class="prem"><b>Metro Transit</b> is installing <b>FaceGate Inc.</b> fare gates: walk through, the gate reads your face, you're billed. The press release says "faster boarding." Everything else starts face-down.</p>
+      <div class="facts">
+        <span class="k">Rounds to launch</span><span class="v">5</span>
+        <span class="k">Deployer budget</span><span class="v"><span class="coin"></span> 8 total</span>
+        <span class="k">Community attention</span><span class="v"><span class="att"></span> 3 / round</span>
+        <span class="k">Starts face-up</span><span class="v">The Pitch only</span>
+        <span class="k">Utility starts</span><span class="v">6 / 10</span>
+        <span class="k">Legitimacy starts</span><span class="v">5 / 10</span>
+      </div>
+    </div>
+    <div class="rounds">
+      <h4>How a round works</h4>
+      <p class="rsub">The Bovens loop, dealt as turns: the forum questions, the actor accounts, the world judges, consequences land.</p>
+      <div class="steps">
+        <div class="step"><div class="n">1 · THE QUESTIONS</div><div class="t">Community acts</div><div class="d">Spend <b>attention</b>: play Questions, reveal Context, propose a Forum card.</div></div>
+        <div class="step"><div class="n">2 · THE ACCOUNT</div><div class="t">Deployer responds</div><div class="d">Per question: <b>Answer</b> (flip the card), <b>Deflect</b> (Legitimacy −1, seed Backlash), or <b>Redesign</b> (play &amp; pay).</div></div>
+        <div class="step"><div class="n">3 · THE WORLD</div><div class="t">Draw one event</div><div class="d">One card — a <b>Vendor</b> squeeze, a world event, or a Backlash. It resolves against the chips actually on the table.</div></div>
+        <div class="step"><div class="n">4 · CONSEQUENCES</div><div class="t">Dials move</div><div class="d">Adjust Utility &amp; Legitimacy. The launch deadline ticks down.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- dials + endings -->
+  <div class="scorewrap">
+    <div class="dials">
+      <h4>Two dials, both with floors</h4>
+      <p class="rsub">Utility: does the thing work. Legitimacy: will people accept it. Either one hitting the red floor ends the game for both.</p>
+      <div class="track">
+        <div class="tl"><span>UTILITY <span class="who">— deployer weights this</span></span><span>6 / 10</span></div>
+        <div class="cells" id="utrack"></div>
+      </div>
+      <div class="track">
+        <div class="tl"><span>LEGITIMACY <span class="who">— community weights this</span></span><span>5 / 10</span></div>
+        <div class="cells" id="ltrack"></div>
+      </div>
+      <div class="tick"><span class="fl">◂ 3 = collapse</span><span></span><span></span><span class="gl">7 = trusted ▸</span></div>
+    </div>
+    <div class="endings">
+      <h4>Four endings <span style="font-weight:400;font-size:.8rem;color:#a89f8c">— seat a Forum card below to unlock the shared ones</span></h4>
+      <p class="rsub">Both can win. Either can win alone. Both can lose. Which endings are <em>reachable</em> depends on what gets built at the table.</p>
+      <div class="endgrid">
+        <div class="ending win lockable"><div class="et">Deployed &amp; Trusted</div><div class="ec">Utility ≥7 and Legitimacy ≥7, a Forum card in play. Both win.</div><div class="lockover"><span class="lk">Locked — no forum on the table</span></div></div>
+        <div class="ending win lockable"><div class="et">Redesigned &amp; Trusted</div><div class="ec">Both ≥5, two-plus Redesigns, a Forum card in play. Both win — the deployer paid for it. The good ending costs.</div><div class="lockover"><span class="lk">Locked — no forum on the table</span></div></div>
+        <div class="ending solo"><div class="et">Deployed Over Objection</div><div class="ec">Utility ≥5, Legitimacy below 6. Deployer scores now, minus every Backlash still in the deck. See you next election.</div></div>
+        <div class="ending lose"><div class="et">Collapse</div><div class="ec">Either dial ≤3. Project dead — and the community loses the service too. With a Sunset Clause: wound down, both recover +2.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- the board: two hands + the table between them -->
+  <div class="board">
+    <div class="felt">
+      <div class="board-head">
+        <div class="title">Face Value · at the table</div>
+        <div class="meta">Face-down cards: <b id="fdcount">–</b> — every flip is an Answer. Click a card back to flip it.</div>
+      </div>
+
+      <div class="mat deployer">
+        <span class="plate">Deployer's hand · Metro Transit <span class="shp">· the system cards</span></span>
+        <span class="matnote">starts face-down except The Pitch</span>
+        <div class="slots" id="systemSlots"></div>
+      </div>
+
+      <div class="tablestrip">
+        <span class="plate">The table · forum cards in play</span>
+        <div id="tableSlots"></div>
+      </div>
+
+      <div class="mat community">
+        <span class="plate">Community's hand <span class="shp">· the context cards</span></span>
+        <span class="matnote">hidden from the deployer until revealed</span>
+        <div class="slots" id="contextSlots"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- decks -->
+  <div class="decksec">
+    <div class="deckhead"><h2>Question deck <span class="dk">· 9 cards</span></h2><span class="decktag dt-community">community plays</span></div>
+    <p class="decksub">The forum poses questions — one <span class="att"></span> each. The card's shape badge shows which system card it aims at. Every question resolves the same way: <b>Answer</b> (flip it, free — but now it's public), <b>Deflect</b> (Legitimacy −1, seed a Backlash), or <b>Redesign</b> (play one and pay). This whole deck carries to every scenario verbatim.</p>
+    <div class="deckrow" id="questionDeck"></div>
+  </div>
+
+  <div class="decksec">
+    <div class="deckhead"><h2>Forum deck <span class="dk">· 6 cards</span></h2><span class="decktag dt-both">community proposes · deployer funds</span></div>
+    <p class="decksub">The rule-changers — each one is an <code style="font-size:.85em">accountable_to</code> edge made physical. The community proposes (<span class="att"></span> 1), the deployer funds (<span class="coin"></span> printed cost): <b>both must touch it</b>, that's the negotiation. Each unlocks a community move and absorbs event damage for the deployer — insurance, not concession. <b>Click one to seat it at the table</b> and watch the endings unlock.</p>
+    <div class="deckrow" id="forumDeck"></div>
+  </div>
+
+  <div class="decksec">
+    <div class="deckhead"><h2>Redesign deck <span class="dk">· 7 cards</span></h2><span class="decktag dt-deployer">deployer plays</span></div>
+    <p class="decksub">The design space — proof the win-win region exists. Each swaps a card or chip on the table, at a price. The <b>patterns</b> (move it on-device, purge sooner, opt-out lane, human in the loop, warrant gate…) recur in every scenario; the flavor is this scenario's.</p>
+    <div class="deckrow" id="redesignDeck"></div>
+  </div>
+
+  <div class="decksec">
+    <div class="deckhead"><h2>Event deck <span class="dk">· 8 world + 5 vendor + 4 Backlash · one draw / round</span></h2><span class="decktag dt-world">the world moves</span></div>
+    <p class="decksub">Reality, shuffled — <b>one card per round</b> at <em>The World</em>. Most resolve <b>against the board</b>: the same breach is a catastrophe with "7 years, vendor cloud" and a shrug with "24 hours, on-device." <b>Vendor</b> cards (blue) are FaceGate squeezing mid-chain — the deployer discovers they don't fully control their own system either, which keeps them from being the cartoon villain. <b>Backlash</b> cards (dark) enter the deck when the deployer deflects or steamrolls: unilateral power works, and the costs arrive later, compounding. <span style="color:#d5cbb4"><b>Playtest knob:</b> the vendor:world ratio sets how often the squeeze lands — dial it up (or seed early rounds) if vendor pressure should feel constant rather than occasional.</span></p>
+    <div class="deckrow" id="eventDeck"></div>
+  </div>
+
+  <!-- what carries over -->
+  <h2 style="margin-top:48px">What carries over between scenarios</h2>
+  <div class="rules">
+    <div class="rulecard">
+      <h4><span class="legend" style="margin:0"><span class="dot d-core" style="width:10px;height:10px"></span></span> Core — travels verbatim</h4>
+      <p class="rsub">The engine. Print once, play every scenario.</p>
+      <ul>
+        <li><b>All 9 Question cards</b> — they interrogate categories, not systems</li>
+        <li><b>All 6 Forum cards</b> — rights are portable by design</li>
+        <li><b>4 core Events</b> — breach, budget cut, election year, the FOIA</li>
+        <li><b>2 core Backlash</b> — court, council hearing</li>
+        <li>Turn structure, dials, endings, the zero-sum lock rule</li>
+      </ul>
+    </div>
+    <div class="rulecard">
+      <h4><span class="legend" style="margin:0"><span class="dot d-pattern" style="width:10px;height:10px"></span></span> Pattern — slot recurs, text reflavors</h4>
+      <p class="rsub">Templates with scenario skin.</p>
+      <ul>
+        <li><b>System cards</b> — same 9 slots (pitch, model, reads, makes, lives, sees, long, fine print, sealed), new contents</li>
+        <li><b>The Sealed card</b> — every scenario has one thing nobody at the table knows</li>
+        <li><b>Redesign patterns</b> — on-device / purge / opt-out / human-in-loop / warrant recur; costs and side-effects reflavor</li>
+        <li><b>2 Backlash</b> — the organized-refusal and quiet-noncompliance slots</li>
+      </ul>
+    </div>
+    <div class="rulecard">
+      <h4><span class="legend" style="margin:0"><span class="dot d-scenario" style="width:10px;height:10px"></span></span> Scenario — written fresh</h4>
+      <p class="rsub">Where the writing effort goes per deck.</p>
+      <ul>
+        <li><b>The brief</b> — premise, budgets, starting dials</li>
+        <li><b>All 7 Context cards</b> — lived knowledge is never generic; this is the deck that must be written <em>with</em> a community, not about one</li>
+        <li><b>All 5 Vendor cards</b> — each vendor squeezes differently; they now live in the Event deck, one draw among many</li>
+        <li><b>4 scenario Events</b> — the concrete failures only this system can have</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    Not a 1:1 element mapping, on purpose — cards borrow DTPR where it earns its place: category <b>shapes</b> and <b>names</b> plate the system cards; <b>chips</b> are the real discriminators (<code>autonomy</code>, <code>pii</code>, and the new <code>affected.relationship</code> from <code>ai@2026-07-03-beta</code> on the context cards); question cards aim at <b>categories</b>; forum cards are the <code>rights</code> elements (<code>right_to_notice</code>, <code>right_to_human_review</code>, <code>right_contest</code>…) turned into rule-changers; icons are the schema's own <code>symbols/</code>. The community's chair <em>is</em> the <code>affected</code> category made physical; seating a forum card is drawing the <code>accountable_to</code> edge from the research entry. End of a session, photograph the table: the system cards are a datachain, the seated forum cards are its edges. Untuned by design: every number here is a playtest question, not an answer. Companion to <code>boardgame.html</code> (v1, the disclosure artifact — this is the argument about it).
+  </footer>
+</div>
+
+<script>
+/* ---------- shape badges (real category shapes, from v1) ---------- */
+const HEX="M31.86 8.85 19 1.42a2 2 0 0 0-2 0L4.14 8.85a2 2 0 0 0-1 1.73v14.84a2 2 0 0 0 1 1.73L17 34.58a2 2 0 0 0 2 0l12.86-7.43a2 2 0 0 0 1-1.73V10.58a2 2 0 0 0-1-1.73Z";
+function badge(shape,color,s=22){
+  const stroke=color, fill='none';
+  if(shape==='hexagon')  return `<svg class="badge" width="${s}" height="${s}" viewBox="0 0 36 36"><path d="${HEX}" fill="${fill}" stroke="${stroke}" stroke-width="2.2"/></svg>`;
+  if(shape==='circle')   return `<svg class="badge" width="${s}" height="${s}" viewBox="0 0 36 36"><circle cx="18" cy="18" r="14.5" fill="${fill}" stroke="${stroke}" stroke-width="2.2"/></svg>`;
+  if(shape==='octagon')  return `<svg class="badge" width="${s}" height="${s}" viewBox="0 0 36 36"><polygon points="11,3 25,3 33,11 33,25 25,33 11,33 3,25 3,11" fill="${fill}" stroke="${stroke}" stroke-width="2.2"/></svg>`;
+  return `<svg class="badge" width="${s}" height="${s}" viewBox="0 0 36 36"><rect x="4" y="4" width="28" height="28" rx="8" fill="${fill}" stroke="${stroke}" stroke-width="2.2"/></svg>`;
+}
+
+/* ---------- real DTPR symbols (api/schemas/ai/2026-07-03-beta/symbols/, currentColor) ---------- */
+const SYM={
+entry:`<path fill-rule="evenodd" clip-rule="evenodd" d="M17.8419 9C13.4479 9 9.7899 12.148 8.9999 16.312H17.8419V14.676C17.8419 14.139 18.4859 13.877 18.8669 14.246L22.1939 17.572C22.4319 17.812 22.4319 18.181 22.1939 18.419L18.8549 21.745C18.4859 22.127 17.8419 21.864 17.8419 21.328V19.688H8.9999C9.7899 23.852 13.4479 27 17.8419 27C22.8129 27 26.8419 22.971 26.8419 18C26.8419 13.029 22.8129 9 17.8419 9Z" fill="currentColor"/>`,
+biometric:`<path d="M9 27V18C9 13 13 9 18 9C23 9 27 13 27 18V27" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M13 25V18C13 15 15 12 18 12C21 12 23 15 23 18V25" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M16.5 23V18C16.5 16.5 17 15 18 15C19 15 19.5 16.5 19.5 18V23" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>`,
+perceptive:`<path d="M6 18 C 10 12, 14 9, 18 9 C 22 9, 26 12, 30 18 C 26 24, 22 27, 18 27 C 14 27, 10 24, 6 18 Z" stroke="currentColor" stroke-width="1.75" fill="none"/><circle cx="18" cy="18" r="4" fill="currentColor"/>`,
+matching:`<path d="M17.0463 18.0353C16.7692 18.0353 16.5117 18.1115 16.2809 18.234V15.8174H13.756C13.8368 16.037 13.8839 16.2757 13.8839 16.5266C13.8839 17.5778 13.1031 18.4303 12.1402 18.4303C11.1769 18.4303 10.3965 17.5778 10.3965 16.5266C10.3965 16.2753 10.4432 16.037 10.5244 15.8174H8V23.7288H16.281V21.3113C16.5118 21.4338 16.7693 21.5097 17.0464 21.5097C17.9755 21.5097 18.728 20.7318 18.728 19.7728C18.728 18.8131 17.9755 18.0352 17.0464 18.0352L17.0463 18.0353Z" fill="currentColor"/><path d="M25.5827 15.4478C25.7056 15.217 25.7815 14.9599 25.7815 14.6824C25.7815 13.7533 25.0028 13 24.0449 13C23.0845 13 22.3066 13.7533 22.3066 14.6824C22.3066 14.9599 22.3824 15.217 22.5058 15.4478H20.0892V17.9722C20.3079 17.8922 20.5475 17.8443 20.7979 17.8443C21.8491 17.8443 22.702 18.6247 22.702 19.5884C22.702 20.5513 21.8491 21.3321 20.7979 21.3321C20.5471 21.3321 20.3079 21.2854 20.0892 21.2038V23.729L28 23.729V15.4476L25.5827 15.4478Z" fill="currentColor"/>`,
+stored:`<path d="M18 7V19M14 15L18 19L22 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M9 22V26C9 27.66 10.34 29 12 29H24C25.66 29 27 27.66 27 26V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>`,
+thirdparty:`<path fill-rule="evenodd" clip-rule="evenodd" d="M10.1162 22.581C10.4005 22.8573 10.881 22.6611 10.881 22.2607V20.626C11.768 20.5379 12.6309 20.3187 13.4557 19.9703C14.5159 19.5218 15.4668 18.8802 16.2837 18.0633C16.583 17.764 16.8583 17.4467 17.1106 17.1123V26.1868H15.591H15.5159C15.1155 26.1868 14.9193 26.6673 15.2046 26.9426L17.6872 29.4342C17.8654 29.6124 18.1406 29.6124 18.3188 29.4342L20.8014 26.9516C21.0777 26.6673 20.8815 26.1868 20.4811 26.1868H18.8894V17.1123C19.1407 17.4467 19.417 17.764 19.7163 18.0633C20.5332 18.8802 21.4852 19.5218 22.5453 19.9703C23.3691 20.3187 24.231 20.5379 25.119 20.626V22.2607C25.119 22.6611 25.5985 22.8573 25.8838 22.581L28.3664 20.0984C28.5445 19.9203 28.5445 19.645 28.3664 19.4668L25.8748 16.9842C25.5985 16.6999 25.119 16.8951 25.119 17.2955V17.3706V18.8351C24.4713 18.755 23.8406 18.5859 23.238 18.3306C22.3901 17.9722 21.6283 17.4587 20.9746 16.805C20.3209 16.1513 19.8074 15.3895 19.449 14.5416C19.0786 13.6647 18.8894 12.7327 18.8894 11.7717V7.32206C18.8894 6.83055 18.491 6.43213 17.9995 6.43213C17.509 6.43213 17.1106 6.83055 17.1106 7.32206V11.7717C17.1106 12.7327 16.9224 13.6647 16.551 14.5416C16.1926 15.3895 15.6791 16.1513 15.0254 16.805C14.3707 17.4587 13.6099 17.9722 12.762 18.3306C12.1584 18.5859 11.5287 18.755 10.881 18.8351V17.3706V17.2955C10.881 16.8951 10.4005 16.6999 10.1253 16.9842L7.63364 19.4668C7.45545 19.645 7.45545 19.9203 7.63364 20.0984L10.1162 22.581Z" fill="currentColor"/>`,
+retained:`<path fill-rule="evenodd" clip-rule="evenodd" d="M18 10.8887C17.04 10.8887 16.108 11.0767 15.232 11.4477C14.386 11.8057 13.625 12.3187 12.972 12.9717C12.318 13.6247 11.806 14.3857 11.447 15.2327C11.077 16.1087 10.889 17.0397 10.889 17.9997C10.889 18.9607 11.077 19.8917 11.447 20.7677C11.806 21.6147 12.318 22.3747 12.972 23.0287C13.625 23.6817 14.386 24.1947 15.232 24.5527C16.108 24.9237 17.04 25.1117 18 25.1117C18.96 25.1117 19.892 24.9237 20.768 24.5527C21.614 24.1947 22.375 23.6817 23.028 23.0287C23.682 22.3747 24.194 21.6147 24.553 20.7677C24.923 19.8917 25.111 18.9607 25.111 17.9997C25.111 17.0397 24.923 16.1087 24.553 15.2327C24.194 14.3857 23.682 13.6247 23.028 12.9717C22.375 12.3187 21.614 11.8057 20.768 11.4477C19.892 11.0767 18.96 10.8887 18 10.8887ZM18 26.8887C16.8 26.8887 15.636 26.6537 14.54 26.1897C13.481 25.7427 12.531 25.1017 11.715 24.2847C10.898 23.4697 10.258 22.5187 9.80996 21.4607C9.34596 20.3637 9.11096 19.1997 9.11096 17.9997C9.11096 16.8007 9.34596 15.6367 9.80996 14.5397C10.258 13.4807 10.898 12.5307 11.715 11.7147C12.531 10.8987 13.481 10.2577 14.54 9.80969C15.636 9.34669 16.8 9.11169 18 9.11169C19.199 9.11169 20.364 9.34669 21.46 9.80969C22.519 10.2577 23.47 10.8987 24.285 11.7147C25.102 12.5307 25.742 13.4807 26.19 14.5397C26.653 15.6367 26.889 16.8007 26.889 17.9997C26.889 19.1997 26.653 20.3637 26.19 21.4607C25.742 22.5187 25.102 23.4697 24.285 24.2847C23.47 25.1017 22.519 25.7427 21.46 26.1897C20.364 26.6537 19.199 26.8887 18 26.8887Z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="M20.667 21.5557C20.439 21.5557 20.212 21.4687 20.038 21.2957L17.111 18.3677V13.5557C17.111 13.0647 17.509 12.6667 18 12.6667C18.491 12.6667 18.889 13.0647 18.889 13.5557V17.6317L21.295 20.0377C21.643 20.3857 21.643 20.9487 21.295 21.2957C21.122 21.4687 20.895 21.5557 20.667 21.5557Z" fill="currentColor"/>`,
+enforcement:`<g transform="translate(18 18) scale(0.82) translate(-18 -18)"><path fill-rule="evenodd" clip-rule="evenodd" d="M27.6611 24.9668L13.8251 11.1308L11.1661 13.7888L25.0021 27.6248C25.3931 28.0158 26.0261 28.0158 26.4161 27.6248L27.6611 26.3798C28.0511 25.9888 28.0511 25.3568 27.6611 24.9668Z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="M21.458 13.0879C21.849 12.6979 21.849 12.0659 21.458 11.6749L18.076 8.29291C17.686 7.90191 17.053 7.90191 16.663 8.29291L14.711 10.2439L19.506 15.0399L21.458 13.0879Z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="M11.7109 21.4219C12.1009 21.8129 12.7339 21.8129 13.1249 21.4219L15.0759 19.4709L10.2799 14.6749L8.32891 16.6269C7.93891 17.0169 7.93891 17.6499 8.32891 18.0399L11.7109 21.4219Z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="M17.9946 26.001H8.9996C8.4476 26.001 7.9996 26.448 7.9996 27.001C7.9996 27.553 8.4476 28 8.9996 28H17.9946C18.5466 28 18.9946 27.553 18.9946 27.001C18.9946 26.448 18.5466 26.001 17.9946 26.001Z" fill="currentColor"/></g>`,
+scales:`<g transform="scale(1.0285714285714285)"><path d="M17.5 8 L17.5 26" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M14 26 L21 26" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M9 13 L17.5 11 L26 14" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M9 13 L6.5 19 L11.5 19 Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" fill="none"/><path d="M26 14 L23 21 L29 21 Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" fill="none"/></g>`,
+};
+function icon(key,s=22){ if(!SYM[key]) return ''; return `<span class="icon"><svg width="${s}" height="${s}" viewBox="0 0 36 36" fill="none">${SYM[key]}</svg></span>`; }
+
+/* ---------- schema-true palettes (from v1) ---------- */
+const AUTONOMY={
+  human_decides:{c:'var(--auto-human-decides)',label:'Human decides'},
+  human_executes:{c:'var(--auto-human-executes)',label:'Human executes'},
+  autonomous:{c:'var(--auto-autonomous)',label:'Autonomous'},
+};
+const PII={
+  de_identified:{c:'var(--pii-anon)',label:'Anonymized',dark:true},
+  pseudonymous:{c:'var(--pii-pseudo)',label:'Pseudonymous',dark:true},
+  identifiable:{c:'var(--pii-ident)',label:'Identifiable',dark:false},
+};
+/* affected.relationship — exact names from ai@2026-07-03-beta */
+const REL={
+  subject:{c:'var(--rel-subject)',label:'Decided about',dark:true},
+  bystander:{c:'var(--rel-bystander)',label:'Caught incidentally',dark:true},
+  community:{c:'var(--rel-community)',label:'Wider community',dark:true},
+};
+const ROLE={vendor:{c:'#3f6d8c',label:'Vendor'},deployer:{c:'#1f6f5c',label:'Deployer'}};
+
+const CAT={
+  purpose:{shape:'hexagon',fam:'who',cat:'Purpose'},
+  accountable:{shape:'hexagon',fam:'who',cat:'Accountable'},
+  affected:{shape:'hexagon',fam:'people',cat:'People affected'},
+  functional_modes:{shape:'hexagon',fam:'who',cat:'Functional Modes'},
+  processing:{shape:'circle',fam:'data',cat:'Algorithm / Model'},
+  input_dataset:{shape:'circle',fam:'data',cat:'Input Data'},
+  output_dataset:{shape:'circle',fam:'data',cat:'Output Data'},
+  storage:{shape:'rounded-square',fam:'where',cat:'Storage'},
+  access:{shape:'rounded-square',fam:'where',cat:'Access'},
+  retention:{shape:'rounded-square',fam:'where',cat:'Retention'},
+  risks_mitigation:{shape:'octagon',fam:'people',cat:'Risks & Mitigation'},
+  rights:{shape:'octagon',fam:'people',cat:'Rights'},
+};
+const FAMCOLOR={who:'var(--fam-who)',data:'var(--fam-data)',where:'var(--fam-where)',people:'var(--fam-people)'};
+const SHAPECLASS={hexagon:'hexr',circle:'circ',octagon:'octa','rounded-square':'sq'};
+
+/* ---------- token renderers ---------- */
+function tokenAutonomy(a){const t=AUTONOMY[a];return `<span class="dial"><span class="knob" style="--cc:${t.c}"></span><span class="dl">${t.label}</span></span>`;}
+function tokenPII(p){const t=PII[p];return `<span class="chip ${t.dark?'dark':''}" style="--cc:${t.c}"><span class="disc" style="--cc:${t.c}"></span>${t.label}</span>`;}
+function tokenREL(r){const t=REL[r];return `<span class="chip ${t.dark?'dark':''}" style="--cc:${t.c}"><span class="disc" style="--cc:${t.c}"></span>${t.label}</span>`;}
+function ribbon(role){const r=ROLE[role];return `<span class="ribbon" style="--cc:${r.c}">${r.label}</span>`;}
+function carryBadge(c){return `<span class="carry ${c}"><span class="dot"></span>${c}</span>`;}
+const coin=n=>`<span class="coin">${n}</span>`;
+
+/* =========================================================
+   SYSTEM CARDS — the deployer's hand (pattern: slots recur)
+   ========================================================= */
+const SYSTEM=[
+ {id:'pitch', cat:'purpose', ic:'entry', faceup:true,
+  nm:'The Pitch', ds:'Decide who may pass — no paper tickets, no fare inspectors, faster boarding.',
+  schema:'purpose · entry', chips:''},
+ {id:'model', cat:'functional_modes', ic:'matching',
+  nm:'The Model', ds:'A 1-to-N face matcher: compares every face at the gate against the full rider gallery. No staff in the loop.',
+  schema:'functional_modes · biometric_recognition', chips:tokenAutonomy('autonomous')},
+ {id:'reads', cat:'input_dataset', ic:'biometric',
+  nm:'What It Reads', ds:'Your live face — every rider, every tap, enrolled or not.',
+  schema:'input_dataset · input_biometric', chips:tokenPII('identifiable')},
+ {id:'makes', cat:'output_dataset', ic:'perceptive',
+  nm:'What It Makes', ds:'Match + rider ID + time + station: a movement log of the city, one tap at a time.',
+  schema:'output_dataset', chips:tokenPII('identifiable')},
+ {id:'lives', cat:'storage', ic:'stored',
+  nm:'Where It Lives', ds:'FaceGate Inc.’s cloud. Your face template leaves the station the moment it’s made.',
+  schema:'storage · stored_on_3rd_party_cloud', chips:''},
+ {id:'sees', cat:'access', ic:'thirdparty',
+  nm:'Who Sees It', ds:'Transit staff, FaceGate Inc. — and police on request. No warrant required in the current MOU.',
+  schema:'access · available_to_vendor', chips:''},
+ {id:'long', cat:'retention', ic:'retained',
+  nm:'How Long', ds:'Seven years. The standard records schedule, applied to faces.',
+  schema:'retention · data_retained', chips:''},
+ {id:'fineprint', cat:'accountable', ic:null,
+  nm:'The Fine Print', ds:'The contract: FaceGate retains match data. Accuracy numbers are proprietary.',
+  schema:'accountable · role: vendor', chips:ribbon('vendor')},
+ {id:'error', cat:'risks_mitigation', ic:null, sealed:true,
+  nm:'The Error Rate', ds:'False matches are not evenly distributed. The gate is wrong more often about the faces it was trained on least.',
+  schema:'risks_mitigation · civil_liberties_harm', chips:''},
+];
+
+/* =========================================================
+   CONTEXT CARDS — the community's hand (scenario: written fresh)
+   chips = affected.relationship (subject / bystander / community)
+   ========================================================= */
+const CONTEXT=[
+ {nm:'Night Shift', rel:'subject',
+  ds:'Cleaners and nurses ride at 2 a.m. A gate that errs at night strands someone alone on the platform.',
+  keys:'Keys: <b>The Model</b> (autonomous) · <b>Who Sees It</b>',
+  fx:'Reveal: night false-match events hit double — unless Human at the Gate is in play.'},
+ {nm:'The Jumpers', rel:'subject',
+  ds:'Fare evasion here is poverty, not sport. Every flag the gate raises becomes a police contact.',
+  keys:'Keys: <b>Who Sees It</b> · <b>What It Makes</b>',
+  fx:'Reveal: enforcement events add Legitimacy −1 while police access stands.'},
+ {nm:'No Papers', rel:'community',
+  ds:'Undocumented neighbors stop riding anything that asks who you are. They just disappear from the system — and the ridership.',
+  keys:'Keys: <b>What It Reads</b> · <b>Who Sees It</b>',
+  fx:'Reveal: Utility −2 at the Ridership Report — unless a Tap-to-Skip lane exists.'},
+ {nm:'The Misread', rel:'subject',
+  ds:'The neighbors this system reads worst are the ones who already get stopped the most.',
+  keys:'Keys: <b>The Error Rate</b> (sealed) · <b>The Model</b>',
+  fx:'Reveal: during any false-match event, force the sealed card open.'},
+ {nm:'Leaving Quietly', rel:'subject',
+  ds:'Some riders are hiding from someone. A movement log is a weapon that keeps.',
+  keys:'Keys: <b>What It Makes</b> · <b>How Long</b> · <b>Who Sees It</b>',
+  fx:'Reveal: breach and access events +2 severity — unless No Location Log or the 24-hour purge.'},
+ {nm:'The Plaza Regulars', rel:'bystander',
+  ds:'The vendors and chess players outside the station never ride. They face the cameras all day anyway.',
+  keys:'Keys: <b>What It Reads</b> · <b>The Pitch</b>',
+  fx:'Reveal: any scope-creep acceptance costs Legitimacy −2 — they never agreed to be data.'},
+ {nm:'Station Memory', rel:'community',
+  ds:'We remember the last “pilot.” It never left, and it never did what the flyer said.',
+  keys:'Keys: <b>The Pitch</b> · <b>The Fine Print</b>',
+  fx:'Reveal: vendor upgrade offers cost double Legitimacy — unless a Sunset Clause is seated.'},
+];
+
+/* =========================================================
+   QUESTION DECK — core, carries verbatim. Aimed at categories.
+   ========================================================= */
+const QUESTIONS=[
+ {q:'Who can see it?', cat:'access', target:'Who Sees It', note:'The schema’s own prompt. Aim at the access card.'},
+ {q:'How long do you keep me?', cat:'retention', target:'How Long', note:'Retention is where breaches go to grow.'},
+ {q:'Where does it live?', cat:'storage', target:'Where It Lives', note:'Whose building, whose jurisdiction, whose subpoena.'},
+ {q:'Does it decide alone?', cat:'functional_modes', target:'The Model', note:'Aim at the autonomy dial.'},
+ {q:'What happens when it’s wrong?', cat:'risks_mitigation', target:'The Error Rate / recourse', note:'If the target is sealed: “we don’t know” is a legal answer. It costs Legitimacy −1.'},
+ {q:'Can I say no?', cat:'rights', target:'What It Reads', note:'Is there a lane that doesn’t read you? (right_object)'},
+ {q:'Who profits?', cat:'accountable', target:'The Fine Print', note:'Follow the data clause, not the press release.'},
+ {q:'What else could it do?', cat:'purpose', target:'The Pitch', note:'Purpose limitation. Pre-empts the vendor’s “free upgrade.” (right_purpose_limitation)'},
+ {q:'Who is it used on?', cat:'affected', target:'the whole board', note:'The schema’s prompt for the new affected category. If the deployer’s answer misses anyone, the community reveals a Context card free.'},
+];
+
+/* =========================================================
+   FORUM DECK — core, carries verbatim. The rule-changers.
+   ========================================================= */
+const FORUM=[
+ {nm:'Notice at the Gate', schema:'rights · right_to_notice', cost:1, ic:'perceptive',
+  unlocks:'Community peeks at the top Event card each round.',
+  absorbs:'“Public discovers…” surprise penalties are halved — it was never a secret.'},
+ {nm:'Human Review on Demand', schema:'rights · right_to_human_review', cost:2, ic:null,
+  unlocks:'Once per round, downgrade a false-match event one step.',
+  absorbs:'Wrongful-stop Legitimacy hits halved.'},
+ {nm:'Contest & Correct', schema:'rights · right_contest + right_correction', cost:2, ic:'scales',
+  unlocks:'Once per round, discard one Backlash from the Event deck — grievances get processed instead of compounding.',
+  absorbs:'Lawsuits settle: −1 instead of −3.'},
+ {nm:'Community Oversight Seat', schema:'accountable_to · the edge itself', cost:3, ic:null,
+  unlocks:'Community privately inspects one face-down System card per round. Deflect now costs Legitimacy −2.',
+  absorbs:'Election-year swings halved — legitimacy is pre-built.'},
+ {nm:'Independent Audit, Published', schema:'rights · right_algorithmic_transparency', cost:2, ic:null,
+  unlocks:'Breaks the seal on the sealed card. Vendor “proprietary” claims are void.',
+  absorbs:'Accuracy events resolve one step milder — you knew, and said so.'},
+ {nm:'Sunset Clause', schema:'rights · right_purpose_limitation', cost:1, ic:'retained',
+  unlocks:'Scope-creep offers can be refused at no cost.',
+  absorbs:'Collapse becomes Wound Down: both sides recover +2.'},
+];
+
+/* =========================================================
+   REDESIGN DECK — deployer plays. Patterns recur; flavor is scenario's.
+   ========================================================= */
+const REDESIGNS=[
+ {nm:'On-Device Matching', cost:3, carry:'pattern',
+  swap:'<span class="from">FaceGate cloud</span> <span class="arr">→</span> <span class="to">inside the gate — nothing leaves</span>',
+  fx:'<span class="up">Breach events: nothing to leak.</span> Vendor reprices +1 after Round 2 — lock-in has a clock.'},
+ {nm:'Purge at Tap + 24h', cost:1, carry:'pattern',
+  swap:'<span class="from">7 years</span> <span class="arr">→</span> <span class="to">24 hours</span>',
+  fx:'<span class="up">FOIA and breach severity collapse.</span> The cheapest card in the deck. Ask why it wasn’t default.'},
+ {nm:'Tap-to-Skip Lane', cost:2, carry:'pattern',
+  swap:'<span class="from">every rider</span> <span class="arr">→</span> <span class="to">enrolled riders only — card lane stays open</span>',
+  fx:'<span class="dn">Utility −1</span> (a slower lane). <span class="up">Defuses No Papers.</span> This is right_object, built in concrete.'},
+ {nm:'No Location Log', cost:2, carry:'pattern',
+  swap:'<span class="from">match + ID + time + station</span> <span class="arr">→</span> <span class="to">pass / no-pass, nothing kept</span>',
+  fx:'<span class="up">Kills the movement log. Leaving Quietly is defused.</span> Billing still works — ask the vendor why it logged.'},
+ {nm:'Human at the Gate', cost:1, carry:'pattern', recurring:true,
+  swap:tokenAutonomy('autonomous')+' <span class="arr">→</span> '+tokenAutonomy('human_executes'),
+  fx:'<span class="wn">Costs 1 every round</span> — staffing. <span class="dn">Utility −1 at peak.</span> Safeguards you must keep paying for are safeguards that lapse (see: Budget Cut).'},
+ {nm:'Warrant Required', cost:2, carry:'pattern',
+  swap:'<span class="from">police on request</span> <span class="arr">→</span> <span class="to">warrant only</span>',
+  fx:'<span class="up">Protest-related requests die at the gate.</span> <span class="dn">−1 political capital</span> with the department.'},
+ {nm:'Renegotiate the Fine Print', cost:3, carry:'scenario',
+  swap:'<span class="from">vendor retains match data</span> <span class="arr">→</span> <span class="to">data is the city’s; accuracy disclosed to auditor</span>',
+  fx:'<span class="up">Voids “The Data Is Ours” and “Proprietary.”</span> Expensive because you’re buying back what you gave away at procurement.'},
+];
+
+/* =========================================================
+   VENDOR CARDS — now a subtype of the Event deck (scenario).
+   Shuffled in with world events + Backlash; one draw / round.
+   ========================================================= */
+const VENDOR=[
+ {nm:'“The data is ours.”',
+  ds:'The contract you signed says match data belongs to FaceGate.',
+  choice:'If the Fine Print stands, FaceGate ships an “Insights” product: shuffle the Data-Broker event in. Or renegotiate now at +1 cost.'},
+ {nm:'“Cloud, or the price doubles.”',
+  ds:'On-device is “not on the roadmap” — unless you pay for the roadmap.',
+  choice:'On-Device Matching costs +2 from now on. Redesigns get dearer the longer you wait.'},
+ {nm:'“That’s proprietary.”',
+  ds:'Accuracy figures are a trade secret. Even from you.',
+  choice:'Independent Audit costs +1 unless the Fine Print is renegotiated. The seal holds.'},
+ {nm:'“Free upgrade: emotion detection.”',
+  ds:'Same cameras, new model. The board would love it.',
+  choice:'Accept: Utility +1, a new purpose lands without asking — and Plaza Regulars / Station Memory trigger. Decline: nothing. The temptation card.'},
+ {nm:'“Reference customer discount.”',
+  ds:'Take 2 budget now; your logo goes on their sales deck.',
+  choice:'Gain 2 — and every future Deflect costs +1 Legitimacy. You’re defending them now.'},
+];
+
+/* =========================================================
+   EVENT DECK — 4 core + 4 scenario world events, plus the
+   5 Vendor cards (below) and 4 Backlash. One draw per round.
+   Every event resolves against the board.
+   ========================================================= */
+const EVENTS=[
+ {nm:'Breach at the Vendor', carry:'core',
+  lines:[
+   {cond:'Cloud + years of retention:', txt:'riders’ faces and movement logs leak. <span class="dn">Legitimacy −4.</span> Leaving Quietly may add −2.'},
+   {cond:'On-device, or 24h purge:', txt:'“nothing to leak.” <span class="up">Legitimacy +2</span> — the told-you-so bonus.'}]},
+ {nm:'Budget Cut', carry:'core',
+  lines:[
+   {cond:'Always:', txt:'<span class="dn">Budget −2.</span>'},
+   {cond:'If Human at the Gate is active:', txt:'keep paying its upkeep, or it lapses — the dial snaps back to <b>autonomous</b>. Safeguards decay.'}]},
+ {nm:'Election Year', carry:'core',
+  lines:[
+   {cond:'This round:', txt:'every Legitimacy change is doubled, both directions.'},
+   {cond:'Oversight Seat in play:', txt:'halved instead. Legitimacy you built is legitimacy you keep.'}]},
+ {nm:'The FOIA', carry:'core',
+  lines:[
+   {cond:'Per prior Deflect:', txt:'<span class="dn">Legitimacy −1</span> — deflections become receipts.'},
+   {cond:'Everything already face-up:', txt:'<span class="up">Legitimacy +1.</span> “Nothing to find” is a story too.'}]},
+ {nm:'False Match at Gate 7', carry:'scenario',
+  lines:[
+   {cond:'A nurse, 2 a.m., held 40 minutes.', txt:'Night Shift keys this.'},
+   {cond:'Autonomous + no recourse:', txt:'<span class="dn">Legitimacy −3</span>, seed a Backlash.'},
+   {cond:'Human at the Gate, or Human Review seated:', txt:'<span class="dn">−1</span>, then <span class="up">+1 back</span> — handled well is a story that helps.'}]},
+ {nm:'Protest at the Plaza', carry:'scenario',
+  lines:[
+   {cond:'PD requests gate logs for the crowd.', txt:''},
+   {cond:'Access “on request” + the log exists:', txt:'comply quietly — <span class="dn">Legitimacy −3 when it surfaces</span> (and The FOIA surfaces it).'},
+   {cond:'Warrant Required:', txt:'the request dies. <span class="up">Legitimacy +2.</span>'}]},
+ {nm:'The Twins', carry:'scenario',
+  lines:[
+   {cond:'One sibling billed for the other’s rides.', txt:'A small, human-sized failure.'},
+   {cond:'Contest & Correct seated:', txt:'fixed in a day. <span class="up">Legitimacy +1</span> — charm.'},
+   {cond:'No recourse:', txt:'<span class="dn">−1</span>, and it’s a local-news segment.'}]},
+ {nm:'Ridership Report', carry:'scenario',
+  lines:[
+   {cond:'Count Utility honestly.', txt:''},
+   {cond:'No Papers revealed and unaddressed:', txt:'<span class="dn">Utility −2 sticks.</span> Avoidance is invisible until you count.'},
+   {cond:'Tap-to-Skip exists:', txt:'<span class="dn">Utility −1</span> only. Else: <span class="up">Utility +1 confirmed.</span>'}]},
+];
+const BACKLASH=[
+ {nm:'Fare Strike', carry:'scenario', seed:'organized refusal',
+  lines:[{cond:'Organized non-payment:', txt:'<span class="dn">Utility −2, Legitimacy −1.</span> Contest & Correct may defuse it once.'}]},
+ {nm:'See You in Court', carry:'core', seed:'every deck has lawyers',
+  lines:[{cond:'Injunction:', txt:'Utility frozen one round. With Contest & Correct: settle for <span class="dn">Budget −1</span> instead.'}]},
+ {nm:'The Council Hearing', carry:'core', seed:'forced disclosure',
+  lines:[{cond:'Subpoena the deck:', txt:'the deployer flips one face-down card of the community’s choice. In public.'}]},
+ {nm:'Gates Held Open', carry:'scenario', seed:'quiet noncompliance',
+  lines:[{cond:'Jumping is normalized; staff look away:', txt:'<span class="dn">Utility −2.</span> The system works and nobody obeys it.'}]},
+];
+
+/* ---------- renderers ---------- */
+function catHead(catKey){
+  const m=CAT[catKey], c=FAMCOLOR[m.fam];
+  return `<div class="chead">${badge(m.shape,c)}<span class="cat">${m.cat}</span></div>`;
+}
+
+function systemCardHTML(d){
+  const m=CAT[d.cat], cls=SHAPECLASS[m.shape];
+  const front=`<div class="card ${cls} cardback ${d.sealed?'sealed':''}" data-flip="${d.id}">
+      ${catHead(d.cat)}
+      <div class="fd">${d.sealed?'Sealed':'Face down'}</div>
+      <div class="hint">${d.sealed?'Neither player may look.<br>Opened only by Audit or an Event.':'Ask about it — flipping is an Answer.'}</div>
+      ${d.sealed?'<div class="waxseal">✕</div>':''}
+    </div>`;
+  const back=`<div class="card ${cls}">
+      ${carryBadge('pattern')}
+      <div class="chead">${d.ic?icon(d.ic):badge(m.shape,FAMCOLOR[m.fam])}<span class="cat">${m.cat}</span></div>
+      <div class="nm">${d.nm}</div>
+      <div class="ds">${d.ds}</div>
+      ${d.chips?`<div class="tokens">${d.chips}</div>`:''}
+      <div class="schema">${d.schema}</div>
+    </div>`;
+  return `<div class="flip ${d.faceup?'flipped':''}" id="flip-${d.id}">
+      <div class="inner"><div class="face front">${front}</div><div class="face back">${back}</div></div>
+    </div>${d.sealed?'<div style="width:176px;text-align:center;margin-top:6px"><span class="auditlink" id="auditlink">⚖ run the independent audit — break the seal</span></div>':''}`;
+}
+
+function contextCardHTML(d){
+  return `<div class="card octa ctxcard">
+    ${carryBadge('scenario')}
+    ${catHead('affected')}
+    <div class="nm">${d.nm}</div>
+    <div class="ds">${d.ds}</div>
+    <div class="tokens">${tokenREL(d.rel)}</div>
+    <div class="keys">${d.keys}<br>${d.fx}</div>
+  </div>`;
+}
+
+function questionCardHTML(d){
+  const m=CAT[d.cat];
+  return `<div class="card sq qcard">
+    ${carryBadge('core')}
+    <div class="chead"><span class="qmark">?</span><span class="cat">Question · costs 1 <span class="att"></span></span></div>
+    <div class="bigq">${d.q}</div>
+    <div class="target">${badge(m.shape,FAMCOLOR[m.fam],15)} aims at <b>${d.target}</b></div>
+    <div class="ds" style="font-size:.68rem">${d.note}</div>
+    <div class="resfoot"><b>Answer</b> flip it · <b>Deflect</b> Legit −1 + Backlash · <b>Redesign</b> play &amp; pay</div>
+  </div>`;
+}
+
+function forumCardHTML(d,i){
+  return `<div class="card sq forum" data-forum="${i}">
+    ${carryBadge('core')}
+    <div class="chead">${d.ic?icon(d.ic,20):badge('octagon',FAMCOLOR.people,20)}<span class="cat">Forum · ${coin(d.cost)} + 1 <span class="att"></span></span></div>
+    <div class="nm">${d.nm}</div>
+    <div class="fx"><span class="up">Unlocks:</span> ${d.unlocks}</div>
+    <div class="fx"><span class="wn">Absorbs:</span> ${d.absorbs}</div>
+    <div class="schema">${d.schema}</div>
+    <span class="seatcue">click to seat at the table ↑</span>
+  </div>`;
+}
+
+function redesignCardHTML(d){
+  return `<div class="card sq rcard">
+    ${carryBadge(d.carry)}
+    <div class="chead">${badge('rounded-square',FAMCOLOR.where,20)}<span class="cat">Redesign · ${coin(d.cost)}${d.recurring?' / round':''}</span></div>
+    <div class="nm">${d.nm}</div>
+    <div class="swap">${d.swap}</div>
+    <div class="fx">${d.fx}</div>
+  </div>`;
+}
+
+function vendorCardHTML(d){
+  return `<div class="card sq vcard">
+    ${carryBadge('scenario')}
+    <div class="chead">${ribbon('vendor')}<span class="cat">Vendor event · FaceGate Inc.</span></div>
+    <div class="vq">${d.nm}</div>
+    <div class="ds">${d.ds}</div>
+    <div class="fx" style="border-top:1px dashed #ddd3ba;padding-top:5px;margin-top:auto">${d.choice}</div>
+  </div>`;
+}
+
+function eventCardHTML(d,isBacklash){
+  return `<div class="card sq ${isBacklash?'bcard':'ecard'}">
+    ${carryBadge(d.carry)}
+    <div class="chead"><span class="cat" style="color:${isBacklash?'#6e2417':'#a3341f'}">${isBacklash?'⚑ Backlash · seeded by '+d.seed:'Event'}</span></div>
+    <div class="nm">${d.nm}</div>
+    <div class="resolve">${d.lines.map(l=>`<div class="rl"><span class="cond">${l.cond}</span> ${l.txt}</div>`).join('')}</div>
+  </div>`;
+}
+
+/* ---------- mount ---------- */
+document.getElementById('systemSlots').innerHTML=SYSTEM.map(systemCardHTML).join('');
+document.getElementById('contextSlots').innerHTML=CONTEXT.map(contextCardHTML).join('');
+document.getElementById('questionDeck').innerHTML=QUESTIONS.map(questionCardHTML).join('');
+document.getElementById('forumDeck').innerHTML=FORUM.map(forumCardHTML).join('');
+document.getElementById('redesignDeck').innerHTML=REDESIGNS.map(redesignCardHTML).join('');
+document.getElementById('eventDeck').innerHTML=
+  EVENTS.map(e=>eventCardHTML(e,false)).join('')
+  +VENDOR.map(vendorCardHTML).join('')
+  +BACKLASH.map(e=>eventCardHTML(e,true)).join('');
+
+/* ---------- interactions ---------- */
+function updateFacedown(){
+  const n=SYSTEM.filter(d=>!document.getElementById('flip-'+d.id).classList.contains('flipped')).length;
+  document.getElementById('fdcount').textContent=n;
+}
+document.querySelectorAll('[data-flip]').forEach(el=>{
+  el.addEventListener('click',()=>{
+    const id=el.dataset.flip, d=SYSTEM.find(s=>s.id===id);
+    if(d.sealed){ el.classList.remove('shake'); void el.offsetWidth; el.classList.add('shake'); return; }
+    document.getElementById('flip-'+id).classList.add('flipped');
+    updateFacedown();
+  });
+});
+document.getElementById('auditlink').addEventListener('click',()=>{
+  document.getElementById('flip-error').classList.add('flipped');
+  document.getElementById('auditlink').outerHTML='<span style="font-size:.66rem;color:#8fe0c4">seal broken — the audit published</span>';
+  updateFacedown();
+});
+
+/* forum seating: the thesis, interactive */
+const seated=new Set();
+function renderTable(){
+  const t=document.getElementById('tableSlots');
+  if(seated.size===0){
+    t.innerHTML='<div class="zerosum">◇ <span><b>The table is empty — the game is zero-sum.</b> Shared endings locked; every Deflect seeds <b>two</b> Backlash. Seat a Forum card from the deck below.</span></div>';
+  }else{
+    t.innerHTML='<div class="seatedrow">'+[...seated].map(i=>`<span class="seatplate">${FORUM[i].nm}<span class="rm" data-unseat="${i}" title="remove">✕</span></span>`).join('')+'</div>';
+    t.querySelectorAll('[data-unseat]').forEach(x=>x.addEventListener('click',ev=>{ev.stopPropagation();seated.delete(+x.dataset.unseat);renderTable();}));
+  }
+  document.querySelectorAll('.ending.lockable').forEach(e=>e.classList.toggle('unlocked',seated.size>0));
+  document.querySelectorAll('[data-forum]').forEach(c=>c.classList.toggle('seated',seated.has(+c.dataset.forum)));
+}
+document.querySelectorAll('[data-forum]').forEach(c=>{
+  c.addEventListener('click',()=>{
+    const i=+c.dataset.forum;
+    seated.has(i)?seated.delete(i):seated.add(i);
+    renderTable();
+  });
+});
+renderTable();
+updateFacedown();
+
+/* dials */
+function track(el,val,fillClass){
+  const cells=[];
+  for(let i=1;i<=10;i++){
+    let cls='cell';
+    if(i<=val) cls+=' '+fillClass;
+    if(i===3) cls+=' floor';
+    if(i===7) cls+=' goal';
+    cells.push(`<div class="${cls}"></div>`);
+  }
+  document.getElementById(el).innerHTML=cells.join('');
+}
+track('utrack',6,'fill-u');
+track('ltrack',5,'fill-l');
+</script>
+</body>
+</html>

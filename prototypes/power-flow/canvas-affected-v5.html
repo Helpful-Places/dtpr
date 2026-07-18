@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>DTPR Power Canvas — v5 · clean board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#f6f6f4; --card:#ffffff; --ink:#1b1b19; --muted:#72726c;
+    --line:#e6e5e0; --chip:#f3f3ef;
+    --signal:#c2410c;            /* the affected seat */
+    --alarm:#b42318;             /* missing rights / safeguards */
+    --teal:#0f5153;              /* DTPR accent — eyebrow + links only */
+    --mono:ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Public Sans',system-ui,-apple-system,sans-serif;color:var(--ink);
+    background:var(--paper);line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:var(--teal);font-weight:600}
+  a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:3px}
+  .wrap{max-width:920px;margin:0 auto;padding:48px 24px 90px}
+
+  /* ---- page header ---- */
+  .eyebrow{display:inline-block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;
+    color:var(--teal);border:1px solid color-mix(in srgb,var(--teal) 30%,transparent);
+    padding:4px 11px;border-radius:999px;margin-bottom:18px;background:var(--card)}
+  h1{font-size:2rem;font-weight:700;letter-spacing:-.015em;margin:0 0 8px}
+  .sub{color:var(--muted);font-size:1rem;max-width:66ch;margin:0}
+  .views{margin:14px 0 0;font-size:.85rem;color:var(--muted)}
+  .views b{color:var(--ink);font-weight:600}
+  .thesis{font-size:.95rem;max-width:74ch;margin:22px 0 0;padding:14px 18px;background:var(--card);
+    border:1px solid var(--line);border-left:3px solid var(--signal);border-radius:0 10px 10px 0}
+  .thesis b{color:var(--signal)}
+  code{font-family:var(--mono);font-size:.84em;background:var(--chip);border:1px solid var(--line);
+    padding:1px 5px;border-radius:5px}
+
+  h3.section{font-size:1.1rem;font-weight:700;margin:56px 0 4px}
+  .section-sub{color:var(--muted);font-size:.9rem;margin:0 0 18px;max-width:74ch}
+
+  /* ---- the board: one spec-sheet card, hairline rules ---- */
+  .board{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);
+    border:1px solid var(--line);border-radius:16px;overflow:hidden;margin:0 0 30px;
+    box-shadow:0 1px 2px rgba(27,27,25,.04),0 16px 36px -30px rgba(27,27,25,.3)}
+  .cell{background:var(--card);padding:18px 22px;min-width:0}
+  .span2{grid-column:1/-1}
+  .zl{font-size:.64rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+
+  /* name at the top of the canvas */
+  .head{padding:20px 22px 18px}
+  .head-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .sysno{display:block;font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:3px}
+  .head h2{margin:0;font-size:1.35rem;font-weight:700;letter-spacing:-.01em}
+  .read{margin:10px 0 0;font-size:.92rem;color:var(--muted);max-width:72ch}
+
+  .chip{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:600;
+    background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:5px 13px 5px 8px;white-space:nowrap}
+  .chip img,.chip svg{display:block}
+  .chip .k{font-weight:600;font-size:.66rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+
+  .piece{display:flex;align-items:center;gap:12px;min-width:0}
+  .piece img,.piece svg{flex:none;display:block}
+  .piece .pn{font-weight:600;font-size:.95rem;line-height:1.3;min-width:0}
+  .piece .ps{display:block;font-weight:400;font-size:.78rem;color:var(--muted);margin-top:1px}
+
+  .sysrow{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .mode-icons{display:flex;gap:8px;flex:none}
+  .sys-sentence{margin:0;font-size:.98rem;color:var(--ink)}
+  .sys-sentence strong{font-weight:700;padding-bottom:1px}
+  .vflow{display:flex;flex-direction:column}
+  .vrow{display:flex;align-items:center;justify-content:space-between;gap:14px 18px;flex-wrap:wrap}
+  .vctx{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+  .vctx .chip{font-weight:500;font-size:.78rem;padding:4px 12px 4px 7px}
+  .vctx .chip i{font-style:normal;color:var(--muted)}
+  .varrow{color:var(--muted);font-size:1.05rem;line-height:1;margin:6px 0 6px 13px}
+  .pii{display:inline-flex;align-items:center;gap:5px;font-size:.66rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;
+    color:var(--muted);background:var(--chip);border:1px solid var(--line);border-radius:5px;padding:1px 6px;margin-top:4px}
+  .dot{flex:none;width:8px;height:8px;border-radius:50%;display:inline-block;border:1px solid rgba(0,0,0,.12)}
+
+  .riskrow{display:flex;align-items:flex-start;gap:14px}
+  .riskrow .pn{font-weight:600;font-size:.95rem}
+  .riskrow .rd{font-size:.86rem;color:var(--muted);margin-top:2px;max-width:64ch}
+  .safeguard{margin-top:8px;font-size:.8rem}
+  .safeguard .k{font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-right:8px}
+
+  /* the affected seat */
+  .z-usedon{position:relative}
+  .rel-word{font-style:italic;font-weight:700;font-size:.95rem;color:var(--ink);text-transform:none;letter-spacing:0}
+  .rel-line{font-size:.86rem;color:var(--muted);margin:12px 0 0;max-width:52ch}
+
+  .rights{display:flex;flex-direction:column;gap:13px}
+  .right{display:flex;align-items:flex-start;gap:10px;font-size:.85rem}
+  .right img{flex:none}
+  .right .rn{font-weight:600}
+  .right .rs{color:var(--muted);font-weight:400}
+  .racts{display:flex;gap:6px;flex-wrap:wrap;margin-top:7px}
+  a.act{display:inline-flex;align-items:center;gap:6px;font-size:.74rem;font-weight:600;color:var(--teal);
+    text-decoration:none;background:var(--card);border:1px solid color-mix(in srgb,var(--teal) 34%,transparent);
+    border-radius:999px;padding:3px 11px;transition:background .12s,color .12s,border-color .12s}
+  a.act:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  a.act svg{flex:none}
+  .esc{padding-top:12px;border-top:1px dashed var(--line)}
+  .esc .ek{display:block;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+
+  .alarm{display:flex;align-items:center;gap:10px;font-size:.86rem;font-weight:600;color:var(--alarm);
+    border:1.5px dashed color-mix(in srgb,var(--alarm) 45%,transparent);border-radius:10px;padding:10px 14px;
+    background:color-mix(in srgb,var(--alarm) 4%,var(--card))}
+  .bang{flex:none;width:18px;height:18px;border-radius:50%;background:var(--alarm);color:#fff;
+    font-size:.72rem;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+
+  /* relationship legend */
+  .rel-legend{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .rel-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 16px 18px;min-width:0}
+  .rel-card .rc-head{display:flex;align-items:center;gap:11px;margin-bottom:9px}
+  .rel-card .rc-name{font-weight:700;font-size:.98rem}
+  .rel-card .rc-id{display:block;font-family:var(--mono);font-weight:400;font-size:.7rem;color:var(--signal)}
+  .rel-card .rc-desc{font-size:.84rem;color:var(--muted)}
+
+  /* zone → category table */
+  .maptable{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);
+    border-radius:14px;overflow:hidden;font-size:.88rem}
+  .maptable th,.maptable td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  .maptable tr:last-child td{border-bottom:none}
+  .maptable th{font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);background:var(--chip)}
+  .maptable td:last-child{color:var(--muted);font-size:.84rem}
+  .maptable tr.new td{background:color-mix(in srgb,var(--signal) 5%,var(--card))}
+  .newflag{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.06em;color:#fff;
+    background:var(--signal);border-radius:5px;padding:1px 6px;margin-left:8px;vertical-align:middle}
+
+  footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font-size:.84rem;max-width:80ch}
+
+  @media (max-width:680px){
+    .board{grid-template-columns:1fr}
+    .span2{grid-column:auto}
+    .rel-legend{grid-template-columns:1fr}
+    .pieces{gap:16px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="eyebrow">Prototype · v5 · real DTPR icons</span>
+  <h1>DTPR Power Canvas</h1>
+  <p class="sub">A fixed disclosure board for AI systems in public places, read top to bottom: who's behind it → what it is → what it takes and gives → what could go wrong → who it's used on, and what they can do. Same seats, every system.</p>
+  <nav class="views"><b>Board view</b> · <a href="canvas-affected-v5-compare.html">Compare view →</a></nav>
+  <div class="thesis">
+    The <b>Used on</b> seat is driven by the <code>affected</code> category (shipped in <code>ai@2026-07-03-beta</code>) and its
+    <code>relationship</code> discriminator — <b>subject</b> / <b>bystander</b> / <b>community</b> — so each board says
+    not just <em>who</em> the system touches but <em>how</em>.
+  </div>
+
+  <h3 class="section">Four systems, one canvas</h3>
+  <p class="section-sub">Every icon below is the real composed DTPR icon, loaded from <code>api.dtpr.io</code>. The system's name sits at the top of its canvas; the seats below never move.</p>
+  <div id="systems"></div>
+
+  <h3 class="section">The new seat: <code>affected</code> · a <code>relationship</code> discriminator</h3>
+  <p class="section-sub">A required category with one generic <code>people</code> element. Names and descriptions verbatim from the schema.</p>
+  <div class="rel-legend" id="rellegend"></div>
+
+  <h3 class="section">Where the DTPR categories land</h3>
+  <p class="section-sub">All 12 AI-taxonomy categories have a permanent seat on the board.</p>
+  <table class="maptable" id="maptable"></table>
+
+  <footer id="foot"></footer>
+</div>
+
+<script>
+/* ---- real DTPR icons, composed by the API ---- */
+const API='https://api.dtpr.io/api/v2/schemas/ai@2026-05-06-beta/elements/';
+const ic=(id,s=44)=>`<img src="${API}${id}/icon.svg" width="${s}" height="${s}" alt="" loading="lazy" style="object-fit:contain">`;
+
+/* people (affected) shipped in ai@2026-07-03-beta, not yet deployed to the icon API —
+   composed here exactly like the API does: hexagon frame + the schema's people symbol. */
+const HEXPATH='M31.8564 8.8453L19 1.42265C18.3812 1.06538 17.6188 1.06538 17 1.42265L4.14359 8.8453C3.52479 9.20257 3.14359 9.86282 3.14359 10.5774V25.4226C3.14359 26.1372 3.52479 26.7974 4.14359 27.1547L17 34.5774C17.6188 34.9346 18.3812 34.9346 19 34.5774L31.8564 27.1547C32.4752 26.7974 32.8564 26.1372 32.8564 25.4226V10.5774C32.8564 9.86282 32.4752 9.20256 31.8564 8.8453Z';
+const PEOPLE='<path d="M13.5 10.6667C15.1569 10.6667 16.5 12.0098 16.5 13.6667C16.5 15.3235 15.1569 16.6667 13.5 16.6667C11.8431 16.6667 10.5 15.3235 10.5 13.6667C10.5 12.0098 11.8431 10.6667 13.5 10.6667Z"/><path d="M22.5 10.6667C24.1569 10.6667 25.5 12.0098 25.5 13.6667C25.5 15.3235 24.1569 16.6667 22.5 16.6667C20.8431 16.6667 19.5 15.3235 19.5 13.6667C19.5 12.0098 20.8431 10.6667 22.5 10.6667Z"/><path d="M13.5 18C10.1863 18 7.5 20.6863 7.5 24V25.3333H19.5V24C19.5 20.6863 16.8137 18 13.5 18Z"/><path d="M22.5 18C21.9316 18 21.3818 18.0791 20.8608 18.2266C22.1863 19.7061 23 21.6589 23 24V25.3333H28.5V24C28.5 20.6863 25.8137 18 22.5 18Z"/>';
+const peopleIc=(s=44)=>`<svg width="${s}" height="${s}" viewBox="0 0 36 36" aria-hidden="true"><path d="${HEXPATH}" fill="none" stroke="#000" stroke-width="2"/><g fill="#000">${PEOPLE}</g></svg>`;
+
+/* element_context value colors, verbatim from the API schema (role + relationship are null → no dot) */
+const CTX={
+  human_decides:'#2A9D8F', human_executes:'#6A1B7A', autonomous:'#E76F51',   // functional_modes · autonomy
+  de_identified:'#4A90D9', pseudonymous:'#9575CD', identifiable:'#FFD700',   // input/output · pii
+};
+const dot=id=>CTX[id]?`<i class="dot" style="background:${CTX[id]}"></i>`:'';
+
+/* action affordances — modeled on the instance schema's first-class actions
+   (InstanceAction: type email|url|phone|form|postal + label + target) */
+const G={
+  email:'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M3.5 7.5l8.5 6 8.5-6"/></svg>',
+  url:'<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9.2 6.6h8.2v8.2"/></svg>',
+  form:'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12.5 5H5.7A1.7 1.7 0 004 6.7v11.6A1.7 1.7 0 005.7 20h11.6a1.7 1.7 0 001.7-1.7V11.5"/><path d="M17.6 3.7l2.7 2.7-8.6 8.6-3.5.8.8-3.5z"/></svg>',
+  phone:'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M5.2 4h3.6l1.6 4.2-2.2 1.8a13.4 13.4 0 005.8 5.8l1.8-2.2 4.2 1.6v3.6a1.8 1.8 0 01-1.9 1.8A16.2 16.2 0 013.4 5.9 1.8 1.8 0 015.2 4z"/></svg>',
+};
+const mailBody=(sy,right)=>`To whom it may concern,
+
+I am exercising my "${right}" under the DTPR disclosure for:
+
+  System: ${sy.name} (ref ${sy.ref})
+  Operated by: ${sy.runby.name}
+
+Details of my request:
+
+`;
+const actHref=(a,sy,right)=>{
+  if(a.type==='email')return `mailto:${a.target}?subject=${encodeURIComponent(`[${sy.ref}] ${right} — ${sy.name}`)}&body=${encodeURIComponent(mailBody(sy,right))}`;
+  if(a.type==='phone')return `tel:${a.target}`;
+  return a.target;
+};
+const actBtn=(a,sy,right)=>`<a class="act" href="${actHref(a,sy,right)}"${a.type==='url'||a.type==='form'?' target="_blank" rel="noopener"':''}>${G[a.type]||''}${a.label}</a>`;
+
+/* affected · relationship — names + descriptions verbatim from ai@2026-07-03-beta */
+const REL={
+  subject:{name:'Decided about',word:'individuals',tail:'The system’s output affects each of them directly.',
+    desc:'The system produces an output about this person that affects them directly — a score, a match, an eligibility call.'},
+  bystander:{name:'Caught incidentally',word:'bystanders',tail:'Swept into the data; no decision is made about them.',
+    desc:'Swept into the system’s data even though it isn’t making a decision about them — a face in the background of a camera aimed elsewhere.'},
+  community:{name:'Wider community',word:'a community',tail:'Affected together, beyond any one person it processes.',
+    desc:'A place or group affected collectively, beyond the individuals the system processes — a neighbourhood under watch, a ranked workforce.'},
+};
+
+const SYSTEMS=[
+ {
+  no:'System 1 of 4', ref:'MT-FG-104', name:'Face-matching fare gates',
+  read:'Metro Transit runs face-matching gates that decide on their own who may pass. Used on every rider; riders can opt out and ask for a human review.',
+  purpose:{id:'entry',t:'Entry'},
+  builtby:{el:'organization',name:'FaceGate Inc.',sub:'Vendor'},
+  runby:{el:'institution',name:'Metro Transit',sub:'Deployer'},
+  modes:[{id:'perceptive_mode',t:'Sensing',s:'Perceptive AI'},{id:'analytical_mode',t:'Deciding',s:'Analytical AI'}],
+  processing:{id:'biometric_recognition',t:'Biometric Recognition',s:'face match'},
+  autonomy:{id:'autonomous',t:'Autonomous'},
+  input:{id:'input_biometric',t:'Biometric',s:'your face',pii:{id:'identifiable',t:'Identifiable'},
+    ctx:[{id:'data_retained',t:'Retained 24 hours'},{id:'stored_on_3rd_party_cloud',t:'Stored on 3rd Party Cloud',s:'vendor'}]},
+  output:{id:'output_decision',t:'A decision about you',s:'match / no-match',pii:{id:'identifiable',t:'Identifiable'},
+    ctx:[{id:'available_to_the_accountable_organization',t:'Available to transit police'}]},
+  risk:{id:'civil_liberties_harm',t:'Civil liberties harm',d:'A misidentification can stop the wrong person at the gate.',safeguard:'Human review on request'},
+  usedon:{name:'All riders',sub:'~2.3M people a day',rel:'subject'},
+  rights:[
+    {id:'right_object',t:'Right to Stop Processing',s:'opt out, tap a card instead',
+     acts:[{type:'url',label:'Get a fare card',target:'https://metrotransit.example/farecard'}]},
+    {id:'right_contest',t:'Right to Contest',s:'challenge a match',
+     acts:[{type:'form',label:'Start an appeal',target:'https://metrotransit.example/appeals'}]},
+    {id:'right_to_human_review',t:'Right to a Human Review',
+     acts:[{type:'email',label:'Email the review desk',target:'review@metrotransit.example'}]},
+  ],
+  escalate:{k:'If that fails — independent oversight',
+    acts:[{type:'email',label:'Email the Transit Ombudsman',target:'complaints@transitombudsman.example'}]},
+ },
+ {
+  no:'System 2 of 4', ref:'CB-ELG-207', name:'Benefits eligibility scoring',
+  read:'The County Benefits Dept. runs a vendor risk score that a caseworker acts on. It decides applicants’ benefits — with no notice and no appeal.',
+  purpose:{id:'eligibility_benefits',t:'Eligibility & Public Benefits'},
+  builtby:{el:'organization',name:'RiskModel Co.',sub:'Vendor'},
+  runby:{el:'institution',name:'County Benefits Dept.',sub:'Deployer'},
+  modes:[{id:'analytical_mode',t:'Deciding',s:'Analytical AI'}],
+  processing:{id:'classification_prediction',t:'Classification & Prediction',s:'risk score'},
+  autonomy:{id:'human_executes',t:'Human executes'},
+  input:{id:'input_sensitive_personal',t:'Sensitive personal information',s:'your case records',pii:{id:'identifiable',t:'Identifiable'},
+    ctx:[{id:'data_retained',t:'Retained 7 years'},{id:'stored_locally',t:'Stored locally',s:'county servers'}]},
+  output:{id:'output_recommendation',t:'A recommendation or prediction',s:'a risk score',pii:{id:'identifiable',t:'Identifiable'},
+    ctx:[{id:'available_to_vendor',t:'Available to vendor',s:'+ caseworkers'}]},
+  risk:{id:'financial_harm',t:'Financial & business harm',d:'A wrong score can deny someone the benefits they depend on.',safeguard:null},
+  usedon:{name:'Benefit applicants',sub:'every applicant is scored',rel:'subject'},
+  rights:[],
+  escalate:{k:'The operator lists no path — outside routes still exist',
+    acts:[{type:'email',label:'Email the State Benefits Ombudsman',target:'ombudsman@benefits.state.example'},
+          {type:'form',label:'File with the Privacy Commissioner',target:'https://privacy.state.example/complaints'}]},
+ },
+ {
+  no:'System 3 of 4', ref:'DOT-NUM-58', name:'Sidewalk people-counting sensor',
+  read:'City DOT runs a curbside sensor to plan mobility. It counts passers-by incidentally and anonymizes on the device — no images leave the pole.',
+  purpose:{id:'mobility',t:'Mobility'},
+  builtby:{el:'organization',name:'Numina',sub:'Vendor'},
+  runby:{el:'institution',name:'City DOT',sub:'Deployer'},
+  modes:[{id:'perceptive_mode',t:'Sensing',s:'Perceptive AI'}],
+  processing:{id:'computer_vision',t:'Computer Vision',s:'object counting'},
+  autonomy:{id:'human_decides',t:'Human decides'},
+  input:{id:'input_about_behaviour',t:'About behaviour',s:'live video of passers-by',pii:{id:'identifiable',t:'Identifiable · discarded'},
+    ctx:[{id:'no_data_retained',t:'No data retained',s:'no video kept'}]},
+  output:{id:'output_about_a_measurement',t:'About a measurement',s:'counts — no images',pii:{id:'de_identified',t:'De-identified'},
+    ctx:[{id:'stored_locally',t:'Stored locally',s:'on device → city'},{id:'available_to_download',t:'Available to download',s:'open data'}]},
+  risk:{id:'civil_liberties_harm',t:'Civil liberties harm',d:'Re-identification would be possible if raw video were ever kept.',safeguard:'Anonymized on the device; images discarded'},
+  usedon:{name:'Passers-by',sub:'anyone crossing the sidewalk',rel:'bystander'},
+  rights:[
+    {id:'right_to_notice',t:'Right to Be Informed of AI Use',s:'signage at the pole',
+     acts:[{type:'url',label:'View this system’s public page',target:'https://dtpr.ai'}]},
+    {id:'right_purpose_limitation',t:'Right to Purpose Limitation',s:'counts, for planning only',
+     acts:[{type:'email',label:'Report a misuse',target:'privacy@citydot.example'}]},
+  ],
+  escalate:{k:'If that fails — city services',
+    acts:[{type:'phone',label:'Call 311',target:'311'}]},
+ },
+ {
+  no:'System 4 of 4', ref:'PD-HSP-12', name:'Predictive patrol allocation',
+  read:'City Police runs a hotspot model that steers patrols. No single person is scored — but a whole neighbourhood is put under heightened watch.',
+  purpose:{id:'enforcement',t:'Enforcement'},
+  builtby:{el:'organization',name:'PredictOps',sub:'Vendor'},
+  runby:{el:'institution',name:'City Police',sub:'Deployer'},
+  modes:[{id:'analytical_mode',t:'Deciding',s:'Analytical AI'}],
+  processing:{id:'clustering_segmentation',t:'Clustering & Segmentation',s:'hotspot map'},
+  autonomy:{id:'human_decides',t:'Human decides'},
+  input:{id:'input_operational_data',t:'Operational data',s:'past incident logs',pii:{id:'pseudonymous',t:'Pseudonymous'},
+    ctx:[{id:'data_retained',t:'Retained 2 years'},{id:'stored_locally',t:'Stored locally',s:'police servers'}]},
+  output:{id:'output_recommendation',t:'A recommendation or prediction',s:'a patrol heat-map',pii:{id:'de_identified',t:'De-identified'},
+    ctx:[{id:'available_to_the_accountable_organization',t:'Available to patrol command'}]},
+  risk:{id:'societal_cultural_harm',t:'Societal & cultural harm',d:'Feedback loops entrench over-policing of the same blocks.',safeguard:'Quarterly bias audit'},
+  usedon:{name:'Precinct 7 residents',sub:'~40,000 residents',rel:'community'},
+  rights:[
+    {id:'right_to_notice',t:'Right to Be Informed of AI Use',s:'annual transparency report',
+     acts:[{type:'url',label:'Read the report',target:'https://citypolice.example/ai-report'}]},
+    {id:'right_algorithmic_transparency',t:'Right to Algorithmic Transparency',s:'community oversight board',
+     acts:[{type:'email',label:'Write to the board',target:'board@police-oversight.example'},
+           {type:'url',label:'Attend the next meeting',target:'https://police-oversight.example/meetings'}]},
+  ],
+  escalate:{k:'If that fails — independent oversight',
+    acts:[{type:'form',label:'File with the Inspector General',target:'https://oig.city.example/complaints'}]},
+ },
+];
+
+/* the AI-verb sentence system — composed at render time.
+   Proposed schema shape: per-mode `verb` (default + per-context-value overrides) on elements,
+   per-autonomy `sentence_template` with a {verbs} slot on context values. */
+const VERBS={
+  perceptive_mode:{d:'senses'}, semantic_mode:{d:'understands'},
+  analytical_mode:{d:'decides',human_decides:'recommends'},
+  generative_mode:{d:'creates',human_decides:'drafts'},
+  agentic_mode:{d:'acts',human_executes:'plans actions',human_decides:'proposes actions'},
+  physical_mode:{d:'moves',human_executes:'plans movements',human_decides:'proposes movements'},
+};
+const TEMPLATES={
+  autonomous:'The system {verbs} *on its own*.',
+  human_executes:'The system {verbs}, and *a person carries out the result*.',
+  human_decides:'The system {verbs}, and *a person decides what to do next*.',
+};
+const LIST=new Intl.ListFormat('en',{type:'conjunction'});
+function sentence(sy){
+  const a=sy.autonomy.id;
+  const verbs=LIST.format(sy.modes.map(m=>(VERBS[m.id]&&(VERBS[m.id][a]||VERBS[m.id].d))||m.t.toLowerCase()));
+  return TEMPLATES[a].replace('{verbs}',verbs)
+    .replace(/\*(.+?)\*/,(_,t)=>`<strong style="border-bottom:2px solid ${CTX[a]}">${t}</strong>`);
+}
+const icT=(m,s=40)=>`<img src="${API}${m.id}/icon.svg" width="${s}" height="${s}" alt="${m.t} (${m.s})" title="${m.t} (${m.s})" loading="lazy" style="object-fit:contain">`;
+
+const ctxChips=cx=>(cx||[]).map(d=>`<span class="chip">${ic(d.id,20)}${d.t}${d.s?`&nbsp;<i>· ${d.s}</i>`:''}</span>`).join('');
+const piece=(iconHtml,name,sub)=>`<div class="piece">${iconHtml}<div class="pn">${name}${sub?`<span class="ps">${sub}</span>`:''}</div></div>`;
+
+function board(sy){
+  const actsRow=(acts,right)=>acts&&acts.length?`<div class="racts">${acts.map(a=>actBtn(a,sy,right)).join('')}</div>`:'';
+  const escHtml=sy.escalate?`<div class="esc"><span class="ek">${sy.escalate.k}</span><div class="racts" style="margin-top:0">${sy.escalate.acts.map(a=>actBtn(a,sy,'Complaint')).join('')}</div></div>`:'';
+  const rightsHtml = (sy.rights.length
+    ? `<div class="rights">${sy.rights.map(r=>`<div class="right">${ic(r.id,26)}<div><span class="rn">${r.t}</span>${r.s?` <span class="rs">— ${r.s}</span>`:''}${actsRow(r.acts,r.t)}</div></div>`).join('')}`
+    : `<div class="rights"><div class="alarm"><span class="bang">!</span>No notice. No appeal path.</div>`)
+    + escHtml + `</div>`;
+  const safeguardHtml = sy.risk.safeguard
+    ? `<div class="safeguard"><span class="k">Safeguard</span>${sy.risk.safeguard}</div>`
+    : `<div class="alarm" style="margin-top:10px"><span class="bang">!</span>No safeguard listed.</div>`;
+  return `<div class="board">
+    <div class="cell span2 head">
+      <div class="head-top">
+        <div><span class="sysno">${sy.no} · ${sy.ref}</span><h2>${sy.name}</h2></div>
+        <span class="chip">${ic(sy.purpose.id,22)}<span><span class="k">for</span> ${sy.purpose.t}</span></span>
+      </div>
+      <p class="read">${sy.read}</p>
+    </div>
+    <div class="cell"><div class="zl">Run by</div>${piece(ic(sy.runby.el,44),sy.runby.name,sy.runby.sub)}</div>
+    <div class="cell"><div class="zl">Built by</div>${piece(ic(sy.builtby.el,44),sy.builtby.name,sy.builtby.sub)}</div>
+    <div class="cell span2"><div class="zl">The system</div>
+      <div class="sysrow">
+        <div class="mode-icons">${sy.modes.map(m=>icT(m,40)).join('')}</div>
+        <p class="sys-sentence">${sentence(sy)}</p>
+      </div>
+    </div>
+    <div class="cell span2"><div class="zl">Data flow</div>
+      <div class="vflow">
+        <div class="vrow">
+          <div class="piece">${ic(sy.input.id,40)}<div class="pn">${sy.input.t}<span class="ps">${sy.input.s}</span><span class="pii">${dot(sy.input.pii.id)}${sy.input.pii.t}</span></div></div>
+          <div class="vctx">${ctxChips(sy.input.ctx)}</div>
+        </div>
+        <div class="varrow">↓</div>
+        <div class="vrow">
+          <div class="piece">${ic(sy.processing.id,40)}<div class="pn">${sy.processing.t}<span class="ps">${sy.processing.s}</span></div></div>
+        </div>
+        <div class="varrow">↓</div>
+        <div class="vrow">
+          <div class="piece">${ic(sy.output.id,40)}<div class="pn">${sy.output.t}<span class="ps">${sy.output.s}</span><span class="pii">${dot(sy.output.pii.id)}${sy.output.pii.t}</span></div></div>
+          <div class="vctx">${ctxChips(sy.output.ctx)}</div>
+        </div>
+      </div>
+    </div>
+    <div class="cell span2"><div class="zl">Risks &amp; safeguards</div>
+      <div class="riskrow">${ic(sy.risk.id,40)}<div><div class="pn">${sy.risk.t}</div><div class="rd">${sy.risk.d}</div>${safeguardHtml}</div></div>
+    </div>
+    <div class="cell z-usedon">
+      <div class="zl">Used on <em class="rel-word">${REL[sy.usedon.rel].word}</em></div>
+      ${piece(peopleIc(44),sy.usedon.name,sy.usedon.sub)}
+      <p class="rel-line">${REL[sy.usedon.rel].tail}</p>
+    </div>
+    <div class="cell"><div class="zl">You can</div>${rightsHtml}</div>
+  </div>`;
+}
+document.getElementById('systems').innerHTML=SYSTEMS.map(board).join('');
+
+document.getElementById('rellegend').innerHTML=Object.entries(REL).map(([id,r])=>`
+  <div class="rel-card">
+    <div class="rc-head">${peopleIc(34)}
+      <div class="rc-name">${r.name}<span class="rc-id">affected · ${id}</span></div></div>
+    <div class="rc-desc">${r.desc}</div>
+  </div>`).join('');
+
+const MAP=[
+  {z:'Name bar',cats:['purpose'],note:'the system’s name, and what it’s for',},
+  {z:'Built by / Run by',cats:['accountable · vendor','accountable · deployer'],note:'the org that builds it, and the org operating it here'},
+  {z:'The system',cats:['functional_modes'],note:'one sentence, composed from each mode’s verb + its autonomy context'},
+  {z:'Data flow',cats:['input_dataset','processing','output_dataset','retention','storage','access'],note:'the schema’s data_flow subchain: in → process → out · plus how long it’s kept, where, and who reaches it'},
+  {z:'Risks & safeguards',cats:['risks_mitigation'],note:'what could go wrong for people, and what reduces it'},
+  {z:'Used on',cats:['affected · subject','affected · bystander','affected · community'],note:'the affected people, and how the system touches them',isNew:true},
+  {z:'You can',cats:['rights'],note:'the affected’s recourse, with a working action per right (email · form · phone · link) — always beside Used on'},
+];
+document.getElementById('maptable').innerHTML=
+  `<thead><tr><th>Canvas seat</th><th>DTPR category</th><th>Reads as</th></tr></thead><tbody>`+
+  MAP.map(m=>`<tr class="${m.isNew?'new':''}"><td><b>${m.z}</b>${m.isNew?'<span class="newflag">NEW</span>':''}</td><td>${m.cats.map(c=>`<code>${c}</code>`).join(' ')}</td><td>${m.note}</td></tr>`).join('')+`</tbody>`;
+
+document.getElementById('foot').innerHTML=
+  `Icons are the real composed DTPR icons, loaded live from <code>api.dtpr.io/api/v2</code> (schema <code>ai@2026-05-06-beta</code>, the latest deployed version). Content follows the local draft <code>ai@2026-07-03-beta</code>, which adds the <code>affected</code> category — its <code>people</code> icon is composed in-page from the schema’s own symbol and hexagon frame until that version deploys. Rights actions follow the instance schema’s first-class <code>actions</code> (<code>email · url · phone · form · postal</code>) — the same affordances a production datachain instance attaches to any element; addresses and URLs here are demo stubs, and emails open pre-filled with the system’s reference. The system sentence is composed at render time from a per-mode <code>verb</code> (default + per-autonomy overrides) and a per-autonomy <code>sentence_template</code> with a <code>{verbs}</code> slot — proposed as optional element/context-value fields; today the schema carries this language only as prose in the autonomy value descriptions. See <a href="https://dtpr.ai">dtpr.ai</a> and corpus entry <code>relational-accountability-graph-model</code>.`;
+</script>
+</body>
+</html>
