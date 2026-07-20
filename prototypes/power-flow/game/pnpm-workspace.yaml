@@ -1,4 +1,0 @@
-# Marks this prototype as its own pnpm root — prototypes/ stays outside the repo workspace.
-packages: []
-allowBuilds:
-  esbuild: true
