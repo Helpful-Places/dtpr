@@ -85,9 +85,9 @@
   .safeguard{margin-top:8px;font-size:.8rem}
   .safeguard .k{font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-right:8px}
 
-  /* the affected seat */
+  /* the affected seat — relationship rides as a badge on the people piece, echoing the PII tags in Data flow */
   .z-usedon{position:relative}
-  .rel-word{font-style:italic;font-weight:700;font-size:.95rem;color:var(--ink);text-transform:none;letter-spacing:0}
+  .rel-pii{color:var(--ink)}
   .rel-line{font-size:.86rem;color:var(--muted);margin:12px 0 0;max-width:52ch}
 
   .rights{display:flex;flex-direction:column;gap:13px}
@@ -391,8 +391,8 @@ function board(sy){
       <div class="riskrow">${ic(sy.risk.id,40)}<div><div class="pn">${sy.risk.t}</div><div class="rd">${sy.risk.d}</div>${safeguardHtml}</div></div>
     </div>
     <div class="cell z-usedon">
-      <div class="zl">Used on <em class="rel-word">${REL[sy.usedon.rel].word}</em></div>
-      ${piece(peopleIc(44),sy.usedon.name,sy.usedon.sub)}
+      <div class="zl">Used on</div>
+      <div class="piece">${peopleIc(44)}<div class="pn">${sy.usedon.name}<span class="ps">${sy.usedon.sub}</span><span class="pii rel-pii">${REL[sy.usedon.rel].name}</span></div></div>
       <p class="rel-line">${REL[sy.usedon.rel].tail}</p>
     </div>
     <div class="cell"><div class="zl">You can</div>${rightsHtml}</div>

@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>DTPR Agreement Workshop — kit prototype v2 (wall + mat)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#f6f6f4; --card:#ffffff; --ink:#1b1b19; --muted:#72726c;
+    --line:#e6e5e0; --chip:#f3f3ef;
+    --signal:#c2410c; --alarm:#b42318; --teal:#0f5153;
+    --mono:ui-monospace,SFMono-Regular,Menlo,monospace;
+    --g-endorse:#157f5b; --g-reserv:#7fa53c; --g-aside:#d99a1f; --g-block:#b42318;
+    --diverge:#2f6f8c; --converge:#8a5a1f;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:'Public Sans',system-ui,-apple-system,sans-serif;color:var(--ink);
+    background:#e9e8e3;line-height:1.45;-webkit-font-smoothing:antialiased}
+
+  .intro{max-width:860px;margin:0 auto;padding:40px 24px 8px}
+  .eyebrow{display:inline-block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;
+    color:var(--teal);border:1px solid color-mix(in srgb,var(--teal) 30%,transparent);
+    padding:4px 11px;border-radius:999px;margin-bottom:16px;background:var(--card)}
+  .intro h1{font-size:1.9rem;font-weight:700;letter-spacing:-.015em;margin:0 0 8px}
+  .intro p{color:#4a4a45;font-size:.98rem;max-width:74ch;margin:0 0 10px}
+  .intro .how{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--diverge);
+    border-radius:0 10px 10px 0;padding:12px 16px;font-size:.9rem;margin:14px 0 4px}
+  .intro .how b{color:var(--diverge)}
+  .intro code{font-family:var(--mono);font-size:.85em;background:var(--chip);border:1px solid var(--line);padding:1px 5px;border-radius:5px}
+  .btn{display:inline-flex;align-items:center;gap:7px;font-size:.85rem;font-weight:600;color:#fff;background:var(--teal);
+    border:none;border-radius:8px;padding:9px 15px;cursor:pointer;margin:8px 6px 2px 0}
+  .sheetnav{font-size:.8rem;color:var(--muted);margin-top:6px}
+  .sheetnav b{color:var(--ink)}
+
+  .sheet{width:216mm;min-height:279mm;margin:22px auto;background:var(--paper);
+    padding:13mm 12mm;box-shadow:0 2px 4px rgba(0,0,0,.08),0 20px 44px -28px rgba(0,0,0,.5);position:relative}
+  .sheet.land{width:420mm;min-height:277mm}
+  .sheet-tag{position:absolute;top:5mm;right:12mm;font-size:.62rem;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;color:#b6b4ac}
+  .shead{border-bottom:2px solid var(--ink);padding-bottom:9px;margin-bottom:12px}
+  .shead .k{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--teal)}
+  .shead h2{margin:2px 0 3px;font-size:1.4rem;font-weight:700;letter-spacing:-.01em}
+  .shead p{margin:0;font-size:.82rem;color:var(--muted);max-width:80ch}
+
+  .principle{display:flex;align-items:center;gap:10px;font-size:.82rem;margin:0 0 14px;
+    background:linear-gradient(90deg,color-mix(in srgb,var(--diverge) 8%,var(--card)),color-mix(in srgb,var(--converge) 8%,var(--card)));
+    border:1px solid var(--line);border-radius:10px;padding:9px 14px}
+  .principle b{color:var(--ink)}
+
+  /* ---- run of show ---- */
+  .phases{display:flex;flex-direction:column;gap:0}
+  .phase{display:grid;grid-template-columns:132px 1fr;gap:0;border:1px solid var(--line);border-radius:11px;background:var(--card);margin-bottom:8px;overflow:hidden}
+  .phase .side{padding:11px 13px;color:#fff;display:flex;flex-direction:column;justify-content:center;gap:2px}
+  .phase.d .side{background:var(--diverge)} .phase.c .side{background:var(--converge)}
+  .phase .side .pn{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;opacity:.85}
+  .phase .side .pt{font-weight:700;font-size:1.02rem;line-height:1.12}
+  .phase .side .pm{font-size:.66rem;opacity:.85;margin-top:2px}
+  .phase .main{padding:10px 14px}
+  .phase .do{font-size:.84rem}
+  .phase .do b{color:var(--ink)}
+  .phase .elicit{font-size:.74rem;color:var(--muted);margin-top:4px}
+  .phase .elicit .lab{font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.58rem;color:#9b9a92;margin-right:6px}
+  .phase .tension{display:inline-flex;align-items:center;gap:6px;margin-top:6px;font-size:.72rem;font-weight:600;color:var(--signal);
+    background:color-mix(in srgb,var(--signal) 7%,#fff);border:1px solid color-mix(in srgb,var(--signal) 25%,transparent);border-radius:999px;padding:3px 10px}
+  .divider{display:flex;align-items:center;gap:12px;margin:4px 0;color:var(--muted);font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+  .divider .ln{flex:1;height:1px;background:var(--line)}
+  .divider .dv{color:var(--diverge)} .divider .cv{color:var(--converge)}
+
+  /* ---- wall sheet ---- */
+  .wall-seat{display:flex;align-items:flex-start;gap:11px;border:1px solid var(--line);border-radius:10px;background:var(--card);padding:11px 14px}
+  .wall-seat img,.wall-seat svg.ico{flex:none}
+  .wall-seat .zl{font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .wall-seat .nm{font-weight:700;font-size:1.05rem;margin:2px 0 3px}
+  .wall-seat .content{font-size:.82rem;color:#3f3f3a}
+  .wall-seat .content b{color:var(--ink)}
+  .wall-seat .disc{margin-left:auto;font-size:.56rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#9b9a92;display:flex;align-items:center;gap:5px}
+  .wall-seat .disc .box{width:12px;height:12px;border:1.5px solid #b6b4ac;border-radius:3px}
+  .surface{border:1px dashed #c7c6be;border-radius:10px;margin-top:9px;padding:12px;background:
+    radial-gradient(circle, #dedcd4 1px, transparent 1.4px) 0 0/22px 22px;min-height:150mm;position:relative}
+  .surface .prompt{position:absolute;top:10px;left:14px;font-size:.86rem;font-weight:700;color:var(--diverge)}
+  .surface .prompt span{display:block;font-weight:400;font-size:.72rem;color:var(--muted);margin-top:2px}
+  .surface .stub{position:absolute;background:#fff6c9;border:1px solid #e6d888;box-shadow:0 2px 5px rgba(0,0,0,.12);
+    font-size:.72rem;padding:7px 9px;width:150px;transform:rotate(-1.5deg);color:#4a431f}
+  .tensionbox{border:1.5px solid var(--signal);border-radius:10px;background:color-mix(in srgb,var(--signal) 5%,#fff);padding:10px 14px;margin-top:9px}
+  .tensionbox .tl{font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--signal)}
+  .tensionbox .th{font-size:.7rem;color:var(--muted);margin:1px 0 7px}
+  .tensionbox .writeline{border-bottom:1px dashed #d4a892;height:16px}
+  .tensionbox .writeline+.writeline{margin-top:6px}
+
+  /* ---- convergence mat ---- */
+  .matgrid{display:grid;grid-template-columns:1fr;gap:11px}
+  .refstrip{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:9px 12px}
+  .refstrip .rl{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:7px}
+  .refchips{display:flex;flex-wrap:wrap;gap:7px}
+  .refchip{display:inline-flex;align-items:center;gap:8px;background:var(--chip);border:1px solid var(--line);border-radius:9px;padding:5px 11px;font-size:.76rem;max-width:340px}
+  .refchip img,.refchip svg.ico{flex:none}
+  .refchip .rk{font-size:.56rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#9b9a92;display:block}
+  .refchip b{font-weight:600}
+
+  .tp-head{display:grid;grid-template-columns:34px 1.15fr 1.35fr 300px 96px;gap:0;font-size:.58rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:.07em;color:#9b9a92;padding:0 6px}
+  .tp-head span{padding:2px 6px}
+  .tp{display:grid;grid-template-columns:34px 1.15fr 1.35fr 300px 96px;gap:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden;margin-bottom:7px}
+  .tp>div{padding:9px 8px;border-left:1px solid var(--line);min-width:0}
+  .tp>div:first-child{border-left:none}
+  .tp .num{background:color-mix(in srgb,var(--signal) 10%,#fff);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;color:var(--signal)}
+  .tp .name{font-size:.82rem;font-weight:600}
+  .tp .name .sub{display:block;font-weight:400;font-size:.68rem;color:var(--muted);margin-top:2px}
+  .tp .cond{font-size:.78rem;color:#3f3f3a}
+  .tp .cond .lab{font-size:.55rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#9b9a92;display:block;margin-bottom:2px}
+  .tp .cond .fillline{border-bottom:1px dashed #c7c6be;height:15px;margin-top:5px}
+  .tp .grad{padding:7px 8px;background:linear-gradient(180deg,#fbfbf9,#f4f4f0)}
+  .tp .zones{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+  .zone{border-radius:6px;padding:4px 3px 6px;text-align:center;border:1px solid;min-height:46px;display:flex;flex-direction:column;align-items:center;gap:4px}
+  .zone .zc{font-size:.5rem;font-weight:700;line-height:1.05}
+  .zone .slot{width:14px;height:14px;border-radius:50%;border:1.5px dashed currentColor;opacity:.5}
+  .zone.endorse{color:var(--g-endorse);background:color-mix(in srgb,var(--g-endorse) 8%,#fff);border-color:color-mix(in srgb,var(--g-endorse) 35%,transparent)}
+  .zone.reserv{color:#5f7d24;background:color-mix(in srgb,var(--g-reserv) 12%,#fff);border-color:color-mix(in srgb,var(--g-reserv) 45%,transparent)}
+  .zone.aside{color:#a5771a;background:color-mix(in srgb,var(--g-aside) 12%,#fff);border-color:color-mix(in srgb,var(--g-aside) 45%,transparent)}
+  .zone.block{color:var(--g-block);background:color-mix(in srgb,var(--g-block) 8%,#fff);border-color:color-mix(in srgb,var(--g-block) 40%,transparent)}
+  .tp .status{display:flex;flex-direction:column;gap:6px;align-items:center;justify-content:center;font-size:.6rem;color:var(--muted)}
+  .tp .status .opt{display:flex;align-items:center;gap:5px}
+  .tp .status .box{width:12px;height:12px;border:1.5px solid #9b9a92;border-radius:3px}
+  .tp .status .box.red{border-color:var(--g-block)}
+
+  .matfoot{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:4px}
+  .ladder,.capture{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:10px 13px}
+  .ladder .lt,.capture .lt{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}
+  .rungs{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+  .rung{border:1px solid var(--line);border-radius:8px;padding:7px 9px;background:#fff}
+  .rung .rk{display:flex;align-items:center;gap:6px;font-weight:700;font-size:.76rem}
+  .rung .rk .box{width:13px;height:13px;border:1.5px solid #9b9a92;border-radius:3px;flex:none}
+  .rung .rc{font-size:.62rem;color:var(--muted);margin-top:3px;line-height:1.3}
+  .rung.no .rk{color:var(--g-block)}
+  .capfields{display:flex;flex-direction:column;gap:9px}
+  .capf .cl{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--signal)}
+  .capf .writeline{border-bottom:1px dashed #c7c6be;height:15px;margin-top:5px}
+  .capf.row{display:flex;gap:14px}
+  .capf.row>div{flex:1}
+
+  /* ---- cut sheet ---- */
+  .cutsec{margin-top:14px}
+  .cutsec .sl{font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:7px}
+  .tokens{display:flex;flex-wrap:wrap;gap:7px}
+  .token{width:88px;height:88px;border-radius:50%;border:1.5px dashed #bdbcb4;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:3px;color:#fff;padding:6px}
+  .token .tt{font-size:.62rem;font-weight:700;line-height:1.1}
+  .token .td{font-size:.5rem;opacity:.9;line-height:1.1}
+  .token.endorse{background:var(--g-endorse)} .token.reserv{background:var(--g-reserv)}
+  .token.aside{background:var(--g-aside)} .token.block{background:var(--g-block)}
+  .redline{width:150px;min-height:88px;border:1.5px solid var(--g-block);border-radius:10px;background:color-mix(in srgb,var(--g-block) 5%,#fff);padding:8px 10px;display:flex;flex-direction:column;gap:4px}
+  .redline .rt{font-size:.7rem;font-weight:700;color:var(--g-block);text-transform:uppercase;letter-spacing:.05em;display:flex;align-items:center;gap:6px}
+  .redline .rt .bang{width:15px;height:15px;border-radius:50%;background:var(--g-block);color:#fff;font-size:.66rem;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+  .redline .rd{font-size:.6rem;color:#7a4a42;line-height:1.3}
+  .redline .writeline{border-bottom:1px dashed #d3a89f;height:14px;margin-top:auto}
+  .cutnote{font-size:.6rem;color:#b6b4ac;margin-top:5px}
+
+  @media print{
+    body{background:#fff}
+    .noprint{display:none!important}
+    .sheet{margin:0;box-shadow:none;width:auto;min-height:auto;padding:0}
+    .sheet+.sheet{page-break-before:always}
+    .sheet.land{page:land}
+  }
+  @page{size:letter portrait;margin:12mm}
+  @page land{size:17in 11in;margin:10mm}
+</style>
+</head>
+<body>
+
+<div class="intro noprint">
+  <span class="eyebrow">Facilitation kit · v2 · wall + mat</span>
+  <h1>DTPR Agreement Workshop</h1>
+  <p>Rebuilt around the principle that makes deliberation work: <b>diverge, then converge.</b> The room first surfaces every concern against the disclosed system (on the wall), clusters them into a few named <b>tension points</b>, deliberates redesigns — and only then registers a gradient of agreement, once, on the resulting conditions. No voting on raw DTPR categories.</p>
+  <div class="how">
+    <b>Four print pieces.</b> <b>1 · Run-of-show</b> (facilitator script, Letter). <b>2 · Wall sheets</b> — one per disclosed seat, for surfacing concerns (Letter, print 5). <b>3 · Convergence mat</b> — the big <code>17×11</code> tabloid / A3 artifact where tension points get their gradient and the outcome lands. <b>4 · Tokens &amp; red-lines</b> to cut up. Pre-filled with the <code>FaceGate fare gates</code> scenario so the flow reads.
+  </div>
+  <button class="btn" onclick="window.print()">Print / Save as PDF</button>
+  <div class="sheetnav"><b>Sheets:</b> ① Run-of-show · ② Wall sheet · ③ Convergence mat (landscape) · ④ Cut-up cards</div>
+</div>
+
+<!-- ① RUN OF SHOW -->
+<section class="sheet">
+  <span class="sheet-tag">① Run-of-show · Letter</span>
+  <div class="shead"><div class="k">DTPR · Agreement Workshop</div><h2>Facilitator run-of-show — ~2 hours, one system</h2>
+    <p>Small mixed group (community members + city staff). Times are a starting point to playtest against, not a rule.</p></div>
+  <div class="principle"><b>The one rule:</b> diverge, then converge. Never place a token while the room is still generating. Voting early anchors positions and kills deliberation.</div>
+  <div class="phases" id="phases"></div>
+</section>
+
+<!-- ② WALL SHEET -->
+<section class="sheet">
+  <span class="sheet-tag">② Wall sheet · Letter · print one per seat</span>
+  <div class="shead"><div class="k">DTPR · Agreement Workshop · wall</div><h2>Seat wall sheet — surface the concerns</h2>
+    <p>One per disclosed seat, up on the wall. The deployer discloses; the room writes concerns on stickies (silent first, then post); the tensions that emerge get named at the bottom. Shown here for one seat as an example.</p></div>
+  <div class="wall-seat" id="wallSeat"></div>
+  <div class="surface">
+    <div class="prompt">What worries you here? Who does it land on hardest?<span>Write silently first — one concern per sticky — then post. Divergence: nothing gets resolved yet.</span></div>
+    <div class="stub" style="top:60px;left:26px">Police can pull my movements with no warrant</div>
+    <div class="stub" style="top:120px;left:250px;transform:rotate(1.2deg);background:#ffe0d4;border-color:#e6a88f">7 yrs is forever — a breach follows you</div>
+    <div class="stub" style="top:210px;left:70px;transform:rotate(.8deg)">People fleeing someone stop riding</div>
+  </div>
+  <div class="tensionbox">
+    <div class="tl">◤ Tension(s) that surfaced here — name them</div>
+    <div class="th">Cluster the stickies. These names carry to the mat as the units the room actually votes on.</div>
+    <div class="writeline"></div><div class="writeline"></div>
+  </div>
+</section>
+
+<!-- ③ CONVERGENCE MAT (landscape) -->
+<section class="sheet land">
+  <span class="sheet-tag">③ Convergence mat · 17×11 tabloid / A3</span>
+  <div class="shead" style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px">
+    <div><div class="k">DTPR · Agreement Workshop · the record</div><h2 id="matsys">Face-matching fare gates — where the room landed</h2></div>
+    <div style="font-size:.7rem;color:var(--muted);text-align:right;min-width:240px">
+      <div style="border-bottom:1px dashed #bdbcb4;padding:4px 0;display:flex;justify-content:space-between"><span>Neighbourhood</span><span></span></div>
+      <div style="border-bottom:1px dashed #bdbcb4;padding:4px 0;display:flex;justify-content:space-between"><span>Facilitator</span><span></span></div>
+      <div style="border-bottom:1px dashed #bdbcb4;padding:4px 0;display:flex;justify-content:space-between"><span>Date</span><span></span></div>
+    </div>
+  </div>
+
+  <div class="matgrid">
+    <div class="refstrip"><div class="rl">Disclosed system — reference (from the wall)</div><div class="refchips" id="refchips"></div></div>
+
+    <div>
+      <div class="tp-head"><span>#</span><span>Tension point</span><span>Candidate condition / redesign</span><span>Where the room stands — one token each</span><span>Status</span></div>
+      <div id="tps"></div>
+    </div>
+
+    <div class="matfoot">
+      <div class="ladder">
+        <div class="lt">Where the room landed — pick one</div>
+        <div class="rungs">
+          <div class="rung"><div class="rk"><span class="box"></span>Full agreement</div><div class="rc">Every tension resolved to endorse / reservations. No block stands.</div></div>
+          <div class="rung"><div class="rk"><span class="box"></span>Conditional agreement</div><div class="rc">Yes — with the conditions above. Review date set, monitor named.</div></div>
+          <div class="rung"><div class="rk"><span class="box"></span>Time-boxed pilot</div><div class="rc">Try it with a hard sunset date and a named monitor.</div></div>
+          <div class="rung no"><div class="rk"><span class="box"></span>No — or not yet</div><div class="rc">A red line stands unresolved. Paused or escalated.</div></div>
+        </div>
+      </div>
+      <div class="capture">
+        <div class="lt">Capture — photograph this</div>
+        <div class="capfields">
+          <div class="capf"><div class="cl">Conditions of acceptance (the resolved ones)</div><div class="writeline"></div><div class="writeline"></div></div>
+          <div class="capf"><div class="cl">Open disagreements (unresolved tension points)</div><div class="writeline"></div></div>
+          <div class="capf row"><div><div class="cl">Review / sunset date</div><div class="writeline"></div></div><div><div class="cl">Who monitors</div><div class="writeline"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ④ CUT SHEET -->
+<section class="sheet">
+  <span class="sheet-tag">④ Tokens &amp; red-lines · Letter · cut &amp; play</span>
+  <div class="shead"><div class="k">DTPR · Agreement Workshop</div><h2>Tokens &amp; red-line cards</h2>
+    <p>Used only in <b>Converge</b>. Each participant gets one set of gradient tokens and places one on <b>each tension point</b> (not each category). Red-line cards are laid on a tension point to force a redesign — or they document a "no."</p></div>
+  <div class="cutsec"><div class="sl">Gradient-of-agreement tokens — one set per participant</div>
+    <div class="tokens" id="tokenSheet"></div>
+    <div class="cutnote">Print one row per participant. Place on tension points, after deliberation — never during disclosure or surfacing.</div>
+  </div>
+  <div class="cutsec"><div class="sl">Red-line cards — the block that must be resolved</div>
+    <div class="tokens" id="redlineSheet"></div>
+    <div class="cutnote">A red line on a tension point can't be tokened over. Resolve it with a condition/redesign, or it lands the outcome on "No — or not yet."</div>
+  </div>
+</section>
+
+<script>
+const API='https://api.dtpr.io/api/v2/schemas/ai@2026-05-06-beta/elements/';
+const ic=(id,s=26)=>`<img src="${API}${id}/icon.svg" width="${s}" height="${s}" alt="" loading="lazy" style="object-fit:contain">`;
+const HEXPATH='M31.8564 8.8453L19 1.42265C18.3812 1.06538 17.6188 1.06538 17 1.42265L4.14359 8.8453C3.52479 9.20257 3.14359 9.86282 3.14359 10.5774V25.4226C3.14359 26.1372 3.52479 26.7974 4.14359 27.1547L17 34.5774C17.6188 34.9346 18.3812 34.9346 19 34.5774L31.8564 27.1547C32.4752 26.7974 32.8564 26.1372 32.8564 25.4226V10.5774C32.8564 9.86282 32.4752 9.20256 31.8564 8.8453Z';
+const PEOPLE='<path d="M13.5 10.6667C15.1569 10.6667 16.5 12.0098 16.5 13.6667C16.5 15.3235 15.1569 16.6667 13.5 16.6667C11.8431 16.6667 10.5 15.3235 10.5 13.6667C10.5 12.0098 11.8431 10.6667 13.5 10.6667Z"/><path d="M22.5 10.6667C24.1569 10.6667 25.5 12.0098 25.5 13.6667C25.5 15.3235 24.1569 16.6667 22.5 16.6667C20.8431 16.6667 19.5 15.3235 19.5 13.6667C19.5 12.0098 20.8431 10.6667 22.5 10.6667Z"/><path d="M13.5 18C10.1863 18 7.5 20.6863 7.5 24V25.3333H19.5V24C19.5 20.6863 16.8137 18 13.5 18Z"/><path d="M22.5 18C21.9316 18 21.3818 18.0791 20.8608 18.2266C22.1863 19.7061 23 21.6589 23 24V25.3333H28.5V24C28.5 20.6863 25.8137 18 22.5 18Z"/>';
+const peopleIc=(s=26)=>`<svg class="ico" width="${s}" height="${s}" viewBox="0 0 36 36" aria-hidden="true"><path d="${HEXPATH}" fill="none" stroke="#000" stroke-width="2"/><g fill="#000">${PEOPLE}</g></svg>`;
+
+/* run of show */
+const PHASES=[
+ {c:'d',n:'Phase 0',t:'Frame',m:'10 min',do:'State the real question: <b>"Under what conditions, if any, is this acceptable here?"</b> Set norms, name roles (deployer discloses, room deliberates, facilitator stays neutral).',el:'the question, not opinions'},
+ {c:'d',n:'Phase 1',t:'Disclose',m:'25 min',do:'Deployer flips each seat. After each, the room asks <b>questions only — no positions yet</b>. Build shared understanding of the facts.',el:'comprehension',tn:'Tension A — non-disclosure: what they won’t/can’t reveal is the first finding'},
+ {c:'d',n:'Phase 2',t:'Surface',m:'25 min',do:'"Who does each part land on hardest? What worries you?" Everyone <b>writes silently first</b>, then posts to the wall. Maximize divergence; resolve nothing.',el:'every concern, quiet voices first',tn:'Tension B — the main elicitation: write-first protects less-powerful voices'},
+ {c:'d',n:'Phase 3',t:'Cluster',m:'15 min',do:'Group the stickies into <b>3-5 named tension points</b>. Dot-vote to pick the top few if there are too many. These become the units of judgment.',el:'the contested propositions'},
+ {c:'c',n:'Phase 4',t:'Deliberate',m:'40 min',do:'Take tension points one at a time: community stake ↔ deployer constraint ↔ candidate redesign. Draft one <b>condition</b> per tension point.',el:'resolutions, not restated positions',tn:'Tension C — the redesign negotiation: real limits meet red lines'},
+ {c:'c',n:'Phase 5',t:'Converge',m:'15 min',do:'<b>Now the tokens.</b> Each person places one on every tension point: endorse / reservations / stand-aside / block. A block is a red line — resolve it or document the "no."',el:'where we actually stand'},
+ {c:'c',n:'Phase 6',t:'Capture',m:'10 min',do:'Read the pattern → outcome on the ladder. Record conditions, open disagreements, review/sunset date, monitor. <b>Photograph the mat.</b>',el:'the durable record'},
+];
+document.getElementById('phases').innerHTML=PHASES.map((p,i)=>{
+  const div = i===4?`<div class="divider"><span class="dv">◄ diverge</span><span class="ln"></span><span class="cv">converge ►</span></div>`:'';
+  return div+`<div class="phase ${p.c}">
+    <div class="side"><span class="pn">${p.n}</span><span class="pt">${p.t}</span><span class="pm">${p.m}</span></div>
+    <div class="main"><div class="do">${p.do}</div>
+      <div class="elicit"><span class="lab">elicit</span>${p.el}</div>
+      ${p.tn?`<div class="tension">⚡ ${p.tn}</div>`:''}</div></div>`;
+}).join('');
+
+/* wall seat exemplar — Data flow (the juicy one) */
+document.getElementById('wallSeat').innerHTML=`${ic('input_biometric',34)}
+  <div><div class="zl">Data flow</div>
+    <div class="nm">Your live face → match + rider ID + time + station</div>
+    <div class="content"><b>Identifiable.</b> Kept <b>7 years</b> on the vendor’s cloud. Reachable by transit staff, the vendor, and police on request — no warrant in the current MOU.</div>
+  </div><div class="disc"><span class="box"></span>disclosed</div>`;
+
+/* reference chips on the mat */
+const REF=[
+ {k:'Run / built by',ic:ic('institution',22),t:'Metro Transit · FaceGate Inc. (vendor)'},
+ {k:'The system',ic:ic('biometric_recognition',22),t:'Autonomous 1-to-N face matcher'},
+ {k:'Data flow',ic:ic('input_biometric',22),t:'Identifiable · 7 yrs · vendor cloud · police on request'},
+ {k:'Risks',ic:ic('civil_liberties_harm',22),t:'Uneven error rate · no safeguard listed'},
+ {k:'Used on',ic:peopleIc(22),t:'All riders — subjects (~2.3M/day)'},
+];
+document.getElementById('refchips').innerHTML=REF.map(r=>`<span class="refchip">${r.ic}<span><span class="rk">${r.k}</span><b>${r.t}</b></span></span>`).join('');
+
+/* tension points — pre-filled from the FaceGate scenario */
+const GRAD=[['endorse','Endorse'],['reserv','…w/ reserv.'],['aside','Stand aside'],['block','Block']];
+const zones=()=>`<div class="zones">${GRAD.map(([c,l])=>`<div class="zone ${c}"><div class="zc">${l}</div><span class="slot"></span></div>`).join('')}</div>`;
+const TPS=[
+ {n:'Warrantless police access',sub:'flagged in Surface, Data-flow wall',cond:'Access only with a judicial warrant; every query logged and audited.'},
+ {n:'7-year retention on vendor cloud',sub:'a breach follows you',cond:'Purge match data at 24h; face templates stay on-device, never leave the station.'},
+ {n:'No opt-out — the undocumented vanish',sub:'community relationship',cond:'A tap-to-skip lane; riding never requires enrollment.'},
+ {n:'Hidden, uneven error rate',sub:'the sealed card',cond:'Publish disaggregated error rates; a human review on every denial.'},
+ {n:'',sub:'',cond:''},
+];
+document.getElementById('tps').innerHTML=TPS.map((t,i)=>`<div class="tp">
+  <div class="num">${i+1}</div>
+  <div class="name">${t.n||'<span class="sub" style="color:#bdbcb4">— add a tension point —</span>'}${t.sub?`<span class="sub">${t.sub}</span>`:''}</div>
+  <div class="cond"><span class="lab">Candidate condition</span>${t.cond||''}<div class="fillline"></div></div>
+  <div class="grad">${zones()}</div>
+  <div class="status"><div class="opt"><span class="box"></span>Resolved</div><div class="opt"><span class="box red"></span>Red line</div></div>
+</div>`).join('');
+
+/* cut sheet */
+const TOK=[['endorse','Endorse','I support this'],['reserv','Reservations','I can live with it'],['aside','Stand aside','Not for me — won’t block'],['block','Block','I can’t accept this']];
+document.getElementById('tokenSheet').innerHTML=TOK.map(([c,t,d])=>`<div class="token ${c}"><div class="tt">${t}</div><div class="td">${d}</div></div>`).join('');
+document.getElementById('redlineSheet').innerHTML=Array.from({length:5}).map(()=>`
+  <div class="redline"><div class="rt"><span class="bang">!</span>Red line</div>
+    <div class="rd">Laid on the tension point it crosses. Resolve with a condition — or it’s a documented “no.”</div>
+    <div class="writeline"></div></div>`).join('');
+</script>
+</body>
+</html>

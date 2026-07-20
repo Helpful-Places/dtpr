@@ -24,10 +24,17 @@ sources:
     url: https://arxiv.org/abs/2407.01294
     citation: Abercrombie et al. (2024). arXiv:2407.01294. CC BY-SA 4.0.
 element_variables:
+  - id: risk
+    label:
+      - locale: en
+        value: Description of the risk
+      - locale: fr
+        value: Description du risque
+    required: true
   - id: mitigation
     label:
       - locale: en
-        value: Description of Risks & Mitigations
+        value: Description of the mitigation
       - locale: fr
-        value: Description des risques et des mesures d'atténuation
-    required: true
+        value: Description de l'atténuation
+    required: false
