@@ -83,6 +83,35 @@
 .canvas-root .mk-neutral { --mkfill: rgba(114, 114, 108, 0.28); }
 .canvas-root .mk-color { --mkfill: color-mix(in srgb, var(--mkc) 58%, transparent); }
 
+/* ---- classification tag: the set-off pill at a row's far right ---- */
+.canvas-root .tag {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  color: var(--ink);
+  background: color-mix(in srgb, var(--tagc, var(--muted)) 12%, var(--card));
+  border: 1px solid color-mix(in srgb, var(--tagc, var(--muted)) 42%, transparent);
+  border-radius: 999px;
+  padding: 3px 11px 3px 8px;
+}
+.canvas-root .tag::before {
+  content: '';
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--tagc, var(--muted));
+}
+.canvas-root .tag-neutral { --tagc: var(--muted); }
+/* pushed to the far right of the data-flow row and the system row */
+.canvas-root .pc-a > .tag { margin-left: auto; margin-top: 2px; }
+.canvas-root .sysrow > .tag { margin-left: auto; }
+
 /* ---- piece: A stack ---- */
 .canvas-root .pc { min-width: 0; }
 .canvas-root .pc-a { display: flex; align-items: flex-start; gap: 12px; min-width: 0; }
@@ -94,6 +123,9 @@
 .canvas-root .a-l3 { font-size: 0.78rem; color: var(--muted); margin-top: 5px; line-height: 1.35; }
 .canvas-root .sep { color: var(--line-strong); margin: 0 0.5em; }
 .canvas-root .risk-narr { color: var(--muted); font-weight: 400; max-width: 64ch; }
+
+/* ---- piece: C sentence (Sentence view) — replaces the A-stack ---- */
+.canvas-root .c-sent { min-width: 0; font-size: 0.92rem; line-height: 1.5; color: var(--ink); padding-top: 2px; }
 
 /* ---- data flow ---- */
 .canvas-root .vflow { display: flex; flex-direction: column; }

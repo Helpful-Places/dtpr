@@ -20,7 +20,7 @@ const content: SystemContent = {
     el: 'institution',
     name: 'City Police',
     role: t('Deployer', 'Déployeur'),
-    verb: t('operates this system here.', 'exploite ce système ici.'),
+    verb: t('operates the system here.', 'exploite le système ici.'),
   },
   modes: [{ id: 'analytical_mode', t: t('Deciding', 'Décision'), s: t('Analytical AI', 'IA analytique') }],
   autonomy: { id: 'human_decides' },
@@ -29,7 +29,7 @@ const content: SystemContent = {
     type: t('Operational data', 'Données opérationnelles'),
     instance: t('past incident logs', 'historique des incidents'),
     pii: 'pseudonymous',
-    facts: [t('kept for 2 years', 'conservées 2 ans'), t('on police servers', 'sur les serveurs de la police')],
+    facts: [t('kept for 2 years', 'conservé 2 ans'), t('on police servers', 'sur les serveurs de la police')],
   },
   processing: {
     id: 'clustering_segmentation',

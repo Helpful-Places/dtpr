@@ -15,6 +15,9 @@ useHead({ title: () => `${t('register.heading')} · ${t('app.title')}` })
   <main class="mx-auto max-w-5xl px-6 py-12">
     <h1 class="text-3xl font-bold tracking-tight">{{ t('register.heading') }}</h1>
     <p class="mt-2 max-w-2xl text-[var(--muted)]">{{ t('register.sub') }}</p>
+    <NuxtLink to="/compare" class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-[var(--teal)]">
+      {{ t('compare.heading') }} →
+    </NuxtLink>
 
     <ul class="mt-10 grid gap-5 sm:grid-cols-2">
       <li

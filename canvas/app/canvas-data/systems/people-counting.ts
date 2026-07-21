@@ -20,7 +20,7 @@ const content: SystemContent = {
     el: 'institution',
     name: 'City DOT',
     role: t('Deployer', 'Déployeur'),
-    verb: t('operates this system here.', 'exploite ce système ici.'),
+    verb: t('operates the system here.', 'exploite le système ici.'),
   },
   modes: [{ id: 'perceptive_mode', t: t('Sensing', 'Perception'), s: t('Perceptive AI', 'IA perceptive') }],
   autonomy: { id: 'human_decides' },

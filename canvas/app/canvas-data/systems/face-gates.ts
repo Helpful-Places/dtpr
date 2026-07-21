@@ -20,7 +20,7 @@ const content: SystemContent = {
     el: 'institution',
     name: 'Metro Transit',
     role: t('Deployer', 'Déployeur'),
-    verb: t('operates this system here.', 'exploite ce système ici.'),
+    verb: t('operates the system here.', 'exploite le système ici.'),
   },
   modes: [
     { id: 'perceptive_mode', t: t('Sensing', 'Perception'), s: t('Perceptive AI', 'IA perceptive') },
@@ -32,7 +32,7 @@ const content: SystemContent = {
     type: t('Biometric', 'Biométrie'),
     instance: t('your face', 'votre visage'),
     pii: 'identifiable',
-    facts: [t('kept for 24 h', 'conservées 24 h'), t('on a vendor cloud', 'sur le cloud d’un fournisseur')],
+    facts: [t('kept for 24 h', 'conservé 24 h'), t('on a vendor cloud', 'sur le cloud d’un fournisseur')],
   },
   processing: {
     id: 'biometric_recognition',

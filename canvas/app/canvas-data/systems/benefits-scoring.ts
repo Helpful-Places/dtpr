@@ -20,7 +20,7 @@ const content: SystemContent = {
     el: 'institution',
     name: 'County Benefits Dept.',
     role: t('Deployer', 'Déployeur'),
-    verb: t('operates this system here.', 'exploite ce système ici.'),
+    verb: t('operates the system here.', 'exploite le système ici.'),
   },
   modes: [{ id: 'analytical_mode', t: t('Deciding', 'Décision'), s: t('Analytical AI', 'IA analytique') }],
   autonomy: { id: 'human_executes' },
@@ -29,7 +29,7 @@ const content: SystemContent = {
     type: t('Sensitive personal information', 'Renseignements personnels sensibles'),
     instance: t('your case records', 'votre dossier'),
     pii: 'identifiable',
-    facts: [t('kept for 7 years', 'conservés 7 ans'), t('on county servers', 'sur les serveurs du comté')],
+    facts: [t('kept for 7 years', 'conservé 7 ans'), t('on county servers', 'sur les serveurs du comté')],
   },
   processing: {
     id: 'classification_prediction',

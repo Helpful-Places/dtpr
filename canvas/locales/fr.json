@@ -16,7 +16,8 @@
     "usedOn": "Utilisé sur",
     "youCan": "Vous pouvez",
     "noRights": "Aucune notification. Aucun recours.",
-    "complaint": "Réclamation"
+    "complaint": "Réclamation",
+    "sentenceView": "Vue phrase"
   },
   "register": {
     "heading": "Les systèmes d’IA, divulgués",
@@ -33,7 +34,9 @@
     "send": "Envoyer",
     "sent": "Merci — enregistré.",
     "error": "Échec de l’enregistrement — réessayez.",
-    "react": "Réagir"
+    "react": "Réagir",
+    "give": "Donner un avis",
+    "done": "Terminé"
   },
   "selfTag": {
     "heading": "Une chose rapide",
@@ -47,12 +50,7 @@
     "continue": "Continuer"
   },
   "compare": {
-    "heading": "Quelle présentation a fonctionné ?",
-    "sub": "Retours par variante et version, segmentés par public.",
-    "public": "Public",
-    "professional": "Praticien",
-    "thinSample": "Pas encore assez de réponses",
-    "seatConfusion": "Où se concentre la confusion",
-    "noSeatData": "Pas encore de retour par élément"
+    "heading": "Comparer les systèmes",
+    "sub": "Les quatre systèmes en service côte à côte — chaque colonne un système, chaque ligne une place fixe. Les places ne bougent jamais, alors les différences ressortent."
   }
 }

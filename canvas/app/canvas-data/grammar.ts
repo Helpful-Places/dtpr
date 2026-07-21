@@ -39,24 +39,52 @@ export interface Mark {
 /** `mk(text, key)` — a marker; palette key → colour, else neutral. */
 export const mk = (text: string, key?: string | null): Mark => ({ text, color: markerColor(key) })
 
+/** A right-aligned classification tag. Same shape as a Mark, but rendered as
+ *  a pill that sits at the far end of a row instead of inline: the published
+ *  classification (PII on data, autonomy on the system) is set off from the
+ *  reading line so it never breaks the sentence. Palette key → colour. */
+export interface Tag {
+  text: string
+  color: string | null
+}
+export const tagOf = (text: string, key?: string | null): Tag => ({ text, color: markerColor(key) })
+
 // ── Inline segments for composed lines (the system sentence) ──
 export type Segment =
   | { kind: 'text', text: string }
   | { kind: 'mark', mark: Mark }
 
 // ── Classification vocabularies (localized labels resolved by key) ──
+// Two densities per label: `a` — the descriptor label used in the compact
+// A-stack; `c` — the in-sentence phrasing used by the composed C sentence.
 // PII — the coloured classification on data values.
-const PII: Record<string, { key: string, a: Localized }> = {
-  identifiable: { key: 'identifiable', a: t('Identifiable', 'Données identifiables') },
-  de_identified: { key: 'de_identified', a: t('De-identified', 'Données anonymisées') },
-  pseudonymous: { key: 'pseudonymous', a: t('Pseudonymous', 'Données pseudonymisées') },
+const PII: Record<string, { key: string, a: Localized, c: Localized }> = {
+  identifiable: { key: 'identifiable', a: t('Identifiable', 'Données identifiables'), c: t('identifiable', 'données identifiables') },
+  de_identified: { key: 'de_identified', a: t('De-identified', 'Données anonymisées'), c: t('de-identified', 'anonymisées') },
+  pseudonymous: { key: 'pseudonymous', a: t('Pseudonymous', 'Données pseudonymisées'), c: t('pseudonymous', 'pseudonymisées') },
 }
 
 // Affected · relationship — a NEUTRAL classification (key:null → no colour).
-const REL: Record<string, { key: null, a: Localized }> = {
-  subject: { key: null, a: t('Decided about', 'Décidé à son sujet') },
-  bystander: { key: null, a: t('Caught incidentally', 'Pris de façon incidente') },
-  community: { key: null, a: t('Wider community', 'Communauté élargie') },
+// `tail` closes the C sentence with what the relationship means for people.
+const REL: Record<string, { key: null, a: Localized, c: Localized, tail: Localized }> = {
+  subject: {
+    key: null,
+    a: t('Decided about', 'Décidé à son sujet'),
+    c: t('decided about', 'concernés par une décision'),
+    tail: t('the system’s output affects each of them directly.', 'la sortie du système les affecte directement.'),
+  },
+  bystander: {
+    key: null,
+    a: t('Caught incidentally', 'Pris de façon incidente'),
+    c: t('caught incidentally', 'pris de façon incidente'),
+    tail: t('swept into the data; no decision is made about them.', 'intégrés aux données ; aucune décision ne les concerne.'),
+  },
+  community: {
+    key: null,
+    a: t('Wider community', 'Communauté élargie'),
+    c: t('a wider community', 'une communauté élargie'),
+    tail: t('affected together, beyond any one person it processes.', 'affectés collectivement, au-delà de chaque personne traitée.'),
+  },
 }
 
 // ── A-stack builders — the compact stack rendered by PieceStack ──
@@ -77,15 +105,23 @@ const scaleText = (p: PeoplePiece, loc: Loc): string =>
     ? `~${compact(p.count, loc)} ${tr(p.noun, loc)}${p.per ? ' ' + tr(p.per, loc) : ''}`
     : tr(p.scale, loc)
 
-/** data — the specific value leads; PII is the coloured classification.
- *  A piece with no PII degrades to headline + type (no mark). */
+/** data — the specific value leads; the type labels it. PII is no longer an
+ *  inline mark: it rides out to `dataTag` as a right-aligned tag, so both
+ *  densities read cleanly and the classification just sits at the row's end. */
 export function dataStack(p: DataPiece, loc: Loc): AStack {
   return {
     headline: tr(p.instance, loc),
     label: tr(p.type, loc),
-    mark: p.pii ? mk(tr(PII[p.pii].a, loc), PII[p.pii].key) : null,
+    mark: null,
     facts: (p.facts || []).map(f => tr(f, loc)),
   }
+}
+
+/** data — the PII classification as a right-aligned tag (or `null` when the
+ *  value carries no PII, e.g. the processing step). Colour follows the same
+ *  policy the inline mark used to: only published classifications earn it. */
+export function dataTag(p: DataPiece, loc: Loc): Tag | null {
+  return p.pii ? tagOf(tr(PII[p.pii].a, loc), PII[p.pii].key) : null
 }
 
 /** affected — the group leads; the relationship is a NEUTRAL mark. */
@@ -107,6 +143,92 @@ export function orgStack(p: OrgPiece, loc: Loc): AStack {
     mark: null,
     facts: [],
   }
+}
+
+// ── C-sentence builders — the composed sentence density (v6 GRAMMAR.C) ──
+// Each returns `Segment[]` (same shape as the system `sentence()`), so the
+// renderer treats every composed line uniformly. Deployment values are
+// neutral marks; only the published classification (PII) earns colour —
+// the relationship stays neutral (the same policy the A-stacks follow).
+
+const DASH: Segment = { kind: 'text', text: ' — ' }
+// The data sentence links the value to its facts with a plain verb rather
+// than a dash — "your face *is* kept for 24 h …" reads as a sentence.
+const IS: Localized = t('is', 'est')
+// Processing is an action, not data at rest, so it composes its own sentence
+// ("The system runs X (Y)") instead of the value/facts shape.
+const RUNS: Localized = t('The system runs', 'Le système exécute')
+// The affected sentence links the group to its relationship with a verb
+// ("… *are* decided about …") rather than a bare set-off dash.
+const ARE: Localized = t('are', 'sont')
+
+/** Join facts as neutral marks with the locale's list separators, so the
+ *  trailing clause reads "a, b and c" with each fact set off as a mark. */
+function factSegments(facts: string[], loc: Loc): Segment[] {
+  return listF(loc).formatToParts(facts).map((part): Segment =>
+    part.type === 'element'
+      ? { kind: 'mark', mark: mk(part.value, null) }
+      : { kind: 'text', text: part.value },
+  )
+}
+
+/** data — `Type (instance) is facts…`. The PII classification is no longer
+ *  part of the sentence (it rides out to `dataTag`), so every data value now
+ *  composes a line — input, processing *and* output — instead of only the
+ *  PII-bearing ones. The instance and facts are neutral marks. */
+export function dataSentence(p: DataPiece, loc: Loc): Segment[] {
+  const segs: Segment[] = [
+    { kind: 'text', text: `${tr(p.type, loc)} (` },
+    { kind: 'mark', mark: mk(tr(p.instance, loc), null) },
+    { kind: 'text', text: ')' },
+  ]
+  const facts = (p.facts || []).map(f => tr(f, loc))
+  if (facts.length) segs.push({ kind: 'text', text: ` ${tr(IS, loc)} ` }, ...factSegments(facts, loc))
+  return segs
+}
+
+/** processing — `The system runs {type} ({instance})`. Unlike input/output
+ *  (data at rest, described by facts), the processing step is an *action*, so
+ *  it reads as its own sentence rather than the value-and-facts shape. The
+ *  instance is a neutral mark, matching how input/output set off their value. */
+export function processingSentence(p: DataPiece, loc: Loc): Segment[] {
+  return [
+    { kind: 'text', text: `${tr(RUNS, loc)} ${tr(p.type, loc)} (` },
+    { kind: 'mark', mark: mk(tr(p.instance, loc), null) },
+    { kind: 'text', text: ')' },
+  ]
+}
+
+/** affected — `Who (scale) are relationship — tail`. The relationship is a
+ *  neutral mark, joined by a verb so the row reads as a sentence; the tail
+ *  closes with what that relationship means for those people. */
+export function peopleSentence(p: PeoplePiece, loc: Loc): Segment[] {
+  const rel = REL[p.rel]
+  const sc = scaleText(p, loc)
+  const segs: Segment[] = [{ kind: 'mark', mark: mk(tr(p.who, loc), null) }]
+  if (sc) segs.push({ kind: 'text', text: ' (' }, { kind: 'mark', mark: mk(sc, null) }, { kind: 'text', text: ')' })
+  segs.push(
+    { kind: 'text', text: ` ${tr(ARE, loc)} ` },
+    { kind: 'mark', mark: mk(tr(rel.c, loc), rel.key) },
+    DASH,
+    { kind: 'text', text: tr(rel.tail, loc) },
+  )
+  return segs
+}
+
+/** accountable — `Name (Role) verb`. The name is a neutral mark; the role
+ *  reads as an appositive, so the verb follows without a dash. */
+export function orgSentence(p: OrgPiece, loc: Loc): Segment[] {
+  return [
+    { kind: 'mark', mark: mk(tr(p.name, loc), null) },
+    { kind: 'text', text: ` (${tr(p.role, loc)}) ${tr(p.verb, loc)}` },
+  ]
+}
+
+/** The affected relationship's trailing clause — the matrix "Used on" row
+ *  pairs the relationship word (from `peopleStack().mark`) with this tail. */
+export function relTail(p: PeoplePiece, loc: Loc): string {
+  return tr(REL[p.rel].tail, loc)
 }
 
 // ── risk — its own A-only grammar: harm leads, narrative describes,
@@ -140,6 +262,22 @@ const TEMPLATES: Record<AutonomyKey, Localized> = {
   autonomous: t('The system {verbs} *on its own*.', 'Le système {verbs} *tout seul*.'),
   human_executes: t('The system {verbs}, and *a person carries out the result*.', 'Le système {verbs}, et *une personne exécute le résultat*.'),
   human_decides: t('The system {verbs}, and *a person decides what to do next*.', 'Le système {verbs}, et *une personne décide de la suite*.'),
+}
+
+// Autonomy — the published classification, kept *both* inside the sentence
+// (the coloured phrase) and as a set-off tag at the row's end. Short labels
+// for the tag; the sentence still carries the fuller "on its own" phrasing.
+const AUTONOMY: Record<AutonomyKey, Localized> = {
+  autonomous: t('Autonomous', 'Autonome'),
+  human_decides: t('Human decides', 'Décision humaine'),
+  human_executes: t('Human executes', 'Exécution humaine'),
+}
+
+/** The autonomy classification as a right-aligned tag for the system row. It
+ *  duplicates (does not replace) the coloured phrase inside the sentence. */
+export function autonomyTag(sys: SystemContent, loc: Loc): Tag {
+  const id = sys.autonomy.id
+  return tagOf(tr(AUTONOMY[id], loc), id)
 }
 
 /** Compose the system sentence as segments, the autonomy phrase a coloured mark. */

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { resolveCanvas, tr, type Loc } from '~/canvas-data'
 import { buildCanvasMeta } from '~/utils/share-meta'
 
@@ -29,20 +30,40 @@ useHead(() =>
     url: shareUrl,
   }),
 )
+
+// View toolbar state (U1 / U2): the board is view-only by default; feedback
+// is opt-in, and Sentence view is a separate global density toggle.
+const feedbackOn = ref(false)
+const sentenceOn = ref(false)
 </script>
 
 <template>
   <main class="mx-auto max-w-4xl px-6 py-10">
+    <!-- View toolbar: opt-in feedback + Sentence view density toggle. -->
+    <div class="mb-6 flex flex-wrap gap-2">
+      <button
+        type="button"
+        class="rounded-full border px-4 py-1.5 text-sm font-semibold transition"
+        :class="feedbackOn ? 'border-[var(--teal)] bg-[var(--teal)] text-white' : 'border-[var(--line)] text-[var(--muted)] hover:text-[var(--ink)]'"
+        :aria-pressed="feedbackOn"
+        @click="feedbackOn = !feedbackOn"
+      >{{ feedbackOn ? $t('feedback.done') : $t('feedback.give') }}</button>
+      <button
+        type="button"
+        class="rounded-full border px-4 py-1.5 text-sm font-semibold transition"
+        :class="sentenceOn ? 'border-[var(--teal)] bg-[var(--teal)] text-white' : 'border-[var(--line)] text-[var(--muted)] hover:text-[var(--ink)]'"
+        :aria-pressed="sentenceOn"
+        @click="sentenceOn = !sentenceOn"
+      >{{ $t('canvas.sentenceView') }}</button>
+    </div>
+
     <CanvasFeedbackLayer
       :content="canvas.content"
       :system="canvas.systemKey"
       :variant="canvas.variantKey"
       :version="canvas.versionKey"
+      :active="feedbackOn"
+      :sentence="sentenceOn"
     />
-    <div class="mt-6 text-sm">
-      <NuxtLink :to="`/compare/${canvas.systemKey}`" class="font-semibold text-[var(--teal)]">
-        {{ $t('compare.heading') }} →
-      </NuxtLink>
-    </div>
   </main>
 </template>

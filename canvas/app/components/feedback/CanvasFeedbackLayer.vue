@@ -7,13 +7,19 @@ import type { SystemContent } from '~/canvas-data'
 // clicking any seat opens a reaction popover; a canvas-level clarity
 // control covers overall feedback. Every submit posts the full tag; the
 // first submit from an untagged respondent triggers the one-time self-tag.
-const props = defineProps<{
+//
+// Feedback is opt-in (U1): with `active` false the board is view-only —
+// no click delegation, no hover outlines, no clarity control. `sentence`
+// is forwarded to the board for Sentence view (U2), independent of feedback.
+const props = withDefaults(defineProps<{
   content: SystemContent
   system: string
   variant: string
   version: string
   index?: number
-}>()
+  active?: boolean
+  sentence?: boolean
+}>(), { active: false, sentence: false })
 
 const coords: CanvasCoords = { system: props.system, variant: props.variant, version: props.version }
 const { selfTagOpen, submit, onTagged } = useFeedback(() => coords)
@@ -46,22 +52,26 @@ async function onCanvasSubmit(reaction: Reaction, note: string | null) {
 
 <template>
   <div class="flex flex-col gap-4">
-    <!-- Seats are interactive: a click delegates to the nearest [data-seat]. -->
-    <div class="canvas-interactive" @click="onBoardClick">
-      <CanvasBoard :content="content" :index="index" />
+    <!-- Active: seats are interactive — a click delegates to the nearest
+         [data-seat]. Inactive: a plain, view-only board. -->
+    <div v-if="active" class="canvas-interactive" @click="onBoardClick">
+      <CanvasBoard :content="content" :index="index" :sentence="sentence" />
     </div>
+    <CanvasBoard v-else :content="content" :index="index" :sentence="sentence" />
 
-    <ClarityRating @submit="onCanvasSubmit" />
+    <template v-if="active">
+      <ClarityRating @submit="onCanvasSubmit" />
 
-    <SeatReact
-      :open="seatOpen"
-      :x="pos.x"
-      :y="pos.y"
-      @submit="onSeatSubmit"
-      @close="seatOpen = false"
-    />
+      <SeatReact
+        :open="seatOpen"
+        :x="pos.x"
+        :y="pos.y"
+        @submit="onSeatSubmit"
+        @close="seatOpen = false"
+      />
 
-    <SelfTag v-model:open="selfTagOpen" @done="onTagged" />
+      <SelfTag v-model:open="selfTagOpen" @done="onTagged" />
+    </template>
   </div>
 </template>
 

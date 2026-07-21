@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { computed, onMounted, onBeforeUnmount, ref } from 'vue'
 import {
-  dataStack, peopleStack, orgStack, riskView, sentence, iconUrl,
+  dataStack, dataTag, peopleStack, orgStack, riskView, iconUrl,
+  sentence as systemSentence, autonomyTag, dataSentence, processingSentence, peopleSentence, orgSentence,
 } from '~/canvas-data/grammar'
 import { SEAT, riskSeat, tr, type Loc, type SystemContent, type RightAction } from '~/canvas-data'
+import { actHref as buildHref, externalAct } from '~/utils/rightActions'
 import '~/components/canvas/canvas.css'
 
 // Renders one canvas from resolved system content via the composition
@@ -15,6 +17,9 @@ const props = defineProps<{
   loc?: Loc
   /** Board index (0-based) for the "System N" eyebrow. */
   index?: number
+  /** Sentence view (U2): replace sentence-capable stacks with their
+   *  composed C sentence. Seats with no sentence are unaffected. */
+  sentence?: boolean
 }>()
 
 const { locale } = useI18n()
@@ -27,22 +32,9 @@ const purposeAlt = computed(() => tr(sy.value.purpose.t, loc.value))
 // template binding (title / narrative / mitigation).
 const riskViews = computed(() => sy.value.risks.map(r => riskView(r, loc.value)))
 
-// ── Rights / escalation action links (ported from v6, localized) ──
-function mailBody(right: string): string {
-  const name = tr(sy.value.name, loc.value)
-  const runby = tr(sy.value.runby.name, loc.value)
-  return loc.value === 'fr'
-    ? `Madame, Monsieur,\n\nJe fais valoir mon « ${right} » au titre de la divulgation DTPR pour :\n\n  Système : ${name} (réf ${sy.value.ref})\n  Exploité par : ${runby}\n\nDétails de ma demande :\n\n`
-    : `To whom it may concern,\n\nI am exercising my "${right}" under the DTPR disclosure for:\n\n  System: ${name} (ref ${sy.value.ref})\n  Operated by: ${runby}\n\nDetails of my request:\n\n`
-}
-function actHref(a: RightAction, right: string): string {
-  if (a.type === 'email') {
-    return `mailto:${a.target}?subject=${encodeURIComponent(`[${sy.value.ref}] ${right} — ${tr(sy.value.name, loc.value)}`)}&body=${encodeURIComponent(mailBody(right))}`
-  }
-  if (a.type === 'phone') return `tel:${a.target}`
-  return a.target
-}
-const external = (a: RightAction) => a.type === 'url' || a.type === 'form'
+// ── Rights / escalation action links (shared with the compare matrix) ──
+const actHref = (a: RightAction, right: string): string => buildHref(a, sy.value, right, loc.value)
+const external = externalAct
 
 // ── Immediate hover tooltip on every icon (delegated, ported from v6) ──
 const rootEl = ref<HTMLElement | null>(null)
@@ -114,7 +106,7 @@ onBeforeUnmount(() => {
       <!-- run by / built by -->
       <div class="cell" :data-seat="SEAT.runBy">
         <div class="zl">{{ $t('canvas.runBy') }}</div>
-        <PieceStack :stack="orgStack(sy.runby, loc)">
+        <PieceStack :stack="orgStack(sy.runby, loc)" :sentence="props.sentence ? orgSentence(sy.runby, loc) : null">
           <template #icon>
             <img :src="iconUrl(sy.runby.el)" :alt="tr(sy.runby.role, loc)" :data-tip="tr(sy.runby.role, loc)" width="44" height="44" loading="lazy" style="object-fit:contain">
           </template>
@@ -122,7 +114,7 @@ onBeforeUnmount(() => {
       </div>
       <div class="cell" :data-seat="SEAT.builtBy">
         <div class="zl">{{ $t('canvas.builtBy') }}</div>
-        <PieceStack :stack="orgStack(sy.builtby, loc)">
+        <PieceStack :stack="orgStack(sy.builtby, loc)" :sentence="props.sentence ? orgSentence(sy.builtby, loc) : null">
           <template #icon>
             <img :src="iconUrl(sy.builtby.el)" :alt="tr(sy.builtby.role, loc)" :data-tip="tr(sy.builtby.role, loc)" width="44" height="44" loading="lazy" style="object-fit:contain">
           </template>
@@ -141,11 +133,12 @@ onBeforeUnmount(() => {
             >
           </div>
           <p class="sys-sentence">
-            <template v-for="(seg, i) in sentence(sy, loc)" :key="i">
+            <template v-for="(seg, i) in systemSentence(sy, loc)" :key="i">
               <Marker v-if="seg.kind === 'mark'" :mark="seg.mark" />
               <span v-else>{{ seg.text }}</span>
             </template>
           </p>
+          <Tag :tag="autonomyTag(sy, loc)" />
         </div>
       </div>
 
@@ -154,7 +147,7 @@ onBeforeUnmount(() => {
         <div class="zl">{{ $t('canvas.dataFlow') }}</div>
         <div class="vflow">
           <div :data-seat="SEAT.dataInput">
-            <PieceStack :stack="dataStack(sy.input, loc)">
+            <PieceStack :stack="dataStack(sy.input, loc)" :tag="dataTag(sy.input, loc)" :sentence="props.sentence ? dataSentence(sy.input, loc) : null">
               <template #icon>
                 <img :src="iconUrl(sy.input.id)" :alt="tr(sy.input.type, loc)" :data-tip="tr(sy.input.type, loc)" width="40" height="40" loading="lazy" style="object-fit:contain">
               </template>
@@ -162,7 +155,7 @@ onBeforeUnmount(() => {
           </div>
           <div class="varrow">↓</div>
           <div :data-seat="SEAT.processing">
-            <PieceStack :stack="dataStack(sy.processing, loc)">
+            <PieceStack :stack="dataStack(sy.processing, loc)" :tag="dataTag(sy.processing, loc)" :sentence="props.sentence ? processingSentence(sy.processing, loc) : null">
               <template #icon>
                 <img :src="iconUrl(sy.processing.id)" :alt="tr(sy.processing.type, loc)" :data-tip="tr(sy.processing.type, loc)" width="40" height="40" loading="lazy" style="object-fit:contain">
               </template>
@@ -170,7 +163,7 @@ onBeforeUnmount(() => {
           </div>
           <div class="varrow">↓</div>
           <div :data-seat="SEAT.dataOutput">
-            <PieceStack :stack="dataStack(sy.output, loc)">
+            <PieceStack :stack="dataStack(sy.output, loc)" :tag="dataTag(sy.output, loc)" :sentence="props.sentence ? dataSentence(sy.output, loc) : null">
               <template #icon>
                 <img :src="iconUrl(sy.output.id)" :alt="tr(sy.output.type, loc)" :data-tip="tr(sy.output.type, loc)" width="40" height="40" loading="lazy" style="object-fit:contain">
               </template>
@@ -206,7 +199,7 @@ onBeforeUnmount(() => {
       <!-- used on -->
       <div class="cell" :data-seat="SEAT.usedOn">
         <div class="zl">{{ $t('canvas.usedOn') }}</div>
-        <PieceStack :stack="peopleStack(sy.usedon, loc)">
+        <PieceStack :stack="peopleStack(sy.usedon, loc)" :sentence="props.sentence ? peopleSentence(sy.usedon, loc) : null">
           <template #icon>
             <svg width="40" height="40" viewBox="0 0 36 36" aria-hidden="true">
               <path d="M31.8564 8.8453L19 1.42265C18.3812 1.06538 17.6188 1.06538 17 1.42265L4.14359 8.8453C3.52479 9.20257 3.14359 9.86282 3.14359 10.5774V25.4226C3.14359 26.1372 3.52479 26.7974 4.14359 27.1547L17 34.5774C17.6188 34.9346 18.3812 34.9346 19 34.5774L31.8564 27.1547C32.4752 26.7974 32.8564 26.1372 32.8564 25.4226V10.5774C32.8564 9.86282 32.4752 9.20256 31.8564 8.8453Z" fill="none" stroke="#000" stroke-width="2" />

@@ -16,7 +16,8 @@
     "usedOn": "Used on",
     "youCan": "You can",
     "noRights": "No notice. No appeal path.",
-    "complaint": "Complaint"
+    "complaint": "Complaint",
+    "sentenceView": "Sentence view"
   },
   "register": {
     "heading": "AI systems, disclosed",
@@ -33,7 +34,9 @@
     "send": "Send",
     "sent": "Thanks — recorded.",
     "error": "Couldn’t save that — try again.",
-    "react": "React"
+    "react": "React",
+    "give": "Give feedback",
+    "done": "Done"
   },
   "selfTag": {
     "heading": "One quick thing",
@@ -47,12 +50,7 @@
     "continue": "Continue"
   },
   "compare": {
-    "heading": "Which presentation landed?",
-    "sub": "Feedback per variant and version, segmented by audience.",
-    "public": "Public",
-    "professional": "Practitioner",
-    "thinSample": "Not enough responses yet",
-    "seatConfusion": "Where confusion clusters",
-    "noSeatData": "No per-piece feedback yet"
+    "heading": "Compare systems",
+    "sub": "The four live systems side by side — each column a system, each row a fixed seat. The seats never move, so the differences pop."
   }
 }
