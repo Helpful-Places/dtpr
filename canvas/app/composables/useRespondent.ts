@@ -91,11 +91,6 @@ export function useRespondent() {
     }
   }
 
-  function updateContact(c: string | null): void {
-    setContact(c)
-    contact.value = c && c.trim() ? c.trim() : null
-  }
-
   /** The payload shape the feedback POST expects for `respondent`. */
   function forSubmit(): { id: string, type: RespondentType, contact: string | null } | null {
     init()
@@ -109,8 +104,6 @@ export function useRespondent() {
     contact,
     tagged: computed(() => type.value !== null),
     tag,
-    updateContact,
     forSubmit,
-    ensureReady: init,
   }
 }

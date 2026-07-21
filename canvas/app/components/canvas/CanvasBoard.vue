@@ -23,6 +23,10 @@ const sy = computed(() => props.content)
 
 const purposeAlt = computed(() => tr(sy.value.purpose.t, loc.value))
 
+// Build each risk's view once per render rather than re-deriving it per
+// template binding (title / narrative / mitigation).
+const riskViews = computed(() => sy.value.risks.map(r => riskView(r, loc.value)))
+
 // ── Rights / escalation action links (ported from v6, localized) ──
 function mailBody(right: string): string {
   const name = tr(sy.value.name, loc.value)
@@ -185,10 +189,10 @@ onBeforeUnmount(() => {
                 <img :src="iconUrl(r.harm)" :alt="tr(r.title, loc)" :data-tip="tr(r.title, loc)" width="40" height="40" loading="lazy" style="object-fit:contain">
               </div>
               <div class="astack">
-                <div class="a-l1">{{ riskView(r, loc).title }}</div>
-                <div class="a-l2 risk-narr">{{ riskView(r, loc).narrative }}</div>
-                <div v-if="riskView(r, loc).mitigation" class="mitig">
-                  <span class="mit-k">{{ $t('canvas.mitigation') }}</span>{{ riskView(r, loc).mitigation }}
+                <div class="a-l1">{{ riskViews[i].title }}</div>
+                <div class="a-l2 risk-narr">{{ riskViews[i].narrative }}</div>
+                <div v-if="riskViews[i].mitigation" class="mitig">
+                  <span class="mit-k">{{ $t('canvas.mitigation') }}</span>{{ riskViews[i].mitigation }}
                 </div>
                 <div v-else class="alarm mit-alarm">
                   <span class="bang">!</span>{{ $t('canvas.noMitigation') }}

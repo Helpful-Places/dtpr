@@ -1,14 +1,11 @@
-import { getSummary, type D1Database } from '../../utils/db'
+import { getSummary } from '../../utils/db'
+import { requireFeedbackDb } from '../../utils/require-db'
 
 // GET /api/feedback/summary?system=<key> — segmented aggregate feeding the
 // compare view (U8 / R6). Counts stay split by respondent type, never
 // merged (AE3).
 export default defineEventHandler(async (event) => {
-  const db = (event.context as { cloudflare?: { env?: { FEEDBACK_DB?: D1Database } } })
-    .cloudflare?.env?.FEEDBACK_DB
-  if (!db) {
-    throw createError({ statusCode: 503, statusMessage: 'Feedback store unavailable' })
-  }
+  const db = requireFeedbackDb(event)
 
   const system = getQuery(event).system
   if (typeof system !== 'string' || system.trim() === '') {

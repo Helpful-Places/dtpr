@@ -1,14 +1,10 @@
-import { validateFeedback, insertFeedback, type D1Database } from '../utils/db'
+import { validateFeedback, insertFeedback } from '../utils/db'
+import { requireFeedbackDb } from '../utils/require-db'
 
 // POST /api/feedback — validate a reaction and persist it. Mirrors the
-// validate-then-act shape of app/server/api/subscribe.post.ts. The D1
-// binding is reached via the Cloudflare env on the request context.
+// validate-then-act shape of app/server/api/subscribe.post.ts.
 export default defineEventHandler(async (event) => {
-  const db = (event.context as { cloudflare?: { env?: { FEEDBACK_DB?: D1Database } } })
-    .cloudflare?.env?.FEEDBACK_DB
-  if (!db) {
-    throw createError({ statusCode: 503, statusMessage: 'Feedback store unavailable' })
-  }
+  const db = requireFeedbackDb(event)
 
   const body = await readBody(event)
   const result = validateFeedback(body)

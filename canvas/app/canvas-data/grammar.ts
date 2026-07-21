@@ -53,38 +53,11 @@ const PII: Record<string, { key: string, a: Localized }> = {
 }
 
 // Affected · relationship — a NEUTRAL classification (key:null → no colour).
-const REL: Record<string, { key: null, a: Localized, tail: Localized, legend: Localized }> = {
-  subject: {
-    key: null,
-    a: t('Decided about', 'Décidé à son sujet'),
-    tail: t('the system’s output affects each of them directly.', 'la sortie du système les affecte directement.'),
-    legend: t(
-      'The system produces an output about this person that affects them directly — a score, a match, an eligibility call.',
-      'Le système produit un résultat sur cette personne qui l’affecte directement — un score, une correspondance, une décision d’admissibilité.',
-    ),
-  },
-  bystander: {
-    key: null,
-    a: t('Caught incidentally', 'Pris de façon incidente'),
-    tail: t('swept into the data; no decision is made about them.', 'intégrés aux données ; aucune décision ne les concerne.'),
-    legend: t(
-      'Swept into the system’s data even though it isn’t making a decision about them — a face in the background of a camera aimed elsewhere.',
-      'Intégrés aux données du système sans qu’aucune décision ne les concerne — un visage à l’arrière-plan d’une caméra visant ailleurs.',
-    ),
-  },
-  community: {
-    key: null,
-    a: t('Wider community', 'Communauté élargie'),
-    tail: t('affected together, beyond any one person it processes.', 'affectés collectivement, au-delà de chaque personne traitée.'),
-    legend: t(
-      'A place or group affected collectively, beyond the individuals the system processes — a neighbourhood under watch, a ranked workforce.',
-      'Un lieu ou un groupe affecté collectivement, au-delà des individus traités — un quartier surveillé, un effectif classé.',
-    ),
-  },
+const REL: Record<string, { key: null, a: Localized }> = {
+  subject: { key: null, a: t('Decided about', 'Décidé à son sujet') },
+  bystander: { key: null, a: t('Caught incidentally', 'Pris de façon incidente') },
+  community: { key: null, a: t('Wider community', 'Communauté élargie') },
 }
-
-export const relationshipLegend = (rel: string, loc: Loc): string => tr(REL[rel]?.legend, loc)
-export const relationshipLabel = (rel: string, loc: Loc): string => tr(REL[rel]?.a, loc)
 
 // ── A-stack builders — the compact stack rendered by PieceStack ──
 // A normalized shape across data/people/org: headline + an optional
@@ -192,10 +165,3 @@ export function sentence(sys: SystemContent, loc: Loc): Segment[] {
 // ── Icons: real composed DTPR icons, loaded from the API (as in v6) ──
 export const ICON_API = 'https://api.dtpr.io/api/v2/schemas/ai@2026-05-06-beta/elements/'
 export const iconUrl = (id: string): string => `${ICON_API}${id}/icon.svg`
-
-// The "affected people" symbol is composed in-page (hexagon frame + people),
-// mirroring v6's peopleIc so the affected seat matches the other icons.
-export const PEOPLE_HEX_PATH =
-  'M31.8564 8.8453L19 1.42265C18.3812 1.06538 17.6188 1.06538 17 1.42265L4.14359 8.8453C3.52479 9.20257 3.14359 9.86282 3.14359 10.5774V25.4226C3.14359 26.1372 3.52479 26.7974 4.14359 27.1547L17 34.5774C17.6188 34.9346 18.3812 34.9346 19 34.5774L31.8564 27.1547C32.4752 26.7974 32.8564 26.1372 32.8564 25.4226V10.5774C32.8564 9.86282 32.4752 9.20256 31.8564 8.8453Z'
-export const PEOPLE_SYMBOL =
-  '<path d="M13.5 10.6667C15.1569 10.6667 16.5 12.0098 16.5 13.6667C16.5 15.3235 15.1569 16.6667 13.5 16.6667C11.8431 16.6667 10.5 15.3235 10.5 13.6667C10.5 12.0098 11.8431 10.6667 13.5 10.6667Z"/><path d="M22.5 10.6667C24.1569 10.6667 25.5 12.0098 25.5 13.6667C25.5 15.3235 24.1569 16.6667 22.5 16.6667C20.8431 16.6667 19.5 15.3235 19.5 13.6667C19.5 12.0098 20.8431 10.6667 22.5 10.6667Z"/><path d="M13.5 18C10.1863 18 7.5 20.6863 7.5 24V25.3333H19.5V24C19.5 20.6863 16.8137 18 13.5 18Z"/><path d="M22.5 18C21.9316 18 21.3818 18.0791 20.8608 18.2266C22.1863 19.7061 23 21.6589 23 24V25.3333H28.5V24C28.5 20.6863 25.8137 18 22.5 18Z"/>'
