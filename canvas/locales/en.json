@@ -3,6 +3,21 @@
     "title": "DTPR AI Register",
     "tagline": "How AI systems in public places work — and what you can do about them."
   },
+  "canvas": {
+    "systemNo": "System {n}",
+    "for": "for",
+    "runBy": "Run by",
+    "builtBy": "Built by",
+    "theSystem": "The system",
+    "dataFlow": "Data flow",
+    "risks": "Risks & mitigation",
+    "mitigation": "Mitigation",
+    "noMitigation": "No mitigation provided",
+    "usedOn": "Used on",
+    "youCan": "You can",
+    "noRights": "No notice. No appeal path.",
+    "complaint": "Complaint"
+  },
   "register": {
     "heading": "AI systems, disclosed",
     "sub": "A browsable register of AI systems, each drawn as a DTPR canvas. Open one to see how it works — and leave a reaction on any piece that lands or confuses.",

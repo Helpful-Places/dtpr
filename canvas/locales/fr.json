@@ -3,6 +3,21 @@
     "title": "Registre IA DTPR",
     "tagline": "Comment fonctionnent les systèmes d’IA dans les lieux publics — et ce que vous pouvez faire."
   },
+  "canvas": {
+    "systemNo": "Système {n}",
+    "for": "pour",
+    "runBy": "Exploité par",
+    "builtBy": "Conçu par",
+    "theSystem": "Le système",
+    "dataFlow": "Flux de données",
+    "risks": "Risques et atténuation",
+    "mitigation": "Atténuation",
+    "noMitigation": "Aucune atténuation",
+    "usedOn": "Utilisé sur",
+    "youCan": "Vous pouvez",
+    "noRights": "Aucune notification. Aucun recours.",
+    "complaint": "Réclamation"
+  },
   "register": {
     "heading": "Les systèmes d’IA, divulgués",
     "sub": "Un registre navigable de systèmes d’IA, chacun dessiné comme un panneau DTPR. Ouvrez-en un pour voir comment il fonctionne — et réagissez sur tout élément qui vous parle ou vous déroute.",

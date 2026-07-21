@@ -1,0 +1,167 @@
+/* Canvas renderer styles, ported from the v6 prototype. Scoped under
+   `.canvas-root` so the board keeps its paper/ink look regardless of the
+   surrounding app chrome. Colour custom properties come from main.css. */
+
+.canvas-root {
+  font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+  color: var(--ink);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- the board ---- */
+.canvas-root .board {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(27, 27, 25, 0.04), 0 16px 36px -30px rgba(27, 27, 25, 0.3);
+}
+.canvas-root .cell {
+  background: var(--card);
+  padding: 18px 22px;
+  min-width: 0;
+}
+.canvas-root .span2 { grid-column: 1 / -1; }
+.canvas-root .zl {
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+
+/* ---- header ---- */
+.canvas-root .head { padding: 20px 22px 18px; }
+.canvas-root .head-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.canvas-root .sysno {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-bottom: 3px;
+}
+.canvas-root .head h2 { margin: 0; font-size: 1.35rem; font-weight: 700; letter-spacing: -0.01em; }
+.canvas-root .read { margin: 10px 0 0; font-size: 0.92rem; color: var(--muted); max-width: 72ch; }
+
+.canvas-root .chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: var(--chip);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 5px 13px 5px 8px;
+  white-space: nowrap;
+}
+.canvas-root .chip img, .canvas-root .chip svg { display: block; }
+.canvas-root .chip .k { font-weight: 600; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+
+/* ---- composition markers ---- */
+.canvas-root .mk {
+  display: inline;
+  padding: 0 0.12em;
+  border-radius: 2px;
+  background: linear-gradient(180deg, transparent 0 52%, var(--mkfill) 52% 92%, transparent 92%);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.canvas-root .mk-neutral { --mkfill: rgba(114, 114, 108, 0.28); }
+.canvas-root .mk-color { --mkfill: color-mix(in srgb, var(--mkc) 58%, transparent); }
+
+/* ---- piece: A stack ---- */
+.canvas-root .pc { min-width: 0; }
+.canvas-root .pc-a { display: flex; align-items: flex-start; gap: 12px; min-width: 0; }
+.canvas-root .pc-ic { flex: none; display: block; }
+.canvas-root .astack { min-width: 0; }
+.canvas-root .a-l1 { font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.canvas-root .a-l2 { font-size: 0.9rem; margin-top: 3px; line-height: 1.35; }
+.canvas-root .a-l2 .a-type { color: var(--ink); font-weight: 600; }
+.canvas-root .a-l3 { font-size: 0.78rem; color: var(--muted); margin-top: 5px; line-height: 1.35; }
+.canvas-root .sep { color: var(--line-strong); margin: 0 0.5em; }
+.canvas-root .risk-narr { color: var(--muted); font-weight: 400; max-width: 64ch; }
+
+/* ---- data flow ---- */
+.canvas-root .vflow { display: flex; flex-direction: column; }
+.canvas-root .varrow { color: var(--muted); font-size: 1.05rem; line-height: 1; margin: 8px 0 8px 15px; }
+
+/* ---- risk ---- */
+.canvas-root .risk-list { display: flex; flex-direction: column; gap: 20px; }
+.canvas-root .mitig { margin-top: 9px; font-size: 0.84rem; }
+.canvas-root .mit-k { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-right: 8px; }
+.canvas-root .mit-alarm { margin-top: 9px; }
+.canvas-root .alarm {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--alarm);
+  border: 1.5px dashed color-mix(in srgb, var(--alarm) 45%, transparent);
+  border-radius: 10px;
+  padding: 10px 14px;
+  background: color-mix(in srgb, var(--alarm) 4%, var(--card));
+}
+.canvas-root .bang {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--alarm);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---- system sentence ---- */
+.canvas-root .sysrow { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.canvas-root .mode-icons { display: flex; gap: 8px; flex: none; }
+.canvas-root .sys-sentence { margin: 0; font-size: 0.98rem; color: var(--ink); }
+
+/* ---- rights ---- */
+.canvas-root .rights { display: flex; flex-direction: column; gap: 13px; }
+.canvas-root .right { display: flex; align-items: flex-start; gap: 10px; font-size: 0.85rem; }
+.canvas-root .right img { flex: none; }
+.canvas-root .right .rn { font-weight: 600; }
+.canvas-root .right .rs { color: var(--muted); font-weight: 400; }
+.canvas-root .racts { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 7px; }
+.canvas-root a.act {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--teal);
+  text-decoration: none;
+  background: var(--card);
+  border: 1px solid color-mix(in srgb, var(--teal) 34%, transparent);
+  border-radius: 999px;
+  padding: 3px 11px;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+.canvas-root a.act:hover { background: var(--teal); color: #fff; border-color: var(--teal); }
+.canvas-root a.act svg { flex: none; }
+.canvas-root .esc { padding-top: 12px; border-top: 1px dashed var(--line); margin-top: 2px; }
+.canvas-root .esc .ek { display: block; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+
+@media (max-width: 680px) {
+  .canvas-root .board { grid-template-columns: 1fr; }
+  .canvas-root .span2 { grid-column: auto; }
+}

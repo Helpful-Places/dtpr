@@ -5,6 +5,10 @@
 export default defineNuxtConfig({
   modules: ['@nuxt/ui', '@nuxtjs/i18n'],
 
+  // Use bare filenames for auto-imported components (Marker, PieceStack,
+  // CanvasBoard, SeatReact…) rather than the directory-prefixed default.
+  components: [{ path: '~/components', pathPrefix: false }],
+
   css: ['~/assets/css/main.css'],
 
   // Canvas pages are SSR so LinkedIn / newsletter deep links render OG
