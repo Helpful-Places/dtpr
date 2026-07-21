@@ -38,7 +38,6 @@ describe('validateFeedback (U4)', () => {
   })
 
   it('requires a seat for scope "seat" and drops it for scope "canvas" (AE4)', () => {
-    expect(validateFeedback(seatBody({ scope: 'seat', seat: undefined }).ok ?? undefined)).toBeDefined()
     expect(validateFeedback(seatBody({ scope: 'seat', seat: undefined })).ok).toBe(false)
 
     const canvas = validateFeedback(seatBody({ scope: 'canvas', seat: 'data-input', reaction: 'clear' }))
@@ -49,6 +48,21 @@ describe('validateFeedback (U4)', () => {
   it('rejects an unknown reaction and an unknown respondent type', () => {
     expect(validateFeedback(seatBody({ reaction: 'love' })).ok).toBe(false)
     expect(validateFeedback(seatBody({ respondent: respondent({ type: 'robot' }) })).ok).toBe(false)
+  })
+
+  it('rejects over-length keys and caps note/contact length (storage-abuse guard)', () => {
+    const huge = 'x'.repeat(5000)
+    // keys (system/variant/version/seat/respondent.id) are hard-rejected
+    expect(validateFeedback(seatBody({ system: huge })).ok).toBe(false)
+    expect(validateFeedback(seatBody({ seat: huge })).ok).toBe(false)
+    expect(validateFeedback(seatBody({ respondent: respondent({ id: huge }) })).ok).toBe(false)
+    // free-text note/contact are truncated, not rejected
+    const r = validateFeedback(seatBody({ note: huge, respondent: respondent({ contact: huge }) }))
+    expect(r.ok).toBe(true)
+    if (r.ok) {
+      expect(r.value.note!.length).toBe(2000)
+      expect(r.value.respondent.contact!.length).toBe(256)
+    }
   })
 })
 
@@ -108,5 +122,27 @@ describe('insertFeedback + getSummary against real SQL (U4)', () => {
     // Both responses aggregate under the original 'public' tag.
     expect(rows.every(r => r.respondentType === 'public')).toBe(true)
     expect(rows.reduce((n, r) => n + r.count, 0)).toBe(2)
+  })
+
+  it('fills contact on a return visit when it was empty, but never overwrites an existing one', async () => {
+    const db = makeTestD1()
+    const readContact = () =>
+      db.prepare('SELECT contact FROM respondent WHERE respondent_id = ?')
+        .bind('r-c').first<{ contact: string | null }>()
+
+    // First visit: no contact.
+    const a = validateFeedback(seatBody({ respondent: respondent({ id: 'r-c' }) }))
+    if (a.ok) await insertFeedback(db, a.value)
+    expect((await readContact())?.contact).toBeNull()
+
+    // Return visit provides a contact → fills the empty slot.
+    const b = validateFeedback(seatBody({ reaction: 'clear', respondent: respondent({ id: 'r-c', contact: 'jane@example.com' }) }))
+    if (b.ok) await insertFeedback(db, b.value)
+    expect((await readContact())?.contact).toBe('jane@example.com')
+
+    // A later, different contact must NOT overwrite the stored one.
+    const c = validateFeedback(seatBody({ reaction: 'unsure', respondent: respondent({ id: 'r-c', contact: 'evil@example.com' }) }))
+    if (c.ok) await insertFeedback(db, c.value)
+    expect((await readContact())?.contact).toBe('jane@example.com')
   })
 })

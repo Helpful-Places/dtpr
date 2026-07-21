@@ -132,4 +132,25 @@ describe('system sentence (U3)', () => {
     const mark = segs.find(s => s.kind === 'mark')
     expect(mark && mark.kind === 'mark' && mark.mark.color).toBe(CLASSIFICATION_COLOR.human_decides)
   })
+
+  it('composes multiple modes into a conjoined verb list', () => {
+    const segs = sentence({
+      modes: [
+        { id: 'perceptive_mode', t: t('Sensing', 'S'), s: t('Perceptive', 'P') },
+        { id: 'analytical_mode', t: t('Deciding', 'D'), s: t('Analytical', 'A') },
+      ],
+      autonomy: { id: 'autonomous' },
+    } as SystemContent, 'en')
+    const text = segs.map(s => (s.kind === 'text' ? s.text : `[${s.mark.text}]`)).join('')
+    expect(text).toBe('The system senses and decides [on its own].')
+  })
+
+  it('falls back to the mode label when a mode has no verb entry', () => {
+    const segs = sentence({
+      modes: [{ id: 'unknown_mode', t: t('Whirring', 'W'), s: t('X', 'X') }],
+      autonomy: { id: 'autonomous' },
+    } as SystemContent, 'en')
+    const text = segs.map(s => (s.kind === 'text' ? s.text : `[${s.mark.text}]`)).join('')
+    expect(text).toBe('The system whirring [on its own].')
+  })
 })

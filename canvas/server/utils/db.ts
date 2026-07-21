@@ -42,9 +42,19 @@ export type ValidationResult =
   | { ok: true, value: FeedbackInput }
   | { ok: false, error: string }
 
+// Per-field length caps enforced at the trust boundary so an anonymous
+// public POST can't persist multi-megabyte values into D1 (storage abuse).
+const MAX_LEN = {
+  key: 128, // system / variant / version / seat
+  id: 128,
+  note: 2000,
+  contact: 256,
+} as const
+
 const isNonEmptyString = (v: unknown): v is string => typeof v === 'string' && v.trim() !== ''
-const optionalString = (v: unknown): string | null =>
-  isNonEmptyString(v) ? v.trim() : null
+const isKey = (v: unknown): v is string => isNonEmptyString(v) && v.trim().length <= MAX_LEN.key
+const optionalString = (v: unknown, max: number): string | null =>
+  isNonEmptyString(v) ? v.trim().slice(0, max) : null
 
 /**
  * Validate + normalize a raw POST body into a FeedbackInput.
@@ -57,9 +67,9 @@ export function validateFeedback(body: unknown): ValidationResult {
   if (!body || typeof body !== 'object') return { ok: false, error: 'Body is required' }
   const b = body as Record<string, unknown>
 
-  if (!isNonEmptyString(b.system)) return { ok: false, error: 'system is required' }
-  if (!isNonEmptyString(b.variant)) return { ok: false, error: 'variant is required' }
-  if (!isNonEmptyString(b.version)) return { ok: false, error: 'version is required' }
+  if (!isKey(b.system)) return { ok: false, error: 'system is required' }
+  if (!isKey(b.variant)) return { ok: false, error: 'variant is required' }
+  if (!isKey(b.version)) return { ok: false, error: 'version is required' }
 
   if (!isNonEmptyString(b.scope) || !SCOPES.includes(b.scope as Scope)) {
     return { ok: false, error: 'scope must be one of: ' + SCOPES.join(', ') }
@@ -74,14 +84,14 @@ export function validateFeedback(body: unknown): ValidationResult {
   // Seat is required for seat scope and forbidden (dropped) for canvas scope.
   let seat: string | null = null
   if (scope === 'seat') {
-    if (!isNonEmptyString(b.seat)) return { ok: false, error: 'seat is required for scope "seat"' }
+    if (!isKey(b.seat)) return { ok: false, error: 'seat is required for scope "seat"' }
     seat = b.seat.trim()
   }
 
   const r = b.respondent
   if (!r || typeof r !== 'object') return { ok: false, error: 'respondent is required' }
   const rr = r as Record<string, unknown>
-  if (!isNonEmptyString(rr.id)) return { ok: false, error: 'respondent.id is required' }
+  if (!isKey(rr.id)) return { ok: false, error: 'respondent.id is required' }
   if (!isNonEmptyString(rr.type) || !RESPONDENT_TYPES.includes(rr.type as RespondentType)) {
     return { ok: false, error: 'respondent.type must be one of: ' + RESPONDENT_TYPES.join(', ') }
   }
@@ -95,20 +105,21 @@ export function validateFeedback(body: unknown): ValidationResult {
       seat,
       scope,
       reaction,
-      note: optionalString(b.note),
+      note: optionalString(b.note, MAX_LEN.note),
       respondent: {
         id: rr.id.trim(),
         type: rr.type as RespondentType,
-        contact: optionalString(rr.contact),
+        contact: optionalString(rr.contact, MAX_LEN.contact),
       },
     },
   }
 }
 
 /**
- * Persist a validated response: upsert the respondent (self-tag is set
- * once on first insert; a later contact fills in if newly provided) then
- * insert the response row. Returns the new response id.
+ * Persist a validated response: upsert the respondent (type and contact
+ * are set once on first insert; a return visit fills contact only when it
+ * was previously empty, never overwriting — the id is a client-supplied
+ * primary key) then insert the response row. Returns the new response id.
  */
 export async function insertFeedback(
   db: D1Database,
@@ -120,7 +131,7 @@ export async function insertFeedback(
       `INSERT INTO respondent (respondent_id, respondent_type, contact, created_at)
        VALUES (?, ?, ?, ?)
        ON CONFLICT(respondent_id) DO UPDATE SET
-         contact = COALESCE(excluded.contact, respondent.contact)`,
+         contact = COALESCE(respondent.contact, excluded.contact)`,
     )
     .bind(input.respondent.id, input.respondent.type, input.respondent.contact, now)
     .run()

@@ -7,6 +7,7 @@ import {
   setContact,
   isTagged,
   loadRespondent,
+  useRespondent,
 } from '../app/composables/useRespondent'
 
 // AE1: first-time vs returning respondent, and the "ask the tag once" rule.
@@ -59,5 +60,18 @@ describe('respondent identity (U5)', () => {
     expect(getContact()).toBe('jane@example.com')
     setContact('')
     expect(getContact()).toBeNull()
+  })
+
+  it('useRespondent().tag() drives the reactive state and forSubmit() payload', () => {
+    const r = useRespondent()
+    r.tag('professional', ' me@example.com ')
+    expect(r.tagged.value).toBe(true)
+    expect(r.type.value).toBe('professional')
+
+    const sub = r.forSubmit()
+    expect(sub).not.toBeNull()
+    expect(sub!.type).toBe('professional')
+    expect(sub!.contact).toBe('me@example.com')
+    expect(sub!.id).toBeTruthy()
   })
 })

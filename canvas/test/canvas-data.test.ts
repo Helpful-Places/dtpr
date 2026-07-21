@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
-import { SYSTEMS, listSystems, resolveCanvas, liveCanvases } from '../app/canvas-data'
-import type { CanvasSystem } from '../app/canvas-data'
+import { SYSTEMS, listSystems, resolveCanvas, liveCanvases, currentVersion, defaultVariant } from '../app/canvas-data'
+import type { CanvasSystem, CanvasVariant } from '../app/canvas-data'
 
 describe('canvas data registry (U2)', () => {
   it('exposes all four systems, each with at least one live variant', () => {
@@ -79,25 +79,40 @@ describe('canvas data registry (U2)', () => {
     expect(live.every(c => c.live)).toBe(true)
   })
 
-  it('defaults a version to the newest when a variant has several', () => {
+  it('currentVersion() returns the newest of several — the resolve-layer AE2 path', () => {
     // Guards the "restyle = new version, prior feedback stays comparable"
     // contract (R5 / AE2): resolving without a version must land on the
-    // current look, not the first.
-    const s: CanvasSystem = {
-      systemKey: 'x',
-      variants: [
-        {
-          variantKey: 'a',
-          label: { en: 'A', fr: 'A' },
-          live: true,
-          versions: [
-            { versionKey: '1', content: SYSTEMS[0].variants[0].versions[0].content },
-            { versionKey: '2', content: SYSTEMS[0].variants[0].versions[0].content },
-          ],
-        },
+    // current look, not the first. Exercises the real currentVersion()
+    // that resolveCanvas() falls through to.
+    const content = SYSTEMS[0].variants[0].versions[0].content
+    const variant: CanvasVariant = {
+      variantKey: 'a',
+      label: { en: 'A', fr: 'A' },
+      live: true,
+      versions: [
+        { versionKey: '1', content },
+        { versionKey: '2', content },
       ],
     }
-    const current = s.variants[0].versions.at(-1)!.versionKey
-    expect(current).toBe('2')
+    expect(currentVersion(variant).versionKey).toBe('2')
+  })
+
+  it('defaultVariant() prefers a live variant over a paused one (R16)', () => {
+    const content = SYSTEMS[0].variants[0].versions[0].content
+    const withPaused: CanvasSystem = {
+      systemKey: 'x',
+      variants: [
+        { variantKey: 'old', label: { en: 'Old', fr: 'Old' }, live: false, versions: [{ versionKey: '1', content }] },
+        { variantKey: 'new', label: { en: 'New', fr: 'New' }, live: true, versions: [{ versionKey: '1', content }] },
+      ],
+    }
+    expect(defaultVariant(withPaused)?.variantKey).toBe('new')
+
+    // Falls back to the first variant when none are live.
+    const allPaused: CanvasSystem = {
+      systemKey: 'y',
+      variants: [{ variantKey: 'only', label: { en: 'Only', fr: 'Only' }, live: false, versions: [{ versionKey: '1', content }] }],
+    }
+    expect(defaultVariant(allPaused)?.variantKey).toBe('only')
   })
 })

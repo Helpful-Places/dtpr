@@ -12,6 +12,12 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 400, statusMessage: result.error })
   }
 
-  const id = await insertFeedback(db, result.value)
-  return { success: true, id }
+  try {
+    const id = await insertFeedback(db, result.value)
+    return { success: true, id }
+  } catch (err) {
+    // Don't leak D1 internals (constraint/row-size/outage) to the client.
+    console.error('feedback insert failed', err)
+    throw createError({ statusCode: 500, statusMessage: 'Could not record feedback' })
+  }
 })

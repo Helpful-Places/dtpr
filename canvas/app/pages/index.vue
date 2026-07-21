@@ -18,7 +18,7 @@ useHead({ title: () => `${t('register.heading')} · ${t('app.title')}` })
 
     <ul class="mt-10 grid gap-5 sm:grid-cols-2">
       <li
-        v-for="c in canvases" :key="c.systemKey"
+        v-for="c in canvases" :key="`${c.systemKey}-${c.variantKey}-${c.versionKey}`"
         class="flex flex-col rounded-2xl border border-[var(--line)] bg-[var(--card)] p-5 shadow-sm"
       >
         <div class="flex items-start justify-between gap-3">
