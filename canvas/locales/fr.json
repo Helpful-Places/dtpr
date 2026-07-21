@@ -32,6 +32,7 @@
     "notePlaceholder": "Ajouter une note (facultatif)",
     "send": "Envoyer",
     "sent": "Merci — enregistré.",
+    "error": "Échec de l’enregistrement — réessayez.",
     "react": "Réagir"
   },
   "selfTag": {

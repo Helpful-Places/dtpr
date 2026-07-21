@@ -32,6 +32,7 @@
     "notePlaceholder": "Add a note (optional)",
     "send": "Send",
     "sent": "Thanks — recorded.",
+    "error": "Couldn’t save that — try again.",
     "react": "React"
   },
   "selfTag": {
