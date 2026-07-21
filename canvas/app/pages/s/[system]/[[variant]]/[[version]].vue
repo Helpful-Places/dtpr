@@ -39,5 +39,10 @@ useHead(() =>
       :variant="canvas.variantKey"
       :version="canvas.versionKey"
     />
+    <div class="mt-6 text-sm">
+      <NuxtLink :to="`/compare/${canvas.systemKey}`" class="font-semibold text-[var(--teal)]">
+        {{ $t('compare.heading') }} →
+      </NuxtLink>
+    </div>
   </main>
 </template>
