@@ -1,0 +1,42 @@
+{
+  "app": {
+    "title": "Registre IA DTPR",
+    "tagline": "Comment fonctionnent les systèmes d’IA dans les lieux publics — et ce que vous pouvez faire."
+  },
+  "register": {
+    "heading": "Les systèmes d’IA, divulgués",
+    "sub": "Un registre navigable de systèmes d’IA, chacun dessiné comme un panneau DTPR. Ouvrez-en un pour voir comment il fonctionne — et réagissez sur tout élément qui vous parle ou vous déroute.",
+    "open": "Ouvrir le panneau"
+  },
+  "feedback": {
+    "seatPrompt": "Cet élément est-il clair ?",
+    "canvasPrompt": "Ce panneau est-il clair dans l’ensemble ?",
+    "clear": "Clair",
+    "confusing": "Confus",
+    "unsure": "Incertain",
+    "notePlaceholder": "Ajouter une note (facultatif)",
+    "send": "Envoyer",
+    "sent": "Merci — enregistré.",
+    "react": "Réagir"
+  },
+  "selfTag": {
+    "heading": "Une chose rapide",
+    "body": "Qu’est-ce qui vous décrit le mieux ? Utilisé uniquement pour regrouper les retours — jamais rendu public.",
+    "public": "Membre du public",
+    "publicHint": "Un voyageur, un résident, un passant",
+    "professional": "Praticien / pair",
+    "professionalHint": "Politique, vie privée, design ou recherche",
+    "contactLabel": "Laisser un contact (facultatif)",
+    "contactPlaceholder": "Nom ou courriel — jamais obligatoire",
+    "continue": "Continuer"
+  },
+  "compare": {
+    "heading": "Quelle présentation a fonctionné ?",
+    "sub": "Retours par variante et version, segmentés par public.",
+    "public": "Public",
+    "professional": "Praticien",
+    "thinSample": "Pas encore assez de réponses",
+    "seatConfusion": "Où se concentre la confusion",
+    "noSeatData": "Pas encore de retour par élément"
+  }
+}

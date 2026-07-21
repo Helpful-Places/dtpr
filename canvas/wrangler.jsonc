@@ -1,0 +1,30 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "dtpr-canvas",
+  "account_id": "f978769622a3e15ad770688a80811aa8",
+  "main": ".output/server/index.mjs",
+  "compatibility_date": "2024-09-19",
+  "compatibility_flags": ["nodejs_compat"],
+  "routes": [
+    {
+      "pattern": "canvas.dtpr.ai",
+      "custom_domain": true
+    }
+  ],
+  "assets": {
+    "directory": ".output/public"
+  },
+  "d1_databases": [
+    {
+      // App-data store for feedback. Named FEEDBACK_DB (not "DB") so it
+      // never collides with @nuxt/content's D1 binding convention used
+      // elsewhere in the monorepo. Reached in server routes via
+      // event.context.cloudflare.env.FEEDBACK_DB. The database_id is a
+      // deploy-time detail filled in when the D1 database is created
+      // (`wrangler d1 create dtpr-canvas-feedback`).
+      "binding": "FEEDBACK_DB",
+      "database_name": "dtpr-canvas-feedback",
+      "database_id": "REPLACE_WITH_D1_DATABASE_ID"
+    }
+  ]
+}
