@@ -146,7 +146,7 @@
   <p class="sub">A fixed disclosure board for AI systems in public places, read top to bottom: who's behind it → what it is → what it takes and gives → what could go wrong → who it's used on, and what they can do. Same seats, every system.</p>
   <nav class="views"><b>Board view</b> · <a href="canvas-affected-v5-compare.html">Compare view →</a></nav>
   <div class="thesis">
-    The <b>Used on</b> seat is driven by the <code>affected</code> category (shipped in <code>ai@2026-07-03-beta</code>) and its
+    The <b>Used on</b> seat is driven by the <code>affected</code> category (shipped in <code>ai@2026-08-12-beta</code>) and its
     <code>relationship</code> discriminator — <b>subject</b> / <b>bystander</b> / <b>community</b> — so each board says
     not just <em>who</em> the system touches but <em>how</em>.
   </div>
@@ -171,7 +171,7 @@
 const API='https://api.dtpr.io/api/v2/schemas/ai@2026-05-06-beta/elements/';
 const ic=(id,s=44)=>`<img src="${API}${id}/icon.svg" width="${s}" height="${s}" alt="" loading="lazy" style="object-fit:contain">`;
 
-/* people (affected) shipped in ai@2026-07-03-beta, not yet deployed to the icon API —
+/* people (affected) shipped in ai@2026-08-12-beta, not yet deployed to the icon API —
    composed here exactly like the API does: hexagon frame + the schema's people symbol. */
 const HEXPATH='M31.8564 8.8453L19 1.42265C18.3812 1.06538 17.6188 1.06538 17 1.42265L4.14359 8.8453C3.52479 9.20257 3.14359 9.86282 3.14359 10.5774V25.4226C3.14359 26.1372 3.52479 26.7974 4.14359 27.1547L17 34.5774C17.6188 34.9346 18.3812 34.9346 19 34.5774L31.8564 27.1547C32.4752 26.7974 32.8564 26.1372 32.8564 25.4226V10.5774C32.8564 9.86282 32.4752 9.20256 31.8564 8.8453Z';
 const PEOPLE='<path d="M13.5 10.6667C15.1569 10.6667 16.5 12.0098 16.5 13.6667C16.5 15.3235 15.1569 16.6667 13.5 16.6667C11.8431 16.6667 10.5 15.3235 10.5 13.6667C10.5 12.0098 11.8431 10.6667 13.5 10.6667Z"/><path d="M22.5 10.6667C24.1569 10.6667 25.5 12.0098 25.5 13.6667C25.5 15.3235 24.1569 16.6667 22.5 16.6667C20.8431 16.6667 19.5 15.3235 19.5 13.6667C19.5 12.0098 20.8431 10.6667 22.5 10.6667Z"/><path d="M13.5 18C10.1863 18 7.5 20.6863 7.5 24V25.3333H19.5V24C19.5 20.6863 16.8137 18 13.5 18Z"/><path d="M22.5 18C21.9316 18 21.3818 18.0791 20.8608 18.2266C22.1863 19.7061 23 21.6589 23 24V25.3333H28.5V24C28.5 20.6863 25.8137 18 22.5 18Z"/>';
@@ -209,7 +209,7 @@ const actHref=(a,sy,right)=>{
 };
 const actBtn=(a,sy,right)=>`<a class="act" href="${actHref(a,sy,right)}"${a.type==='url'||a.type==='form'?' target="_blank" rel="noopener"':''}>${G[a.type]||''}${a.label}</a>`;
 
-/* affected · relationship — names + descriptions verbatim from ai@2026-07-03-beta */
+/* affected · relationship — names + descriptions verbatim from ai@2026-08-12-beta */
 const REL={
   subject:{name:'Decided about',word:'individuals',tail:'The system’s output affects each of them directly.',
     desc:'The system produces an output about this person that affects them directly — a score, a match, an eligibility call.'},
@@ -421,7 +421,7 @@ document.getElementById('maptable').innerHTML=
   MAP.map(m=>`<tr class="${m.isNew?'new':''}"><td><b>${m.z}</b>${m.isNew?'<span class="newflag">NEW</span>':''}</td><td>${m.cats.map(c=>`<code>${c}</code>`).join(' ')}</td><td>${m.note}</td></tr>`).join('')+`</tbody>`;
 
 document.getElementById('foot').innerHTML=
-  `Icons are the real composed DTPR icons, loaded live from <code>api.dtpr.io/api/v2</code> (schema <code>ai@2026-05-06-beta</code>, the latest deployed version). Content follows the local draft <code>ai@2026-07-03-beta</code>, which adds the <code>affected</code> category — its <code>people</code> icon is composed in-page from the schema’s own symbol and hexagon frame until that version deploys. Rights actions follow the instance schema’s first-class <code>actions</code> (<code>email · url · phone · form · postal</code>) — the same affordances a production datachain instance attaches to any element; addresses and URLs here are demo stubs, and emails open pre-filled with the system’s reference. The system sentence is composed at render time from a per-mode <code>verb</code> (default + per-autonomy overrides) and a per-autonomy <code>sentence_template</code> with a <code>{verbs}</code> slot — proposed as optional element/context-value fields; today the schema carries this language only as prose in the autonomy value descriptions. See <a href="https://dtpr.ai">dtpr.ai</a> and corpus entry <code>relational-accountability-graph-model</code>.`;
+  `Icons are the real composed DTPR icons, loaded live from <code>api.dtpr.io/api/v2</code> (schema <code>ai@2026-05-06-beta</code>, the latest deployed version). Content follows the local draft <code>ai@2026-08-12-beta</code>, which adds the <code>affected</code> category — its <code>people</code> icon is composed in-page from the schema’s own symbol and hexagon frame until that version deploys. Rights actions follow the instance schema’s first-class <code>actions</code> (<code>email · url · phone · form · postal</code>) — the same affordances a production datachain instance attaches to any element; addresses and URLs here are demo stubs, and emails open pre-filled with the system’s reference. The system sentence is composed at render time from a per-mode <code>verb</code> (default + per-autonomy overrides) and a per-autonomy <code>sentence_template</code> with a <code>{verbs}</code> slot — proposed as optional element/context-value fields; today the schema carries this language only as prose in the autonomy value descriptions. See <a href="https://dtpr.ai">dtpr.ai</a> and corpus entry <code>relational-accountability-graph-model</code>.`;
 </script>
 </body>
 </html>

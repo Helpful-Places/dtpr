@@ -34,4 +34,4 @@ jobs:
       - run: pnpm --filter ./api typecheck
       - run: pnpm --filter ./api test
       - run: pnpm --filter ./api schema:validate ai@2026-05-06-beta
-      - run: pnpm --filter ./api schema:validate ai@2026-07-03-beta
+      - run: pnpm --filter ./api schema:validate ai@2026-08-12-beta

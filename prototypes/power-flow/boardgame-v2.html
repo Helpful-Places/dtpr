@@ -17,7 +17,7 @@
     --pii-pseudo:#9575CD;
     --pii-ident:#FFD700;
 
-    /* affected.relationship discriminator (new in ai@2026-07-03-beta; colors ours) */
+    /* affected.relationship discriminator (new in ai@2026-08-12-beta; colors ours) */
     --rel-subject:#b0503c;
     --rel-bystander:#7d6b9e;
     --rel-community:#4a7c59;
@@ -467,7 +467,7 @@
   </div>
 
   <footer>
-    Not a 1:1 element mapping, on purpose — cards borrow DTPR where it earns its place: category <b>shapes</b> and <b>names</b> plate the system cards; <b>chips</b> are the real discriminators (<code>autonomy</code>, <code>pii</code>, and the new <code>affected.relationship</code> from <code>ai@2026-07-03-beta</code> on the context cards); question cards aim at <b>categories</b>; forum cards are the <code>rights</code> elements (<code>right_to_notice</code>, <code>right_to_human_review</code>, <code>right_contest</code>…) turned into rule-changers; icons are the schema's own <code>symbols/</code>. The community's chair <em>is</em> the <code>affected</code> category made physical; seating a forum card is drawing the <code>accountable_to</code> edge from the research entry. End of a session, photograph the table: the system cards are a datachain, the seated forum cards are its edges. Untuned by design: every number here is a playtest question, not an answer. Companion to <code>boardgame.html</code> (v1, the disclosure artifact — this is the argument about it).
+    Not a 1:1 element mapping, on purpose — cards borrow DTPR where it earns its place: category <b>shapes</b> and <b>names</b> plate the system cards; <b>chips</b> are the real discriminators (<code>autonomy</code>, <code>pii</code>, and the new <code>affected.relationship</code> from <code>ai@2026-08-12-beta</code> on the context cards); question cards aim at <b>categories</b>; forum cards are the <code>rights</code> elements (<code>right_to_notice</code>, <code>right_to_human_review</code>, <code>right_contest</code>…) turned into rule-changers; icons are the schema's own <code>symbols/</code>. The community's chair <em>is</em> the <code>affected</code> category made physical; seating a forum card is drawing the <code>accountable_to</code> edge from the research entry. End of a session, photograph the table: the system cards are a datachain, the seated forum cards are its edges. Untuned by design: every number here is a playtest question, not an answer. Companion to <code>boardgame.html</code> (v1, the disclosure artifact — this is the argument about it).
   </footer>
 </div>
 
@@ -482,7 +482,7 @@ function badge(shape,color,s=22){
   return `<svg class="badge" width="${s}" height="${s}" viewBox="0 0 36 36"><rect x="4" y="4" width="28" height="28" rx="8" fill="${fill}" stroke="${stroke}" stroke-width="2.2"/></svg>`;
 }
 
-/* ---------- real DTPR symbols (api/schemas/ai/2026-07-03-beta/symbols/, currentColor) ---------- */
+/* ---------- real DTPR symbols (api/schemas/ai/2026-08-12-beta/symbols/, currentColor) ---------- */
 const SYM={
 entry:`<path fill-rule="evenodd" clip-rule="evenodd" d="M17.8419 9C13.4479 9 9.7899 12.148 8.9999 16.312H17.8419V14.676C17.8419 14.139 18.4859 13.877 18.8669 14.246L22.1939 17.572C22.4319 17.812 22.4319 18.181 22.1939 18.419L18.8549 21.745C18.4859 22.127 17.8419 21.864 17.8419 21.328V19.688H8.9999C9.7899 23.852 13.4479 27 17.8419 27C22.8129 27 26.8419 22.971 26.8419 18C26.8419 13.029 22.8129 9 17.8419 9Z" fill="currentColor"/>`,
 biometric:`<path d="M9 27V18C9 13 13 9 18 9C23 9 27 13 27 18V27" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M13 25V18C13 15 15 12 18 12C21 12 23 15 23 18V25" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M16.5 23V18C16.5 16.5 17 15 18 15C19 15 19.5 16.5 19.5 18V23" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>`,
@@ -507,7 +507,7 @@ const PII={
   pseudonymous:{c:'var(--pii-pseudo)',label:'Pseudonymous',dark:true},
   identifiable:{c:'var(--pii-ident)',label:'Identifiable',dark:false},
 };
-/* affected.relationship — exact names from ai@2026-07-03-beta */
+/* affected.relationship — exact names from ai@2026-08-12-beta */
 const REL={
   subject:{c:'var(--rel-subject)',label:'Decided about',dark:true},
   bystander:{c:'var(--rel-bystander)',label:'Caught incidentally',dark:true},

@@ -143,7 +143,7 @@
   <h1>DTPR Power Canvas</h1>
   <p class="sub">A board with permanent zones, read top-to-bottom: who's behind it → what it is → the people it's used on and what they can do. Same places every time.</p>
   <div class="thesis">
-    The empty seat is filled. The <b>Used&nbsp;on</b> zone that had <em>no category</em> now maps to a real one: <b>affected</b> ("People affected") shipped in <code>ai@2026-07-03-beta</code>. This pass drives Used&nbsp;on from that category and its <code>relationship</code> discriminator — <b>subject</b> / <b>bystander</b> / <b>community</b> — so each system says not just <em>who</em> it touches but <em>how</em>.
+    The empty seat is filled. The <b>Used&nbsp;on</b> zone that had <em>no category</em> now maps to a real one: <b>affected</b> ("People affected") shipped in <code>ai@2026-08-12-beta</code>. This pass drives Used&nbsp;on from that category and its <code>relationship</code> discriminator — <b>subject</b> / <b>bystander</b> / <b>community</b> — so each system says not just <em>who</em> it touches but <em>how</em>.
   </div>
 
   <h3 class="section">The board, filled — four systems, one layout</h3>
@@ -151,7 +151,7 @@
   <div id="systems"></div>
 
   <h3 class="section">The new seat: <code>affected</code> · a <code>relationship</code> discriminator</h3>
-  <p class="section-sub">Shipped in <code>ai@2026-07-03-beta</code> as a required category with one generic <code>people</code> element. Every person placed in Used&nbsp;on carries one of three relationships — verbatim from the schema.</p>
+  <p class="section-sub">Shipped in <code>ai@2026-08-12-beta</code> as a required category with one generic <code>people</code> element. Every person placed in Used&nbsp;on carries one of three relationships — verbatim from the schema.</p>
   <div class="rel-legend" id="rellegend"></div>
 
   <h3 class="section">Where the DTPR categories land</h3>
@@ -160,7 +160,7 @@
   <table class="maptable" id="maptable"></table>
 
   <footer>
-    Reuses <code>@dtpr/ui</code> tokens + the DTPR hexagon token, and the shipped <code>people</code> glyph from <code>ai@2026-07-03-beta/symbols/people.svg</code>. The fixed layout keeps <b>comparability</b> (why registers/nutrition labels use fixed fields) while adding the relational read. See corpus entry <code>relational-accountability-graph-model</code>. Productionization: a <code>&lt;DtprPowerCanvas&gt;</code> in <code>packages/ui</code>, data-driven from a datachain instance.
+    Reuses <code>@dtpr/ui</code> tokens + the DTPR hexagon token, and the shipped <code>people</code> glyph from <code>ai@2026-08-12-beta/symbols/people.svg</code>. The fixed layout keeps <b>comparability</b> (why registers/nutrition labels use fixed fields) while adding the relational read. See corpus entry <code>relational-accountability-graph-model</code>. Productionization: a <code>&lt;DtprPowerCanvas&gt;</code> in <code>packages/ui</code>, data-driven from a datachain instance.
   </footer>
 </div>
 
@@ -170,7 +170,7 @@ const GLYPH={
   vendor:'<path d="M18 9l7 4v9l-7 4-7-4v-9z" fill="none" stroke="C" stroke-width="1.7"/><path d="M11 13l7 4 7-4M18 17v9" fill="none" stroke="C" stroke-width="1.4"/>',
   deployer:'<path d="M9 15l9-5 9 5" fill="none" stroke="C" stroke-width="1.7" stroke-linejoin="round"/><rect x="11.5" y="15" width="13" height="9.5" fill="none" stroke="C" stroke-width="1.5"/><line x1="14.5" y1="15" x2="14.5" y2="24.5" stroke="C" stroke-width="1.2"/><line x1="18" y1="15" x2="18" y2="24.5" stroke="C" stroke-width="1.2"/><line x1="21.5" y1="15" x2="21.5" y2="24.5" stroke="C" stroke-width="1.2"/>',
 };
-// shipped people glyph — verbatim inner paths from ai@2026-07-03-beta/symbols/people.svg
+// shipped people glyph — verbatim inner paths from ai@2026-08-12-beta/symbols/people.svg
 const PEOPLE='<path d="M13.5 10.6667C15.1569 10.6667 16.5 12.0098 16.5 13.6667C16.5 15.3235 15.1569 16.6667 13.5 16.6667C11.8431 16.6667 10.5 15.3235 10.5 13.6667C10.5 12.0098 11.8431 10.6667 13.5 10.6667Z"/><path d="M22.5 10.6667C24.1569 10.6667 25.5 12.0098 25.5 13.6667C25.5 15.3235 24.1569 16.6667 22.5 16.6667C20.8431 16.6667 19.5 15.3235 19.5 13.6667C19.5 12.0098 20.8431 10.6667 22.5 10.6667Z"/><path d="M13.5 18C10.1863 18 7.5 20.6863 7.5 24V25.3333H19.5V24C19.5 20.6863 16.8137 18 13.5 18Z"/><path d="M22.5 18C21.9316 18 21.3818 18.0791 20.8608 18.2266C22.1863 19.7061 23 21.6589 23 24V25.3333H28.5V24C28.5 20.6863 25.8137 18 22.5 18Z"/>';
 function hex(kind,color,fill,size=42){return `<svg class="hex" width="${size}" height="${size}" viewBox="0 0 36 36"><path d="${HEX}" fill="${fill}" stroke="${color}" stroke-width="1.6"/>${GLYPH[kind].replaceAll('C',color)}</svg>`;}
 function peopleHex(color,fill,size=42){return `<svg class="hex" width="${size}" height="${size}" viewBox="0 0 36 36"><path d="${HEX}" fill="${fill}" stroke="${color}" stroke-width="1.6"/><g fill="${color}">${PEOPLE}</g></svg>`;}
@@ -284,13 +284,13 @@ const MAP=[
   {area:'system',label:'The system',color:'#fff',cats:['purpose','processing','functional_modes'],note:'what it’s for · the model · how much it decides',dark:true},
   {area:'data',label:'The data',color:'var(--data)',cats:['input_dataset','output_dataset','storage','access','retention'],note:'what goes in & out · where it’s held · who reaches it · how long'},
   {area:'risks',label:'Risks & safeguards',color:'var(--risk)',cats:['risks_mitigation'],note:'what could go wrong for people, and what reduces it'},
-  {area:'usedon',label:'Used on',color:'var(--people)',cats:['affected · subject','affected · bystander','affected · community'],note:'the affected people — shipped in ai@2026-07-03-beta',isNew:true},
+  {area:'usedon',label:'Used on',color:'var(--people)',cats:['affected · subject','affected · bystander','affected · community'],note:'the affected people — shipped in ai@2026-08-12-beta',isNew:true},
   {area:'youcan',label:'You can',color:'var(--can)',cats:['rights'],note:'the affected’s recourse — beside Used on'},
 ];
 function mapZone(m){
   const cats=`<div class="catrow">${m.cats.map(c=>`<span class="cat">${c}</span>`).join('')}</div>`;
   return `<div class="zone z-${m.area} ${m.isNew?'isnew':''}" data-label="${m.label}" style="--zc:${m.color}">
-    ${m.isNew?'<span class="newflag">NEW · 2026-07-03-beta</span>':''}${cats}<div class="znote">${m.note}</div></div>`;
+    ${m.isNew?'<span class="newflag">NEW · 2026-08-12-beta</span>':''}${cats}<div class="znote">${m.note}</div></div>`;
 }
 document.getElementById('map').innerHTML = `<div class="board map">${MAP.map(mapZone).join('')}</div>`;
 document.getElementById('maptable').innerHTML =
