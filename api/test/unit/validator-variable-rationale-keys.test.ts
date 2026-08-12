@@ -35,6 +35,7 @@ function cat(variableIds: string[] = ['retention_period']): Category {
     datachain_type: 'ai',
     shape: 'hexagon',
     element_variables: variableIds.map((id) => ({
+      kind: 'localized_text' as const,
       id,
       label: [loc('en', id)],
       required: false,

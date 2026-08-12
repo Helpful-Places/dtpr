@@ -9,6 +9,22 @@ notes: |
   design-pass priority queue from .context/icon-design-pass.md (20 SVGs
   revised to the post-PR-#281 house style).
 
+  Element-light vocabulary primitive — adds `kind` discriminator on
+  Category.element_variables[] (default `localized_text` preserves
+  backwards compatibility), introduces `multi_select_enum` variable kind
+  with vocabulary-level sources[] and Element-light options[] (id, name,
+  description, applies_to[], optional sources / authoring_guidance /
+  examples; no symbol_id by design). InstanceElement.variables[].value
+  is polymorphic on declared kind: LocaleValueArray for localized_text,
+  list of option ids for multi_select_enum. New semantic rules:
+  VARIABLE_OPTION_DUPLICATE, VARIABLE_OPTION_APPLIES_TO_UNKNOWN,
+  VARIABLE_OPTIONS_EMPTY (warning), VARIABLE_REQUIRED_EMPTY_OPTIONS,
+  INSTANCE_VARIABLE_VALUE_SHAPE, INSTANCE_VARIABLE_VALUE_DUPLICATE,
+  INSTANCE_VARIABLE_OPTION_UNKNOWN, INSTANCE_VARIABLE_OPTION_NOT_APPLICABLE.
+  Lands `risks_mitigation.specific_harms` as the first multi_select_enum
+  vocabulary shell, sourced from AAAIC (Abercrombie et al. 2024,
+  arXiv:2407.01294); options[] empty pending dtpr-element-design.
+
   Adds optional `element_instance_id` to `InstanceElement` so
   `authoring_provenance.element_provenance` can carry distinct entries
   when the same `element_id` appears multiple times in `elements[]`

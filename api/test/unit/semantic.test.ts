@@ -68,6 +68,7 @@ function baseSource(): SchemaVersionSource {
         shape: 'rounded-square',
         element_variables: [
           {
+            kind: 'localized_text',
             id: 'retention_period',
             label: [loc('en', 'Retention period')],
             required: true,
@@ -498,5 +499,293 @@ describe('validateInstance — instance-level rules', () => {
     inst.elements[0]!.element_id = 'phantom_element'
     const r = validateInstance(baseSource(), inst)
     expect(r.errors.some((e) => e.code === 'INSTANCE_ELEMENT_UNKNOWN')).toBe(true)
+  })
+})
+
+// -------- multi_select_enum vocabulary rules --------
+//
+// Fixture extension helpers: attach a `harms` multi_select_enum variable
+// to the storage category with two options that apply to cloud_storage.
+// Sad-path tests mutate this fixture per case.
+
+type MultiSelectVar = {
+  kind: 'multi_select_enum'
+  id: string
+  label: LocaleValue[]
+  required: boolean
+  sources: never[]
+  options: Array<{
+    id: string
+    name: LocaleValue[]
+    description: LocaleValue[]
+    applies_to: string[]
+    sources: never[]
+    authoring_guidance: never[]
+    examples: never[]
+  }>
+}
+
+function multiSelectVar(overrides: Partial<MultiSelectVar> = {}): MultiSelectVar {
+  return {
+    kind: 'multi_select_enum',
+    id: 'harms',
+    label: [loc('en', 'Harms')],
+    required: false,
+    sources: [],
+    options: [
+      {
+        id: 'data_loss',
+        name: [loc('en', 'Data loss')],
+        description: [loc('en', 'Risk of losing stored records.')],
+        applies_to: ['cloud_storage'],
+        sources: [],
+        authoring_guidance: [],
+        examples: [],
+      },
+      {
+        id: 'unauthorized_access',
+        name: [loc('en', 'Unauthorized access')],
+        description: [loc('en', 'Risk of access by unintended parties.')],
+        applies_to: ['cloud_storage'],
+        sources: [],
+        authoring_guidance: [],
+        examples: [],
+      },
+    ],
+    ...overrides,
+  }
+}
+
+function sourceWithMultiSelect(varOverrides: Partial<MultiSelectVar> = {}): SchemaVersionSource {
+  const src = baseSource()
+  src.categories[1]!.element_variables.push(multiSelectVar(varOverrides))
+  return src
+}
+
+describe('validateVersion — multi_select_enum vocabulary rules', () => {
+  it('happy path: well-formed multi_select_enum variable has no findings', () => {
+    const r = validateVersion(sourceWithMultiSelect())
+    expect(r.errors).toEqual([])
+    expect(r.warnings.some((w) => w.code === 'VARIABLE_OPTIONS_EMPTY')).toBe(false)
+  })
+
+  it('VARIABLE_OPTION_DUPLICATE: two options share an id', () => {
+    const r = validateVersion(
+      sourceWithMultiSelect({
+        options: [
+          {
+            id: 'data_loss',
+            name: [loc('en', 'Data loss A')],
+            description: [loc('en', 'A')],
+            applies_to: ['cloud_storage'],
+            sources: [],
+            authoring_guidance: [],
+            examples: [],
+          },
+          {
+            id: 'data_loss', // duplicate
+            name: [loc('en', 'Data loss B')],
+            description: [loc('en', 'B')],
+            applies_to: ['cloud_storage'],
+            sources: [],
+            authoring_guidance: [],
+            examples: [],
+          },
+        ],
+      }),
+    )
+    const finding = r.errors.find((e) => e.code === 'VARIABLE_OPTION_DUPLICATE')
+    expect(finding).toBeTruthy()
+    expect(finding?.path).toMatch(/element_variables\[1\]\.options\[1\]\.id/)
+    expect(finding?.fix_hint).toBeTruthy()
+  })
+
+  it('VARIABLE_OPTION_APPLIES_TO_UNKNOWN: applies_to references a foreign element', () => {
+    const r = validateVersion(
+      sourceWithMultiSelect({
+        options: [
+          {
+            id: 'data_loss',
+            name: [loc('en', 'Data loss')],
+            description: [loc('en', '.')],
+            // accept_deny lives in ai__decision, not ai__storage.
+            applies_to: ['accept_deny'],
+            sources: [],
+            authoring_guidance: [],
+            examples: [],
+          },
+        ],
+      }),
+    )
+    const finding = r.errors.find((e) => e.code === 'VARIABLE_OPTION_APPLIES_TO_UNKNOWN')
+    expect(finding).toBeTruthy()
+    expect(finding?.message).toMatch(/accept_deny/)
+  })
+
+  it('VARIABLE_OPTIONS_EMPTY (warning): vocabulary declared but unauthored', () => {
+    const r = validateVersion(sourceWithMultiSelect({ options: [] }))
+    const finding = r.warnings.find((w) => w.code === 'VARIABLE_OPTIONS_EMPTY')
+    expect(finding).toBeTruthy()
+    expect(r.errors.some((e) => e.code === 'VARIABLE_OPTIONS_EMPTY')).toBe(false)
+  })
+
+  it('VARIABLE_REQUIRED_EMPTY_OPTIONS: required vocabulary with no options is an error', () => {
+    const r = validateVersion(sourceWithMultiSelect({ required: true, options: [] }))
+    expect(r.errors.some((e) => e.code === 'VARIABLE_REQUIRED_EMPTY_OPTIONS')).toBe(true)
+    // Warning also fires alongside the error.
+    expect(r.warnings.some((w) => w.code === 'VARIABLE_OPTIONS_EMPTY')).toBe(true)
+  })
+})
+
+describe('validateInstance — multi_select_enum value rules', () => {
+  const multiSelectInstance = () => ({
+    id: 'worcester-lpr',
+    title: [],
+    description: [],
+    schema_version: 'ai@2026-04-16-beta',
+    created_at: '2026-04-16T00:00:00.000Z',
+    elements: [
+      {
+        element_id: 'accept_deny',
+        priority: 0,
+        variables: [],
+        actions: [],
+        sources: [],
+        context_type_id: 'ai_only',
+      },
+      {
+        element_id: 'cloud_storage',
+        priority: 1,
+        variables: [
+          { id: 'retention_period', value: [loc('en', '30 days')] },
+          { id: 'harms', value: ['data_loss'] as string[] },
+        ],
+        actions: [],
+        sources: [],
+      },
+    ],
+    subchain_instances: [],
+    sources: [],
+    linked_instance_ids: [],
+  })
+
+  it('happy path: well-formed multi_select_enum value validates', () => {
+    const r = validateInstance(sourceWithMultiSelect(), multiSelectInstance())
+    expect(r.ok).toBe(true)
+  })
+
+  it('INSTANCE_VARIABLE_VALUE_SHAPE (multi_select): localized-shape value on a multi_select var', () => {
+    const inst = multiSelectInstance()
+    // wrong shape for multi_select: a LocaleValueArray instead of a string[]
+    inst.elements[1]!.variables[1] = {
+      id: 'harms',
+      value: [loc('en', 'data_loss')],
+    }
+    const r = validateInstance(sourceWithMultiSelect(), inst)
+    const finding = r.errors.find((e) => e.code === 'INSTANCE_VARIABLE_VALUE_SHAPE')
+    expect(finding).toBeTruthy()
+    expect(finding?.message).toMatch(/multi_select_enum/)
+  })
+
+  it('INSTANCE_VARIABLE_VALUE_SHAPE (localized_text): string-array value on a localized var', () => {
+    const inst = multiSelectInstance()
+    inst.elements[1]!.variables[0] = {
+      id: 'retention_period',
+      value: ['30 days'] as string[], // wrong shape — should be LocaleValueArray
+    }
+    const r = validateInstance(sourceWithMultiSelect(), inst)
+    const finding = r.errors.find((e) => e.code === 'INSTANCE_VARIABLE_VALUE_SHAPE')
+    expect(finding).toBeTruthy()
+    expect(finding?.message).toMatch(/localized_text/)
+  })
+
+  it('INSTANCE_VARIABLE_VALUE_EMPTY (multi_select, optional): empty value, optional variable', () => {
+    const inst = multiSelectInstance()
+    inst.elements[1]!.variables[1] = { id: 'harms', value: [] as string[] }
+    const r = validateInstance(sourceWithMultiSelect({ required: false }), inst)
+    const finding = r.errors.find((e) => e.code === 'INSTANCE_VARIABLE_VALUE_EMPTY')
+    expect(finding).toBeTruthy()
+    // optional-variant hint mentions the omit option
+    expect(finding?.fix_hint).toMatch(/omit the variable/)
+    expect(finding?.fix_hint).not.toMatch(/INSTANCE_REQUIRED_VARIABLE_MISSING/)
+  })
+
+  it('INSTANCE_VARIABLE_VALUE_EMPTY (multi_select, required): hint warns against omitting', () => {
+    const inst = multiSelectInstance()
+    inst.elements[1]!.variables[1] = { id: 'harms', value: [] as string[] }
+    const r = validateInstance(sourceWithMultiSelect({ required: true }), inst)
+    const finding = r.errors.find((e) => e.code === 'INSTANCE_VARIABLE_VALUE_EMPTY')
+    expect(finding).toBeTruthy()
+    // required-variant hint surfaces the trap of omitting a required variable
+    expect(finding?.fix_hint).toMatch(/INSTANCE_REQUIRED_VARIABLE_MISSING/)
+  })
+
+  it('INSTANCE_VARIABLE_VALUE_DUPLICATE: same option selected twice', () => {
+    const inst = multiSelectInstance()
+    inst.elements[1]!.variables[1] = {
+      id: 'harms',
+      value: ['data_loss', 'data_loss'] as string[],
+    }
+    const r = validateInstance(sourceWithMultiSelect(), inst)
+    const finding = r.errors.find((e) => e.code === 'INSTANCE_VARIABLE_VALUE_DUPLICATE')
+    expect(finding).toBeTruthy()
+    expect(finding?.path).toMatch(/value\[1\]/)
+  })
+
+  it('INSTANCE_VARIABLE_OPTION_UNKNOWN: selected option id is not declared', () => {
+    const inst = multiSelectInstance()
+    inst.elements[1]!.variables[1] = {
+      id: 'harms',
+      value: ['phantom_harm'] as string[],
+    }
+    const r = validateInstance(sourceWithMultiSelect(), inst)
+    const finding = r.errors.find((e) => e.code === 'INSTANCE_VARIABLE_OPTION_UNKNOWN')
+    expect(finding).toBeTruthy()
+    expect(finding?.message).toMatch(/phantom_harm/)
+  })
+
+  it('INSTANCE_VARIABLE_OPTION_NOT_APPLICABLE: option declared but its applies_to excludes this element', () => {
+    // Author an option that applies to accept_deny only, then try to
+    // attach it to cloud_storage.
+    const src = sourceWithMultiSelect({
+      options: [
+        {
+          id: 'narrow_harm',
+          name: [loc('en', 'Narrow harm')],
+          description: [loc('en', '.')],
+          applies_to: ['accept_deny'], // does NOT include cloud_storage
+          sources: [],
+          authoring_guidance: [],
+          examples: [],
+        },
+      ],
+    })
+    // Validate-version would flag applies_to as foreign (accept_deny is
+    // in ai__decision, not ai__storage). Skip that level by validating
+    // the instance directly — the rule we care about here fires
+    // regardless.
+    const inst = multiSelectInstance()
+    inst.elements[1]!.variables[1] = {
+      id: 'harms',
+      value: ['narrow_harm'] as string[],
+    }
+    const r = validateInstance(src, inst)
+    const finding = r.errors.find((e) => e.code === 'INSTANCE_VARIABLE_OPTION_NOT_APPLICABLE')
+    expect(finding).toBeTruthy()
+    expect(finding?.message).toMatch(/cloud_storage/)
+  })
+
+  it('INSTANCE_REQUIRED_VARIABLE_MISSING (multi_select): fix_hint suggests option-id shape', () => {
+    const src = sourceWithMultiSelect({ required: true })
+    const inst = multiSelectInstance()
+    // Omit the required `harms` variable from this element entirely.
+    inst.elements[1]!.variables = inst.elements[1]!.variables.filter((v) => v.id !== 'harms')
+    const r = validateInstance(src, inst)
+    const finding = r.errors.find(
+      (e) => e.code === 'INSTANCE_REQUIRED_VARIABLE_MISSING' && /harms/.test(e.message),
+    )
+    expect(finding).toBeTruthy()
+    expect(finding?.fix_hint).toMatch(/\["option_id"\]/)
+    expect(finding?.fix_hint).not.toMatch(/locale.*en/)
   })
 })

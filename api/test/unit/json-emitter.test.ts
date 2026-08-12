@@ -30,7 +30,12 @@ function makeSource(): SchemaVersionSource {
       datachain_type: 'ai',
       shape: 'rounded-square',
       element_variables: [
-        { id: 'retention_period', label: [loc('en', 'Retention')], required: true },
+        {
+          kind: 'localized_text',
+          id: 'retention_period',
+          label: [loc('en', 'Retention')],
+          required: true,
+        },
       ],
     },
     {
@@ -110,7 +115,9 @@ describe('materializeVariables', () => {
     const src = makeSource()
     const el: Element = {
       ...src.elements[0]!,
-      variables: [{ id: 'extra', label: [loc('en', 'Extra')], required: false }],
+      variables: [
+        { kind: 'localized_text', id: 'extra', label: [loc('en', 'Extra')], required: false },
+      ],
     }
     const materialized = materializeVariables(el, src.categories)
     expect(materialized.map((v) => v.id).sort()).toEqual(['extra', 'retention_period'])
