@@ -22,6 +22,16 @@ allowBuilds:
   sharp: false
   vue-demi: true
   workerd: true
+# @nuxtjs/i18n@10 aliases its @intlify/* deps by resolving them relative
+# to @nuxt/kit's own location (no base override). Under pnpm's isolated
+# node_modules those packages live only in the virtual store, so `nuxt
+# dev`/`build` fails with "Cannot resolve module @intlify/shared" for
+# every app using the i18n module (canvas, dtpr-ai). Publicly hoisting
+# @intlify/* into the top-level node_modules makes them resolvable from
+# @nuxt/kit. Real consumers still resolve their own pinned version via
+# their package's own symlinks first.
+publicHoistPattern:
+  - '@intlify/*'
 overrides:
   # Pin TypeScript to the version main's lockfile resolves. Adding the
   # talks/* workspace (slidev) widened some peer ranges enough for pnpm to
