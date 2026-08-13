@@ -12,9 +12,9 @@
   },
   "dependencies": {
     "@dtpr/ui": "workspace:*",
-    "@nuxt/ui": "^4.5.1",
+    "@nuxt/ui": "4.9.0",
     "@nuxtjs/i18n": "^10.2.4",
-    "docus": "latest",
+    "docus": "5.12.3",
     "mermaid": "^11.14.0",
     "nuxt": "^4.0.0",
     "nuxt-schema-org": "^6.0.4"
