@@ -64,8 +64,11 @@ const ELEMENTS_PAGE_LIMIT = 200
 
 const { activeVersion, activeLocale } = useDtprState()
 
+// Version + locale live in the keys so a pinned `?v=` landing on the
+// prerendered page misses the baked latest-version payload and
+// refetches the pinned version (see taxonomy/index.vue).
 const { data: catsData } = await useAsyncData(
-  'dtpr-print-categories',
+  () => `dtpr-print-categories-${activeVersion.value}-${activeLocale.value}`,
   () =>
     activeVersion.value
       ? $fetch<CategoriesResponse>(
@@ -77,7 +80,7 @@ const { data: catsData } = await useAsyncData(
 )
 
 const { data: elsData } = await useAsyncData(
-  'dtpr-print-elements',
+  () => `dtpr-print-elements-${activeVersion.value}-${activeLocale.value}`,
   () =>
     activeVersion.value
       ? $fetch<ElementsResponse>(

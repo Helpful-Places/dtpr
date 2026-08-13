@@ -62,8 +62,11 @@ const elementsUrl = computed(() => {
   return `${DTPR_API_BASE}/schemas/${activeVersion.value}/elements?fields=all&limit=200&locales=${activeLocale.value},en&category_id=${encodeURIComponent(categoryId.value)}`
 })
 
+// Version + locale live in the keys so a pinned `?v=` landing on the
+// prerendered page misses the baked latest-version payload and
+// refetches the pinned version (see taxonomy/index.vue).
 const { data: categoriesData } = await useAsyncData<CategoriesResponse | undefined>(
-  'dtpr-category-detail-categories',
+  () => `dtpr-category-detail-categories-${activeVersion.value}-${activeLocale.value}`,
   () =>
     categoriesUrl.value
       ? $fetch<CategoriesResponse>(categoriesUrl.value, { timeout: DTPR_FETCH_TIMEOUT_MS })
@@ -75,7 +78,7 @@ const { data: categoriesData } = await useAsyncData<CategoriesResponse | undefin
 // the previous payload immediately rather than leaving the prior
 // elements list visible while the new fetch is in flight.
 const { data: elementsData } = await useAsyncData<ElementsResponse | undefined>(
-  () => `dtpr-category-detail-elements-${categoryId.value}`,
+  () => `dtpr-category-detail-elements-${categoryId.value}-${activeVersion.value}-${activeLocale.value}`,
   () =>
     elementsUrl.value
       ? $fetch<ElementsResponse>(elementsUrl.value, { timeout: DTPR_FETCH_TIMEOUT_MS })
