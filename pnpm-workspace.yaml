@@ -1,10 +1,10 @@
 packages:
   - 'app'
   - 'api'
-  - 'canvas'
   - 'docs-site'
   - 'dtpr-ai'
   - 'packages/*'
+  - 'prototypes/canvas'
   - 'talks/*'
 # sharp is intentionally NOT in allowBuilds. Its install script forces a
 # from-source build whenever a global libvips is on PATH (e.g. Homebrew's
