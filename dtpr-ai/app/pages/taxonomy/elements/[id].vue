@@ -66,9 +66,11 @@ const categoriesUrl = computed(() => {
 // Key includes the element id so SPA navigation between elements drops
 // the previous payload immediately rather than leaving the prior
 // element's title and category breadcrumb visible while the new fetch
-// is in flight.
+// is in flight — and version + locale so a pinned `?v=` landing on the
+// prerendered page misses the baked latest-version payload and
+// refetches the pinned version (see taxonomy/index.vue).
 const { data: elementData, error: elementError } = await useAsyncData<ElementResponse | undefined>(
-  () => `dtpr-element-detail-${elementId.value}`,
+  () => `dtpr-element-detail-${elementId.value}-${activeVersion.value}-${activeLocale.value}`,
   () =>
     elementUrl.value
       ? $fetch<ElementResponse>(elementUrl.value, { timeout: DTPR_FETCH_TIMEOUT_MS })
@@ -77,7 +79,7 @@ const { data: elementData, error: elementError } = await useAsyncData<ElementRes
 )
 
 const { data: categoriesData } = await useAsyncData<CategoriesResponse | undefined>(
-  'dtpr-element-detail-categories',
+  () => `dtpr-element-detail-categories-${activeVersion.value}-${activeLocale.value}`,
   () =>
     categoriesUrl.value
       ? $fetch<CategoriesResponse>(categoriesUrl.value, { timeout: DTPR_FETCH_TIMEOUT_MS })

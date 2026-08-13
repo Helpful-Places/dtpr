@@ -77,8 +77,14 @@ const queryString = computed(() => {
   return ''
 })
 
+// Keys carry version + locale because this route is prerendered with
+// the latest schema: a visitor landing on a pinned `?v=` link would
+// otherwise hydrate the baked latest-version payload under the static
+// key and never refetch, showing one version's content labeled as
+// another. A version-scoped key misses the payload and fetches the
+// pinned version instead; unpinned landings still hit the payload.
 const { data: catsData } = await useAsyncData(
-  'dtpr-categories',
+  () => `dtpr-categories-${activeVersion.value}-${activeLocale.value}`,
   () =>
     activeVersion.value
       ? $fetch<CategoriesResponse>(
@@ -90,7 +96,7 @@ const { data: catsData } = await useAsyncData(
 )
 
 const { data: elsData } = await useAsyncData(
-  'dtpr-elements',
+  () => `dtpr-elements-${activeVersion.value}-${activeLocale.value}`,
   () =>
     activeVersion.value
       ? $fetch<ElementsResponse>(
