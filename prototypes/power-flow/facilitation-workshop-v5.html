@@ -1,0 +1,912 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>DTPR Agreement Workshop — kit prototype v5 (disclosure poster + negotiation field)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#f6f6f4; --card:#ffffff; --ink:#1b1b19; --muted:#72726c;
+    --line:#e6e5e0; --chip:#f3f3ef;
+    --signal:#c2410c; --alarm:#b42318; --teal:#0f5153;
+    --mono:ui-monospace,SFMono-Regular,Menlo,monospace;
+    --diverge:#2f6f8c; --converge:#8a5a1f;
+    --fam-deployer:#7a4a2f; --fam-vendor:#3f6d8c; --fam-community:#8a3b2f; --fam-upside:#157f5b;
+    --redesign:#0f5153;
+    --role-community:#6a2c91; --role-city:#37516b;
+    --gold:#c9a24f;
+    --trust:#157f5b; --utility:#3f6d8c;
+    --sticky:#fff6c9; --sticky-edge:#e6d888;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:'Public Sans',system-ui,-apple-system,sans-serif;color:var(--ink);
+    background:#e9e8e3;line-height:1.45;-webkit-font-smoothing:antialiased}
+
+  .intro{max-width:860px;margin:0 auto;padding:40px 24px 8px}
+  .eyebrow{display:inline-block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;
+    color:var(--teal);border:1px solid color-mix(in srgb,var(--teal) 30%,transparent);
+    padding:4px 11px;border-radius:999px;margin-bottom:16px;background:var(--card)}
+  .intro h1{font-size:1.9rem;font-weight:700;letter-spacing:-.015em;margin:0 0 8px}
+  .intro p{color:#4a4a45;font-size:.98rem;max-width:74ch;margin:0 0 10px}
+  .intro .how{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--diverge);
+    border-radius:0 10px 10px 0;padding:12px 16px;font-size:.9rem;margin:14px 0 4px}
+  .intro .how b{color:var(--diverge)}
+  .intro .playtest{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--converge);
+    border-radius:0 10px 10px 0;padding:12px 16px;font-size:.84rem;margin:10px 0 4px;color:#4a4a45}
+  .intro .playtest b{color:var(--converge)}
+  .intro code{font-family:var(--mono);font-size:.85em;background:var(--chip);border:1px solid var(--line);padding:1px 5px;border-radius:5px}
+  .btn{display:inline-flex;align-items:center;gap:7px;font-size:.85rem;font-weight:600;color:#fff;background:var(--teal);
+    border:none;border-radius:8px;padding:9px 15px;cursor:pointer;margin:8px 6px 2px 0}
+  .sheetnav{font-size:.8rem;color:var(--muted);margin-top:6px}
+  .sheetnav b{color:var(--ink)}
+
+  .sheet{width:216mm;min-height:279mm;margin:22px auto;background:var(--paper);
+    padding:13mm 12mm;box-shadow:0 2px 4px rgba(0,0,0,.08),0 20px 44px -28px rgba(0,0,0,.5);position:relative}
+  .sheet.land{width:420mm;min-height:277mm}
+  .sheet-tag{position:absolute;top:5mm;right:12mm;font-size:.62rem;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;color:#b6b4ac}
+  .shead{border-bottom:2px solid var(--ink);padding-bottom:9px;margin-bottom:12px}
+  .shead .k{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--teal)}
+  .shead h2{margin:2px 0 3px;font-size:1.4rem;font-weight:700;letter-spacing:-.01em}
+  .shead p{margin:0;font-size:.82rem;color:var(--muted);max-width:90ch}
+
+  .proposal{border:2px solid var(--ink);border-radius:12px;background:linear-gradient(175deg,#fff,#f3efe6);padding:13px 16px;margin:0 0 14px;position:relative}
+  .proposal .pk{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--signal)}
+  .proposal .pbody{font-size:1.02rem;margin-top:3px}
+  .proposal .pbody b{font-weight:700}
+  .proposal .faceup{position:absolute;top:11px;right:14px;font-size:.56rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#9b9a92}
+  .proposal .pq{font-size:.78rem;color:var(--muted);margin-top:6px;border-top:1px dashed #ddd3ba;padding-top:6px}
+  .proposal .pq b{color:var(--ink)}
+
+  .fillspan{display:inline-block;border-bottom:1.5px dashed #bdbcb4;height:15px;vertical-align:baseline}
+  .exline{font-size:.74rem;color:var(--signal);font-weight:600;margin-top:5px}
+  .exline em{font-style:normal;font-weight:400;color:#8a5a3f}
+  .icoslot{display:inline-block;width:30px;height:30px;border:1.5px dashed #bdbcb4;border-radius:7px;vertical-align:middle}
+  .pcard,.rcard,.tfull{break-inside:avoid}
+
+  .principle{display:flex;align-items:center;gap:10px;font-size:.82rem;margin:0 0 14px;
+    background:linear-gradient(90deg,color-mix(in srgb,var(--diverge) 8%,var(--card)),color-mix(in srgb,var(--converge) 8%,var(--card)));
+    border:1px solid var(--line);border-radius:10px;padding:9px 14px}
+  .principle b{color:var(--ink)}
+
+  .phases{display:flex;flex-direction:column;gap:0}
+  .phase{display:grid;grid-template-columns:132px 1fr;gap:0;border:1px solid var(--line);border-radius:11px;background:var(--card);margin-bottom:8px;overflow:hidden}
+  .phase .side{padding:11px 13px;color:#fff;display:flex;flex-direction:column;justify-content:center;gap:2px}
+  .phase.d .side{background:var(--diverge)} .phase.c .side{background:var(--converge)}
+  .phase .side .pn{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;opacity:.85}
+  .phase .side .pt{font-weight:700;font-size:1.02rem;line-height:1.12}
+  .phase .side .pm{font-size:.66rem;opacity:.85;margin-top:2px}
+  .phase .main{padding:10px 14px}
+  .phase .do{font-size:.84rem}
+  .phase .do b{color:var(--ink)}
+  .phase .loop{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+  .phase .loop .st{font-size:.66rem;background:var(--chip);border:1px solid var(--line);border-radius:7px;padding:3px 8px;color:#4a4a45}
+  .phase .loop .st b{color:var(--converge);font-weight:700}
+  .phase .elicit{font-size:.74rem;color:var(--muted);margin-top:5px}
+  .phase .elicit .lab{font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.58rem;color:#9b9a92;margin-right:6px}
+  .phase .deck{display:inline-flex;align-items:center;gap:6px;margin-top:6px;font-size:.72rem;font-weight:600;color:var(--diverge);
+    background:color-mix(in srgb,var(--diverge) 7%,#fff);border:1px solid color-mix(in srgb,var(--diverge) 25%,transparent);border-radius:999px;padding:3px 10px}
+  .phase .deck.rd{color:var(--redesign);background:color-mix(in srgb,var(--redesign) 7%,#fff);border-color:color-mix(in srgb,var(--redesign) 25%,transparent)}
+  .phase .tension{display:inline-flex;align-items:center;gap:6px;margin-top:6px;margin-left:6px;font-size:.72rem;font-weight:600;color:var(--signal);
+    background:color-mix(in srgb,var(--signal) 7%,#fff);border:1px solid color-mix(in srgb,var(--signal) 25%,transparent);border-radius:999px;padding:3px 10px}
+  .divider{display:flex;align-items:center;gap:12px;margin:4px 0;color:var(--muted);font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+  .divider .ln{flex:1;height:1px;background:var(--line)}
+  .divider .dv{color:var(--diverge)} .divider .cv{color:var(--converge)}
+
+  /* ②a disclosure poster */
+  .dgrid{display:grid;grid-template-columns:repeat(4,76mm);gap:9mm 10mm;justify-content:center;margin-top:6mm}
+  .dcat .dhead{display:flex;align-items:center;gap:7px;margin-bottom:2.5mm;min-height:11mm}
+  .dcat .dhead img,.dcat .dhead svg.ico{flex:none}
+  .dcat .dhead .dk{font-size:.55rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);display:block}
+  .dcat .dhead .dt{font-weight:700;font-size:.92rem;line-height:1.1}
+  .dcell{width:76mm;height:76mm;border:1.5px dashed #bdbcb4;border-radius:3mm;background:var(--card);
+    padding:5mm;font-size:.82rem;color:#3f3f3a;position:relative;line-height:1.45}
+  .dcell b{color:var(--ink)}
+  .dcell .cellnote{position:absolute;bottom:2.5mm;right:4mm;font-size:.52rem;color:#c6c4bc;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+  .dcover{position:absolute;inset:-1.5px;background:var(--sticky);border:1px solid var(--sticky-edge);border-radius:2px;
+    box-shadow:0 3px 8px rgba(0,0,0,.16);transform:rotate(-1.2deg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3mm;padding:6mm;text-align:center}
+  .dcover .nd{font-size:1.15rem;font-weight:700;letter-spacing:.06em;color:#6b5b17;text-transform:uppercase;transform:rotate(.6deg)}
+  .dcover .ndsub{font-size:.62rem;color:#8a7d42;max-width:52mm}
+  .posternote{display:flex;gap:10mm;justify-content:center;margin-top:8mm;font-size:.74rem;color:var(--muted)}
+  .posternote .pn1{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:8px 13px;max-width:118mm}
+  .posternote b{color:var(--ink)}
+
+  /* ②b who wall + ②c futures wall */
+  .wprompt{font-size:.92rem;font-weight:700;color:var(--diverge);margin:2px 0 0}
+  .wprompt span{display:block;font-weight:400;font-size:.72rem;color:var(--muted);margin-top:2px}
+  .ringwrap{position:relative;max-width:168mm;margin:3mm auto 0}
+  .ringwrap svg{display:block;width:100%}
+  .wstub{position:absolute;background:var(--sticky);border:1px solid var(--sticky-edge);box-shadow:0 2px 5px rgba(0,0,0,.12);
+    font-size:.68rem;padding:6px 8px;width:33mm;transform:rotate(-1.5deg);color:#4a431f;line-height:1.3}
+  .frow{display:flex;gap:9px;margin-top:9px;align-items:stretch}
+  .fslots{flex:none;width:50mm;display:flex;flex-direction:column;gap:6px}
+  .slotcard{flex:1;border:1.5px dashed #bdbcb4;border-radius:9px;padding:6px 9px;font-size:.64rem;color:#9b9a92;background:var(--card);min-height:19mm}
+  .slotcard b{display:block;font-size:.55rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px}
+  .evchip{display:inline-block;border:1px solid var(--line);border-top:3px solid var(--fc,#7a4a2f);border-radius:7px;background:#fff;
+    padding:4px 9px;font-size:.7rem;font-weight:600;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+  .evchip .f{display:block;font-size:.5rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--fc,#7a4a2f)}
+  .gstub{display:inline-block;background:var(--sticky);border:1px solid var(--sticky-edge);box-shadow:0 1px 3px rgba(0,0,0,.1);
+    font-size:.68rem;padding:5px 7px;transform:rotate(-1deg);color:#4a431f;line-height:1.3}
+  .fstory{flex:1;border:1px dashed #c7c6be;border-radius:9px;background:radial-gradient(circle,#dedcd4 1px,transparent 1.4px) 0 0/22px 22px;
+    position:relative;min-height:42mm;padding:8px}
+  .fstory .stub{position:absolute;background:var(--sticky);border:1px solid var(--sticky-edge);box-shadow:0 2px 5px rgba(0,0,0,.12);
+    font-size:.7rem;padding:6px 8px;width:52mm;transform:rotate(-1deg);color:#4a431f;line-height:1.3}
+  .tensionbox{border:1.5px solid var(--signal);border-radius:10px;background:color-mix(in srgb,var(--signal) 5%,#fff);padding:10px 14px;margin-top:9px}
+  .tensionbox .tl{font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--signal)}
+  .tensionbox .th{font-size:.7rem;color:var(--muted);margin:1px 0 7px}
+  .tensionbox .writeline{border-bottom:1px dashed #d4a892;height:16px}
+  .tensionbox .writeline+.writeline{margin-top:6px}
+
+  /* ③ mat */
+  .matgrid{display:grid;grid-template-columns:1.5fr 1fr;gap:10mm;align-items:start}
+  .fieldbox{border:1px solid var(--line);border-radius:11px;background:var(--card);padding:10px 13px}
+  .fieldbox .ft{font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+  .fieldbox .fh{font-weight:700;font-size:1.02rem;margin:1px 0 2px}
+  .fieldbox .fsub{font-size:.72rem;color:var(--muted);margin-bottom:6px}
+  .fieldbox .fsub b{color:var(--ink)}
+  .fieldwrap{margin:0 auto}
+  .convline{margin-top:7px;border-top:1px dashed var(--line);padding-top:7px;font-size:.74rem;color:#3f3f3a;display:flex;align-items:center;gap:9px}
+  .convline .ptok{flex:none}
+  .convline b{color:var(--ink)}
+  .rolekey{display:flex;align-items:center;gap:14px;font-size:.72rem;color:var(--muted);margin-top:5px}
+  .rolekey .rk2{display:inline-flex;align-items:center;gap:7px;font-weight:600;color:var(--ink)}
+  .ptok{width:13px;height:13px;border-radius:50%;display:inline-block;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.5),0 1px 1.5px rgba(0,0,0,.25)}
+  .ptok.comm{background:var(--role-community)} .ptok.city{background:var(--role-city)}
+
+  .movelog{border:1px solid var(--line);border-radius:11px;background:var(--card);padding:10px 13px;margin-top:8mm;position:relative;min-height:34mm}
+  .movelog .ft{font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+  .movelog .fsub{font-size:.7rem;color:var(--muted);margin-top:1px}
+  .movelog .stubs{display:flex;gap:9px;margin-top:8px;flex-wrap:wrap}
+  .movelog .stub{background:var(--sticky);border:1px solid var(--sticky-edge);box-shadow:0 2px 5px rgba(0,0,0,.12);
+    font-size:.66rem;padding:6px 8px;width:62mm;transform:rotate(-.8deg);color:#4a431f;line-height:1.35}
+  .movelog .stub b{color:#2f2a10}
+  .movelog .stub.blank{background:repeating-linear-gradient(45deg,#fdfaf0 0 8px,#f6f2e2 8px 16px);border-style:dashed;min-height:17mm;color:#b6ad86;
+    display:flex;align-items:center;justify-content:center;font-weight:600}
+
+  .ledger .lh{font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:6px}
+  .lrow{border:1px solid var(--line);border-radius:10px;background:var(--card);margin-bottom:7px;overflow:hidden}
+  .lrow .top{display:flex;align-items:center;gap:9px;padding:7px 10px;border-bottom:1px dashed var(--line)}
+  .lrow .num{flex:none;width:22px;height:22px;border-radius:50%;background:color-mix(in srgb,var(--signal) 10%,#fff);color:var(--signal);
+    font-weight:700;font-size:.82rem;display:flex;align-items:center;justify-content:center;border:1px solid color-mix(in srgb,var(--signal) 30%,transparent)}
+  .lrow .tname{font-size:.82rem;font-weight:600}
+  .lrow .tname .sub{font-weight:400;font-size:.66rem;color:var(--muted);margin-left:6px}
+  .lrow .body{padding:7px 10px 8px;display:flex;flex-direction:column;gap:5px}
+  .lrow .cond{font-size:.76rem;color:#3f3f3a}
+  .lrow .cond .lab{font-size:.54rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#9b9a92;margin-right:6px}
+  .lrow .redtag{display:inline-block;font-size:.55rem;font-weight:700;color:var(--redesign);background:color-mix(in srgb,var(--redesign) 9%,#fff);
+    border:1px solid color-mix(in srgb,var(--redesign) 30%,transparent);border-radius:5px;padding:1px 6px}
+  .lrow .fillline{border-bottom:1px dashed #c7c6be;height:14px;margin-top:3px}
+
+  .matfoot{display:grid;grid-template-columns:1.5fr 1fr;gap:10mm;margin-top:8mm}
+  .ladder,.capture{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:10px 13px}
+  .ladder .lt,.capture .lt{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}
+  .rungs{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+  .rung{border:1px solid var(--line);border-radius:8px;padding:7px 9px;background:#fff}
+  .rung .rk{display:flex;align-items:center;gap:6px;font-weight:700;font-size:.76rem}
+  .rung .rk .box{width:13px;height:13px;border:1.5px solid #9b9a92;border-radius:3px;flex:none}
+  .rung .rc{font-size:.62rem;color:var(--muted);margin-top:3px;line-height:1.3}
+  .rung.no .rk{color:var(--alarm)}
+  .capfields{display:flex;flex-direction:column;gap:9px}
+  .capf .cl{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--signal)}
+  .capf .writeline{border-bottom:1px dashed #c7c6be;height:15px;margin-top:5px}
+  .capf.row{display:flex;gap:14px}
+  .capf.row>div{flex:1}
+  .photonote{font-size:.68rem;color:var(--muted);margin-top:8px;border-top:1px dashed var(--line);padding-top:7px}
+  .photonote b{color:var(--ink)}
+
+  /* ⑥ spark cards */
+  .deckgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+  .pcard{border:1px solid var(--line);border-radius:11px;background:var(--card);border-top:5px solid var(--fc);padding:10px 12px 9px;display:flex;flex-direction:column;min-height:140px;position:relative}
+  .pcard .fam{font-size:.56rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--fc)}
+  .pcard .pt{font-weight:700;font-size:.9rem;margin:2px 0 4px;line-height:1.15}
+  .pcard .ps{font-size:.76rem;color:#3f3f3a;line-height:1.34}
+  .pcard .pf{margin-top:auto;padding-top:7px;border-top:1px dashed #e3ddd0;font-size:.6rem;color:#9b9a92;line-height:1.4}
+  .pcard .pf b{color:#6b6b64}
+  .fam-deployer{--fc:var(--fam-deployer)} .fam-vendor{--fc:var(--fam-vendor)}
+  .fam-community{--fc:var(--fam-community)} .fam-upside{--fc:var(--fam-upside)}
+  .carry{position:absolute;top:9px;right:10px;font-size:.52rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;display:inline-flex;align-items:center;gap:4px;color:#9b9a92}
+  .carry .cd{width:9px;height:9px;border-radius:50%;border:1.5px solid #b6a06a;display:inline-block}
+  .carry.core .cd{background:var(--gold)}
+  .carry.pattern .cd{background:linear-gradient(90deg,var(--gold) 50%,transparent 50%)}
+  .carry.scenario .cd{background:transparent}
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:11px;font-size:.66rem;color:var(--muted)}
+  .legend .lg{display:inline-flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+  .legend .sw{width:11px;height:11px;border-radius:3px}
+  .carrynote{font-size:.68rem;color:var(--muted);margin-top:9px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 12px}
+  .carrynote b{color:var(--ink)}
+  .carrynote .cd{width:9px;height:9px;border-radius:50%;border:1.5px solid #b6a06a;display:inline-block;vertical-align:middle;margin:0 3px}
+  .carrynote .core{background:var(--gold)} .carrynote .pattern{background:linear-gradient(90deg,var(--gold) 50%,transparent 50%)} .carrynote .scenario{background:transparent}
+
+  /* ⑤ redesign cards */
+  .rcard{border:1px solid color-mix(in srgb,var(--redesign) 30%,var(--line));border-radius:11px;
+    background:color-mix(in srgb,var(--redesign) 4%,var(--card));padding:10px 12px;min-height:118px;display:flex;flex-direction:column}
+  .rcard .rk{font-size:.56rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--redesign);display:flex;align-items:center;gap:6px}
+  .rcard .rt{font-weight:700;font-size:.9rem;margin:3px 0 4px}
+  .rcard .re{font-size:.76rem;color:#3f3f3a;line-height:1.34}
+  .rcard .pf{margin-top:auto;padding-top:7px;border-top:1px dashed color-mix(in srgb,var(--redesign) 20%,#e3ddd0);font-size:.6rem;color:#9b9a92;line-height:1.4}
+  .rcard .pf b{color:#4c6b6c}
+  .rcard.blank{background:repeating-linear-gradient(45deg,#fafaf7 0 8px,#f4f3ee 8px 16px);border-style:dashed}
+  .rcard.blank .writeline{border-bottom:1px dashed #bdbcb4;height:13px;margin-top:6px}
+  .rcard.blank .writeline:first-of-type{margin-top:8px}
+  .rcard .rg{display:flex;flex-direction:column;align-items:center;gap:4px;margin-top:8px;background:#fff;border:1px dashed #d5d3cb;border-radius:8px;padding:7px 8px 6px}
+  .rcard.blank .rg{background:rgba(255,255,255,.75)}
+  .rcard .rg svg{display:block;width:100%;max-width:52mm}
+  .rcard .rg .rgc{font-size:.6rem;color:#72726c;line-height:1.35;text-align:center;border-top:1px dashed #e8e6df;padding-top:5px}
+  .rcard .rg .rgc b{color:var(--ink)}
+
+  /* ⑤ tension cards */
+  .tfull{border:1.5px solid color-mix(in srgb,var(--signal) 40%,var(--line));border-radius:11px;background:var(--card);
+    padding:10px 12px;min-height:112px;display:flex;flex-direction:column}
+  .tfull .tk{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--signal);display:flex;align-items:center;justify-content:space-between}
+  .tfull .tk .rownum{font-weight:700;color:#9b9a92;border:1.5px solid #d5d3cb;border-radius:6px;padding:1px 7px;letter-spacing:.02em}
+  .tfull .tt{font-weight:700;font-size:.92rem;margin:4px 0 3px;line-height:1.2}
+  .tfull .torig{font-size:.68rem;color:var(--muted)}
+  .tfull .torig b{color:#3f3f3a}
+  .tfull .pf{margin-top:auto;padding-top:7px;border-top:1px dashed #ecd9cd;font-size:.6rem;color:#9b9a92;line-height:1.4}
+  .tfull .pf b{color:#8a5a3f}
+  .tfull.blank{background:repeating-linear-gradient(45deg,#fafaf7 0 8px,#f4f3ee 8px 16px);border-style:dashed}
+  .tfull .writeline{border-bottom:1px dashed #bdbcb4;height:14px;margin-top:6px}
+  .stepbox{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--signal);border-radius:0 10px 10px 0;padding:11px 15px;margin-bottom:11px}
+  .stepbox .lt{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--signal);margin-bottom:6px}
+  .stepbox ol{margin:0;padding-left:19px;font-size:.8rem;color:#3f3f3a;display:flex;flex-direction:column;gap:4px}
+  .stepbox ol b{color:var(--ink)}
+
+  /* ledger card slots */
+  .lrow .tchip{background:#fff;border:1px solid color-mix(in srgb,var(--signal) 35%,var(--line));border-radius:6px;padding:2px 9px;
+    font-size:.8rem;font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.09);transform:rotate(-.4deg);display:inline-block}
+  .lrow .tchip::before{content:'⚡ ';font-size:.68rem}
+  .lrow .tslot{border:1.5px dashed #bdbcb4;border-radius:6px;padding:3px 10px;font-size:.66rem;color:#9b9a92;display:inline-block;font-weight:600}
+
+  /* ⑥ materials */
+  .matcols{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
+  .checklist{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:11px 14px}
+  .checklist .lt,.crib .lt,.dotfall .lt{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}
+  .citem{display:flex;align-items:flex-start;gap:9px;padding:6px 0;border-bottom:1px dashed var(--line);font-size:.82rem}
+  .citem:last-child{border-bottom:none}
+  .citem .box{flex:none;width:14px;height:14px;border:1.5px solid #9b9a92;border-radius:3px;margin-top:2px}
+  .citem b{display:block}
+  .citem .cw{font-size:.68rem;color:var(--muted)}
+  .crib{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:11px 14px}
+  .crib .say{font-size:.86rem;padding:6px 0;border-bottom:1px dashed var(--line)}
+  .crib .say:last-child{border-bottom:none}
+  .crib .say b{display:block;font-size:.9rem}
+  .crib .say .to{font-size:.66rem;color:var(--muted)}
+  .dotfall{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:11px 14px;margin-top:12px}
+  .dotrow{display:flex;flex-wrap:wrap;gap:4px;margin:4px 0 8px}
+  .dot{width:8mm;height:8mm;border-radius:50%;border:1px dashed rgba(255,255,255,.7);box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+  .dot.comm{background:var(--role-community)} .dot.city{background:var(--role-city)}
+  .cutnote{font-size:.62rem;color:#b6b4ac;margin-top:4px}
+  .gone{margin-top:12px;font-size:.72rem;color:var(--muted);background:var(--chip);border:1px solid var(--line);border-radius:8px;padding:8px 12px}
+  .gone b{color:var(--ink)}
+
+  @media print{
+    body{background:#fff}
+    .noprint{display:none!important}
+    .sheet{margin:0;box-shadow:none;width:auto;min-height:auto;padding:0}
+    .sheet+.sheet{page-break-before:always}
+    .sheet.land{page:land}
+  }
+  @page{size:letter portrait;margin:12mm}
+  @page land{size:17in 11in;margin:10mm}
+</style>
+</head>
+<body>
+
+<div class="intro noprint">
+  <span class="eyebrow">Facilitation kit · v5 · disclosure poster + negotiation field</span>
+  <h1>DTPR Agreement Workshop</h1>
+  <p>The governing change from v4: <b>every mechanic is a prompt, not a rule</b>. Nothing is declared, scored, or enforced — the paper exists to structure conversation, make trade-offs visible, and give the tensions real stakes. The facilitator runs the room; the kit just keeps the trade-offs in front of everyone.</p>
+  <p>Four structural moves: disclosure becomes a <b>peel-to-reveal poster</b> (post-its cover the facts; the taxonomy stays visible). Surfacing runs <b>who-then-what</b>: a <b>Who wall</b> maps every group the system affects — neutral and good count — then a <b>Futures wall</b> pairs spark-card events with those groups to write what could happen, a lightweight red-team the room does to its own proposal. Deliberation happens on a <b>two-axis negotiation field</b> — trust and utility are independent, so win-wins have somewhere to go; the red line is printed geography (the shaded low bands). And the cards feed the boards: each <b>redesign card carries its own mini-field</b> for the arrows, while <b>tension cards</b> carry who a tension lands on and the event that showed it onto the mat's ledger.</p>
+  <div class="how">
+    <b>Nine print pieces, in order of use.</b> ① Run-of-show · ②a Disclosure poster (<code>11×17</code>) · ②b Who wall · ②c Futures wall · ③ Tension cards · ④ Negotiation mat (<code>17×11</code>) · ⑤ Redesign cards · ⑥ Spark deck · ⑦ Materials &amp; facilitator crib. Every page with example content (the fare-gate case) ships with a <b>blank twin</b> to print for any scenario.
+  </div>
+  <div class="playtest">
+    <b>Open questions for the playtest:</b> ⑴ do the redesign mini-fields want two pens (one per seat color) or one shared pen? ⑵ do the faint field ticks help (anchors) or hurt (false precision)? — coarsen to five bands if the room stalls on numbers · ⑶ should the "sealed cell holds trust down" nudge stay printed on the mat, or move to verbal facilitator guidance? · ⑷ in a small room, do the two walls collapse happily into one?
+  </div>
+  <button class="btn" onclick="window.print()">Print / Save as PDF</button>
+  <div class="sheetnav"><b>Sheets:</b> ① Run-of-show · ②a Poster ×2 (landscape) · ②b Who wall ×2 · ②c Futures wall ×2 · ③ Tensions · ④ Mat ×2 (landscape) · ⑤ Redesigns · ⑥ Spark deck · ⑦ Materials — ×2 = example + blank</div>
+</div>
+
+<!-- ① RUN OF SHOW -->
+<section class="sheet">
+  <span class="sheet-tag">① Run-of-show · Letter</span>
+  <div class="shead"><div class="k">DTPR · Agreement Workshop</div><h2>Facilitator run-of-show</h2>
+    <p>Small mixed group (community members + city staff). Times are a starting point to playtest against, not a rule.</p></div>
+  <div class="proposal">
+    <span class="faceup">▲ face-up from the start</span>
+    <div class="pk">The proposal — the premise</div>
+    <div class="pbody"><span class="fillspan" style="min-width:32mm"></span> would like to deploy <span class="fillspan" style="min-width:42mm"></span> in <span class="fillspan" style="min-width:28mm"></span>, in order to <span class="fillspan" style="min-width:40mm"></span>.</div>
+    <div class="pq"><b>The room's question:</b> under what conditions, if any, is this acceptable here? Everything below is a response to this ask.</div>
+    <div class="pq" style="border-top:none;padding-top:2px"><b>Example:</b> <em>Metro Transit</em> would like to deploy <em>face-matching fare gates</em> in <em>this neighbourhood</em>, to decide who may pass without paper tickets or inspectors.</div>
+  </div>
+  <div class="principle"><b>The one rule:</b> diverge, then converge. Nothing on the field while the room is still generating — and everything on paper is a prompt, not a rule.</div>
+  <div class="phases" id="phases"></div>
+</section>
+
+<!-- ②a DISCLOSURE POSTER — example -->
+<section class="sheet land">
+  <span class="sheet-tag">②a Disclosure poster · 17×11 · example</span>
+  <div class="shead"><div class="k">DTPR · Agreement Workshop · disclosure</div><h2>The proposed system</h2>
+    <p>Tape this to the wall. Before the session, cover every cell with a 3×3&Prime; post-it — the category titles and symbols stay visible, so the room sees the <b>shape</b> of the system before any facts. In <b>Disclose</b>, the deployer peels one cover at a time and reads the cell aloud. Questions only — no positions yet.</p>
+    <div class="exline">Example filled in below: <em>Metro Transit's face-matching fare gates</em></div></div>
+  <div class="dgrid" id="dgrid"></div>
+  <div class="posternote">
+    <div class="pn1"><b>If a cover stays on:</b> the facilitator writes <b>NOT&nbsp;DISCLOSED</b> on it, and it stays up for the whole session — a visible hole in the document. It carries to the mat as a standing tension, and it holds the trust axis down while it stays sealed.</div>
+  </div>
+</section>
+
+<!-- ②a DISCLOSURE POSTER — blank -->
+<section class="sheet land">
+  <span class="sheet-tag">②a Disclosure poster · 17×11 · blank — print for your scenario</span>
+  <div class="shead" style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px">
+    <div><div class="k">DTPR · Agreement Workshop · disclosure</div><h2>The proposed system</h2>
+      <p>Blank template. Before the session, the deployer writes each cell in plain language — one 3×3&Prime; post-it's worth — then covers every cell. Anything they won't write stays covered, and the room will see it.</p></div>
+    <div style="font-size:.7rem;color:var(--muted);text-align:right;min-width:240px">
+      <div style="border-bottom:1px dashed #bdbcb4;padding:4px 0;display:flex;justify-content:space-between"><span>The system</span><span></span></div>
+      <div style="border-bottom:1px dashed #bdbcb4;padding:4px 0;display:flex;justify-content:space-between"><span>Deployer</span><span></span></div>
+    </div>
+  </div>
+  <div class="dgrid" id="dgridBlank"></div>
+  <div class="posternote">
+    <div class="pn1"><b>If a cover stays on:</b> the facilitator writes <b>NOT&nbsp;DISCLOSED</b> on it, and it stays up for the whole session — a visible hole in the document. It carries to the mat as a standing tension, and it holds the trust axis down while it stays sealed.</div>
+  </div>
+</section>
+
+<!-- ②b WHO WALL — example -->
+<section class="sheet">
+  <span class="sheet-tag">②b Who wall · Letter · example</span>
+  <div class="shead"><div class="k">DTPR · Agreement Workshop · wall</div><h2>Who does it affect?</h2>
+    <p>One wall for the whole system — worked together or in small groups. Map every group the system affects: one per sticky, placed by how it affects them. <b>People-shapes, not census categories</b> — and neutral or good counts: "through the gate faster" belongs here too. Scenario spark cards seed the map.</p>
+    <div class="exline">Example filled in below: <em>the fare-gate system's people map</em></div></div>
+  <div class="ringwrap">
+    <svg viewBox="0 0 420 420" font-family="'Public Sans',sans-serif">
+      <circle cx="210" cy="210" r="200" fill="#fbfbf9" stroke="#c7c6be" stroke-width="1.2"/>
+      <circle cx="210" cy="210" r="138" fill="#f6f6f4" stroke="#c7c6be" stroke-width="1.2"/>
+      <circle cx="210" cy="210" r="76" fill="#ffffff" stroke="#c7c6be" stroke-width="1.2"/>
+      <rect x="170" y="196" width="80" height="27" rx="7" fill="#1b1b19"/>
+      <text x="210" y="214" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">the system</text>
+      <text x="210" y="152" font-size="10" font-weight="700" fill="#72726c" text-anchor="middle">individuals</text>
+      <text x="210" y="90" font-size="10" font-weight="700" fill="#72726c" text-anchor="middle">the community</text>
+      <text x="210" y="30" font-size="10" font-weight="700" fill="#72726c" text-anchor="middle">bystanders</text>
+    </svg>
+    <div class="wstub" style="left:38%;top:58%">riders through the gate faster</div>
+    <div class="wstub" style="left:47%;top:36%;transform:rotate(1deg)">night-shift workers making transfers</div>
+    <div class="wstub" style="left:63%;top:24%;transform:rotate(-.8deg);background:#ffe0d4;border-color:#e6a88f">teens the matcher gets wrong</div>
+    <div class="wstub" style="left:10%;top:33%;transform:rotate(1.2deg);background:#ffe0d4;border-color:#e6a88f">someone hiding from an abuser</div>
+    <div class="wstub" style="left:56%;top:6%;transform:rotate(.8deg);background:#ffe0d4;border-color:#e6a88f">undocumented neighbours who stop riding</div>
+    <div class="wstub" style="left:7%;top:76%">paper-ticket riders — not in this room</div>
+  </div>
+</section>
+
+<!-- ②b WHO WALL — blank -->
+<section class="sheet">
+  <span class="sheet-tag">②b Who wall · Letter · blank — print for your scenario</span>
+  <div class="shead"><div class="k">DTPR · Agreement Workshop · wall</div><h2>Who does it affect?</h2>
+    <p>One wall for the whole system. Map every group the system affects: one per sticky, placed by how it affects them. <b>People-shapes, not census categories</b> — and neutral or good counts. Scenario spark cards seed the map.</p></div>
+  <div class="ringwrap">
+    <svg viewBox="0 0 420 420" font-family="'Public Sans',sans-serif">
+      <circle cx="210" cy="210" r="200" fill="#fbfbf9" stroke="#c7c6be" stroke-width="1.2"/>
+      <circle cx="210" cy="210" r="138" fill="#f6f6f4" stroke="#c7c6be" stroke-width="1.2"/>
+      <circle cx="210" cy="210" r="76" fill="#ffffff" stroke="#c7c6be" stroke-width="1.2"/>
+      <rect x="170" y="196" width="80" height="27" rx="7" fill="#1b1b19"/>
+      <text x="210" y="214" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">the system</text>
+      <text x="210" y="152" font-size="10" font-weight="700" fill="#72726c" text-anchor="middle">individuals</text>
+      <text x="210" y="90" font-size="10" font-weight="700" fill="#72726c" text-anchor="middle">the community</text>
+      <text x="210" y="30" font-size="10" font-weight="700" fill="#72726c" text-anchor="middle">bystanders</text>
+    </svg>
+  </div>
+</section>
+
+<!-- ②c FUTURES WALL — example -->
+<section class="sheet">
+  <span class="sheet-tag">②c Futures wall · Letter · example</span>
+  <div class="shead"><div class="k">DTPR · Agreement Workshop · wall</div><h2>What could happen?</h2>
+    <p><b>Pair an event with a group.</b> Draw a spark card, pick a sticky from the Who wall, and write what changed for those people two years on. Futures can be good, bad, or both — write them all. Cluster the stories into tensions at the bottom.</p>
+    <div class="exline">Example filled in below: <em>two fare-gate futures, one bad and one good</em></div></div>
+  <div class="wprompt">"It's two years from now and the event has happened. What changed for these people?"</div>
+  <div class="frow">
+    <div class="fslots">
+      <div class="slotcard"><b>Event — spark card</b><span class="evchip" style="--fc:var(--fam-vendor)"><span class="f">Vendor event</span>Acquired</span></div>
+      <div class="slotcard"><b>Group — from the Who wall</b><span class="gstub">someone hiding from an abuser</span></div>
+    </div>
+    <div class="fstory">
+      <div class="stub" style="top:14px;left:16px;background:#ffe0d4;border-color:#e6a88f">The broker sells movement history — anyone can buy her route home</div>
+      <div class="stub" style="top:52px;left:140px;transform:rotate(.9deg);background:#ffe0d4;border-color:#e6a88f">She stops riding. The system never sees the harm it did</div>
+    </div>
+  </div>
+  <div class="frow">
+    <div class="fslots">
+      <div class="slotcard"><b>Event — spark card</b><span class="evchip" style="--fc:var(--fam-upside)"><span class="f">Upside</span>Buses run on time</span></div>
+      <div class="slotcard"><b>Group — from the Who wall</b><span class="gstub">night-shift workers making transfers</span></div>
+    </div>
+    <div class="fstory">
+      <div class="stub" style="top:16px;left:20px">Transfers hold — a second job becomes possible</div>
+    </div>
+  </div>
+  <div class="frow">
+    <div class="fslots">
+      <div class="slotcard"><b>Event — spark card</b></div>
+      <div class="slotcard"><b>Group — from the Who wall</b></div>
+    </div>
+    <div class="fstory"></div>
+  </div>
+  <div class="tensionbox">
+    <div class="tl">◤ Tensions these futures point at — name them</div>
+    <div class="th">Cluster the stories. Each name becomes a tension card — the units the room negotiates.</div>
+    <div class="writeline"></div><div class="writeline"></div>
+  </div>
+</section>
+
+<!-- ②c FUTURES WALL — blank -->
+<section class="sheet">
+  <span class="sheet-tag">②c Futures wall · Letter · blank — print for your scenario</span>
+  <div class="shead"><div class="k">DTPR · Agreement Workshop · wall</div><h2>What could happen?</h2>
+    <p><b>Pair an event with a group.</b> Draw a spark card, pick a sticky from the Who wall, and write what changed for those people two years on. Futures can be good, bad, or both — write them all. Cluster the stories into tensions at the bottom.</p></div>
+  <div class="wprompt">"It's two years from now and the event has happened. What changed for these people?"</div>
+  <div class="frow">
+    <div class="fslots">
+      <div class="slotcard"><b>Event — spark card</b></div>
+      <div class="slotcard"><b>Group — from the Who wall</b></div>
+    </div>
+    <div class="fstory"></div>
+  </div>
+  <div class="frow">
+    <div class="fslots">
+      <div class="slotcard"><b>Event — spark card</b></div>
+      <div class="slotcard"><b>Group — from the Who wall</b></div>
+    </div>
+    <div class="fstory"></div>
+  </div>
+  <div class="frow">
+    <div class="fslots">
+      <div class="slotcard"><b>Event — spark card</b></div>
+      <div class="slotcard"><b>Group — from the Who wall</b></div>
+    </div>
+    <div class="fstory"></div>
+  </div>
+  <div class="tensionbox">
+    <div class="tl">◤ Tensions these futures point at — name them</div>
+    <div class="th">Cluster the stories. Each name becomes a tension card — the units the room negotiates.</div>
+    <div class="writeline"></div><div class="writeline"></div>
+  </div>
+</section>
+
+<!-- ③ TENSION CARDS -->
+<section class="sheet">
+  <span class="sheet-tag">③ Tension cards · Letter · cut &amp; play</span>
+  <div class="shead"><div class="k">DTPR · Agreement Workshop</div><h2>Tension cards</h2>
+    <p>Written in <b>Cluster</b> from the futures-wall stories, played onto the mat — one card per ledger row. A tension lands on someone specific and was shown by some event — the card carries both.</p></div>
+  <div class="stepbox">
+    <div class="lt">How the ledger gets made</div>
+    <ol>
+      <li><b>At the Futures wall,</b> cluster the stories. Give each cluster a name — that name is a tension. One card each.</li>
+      <li><b>On the card, note who it lands on and the event that showed it.</b> A sealed <b>NOT&nbsp;DISCLOSED</b> cell always gets a card too.</li>
+      <li><b>Bring every card to the mat.</b> Merge duplicates — a tension that several stories reached is telling you something.</li>
+      <li><b>Ask the room once:</b> "Is there a tension no story caught?" Write it now.</li>
+      <li><b>Pick the 3–5 the room most needs to negotiate.</b> Slot them into ledger rows and number them. The rest stay on the table, photographed but not negotiated.</li>
+    </ol>
+  </div>
+  <div class="deckgrid" id="tensionDeck"></div>
+</section>
+
+<!-- ④ NEGOTIATION MAT — example -->
+<section class="sheet land">
+  <span class="sheet-tag">④ Negotiation mat · 17×11 · example</span>
+  <div class="shead" style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px">
+    <div><div class="k">DTPR · Agreement Workshop · the record</div><h2>The negotiation mat</h2>
+      <div class="exline">Example filled in below: <em>the fare-gate negotiation, four moves in</em></div></div>
+    <div style="font-size:.7rem;color:var(--muted);text-align:right;min-width:240px">
+      <div style="border-bottom:1px dashed #bdbcb4;padding:4px 0;display:flex;justify-content:space-between"><span>Neighbourhood</span><span></span></div>
+      <div style="border-bottom:1px dashed #bdbcb4;padding:4px 0;display:flex;justify-content:space-between"><span>Facilitator</span><span></span></div>
+      <div style="border-bottom:1px dashed #bdbcb4;padding:4px 0;display:flex;justify-content:space-between"><span>Date</span><span></span></div>
+    </div>
+  </div>
+  <div class="proposal" style="margin-bottom:9px">
+    <span class="faceup">▲ the premise</span>
+    <div class="pk">The proposal on the table</div>
+    <div class="pbody"><b>Metro Transit</b> would like to deploy <b>face-matching fare gates</b> here. The field below is the room's negotiation over that ask.</div>
+  </div>
+
+  <div class="matgrid">
+    <div>
+      <div class="fieldbox">
+        <div class="ft">The negotiation field</div>
+        <div class="fh">Where does the deal sit?</div>
+        <div class="fsub">Trust and utility are <b>independent axes</b> — a deployment can be high on both, and that corner is what the room is looking for. The coin marks where the deal sits now. <b>The deployer's hand moves it left–right</b> (what a change costs them — said out loud). <b>The community's hand moves it up–down</b> (what a change earns — trust is theirs to grant). Each redesign played = one move, one sticky on the move log.</div>
+        <div class="fieldwrap" id="fieldEx"></div>
+        <div class="convline"><span class="ptok comm"></span><span class="ptok city"></span>
+          <span><b>Converge (dots):</b> each person places their color where they honestly think the deal now sits — not where they wish it were. A tight two-color cluster is agreement. A split is a <b>finding, not a failure</b>: it goes in the record.</span></div>
+        <div class="rolekey">
+          <span class="rk2"><span class="ptok comm"></span>Community</span>
+          <span class="rk2"><span class="ptok city"></span>City hall</span>
+          <em>— dot stickers, one per person, placed once in Converge.</em>
+        </div>
+      </div>
+
+      <div class="movelog">
+        <div class="ft">Move log — one sticky per trade</div>
+        <div class="fsub">When a redesign is played: what it <b>costs the deployer</b> (their words) and what it <b>earns with the community</b> (theirs). Number it to match the field.</div>
+        <div class="stubs">
+          <div class="stub"><b>① Warrant gate</b> · utility: "nothing operational, honestly" (deployer) · trust: a judge in the loop, every query logged</div>
+          <div class="stub" style="transform:rotate(.9deg)"><b>② Purge at 24h</b> · utility: fraud-pattern analytics lost — a real cost · trust: a breach can't follow you for 7 years</div>
+          <div class="stub" style="transform:rotate(-.4deg)"><b>③ Opt-out lane</b> · utility: slightly slower throughput · trust: riding never requires a face</div>
+          <div class="stub blank">next move…</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ledger">
+      <div class="lh">Tension ledger — tension cards land here, one per row</div>
+      <div id="lrows"></div>
+    </div>
+  </div>
+
+  <div class="matfoot">
+    <div class="ladder">
+      <div class="lt">Where the room landed — read it off the field</div>
+      <div class="rungs">
+        <div class="rung"><div class="rk"><span class="box"></span>Accepted as put</div><div class="rc">Dots sit high on both axes with no conditions asked. Rare.</div></div>
+        <div class="rung"><div class="rk"><span class="box"></span>Accepted with conditions</div><div class="rc">Dots sit together, clear of the shaded bands. The ledger is the list of conditions.</div></div>
+        <div class="rung"><div class="rk"><span class="box"></span>Time-boxed pilot</div><div class="rc">Dots hover near a band, or split on trust. Sunset date set — the field gets re-scored then.</div></div>
+        <div class="rung no"><div class="rk"><span class="box"></span>Withdrawn / paused</div><div class="rc">Dots pinned in a shaded band and no move left anyone will play. The ledger shows which trade was refused.</div></div>
+      </div>
+    </div>
+    <div class="capture">
+      <div class="lt">Capture</div>
+      <div class="capfields">
+        <div class="capf"><div class="cl">Open disagreements (the dots that didn't cluster)</div><div class="writeline"></div></div>
+        <div class="capf row"><div><div class="cl">Review / sunset date</div><div class="writeline"></div></div><div><div class="cl">Who monitors</div><div class="writeline"></div></div></div>
+      </div>
+      <div class="photonote"><b>Photograph the field, the ledger, and the move log.</b> That photo — path, dots, and priced trades — is the agreement's record.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ④ NEGOTIATION MAT — blank -->
+<section class="sheet land">
+  <span class="sheet-tag">④ Negotiation mat · 17×11 · blank — print for your scenario</span>
+  <div class="shead" style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px">
+    <div><div class="k">DTPR · Agreement Workshop · the record</div><h2>The negotiation mat</h2></div>
+    <div style="font-size:.7rem;color:var(--muted);text-align:right;min-width:240px">
+      <div style="border-bottom:1px dashed #bdbcb4;padding:4px 0;display:flex;justify-content:space-between"><span>Neighbourhood</span><span></span></div>
+      <div style="border-bottom:1px dashed #bdbcb4;padding:4px 0;display:flex;justify-content:space-between"><span>Facilitator</span><span></span></div>
+      <div style="border-bottom:1px dashed #bdbcb4;padding:4px 0;display:flex;justify-content:space-between"><span>Date</span><span></span></div>
+    </div>
+  </div>
+  <div class="proposal" style="margin-bottom:9px">
+    <span class="faceup">▲ the premise</span>
+    <div class="pk">The proposal on the table</div>
+    <div class="pbody"><span class="fillspan" style="min-width:36mm"></span> would like to deploy <span class="fillspan" style="min-width:48mm"></span> here. The field below is the room's negotiation over that ask.</div>
+  </div>
+
+  <div class="matgrid">
+    <div>
+      <div class="fieldbox">
+        <div class="ft">The negotiation field</div>
+        <div class="fh">Where does the deal sit?</div>
+        <div class="fsub">Trust and utility are <b>independent axes</b> — a deployment can be high on both, and that corner is what the room is looking for. The coin marks where the deal sits now. <b>The deployer's hand moves it left–right</b> (what a change costs them — said out loud). <b>The community's hand moves it up–down</b> (what a change earns — trust is theirs to grant). Each redesign played = one move, one sticky on the move log.</div>
+        <div class="fieldwrap" id="fieldBlank"></div>
+        <div class="convline"><span class="ptok comm"></span><span class="ptok city"></span>
+          <span><b>Converge (dots):</b> each person places their color where they honestly think the deal now sits — not where they wish it were. A tight two-color cluster is agreement. A split is a <b>finding, not a failure</b>: it goes in the record.</span></div>
+        <div class="rolekey">
+          <span class="rk2"><span class="ptok comm"></span>Community</span>
+          <span class="rk2"><span class="ptok city"></span>City hall</span>
+          <em>— dot stickers, one per person, placed once in Converge.</em>
+        </div>
+      </div>
+
+      <div class="movelog">
+        <div class="ft">Move log — one sticky per trade</div>
+        <div class="fsub">When a redesign is played: what it <b>costs the deployer</b> (their words) and what it <b>earns with the community</b> (theirs). Number it to match the field.</div>
+        <div class="stubs">
+          <div class="stub blank">①</div>
+          <div class="stub blank" style="transform:rotate(.7deg)">②</div>
+          <div class="stub blank" style="transform:rotate(-.5deg)">③</div>
+          <div class="stub blank" style="transform:rotate(.4deg)">④</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ledger">
+      <div class="lh">Tension ledger — tension cards land here, one per row</div>
+      <div id="lrowsBlank"></div>
+    </div>
+  </div>
+
+  <div class="matfoot">
+    <div class="ladder">
+      <div class="lt">Where the room landed — read it off the field</div>
+      <div class="rungs">
+        <div class="rung"><div class="rk"><span class="box"></span>Accepted as put</div><div class="rc">Dots sit high on both axes with no conditions asked. Rare.</div></div>
+        <div class="rung"><div class="rk"><span class="box"></span>Accepted with conditions</div><div class="rc">Dots sit together, clear of the shaded bands. The ledger is the list of conditions.</div></div>
+        <div class="rung"><div class="rk"><span class="box"></span>Time-boxed pilot</div><div class="rc">Dots hover near a band, or split on trust. Sunset date set — the field gets re-scored then.</div></div>
+        <div class="rung no"><div class="rk"><span class="box"></span>Withdrawn / paused</div><div class="rc">Dots pinned in a shaded band and no move left anyone will play. The ledger shows which trade was refused.</div></div>
+      </div>
+    </div>
+    <div class="capture">
+      <div class="lt">Capture</div>
+      <div class="capfields">
+        <div class="capf"><div class="cl">Open disagreements (the dots that didn't cluster)</div><div class="writeline"></div></div>
+        <div class="capf row"><div><div class="cl">Review / sunset date</div><div class="writeline"></div></div><div><div class="cl">Who monitors</div><div class="writeline"></div></div></div>
+      </div>
+      <div class="photonote"><b>Photograph the field, the ledger, and the move log.</b> That photo — path, dots, and priced trades — is the agreement's record.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑤ REDESIGN CARDS -->
+<section class="sheet">
+  <span class="sheet-tag">⑤ Redesign cards · Letter · cut &amp; play</span>
+  <div class="shead"><div class="k">DTPR · Agreement Workshop</div><h2>Redesign cards</h2>
+    <p>Played in <b>Deliberate</b> to answer a tension card. Pick a printed <b>pattern</b> or hand-write your own on a blank. Each card carries its own <b>mini-field</b>: before the coin moves, each seat draws the arrow it believes this move makes — deployer on utility, community on trust — and the room argues the length. The agreed move goes to the big field and the move log.</p></div>
+  <div class="deckgrid" id="redesignDeck" style="margin-top:4px"></div>
+</section>
+
+<!-- ⑥ SPARK DECK -->
+<section class="sheet">
+  <span class="sheet-tag">⑥ Spark deck · Letter · cut &amp; play</span>
+  <div class="shead"><div class="k">DTPR · Agreement Workshop</div><h2>Spark cards</h2>
+    <p>These cards inspire thought; they don't test anyone. <b>Scenario</b> sparks are people-shapes — dealt face-up on the <b>Who wall</b> to seed the map. <b>Core</b> and <b>pattern</b> sparks are events — paired with a group on the <b>Futures wall</b>, then drawn again in <b>Deliberate</b> to stress-test a condition. The deck argues both ways on purpose: the <b>upside</b> cards are real futures, and a good negotiation prices those too. Family = the color band; carry-tier = the corner badge.</p></div>
+  <div class="legend">
+    <span class="lg"><span class="sw" style="background:var(--fam-deployer)"></span>Deployer event</span>
+    <span class="lg"><span class="sw" style="background:var(--fam-vendor)"></span>Vendor event</span>
+    <span class="lg"><span class="sw" style="background:var(--fam-community)"></span>Community context</span>
+    <span class="lg"><span class="sw" style="background:var(--fam-upside)"></span>Upside</span>
+  </div>
+  <div class="carrynote"><b>Carry model:</b> <span class="cd core"></span><b>core</b> — print once, every scenario · <span class="cd pattern"></span><b>pattern</b> — same slot, reflavor per system · <span class="cd scenario"></span><b>scenario</b> — write fresh <em>with</em> the community. The scenario cards are the deck that must be built with a neighbourhood, not about one.</div>
+  <div class="deckgrid" id="provDeck" style="margin-top:11px"></div>
+</section>
+
+<!-- ⑦ MATERIALS & CRIB -->
+<section class="sheet">
+  <span class="sheet-tag">⑦ Materials &amp; facilitator crib · Letter</span>
+  <div class="shead"><div class="k">DTPR · Agreement Workshop</div><h2>Materials on hand &amp; the facilitator's crib</h2>
+    <p>The whole kit runs on office-supply staples. No custom components to cut except the three card decks — and a fallback dot strip below if the room has no stickers.</p></div>
+  <div class="matcols">
+    <div class="checklist">
+      <div class="lt">Materials — everything the kit needs</div>
+      <div class="citem"><span class="box"></span><span><b>Post-its, 3×3&Prime; — color A</b><span class="cw">The poster covers. One per disclosure cell.</span></span></div>
+      <div class="citem"><span class="box"></span><span><b>Post-its, 3×3&Prime; — color B</b><span class="cw">Concerns on the wall sheets + the move log.</span></span></div>
+      <div class="citem"><span class="box"></span><span><b>Dot stickers, ~¼&Prime; — two colors</b><span class="cw">Community / city hall. One per person, placed once in Converge. The dot-voting staple.</span></span></div>
+      <div class="citem"><span class="box"></span><span><b>One chisel-tip marker</b><span class="cw">NOT&nbsp;DISCLOSED has to read across a room.</span></span></div>
+      <div class="citem"><span class="box"></span><span><b>Two fine-tip pens — the seat colors</b><span class="cw">The arrows on the redesign mini-fields: green-ish for trust, blue-ish for utility works too.</span></span></div>
+      <div class="citem"><span class="box"></span><span><b>A coin or button</b><span class="cw">The field marker — where the deal sits now.</span></span></div>
+      <div class="citem"><span class="box"></span><span><b>Painter's tape</b><span class="cw">Poster and wall sheets up; mat flat on the table.</span></span></div>
+      <div class="dotfall">
+        <div class="lt">No dot stickers? Cut these</div>
+        <div class="dotrow"><span class="dot comm"></span><span class="dot comm"></span><span class="dot comm"></span><span class="dot comm"></span><span class="dot comm"></span><span class="dot comm"></span><span class="dot comm"></span><span class="dot comm"></span></div>
+        <div class="dotrow"><span class="dot city"></span><span class="dot city"></span><span class="dot city"></span><span class="dot city"></span><span class="dot city"></span><span class="dot city"></span><span class="dot city"></span><span class="dot city"></span></div>
+        <div class="cutnote">Community (purple) · City hall (blue). A dab of glue stick makes them stay for the photo.</div>
+      </div>
+    </div>
+    <div>
+      <div class="crib">
+        <div class="lt">The crib — lines that do work</div>
+        <div class="say"><b>"Questions only — positions come later."</b><div class="to">Disclose. Protects comprehension from debate.</div></div>
+        <div class="say"><b>"Write silently first."</b><div class="to">Both walls. Quiet voices get on the wall before loud ones.</div></div>
+        <div class="say"><b>"Close enough — the ring isn't the finding, the group is."</b><div class="to">Map who. Don't let placement debates eat the clock.</div></div>
+        <div class="say"><b>"Nobody has to write about their own group."</b><div class="to">Futures. The card proposes the event — answering a hypothetical, not volunteering a fear.</div></div>
+        <div class="say"><b>"What does that actually cost you? Say it to the room."</b><div class="to">Deliberate, to the deployer, when a redesign is played. The cheap trades get exposed as cheap; the expensive ones get honestly priced.</div></div>
+        <div class="say"><b>"Where does that move trust? Your hand on the coin, not theirs."</b><div class="to">Deliberate, to the community. Trust is theirs to grant — the deployer can argue for it, never claim it.</div></div>
+        <div class="say"><b>"The sealed cell is still up there."</b><div class="to">Any phase. Points at the poster; nothing else needs saying.</div></div>
+        <div class="say"><b>"A split is a finding, not a failure."</b><div class="to">Converge. The workshop's job is a true record, not a forced consensus.</div></div>
+      </div>
+      <div class="gone"><b>Deleted from v4, on purpose:</b> red-line cards (the red line is now the shaded low bands printed on the field) and cut-out role tokens (dot stickers do the job better and stay put for the photograph). If a seat needs to say "this crosses a line," they say it — and the coin simply doesn't leave the shaded band.</div>
+    </div>
+  </div>
+</section>
+
+<script>
+const API='https://api.dtpr.io/api/v2/schemas/ai@2026-05-06-beta/elements/';
+const ic=(id,s=26)=>`<img src="${API}${id}/icon.svg" width="${s}" height="${s}" alt="" loading="lazy" style="object-fit:contain">`;
+const HEXPATH='M31.8564 8.8453L19 1.42265C18.3812 1.06538 17.6188 1.06538 17 1.42265L4.14359 8.8453C3.52479 9.20257 3.14359 9.86282 3.14359 10.5774V25.4226C3.14359 26.1372 3.52479 26.7974 4.14359 27.1547L17 34.5774C17.6188 34.9346 18.3812 34.9346 19 34.5774L31.8564 27.1547C32.4752 26.7974 32.8564 26.1372 32.8564 25.4226V10.5774C32.8564 9.86282 32.4752 9.20256 31.8564 8.8453Z';
+const PEOPLE='<path d="M13.5 10.6667C15.1569 10.6667 16.5 12.0098 16.5 13.6667C16.5 15.3235 15.1569 16.6667 13.5 16.6667C11.8431 16.6667 10.5 15.3235 10.5 13.6667C10.5 12.0098 11.8431 10.6667 13.5 10.6667Z"/><path d="M22.5 10.6667C24.1569 10.6667 25.5 12.0098 25.5 13.6667C25.5 15.3235 24.1569 16.6667 22.5 16.6667C20.8431 16.6667 19.5 15.3235 19.5 13.6667C19.5 12.0098 20.8431 10.6667 22.5 10.6667Z"/><path d="M13.5 18C10.1863 18 7.5 20.6863 7.5 24V25.3333H19.5V24C19.5 20.6863 16.8137 18 13.5 18Z"/><path d="M22.5 18C21.9316 18 21.3818 18.0791 20.8608 18.2266C22.1863 19.7061 23 21.6589 23 24V25.3333H28.5V24C28.5 20.6863 25.8137 18 22.5 18Z"/>';
+const peopleIc=(s=26)=>`<svg class="ico" width="${s}" height="${s}" viewBox="0 0 36 36" aria-hidden="true"><path d="${HEXPATH}" fill="none" stroke="#000" stroke-width="2"/><g fill="#000">${PEOPLE}</g></svg>`;
+
+/* ① run of show */
+const PHASES=[
+ {c:'d',n:'Phase 0',t:'Frame',m:'10 min',do:'Put <b>The Proposal</b> on the table, face-up, and the covered poster on the wall. State the question: <b>"Under what conditions, if any, is this acceptable here?"</b> Set norms, name seats.',el:'the ask, not opinions'},
+ {c:'d',n:'Phase 1',t:'Disclose',m:'25 min',do:'Deployer <b>peels the poster post-it by post-it</b> and reads each cell aloud. The room asks <b>questions only — no positions yet</b>. A cover that stays on gets <b>NOT&nbsp;DISCLOSED</b> written on it and stays up all session.',el:'comprehension',tn:'A sealed cell is the first finding — it carries to the mat'},
+ {c:'d',n:'Phase 2',t:'Map who',m:'10 min',do:'At the <b>Who wall</b>: every group the system affects, one per sticky, placed on a ring — individuals · the community · bystanders. <b>People-shapes, not census categories.</b> Neutral and good count: "through the gate faster" belongs on the map.',el:'the full roster — especially who isn\'t in the room',deck:'Deal 2–3 scenario spark cards face-up to seed the map'},
+ {c:'d',n:'Phase 3',t:'Futures',m:'15 min',do:'At the <b>Futures wall</b>: <b>pair an event with a group</b> — draw a spark card, pick a sticky from the Who wall, and write what changed for those people two years on. Good futures count as much as bad ones.',el:'futures nobody walked in with',deck:'Core / pattern / upside sparks are the event deck'},
+ {c:'d',n:'Phase 4',t:'Cluster',m:'15 min',do:'Cluster the future stories and write <b>one tension card per cluster</b>. At the mat: merge duplicates, add any tension <b>no story caught</b>, pick 3–5, slot them into the ledger.',el:'the contested propositions',tn:'A sealed poster cell always gets a card'},
+ {c:'c',n:'Phase 5',t:'Deliberate',m:'40 min',do:'Tensions one at a time, at the mat. A rhythm the facilitator keeps — not steps the room must complete:',
+  loop:['<b>1</b> Name it — read the tension card; its author speaks first','<b>2</b> Both stakes — one sentence each, no rebuttals','<b>3</b> Play or write a redesign — each seat draws its arrow on the card','<b>4</b> Argue the arrows — then move the coin on the field','<b>5</b> Log the trade on a move-log sticky'],
+  el:'priced trades, not restated positions',deckrd:'Redesign cards are the moves on the field',tn:'Stress-test each condition against a drawn core / pattern spark card'},
+ {c:'c',n:'Phase 6',t:'Converge',m:'10 min',do:'<b>Now the dots.</b> Each person places their seat\'s color on the field where they honestly think the deal sits. A split is a <b>finding, not a failure</b>.',el:'where each seat truly stands'},
+ {c:'c',n:'Phase 7',t:'Capture',m:'10 min',do:'Read the field → where the room landed. Note open disagreements, review date, monitor. <b>Photograph the field, ledger, and move log.</b>',el:'the durable record'},
+];
+document.getElementById('phases').innerHTML=PHASES.map((p,i)=>{
+  const div = i===5?`<div class="divider"><span class="dv">◄ diverge</span><span class="ln"></span><span class="cv">converge ►</span></div>`:'';
+  return div+`<div class="phase ${p.c}">
+    <div class="side"><span class="pn">${p.n}</span><span class="pt">${p.t}</span><span class="pm">${p.m}</span></div>
+    <div class="main"><div class="do">${p.do}</div>
+      ${p.loop?`<div class="loop">${p.loop.map(s=>`<span class="st">${s}</span>`).join('')}</div>`:''}
+      <div class="elicit"><span class="lab">elicit</span>${p.el}</div>
+      <div>${p.deck?`<span class="deck">🃏 ${p.deck}</span>`:''}${p.deckrd?`<span class="deck rd">🃏 ${p.deckrd}</span>`:''}${p.tn?`<span class="tension">⚡ ${p.tn}</span>`:''}</div>
+    </div></div>`;
+}).join('');
+
+/* ②a disclosure poster cells — each cell is exactly one 3×3" post-it */
+const CELLS=[
+ {k:'Accountable',t:'Who answers for it',ic:ic('institution',30),
+  body:'<b>Metro Transit</b> runs it. <b>FaceGate Inc.</b> — the vendor — built it and holds the data. One MOU governs both; it is on file at the central library.'},
+ {k:'The system',t:'What the technology is',ic:ic('biometric_recognition',30),
+  body:'An <b>autonomous 1-to-N face matcher</b>. A camera at the gate compares your live face against every enrolled rider — and decides alone.'},
+ {k:'Inputs',t:'What it collects',ic:ic('input_biometric',30),
+  body:'Your live face → a <b>face template</b>, plus rider ID, time, and station. <b>Sensitive and identifiable.</b>'},
+ {k:'Storage & retention',t:'Where it goes, how long',ic:ic('stored_on_3rd_party_cloud',30),
+  body:'The vendor\'s cloud, identifiable, for <b>7 years</b>. Reachable by transit staff, the vendor — and <b>police on request</b>; the current MOU requires no warrant.'},
+ {k:'Outputs',t:'The decision it makes',ic:ic('output_decision',30),
+  body:'The gate <b>opens or stays shut</b>. No human at the gate — a non-match is refused automatically.'},
+ {k:'People',t:'Who it\'s used on',ic:peopleIc(30),
+  body:'<b>All riders</b> — about 2.3M trips a day. As proposed, there is <b>no way to ride without it</b>.'},
+ {k:'Risks',t:'What could go wrong',ic:ic('civil_liberties_harm',30),sealed:true,
+  body:'—'},
+ {k:'Rights & recourse',t:'What you can do about it',ic:ic('right_contest',30),
+  body:'As proposed: <b>nothing listed</b>. No appeal path, no human review, no way to see or correct your record.'},
+];
+document.getElementById('dgrid').innerHTML=CELLS.map(c=>`
+  <div class="dcat">
+    <div class="dhead">${c.ic}<span><span class="dk">${c.k}</span><span class="dt">${c.t}</span></span></div>
+    <div class="dcell">${c.sealed?'':c.body}
+      ${c.sealed?`<div class="dcover"><div class="nd">Not disclosed</div><div class="ndsub">The deployer left this cover on. It stays up all session — and carries to the mat as a standing tension.</div></div>`:'<span class="cellnote">3×3&Prime; post-it covers this cell</span>'}
+    </div>
+  </div>`).join('');
+document.getElementById('dgridBlank').innerHTML=CELLS.map(c=>`
+  <div class="dcat">
+    <div class="dhead">${c.ic}<span><span class="dk">${c.k}</span><span class="dt">${c.t}</span></span></div>
+    <div class="dcell"><span class="cellnote">3×3&Prime; post-it covers this cell</span></div>
+  </div>`).join('');
+
+/* ④ the negotiation field — one drawing, two mats */
+const FIELDSVG=(sample=false)=>`<svg viewBox="0 0 460 342" width="100%" style="display:block" font-family="'Public Sans',sans-serif">
+  <rect x="50" y="223" width="390" height="87" fill="#c2410c" opacity=".07"/>
+  <rect x="50" y="20" width="117" height="290" fill="#c2410c" opacity=".07"/>
+  <g stroke="#e6e5e0" stroke-width="1">
+    <line x1="89" y1="20" x2="89" y2="310"/><line x1="128" y1="20" x2="128" y2="310"/><line x1="167" y1="20" x2="167" y2="310"/>
+    <line x1="206" y1="20" x2="206" y2="310"/><line x1="245" y1="20" x2="245" y2="310"/><line x1="284" y1="20" x2="284" y2="310"/>
+    <line x1="323" y1="20" x2="323" y2="310"/><line x1="362" y1="20" x2="362" y2="310"/><line x1="401" y1="20" x2="401" y2="310"/>
+    <line x1="50" y1="281" x2="440" y2="281"/><line x1="50" y1="252" x2="440" y2="252"/><line x1="50" y1="223" x2="440" y2="223"/>
+    <line x1="50" y1="194" x2="440" y2="194"/><line x1="50" y1="165" x2="440" y2="165"/><line x1="50" y1="136" x2="440" y2="136"/>
+    <line x1="50" y1="107" x2="440" y2="107"/><line x1="50" y1="78" x2="440" y2="78"/><line x1="50" y1="49" x2="440" y2="49"/>
+  </g>
+  <line x1="50" y1="310" x2="446" y2="310" stroke="#72726c" stroke-width="1.5"/>
+  <path d="M446 310l-6 -3.5v7z" fill="#72726c"/>
+  <line x1="50" y1="310" x2="50" y2="16" stroke="#72726c" stroke-width="1.5"/>
+  <path d="M50 16l-3.5 6h7z" fill="#72726c"/>
+  <text x="248" y="334" font-size="12" font-weight="700" fill="#3f6d8c" text-anchor="middle" letter-spacing="2">UTILITY</text>
+  <text transform="rotate(-90 16 165)" x="16" y="165" font-size="12" font-weight="700" fill="#157f5b" text-anchor="middle" letter-spacing="2">TRUST</text>
+  ${sample?`
+  <g stroke="#9b9a92" stroke-width="1.3" stroke-dasharray="4 3">
+    <line x1="381" y1="266" x2="362" y2="217"/>
+    <line x1="362" y1="217" x2="338" y2="171"/>
+    <line x1="338" y1="171" x2="323" y2="130"/>
+    <line x1="323" y1="130" x2="307" y2="95"/>
+  </g>
+  <circle cx="381" cy="266" r="7" fill="#fff" stroke="#c2410c" stroke-width="2"/>
+  <g font-size="8.5" font-weight="700" fill="#fff" text-anchor="middle">
+    <circle cx="362" cy="217" r="7" fill="#8a5a1f"/><text x="362" y="220">1</text>
+    <circle cx="338" cy="171" r="7" fill="#8a5a1f"/><text x="338" y="174">2</text>
+    <circle cx="323" cy="130" r="7" fill="#8a5a1f"/><text x="323" y="133">3</text>
+    <circle cx="307" cy="95" r="8.5" fill="#0f5153"/><text x="307" y="98">4</text>
+  </g>
+  <g>
+    <circle cx="298" cy="90" r="5" fill="#37516b"/><circle cx="316" cy="104" r="5" fill="#37516b"/><circle cx="294" cy="102" r="5" fill="#37516b"/>
+    <circle cx="311" cy="86" r="5" fill="#6a2c91"/><circle cx="300" cy="110" r="5" fill="#6a2c91"/>
+    <circle cx="304" cy="156" r="5" fill="#6a2c91"/>
+  </g>`:`
+  <circle cx="381" cy="266" r="7" fill="none" stroke="#c2410c" stroke-width="1.5" stroke-dasharray="3 2"/>`}
+</svg>`;
+document.getElementById('fieldEx').innerHTML=FIELDSVG(true);
+document.getElementById('fieldBlank').innerHTML=FIELDSVG(false);
+
+/* ④ tension ledger rows — numbers match the field's sample path */
+const LROWS=[
+ {n:'Warrantless police access',sub:'New administration × anyone of interest',red:'Redesign · Warrant gate'},
+ {n:'7-year retention on vendor cloud',sub:'The breach × everyone enrolled',red:'Redesign · On-device + Purge'},
+ {n:'No opt-out — some neighbours stop riding',sub:'They stop riding × undocumented neighbours',red:'Redesign · Opt-out lane'},
+ {n:'The sealed Risks cell',sub:'NOT DISCLOSED on the poster',red:'Redesign · Publish + Human-in-loop'},
+ {n:'',sub:'',red:''},
+];
+const lrowHTML=(t,i)=>`<div class="lrow">
+  <div class="top"><span class="num">${i+1}</span><span class="tname">${t.n?`<span class="tchip">${t.n}</span>`:'<span class="tslot">⚡ tension card lands here</span>'}${t.sub?`<span class="sub">${t.sub}</span>`:''}</span></div>
+  <div class="body">
+    <div class="cond">${t.red?`<span class="redtag">${t.red}</span>`:'<div class="fillline"></div>'}</div>
+  </div>
+</div>`;
+document.getElementById('lrows').innerHTML=LROWS.map(lrowHTML).join('');
+document.getElementById('lrowsBlank').innerHTML=Array.from({length:5},(_,i)=>lrowHTML({n:'',sub:'',red:''},i)).join('');
+
+/* ⑥ spark deck — tier decides the home phase */
+const PROV=[
+ {fam:'deployer',tier:'core',t:'The breach',s:'A breach dumps the stored face templates online. They can\'t be un-leaked.'},
+ {fam:'deployer',tier:'core',t:'Budget cut',s:'A shortfall defunds the human-review desk you were promised.'},
+ {fam:'deployer',tier:'core',t:'New administration',s:'New leadership wants the movement logs for a different purpose.'},
+ {fam:'deployer',tier:'core',t:'The FOIA',s:'A journalist requests every log under public-records law.'},
+ {fam:'upside',tier:'core',t:'A harm prevented',s:'The system helps resolve a real, serious incident that would otherwise go unsolved.'},
+ {fam:'upside',tier:'core',t:'The confrontation ends',s:'The human interaction this replaces — stops, checks, inspections — was itself a site of harm. It stops happening.'},
+ {fam:'vendor',tier:'pattern',t:'New functionality',s:'The vendor ships new capability on the same hardware — here, emotion + age detection.'},
+ {fam:'vendor',tier:'pattern',t:'Acquired',s:'The vendor is bought by a data broker. Your contract transfers with it.'},
+ {fam:'vendor',tier:'pattern',t:'Lock-in',s:'Exporting your data to switch vendors would cost more than the system.'},
+ {fam:'deployer',tier:'pattern',t:'Scope creep',s:'Another department asks to use the data for something you never agreed to.'},
+ {fam:'vendor',tier:'pattern',t:'Model update',s:'An update "improves" accuracy but shifts who it gets wrong.'},
+ {fam:'upside',tier:'pattern',t:'Savings you can see',s:'The savings turn out real — and get reinvested where riders can see them: more frequent service, longer hours.'},
+ {fam:'community',tier:'scenario',t:'The survivor',s:'Someone hiding from an abuser is located through the movement log.'},
+ {fam:'community',tier:'scenario',t:'They stop riding',s:'Undocumented neighbours stop riding anything that reads their face.'},
+ {fam:'community',tier:'scenario',t:'Wrong match',s:'A false match stops a 15-year-old at the gate in front of classmates.'},
+ {fam:'upside',tier:'scenario',t:'Buses run on time',s:'Boarding time drops 40% — night-shift workers finally make their transfers.'},
+ {fam:'upside',tier:'scenario',t:'Hands full',s:'A parent with a stroller and groceries walks straight through — nothing to fumble for, nothing dropped.'},
+];
+const FAMLAB={deployer:'Deployer event',vendor:'Vendor event',community:'Community context',upside:'Upside'};
+const TIERFOOT={
+ scenario:'<b>Who wall:</b> who else like this? Seed the map.',
+ core:'<b>Futures wall:</b> pair with a group — what changed for them? · <b>Deliberate:</b> does the condition survive?',
+ pattern:'<b>Futures wall:</b> pair with a group — what changed for them? · <b>Deliberate:</b> does the condition survive?'};
+document.getElementById('provDeck').innerHTML=PROV.map(p=>`
+  <div class="pcard fam-${p.fam}">
+    <span class="carry ${p.tier}"><span class="cd"></span>${p.tier}</span>
+    <div class="fam">${FAMLAB[p.fam]}</div>
+    <div class="pt">${p.t}</div>
+    <div class="ps">${p.s}</div>
+    <div class="pf">${TIERFOOT[p.tier]}</div>
+  </div>`).join('');
+
+/* ③ tension cards — written in Cluster, played onto the ledger */
+const TCARDS=[
+ {n:'Warrantless police access',who:'anyone whose movements interest the police',ev:'New administration',row:'1'},
+ {n:'No opt-out — some neighbours stop riding',who:'undocumented neighbours · people fleeing someone',ev:'They stop riding',row:'3'},
+];
+const TFOOT='<b>Played onto the mat</b> — one ledger row. Bring the stories that back it.';
+document.getElementById('tensionDeck').innerHTML=
+ TCARDS.map(t=>`<div class="tfull"><div class="tk"><span>⚡ Tension</span><span class="rownum">row ${t.row}</span></div>
+   <div class="tt">${t.n}</div>
+   <div class="torig">Lands on: <b>${t.who}</b></div>
+   <div class="torig">Shown by: <b>${t.ev}</b></div>
+   <div class="pf">${TFOOT}</div></div>`).join('')+
+ Array.from({length:4}).map(()=>`<div class="tfull blank"><div class="tk"><span>⚡ Tension</span><span class="rownum">row&nbsp;__</span></div>
+   <div class="writeline"></div><div class="writeline"></div>
+   <div class="torig" style="margin-top:7px">Lands on: <span style="border-bottom:1px dashed #bdbcb4;display:inline-block;min-width:34mm">&nbsp;</span></div>
+   <div class="torig">Shown by: <span style="border-bottom:1px dashed #bdbcb4;display:inline-block;min-width:34mm">&nbsp;</span></div>
+   <div class="pf">${TFOOT}</div></div>`).join('');
+
+/* ⑤ redesign cards — each carries a mini-field for the arrows */
+const MINIG=(sample=false)=>`<svg viewBox="0 0 130 94" aria-hidden="true" font-family="'Public Sans',sans-serif">
+  <line x1="16" y1="48" x2="114" y2="48" stroke="#c9c7bf" stroke-width="1.2"/>
+  <path d="M114 48l-5 -3v6z" fill="#c9c7bf"/><path d="M16 48l5 -3v6z" fill="#c9c7bf"/>
+  <line x1="65" y1="84" x2="65" y2="14" stroke="#c9c7bf" stroke-width="1.2"/>
+  <path d="M65 14l-3 5h6z" fill="#c9c7bf"/><path d="M65 84l-3 -5h6z" fill="#c9c7bf"/>
+  <circle cx="65" cy="48" r="2.6" fill="#72726c"/>
+  <text x="70" y="12" font-size="8" fill="#157f5b" font-weight="700">trust +</text>
+  <text x="70" y="93" font-size="8" fill="#9b9a92">trust −</text>
+  <text x="112" y="60" font-size="8" fill="#3f6d8c" font-weight="700" text-anchor="end">utility +</text>
+  <text x="18" y="60" font-size="8" fill="#9b9a92">utility −</text>
+  <text x="106" y="26" font-size="9" fill="#c9a24f">★</text>
+  ${sample?`
+  <line x1="65" y1="48" x2="65" y2="27" stroke="#157f5b" stroke-width="2"/>
+  <path d="M65 22l-3.5 7h7z" fill="#157f5b"/>
+  <line x1="65" y1="48" x2="53" y2="48" stroke="#3f6d8c" stroke-width="2"/>
+  <path d="M48 48l7 -3.5v7z" fill="#3f6d8c"/>
+  <text x="40" y="33" font-size="7.5" fill="#9b9a92" font-style="italic">e.g.</text>`:''}
+</svg>`;
+const REDES=[
+ {t:'Move on-device',e:'Face templates never leave the station. No vendor cloud.'},
+ {t:'Purge at 24h',e:'Match data deleted after 24 hours, automatically.'},
+ {t:'Opt-out lane',e:'A tap-to-skip lane; riding never requires enrollment.'},
+ {t:'Human in the loop',e:'No autonomous denial — a person reviews every non-match.'},
+ {t:'Warrant gate',e:'Police access only with a judicial warrant, every query logged.'},
+ {t:'Publish error rates',e:'Disaggregated accuracy published quarterly, openly.'},
+];
+const RGC='Each seat draws its <b>own arrow</b> from the center — how far would this move you? Argue the length, then move the coin.';
+document.getElementById('redesignDeck').innerHTML=
+  REDES.map((r,i)=>`<div class="rcard"><div class="rk">◇ Redesign · pattern</div><div class="rt">${r.t}</div><div class="re">${r.e}</div>
+    <div class="rg">${MINIG(i===0)}<div class="rgc">${RGC}</div></div></div>`).join('')+
+  Array.from({length:3}).map(()=>`<div class="rcard blank"><div class="rk">✎ Redesign · write your own</div><div class="writeline"></div><div class="writeline"></div>
+    <div class="rg">${MINIG()}<div class="rgc">${RGC}</div></div></div>`).join('');
+</script>
+</body>
+</html>

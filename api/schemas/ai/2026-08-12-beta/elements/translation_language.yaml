@@ -1,0 +1,31 @@
+id: translation_language
+category_id: purpose
+title:
+  - locale: en
+    value: Translation & Language Access
+  - locale: fr
+    value: Traduction et accès linguistique
+description:
+  - locale: en
+    value: >-
+      Translates speech, text, or signs to make a place or service accessible across languages — for
+      example, real-time interpretation at a service counter, multilingual signage.
+  - locale: fr
+    value: >-
+      Traduit la parole, le texte ou la signalétique pour rendre un lieu ou un service accessible
+      dans plusieurs langues — par exemple, l'interprétation en temps réel à un guichet, la
+      signalétique multilingue.
+sources:
+  - type: framework
+    title: European Charter for Regional or Minority Languages
+    url: https://www.coe.int/en/web/european-charter-regional-or-minority-languages
+    citation: Council of Europe, 1992.
+  - type: regulation
+    title: EU Web Accessibility Directive
+    url: https://eur-lex.europa.eu/eli/dir/2016/2102/oj
+    citation: Directive (EU) 2016/2102.
+  - type: standard
+    title: WCAG 2.2 — Web Content Accessibility Guidelines
+    url: https://www.w3.org/TR/WCAG22/
+    citation: W3C Recommendation.
+symbol_id: translation_language

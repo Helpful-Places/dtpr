@@ -1,0 +1,20 @@
+id: input_biometric
+category_id: input_dataset
+title:
+  - locale: en
+    value: Biometric
+  - locale: fr
+    value: Biométrie
+description:
+  - locale: en
+    value: >-
+      Faces, fingerprints, voice prints, gait, gestures, gaze, posture. The AI takes in biological
+      signals from a person's body. Examples: a face captured at a turnstile, a voice recorded by a
+      kiosk microphone, gait analyzed by an overhead camera.
+  - locale: fr
+    value: >-
+      Visages, empreintes digitales, empreintes vocales, démarche, gestes, regard, posture. L'IA
+      reçoit des signaux biologiques provenant du corps d'une personne. Exemples : un visage capturé
+      à un tourniquet, une voix enregistrée par le microphone d'une borne, une démarche analysée par
+      une caméra zénithale.
+symbol_id: biometric

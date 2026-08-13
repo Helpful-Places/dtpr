@@ -1,0 +1,23 @@
+id: content_moderation
+category_id: purpose
+title:
+  - locale: en
+    value: Content Moderation
+  - locale: fr
+    value: Modération de contenu
+description:
+  - locale: en
+    value: >-
+      Filters, ranks, or removes user-generated content based on policies — for example, comment
+      moderation on a public-facing kiosk, image filtering, or hate-speech detection.
+  - locale: fr
+    value: >-
+      Filtre, classe ou retire du contenu généré par les utilisateurs selon des politiques — par
+      exemple, la modération de commentaires sur une borne publique, le filtrage d'images, ou la
+      détection de discours haineux.
+sources:
+  - type: regulation
+    title: EU Digital Services Act — Articles 14–17 (notice-and-action, statements of reasons, internal complaint handling)
+    url: https://eur-lex.europa.eu/eli/reg/2022/2065/oj
+    citation: Regulation (EU) 2022/2065, Articles 14–17.
+symbol_id: content_moderation

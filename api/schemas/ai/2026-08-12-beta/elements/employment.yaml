@@ -1,0 +1,26 @@
+id: employment
+category_id: purpose
+title:
+  - locale: en
+    value: Employment & Work
+  - locale: fr
+    value: Emploi et travail
+description:
+  - locale: en
+    value: >-
+      Supports hiring, scheduling, performance evaluation, or workplace operations — for example,
+      resume screening, shift assignment, productivity monitoring.
+  - locale: fr
+    value: >-
+      Soutient le recrutement, la planification, l'évaluation de la performance ou les opérations
+      sur le lieu de travail — par exemple, le tri de CV, l'attribution des postes, le suivi de la
+      productivité.
+sources:
+  - type: regulation
+    title: EU AI Act Annex III §4 — Employment, workers management, and access to self-employment
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+    citation: >-
+      Regulation (EU) 2024/1689, Article 6(2) and Annex III §4 — including recruitment,
+      work-relationship monitoring, and task-allocation decisions. AIAAIC repository documents
+      recurring incidents in resume screening and workforce monitoring.
+symbol_id: employment

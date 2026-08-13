@@ -1,0 +1,19 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+/* DTPR canvas palette — lifted from the v6 prototype so the in-app
+   renderer keeps the same paper / ink / marker look. These are plain
+   CSS custom properties consumed by canvas.css and the board
+   components; Tailwind utilities cover everything else. */
+:root {
+  --paper: #f6f6f4;
+  --card: #ffffff;
+  --ink: #1b1b19;
+  --muted: #72726c;
+  --line: #e6e5e0;
+  --line-strong: #d3d2cc;
+  --chip: #f3f3ef;
+  --signal: #c2410c;
+  --alarm: #b42318;
+  --teal: #0f5153;
+}

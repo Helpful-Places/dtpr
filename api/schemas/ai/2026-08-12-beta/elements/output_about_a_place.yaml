@@ -1,0 +1,19 @@
+id: output_about_a_place
+category_id: output_dataset
+title:
+  - locale: en
+    value: About a place
+  - locale: fr
+    value: À propos d'un lieu
+description:
+  - locale: en
+    value: >-
+      The AI produces location, route, region, or floor-plan output. Examples: a wayfinding route
+      shown on a kiosk, a heatmap of foot-traffic density, a geofence boundary published to
+      downstream systems.
+  - locale: fr
+    value: >-
+      L'IA produit une sortie de localisation, d'itinéraire, de zone ou de plan. Exemples : un
+      itinéraire affiché sur une borne, une carte de chaleur de la densité piétonne, les limites
+      d'une géoclôture publiées à des systèmes en aval.
+symbol_id: spatial

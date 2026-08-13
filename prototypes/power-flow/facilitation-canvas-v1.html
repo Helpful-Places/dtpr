@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>DTPR Agreement Canvas — facilitation prototype v1 (print &amp; play)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#f6f6f4; --card:#ffffff; --ink:#1b1b19; --muted:#72726c;
+    --line:#e6e5e0; --chip:#f3f3ef;
+    --signal:#c2410c;            /* the affected seat */
+    --alarm:#b42318;             /* red line / missing safeguard */
+    --teal:#0f5153;              /* DTPR accent */
+    --mono:ui-monospace,SFMono-Regular,Menlo,monospace;
+    /* gradients of agreement — a spectrum from support to block */
+    --g-endorse:#157f5b; --g-reserv:#7fa53c; --g-aside:#d99a1f; --g-block:#b42318;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:'Public Sans',system-ui,-apple-system,sans-serif;color:var(--ink);
+    background:#e9e8e3;line-height:1.45;-webkit-font-smoothing:antialiased}
+
+  /* ---- on-screen intro (never prints) ---- */
+  .intro{max-width:820px;margin:0 auto;padding:40px 24px 8px}
+  .eyebrow{display:inline-block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;
+    color:var(--teal);border:1px solid color-mix(in srgb,var(--teal) 30%,transparent);
+    padding:4px 11px;border-radius:999px;margin-bottom:16px;background:var(--card)}
+  .intro h1{font-size:1.9rem;font-weight:700;letter-spacing:-.015em;margin:0 0 8px}
+  .intro p{color:#4a4a45;font-size:.98rem;max-width:70ch;margin:0 0 10px}
+  .intro .how{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--signal);
+    border-radius:0 10px 10px 0;padding:12px 16px;font-size:.9rem;margin:14px 0 4px}
+  .intro .how b{color:var(--signal)}
+  .intro code{font-family:var(--mono);font-size:.85em;background:var(--chip);border:1px solid var(--line);padding:1px 5px;border-radius:5px}
+  .btn{display:inline-flex;align-items:center;gap:7px;font-size:.85rem;font-weight:600;color:#fff;background:var(--teal);
+    border:none;border-radius:8px;padding:9px 15px;cursor:pointer;margin:8px 0 2px}
+
+  /* ---- the print sheets ---- */
+  .sheet{width:216mm;min-height:279mm;margin:22px auto;background:var(--paper);
+    padding:14mm 13mm;box-shadow:0 2px 4px rgba(0,0,0,.08),0 20px 44px -28px rgba(0,0,0,.5);position:relative}
+  .sheet-tag{position:absolute;top:5mm;right:13mm;font-size:.62rem;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;color:#b6b4ac}
+
+  /* ---- mat header ---- */
+  .mhead{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;border-bottom:2px solid var(--ink);padding-bottom:10px}
+  .mhead .l .k{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--teal)}
+  .mhead .l h2{margin:2px 0 3px;font-size:1.5rem;font-weight:700;letter-spacing:-.01em}
+  .mhead .l .fill{font-size:.82rem;color:var(--muted)}
+  .mhead .l .fill b{color:var(--ink);font-weight:600;border-bottom:1px dashed #bdbcb4;padding:0 22px 1px 3px}
+  .mhead .r{text-align:right;font-size:.72rem;color:var(--muted);min-width:150px}
+  .mhead .r .row{border-bottom:1px dashed #bdbcb4;padding:5px 0 4px;display:flex;justify-content:space-between;gap:8px}
+  .mhead .r .row span:first-child{font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.6rem;color:#9b9a92}
+
+  /* ---- rule banner ---- */
+  .rulebar{display:flex;align-items:center;gap:9px;margin:10px 0 4px;font-size:.76rem;color:#5a3a1e;
+    background:color-mix(in srgb,var(--signal) 7%,var(--card));border:1px solid color-mix(in srgb,var(--signal) 25%,transparent);
+    border-radius:8px;padding:7px 12px}
+  .rulebar b{color:var(--signal)}
+  .rulebar .n{flex:none;width:16px;height:16px;border-radius:50%;background:var(--signal);color:#fff;font-size:.66rem;font-weight:700;
+    display:inline-flex;align-items:center;justify-content:center}
+
+  /* ---- seats ---- */
+  .zl{font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .seat{display:grid;grid-template-columns:1fr 232px;gap:0;border:1px solid var(--line);border-radius:10px;background:var(--card);
+    margin-top:8px;overflow:hidden;position:relative}
+  .seat .body{padding:9px 12px;min-width:0}
+  .seat .body .top{display:flex;align-items:center;gap:9px}
+  .seat .stamp{margin-left:auto;display:inline-flex;align-items:center;gap:5px;font-size:.56rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:.06em;color:#9b9a92}
+  .seat .stamp .box{width:11px;height:11px;border:1.5px solid #b6b4ac;border-radius:3px}
+  .seat img,.seat svg.ico{flex:none;display:block}
+  .seat .nm{font-weight:700;font-size:.9rem;line-height:1.2}
+  .seat .content{font-size:.78rem;color:#3f3f3a;margin-top:4px}
+  .seat .content .sub{color:var(--muted)}
+  .seat .content b{color:var(--ink)}
+
+  /* the affected seat gets the signal edge */
+  .seat.affected{border-color:color-mix(in srgb,var(--signal) 40%,var(--line))}
+  .seat.affected .zl{color:var(--signal)}
+
+  /* gradient lane */
+  .lane{border-left:1px dashed var(--line);background:linear-gradient(180deg,#fbfbf9,#f4f4f0);padding:7px 9px;display:flex;flex-direction:column;gap:5px}
+  .lane .lh{font-size:.54rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#9b9a92}
+  .lane .zones{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+  .zone{border-radius:6px;padding:4px 3px 5px;text-align:center;border:1px solid;min-height:44px;display:flex;flex-direction:column;align-items:center;gap:3px}
+  .zone .zc{font-size:.5rem;font-weight:700;line-height:1.1;letter-spacing:.02em}
+  .zone .slot{width:13px;height:13px;border-radius:50%;border:1.5px dashed currentColor;opacity:.5}
+  .zone.endorse{color:var(--g-endorse);background:color-mix(in srgb,var(--g-endorse) 8%,#fff);border-color:color-mix(in srgb,var(--g-endorse) 35%,transparent)}
+  .zone.reserv{color:#5f7d24;background:color-mix(in srgb,var(--g-reserv) 12%,#fff);border-color:color-mix(in srgb,var(--g-reserv) 45%,transparent)}
+  .zone.aside{color:#a5771a;background:color-mix(in srgb,var(--g-aside) 12%,#fff);border-color:color-mix(in srgb,var(--g-aside) 45%,transparent)}
+  .zone.block{color:var(--g-block);background:color-mix(in srgb,var(--g-block) 8%,#fff);border-color:color-mix(in srgb,var(--g-block) 40%,transparent)}
+
+  /* face-down overlay (screen only — demonstrates flip-to-disclose) */
+  .seal{position:absolute;inset:0;background:repeating-linear-gradient(45deg,#efece3 0 10px,#e8e4d8 10px 20px);
+    border-radius:10px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;cursor:pointer;z-index:2;text-align:center;padding:8px}
+  .seal .fd{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#8a6f3a}
+  .seal .hint{font-size:.6rem;color:#9b9a92}
+  .seat.revealed .seal{display:none}
+
+  /* ---- negotiation seats ---- */
+  .negtitle{margin:16px 0 2px;font-size:.82rem;font-weight:700;color:var(--signal);display:flex;align-items:center;gap:8px}
+  .negtitle::before{content:"";flex:none;width:14px;height:14px;border-radius:4px;background:var(--signal)}
+  .negtitle span{font-weight:400;color:var(--muted);font-size:.72rem}
+  .neggrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
+  .neg{border:1px solid color-mix(in srgb,var(--signal) 28%,var(--line));border-radius:10px;background:var(--card);padding:9px 12px}
+  .neg .nl{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--signal)}
+  .neg .nh{font-size:.68rem;color:var(--muted);margin:1px 0 6px}
+  .neg .writeline{border-bottom:1px dashed #c7c6be;height:18px}
+  .neg .writeline+.writeline{margin-top:5px}
+  .neg.wide{grid-column:1/-1}
+  .neg.datebox{display:flex;align-items:baseline;gap:10px}
+  .neg.datebox .big{font-size:1rem;border-bottom:1px dashed #c7c6be;flex:1;min-height:22px}
+
+  /* ---- outcomes ladder ---- */
+  .ladder{margin-top:14px;border-top:2px solid var(--ink);padding-top:9px}
+  .ladder .lt{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:6px}
+  .rungs{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+  .rung{border:1px solid var(--line);border-radius:8px;padding:7px 9px;background:var(--card);position:relative}
+  .rung .rk{display:flex;align-items:center;gap:6px;font-weight:700;font-size:.76rem}
+  .rung .rk .box{width:13px;height:13px;border:1.5px solid #9b9a92;border-radius:3px;flex:none}
+  .rung .rc{font-size:.64rem;color:var(--muted);margin-top:3px;line-height:1.32}
+  .rung.full{border-color:color-mix(in srgb,var(--g-endorse) 45%,transparent)}
+  .rung.cond{border-color:color-mix(in srgb,var(--g-reserv) 50%,transparent)}
+  .rung.pilot{border-color:color-mix(in srgb,var(--g-aside) 50%,transparent)}
+  .rung.no{border-color:color-mix(in srgb,var(--g-block) 45%,transparent)}
+  .rung.no .rk{color:var(--g-block)}
+
+  /* ---- legend strip ---- */
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;font-size:.66rem;color:var(--muted)}
+  .legend .lg{display:inline-flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+  .legend .sw{width:11px;height:11px;border-radius:50%}
+
+  /* ---- cut sheet ---- */
+  .cuthead{border-bottom:2px solid var(--ink);padding-bottom:8px;margin-bottom:4px}
+  .cuthead h2{margin:0;font-size:1.2rem}
+  .cuthead p{margin:3px 0 0;font-size:.76rem;color:var(--muted)}
+  .cutsec{margin-top:14px}
+  .cutsec .sl{font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:7px}
+  .tokens{display:flex;flex-wrap:wrap;gap:7px}
+  .token{width:88px;height:88px;border-radius:50%;border:1.5px dashed #bdbcb4;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;gap:3px;color:#fff;padding:6px}
+  .token .tt{font-size:.62rem;font-weight:700;line-height:1.1}
+  .token .td{font-size:.5rem;opacity:.9;line-height:1.1}
+  .token.endorse{background:var(--g-endorse)} .token.reserv{background:var(--g-reserv)}
+  .token.aside{background:var(--g-aside)} .token.block{background:var(--g-block)}
+  .redline{width:150px;min-height:88px;border:1.5px solid var(--g-block);border-radius:10px;background:color-mix(in srgb,var(--g-block) 5%,#fff);
+    padding:8px 10px;display:flex;flex-direction:column;gap:4px}
+  .redline .rt{font-size:.7rem;font-weight:700;color:var(--g-block);text-transform:uppercase;letter-spacing:.05em;display:flex;align-items:center;gap:6px}
+  .redline .rt .bang{width:15px;height:15px;border-radius:50%;background:var(--g-block);color:#fff;font-size:.66rem;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+  .redline .rd{font-size:.6rem;color:#7a4a42;line-height:1.32}
+  .redline .writeline{border-bottom:1px dashed #d3a89f;height:14px;margin-top:auto}
+  .cutnote{font-size:.6rem;color:#b6b4ac;margin-top:5px}
+
+  @media print{
+    body{background:#fff}
+    .noprint{display:none!important}
+    .sheet{margin:0;box-shadow:none;width:auto;min-height:auto;padding:0}
+    .sheet+.sheet{page-break-before:always}
+    .seal{display:none!important}
+  }
+  @page{size:letter;margin:12mm}
+</style>
+</head>
+<body>
+
+<div class="intro noprint">
+  <span class="eyebrow">Facilitation prototype · v1 · print &amp; play</span>
+  <h1>DTPR Agreement Canvas</h1>
+  <p>The workshop counterpart to the disclosure canvas. Where the disclosure board records a system that's <em>already decided</em>, this mat is what a neighborhood and a city/deployer <em>fill in together</em> — recording not a yes/no vote but the <b>texture of agreement</b>, the conditions attached to it, and where they couldn't agree.</p>
+  <div class="how">
+    <b>Print &amp; play.</b> Two sheets on A4 / Letter. <b>Sheet 1</b> is the mat (enlarge to A3/tabloid for the table if you can). <b>Sheet 2</b> cuts up into gradient tokens and red-line cards. The mat here is pre-filled with a sample system (<code>FaceGate fare gates</code>) so the structure reads — in a real workshop the disclosure seats start <em>face-down</em> and the deployer flips them one at a time.
+  </div>
+  <p style="font-size:.82rem;color:#72726c">On screen, the five disclosure seats show a <b>face-down</b> cover — click one to “disclose” it. That’s the <b>flip-to-disclose</b> rule: the group can’t place agreement tokens on a seat until the deployer has revealed it.</p>
+  <button class="btn" onclick="window.print()">Print / Save as PDF</button>
+  <button class="btn" style="background:#6b6b64" onclick="document.querySelectorAll('.seat').forEach(s=>s.classList.add('revealed'))">Reveal all seats</button>
+</div>
+
+<!-- ============ SHEET 1 — THE MAT ============ -->
+<section class="sheet" id="mat">
+  <span class="sheet-tag">Agreement Canvas · sheet 1 of 2 · the mat</span>
+
+  <div class="mhead">
+    <div class="l">
+      <div class="k">DTPR · Agreement Canvas</div>
+      <h2 id="sysname">Face-matching fare gates</h2>
+      <div class="fill">Proposed by <b>Metro Transit + FaceGate Inc.</b> · neighbourhood <b></b></div>
+    </div>
+    <div class="r">
+      <div class="row"><span>Session</span><span></span></div>
+      <div class="row"><span>Facilitator</span><span></span></div>
+      <div class="row"><span>Date</span><span></span></div>
+    </div>
+  </div>
+
+  <div class="rulebar"><span class="n">!</span><div><b>Flip to disclose.</b> A seat can’t receive agreement tokens until the deployer reveals it. No disclosure, no consent.</div></div>
+
+  <div id="seats"></div>
+
+  <div class="negtitle">The negotiation <span>— what the disclosure canvas doesn’t have. Filled in by the room.</span></div>
+  <div class="neggrid" id="neg"></div>
+
+  <div class="ladder">
+    <div class="lt">Where the room landed — pick one</div>
+    <div class="rungs">
+      <div class="rung full"><div class="rk"><span class="box"></span>Full agreement</div><div class="rc">Endorse / reservations across the board. No unresolved red line.</div></div>
+      <div class="rung cond"><div class="rk"><span class="box"></span>Conditional agreement</div><div class="rc">Yes — but only with the Conditions of acceptance above. Review date set.</div></div>
+      <div class="rung pilot"><div class="rk"><span class="box"></span>Time-boxed pilot</div><div class="rc">Try it, with a hard review/sunset date and a monitor named.</div></div>
+      <div class="rung no"><div class="rk"><span class="box"></span>No — or not yet</div><div class="rc">A red line stands unresolved. Deployment paused or escalated.</div></div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <span class="lg"><span class="sw" style="background:var(--g-endorse)"></span>Endorse</span>
+    <span class="lg"><span class="sw" style="background:var(--g-reserv)"></span>Agree, with reservations</span>
+    <span class="lg"><span class="sw" style="background:var(--g-aside)"></span>Stand aside</span>
+    <span class="lg"><span class="sw" style="background:var(--g-block)"></span>Block / red line</span>
+    <span class="lg" style="border-style:dashed">A spread of tokens on one seat → write it into <b style="color:var(--signal)">&nbsp;Open disagreements</b></span>
+  </div>
+</section>
+
+<!-- ============ SHEET 2 — CUT-UP CARDS ============ -->
+<section class="sheet" id="cards">
+  <span class="sheet-tag">Agreement Canvas · sheet 2 of 2 · cut &amp; play</span>
+  <div class="cuthead">
+    <h2>Tokens &amp; red-line cards</h2>
+    <p>Cut along the guides. Each participant gets one set of gradient tokens; place one on every disclosed seat. Red-line cards are laid on a seat to force a redesign — or they become a documented “no.”</p>
+  </div>
+
+  <div class="cutsec">
+    <div class="sl">Gradient-of-agreement tokens — one set per participant</div>
+    <div class="tokens" id="tokenSheet"></div>
+    <div class="cutnote">Print one row per participant (this is one set). 88 mm circles ≈ poker-chip size when cut.</div>
+  </div>
+
+  <div class="cutsec">
+    <div class="sl">Red-line cards — the block that must be resolved</div>
+    <div class="tokens" id="redlineSheet"></div>
+    <div class="cutnote">A red line on a seat can’t be tokened over. Resolve it with a redesign, or it lands the outcome on “No — or not yet.”</div>
+  </div>
+</section>
+
+<script>
+/* ---- DTPR icons, composed by the API (same source as the disclosure canvas) ---- */
+const API='https://api.dtpr.io/api/v2/schemas/ai@2026-05-06-beta/elements/';
+const ic=(id,s=30)=>`<img src="${API}${id}/icon.svg" width="${s}" height="${s}" alt="" loading="lazy" style="object-fit:contain">`;
+/* people (affected) — composed in-page like the disclosure canvas until ai@2026-08-12-beta deploys */
+const HEXPATH='M31.8564 8.8453L19 1.42265C18.3812 1.06538 17.6188 1.06538 17 1.42265L4.14359 8.8453C3.52479 9.20257 3.14359 9.86282 3.14359 10.5774V25.4226C3.14359 26.1372 3.52479 26.7974 4.14359 27.1547L17 34.5774C17.6188 34.9346 18.3812 34.9346 19 34.5774L31.8564 27.1547C32.4752 26.7974 32.8564 26.1372 32.8564 25.4226V10.5774C32.8564 9.86282 32.4752 9.20256 31.8564 8.8453Z';
+const PEOPLE='<path d="M13.5 10.6667C15.1569 10.6667 16.5 12.0098 16.5 13.6667C16.5 15.3235 15.1569 16.6667 13.5 16.6667C11.8431 16.6667 10.5 15.3235 10.5 13.6667C10.5 12.0098 11.8431 10.6667 13.5 10.6667Z"/><path d="M22.5 10.6667C24.1569 10.6667 25.5 12.0098 25.5 13.6667C25.5 15.3235 24.1569 16.6667 22.5 16.6667C20.8431 16.6667 19.5 15.3235 19.5 13.6667C19.5 12.0098 20.8431 10.6667 22.5 10.6667Z"/><path d="M13.5 18C10.1863 18 7.5 20.6863 7.5 24V25.3333H19.5V24C19.5 20.6863 16.8137 18 13.5 18Z"/><path d="M22.5 18C21.9316 18 21.3818 18.0791 20.8608 18.2266C22.1863 19.7061 23 21.6589 23 24V25.3333H28.5V24C28.5 20.6863 25.8137 18 22.5 18Z"/>';
+const peopleIc=(s=30)=>`<svg class="ico" width="${s}" height="${s}" viewBox="0 0 36 36" aria-hidden="true"><path d="${HEXPATH}" fill="none" stroke="#000" stroke-width="2"/><g fill="#000">${PEOPLE}</g></svg>`;
+
+/* the five disclosure seats — reused spine, pre-filled with the FaceGate sample, each face-down until flipped */
+const SEATS=[
+ {key:'accountable', label:'Run by / built by', icon:ic('institution'),
+  nm:'Metro Transit — operated · FaceGate Inc. — built',
+  content:'A public transit agency runs a <b>vendor</b> face-matcher. The vendor keeps the match data; accuracy numbers are proprietary.'},
+ {key:'system', label:'The system', icon:ic('biometric_recognition'),
+  nm:'A 1-to-N face matcher, no staff in the loop',
+  content:'The gate <b>decides on its own</b> who may pass — <span class="sub">autonomous</span>.'},
+ {key:'dataflow', label:'Data flow', icon:ic('input_biometric'),
+  nm:'Your live face → match + rider ID + time + station',
+  content:'<b>Identifiable.</b> Kept <b>7 years</b> on the vendor’s cloud. Reachable by transit staff, the vendor, and police on request — no warrant in the current MOU.'},
+ {key:'risk', label:'Risks &amp; safeguards', icon:ic('civil_liberties_harm'),
+  nm:'Civil-liberties harm — uneven error rate',
+  content:'False matches aren’t evenly distributed; the gate is wrong most about the faces it saw least. <span class="sub">Safeguard: none listed.</span>'},
+ {key:'affected', label:'Used on', icon:peopleIc(30), affected:true,
+  nm:'All riders — ~2.3M/day · Decided about',
+  content:'Every rider is a <b>subject</b>: the system produces an output about them that affects them directly.'},
+];
+const GRAD=[['endorse','Endorse'],['reserv','…w/ reservations'],['aside','Stand aside'],['block','Block']];
+function lane(){
+  return `<div class="lane"><div class="lh">Gradient of agreement — place a token</div>
+    <div class="zones">${GRAD.map(([c,l])=>`<div class="zone ${c}"><div class="zc">${l}</div><span class="slot"></span></div>`).join('')}</div></div>`;
+}
+document.getElementById('seats').innerHTML=SEATS.map(s=>`
+  <div class="seat ${s.affected?'affected':''}">
+    <div class="body">
+      <div class="top"><div class="zl">${s.label}</div><span class="stamp"><span class="box"></span>disclosed</span></div>
+      <div style="display:flex;align-items:flex-start;gap:9px;margin-top:5px">${s.icon}
+        <div><div class="nm">${s.nm}</div><div class="content">${s.content}</div></div></div>
+    </div>
+    ${lane()}
+    <div class="seal"><span class="fd">▨ Face-down</span><span class="hint">deployer flips to disclose</span></div>
+  </div>`).join('');
+document.querySelectorAll('.seat').forEach(seat=>{
+  const seal=seat.querySelector('.seal');
+  if(seal) seal.addEventListener('click',()=>seat.classList.add('revealed'));
+});
+
+/* the four negotiation seats — new, blank for the room to fill */
+const NEG=[
+ {l:'Conditions of acceptance',h:'What the community requires to consent',lines:3,wide:true},
+ {l:'Open disagreements',h:'Where the room split — a spread of tokens lands here, unresolved',lines:3,wide:true},
+ {l:'Review / sunset date',h:'Every “yes” expires',date:true},
+ {l:'Who monitors',h:'Accountability after the room empties',lines:2},
+];
+document.getElementById('neg').innerHTML=NEG.map(n=>{
+  const inner = n.date
+    ? `<div class="big"></div>`
+    : Array.from({length:n.lines}).map(()=>`<div class="writeline"></div>`).join('');
+  return `<div class="neg ${n.wide?'wide':''} ${n.date?'datebox':''}">
+    <div style="flex:1"><div class="nl">${n.l}</div><div class="nh">${n.h}</div>${n.date?'':inner}</div>${n.date?inner:''}</div>`;
+}).join('');
+
+/* cut sheet — one set of gradient tokens + red-line cards */
+const TOK=[
+ ['endorse','Endorse','I support this'],
+ ['reserv','Reservations','I can live with it'],
+ ['aside','Stand aside','Not for me — won’t block'],
+ ['block','Block','I can’t accept this'],
+];
+document.getElementById('tokenSheet').innerHTML=TOK.map(([c,t,d])=>`<div class="token ${c}"><div class="tt">${t}</div><div class="td">${d}</div></div>`).join('');
+document.getElementById('redlineSheet').innerHTML=Array.from({length:5}).map(()=>`
+  <div class="redline"><div class="rt"><span class="bang">!</span>Red line</div>
+    <div class="rd">Laid on the seat this crosses. Resolve with a redesign — or it’s a documented “no.”</div>
+    <div class="writeline"></div></div>`).join('');
+</script>
+</body>
+</html>

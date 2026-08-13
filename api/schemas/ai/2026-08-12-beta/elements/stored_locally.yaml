@@ -1,0 +1,15 @@
+id: stored_locally
+category_id: storage
+title:
+  - locale: en
+    value: Stored locally
+  - locale: fr
+    value: Stocké localement
+description:
+  - locale: en
+    value: Data is stored in the jurisdiction where it was collected.
+  - locale: fr
+    value: >-
+      Les données sont stockées dans une zone soumise aux mêmes lois que celle où elles sont
+      collectées.
+symbol_id: stored

@@ -1,0 +1,25 @@
+id: psychological_harm
+category_id: risks_mitigation
+title:
+  - locale: en
+    value: Psychological harm
+  - locale: fr
+    value: Préjudice psychologique
+description:
+  - locale: en
+    value: >-
+      The risk that the AI system causes emotional or mental-health impairment, directly or
+      indirectly. This includes risks from addictive feedback loops, distress caused by
+      surveillance, harassment via generated content, and anxiety from automated denials.
+      Mitigations may include content warnings, well-being safeguards, age-appropriate design,
+      accessible support channels, and rate limits on engagement-maximizing behavior.
+  - locale: fr
+    value: >-
+      Le risque que le système d'IA cause une atteinte émotionnelle ou à la santé mentale,
+      directement ou indirectement. Cela inclut les risques liés à des boucles de rétroaction
+      addictives, à la détresse causée par la surveillance, au harcèlement via du contenu généré et
+      à l'anxiété liée aux refus automatisés. Les mesures d'atténuation peuvent inclure des
+      avertissements de contenu, des garde-fous pour le bien-être, une conception adaptée à l'âge,
+      des canaux d'assistance accessibles et des limites sur les comportements qui maximisent
+      l'engagement.
+symbol_id: risks_psychological

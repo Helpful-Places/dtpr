@@ -1,0 +1,13 @@
+id: no_data_retained
+category_id: retention
+title:
+  - locale: en
+    value: No data retained
+  - locale: fr
+    value: Aucune donnée conservée
+description:
+  - locale: en
+    value: No data is kept or stored
+  - locale: fr
+    value: Aucune donnée n'est conservée ou stockée
+symbol_id: no_data_retained

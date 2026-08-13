@@ -1,0 +1,25 @@
+id: education
+category_id: purpose
+title:
+  - locale: en
+    value: Education & Learning
+  - locale: fr
+    value: Éducation et apprentissage
+description:
+  - locale: en
+    value: >-
+      Supports teaching, learning, assessment, or educational guidance — for example, tutoring
+      assistants, automated grading, or library and museum recommenders.
+  - locale: fr
+    value: >-
+      Soutient l'enseignement, l'apprentissage, l'évaluation ou l'orientation pédagogique — par
+      exemple, des assistants de tutorat, la notation automatisée, ou des recommandations de
+      bibliothèques et musées.
+sources:
+  - type: regulation
+    title: EU AI Act Annex III §3 — Education and vocational training
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+    citation: >-
+      Regulation (EU) 2024/1689, Article 6(2) and Annex III §3 — covering admission, evaluation of
+      learning outcomes, and detection of prohibited behaviour during testing.
+symbol_id: education

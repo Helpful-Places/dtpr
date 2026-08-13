@@ -1,0 +1,13 @@
+id: arts_culture
+category_id: purpose
+title:
+  - locale: en
+    value: Arts & Culture
+  - locale: fr
+    value: Arts et culture
+description:
+  - locale: en
+    value: Enables artistic and/or cultural expression.
+  - locale: fr
+    value: Permet l'expression artistique et/ou culturelle.
+symbol_id: arts_culture

@@ -1,0 +1,56 @@
+{
+  "app": {
+    "title": "DTPR AI Register",
+    "tagline": "How AI systems in public places work — and what you can do about them."
+  },
+  "canvas": {
+    "systemNo": "System {n}",
+    "for": "for",
+    "runBy": "Run by",
+    "builtBy": "Built by",
+    "theSystem": "The system",
+    "dataFlow": "Data flow",
+    "risks": "Risks & mitigation",
+    "mitigation": "Mitigation",
+    "noMitigation": "No mitigation provided",
+    "usedOn": "Used on",
+    "youCan": "You can",
+    "noRights": "No notice. No appeal path.",
+    "complaint": "Complaint",
+    "sentenceView": "Sentence view"
+  },
+  "register": {
+    "heading": "AI systems, disclosed",
+    "sub": "A browsable register of AI systems, each drawn as a DTPR canvas. Open one to see how it works — and leave a reaction on any piece that lands or confuses.",
+    "open": "Open canvas"
+  },
+  "feedback": {
+    "seatPrompt": "How clear is this piece?",
+    "canvasPrompt": "How clear is this canvas overall?",
+    "clear": "Clear",
+    "confusing": "Confusing",
+    "unsure": "Not sure",
+    "notePlaceholder": "Add a note (optional)",
+    "send": "Send",
+    "sent": "Thanks — recorded.",
+    "error": "Couldn’t save that — try again.",
+    "react": "React",
+    "give": "Give feedback",
+    "done": "Done"
+  },
+  "selfTag": {
+    "heading": "One quick thing",
+    "body": "Which best describes you? This is only used to group feedback — never shown publicly.",
+    "public": "Member of the public",
+    "publicHint": "A rider, resident, or passer-by",
+    "professional": "Practitioner / peer",
+    "professionalHint": "Policy, privacy, design, or research",
+    "contactLabel": "Leave contact (optional)",
+    "contactPlaceholder": "Name or email — never required",
+    "continue": "Continue"
+  },
+  "compare": {
+    "heading": "Compare systems",
+    "sub": "The four live systems side by side — each column a system, each row a fixed seat. The seats never move, so the differences pop."
+  }
+}

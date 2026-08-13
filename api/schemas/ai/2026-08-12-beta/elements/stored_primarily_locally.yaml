@@ -1,0 +1,13 @@
+id: stored_primarily_locally
+category_id: storage
+title:
+  - locale: en
+    value: Stored primarily locally
+  - locale: fr
+    value: Stocké principalement localement
+description:
+  - locale: en
+    value: Data is stored mainly in the jurisdiction where it was collected.
+  - locale: fr
+    value: Les données sont stockées principalement dans la juridiction où elles ont été collectées.
+symbol_id: stored

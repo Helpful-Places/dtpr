@@ -1,0 +1,13 @@
+id: people
+category_id: affected
+title:
+  - locale: en
+    value: People
+  - locale: fr
+    value: Personnes
+description:
+  - locale: en
+    value: The people this system is used on, or whose lives its decisions affect.
+  - locale: fr
+    value: Les personnes sur lesquelles ce système est utilisé, ou dont ses décisions affectent la vie.
+symbol_id: people

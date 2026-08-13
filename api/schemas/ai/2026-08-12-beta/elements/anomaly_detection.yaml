@@ -1,0 +1,22 @@
+id: anomaly_detection
+category_id: processing
+title:
+  - locale: en
+    value: Anomaly Detection
+  - locale: fr
+    value: Détection d'anomalies
+description:
+  - locale: en
+    value: >-
+      AI systems that flag unusual events, patterns, or values that depart from a learned baseline
+      of normal behavior. Used for equipment-failure prediction, fraud screening, intrusion
+      detection, water-leak monitoring, and unusual crowd-flow alerts. Outputs are typically
+      thresholded scores rather than direct decisions.
+  - locale: fr
+    value: >-
+      Systèmes d'IA qui signalent des événements, motifs ou valeurs inhabituels s'écartant d'une
+      référence apprise du comportement normal. Utilisés pour la prédiction de pannes d'équipement,
+      la détection de fraude, la détection d'intrusion, la surveillance des fuites d'eau et les
+      alertes de flux de foule inhabituels. Les sorties sont en général des scores seuillés plutôt
+      que des décisions directes.
+symbol_id: dm_anomaly-detection

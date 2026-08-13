@@ -1,0 +1,19 @@
+id: health
+category_id: purpose
+title:
+  - locale: en
+    value: Environmental Health
+  - locale: fr
+    value: Santé environnementale
+description:
+  - locale: en
+    value: >-
+      Measures or monitors aspects of the physical environment that affect human health — air
+      quality, water quality, radiation, noise, or workplace exposures. Distinct from Healthcare,
+      which supports clinical care for individuals.
+  - locale: fr
+    value: >-
+      Mesure ou surveille les aspects de l'environnement physique qui affectent la santé humaine —
+      qualité de l'air, qualité de l'eau, rayonnements, bruit ou expositions sur le lieu de travail.
+      À distinguer de Soins de santé, qui soutient les soins cliniques aux personnes.
+symbol_id: ecology

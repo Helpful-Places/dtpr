@@ -1,0 +1,22 @@
+id: generative_mode
+category_id: functional_modes
+title:
+  - locale: en
+    value: Creating (Generative AI)
+  - locale: fr
+    value: Créer (IA générative)
+description:
+  - locale: en
+    value: >-
+      Creates — produces new text, images, audio, video, or code that did not exist before this
+      system ran. The output is content authored by the system, not a label or score about existing
+      data. Examples: drafting a paragraph in response to a prompt, generating an image from a
+      description, composing audio, completing a snippet of code.
+  - locale: fr
+    value: >-
+      Crée — produit du nouveau texte, des images, de l'audio, de la vidéo ou du code qui
+      n'existaient pas avant que le système ne s'exécute. La sortie est du contenu créé par le
+      système, pas une étiquette ou un score sur des données existantes. Exemples : rédiger un
+      paragraphe en réponse à une consigne, générer une image à partir d'une description, composer
+      de l'audio, compléter un extrait de code.
+symbol_id: mode_generative

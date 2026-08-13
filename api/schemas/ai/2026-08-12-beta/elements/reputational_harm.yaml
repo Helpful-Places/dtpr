@@ -1,0 +1,26 @@
+id: reputational_harm
+category_id: risks_mitigation
+title:
+  - locale: en
+    value: Reputational harm
+  - locale: fr
+    value: Atteinte à la réputation
+description:
+  - locale: en
+    value: >-
+      The risk that the AI system damages the reputation of individuals, groups, or organizations
+      through misidentification, false categorization, or stigmatizing labels. This includes risks
+      of inaccurate face recognition, defamatory generated content, and unfair public scoring that
+      follow people across contexts. Mitigations may include accuracy thresholds before
+      public-facing labels are applied, human review of high-impact identifications, takedown
+      procedures, and clear rights to correction.
+  - locale: fr
+    value: >-
+      Le risque que le système d'IA porte atteinte à la réputation de personnes, de groupes ou
+      d'organisations par une identification erronée, une catégorisation fausse ou des étiquettes
+      stigmatisantes. Cela inclut les risques de reconnaissance faciale inexacte, de contenu
+      diffamatoire généré et de notation publique injuste qui suit les personnes dans différents
+      contextes. Les mesures d'atténuation peuvent inclure des seuils de précision avant
+      l'application d'étiquettes publiques, un examen humain des identifications à fort impact, des
+      procédures de retrait et des droits clairs de rectification.
+symbol_id: risks_reputational

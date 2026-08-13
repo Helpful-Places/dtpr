@@ -1,0 +1,56 @@
+{
+  "app": {
+    "title": "Registre IA DTPR",
+    "tagline": "Comment fonctionnent les systèmes d’IA dans les lieux publics — et ce que vous pouvez faire."
+  },
+  "canvas": {
+    "systemNo": "Système {n}",
+    "for": "pour",
+    "runBy": "Exploité par",
+    "builtBy": "Conçu par",
+    "theSystem": "Le système",
+    "dataFlow": "Flux de données",
+    "risks": "Risques et atténuation",
+    "mitigation": "Atténuation",
+    "noMitigation": "Aucune atténuation",
+    "usedOn": "Utilisé sur",
+    "youCan": "Vous pouvez",
+    "noRights": "Aucune notification. Aucun recours.",
+    "complaint": "Réclamation",
+    "sentenceView": "Vue phrase"
+  },
+  "register": {
+    "heading": "Les systèmes d’IA, divulgués",
+    "sub": "Un registre navigable de systèmes d’IA, chacun dessiné comme un panneau DTPR. Ouvrez-en un pour voir comment il fonctionne — et réagissez sur tout élément qui vous parle ou vous déroute.",
+    "open": "Ouvrir le panneau"
+  },
+  "feedback": {
+    "seatPrompt": "Cet élément est-il clair ?",
+    "canvasPrompt": "Ce panneau est-il clair dans l’ensemble ?",
+    "clear": "Clair",
+    "confusing": "Confus",
+    "unsure": "Incertain",
+    "notePlaceholder": "Ajouter une note (facultatif)",
+    "send": "Envoyer",
+    "sent": "Merci — enregistré.",
+    "error": "Échec de l’enregistrement — réessayez.",
+    "react": "Réagir",
+    "give": "Donner un avis",
+    "done": "Terminé"
+  },
+  "selfTag": {
+    "heading": "Une chose rapide",
+    "body": "Qu’est-ce qui vous décrit le mieux ? Utilisé uniquement pour regrouper les retours — jamais rendu public.",
+    "public": "Membre du public",
+    "publicHint": "Un voyageur, un résident, un passant",
+    "professional": "Praticien / pair",
+    "professionalHint": "Politique, vie privée, design ou recherche",
+    "contactLabel": "Laisser un contact (facultatif)",
+    "contactPlaceholder": "Nom ou courriel — jamais obligatoire",
+    "continue": "Continuer"
+  },
+  "compare": {
+    "heading": "Comparer les systèmes",
+    "sub": "Les quatre systèmes en service côte à côte — chaque colonne un système, chaque ligne une place fixe. Les places ne bougent jamais, alors les différences ressortent."
+  }
+}

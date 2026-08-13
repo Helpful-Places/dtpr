@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>DTPR Power Canvas — v6 · composition grammar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#f6f6f4; --card:#ffffff; --ink:#1b1b19; --muted:#72726c;
+    --line:#e6e5e0; --line-strong:#d3d2cc; --chip:#f3f3ef;
+    --signal:#c2410c;            /* the affected seat */
+    --alarm:#b42318;             /* missing rights / mitigation */
+    --teal:#0f5153;              /* DTPR accent — eyebrow + links only */
+    --mono:ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Public Sans',system-ui,-apple-system,sans-serif;color:var(--ink);
+    background:var(--paper);line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:var(--teal);font-weight:600}
+  a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:3px}
+  .wrap{max-width:920px;margin:0 auto;padding:48px 24px 90px;position:relative}
+
+  /* ---- page header ---- */
+  .eyebrow{display:inline-block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;
+    color:var(--teal);border:1px solid color-mix(in srgb,var(--teal) 30%,transparent);
+    padding:4px 11px;border-radius:999px;margin-bottom:18px;background:var(--card)}
+  h1{font-size:2rem;font-weight:700;letter-spacing:-.015em;margin:0 0 8px}
+  .sub{color:var(--muted);font-size:1rem;max-width:70ch;margin:0}
+  .thesis{font-size:.95rem;max-width:74ch;margin:22px 0 0;padding:14px 18px;background:var(--card);
+    border:1px solid var(--line);border-left:3px solid var(--signal);border-radius:0 10px 10px 0}
+  .thesis b{color:var(--ink)}
+  code{font-family:var(--mono);font-size:.84em;background:var(--chip);border:1px solid var(--line);
+    padding:1px 5px;border-radius:5px}
+
+  /* ---- locale switcher ---- */
+  .langswitch{position:absolute;top:44px;right:24px;display:flex;border:1px solid var(--line);
+    border-radius:999px;overflow:hidden;background:var(--card)}
+  .langbtn{border:0;background:transparent;font:inherit;font-size:.72rem;font-weight:700;letter-spacing:.06em;
+    color:var(--muted);padding:6px 14px;cursor:pointer;transition:background .12s,color .12s}
+  .langbtn.on{background:var(--teal);color:#fff}
+
+  h3.section{font-size:1.1rem;font-weight:700;margin:56px 0 4px}
+  .section-sub{color:var(--muted);font-size:.9rem;margin:0 0 18px;max-width:74ch}
+
+  /* ---- the board ---- */
+  .board{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);
+    border:1px solid var(--line);border-radius:16px;overflow:hidden;margin:0 0 30px;
+    box-shadow:0 1px 2px rgba(27,27,25,.04),0 16px 36px -30px rgba(27,27,25,.3)}
+  .cell{background:var(--card);padding:18px 22px;min-width:0}
+  .span2{grid-column:1/-1}
+  .zl{font-size:.64rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+
+  .head{padding:20px 22px 18px}
+  .head-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .sysno{display:block;font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:3px}
+  .head h2{margin:0;font-size:1.35rem;font-weight:700;letter-spacing:-.01em}
+  .read{margin:10px 0 0;font-size:.92rem;color:var(--muted);max-width:72ch}
+
+  .chip{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:600;
+    background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:5px 13px 5px 8px;white-space:nowrap}
+  .chip img,.chip svg{display:block}
+  .chip .k{font-weight:600;font-size:.66rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+
+  /* ---- the composition markers (U2) ---- */
+  .mk{display:inline;padding:0 .12em;border-radius:2px;
+    background:linear-gradient(180deg,transparent 0 52%,var(--mkfill) 52% 92%,transparent 92%);
+    -webkit-box-decoration-break:clone;box-decoration-break:clone}
+  .mk-neutral{--mkfill:rgba(114,114,108,.28)}
+  .mk-color{--mkfill:color-mix(in srgb,var(--mkc) 58%,transparent)}
+
+  /* ---- piece: A stack + optional C sentence (U1/U3/U4) ---- */
+  .pc{min-width:0}
+  .pc-a{display:flex;align-items:flex-start;gap:12px;min-width:0}
+  .pc-ic{flex:none;display:block}
+  .astack{min-width:0}
+  .a-l1{font-weight:700;font-size:1rem;line-height:1.25}
+  .a-l2{font-size:.9rem;margin-top:3px;line-height:1.35}
+  .a-l2 .a-type{color:var(--ink);font-weight:600}
+  .a-l3{font-size:.78rem;color:var(--muted);margin-top:5px;line-height:1.35}
+  .sep{color:var(--line-strong);margin:0 .5em}
+  .risk-narr{color:var(--muted);font-weight:400;max-width:64ch}
+
+  .pc-c{margin:11px 0 0 52px;background:var(--chip);border:1px solid var(--line);
+    border-left:3px solid var(--line-strong);border-radius:0 10px 10px 0;padding:9px 13px;
+    font-size:.92rem;position:relative}
+  .c-cap{position:absolute;top:-9px;left:11px;font-size:.56rem;font-weight:700;letter-spacing:.14em;
+    color:var(--muted);background:var(--card);border:1px solid var(--line);border-radius:4px;padding:1px 5px}
+  .c-sent{color:var(--ink)}
+  .dash{color:var(--muted);margin:0 .18em}
+
+  /* ---- data flow ---- */
+  .vflow{display:flex;flex-direction:column}
+  .varrow{color:var(--muted);font-size:1.05rem;line-height:1;margin:8px 0 8px 15px}
+
+  /* ---- risk (U5) ---- */
+  .risk-list{display:flex;flex-direction:column;gap:20px}
+  .mitig{margin-top:9px;font-size:.84rem}
+  .mit-k{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-right:8px}
+  .mit-alarm{margin-top:9px}
+  .alarm{display:flex;align-items:center;gap:10px;font-size:.86rem;font-weight:600;color:var(--alarm);
+    border:1.5px dashed color-mix(in srgb,var(--alarm) 45%,transparent);border-radius:10px;padding:10px 14px;
+    background:color-mix(in srgb,var(--alarm) 4%,var(--card))}
+  .bang{flex:none;width:18px;height:18px;border-radius:50%;background:var(--alarm);color:#fff;
+    font-size:.72rem;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+
+  /* ---- the system sentence ---- */
+  .sysrow{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .mode-icons{display:flex;gap:8px;flex:none}
+  .sys-sentence{margin:0;font-size:.98rem;color:var(--ink)}
+
+  /* ---- rights ---- */
+  .rights{display:flex;flex-direction:column;gap:13px}
+  .right{display:flex;align-items:flex-start;gap:10px;font-size:.85rem}
+  .right img{flex:none}
+  .right .rn{font-weight:600}
+  .right .rs{color:var(--muted);font-weight:400}
+  .racts{display:flex;gap:6px;flex-wrap:wrap;margin-top:7px}
+  a.act{display:inline-flex;align-items:center;gap:6px;font-size:.74rem;font-weight:600;color:var(--teal);
+    text-decoration:none;background:var(--card);border:1px solid color-mix(in srgb,var(--teal) 34%,transparent);
+    border-radius:999px;padding:3px 11px;transition:background .12s,color .12s,border-color .12s}
+  a.act:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  a.act svg{flex:none}
+  .esc{padding-top:12px;border-top:1px dashed var(--line);margin-top:2px}
+  .esc .ek{display:block;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+
+  /* ---- relationship legend ---- */
+  .rel-legend{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .rel-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 16px 18px;min-width:0}
+  .rel-card .rc-head{display:flex;align-items:center;gap:11px;margin-bottom:9px}
+  .rel-card .rc-name{font-weight:700;font-size:.98rem}
+  .rel-card .rc-id{display:block;font-family:var(--mono);font-weight:400;font-size:.7rem;color:var(--signal)}
+  .rel-card .rc-desc{font-size:.84rem;color:var(--muted)}
+
+  /* ---- zone → category table ---- */
+  .maptable{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);
+    border-radius:14px;overflow:hidden;font-size:.88rem}
+  .maptable th,.maptable td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  .maptable tr:last-child td{border-bottom:none}
+  .maptable th{font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);background:var(--chip)}
+  .maptable td:last-child{color:var(--muted);font-size:.84rem}
+  .maptable tr.new td{background:color-mix(in srgb,var(--signal) 5%,var(--card))}
+  .newflag{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.06em;color:#fff;
+    background:var(--signal);border-radius:5px;padding:1px 6px;margin-left:8px;vertical-align:middle}
+
+  footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font-size:.84rem;max-width:80ch}
+
+  /* ---- immediate hover tooltip on every icon ---- */
+  [data-tip]{cursor:help}
+  .tip{position:fixed;z-index:1000;display:none;background:var(--ink);color:#fff;font-size:.75rem;font-weight:600;
+    line-height:1.3;padding:5px 9px;border-radius:7px;pointer-events:none;white-space:nowrap;
+    max-width:280px;box-shadow:0 6px 20px -6px rgba(27,27,25,.45)}
+  .tip::after{content:'';position:absolute;left:var(--tipx,50%);transform:translateX(-50%);
+    border:5px solid transparent;border-top-color:var(--ink);top:100%}
+  .tip.below::after{top:auto;bottom:100%;border-top-color:transparent;border-bottom-color:var(--ink)}
+
+  @media (max-width:680px){
+    .board{grid-template-columns:1fr}
+    .span2{grid-column:auto}
+    .rel-legend{grid-template-columns:1fr}
+    .langswitch{position:static;display:inline-flex;margin-bottom:16px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="langswitch">
+    <button class="langbtn on" data-loc="en">EN</button>
+    <button class="langbtn" data-loc="fr">FR</button>
+  </div>
+  <span class="eyebrow" id="eyebrow"></span>
+  <h1 id="h1"></h1>
+  <p class="sub" id="sub"></p>
+  <div class="thesis" id="thesis"></div>
+
+  <h3 class="section" id="secSystems"></h3>
+  <p class="section-sub" id="secSystemsSub"></p>
+  <div id="systems"></div>
+
+  <h3 class="section" id="secRel"></h3>
+  <p class="section-sub" id="secRelSub"></p>
+  <div class="rel-legend" id="rellegend"></div>
+
+  <h3 class="section" id="secMap"></h3>
+  <p class="section-sub" id="secMapSub"></p>
+  <table class="maptable" id="maptable"></table>
+
+  <footer id="foot"></footer>
+</div>
+
+<script>
+/* ============================================================================
+   v6 · Board Piece Composition Grammar
+   Every information-bearing piece is generated from ONE typed source
+   { cat, icon, type, instance, classification, facts } through a per-category
+   grammar, and rendered at two densities: A (compact stack) + C (sentence).
+   ========================================================================== */
+
+/* ---- i18n primitives (U6) ---- */
+const t=(en,fr)=>({en,fr});
+const tr=(v,loc)=> (v&&typeof v==='object'&&'en'in v) ? v[loc] : (v==null?'':v);
+const listF=loc=>new Intl.ListFormat(loc,{type:'conjunction'});
+const compact=(n,loc)=>new Intl.NumberFormat(loc,{notation:'compact',maximumFractionDigits:1}).format(n);
+
+/* ---- real DTPR icons, composed by the API ---- */
+const API='https://api.dtpr.io/api/v2/schemas/ai@2026-05-06-beta/elements/';
+const attr=s=>String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;');
+const ic=(id,s=44,tip='')=>`<img src="${API}${id}/icon.svg" width="${s}" height="${s}" alt="" loading="lazy" style="object-fit:contain"${tip?` data-tip="${attr(tip)}"`:''}>`;
+const icT=(m,s,loc)=>`<img src="${API}${m.id}/icon.svg" width="${s}" height="${s}" alt="${tr(m.t,loc)} (${tr(m.s,loc)})" data-tip="${attr(tr(m.t,loc)+' ('+tr(m.s,loc)+')')}" loading="lazy" style="object-fit:contain">`;
+
+/* people (affected) — composed in-page like the API: hexagon frame + people symbol */
+const HEXPATH='M31.8564 8.8453L19 1.42265C18.3812 1.06538 17.6188 1.06538 17 1.42265L4.14359 8.8453C3.52479 9.20257 3.14359 9.86282 3.14359 10.5774V25.4226C3.14359 26.1372 3.52479 26.7974 4.14359 27.1547L17 34.5774C17.6188 34.9346 18.3812 34.9346 19 34.5774L31.8564 27.1547C32.4752 26.7974 32.8564 26.1372 32.8564 25.4226V10.5774C32.8564 9.86282 32.4752 9.20256 31.8564 8.8453Z';
+const PEOPLE='<path d="M13.5 10.6667C15.1569 10.6667 16.5 12.0098 16.5 13.6667C16.5 15.3235 15.1569 16.6667 13.5 16.6667C11.8431 16.6667 10.5 15.3235 10.5 13.6667C10.5 12.0098 11.8431 10.6667 13.5 10.6667Z"/><path d="M22.5 10.6667C24.1569 10.6667 25.5 12.0098 25.5 13.6667C25.5 15.3235 24.1569 16.6667 22.5 16.6667C20.8431 16.6667 19.5 15.3235 19.5 13.6667C19.5 12.0098 20.8431 10.6667 22.5 10.6667Z"/><path d="M13.5 18C10.1863 18 7.5 20.6863 7.5 24V25.3333H19.5V24C19.5 20.6863 16.8137 18 13.5 18Z"/><path d="M22.5 18C21.9316 18 21.3818 18.0791 20.8608 18.2266C22.1863 19.7061 23 21.6589 23 24V25.3333H28.5V24C28.5 20.6863 25.8137 18 22.5 18Z"/>';
+const peopleIc=(s=44,tip='')=>`<svg width="${s}" height="${s}" viewBox="0 0 36 36" aria-hidden="true"${tip?` data-tip="${attr(tip)}"`:''}><path d="${HEXPATH}" fill="none" stroke="#000" stroke-width="2"/><g fill="#000">${PEOPLE}</g></svg>`;
+
+/* ============================================================================
+   MARKERS + COLOUR (U2 · KD3)
+   One mark type — a highlighter swipe — wraps every deployment value fill.
+   Colour is spent only on published schema classifications (PII, autonomy).
+   ========================================================================== */
+const CLASSIFICATION_COLOR={
+  identifiable:'#FFD700', de_identified:'#4A90D9', pseudonymous:'#9575CD',   // input/output · pii
+  autonomous:'#E76F51',   human_decides:'#2A9D8F', human_executes:'#6A1B7A', // functional_modes · autonomy
+};
+/* mk(text, key) — highlighter span. key ∈ palette → colour; else neutral grey. */
+const mk=(text,key)=>{
+  const c=CLASSIFICATION_COLOR[key];
+  return c ? `<span class="mk mk-color" style="--mkc:${c}">${text}</span>`
+           : `<span class="mk mk-neutral">${text}</span>`;
+};
+/* classification always renders THROUGH mk as a set-off label — never a fused adjective (R12) */
+const clsMarker=(cls,loc,variant)=> cls ? mk(tr(cls[variant]||cls.a,loc), cls.key) : '';
+
+/* ---- classification vocabularies ---- */
+/* PII — full localized phrases, per density (a = descriptor label, c = in-sentence) */
+const PII={
+  identifiable:  {key:'identifiable',  a:t('Identifiable','Données identifiables'),   c:t('identifiable','données identifiables')},
+  de_identified: {key:'de_identified', a:t('De-identified','Données anonymisées'),     c:t('de-identified','anonymisées')},
+  pseudonymous:  {key:'pseudonymous',  a:t('Pseudonymous','Données pseudonymisées'),   c:t('pseudonymous','pseudonymisées')},
+};
+/* affected · relationship — neutral classification (key:null → no colour) */
+const REL={
+  subject:{key:null,
+    a:t('Decided about','Décidé à son sujet'), c:t('decided about','concernés par une décision'),
+    tail:t('the system’s output affects each of them directly.','la sortie du système les affecte directement.'),
+    legend:t('The system produces an output about this person that affects them directly — a score, a match, an eligibility call.','Le système produit un résultat sur cette personne qui l’affecte directement — un score, une correspondance, une décision d’admissibilité.')},
+  bystander:{key:null,
+    a:t('Caught incidentally','Pris de façon incidente'), c:t('caught incidentally','pris de façon incidente'),
+    tail:t('swept into the data; no decision is made about them.','intégrés aux données ; aucune décision ne les concerne.'),
+    legend:t('Swept into the system’s data even though it isn’t making a decision about them — a face in the background of a camera aimed elsewhere.','Intégrés aux données du système sans qu’aucune décision ne les concerne — un visage à l’arrière-plan d’une caméra visant ailleurs.')},
+  community:{key:null,
+    a:t('Wider community','Communauté élargie'), c:t('a wider community','une communauté élargie'),
+    tail:t('affected together, beyond any one person it processes.','affectés collectivement, au-delà de chaque personne traitée.'),
+    legend:t('A place or group affected collectively, beyond the individuals the system processes — a neighbourhood under watch, a ranked workforce.','Un lieu ou un groupe affecté collectivement, au-delà des individus traités — un quartier surveillé, un effectif classé.')},
+};
+const MIT_LABEL=t('Mitigation','Atténuation');
+const NO_MIT=t('No mitigation provided','Aucune atténuation');
+
+/* ============================================================================
+   THE SYSTEM SENTENCE (kept from v5; autonomy now a coloured marker, not an underline — U2/KD3)
+   ========================================================================== */
+const VERBS={
+  perceptive_mode:{d:t('senses','détecte')},
+  semantic_mode:{d:t('understands','comprend')},
+  analytical_mode:{d:t('decides','décide'), human_decides:t('recommends','recommande')},
+  generative_mode:{d:t('creates','génère'), human_decides:t('drafts','rédige')},
+  agentic_mode:{d:t('acts','agit'), human_executes:t('plans actions','planifie des actions'), human_decides:t('proposes actions','propose des actions')},
+  physical_mode:{d:t('moves','se déplace'), human_executes:t('plans movements','planifie des mouvements'), human_decides:t('proposes movements','propose des mouvements')},
+};
+const TEMPLATES={
+  autonomous:     t('The system {verbs} *on its own*.','Le système {verbs} *tout seul*.'),
+  human_executes: t('The system {verbs}, and *a person carries out the result*.','Le système {verbs}, et *une personne exécute le résultat*.'),
+  human_decides:  t('The system {verbs}, and *a person decides what to do next*.','Le système {verbs}, et *une personne décide de la suite*.'),
+};
+function sentence(sy,loc){
+  const a=sy.autonomy.id;
+  const verbs=listF(loc).format(sy.modes.map(m=>tr((VERBS[m.id]&&(VERBS[m.id][a]||VERBS[m.id].d)),loc) || tr(m.t,loc).toLowerCase()));
+  return tr(TEMPLATES[a],loc).replace('{verbs}',verbs)
+    .replace(/\*(.+?)\*/,(_,txt)=>mk(txt,a));   /* autonomy phrase → coloured marker */
+}
+
+/* ============================================================================
+   PER-CATEGORY GRAMMAR REGISTRY (U1 · KTD2)
+   Each entry declares hasSentence + an A(piece) stack + a C(piece,loc) sentence.
+   ========================================================================== */
+const scaleText=(p,loc)=> p.count!=null
+  ? `~${compact(p.count,loc)} ${tr(p.noun,loc)}${p.per?' '+tr(p.per,loc):''}`
+  : tr(p.scale,loc);
+
+const GRAMMAR={
+  /* data flow — the specific value leads; PII is the coloured classification (R6) */
+  data:{ hasSentence:true,
+    A(p,loc){
+      const l1=`<div class="a-l1">${tr(p.instance,loc)}</div>`;
+      const parts=[`<span class="a-type">${tr(p.type,loc)}</span>`];
+      if(p.classification) parts.push(clsMarker(p.classification,loc,'a'));
+      const l2=`<div class="a-l2">${parts.join('<span class="sep">·</span>')}</div>`;
+      const facts=(p.facts||[]).map(f=>tr(f,loc));
+      const l3=facts.length?`<div class="a-l3">${facts.join('<span class="sep">·</span>')}</div>`:'';
+      return l1+l2+l3;
+    },
+    C(p,loc){
+      let s=`${tr(p.type,loc)} (${mk(tr(p.instance,loc),null)})`;
+      if(p.classification) s+=` <span class="dash">—</span> ${clsMarker(p.classification,loc,'c')}`;
+      const facts=(p.facts||[]).map(f=>mk(tr(f,loc),null));
+      if(facts.length) s+=` <span class="dash">—</span> ${listF(loc).format(facts)}`;
+      return s;
+    }
+  },
+  /* affected — the group leads; the relationship is a neutral classification (R6/AE1) */
+  people:{ hasSentence:true,
+    A(p,loc){
+      const l1=`<div class="a-l1">${tr(p.who,loc)}</div>`;
+      const l2=`<div class="a-l2">${clsMarker(p.classification,loc,'a')}</div>`;
+      const sc=scaleText(p,loc);
+      const l3=sc?`<div class="a-l3">${sc}</div>`:'';
+      return l1+l2+l3;
+    },
+    C(p,loc){
+      const sc=scaleText(p,loc);
+      const scPart=sc?` (${mk(sc,null)})`:'';
+      return `${mk(tr(p.who,loc),null)}${scPart} <span class="dash">—</span> ${clsMarker(p.classification,loc,'c')} <span class="dash">—</span> ${tr(p.tail,loc)}`;
+    }
+  },
+  /* accountable — the org name leads; role is the descriptor; no primary axis (R3) */
+  org:{ hasSentence:true,
+    A(p,loc){
+      return `<div class="a-l1">${tr(p.name,loc)}</div><div class="a-l2"><span class="a-type">${tr(p.role,loc)}</span></div>`;
+    },
+    C(p,loc){
+      return `${mk(tr(p.name,loc),null)} (${tr(p.role,loc)}) <span class="dash">—</span> ${tr(p.verb,loc)}`;
+    }
+  },
+  /* risk — its own grammar: harm type leads, narrative describes, mitigation pairs; A-only (U5/KD5) */
+  risk:{ hasSentence:false,
+    A(p,loc){
+      const l1=`<div class="a-l1">${tr(p.type,loc)}</div>`;
+      const l2=`<div class="a-l2 risk-narr">${tr(p.narrative,loc)}</div>`;
+      const resp=p.mitigation
+        ? `<div class="mitig"><span class="mit-k">${tr(MIT_LABEL,loc)}</span>${tr(p.mitigation,loc)}</div>`
+        : `<div class="alarm mit-alarm"><span class="bang">!</span>${tr(NO_MIT,loc)}</div>`;
+      return l1+l2+resp;
+    }
+  }
+};
+
+/* ---- piece adapters: map per-seat system data → the universal typed source (U1) ---- */
+const dataPiece=(d,loc)=>({cat:'data', icon:ic(d.id,40,tr(d.type,loc)), type:d.type, instance:d.instance,
+  classification:d.pii?PII[d.pii]:null, facts:d.facts||[], sentence:!!d.pii});
+const orgPiece=(o,loc)=>({cat:'org', icon:ic(o.el,44,tr(o.role,loc)), name:o.name, role:o.role, verb:o.verb});
+const peoplePiece=(u,loc)=>{const r=REL[u.rel];return{cat:'people', icon:peopleIc(40,tr(r.a,loc)), who:u.who,
+  count:u.count, noun:u.noun, per:u.per, scale:u.scale, classification:r, tail:r.tail};};
+const riskPiece=(r,loc)=>({cat:'risk', icon:ic(r.harm,40,tr(r.title,loc)), type:r.title, narrative:r.narrative, mitigation:r.mitigation});
+
+/* ---- one renderer, two densities (R4/R7) ---- */
+function renderPiece(p,loc){
+  const g=GRAMMAR[p.cat];
+  const a=`<div class="pc-a"><div class="pc-ic">${p.icon}</div><div class="astack">${g.A(p,loc)}</div></div>`;
+  const showC=g.hasSentence && p.sentence!==false && g.C;
+  const c=showC?`<div class="pc-c"><span class="c-cap">C</span><span class="c-sent">${g.C(p,loc)}</span></div>`:'';
+  return `<div class="pc">${a}${c}</div>`;
+}
+
+/* ============================================================================
+   ACTION AFFORDANCES (rights seat — kept from v5, localized; not part of the grammar)
+   ========================================================================== */
+const G={
+  email:'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M3.5 7.5l8.5 6 8.5-6"/></svg>',
+  url:'<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9.2 6.6h8.2v8.2"/></svg>',
+  form:'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12.5 5H5.7A1.7 1.7 0 004 6.7v11.6A1.7 1.7 0 005.7 20h11.6a1.7 1.7 0 001.7-1.7V11.5"/><path d="M17.6 3.7l2.7 2.7-8.6 8.6-3.5.8.8-3.5z"/></svg>',
+  phone:'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M5.2 4h3.6l1.6 4.2-2.2 1.8a13.4 13.4 0 005.8 5.8l1.8-2.2 4.2 1.6v3.6a1.8 1.8 0 01-1.9 1.8A16.2 16.2 0 013.4 5.9 1.8 1.8 0 015.2 4z"/></svg>',
+};
+const mailBody=(sy,right,loc)=> loc==='fr'
+? `Madame, Monsieur,\n\nJe fais valoir mon « ${right} » au titre de la divulgation DTPR pour :\n\n  Système : ${tr(sy.name,loc)} (réf ${sy.ref})\n  Exploité par : ${tr(sy.runby.name,loc)}\n\nDétails de ma demande :\n\n`
+: `To whom it may concern,\n\nI am exercising my "${right}" under the DTPR disclosure for:\n\n  System: ${tr(sy.name,loc)} (ref ${sy.ref})\n  Operated by: ${tr(sy.runby.name,loc)}\n\nDetails of my request:\n\n`;
+const actHref=(a,sy,right,loc)=>{
+  if(a.type==='email')return `mailto:${a.target}?subject=${encodeURIComponent(`[${sy.ref}] ${right} — ${tr(sy.name,loc)}`)}&body=${encodeURIComponent(mailBody(sy,right,loc))}`;
+  if(a.type==='phone')return `tel:${a.target}`;
+  return a.target;
+};
+const actBtn=(a,sy,right,loc)=>`<a class="act" href="${actHref(a,sy,right,loc)}"${a.type==='url'||a.type==='form'?' target="_blank" rel="noopener"':''}>${G[a.type]||''}${tr(a.label,loc)}</a>`;
+
+/* ============================================================================
+   THE FOUR SYSTEMS — re-authored to the new taxonomy, en + fr (U6)
+   French fills are pre-agreed; the renderer performs no inflection (R17).
+   ========================================================================== */
+const SYSTEMS=[
+ {
+  ref:'MT-FG-104', name:t('Face-matching fare gates','Portiques à reconnaissance faciale'),
+  read:t('Metro Transit runs face-matching gates that decide on their own who may pass. Used on every rider; riders can opt out and ask for a human review.','Metro Transit exploite des portiques à reconnaissance faciale qui décident seuls qui peut passer. Utilisé sur chaque voyageur ; les voyageurs peuvent refuser et demander un examen humain.'),
+  purpose:{id:'entry',t:t('Entry','Accès')},
+  builtby:{el:'organization',name:'FaceGate Inc.',role:t('Vendor','Fournisseur'),verb:t('built this system.','a conçu ce système.')},
+  runby:{el:'institution',name:'Metro Transit',role:t('Deployer','Déployeur'),verb:t('operates this system here.','exploite ce système ici.')},
+  modes:[{id:'perceptive_mode',t:t('Sensing','Perception'),s:t('Perceptive AI','IA perceptive')},{id:'analytical_mode',t:t('Deciding','Décision'),s:t('Analytical AI','IA analytique')}],
+  autonomy:{id:'autonomous'},
+  input:{id:'input_biometric',type:t('Biometric','Biométrie'),instance:t('your face','votre visage'),pii:'identifiable',
+    facts:[t('kept for 24 h','conservées 24 h'),t('on a vendor cloud','sur le cloud d’un fournisseur')]},
+  processing:{id:'biometric_recognition',type:t('Biometric Recognition','Reconnaissance biométrique'),instance:t('face match','correspondance faciale')},
+  output:{id:'output_decision',type:t('A decision about you','Une décision vous concernant'),instance:t('match / no-match','correspondance ou non'),pii:'identifiable',
+    facts:[t('shared with transit police','transmise à la police des transports')]},
+  risks:[{harm:'civil_liberties_harm',title:t('Civil liberties harm','Atteinte aux libertés'),
+    narrative:t('A misidentification can stop the wrong person at the gate.','Une erreur d’identification peut bloquer la mauvaise personne au portique.'),
+    mitigation:t('Human review on request','Examen humain sur demande')}],
+  usedon:{who:t('All riders','Tous les voyageurs'),count:2300000,noun:t('people','personnes'),per:t('a day','par jour'),rel:'subject'},
+  rights:[
+    {id:'right_object',t:t('Right to Stop Processing','Droit d’arrêter le traitement'),s:t('opt out, tap a card instead','refuser, utiliser une carte'),
+     acts:[{type:'url',label:t('Get a fare card','Obtenir une carte'),target:'https://metrotransit.example/farecard'}]},
+    {id:'right_contest',t:t('Right to Contest','Droit de contester'),s:t('challenge a match','contester une correspondance'),
+     acts:[{type:'form',label:t('Start an appeal','Déposer un recours'),target:'https://metrotransit.example/appeals'}]},
+    {id:'right_to_human_review',t:t('Right to a Human Review','Droit à un examen humain'),
+     acts:[{type:'email',label:t('Email the review desk','Écrire au service d’examen'),target:'review@metrotransit.example'}]},
+  ],
+  escalate:{k:t('If that fails — independent oversight','En cas d’échec — contrôle indépendant'),
+    acts:[{type:'email',label:t('Email the Transit Ombudsman','Écrire au médiateur des transports'),target:'complaints@transitombudsman.example'}]},
+ },
+ {
+  ref:'CB-ELG-207', name:t('Benefits eligibility scoring','Évaluation de l’admissibilité aux aides'),
+  read:t('The County Benefits Dept. runs a vendor risk score that a caseworker acts on. It decides applicants’ benefits — with no notice and no appeal.','Le service des aides du comté exploite un score de risque fourni par un prestataire, sur lequel un agent s’appuie. Il décide des aides des demandeurs — sans notification ni recours.'),
+  purpose:{id:'eligibility_benefits',t:t('Eligibility & Public Benefits','Admissibilité et aides publiques')},
+  builtby:{el:'organization',name:'RiskModel Co.',role:t('Vendor','Fournisseur'),verb:t('built this system.','a conçu ce système.')},
+  runby:{el:'institution',name:'County Benefits Dept.',role:t('Deployer','Déployeur'),verb:t('operates this system here.','exploite ce système ici.')},
+  modes:[{id:'analytical_mode',t:t('Deciding','Décision'),s:t('Analytical AI','IA analytique')}],
+  autonomy:{id:'human_executes'},
+  input:{id:'input_sensitive_personal',type:t('Sensitive personal information','Renseignements personnels sensibles'),instance:t('your case records','votre dossier'),pii:'identifiable',
+    facts:[t('kept for 7 years','conservés 7 ans'),t('on county servers','sur les serveurs du comté')]},
+  processing:{id:'classification_prediction',type:t('Classification & Prediction','Classification et prédiction'),instance:t('risk score','score de risque')},
+  output:{id:'output_recommendation',type:t('A recommendation or prediction','Une recommandation ou prédiction'),instance:t('a risk score','un score de risque'),pii:'identifiable',
+    facts:[t('shared with the vendor and caseworkers','transmis au prestataire et aux agents')]},
+  risks:[{harm:'financial_harm',title:t('Financial & business harm','Préjudice financier'),
+    narrative:t('A wrong score can deny someone the benefits they depend on.','Un score erroné peut priver une personne des aides dont elle dépend.'),
+    mitigation:null}],
+  usedon:{who:t('Benefit applicants','Les demandeurs d’aide'),scale:t('every applicant is scored','chaque demandeur est évalué'),rel:'subject'},
+  rights:[],
+  escalate:{k:t('The operator lists no path — outside routes still exist','L’exploitant n’indique aucun recours — des voies externes existent'),
+    acts:[{type:'email',label:t('Email the State Benefits Ombudsman','Écrire au médiateur des aides'),target:'ombudsman@benefits.state.example'},
+          {type:'form',label:t('File with the Privacy Commissioner','Saisir le commissaire à la vie privée'),target:'https://privacy.state.example/complaints'}]},
+ },
+ {
+  ref:'DOT-NUM-58', name:t('Sidewalk people-counting sensor','Capteur de comptage des passants'),
+  read:t('City DOT runs a curbside sensor to plan mobility. It counts passers-by incidentally and anonymizes on the device — no images leave the pole.','La voirie municipale exploite un capteur de trottoir pour planifier la mobilité. Il compte les passants de façon incidente et anonymise sur l’appareil — aucune image ne quitte le mât.'),
+  purpose:{id:'mobility',t:t('Mobility','Mobilité')},
+  builtby:{el:'organization',name:'Numina',role:t('Vendor','Fournisseur'),verb:t('built this system.','a conçu ce système.')},
+  runby:{el:'institution',name:'City DOT',role:t('Deployer','Déployeur'),verb:t('operates this system here.','exploite ce système ici.')},
+  modes:[{id:'perceptive_mode',t:t('Sensing','Perception'),s:t('Perceptive AI','IA perceptive')}],
+  autonomy:{id:'human_decides'},
+  input:{id:'input_about_behaviour',type:t('About behaviour','Comportement'),instance:t('live video of passers-by','vidéo en direct des passants'),pii:'identifiable',
+    facts:[t('anonymized on the device','anonymisée sur l’appareil'),t('no video kept','aucune vidéo conservée')]},
+  processing:{id:'computer_vision',type:t('Computer Vision','Vision par ordinateur'),instance:t('object counting','comptage d’objets')},
+  output:{id:'output_about_a_measurement',type:t('About a measurement','Mesure'),instance:t('counts — no images','des comptages, sans image'),pii:'de_identified',
+    facts:[t('stored on device, sent to the city','stockés sur l’appareil, envoyés à la ville'),t('open for download','en libre téléchargement')]},
+  risks:[{harm:'civil_liberties_harm',title:t('Civil liberties harm','Atteinte aux libertés'),
+    narrative:t('Re-identification would be possible if raw video were ever kept.','Une ré-identification serait possible si la vidéo brute était conservée.'),
+    mitigation:t('Anonymized on the device; images discarded','Anonymisation sur l’appareil ; images supprimées')}],
+  usedon:{who:t('Passers-by','Les passants'),scale:t('anyone crossing the sidewalk','quiconque traverse le trottoir'),rel:'bystander'},
+  rights:[
+    {id:'right_to_notice',t:t('Right to Be Informed of AI Use','Droit d’être informé de l’usage de l’IA'),s:t('signage at the pole','panneau sur le mât'),
+     acts:[{type:'url',label:t('View this system’s public page','Voir la page publique'),target:'https://dtpr.ai'}]},
+    {id:'right_purpose_limitation',t:t('Right to Purpose Limitation','Droit à la limitation des finalités'),s:t('counts, for planning only','comptages, planification seule'),
+     acts:[{type:'email',label:t('Report a misuse','Signaler un usage abusif'),target:'privacy@citydot.example'}]},
+  ],
+  escalate:{k:t('If that fails — city services','En cas d’échec — services municipaux'),
+    acts:[{type:'phone',label:t('Call 311','Appeler le 311'),target:'311'}]},
+ },
+ {
+  ref:'PD-HSP-12', name:t('Predictive patrol allocation','Répartition prédictive des patrouilles'),
+  read:t('City Police runs a hotspot model that steers patrols. No single person is scored — but a whole neighbourhood is put under heightened watch.','La police municipale exploite un modèle de points chauds qui oriente les patrouilles. Aucune personne n’est notée individuellement — mais tout un quartier est placé sous surveillance renforcée.'),
+  purpose:{id:'enforcement',t:t('Enforcement','Application de la loi')},
+  builtby:{el:'organization',name:'PredictOps',role:t('Vendor','Fournisseur'),verb:t('built this system.','a conçu ce système.')},
+  runby:{el:'institution',name:'City Police',role:t('Deployer','Déployeur'),verb:t('operates this system here.','exploite ce système ici.')},
+  modes:[{id:'analytical_mode',t:t('Deciding','Décision'),s:t('Analytical AI','IA analytique')}],
+  autonomy:{id:'human_decides'},
+  input:{id:'input_operational_data',type:t('Operational data','Données opérationnelles'),instance:t('past incident logs','historique des incidents'),pii:'pseudonymous',
+    facts:[t('kept for 2 years','conservées 2 ans'),t('on police servers','sur les serveurs de la police')]},
+  processing:{id:'clustering_segmentation',type:t('Clustering & Segmentation','Regroupement et segmentation'),instance:t('hotspot map','carte des points chauds')},
+  output:{id:'output_recommendation',type:t('A recommendation or prediction','Une recommandation ou prédiction'),instance:t('a patrol heat-map','une carte de chaleur des patrouilles'),pii:'de_identified',
+    facts:[t('shared with patrol command','transmise au commandement des patrouilles')]},
+  risks:[{harm:'societal_cultural_harm',title:t('Societal & cultural harm','Préjudice social et culturel'),
+    narrative:t('Feedback loops entrench over-policing of the same blocks.','Des boucles de rétroaction ancrent le surcontrôle des mêmes quartiers.'),
+    mitigation:t('Quarterly bias audit','Audit trimestriel des biais')}],
+  usedon:{who:t('Precinct 7 residents','Les habitants du secteur 7'),count:40000,noun:t('residents','habitants'),rel:'community'},
+  rights:[
+    {id:'right_to_notice',t:t('Right to Be Informed of AI Use','Droit d’être informé de l’usage de l’IA'),s:t('annual transparency report','rapport annuel de transparence'),
+     acts:[{type:'url',label:t('Read the report','Lire le rapport'),target:'https://citypolice.example/ai-report'}]},
+    {id:'right_algorithmic_transparency',t:t('Right to Algorithmic Transparency','Droit à la transparence algorithmique'),s:t('community oversight board','comité de surveillance citoyen'),
+     acts:[{type:'email',label:t('Write to the board','Écrire au comité'),target:'board@police-oversight.example'},
+           {type:'url',label:t('Attend the next meeting','Assister à la prochaine réunion'),target:'https://police-oversight.example/meetings'}]},
+  ],
+  escalate:{k:t('If that fails — independent oversight','En cas d’échec — contrôle indépendant'),
+    acts:[{type:'form',label:t('File with the Inspector General','Saisir l’inspecteur général'),target:'https://oig.city.example/complaints'}]},
+ },
+];
+
+/* ============================================================================
+   PAGE CHROME (localized)
+   ========================================================================== */
+const UI={
+  eyebrow:t('Prototype · v6 · composition grammar','Prototype · v6 · grammaire de composition'),
+  h1:t('DTPR Power Canvas','DTPR Power Canvas'),
+  sub:t('A fixed disclosure board for AI systems in public places. Every piece is generated from one typed source and rendered at two densities: a compact stack (A) and, where it helps, a composed sentence (C).','Un panneau de divulgation fixe pour les systèmes d’IA dans les lieux publics. Chaque élément est généré depuis une source typée unique et rendu à deux densités : une pile compacte (A) et, si utile, une phrase composée (C).'),
+  thesis:t('Deployment-specific values render as highlighter <b>markers</b>; marker <b>colour</b> is spent only on published schema classifications — <b>PII</b> and <b>autonomy</b>. Relationships, roles and harm types are neutral labels.','Les valeurs propres au déploiement s’affichent en <b>marqueurs</b> surlignés ; la <b>couleur</b> du marqueur n’est réservée qu’aux classifications publiées du schéma — <b>DCP</b> et <b>autonomie</b>. Relations, rôles et types de préjudice restent des étiquettes neutres.'),
+  secSystems:t('Four systems, one grammar','Quatre systèmes, une grammaire'),
+  secSystemsSub:t('Every icon is the real composed DTPR icon, loaded from api.dtpr.io. Each board renders A by default, with C beneath for categories that compose a sentence.','Chaque icône est la véritable icône DTPR composée, chargée depuis api.dtpr.io. Chaque panneau affiche A par défaut, avec C en dessous pour les catégories qui composent une phrase.'),
+  secRel:t('The affected seat: a relationship discriminator','La place « concernés » : un discriminant de relation'),
+  secRelSub:t('One generic people element; three relationships. The relationship is a neutral classification — never coloured.','Un élément générique « personnes » ; trois relations. La relation est une classification neutre — jamais colorée.'),
+  secMap:t('Where the DTPR categories land','Où se rangent les catégories DTPR'),
+  secMapSub:t('Each seat is driven by a per-category grammar: which slot leads, whether a sentence composes, and its markers.','Chaque place est pilotée par une grammaire propre à la catégorie : quel élément mène, si une phrase se compose, et ses marqueurs.'),
+  for:t('for','pour'),
+  sysOf:t('System {n} of 4','Système {n} sur 4'),
+  zRun:t('Run by','Exploité par'),
+  zBuilt:t('Built by','Conçu par'),
+  zSystem:t('The system','Le système'),
+  zData:t('Data flow','Flux de données'),
+  zRisk:t('Risks & mitigation','Risques et atténuation'),
+  zUsed:t('Used on','Utilisé sur'),
+  zYou:t('You can','Vous pouvez'),
+  complaint:t('Complaint','Réclamation'),
+  noRights:t('No notice. No appeal path.','Aucune notification. Aucun recours.'),
+  thSeat:t('Canvas seat','Place du panneau'),
+  thCat:t('DTPR category','Catégorie DTPR'),
+  thReads:t('Grammar','Grammaire'),
+  foot:t('Icons are the real composed DTPR icons, loaded live from <code>api.dtpr.io/api/v2</code> (schema <code>ai@2026-05-06-beta</code>). Content follows the local draft <code>ai@2026-08-12-beta</code>. Every board piece is composed from one typed source through a per-category grammar and rendered as a compact stack (A) plus, where it adds value, a composed sentence (C). Deployment values are highlighter markers; colour is reserved for PII and autonomy classifications. Risk is A-only: the AIAAIC harm type leads, the narrative describes it, and a missing mitigation raises the board’s one earned alarm. Design-exploration prototype — not wired into <code>@dtpr/ui</code>.','Les icônes sont les véritables icônes DTPR composées, chargées en direct depuis <code>api.dtpr.io/api/v2</code> (schéma <code>ai@2026-05-06-beta</code>). Le contenu suit le brouillon local <code>ai@2026-08-12-beta</code>. Chaque élément du panneau est composé depuis une source typée unique via une grammaire propre à la catégorie et rendu en pile compacte (A) plus, si utile, une phrase composée (C). Les valeurs de déploiement sont des marqueurs surlignés ; la couleur est réservée aux classifications DCP et autonomie. Le risque est en A seul : le type de préjudice AIAAIC mène, le récit le décrit, et une atténuation absente déclenche la seule alarme méritée du panneau. Prototype d’exploration de conception — non intégré à <code>@dtpr/ui</code>.'),
+};
+
+/* ---- zone → category map ---- */
+const MAP=[
+ {z:t('Name bar','Barre de titre'),cats:['purpose'],
+   note:t('the system’s name, and what it’s for','le nom du système et sa finalité')},
+ {z:t('Built by / Run by','Conçu / Exploité par'),cats:['accountable · vendor','accountable · deployer'],
+   note:t('org grammar: the name leads, the role is the descriptor, a sentence composes','grammaire org : le nom mène, le rôle décrit, une phrase se compose')},
+ {z:t('The system','Le système'),cats:['functional_modes'],
+   note:t('one sentence; the autonomy phrase is a coloured marker','une phrase ; la mention d’autonomie est un marqueur coloré')},
+ {z:t('Data flow','Flux de données'),cats:['input_dataset','processing','output_dataset','retention','storage','access'],
+   note:t('data grammar: the specific value leads, PII is the coloured classification, facts trail','grammaire données : la valeur précise mène, la DCP est la classification colorée, les faits suivent')},
+ {z:t('Risks & mitigation','Risques et atténuation'),cats:['risks_mitigation'],isNew:true,
+   note:t('risk grammar (A-only): harm type leads, narrative describes, a missing mitigation alarms','grammaire risque (A seul) : le type de préjudice mène, le récit décrit, une atténuation absente déclenche l’alarme')},
+ {z:t('Used on','Utilisé sur'),cats:['affected · subject','affected · bystander','affected · community'],
+   note:t('people grammar: the group leads, the relationship is a neutral classification','grammaire personnes : le groupe mène, la relation est une classification neutre')},
+ {z:t('You can','Vous pouvez'),cats:['rights'],
+   note:t('a separate action list (email · form · phone · link) — not part of the grammar','une liste d’actions distincte (courriel · formulaire · téléphone · lien) — hors grammaire')},
+];
+
+/* ============================================================================
+   BOARD ASSEMBLY
+   ========================================================================== */
+function board(sy,i,loc){
+  const actsRow=(acts,right)=>acts&&acts.length?`<div class="racts">${acts.map(a=>actBtn(a,sy,right,loc)).join('')}</div>`:'';
+  const escHtml=sy.escalate?`<div class="esc"><span class="ek">${tr(sy.escalate.k,loc)}</span><div class="racts" style="margin-top:0">${sy.escalate.acts.map(a=>actBtn(a,sy,tr(UI.complaint,loc),loc)).join('')}</div></div>`:'';
+  const rightsHtml=(sy.rights.length
+    ? `<div class="rights">${sy.rights.map(r=>`<div class="right">${ic(r.id,26,tr(r.t,loc))}<div><span class="rn">${tr(r.t,loc)}</span>${r.s?` <span class="rs">— ${tr(r.s,loc)}</span>`:''}${actsRow(r.acts,tr(r.t,loc))}</div></div>`).join('')}`
+    : `<div class="rights"><div class="alarm"><span class="bang">!</span>${tr(UI.noRights,loc)}</div>`)
+    + escHtml + `</div>`;
+
+  const risks=sy.risks||[];
+  const riskCell=risks.length
+    ? `<div class="cell span2"><div class="zl">${tr(UI.zRisk,loc)}</div><div class="risk-list">${risks.map(r=>renderPiece(riskPiece(r,loc),loc)).join('')}</div></div>`
+    : '';   /* R15 — omit the seat when a system discloses no risks */
+
+  return `<div class="board">
+    <div class="cell span2 head">
+      <div class="head-top">
+        <div><span class="sysno">${tr(UI.sysOf,loc).replace('{n}',i+1)} · ${sy.ref}</span><h2>${tr(sy.name,loc)}</h2></div>
+        <span class="chip">${ic(sy.purpose.id,22,tr(sy.purpose.t,loc))}<span><span class="k">${tr(UI.for,loc)}</span> ${tr(sy.purpose.t,loc)}</span></span>
+      </div>
+      <p class="read">${tr(sy.read,loc)}</p>
+    </div>
+    <div class="cell"><div class="zl">${tr(UI.zRun,loc)}</div>${renderPiece(orgPiece(sy.runby,loc),loc)}</div>
+    <div class="cell"><div class="zl">${tr(UI.zBuilt,loc)}</div>${renderPiece(orgPiece(sy.builtby,loc),loc)}</div>
+    <div class="cell span2"><div class="zl">${tr(UI.zSystem,loc)}</div>
+      <div class="sysrow">
+        <div class="mode-icons">${sy.modes.map(m=>icT(m,40,loc)).join('')}</div>
+        <p class="sys-sentence">${sentence(sy,loc)}</p>
+      </div>
+    </div>
+    <div class="cell span2"><div class="zl">${tr(UI.zData,loc)}</div>
+      <div class="vflow">
+        ${renderPiece(dataPiece(sy.input,loc),loc)}
+        <div class="varrow">↓</div>
+        ${renderPiece(dataPiece(sy.processing,loc),loc)}
+        <div class="varrow">↓</div>
+        ${renderPiece(dataPiece(sy.output,loc),loc)}
+      </div>
+    </div>
+    ${riskCell}
+    <div class="cell z-usedon"><div class="zl">${tr(UI.zUsed,loc)}</div>${renderPiece(peoplePiece(sy.usedon,loc),loc)}</div>
+    <div class="cell"><div class="zl">${tr(UI.zYou,loc)}</div>${rightsHtml}</div>
+  </div>`;
+}
+
+/* ============================================================================
+   RENDER — re-runs on every locale toggle (U6)
+   ========================================================================== */
+function render(loc){
+  document.documentElement.lang=loc;
+  const set=(id,v)=>{const e=document.getElementById(id);if(e)e.innerHTML=v;};
+  set('eyebrow',tr(UI.eyebrow,loc));
+  set('h1',tr(UI.h1,loc));
+  set('sub',tr(UI.sub,loc));
+  set('thesis',tr(UI.thesis,loc));
+  set('secSystems',tr(UI.secSystems,loc));
+  set('secSystemsSub',tr(UI.secSystemsSub,loc));
+  set('secRel',tr(UI.secRel,loc));
+  set('secRelSub',tr(UI.secRelSub,loc));
+  set('secMap',tr(UI.secMap,loc));
+  set('secMapSub',tr(UI.secMapSub,loc));
+
+  set('systems',SYSTEMS.map((sy,i)=>board(sy,i,loc)).join(''));
+
+  set('rellegend',Object.entries(REL).map(([id,r])=>`
+    <div class="rel-card">
+      <div class="rc-head">${peopleIc(34,tr(r.a,loc))}
+        <div class="rc-name">${tr(r.a,loc)}<span class="rc-id">affected · ${id}</span></div></div>
+      <div class="rc-desc">${tr(r.legend,loc)}</div>
+    </div>`).join(''));
+
+  set('maptable',
+    `<thead><tr><th>${tr(UI.thSeat,loc)}</th><th>${tr(UI.thCat,loc)}</th><th>${tr(UI.thReads,loc)}</th></tr></thead><tbody>`+
+    MAP.map(m=>`<tr class="${m.isNew?'new':''}"><td><b>${tr(m.z,loc)}</b>${m.isNew?'<span class="newflag">NEW</span>':''}</td><td>${m.cats.map(c=>`<code>${c}</code>`).join(' ')}</td><td>${tr(m.note,loc)}</td></tr>`).join('')+
+    `</tbody>`);
+
+  set('foot',tr(UI.foot,loc));
+
+  document.querySelectorAll('.langbtn').forEach(b=>b.classList.toggle('on',b.dataset.loc===loc));
+}
+
+document.querySelectorAll('.langbtn').forEach(b=>b.addEventListener('click',()=>render(b.dataset.loc)));
+render('en');
+
+/* ---- immediate icon tooltip (delegated, so it survives every re-render) ---- */
+const tipEl=document.createElement('div');
+tipEl.className='tip'; tipEl.setAttribute('role','tooltip');
+document.body.appendChild(tipEl);
+function placeTip(el){
+  const txt=el.getAttribute('data-tip'); if(!txt) return;
+  tipEl.textContent=txt; tipEl.style.display='block'; tipEl.classList.remove('below');
+  const r=el.getBoundingClientRect(), b=tipEl.getBoundingClientRect();
+  const cx=r.left+r.width/2;
+  let x=cx-b.width/2, y=r.top-b.height-9;
+  if(y<4){ y=r.bottom+9; tipEl.classList.add('below'); }
+  x=Math.max(6,Math.min(x,window.innerWidth-b.width-6));
+  tipEl.style.left=x+'px'; tipEl.style.top=y+'px';
+  tipEl.style.setProperty('--tipx',(cx-x)+'px');   /* keep the arrow under the icon even when clamped */
+}
+const hideTip=()=>{tipEl.style.display='none';};
+document.addEventListener('mouseover',e=>{const el=e.target.closest('[data-tip]'); if(el) placeTip(el);});
+document.addEventListener('mouseout',e=>{const el=e.target.closest('[data-tip]'); if(el&&!el.contains(e.relatedTarget)) hideTip();});
+window.addEventListener('scroll',hideTip,true);
+</script>
+</body>
+</html>
