@@ -152,24 +152,29 @@ const href = (a: RightAction, sy: SystemContent, right: string) => actHref(a, sy
               </div>
             </td>
           </tr>
-          <!-- Used on (highlighted relationship row) -->
-          <tr class="usedon">
+          <!-- Used on -->
+          <tr>
             <th scope="row">{{ $t('canvas.usedOn') }}</th>
             <td v-for="col in columns" :key="col.key">
-              <em class="rel-word">{{ col.usedon.word }}</em>
-              <div class="piece">
-                <svg width="30" height="30" viewBox="0 0 36 36" aria-hidden="true">
-                  <path d="M31.8564 8.8453L19 1.42265C18.3812 1.06538 17.6188 1.06538 17 1.42265L4.14359 8.8453C3.52479 9.20257 3.14359 9.86282 3.14359 10.5774V25.4226C3.14359 26.1372 3.52479 26.7974 4.14359 27.1547L17 34.5774C17.6188 34.9346 18.3812 34.9346 19 34.5774L31.8564 27.1547C32.4752 26.7974 32.8564 26.1372 32.8564 25.4226V10.5774C32.8564 9.86282 32.4752 9.20256 31.8564 8.8453Z" fill="none" stroke="#000" stroke-width="2" />
-                  <g fill="#000">
-                    <path d="M13.5 10.6667C15.1569 10.6667 16.5 12.0098 16.5 13.6667C16.5 15.3235 15.1569 16.6667 13.5 16.6667C11.8431 16.6667 10.5 15.3235 10.5 13.6667C10.5 12.0098 11.8431 10.6667 13.5 10.6667Z" />
-                    <path d="M22.5 10.6667C24.1569 10.6667 25.5 12.0098 25.5 13.6667C25.5 15.3235 24.1569 16.6667 22.5 16.6667C20.8431 16.6667 19.5 15.3235 19.5 13.6667C19.5 12.0098 20.8431 10.6667 22.5 10.6667Z" />
-                    <path d="M13.5 18C10.1863 18 7.5 20.6863 7.5 24V25.3333H19.5V24C19.5 20.6863 16.8137 18 13.5 18Z" />
-                    <path d="M22.5 18C21.9316 18 21.3818 18.0791 20.8608 18.2266C22.1863 19.7061 23 21.6589 23 24V25.3333H28.5V24C28.5 20.6863 25.8137 18 22.5 18Z" />
-                  </g>
-                </svg>
-                <div class="pn">{{ col.usedon.who }}<span v-if="col.usedon.scale" class="ps">{{ col.usedon.scale }}</span></div>
+              <div class="stack">
+                <div class="piece">
+                  <svg width="30" height="30" viewBox="0 0 36 36" aria-hidden="true">
+                    <path d="M31.8564 8.8453L19 1.42265C18.3812 1.06538 17.6188 1.06538 17 1.42265L4.14359 8.8453C3.52479 9.20257 3.14359 9.86282 3.14359 10.5774V25.4226C3.14359 26.1372 3.52479 26.7974 4.14359 27.1547L17 34.5774C17.6188 34.9346 18.3812 34.9346 19 34.5774L31.8564 27.1547C32.4752 26.7974 32.8564 26.1372 32.8564 25.4226V10.5774C32.8564 9.86282 32.4752 9.20256 31.8564 8.8453Z" fill="none" stroke="#000" stroke-width="2" />
+                    <g fill="#000">
+                      <path d="M13.5 10.6667C15.1569 10.6667 16.5 12.0098 16.5 13.6667C16.5 15.3235 15.1569 16.6667 13.5 16.6667C11.8431 16.6667 10.5 15.3235 10.5 13.6667C10.5 12.0098 11.8431 10.6667 13.5 10.6667Z" />
+                      <path d="M22.5 10.6667C24.1569 10.6667 25.5 12.0098 25.5 13.6667C25.5 15.3235 24.1569 16.6667 22.5 16.6667C20.8431 16.6667 19.5 15.3235 19.5 13.6667C19.5 12.0098 20.8431 10.6667 22.5 10.6667Z" />
+                      <path d="M13.5 18C10.1863 18 7.5 20.6863 7.5 24V25.3333H19.5V24C19.5 20.6863 16.8137 18 13.5 18Z" />
+                      <path d="M22.5 18C21.9316 18 21.3818 18.0791 20.8608 18.2266C22.1863 19.7061 23 21.6589 23 24V25.3333H28.5V24C28.5 20.6863 25.8137 18 22.5 18Z" />
+                    </g>
+                  </svg>
+                  <div class="pn">
+                    {{ col.usedon.who }}
+                    <span v-if="col.usedon.word" class="ps">{{ col.usedon.word }}</span>
+                  </div>
+                </div>
+                <span v-if="col.usedon.scale" class="tiny">{{ col.usedon.scale }}</span>
+                <span class="tiny">{{ col.usedon.tail }}</span>
               </div>
-              <p class="rel-line">{{ col.usedon.tail }}</p>
             </td>
           </tr>
           <!-- You can -->
@@ -276,21 +281,6 @@ const href = (a: RightAction, sy: SystemContent, right: string) => actHref(a, sy
 .tiny { font-size: 0.72rem; color: var(--muted); }
 .safeguard { font-size: 0.72rem; margin-top: 2px; }
 .safeguard .k { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); margin-right: 6px; }
-
-/* the affected row — signal tint + hatched left edge */
-.matrix tr.usedon td { background: color-mix(in srgb, var(--signal) 4%, var(--card)); }
-.matrix tr.usedon th { background: color-mix(in srgb, var(--signal) 9%, var(--chip)); color: var(--signal); position: relative; }
-.matrix tr.usedon th::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 5px;
-  background: repeating-linear-gradient(-45deg, var(--signal) 0 5px, transparent 5px 10px);
-}
-.rel-word { display: block; font-style: italic; font-weight: 700; font-size: 0.85rem; color: var(--signal); margin-bottom: 8px; }
-.rel-line { font-size: 0.7rem; color: var(--muted); margin: 8px 0 0; }
 
 /* the matrix's action pills sit tighter than the board's default */
 .canvas-root :deep(.racts) { margin-top: 5px; }
