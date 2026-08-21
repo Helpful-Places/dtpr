@@ -1,5 +1,5 @@
 diff --git a/dist/module/runtime/server/routes/auth/github.get.js b/dist/module/runtime/server/routes/auth/github.get.js
-index f4a97afec535469a233c33292d2a0c141d7b05c6..23ddd8b381d6b111446af5a4fbd84702693129a0 100644
+index f4a97afec535469a233c33292d2a0c141d7b05c6..e48b9efb062736503efe514b3fd073db7fa89bcf 100644
 --- a/dist/module/runtime/server/routes/auth/github.get.js
 +++ b/dist/module/runtime/server/routes/auth/github.get.js
 @@ -1,9 +1,12 @@
@@ -42,7 +42,7 @@ index f4a97afec535469a233c33292d2a0c141d7b05c6..23ddd8b381d6b111446af5a4fbd84702
      const primaryEmail = emails.find((email) => email.primary);
      if (!primaryEmail) {
        throw createError({
-@@ -103,12 +113,28 @@ export default eventHandler(async (event) => {
+@@ -103,12 +113,33 @@ export default eventHandler(async (event) => {
      }
      user.email = primaryEmail.email;
    }
@@ -52,8 +52,13 @@ index f4a97afec535469a233c33292d2a0c141d7b05c6..23ddd8b381d6b111446af5a4fbd84702
 -      statusCode: 403,
 -      message: "You are not authorized to access the studio"
 -    });
-+  const moderators = (process.env.STUDIO_GITHUB_MODERATORS || "").split(",").map(normalizeEmail).filter(Boolean);
-+  if (moderators.length > 0) {
++  const configuredModerators = process.env.STUDIO_GITHUB_MODERATORS;
++  const moderators = (configuredModerators || "").split(",").map(normalizeEmail).filter(Boolean);
++  // Patched (dtpr): gate on whether an allowlist is configured at all, not on how many
++  // entries survived normalization. A set-but-blank value ("", " ", ",,") normalizes to an
++  // empty list, and keying off its length would skip the check and let any authenticated
++  // GitHub account in. Upstream failed closed there; so must we.
++  if (configuredModerators !== void 0) {
 +    // Patched (dtpr): authorize against every verified email on the GitHub account,
 +    // not only the public/primary one. Upstream: nuxt-content/nuxt-studio#308
 +    const candidateEmails = new Set([normalizeEmail(user.email)].filter(Boolean));

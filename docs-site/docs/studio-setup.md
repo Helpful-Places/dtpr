@@ -70,6 +70,8 @@ Matching rules (see [Patched `nuxt-studio`](#patched-nuxt-studio) below):
 - **GitHub OAuth:** any **verified** email on the moderator's GitHub account matches — primary, public, or secondary. A `@users.noreply.github.com` address won't match a real address.
 - **Google OAuth:** the Google account's email must match.
 - Both lists are compared case-insensitively and with surrounding whitespace trimmed, so `Alice@Example.com, bob@example.com` still works. Keep the canonical list lowercase and space-free anyway.
+- A list that is **set but blank** (`""`, `" "`, `",,"`) matches nobody and locks everyone out — it never degrades into "no allowlist".
+- Leaving `STUDIO_GITHUB_MODERATORS` **entirely unset** means *no GitHub restriction at all* — any GitHub account that completes the OAuth flow gets in. This is upstream `nuxt-studio` behaviour, and it is why the secret must be present in production. (`STUDIO_GOOGLE_MODERATORS` has no such hole: Google auth always requires a match.)
 
 ## Cloudflare Workers secrets (production)
 
@@ -113,6 +115,7 @@ Any test commits made from local dev land on `main` the same way production comm
 
 - GitHub: authorizes if **any verified** email on the account is on the list (fetched from `GET /user/emails`, which the requested `user:email` scope already allows). The session still stores upstream's public-or-primary email, so commit attribution is unchanged.
 - GitHub + Google: trims and lowercases both sides before comparing, and ignores empty entries.
+- GitHub: decides *whether an allowlist exists* from the presence of the env var, not from how many entries survived that normalization. Keying off the surviving count would let a set-but-blank value collapse to an empty list and skip the check entirely, admitting any authenticated GitHub account; upstream failed closed there and so does the patch.
 - Logs a `[Nuxt Studio] … login rejected` warning on `403` so `wrangler tail` shows *why*.
 
 **Upgrading `nuxt-studio`:** pnpm refuses to install if the patched version no longer matches. Re-create the patch against the new version (`pnpm patch nuxt-studio@<version> --edit-dir /tmp/ns-patch`, re-apply the same edits, `pnpm patch-commit /tmp/ns-patch`), remove the old entry, and check whether upstream has since fixed #308 — if so, drop the patch entirely. Note that upstream `main` already moved env reads into a runtime middleware after 1.7.0 (`STUDIO_*` vars become `runtimeConfig.studio.auth.<provider>.moderators`), so the patch will need to be rewritten rather than rebased.
