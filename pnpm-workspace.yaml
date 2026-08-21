@@ -38,3 +38,5 @@ overrides:
   # pull TypeScript 6.x, which fails the @dtpr/ui dts build (stricter Vue
   # `h()` prop + CSS side-effect import checks).
   typescript: 5.9.3
+patchedDependencies:
+  nuxt-studio@1.7.0: patches/nuxt-studio@1.7.0.patch

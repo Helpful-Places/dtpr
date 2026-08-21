@@ -1,0 +1,103 @@
+diff --git a/dist/module/runtime/server/routes/auth/github.get.js b/dist/module/runtime/server/routes/auth/github.get.js
+index f4a97afec535469a233c33292d2a0c141d7b05c6..e48b9efb062736503efe514b3fd073db7fa89bcf 100644
+--- a/dist/module/runtime/server/routes/auth/github.get.js
++++ b/dist/module/runtime/server/routes/auth/github.get.js
+@@ -1,9 +1,12 @@
+ import { useRuntimeConfig } from "#imports";
++import { consola } from "consola";
+ import { createError, deleteCookie, eventHandler, getCookie, getQuery, getRequestURL, sendRedirect } from "h3";
+ import { withQuery, withoutTrailingSlash } from "ufo";
+ import { generateOAuthState, requestAccessToken, validateOAuthState } from "../../utils/auth.js";
+ import { setInternalStudioUserSession } from "../../utils/session.js";
+ import { mergeConfig } from "../../utils/object.js";
++const logger = consola.withTag("Nuxt Studio");
++const normalizeEmail = (value) => String(value || "").trim().toLowerCase();
+ export default eventHandler(async (event) => {
+   const studioConfig = useRuntimeConfig(event).studio;
+   const instanceUrl = withoutTrailingSlash(studioConfig?.auth?.github?.instanceUrl || studioConfig?.repository?.instanceUrl || "https://github.com");
+@@ -86,13 +89,20 @@ export default eventHandler(async (event) => {
+       "Authorization": `token ${accessToken}`
+     }
+   });
++  let githubEmails;
++  const listGithubEmails = async () => {
++    if (!githubEmails) {
++      githubEmails = await $fetch(`${config.apiURL}/user/emails`, {
++        headers: {
++          "User-Agent": `Github-OAuth-${config.clientId}`,
++          "Authorization": `token ${accessToken}`
++        }
++      });
++    }
++    return githubEmails;
++  };
+   if (!user.email && config.emailRequired) {
+-    const emails = await $fetch(`${config.apiURL}/user/emails`, {
+-      headers: {
+-        "User-Agent": `Github-OAuth-${config.clientId}`,
+-        "Authorization": `token ${accessToken}`
+-      }
+-    });
++    const emails = await listGithubEmails();
+     const primaryEmail = emails.find((email) => email.primary);
+     if (!primaryEmail) {
+       throw createError({
+@@ -103,12 +113,33 @@ export default eventHandler(async (event) => {
+     }
+     user.email = primaryEmail.email;
+   }
+-  const moderators = process.env.STUDIO_GITHUB_MODERATORS?.split(",") || [];
+-  if (moderators.length > 0 && !moderators.includes(String(user.email))) {
+-    throw createError({
+-      statusCode: 403,
+-      message: "You are not authorized to access the studio"
+-    });
++  const configuredModerators = process.env.STUDIO_GITHUB_MODERATORS;
++  const moderators = (configuredModerators || "").split(",").map(normalizeEmail).filter(Boolean);
++  // Patched (dtpr): gate on whether an allowlist is configured at all, not on how many
++  // entries survived normalization. A set-but-blank value ("", " ", ",,") normalizes to an
++  // empty list, and keying off its length would skip the check and let any authenticated
++  // GitHub account in. Upstream failed closed there; so must we.
++  if (configuredModerators !== void 0) {
++    // Patched (dtpr): authorize against every verified email on the GitHub account,
++    // not only the public/primary one. Upstream: nuxt-content/nuxt-studio#308
++    const candidateEmails = new Set([normalizeEmail(user.email)].filter(Boolean));
++    try {
++      for (const entry of await listGithubEmails() || []) {
++        if (entry?.verified && entry.email) {
++          candidateEmails.add(normalizeEmail(entry.email));
++        }
++      }
++    } catch (error) {
++      logger.warn("Could not list GitHub emails for the moderator check:", error?.message || error);
++    }
++    const isModerator = [...candidateEmails].some((email) => moderators.includes(email));
++    if (!isModerator) {
++      logger.warn(`GitHub login rejected: none of [${[...candidateEmails].join(", ")}] is in STUDIO_GITHUB_MODERATORS (${moderators.length} entries)`);
++      throw createError({
++        statusCode: 403,
++        message: "You are not authorized to access the studio"
++      });
++    }
+   }
+   await setInternalStudioUserSession(event, {
+     providerId: user.id.toString(),
+diff --git a/dist/module/runtime/server/routes/auth/google.get.js b/dist/module/runtime/server/routes/auth/google.get.js
+index 0c86c5cc2a0ff85972894081b7dae33ffd971c9d..33a7abd386e8baa053f118e1f2ceabaa4618d295 100644
+--- a/dist/module/runtime/server/routes/auth/google.get.js
++++ b/dist/module/runtime/server/routes/auth/google.get.js
+@@ -97,8 +97,12 @@ export default eventHandler(async (event) => {
+       data: user
+     });
+   }
+-  const moderators = process.env.STUDIO_GOOGLE_MODERATORS?.split(",") || [];
+-  if (!moderators.includes(user.email)) {
++  const normalizeEmail = (value) => String(value || "").trim().toLowerCase();
++  const moderators = (process.env.STUDIO_GOOGLE_MODERATORS || "").split(",").map(normalizeEmail).filter(Boolean);
++  if (!moderators.includes(normalizeEmail(user.email))) {
++    if (moderators.length > 0) {
++      logger.warn(`Google login rejected: ${normalizeEmail(user.email)} is not in STUDIO_GOOGLE_MODERATORS (${moderators.length} entries)`);
++    }
+     if (import.meta.dev && moderators.length === 0) {
+       logger.warn([
+         "No moderators defined. Moderators are required for Google authentication.",
