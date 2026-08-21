@@ -21,7 +21,10 @@
     "test:ui": "pnpm --filter @dtpr/ui test",
     "dev:talk:makeshift": "pnpm --filter ./talks/makeshift-2026 dev",
     "build:talk:makeshift": "pnpm --filter ./talks/makeshift-2026 build",
-    "export:talk:makeshift": "pnpm --filter ./talks/makeshift-2026 export"
+    "export:talk:makeshift": "pnpm --filter ./talks/makeshift-2026 export",
+    "dev:talk:webinar": "pnpm --filter ./talks/webinar-aug-2026 dev",
+    "build:talk:webinar": "pnpm --filter ./talks/webinar-aug-2026 build",
+    "export:talk:webinar": "pnpm --filter ./talks/webinar-aug-2026 export"
   },
   "packageManager": "pnpm@11.1.2+sha512.415a1cc25974731e75455c1468371be74c5aa5fb7621b50d4056d222451609f11412f23fd602e6169f1e060466641f798597e1be961a10688836a67b16569499"
 }
