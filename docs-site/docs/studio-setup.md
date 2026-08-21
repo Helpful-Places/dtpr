@@ -65,7 +65,11 @@ echo -n "$MODS" | pnpm -F dtpr-docs exec wrangler secret put STUDIO_GITHUB_MODER
 # Then redeploy so the Worker picks up the new secrets.
 ```
 
-For GitHub OAuth: list the primary email on each moderator's GitHub account. A user's `@users.noreply.github.com` address won't match a real address.
+Matching rules (see [Patched `nuxt-studio`](#patched-nuxt-studio) below):
+
+- **GitHub OAuth:** any **verified** email on the moderator's GitHub account matches — primary, public, or secondary. A `@users.noreply.github.com` address won't match a real address.
+- **Google OAuth:** the Google account's email must match.
+- Both lists are compared case-insensitively and with surrounding whitespace trimmed, so `Alice@Example.com, bob@example.com` still works. Keep the canonical list lowercase and space-free anyway.
 
 ## Cloudflare Workers secrets (production)
 
@@ -88,6 +92,8 @@ Verify what's configured (values are not shown):
 pnpm exec wrangler secret list
 ```
 
+`wrangler` must be logged into the Cloudflare account that owns the `dtpr-docs` Worker (the `account_id` in `wrangler.toml`). If `wrangler whoami` shows a different account, every `secret`/`deployments`/`tail` command fails with `Authentication error [code: 10000]` and a warning that the configured `account_id` does not match — run `pnpm exec wrangler login` with the right account, or export a `CLOUDFLARE_API_TOKEN` scoped to it.
+
 Use the **prod** GitHub OAuth App credentials for `STUDIO_GITHUB_CLIENT_ID`/`_SECRET` (not the dev app's).
 
 ## Local dev setup
@@ -101,6 +107,16 @@ Use the **prod** GitHub OAuth App credentials for `STUDIO_GITHUB_CLIENT_ID`/`_SE
 
 Any test commits made from local dev land on `main` the same way production commits do. Prefer using a sandbox file (or immediately reverting) when testing.
 
+## Patched `nuxt-studio`
+
+`nuxt-studio` is installed with a pnpm patch (`patches/nuxt-studio@1.7.0.patch`, registered under `patchedDependencies` in the root `pnpm-workspace.yaml`). Upstream compares the allowlist by exact string match against a single email — the GitHub account's public email, or its primary email if no public one is set ([nuxt-content/nuxt-studio#308](https://github.com/nuxt-content/nuxt-studio/issues/308)). Anyone whose listed address is a secondary email, or whose list entry differs only in case/whitespace, gets a `403`. The patch:
+
+- GitHub: authorizes if **any verified** email on the account is on the list (fetched from `GET /user/emails`, which the requested `user:email` scope already allows). The session still stores upstream's public-or-primary email, so commit attribution is unchanged.
+- GitHub + Google: trims and lowercases both sides before comparing, and ignores empty entries.
+- Logs a `[Nuxt Studio] … login rejected` warning on `403` so `wrangler tail` shows *why*.
+
+**Upgrading `nuxt-studio`:** pnpm refuses to install if the patched version no longer matches. Re-create the patch against the new version (`pnpm patch nuxt-studio@<version> --edit-dir /tmp/ns-patch`, re-apply the same edits, `pnpm patch-commit /tmp/ns-patch`), remove the old entry, and check whether upstream has since fixed #308 — if so, drop the patch entirely. Note that upstream `main` already moved env reads into a runtime middleware after 1.7.0 (`STUDIO_*` vars become `runtimeConfig.studio.auth.<provider>.moderators`), so the patch will need to be rewritten rather than rebased.
+
 ## Troubleshooting
 
 **Editor won't load / blank page at `/_studio`**
@@ -113,9 +129,15 @@ Any test commits made from local dev land on `main` the same way production comm
 - Compare the redirect URI in the OAuth app exactly against `http(s)://<host>/__nuxt_studio/auth/<provider>`.
 - Verify the other provider's three secrets are set (`wrangler secret list`).
 
+**`403` / "Page not found" right after the GitHub (or Google) redirect**
+- The URL is `/__nuxt_studio/auth/github?code=…&state=…` (or `/google`) and the page says `403 Page not found — We are sorry but this page could not be found.`
+- This is *not* a missing route. Docus's `error.vue` replaces every error's title/description with the localized "Page not found" copy, so the status code is the only real signal. `403` on the callback is `nuxt-studio`'s moderator check: the email it resolved for you is not in `STUDIO_GITHUB_MODERATORS` / `STUDIO_GOOGLE_MODERATORS`.
+- The Worker logs a `[Nuxt Studio] GitHub login rejected: none of [...] is in STUDIO_GITHUB_MODERATORS` (or `Google login rejected: …`) warning naming the email(s) it compared and how many allowlist entries it had. Capture it with `pnpm exec wrangler tail dtpr-docs --format pretty` while retrying the sign-in.
+- Other callback failures use different codes: `400` = state cookie missing/mismatch (retry from `/_studio`), `500` = missing client ID/secret or token exchange failure.
+
 **"You are not a moderator" despite being on the list**
 - Check for typos in the moderator list (extra spaces, wrong domain).
-- For GitHub OAuth: confirm the user's primary email on GitHub matches the list. A `@users.noreply.github.com` email won't match if we listed their real email.
+- For GitHub OAuth: confirm the listed address is a **verified** email on the user's GitHub account (Settings → Emails). A `@users.noreply.github.com` email won't match if we listed their real email.
 - Confirm both `STUDIO_GOOGLE_MODERATORS` and `STUDIO_GITHUB_MODERATORS` were updated on the last moderator change.
 
 **Commits not appearing after save**
