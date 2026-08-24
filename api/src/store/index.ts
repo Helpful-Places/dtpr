@@ -16,6 +16,17 @@ import * as r2 from './r2-loader.ts'
 export type { LoadContext } from './r2-loader.ts'
 export { R2LoadError } from './r2-loader.ts'
 export { loadSchemaIndex, type SchemaIndex, type SchemaIndexEntry } from './index-loader.ts'
+
+/**
+ * Legacy snapshot loaders, re-exported straight through rather than
+ * wrapped. Every loader above is a wrapper only because it has to
+ * consult the inline-bundle fallback first; inline bundles are keyed by
+ * a schema version's canonical string and carry schema entities, so
+ * there is nothing for the legacy path to consult. The legacy routes
+ * still import from this barrel, not from `r2-loader.ts`.
+ */
+export { loadLegacyDocument, loadLegacyIconSvg } from './r2-loader.ts'
+export { LEGACY_VERSIONS, legacyDocumentKey, legacyIconKey, type LegacyVersion } from './keys.ts'
 export {
   registerInlineBundle,
   getInlineBundle,
