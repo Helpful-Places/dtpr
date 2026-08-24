@@ -9,6 +9,7 @@ import {
   type LegacyV1DocumentFilter,
 } from './legacy-locales.ts'
 import {
+  LEGACY_SERVER_ERROR,
   legacyErrorResponse,
   legacyBadRequest,
   legacyJsonBody,
@@ -58,13 +59,6 @@ export const LEGACY_V1_DOCUMENT_PATHS = [
 
 /** The legacy `validateDatachainType` message, byte-for-byte. */
 const INVALID_DATACHAIN_TYPE = 'Invalid datachain_type. Must be "ai" or "device"'
-
-/**
- * The h3 body for an unhandled handler exception. What the legacy
- * service rendered when `/api/v1/elements` threw — see the 500 branch
- * below.
- */
-const SERVER_ERROR = 'Server Error'
 
 /**
  * The requested locales for this request, parsed the legacy way.
@@ -158,7 +152,7 @@ export function createLegacyV1App() {
     // thrown for real and rendered by the Worker's global handler in
     // the v2 envelope, which is the wrong shape (KTD4).
     if (hasEffectiveLocalesFilter(locales)) {
-      return legacyErrorResponse(c, { status: 500, statusMessage: SERVER_ERROR })
+      return legacyErrorResponse(c, { status: 500, statusMessage: LEGACY_SERVER_ERROR })
     }
 
     const document = await loadLegacyDocument(legacyLoadCtx(c), 'v1', 'elements')

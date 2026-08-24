@@ -67,6 +67,11 @@ import {
   legacyIconKey,
   type LegacyVersion,
 } from '../src/store/keys.ts'
+// Shared with the schema uploader rather than re-declared. That script
+// pulls in only node built-ins, the S3 client this one already imports,
+// and a zero-dependency version parser — no route module, so none of
+// the Hono graph this script deliberately stays out of comes with it.
+import { contentTypeFor, requireEnv, walkFiles } from './r2-upload.ts'
 
 const API_ROOT = fileURLToPath(new URL('..', import.meta.url))
 
@@ -81,27 +86,6 @@ export const DEFAULT_LEGACY_ROOT = join(API_ROOT, 'legacy')
  * and no route can be shadowed by it.
  */
 export const LEGACY_FINGERPRINT_KEY = 'legacy/upload-fingerprint.json'
-
-/**
- * Content types for the two file kinds the snapshot holds, both
- * **without** a charset parameter — the retired service never sent one
- * (R4), and `rest/legacy-shared.ts` sets these same two strings on the
- * way out.
- *
- * Mirrors `contentTypeFor` in `r2-upload.ts` rather than importing it,
- * for the same reason it does not import the route module's constants:
- * this is a CI script, and neither the schema uploader's version
- * parsing nor Hono belongs in its module graph.
- */
-const CONTENT_TYPE_BY_EXT: Record<string, string> = {
-  '.json': 'application/json',
-  '.svg': 'image/svg+xml',
-}
-
-export function contentTypeFor(filename: string): string {
-  const ext = filename.slice(filename.lastIndexOf('.'))
-  return CONTENT_TYPE_BY_EXT[ext] ?? 'application/octet-stream'
-}
 
 /**
  * The parts of `api/legacy/manifest.json` this script reads.
@@ -157,20 +141,6 @@ function sha256(bytes: Buffer): string {
 
 function isLegacyVersion(value: string | undefined): value is LegacyVersion {
   return value !== undefined && (LEGACY_VERSIONS as readonly string[]).includes(value)
-}
-
-/** Depth-first file listing, sorted. Same shape as `r2-upload.ts`. */
-async function walkFiles(root: string): Promise<string[]> {
-  const out: string[] = []
-  async function walk(dir: string): Promise<void> {
-    for (const entry of await readdir(dir, { withFileTypes: true })) {
-      const abs = join(dir, entry.name)
-      if (entry.isDirectory()) await walk(abs)
-      else if (entry.isFile()) out.push(abs)
-    }
-  }
-  await walk(root)
-  return out.sort()
 }
 
 /**
@@ -496,12 +466,6 @@ function parseArgs(argv: string[]): ParsedArgs {
     }
   }
   return { legacyRoot, force }
-}
-
-function requireEnv(name: string): string {
-  const v = process.env[name]
-  if (!v) throw new Error(`Missing required env var: ${name}`)
-  return v
 }
 
 export async function main(argv: string[] = process.argv.slice(2)): Promise<void> {

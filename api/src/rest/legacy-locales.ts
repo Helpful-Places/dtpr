@@ -177,21 +177,27 @@ export function hasEffectiveLocalesFilter(
 
 /**
  * The legacy `filterLocaleValues`. Case-sensitive membership against
- * the requested list, in list order — `includes`, not a `Set`, and no
- * normalisation of either side. `?locales=EN` therefore matches
- * nothing, and `?locales=en,%20fr` matches `en` but not `fr`, because
- * the second entry is `" fr"`.
+ * the requested locales, with no normalisation of either side.
+ * `?locales=EN` therefore matches nothing, and `?locales=en,%20fr`
+ * matches `en` but not `fr`, because the second entry is `" fr"`.
+ *
+ * The legacy source scanned an array with `includes`. This takes a
+ * `Set` built once per request instead: `?locales=` is uncapped, so a
+ * per-field linear scan is the one place a pathological query could
+ * burn the Worker's CPU budget. Membership is order- and
+ * duplicate-invariant and the equality is the same strict string
+ * compare, so the output is byte-identical either way.
  *
  * The legacy `!requestedLocales` half of the guard is absorbed by the
- * parameter type here; the `length === 0` half is kept because callers
- * below rely on it.
+ * parameter type here; the empty-collection half is kept because
+ * callers below rely on it.
  */
 function filterLocaleValues(
   values: LegacyLocaleValue[],
-  requestedLocales: string[],
+  requestedLocales: ReadonlySet<string>,
 ): LegacyLocaleValue[] {
-  if (requestedLocales.length === 0) return values
-  return values.filter((item) => requestedLocales.includes(item.locale))
+  if (requestedLocales.size === 0) return values
+  return values.filter((item) => requestedLocales.has(item.locale))
 }
 
 /**
@@ -207,9 +213,9 @@ function filterLocaleValues(
  */
 function filterVariablesByLocale(
   variables: LegacyVariable[],
-  requestedLocales: string[],
+  requestedLocales: ReadonlySet<string>,
 ): LegacyVariable[] {
-  if (requestedLocales.length === 0) return variables
+  if (requestedLocales.size === 0) return variables
   return variables.map((variable) => ({
     ...variable,
     label: filterLocaleValues(variable.label, requestedLocales),
@@ -225,7 +231,10 @@ function filterVariablesByLocale(
  * and it is safe only because `finalizeContext` emitted these four
  * keys in this order. Reordering them here would change the bytes.
  */
-function filterContextByLocale(context: LegacyContext, requestedLocales: string[]): LegacyContext {
+function filterContextByLocale(
+  context: LegacyContext,
+  requestedLocales: ReadonlySet<string>,
+): LegacyContext {
   return {
     id: context.id,
     name: filterLocaleValues(context.name, requestedLocales),
@@ -273,20 +282,25 @@ export function filterLegacyElementsDocument(
   requestedLocales: string[],
 ): string {
   const records = JSON.parse(document) as LegacyElementRecord[]
+  // One Set per request rather than a linear scan per locale-bearing
+  // field: `?locales=` is uncapped, so `requestedLocales` is
+  // attacker-sized. Membership is order- and duplicate-invariant, so
+  // this is byte-identical to the legacy array scan.
+  const requested = new Set(requestedLocales)
 
   return serialise(
     records.map((record) => {
       const element = { ...record.element }
-      element.title = filterLocaleValues(record.element.title, requestedLocales)
-      element.description = filterLocaleValues(record.element.description, requestedLocales)
+      element.title = filterLocaleValues(record.element.title, requested)
+      element.description = filterLocaleValues(record.element.description, requested)
       element.icon = {
         ...record.element.icon,
-        alt_text: filterLocaleValues(record.element.icon.alt_text, requestedLocales),
+        alt_text: filterLocaleValues(record.element.icon.alt_text, requested),
       }
       if (record.element.citation && record.element.citation.length > 0) {
-        element.citation = filterLocaleValues(record.element.citation, requestedLocales)
+        element.citation = filterLocaleValues(record.element.citation, requested)
       }
-      element.variables = filterVariablesByLocale(record.element.variables, requestedLocales)
+      element.variables = filterVariablesByLocale(record.element.variables, requested)
       return { ...record, element }
     }),
   )
@@ -311,23 +325,25 @@ export function filterLegacyCategoriesDocument(
   requestedLocales: string[],
 ): string {
   const records = JSON.parse(document) as LegacyCategoryRecord[]
+  // Same reasoning as the elements filter above.
+  const requested = new Set(requestedLocales)
 
   return serialise(
     records.map((record) => {
       const category = { ...record.category }
-      category.name = filterLocaleValues(record.category.name, requestedLocales)
-      category.description = filterLocaleValues(record.category.description, requestedLocales)
+      category.name = filterLocaleValues(record.category.name, requested)
+      category.description = filterLocaleValues(record.category.description, requested)
       if (record.category.prompt && record.category.prompt.length > 0) {
-        category.prompt = filterLocaleValues(record.category.prompt, requestedLocales)
+        category.prompt = filterLocaleValues(record.category.prompt, requested)
       }
       if (record.category.element_variables && record.category.element_variables.length > 0) {
         category.element_variables = filterVariablesByLocale(
           record.category.element_variables,
-          requestedLocales,
+          requested,
         )
       }
       if (record.category.context) {
-        category.context = filterContextByLocale(record.category.context, requestedLocales)
+        category.context = filterContextByLocale(record.category.context, requested)
       }
       return { ...record, category }
     }),

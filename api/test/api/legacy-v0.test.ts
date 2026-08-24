@@ -3,7 +3,6 @@ import { Hono } from 'hono'
 import { env, createExecutionContext, waitOnExecutionContext } from 'cloudflare:test'
 import type { AppEnv } from '../../src/app-types.ts'
 import { createLegacyV0App, LEGACY_V0_LOCALES } from '../../src/rest/legacy-v0.ts'
-import { cacheKeyFor } from '../../src/store/cache-wrapper.ts'
 import { legacyDocumentKey, legacyIconKey } from '../../src/store/keys.ts'
 import {
   legacyDocument,
@@ -11,6 +10,7 @@ import {
   legacyIcon,
   legacyIconIds,
 } from './legacy-fixtures.ts'
+import { countingBucket, evict, withBucket } from './legacy-test-helpers.ts'
 import { clearBucket } from './seed.ts'
 
 /**
@@ -53,26 +53,6 @@ async function get(path: string, bindings: Env = env): Promise<Response> {
   const res = await app.fetch(new Request(`${ORIGIN}${MOUNT}${path}`), bindings, ctx)
   await waitOnExecutionContext(ctx)
   return res
-}
-
-/** Wraps a bucket to count `get` calls — the only method the loaders use. */
-function countingBucket(inner: R2Bucket): { bucket: R2Bucket; reads: () => number } {
-  let reads = 0
-  const bucket = {
-    get: (key: string) => {
-      reads += 1
-      return inner.get(key)
-    },
-  } as unknown as R2Bucket
-  return { bucket, reads: () => reads }
-}
-
-function withBucket(bucket: R2Bucket): Env {
-  return { ...env, CONTENT: bucket }
-}
-
-async function evict(keys: readonly string[]): Promise<void> {
-  await Promise.all(keys.map((key) => caches.default.delete(cacheKeyFor(key))))
 }
 
 async function primeLegacyBucket(): Promise<void> {

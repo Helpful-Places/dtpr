@@ -18,6 +18,8 @@ import {
   legacyRawDocument,
   legacyVariant,
 } from '../api/legacy-fixtures.ts'
+import { countingBucket } from '../api/legacy-test-helpers.ts'
+import { clearBucket } from '../api/seed.ts'
 
 /**
  * Everything imported above comes from the store barrel, not from
@@ -33,29 +35,6 @@ import {
  * bytes answer a later test's miss.
  */
 
-async function clearBucket(bucket: R2Bucket): Promise<void> {
-  let cursor: string | undefined
-  do {
-    const list = await bucket.list({ cursor, limit: 1000 })
-    if (list.objects.length > 0) {
-      await bucket.delete(list.objects.map((o) => o.key))
-    }
-    cursor = list.truncated ? list.cursor : undefined
-  } while (cursor)
-}
-
-/** Wraps a bucket to count `get` calls — the only method the loaders use. */
-function countingBucket(inner: R2Bucket): { bucket: R2Bucket; reads: () => number } {
-  let reads = 0
-  const bucket = {
-    get: (key: string) => {
-      reads += 1
-      return inner.get(key)
-    },
-  } as unknown as R2Bucket
-  return { bucket, reads: () => reads }
-}
-
 /** A bucket whose reads fail for a reason that is not a miss. */
 function failingBucket(message: string): R2Bucket {
   return {
@@ -65,9 +44,7 @@ function failingBucket(message: string): R2Bucket {
 
 const utf8ByteLength = (s: string) => new TextEncoder().encode(s).byteLength
 
-beforeEach(async () => {
-  await clearBucket(env.CONTENT)
-})
+beforeEach(clearBucket)
 
 describe('keys: legacyDocumentKey / legacyIconKey', () => {
   it('builds version-free document keys under the legacy prefix', () => {

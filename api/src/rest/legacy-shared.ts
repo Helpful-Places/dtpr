@@ -37,6 +37,14 @@ export const LEGACY_JSON_CONTENT_TYPE = 'application/json'
 export const LEGACY_SVG_CONTENT_TYPE = 'image/svg+xml'
 
 /**
+ * The `statusMessage` h3 emitted for an unhandled handler exception.
+ * Shared so the two places that render a legacy 500 — the preserved
+ * `/api/v1/elements` filter branch and the mount's error handler —
+ * cannot drift apart.
+ */
+export const LEGACY_SERVER_ERROR = 'Server Error'
+
+/**
  * Path-parameter guard for legacy icon ids. Same character class as
  * `ID_REGEX` in `rest/routes.ts`, for the same reason: the URL is
  * untrusted input and has to be re-validated before it reaches an R2

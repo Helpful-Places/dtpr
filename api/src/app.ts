@@ -14,7 +14,7 @@ import {
   timeout,
 } from './middleware/timeout.ts'
 import { handleMcpRequest } from './mcp/server.ts'
-import { legacyErrorResponse } from './rest/legacy-shared.ts'
+import { LEGACY_SERVER_ERROR, legacyErrorResponse } from './rest/legacy-shared.ts'
 import { createLegacyV0App } from './rest/legacy-v0.ts'
 import { createLegacyV1App } from './rest/legacy-v1.ts'
 import { createRestApp } from './rest/routes.ts'
@@ -179,14 +179,6 @@ const LEGACY_V1_ROUTE_PATTERNS = [
   '/elements/:datachain_type',
   '/categories/:datachain_type',
 ] as const
-
-/**
- * The h3 body for an unhandled exception — what the retired service
- * rendered when a handler threw. Kept in step with the same constant in
- * `rest/legacy-v1.ts`, which uses it for the preserved 500 on
- * `/api/v1/elements?locales=`.
- */
-const LEGACY_SERVER_ERROR = 'Server Error'
 
 /**
  * Render an error thrown *inside* a legacy prefix in the legacy h3

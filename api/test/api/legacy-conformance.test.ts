@@ -3,10 +3,10 @@ import { env, SELF } from 'cloudflare:test'
 import type { z } from 'zod'
 import { LEGACY_V0_LOCALES, type LegacyV0Locale } from '../../src/rest/legacy-v0.ts'
 import { LEGACY_V1_DOCUMENT_PATHS } from '../../src/rest/legacy-v1.ts'
-import { cacheKeyFor } from '../../src/store/cache-wrapper.ts'
 import { legacyDocumentKey, legacyIconKey, type LegacyVersion } from '../../src/store/keys.ts'
 import {
   LEGACY_DOCUMENT_IDS,
+  LEGACY_LOCALE_VARIANTS,
   legacyDocument,
   legacyErrorBodies,
   legacyErrorBody,
@@ -28,6 +28,7 @@ import {
   LegacyUntypedElementDocumentSchema,
   LegacyV0DocumentSchema,
 } from './legacy-schemas.ts'
+import { evict } from './legacy-test-helpers.ts'
 import { clearBucket } from './seed.ts'
 
 /**
@@ -237,24 +238,6 @@ async function sha256(text: string): Promise<string> {
  * The captured `?locales=` variants
  * ------------------------------------------------------------------ */
 
-/**
- * The nine query shapes U1 captured, as literal query text. Two of
- * them — the bare parameter and the encoded space — cannot survive a
- * `URLSearchParams` round trip, so none of them is built from an
- * object.
- */
-const LOCALE_VARIANTS = [
-  { slug: 'en', query: '?locales=en' },
-  { slug: 'en-fr', query: '?locales=en,fr' },
-  { slug: 'zz', query: '?locales=zz' },
-  { slug: 'empty', query: '?locales=' },
-  { slug: 'bare', query: '?locales' },
-  { slug: 'commas', query: '?locales=,,,' },
-  { slug: 'space', query: '?locales=en,%20fr' },
-  { slug: 'repeated', query: '?locales=en&locales=fr' },
-  { slug: 'upper', query: '?locales=EN' },
-] as const
-
 /** The four endpoints that accept `?locales=`, with their variant prefix. */
 const TYPED_ENDPOINTS = [
   { id: 'v1/elements/ai', prefix: 'v1_elements_ai' },
@@ -265,7 +248,7 @@ const TYPED_ENDPOINTS = [
 
 /** Every (endpoint, variant) pair — the 36 captured bodies. */
 const VARIANT_CASES = TYPED_ENDPOINTS.flatMap(({ id, prefix }) =>
-  LOCALE_VARIANTS.map(({ slug, query }) => ({
+  LEGACY_LOCALE_VARIANTS.map(({ slug, query }) => ({
     name: `${routeOf(id)}${query}`,
     route: `${routeOf(id)}${query}`,
     variantId: `${prefix}__${slug}`,
@@ -417,10 +400,6 @@ async function getText(path: string): Promise<string> {
 
 async function getJson<T>(path: string): Promise<T> {
   return JSON.parse(await getText(path)) as T
-}
-
-async function evict(keys: readonly string[]): Promise<void> {
-  await Promise.all(keys.map((key) => caches.default.delete(cacheKeyFor(key))))
 }
 
 beforeAll(async () => {

@@ -7,9 +7,9 @@ import {
 } from 'cloudflare:test'
 import { createApp } from '../../src/app.ts'
 import { LEGACY_V0_LOCALES } from '../../src/rest/legacy-v0.ts'
-import { cacheKeyFor } from '../../src/store/cache-wrapper.ts'
 import { legacyDocumentKey, legacyIconKey } from '../../src/store/keys.ts'
 import { legacyDocument, legacyIcon } from './legacy-fixtures.ts'
+import { evict } from './legacy-test-helpers.ts'
 import { SAMPLE_VERSION, seedVersion } from './seed.ts'
 
 /**
@@ -59,10 +59,6 @@ const LEGACY_ROUTE_PATHS = [
 
 /** Both slash forms of every legacy route (R15, KTD3). */
 const LEGACY_ROUTE_PATHS_BOTH_FORMS = LEGACY_ROUTE_PATHS.flatMap((p) => [p, `${p}/`])
-
-async function evict(keys: readonly string[]): Promise<void> {
-  await Promise.all(keys.map((key) => caches.default.delete(cacheKeyFor(key))))
-}
 
 beforeAll(async () => {
   // `seedVersion` clears the bucket, so the v2 fixtures land first and

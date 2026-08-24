@@ -5,9 +5,9 @@ import { dirname, join } from 'node:path'
 import { tmpdir } from 'node:os'
 import { fileURLToPath } from 'node:url'
 import type { S3Client } from '@aws-sdk/client-s3'
+import { contentTypeFor } from '../../scripts/r2-upload.ts'
 import {
   collectLegacyObjects,
-  contentTypeFor,
   fingerprintObjects,
   LEGACY_FINGERPRINT_KEY,
   s3Store,

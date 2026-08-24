@@ -119,6 +119,26 @@ export const legacyVariants: Readonly<Record<string, string>> = keyBy(
   '.json',
 )
 
+/**
+ * The nine `?locales=` shapes U1 captured: the exact query string it
+ * sent, and the `<case>` slug the resulting variant is keyed under.
+ *
+ * Kept as literal query text rather than built from an object because
+ * two of them — the bare parameter and the encoded space — cannot
+ * survive a `URLSearchParams` round trip.
+ */
+export const LEGACY_LOCALE_VARIANTS = [
+  { slug: 'en', query: '?locales=en' },
+  { slug: 'en-fr', query: '?locales=en,fr' },
+  { slug: 'zz', query: '?locales=zz' },
+  { slug: 'empty', query: '?locales=' },
+  { slug: 'bare', query: '?locales' },
+  { slug: 'commas', query: '?locales=,,,' },
+  { slug: 'space', query: '?locales=en,%20fr' },
+  { slug: 'repeated', query: '?locales=en&locales=fr' },
+  { slug: 'upper', query: '?locales=EN' },
+] as const
+
 /** Captured error bodies, keyed as `<route>-<case>-<status>`. */
 export const legacyErrorBodies: Readonly<Record<string, string>> = keyBy(
   rawModules,

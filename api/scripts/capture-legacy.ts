@@ -303,8 +303,8 @@ export async function capture(legacyRoot: string): Promise<void> {
   console.log('live cross-check passed for every icon')
 }
 
-const invokedDirectly = process.argv[1]?.endsWith('capture-legacy.ts') ?? false
-if (invokedDirectly) {
+const isCli = import.meta.url === `file://${process.argv[1]}`
+if (isCli) {
   const root = join(process.cwd(), 'legacy')
   capture(root).catch((err: unknown) => {
     console.error(err instanceof Error ? err.message : err)

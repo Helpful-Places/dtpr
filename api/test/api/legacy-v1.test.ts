@@ -3,16 +3,17 @@ import { Hono } from 'hono'
 import { env, createExecutionContext, waitOnExecutionContext } from 'cloudflare:test'
 import type { AppEnv } from '../../src/app-types.ts'
 import { createLegacyV1App, LEGACY_V1_DOCUMENT_PATHS } from '../../src/rest/legacy-v1.ts'
-import { cacheKeyFor } from '../../src/store/cache-wrapper.ts'
 import { legacyDocumentKey, legacyIconKey } from '../../src/store/keys.ts'
 import { rewriteIconUrls } from '../../scripts/capture-legacy.ts'
 import {
+  LEGACY_LOCALE_VARIANTS,
   legacyDocument,
   legacyErrorBody,
   legacyIcon,
   legacyIconIds,
   legacyVariant,
 } from './legacy-fixtures.ts'
+import { countingBucket, evict, withBucket } from './legacy-test-helpers.ts'
 import { clearBucket } from './seed.ts'
 
 /**
@@ -47,24 +48,6 @@ const V0_ICON_IDS = legacyIconIds('v0')
  */
 const V1_DOCUMENT_PATHS: readonly string[] = LEGACY_V1_DOCUMENT_PATHS
 
-/**
- * The nine `?locales=` shapes U1 captured, with the exact query string
- * it sent. Kept as literal query text rather than built from an object
- * because two of them — the bare parameter and the encoded space —
- * cannot survive `URLSearchParams` round-tripping.
- */
-const LOCALE_VARIANTS = [
-  { slug: 'en', query: '?locales=en' },
-  { slug: 'en-fr', query: '?locales=en,fr' },
-  { slug: 'zz', query: '?locales=zz' },
-  { slug: 'empty', query: '?locales=' },
-  { slug: 'bare', query: '?locales' },
-  { slug: 'commas', query: '?locales=,,,' },
-  { slug: 'space', query: '?locales=en,%20fr' },
-  { slug: 'repeated', query: '?locales=en&locales=fr' },
-  { slug: 'upper', query: '?locales=EN' },
-] as const
-
 /** The four endpoints that accept `?locales=`, with their variant prefix. */
 const TYPED_ENDPOINTS = [
   { path: '/elements/ai', prefix: 'v1_elements_ai' },
@@ -75,7 +58,7 @@ const TYPED_ENDPOINTS = [
 
 /** Every (endpoint, variant) pair — the 36 captured bodies. */
 const VARIANT_CASES = TYPED_ENDPOINTS.flatMap(({ path, prefix }) =>
-  LOCALE_VARIANTS.map(({ slug, query }) => ({
+  LEGACY_LOCALE_VARIANTS.map(({ slug, query }) => ({
     name: `${path}${query}`,
     path,
     query,
@@ -109,26 +92,6 @@ async function get(path: string, bindings: Env = env): Promise<Response> {
   const res = await app.fetch(new Request(`${ORIGIN}${MOUNT}${path}`), bindings, ctx)
   await waitOnExecutionContext(ctx)
   return res
-}
-
-/** Wraps a bucket to count `get` calls — the only method the loaders use. */
-function countingBucket(inner: R2Bucket): { bucket: R2Bucket; reads: () => number } {
-  let reads = 0
-  const bucket = {
-    get: (key: string) => {
-      reads += 1
-      return inner.get(key)
-    },
-  } as unknown as R2Bucket
-  return { bucket, reads: () => reads }
-}
-
-function withBucket(bucket: R2Bucket): Env {
-  return { ...env, CONTENT: bucket }
-}
-
-async function evict(keys: readonly string[]): Promise<void> {
-  await Promise.all(keys.map((key) => caches.default.delete(cacheKeyFor(key))))
 }
 
 async function primeLegacyBucket(): Promise<void> {
