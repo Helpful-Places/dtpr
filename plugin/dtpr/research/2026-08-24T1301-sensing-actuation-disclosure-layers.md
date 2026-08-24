@@ -4,7 +4,7 @@ date_accessed: 2026-08-24
 authority_tier: peer-reviewed
 applicability_tags: [concept:public-space-ai, concept:citizen-facing-disclosure, concept:sensing-layer-disclosure, concept:actuation-layer-disclosure, pattern:sense-process-actuate, pattern:sensor-register, standard:ieee-7001, standard:iso-iec-30141, framework:cmu-iot-label, framework:eu-ai-act, jurisdiction:nl]
 recheck_after: 2027-08-24
-schema_content_hash: sha256-961cd7b54d3e1b915e32310eb4c37dfe61f20fbdd1b4e35d5e97eacaf933b00a
+content_hash: sha256-961cd7b54d3e1b915e32310eb4c37dfe61f20fbdd1b4e35d5e97eacaf933b00a
 ---
 
 # Sensing and actuation as separable disclosure layers (precedent survey)
