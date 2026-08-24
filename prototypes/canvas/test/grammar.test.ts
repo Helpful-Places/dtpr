@@ -254,14 +254,53 @@ describe('system sentence (U3)', () => {
 describe('autonomy tag (U2)', () => {
   it('renders the autonomy classification as a coloured tag, by locale', () => {
     const sys = { autonomy: { id: 'autonomous' } } as SystemContent
-    expect(autonomyTag(sys, 'en')).toEqual({ text: 'Autonomous', color: CLASSIFICATION_COLOR.autonomous })
-    expect(autonomyTag(sys, 'fr')).toEqual({ text: 'Autonome', color: CLASSIFICATION_COLOR.autonomous })
+    expect(autonomyTag(sys, 'en')).toEqual({ text: 'Runs on its own', color: CLASSIFICATION_COLOR.autonomous })
+    expect(autonomyTag(sys, 'fr')).toEqual({ text: 'Fonctionne seul', color: CLASSIFICATION_COLOR.autonomous })
   })
 
   it('colours by the published autonomy palette across values', () => {
     expect(autonomyTag({ autonomy: { id: 'human_decides' } } as SystemContent, 'en'))
-      .toEqual({ text: 'Human decides', color: CLASSIFICATION_COLOR.human_decides })
+      .toEqual({ text: 'A person decides', color: CLASSIFICATION_COLOR.human_decides })
     expect(autonomyTag({ autonomy: { id: 'human_executes' } } as SystemContent, 'en'))
       .toEqual({ text: 'Human executes', color: CLASSIFICATION_COLOR.human_executes })
+    // ai@2026-08-24-beta renames human_executes → human_oversees; same colour.
+    expect(autonomyTag({ autonomy: { id: 'human_oversees' } } as SystemContent, 'en'))
+      .toEqual({ text: 'A person oversees', color: CLASSIFICATION_COLOR.human_executes })
+  })
+})
+
+describe('ai@2026-08-24-beta action verbs (system sentence)', () => {
+  const flatten = (segs: Segment[]) =>
+    segs.map(s => (s.kind === 'text' ? s.text : `[${s.mark.text}]`)).join('')
+
+  it('composes the new verb ids without autonomy swaps — Recommends is its own verb', () => {
+    const segs = sentence({
+      modes: [
+        { id: 'predicts', t: t('Predicts', 'Prédit'), s: t('x', 'x') },
+        { id: 'recommends', t: t('Recommends', 'Recommande'), s: t('x', 'x') },
+      ],
+      autonomy: { id: 'human_decides' },
+    } as SystemContent, 'en')
+    expect(flatten(segs)).toBe('The system predicts and recommends, and [a person decides what to do next].')
+  })
+
+  it('composes senses + identifies + decides under full autonomy', () => {
+    const segs = sentence({
+      modes: [
+        { id: 'senses', t: t('Senses', 'Perçoit'), s: t('x', 'x') },
+        { id: 'identifies', t: t('Identifies', 'Identifie'), s: t('x', 'x') },
+        { id: 'decides', t: t('Decides', 'Décide'), s: t('x', 'x') },
+      ],
+      autonomy: { id: 'autonomous' },
+    } as SystemContent, 'en')
+    expect(flatten(segs)).toBe('The system senses, identifies, and decides [on its own].')
+  })
+
+  it('renders the human_oversees template', () => {
+    const segs = sentence({
+      modes: [{ id: 'predicts', t: t('Predicts', 'Prédit'), s: t('x', 'x') }],
+      autonomy: { id: 'human_oversees' },
+    } as SystemContent, 'en')
+    expect(flatten(segs)).toBe('The system predicts, and [a person oversees or carries it out].')
   })
 })

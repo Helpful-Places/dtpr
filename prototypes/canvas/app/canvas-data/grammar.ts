@@ -20,10 +20,12 @@ export const CLASSIFICATION_COLOR: Record<string, string> = {
   identifiable: '#FFD700',
   de_identified: '#4A90D9',
   pseudonymous: '#9575CD',
-  // functional_modes · autonomy
+  // action (né functional_modes) · autonomy / human involvement
   autonomous: '#E76F51',
   human_decides: '#2A9D8F',
   human_executes: '#6A1B7A',
+  // ai@2026-08-24-beta renames human_executes → human_oversees; same colour.
+  human_oversees: '#6A1B7A',
 }
 
 /** Palette colour for a classification key, or `null` for a neutral mark. */
@@ -250,17 +252,33 @@ export function riskView(p: RiskPiece, loc: Loc): RiskView {
 
 // ── The system sentence — autonomy is a coloured marker, not an underline ──
 const VERBS: Record<string, Partial<Record<AutonomyKey | 'd', Localized>>> = {
+  // ai@2026-05-06-beta modes — autonomy-aware verb swaps compensate for a
+  // vocabulary with no advisory verbs of its own.
   perceptive_mode: { d: t('senses', 'détecte') },
   semantic_mode: { d: t('understands', 'comprend') },
   analytical_mode: { d: t('decides', 'décide'), human_decides: t('recommends', 'recommande') },
   generative_mode: { d: t('creates', 'génère'), human_decides: t('drafts', 'rédige') },
   agentic_mode: { d: t('acts', 'agit'), human_executes: t('plans actions', 'planifie des actions'), human_decides: t('proposes actions', 'propose des actions') },
   physical_mode: { d: t('moves', 'se déplace'), human_executes: t('plans movements', 'planifie des mouvements'), human_decides: t('proposes movements', 'propose des mouvements') },
+  // ai@2026-08-24-beta action verbs — the schema's ten-verb vocabulary
+  // already separates advisory (recommends) from determinative (decides),
+  // so no autonomy swaps are needed; the template tail carries the rest.
+  senses: { d: t('senses', 'perçoit') },
+  identifies: { d: t('identifies', 'identifie') },
+  understands: { d: t('understands', 'comprend') },
+  predicts: { d: t('predicts', 'prédit') },
+  recommends: { d: t('recommends', 'recommande') },
+  decides: { d: t('decides', 'décide') },
+  creates: { d: t('creates', 'crée') },
+  answers: { d: t('answers', 'répond') },
+  acts: { d: t('acts', 'agit') },
+  moves: { d: t('moves', 'actionne') },
 }
 
 const TEMPLATES: Record<AutonomyKey, Localized> = {
   autonomous: t('The system {verbs} *on its own*.', 'Le système {verbs} *tout seul*.'),
   human_executes: t('The system {verbs}, and *a person carries out the result*.', 'Le système {verbs}, et *une personne exécute le résultat*.'),
+  human_oversees: t('The system {verbs}, and *a person oversees or carries it out*.', 'Le système {verbs}, et *une personne supervise ou exécute*.'),
   human_decides: t('The system {verbs}, and *a person decides what to do next*.', 'Le système {verbs}, et *une personne décide de la suite*.'),
 }
 
@@ -268,9 +286,10 @@ const TEMPLATES: Record<AutonomyKey, Localized> = {
 // (the coloured phrase) and as a set-off tag at the row's end. Short labels
 // for the tag; the sentence still carries the fuller "on its own" phrasing.
 const AUTONOMY: Record<AutonomyKey, Localized> = {
-  autonomous: t('Autonomous', 'Autonome'),
-  human_decides: t('Human decides', 'Décision humaine'),
+  autonomous: t('Runs on its own', 'Fonctionne seul'),
+  human_decides: t('A person decides', 'Une personne décide'),
   human_executes: t('Human executes', 'Exécution humaine'),
+  human_oversees: t('A person oversees', 'Supervision humaine'),
 }
 
 /** The autonomy classification as a right-aligned tag for the system row. It
@@ -301,5 +320,11 @@ export function sentence(sys: SystemContent, loc: Loc): Segment[] {
 }
 
 // ── Icons: real composed DTPR icons, loaded from the API (as in v6) ──
-export const ICON_API = 'https://api.dtpr.io/api/v2/schemas/ai@2026-05-06-beta/elements/'
-export const iconUrl = (id: string): string => `${ICON_API}${id}/icon.svg`
+// Content pins its own schema version (`SystemContent.schema`) so element
+// ids resolve against the vocabulary they were authored in; absent → the
+// original v6 pin. `VITE_DTPR_API_BASE` points local review at a
+// `wrangler dev` API seeded with an unpublished version.
+export const DTPR_API_BASE: string = import.meta.env?.VITE_DTPR_API_BASE ?? 'https://api.dtpr.io/api/v2'
+export const DEFAULT_SCHEMA = 'ai@2026-05-06-beta'
+export const iconUrl = (id: string, schema: string = DEFAULT_SCHEMA): string =>
+  `${DTPR_API_BASE}/schemas/${schema}/elements/${id}/icon.svg`

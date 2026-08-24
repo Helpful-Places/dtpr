@@ -22,24 +22,28 @@ const columns = computed(() => props.canvases.map((cv, i) => {
   const c = cv.content
   const l = loc.value
   const used = peopleStack(c.usedon, l)
+  // Element icons resolve against the column's pinned schema version.
+  const icon = (id: string) => iconUrl(id, c.schema)
   return {
     key: `${cv.systemKey}-${cv.variantKey}-${cv.versionKey}`,
     no: t('canvas.systemNo', { n: i + 1 }),
     ref: c.ref,
     name: tr(c.name, l),
-    purpose: { icon: iconUrl(c.purpose.id), label: tr(c.purpose.t, l) },
-    runby: { icon: iconUrl(c.runby.el), ...orgStack(c.runby, l) },
-    builtby: { icon: iconUrl(c.builtby.el), ...orgStack(c.builtby, l) },
-    modes: c.modes.map(m => ({ icon: iconUrl(m.id), alt: `${tr(m.t, l)} (${tr(m.s, l)})` })),
+    purpose: { icon: icon(c.purpose.id), label: tr(c.purpose.t, l) },
+    runby: { icon: icon(c.runby.el), ...orgStack(c.runby, l) },
+    builtby: { icon: icon(c.builtby.el), ...orgStack(c.builtby, l) },
+    modes: c.modes.map(m => ({ icon: icon(m.id), alt: `${tr(m.t, l)} (${tr(m.s, l)})` })),
     sentence: sentence(c, l),
     data: {
-      input: { icon: iconUrl(c.input.id), ...dataStack(c.input, l), tag: dataTag(c.input, l) },
-      processing: { icon: iconUrl(c.processing.id), ...dataStack(c.processing, l), tag: dataTag(c.processing, l) },
-      output: { icon: iconUrl(c.output.id), ...dataStack(c.output, l), tag: dataTag(c.output, l) },
+      collection: c.collection ? { icon: icon(c.collection.id), ...dataStack(c.collection, l) } : null,
+      input: { icon: icon(c.input.id), ...dataStack(c.input, l), tag: dataTag(c.input, l) },
+      processing: { icon: icon(c.processing.id), ...dataStack(c.processing, l), tag: dataTag(c.processing, l) },
+      output: { icon: icon(c.output.id), ...dataStack(c.output, l), tag: dataTag(c.output, l) },
+      manifestation: c.manifestation ? { icon: icon(c.manifestation.id), ...dataStack(c.manifestation, l) } : null,
     },
-    risks: c.risks.map(r => ({ icon: iconUrl(r.harm), ...riskView(r, l) })),
+    risks: c.risks.map(r => ({ icon: icon(r.harm), ...riskView(r, l) })),
     usedon: { word: used.mark?.text ?? '', who: used.headline, scale: used.facts[0] ?? '', tail: relTail(c.usedon, l) },
-    rights: c.rights.map(r => ({ icon: iconUrl(r.id), label: tr(r.t, l), acts: r.acts ?? [] })),
+    rights: c.rights.map(r => ({ icon: icon(r.id), label: tr(r.t, l), acts: r.acts ?? [] })),
     escalate: c.escalate,
     content: c as SystemContent,
   }
@@ -109,6 +113,13 @@ const href = (a: RightAction, sy: SystemContent, right: string) => actHref(a, sy
             <th scope="row">{{ $t('canvas.dataFlow') }}</th>
             <td v-for="col in columns" :key="col.key">
               <div class="stack">
+                <template v-if="col.data.collection">
+                  <div class="piece">
+                    <img :src="col.data.collection.icon" :alt="col.data.collection.label" width="26" height="26" loading="lazy" style="object-fit:contain">
+                    <div class="pn">{{ col.data.collection.headline }}<span class="ps">{{ col.data.collection.label }}</span></div>
+                  </div>
+                  <span class="arrow">↓</span>
+                </template>
                 <div class="piece">
                   <img :src="col.data.input.icon" :alt="col.data.input.label" width="26" height="26" loading="lazy" style="object-fit:contain">
                   <div class="pn">
@@ -133,6 +144,13 @@ const href = (a: RightAction, sy: SystemContent, right: string) => actHref(a, sy
                   </div>
                 </div>
                 <span v-if="col.data.output.facts.length" class="tiny">{{ col.data.output.facts.join(' · ') }}</span>
+                <template v-if="col.data.manifestation">
+                  <span class="arrow">↓</span>
+                  <div class="piece">
+                    <img :src="col.data.manifestation.icon" :alt="col.data.manifestation.label" width="26" height="26" loading="lazy" style="object-fit:contain">
+                    <div class="pn">{{ col.data.manifestation.headline }}<span class="ps">{{ col.data.manifestation.label }}</span></div>
+                  </div>
+                </template>
               </div>
             </td>
           </tr>

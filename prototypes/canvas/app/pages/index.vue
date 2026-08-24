@@ -30,7 +30,7 @@ useHead({ title: () => `${t('register.heading')} · ${t('app.title')}` })
             <h2 class="mt-1 text-lg font-bold leading-tight">{{ tr(c.content.name, loc) }}</h2>
           </div>
           <img
-            :src="iconUrl(c.content.purpose.id)" :alt="tr(c.content.purpose.t, loc)"
+            :src="iconUrl(c.content.purpose.id, c.content.schema)" :alt="tr(c.content.purpose.t, loc)"
             width="28" height="28" loading="lazy" style="object-fit:contain"
           >
         </div>

@@ -97,6 +97,31 @@ const content: SystemContent = {
   },
 }
 
+// Version 2 — restyled onto ai@2026-08-24-beta: the action verbs replace
+// the six modes (Identifies is the load-bearing addition here), and the
+// data flow gains its two ends — the camera that captures (collection)
+// and the gate that moves (manifestation).
+const content2: SystemContent = {
+  ...content,
+  schema: 'ai@2026-08-24-beta',
+  modes: [
+    { id: 'senses', t: t('Senses', 'Perçoit'), s: t('reads the camera at the gate', 'lit la caméra du portique') },
+    { id: 'identifies', t: t('Identifies', 'Identifie'), s: t('matches your face to your fare account', 'associe votre visage à votre compte') },
+    { id: 'decides', t: t('Decides', 'Décide'), s: t('opens the gate — or not', 'ouvre le portique — ou non') },
+  ],
+  collection: {
+    id: 'camera',
+    type: t('Camera', 'Caméra'),
+    instance: t('gate camera at eye level', 'caméra du portique à hauteur des yeux'),
+    facts: [t('at every fare gate', 'à chaque portique')],
+  },
+  manifestation: {
+    id: 'gate_barrier_machine',
+    type: t('A gate, barrier, or machine', 'Une barrière, un portail ou une machine'),
+    instance: t('the gate opens — or stays shut', 'le portique s’ouvre — ou reste fermé'),
+  },
+}
+
 export const faceGates: CanvasSystem = {
   systemKey: 'face-gates',
   variants: [
@@ -104,7 +129,10 @@ export const faceGates: CanvasSystem = {
       variantKey: 'v6',
       label: t('Power canvas', 'Panneau'),
       live: true,
-      versions: [{ versionKey: '1', content }],
+      versions: [
+        { versionKey: '1', content },
+        { versionKey: '2', content: content2 },
+      ],
     },
   ],
 }
