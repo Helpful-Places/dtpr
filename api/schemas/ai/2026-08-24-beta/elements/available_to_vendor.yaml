@@ -1,0 +1,15 @@
+id: available_to_vendor
+category_id: access
+title:
+  - locale: en
+    value: Available to vendor
+  - locale: fr
+    value: Disponible pour le vendeur
+description:
+  - locale: en
+    value: Data is available to the data collection or technology provider
+  - locale: fr
+    value: >-
+      Les données sont disponibles pour le fournisseur de la collecte de données ou de la
+      technologie
+symbol_id: available

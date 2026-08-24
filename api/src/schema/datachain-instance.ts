@@ -95,7 +95,7 @@ export const InstanceElementSchema = z
       .min(1)
       .optional()
       .describe(
-        "Required (warning-only) when the element's category declares an element_context (see get_schema / list_categories). Selects one value from that context's values[] as the per-instance discriminator (e.g. accountable.role → vendor|deployer; functional_modes.autonomy → human_decides|human_executes|autonomous; input_dataset.pii → de_identified|pseudonymous|identifiable). Validated by rule 4 (CONTEXT_TYPE_UNKNOWN if the id is not on the context; CONTEXT_TYPE_MISSING warning if absent).",
+        "Expected when the element's category declares an element_context (see get_schema / list_categories); strictness follows the context's `required` flag (true → error, false → optional annotation, absent → warning). Selects one value from that context's values[] as the per-instance discriminator (e.g. accountable.role → vendor|deployer; action.autonomy → human_decides|human_oversees|autonomous; input_dataset.pii → de_identified|pseudonymous|identifiable). Validated by rule 4 (CONTEXT_TYPE_UNKNOWN if the id is not on the context; CONTEXT_TYPE_MISSING if absent and not optional).",
       ),
     variables: z
       .array(InstanceVariableValueSchema)

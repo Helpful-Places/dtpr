@@ -1,0 +1,19 @@
+id: presence_motion_sensor
+category_id: collection
+title:
+  - locale: en
+    value: Presence & Motion Sensor
+  - locale: fr
+    value: Capteur de présence et de mouvement
+description:
+  - locale: en
+    value: >-
+      Detects that someone or something is there, or is moving, without capturing an image —
+      passive infrared, ultrasonic, pressure mats, door counters, seat occupancy sensors. Tells the
+      system that a space is occupied, not who occupies it.
+  - locale: fr
+    value: >-
+      Détecte qu'une personne ou une chose est présente, ou en mouvement, sans capter d'image —
+      infrarouge passif, ultrasons, tapis de pression, compteurs de porte, capteurs d'occupation de
+      siège. Indique au système qu'un espace est occupé, pas qui l'occupe.
+symbol_id: motion_detector

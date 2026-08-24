@@ -1,0 +1,22 @@
+id: classification_prediction
+category_id: processing
+title:
+  - locale: en
+    value: Classification & Prediction
+  - locale: fr
+    value: Classification et prédiction
+description:
+  - locale: en
+    value: >-
+      AI systems that assign a label to an input or estimate a numeric outcome — including
+      classifiers (spam vs. not spam, risk tier), regressors (predicted demand, expected wait), and
+      time-series forecasters (next-hour ridership, energy load). Built from labeled historical data
+      using statistical or machine-learning models.
+  - locale: fr
+    value: >-
+      Systèmes d'IA qui attribuent une étiquette à une entrée ou estiment un résultat numérique :
+      classifieurs (spam ou non, niveau de risque), modèles de régression (demande prévue, temps
+      d'attente attendu) et prévisions de séries temporelles (fréquentation à la prochaine heure,
+      charge énergétique). Construits à partir de données historiques étiquetées par des modèles
+      statistiques ou d'apprentissage automatique.
+symbol_id: processing_time-series-forecasting

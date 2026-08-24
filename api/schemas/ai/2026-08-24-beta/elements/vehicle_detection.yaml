@@ -1,0 +1,20 @@
+id: vehicle_detection
+category_id: collection
+title:
+  - locale: en
+    value: Vehicle Detection
+  - locale: fr
+    value: Détection de véhicules
+description:
+  - locale: en
+    value: >-
+      Senses vehicles on a road or in a space — radar, LiDAR, induction loops in the pavement,
+      piezoelectric strips, or gantry-mounted detectors. Used to count traffic, measure speed, and
+      detect congestion. License-plate cameras belong under Camera.
+  - locale: fr
+    value: >-
+      Détecte les véhicules sur une route ou dans un espace — radar, LiDAR, boucles d'induction
+      dans la chaussée, bandes piézoélectriques ou détecteurs montés sur portique. Sert à compter
+      le trafic, mesurer la vitesse et détecter la congestion. Les caméras de plaques
+      d'immatriculation relèvent de Caméra.
+symbol_id: sensor

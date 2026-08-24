@@ -1,0 +1,13 @@
+id: energy_efficiency
+category_id: purpose
+title:
+  - locale: en
+    value: Energy Efficiency
+  - locale: fr
+    value: Efficacité énergétique
+description:
+  - locale: en
+    value: Reduces energy use and/or helps conserve energy.
+  - locale: fr
+    value: Réduit la consommation d'énergie et/ou aide à conserver l'énergie.
+symbol_id: energy_efficiency

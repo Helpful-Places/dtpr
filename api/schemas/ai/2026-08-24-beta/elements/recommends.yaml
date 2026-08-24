@@ -1,0 +1,22 @@
+id: recommends
+category_id: action
+title:
+  - locale: en
+    value: Recommends
+  - locale: fr
+    value: Recommande
+description:
+  - locale: en
+    value: >-
+      Recommends — suggests options for a person to choose from: a ranking, a shortlist, a
+      suggested route or treatment. Nothing takes effect until someone accepts the suggestion.
+      Examples: a triage ranking for a clinician, an alternate route offered to a driver, products
+      shown first. Distinct from Decides, where the outcome takes effect on its own.
+  - locale: fr
+    value: >-
+      Recommande — propose des options parmi lesquelles une personne choisit : un classement, une
+      liste restreinte, un itinéraire ou un traitement suggéré. Rien ne prend effet tant que
+      quelqu'un n'accepte pas la suggestion. Exemples : un classement de triage pour un clinicien,
+      un itinéraire alternatif proposé à un conducteur, des produits affichés en premier. Distinct
+      de Décide, où le résultat prend effet de lui-même.
+symbol_id: dm_priority-ranking

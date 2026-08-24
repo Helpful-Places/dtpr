@@ -1,0 +1,34 @@
+id: manifestation
+name:
+  - locale: en
+    value: Manifestation
+  - locale: fr
+    value: Point de contact
+description:
+  - locale: en
+    value: >-
+      The form this system's output takes when it reaches the world — a screen or sign, a price, a
+      notification, a gate opening, a spoken reply. How people meet the output, distinct from the
+      output data itself.
+  - locale: fr
+    value: >-
+      La forme que prend le résultat de ce système lorsqu'il atteint le monde — un écran ou un
+      panneau, un prix, une notification, une barrière qui s'ouvre, une réponse vocale. La façon
+      dont les gens rencontrent le résultat, distincte des données produites elles-mêmes.
+prompt:
+  - locale: en
+    value: How do people encounter what this system produces?
+  - locale: fr
+    value: Comment les gens rencontrent-ils ce que ce système produit ?
+required: false
+order: 11
+datachain_type: ai
+shape: hexagon
+element_variables:
+  - id: additional_description
+    label:
+      - locale: en
+        value: Description
+      - locale: fr
+        value: Description
+    required: false

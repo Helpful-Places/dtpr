@@ -1,0 +1,22 @@
+id: understands
+category_id: action
+title:
+  - locale: en
+    value: Understands
+  - locale: fr
+    value: Comprend
+description:
+  - locale: en
+    value: >-
+      Understands — pulls meaning from text or speech, finds related ideas, and connects what it
+      reads to saved context. It returns matches, intents, summaries, or links to relevant prior
+      knowledge, not new content. Examples: matching a question to the right help article,
+      retrieving the policy clause that applies to a case, recognizing the topic of a sentence.
+  - locale: fr
+    value: >-
+      Comprend — extrait le sens d'un texte ou d'une parole, trouve des idées liées et relie ce
+      qu'il lit à un contexte enregistré. Il renvoie des correspondances, des intentions, des
+      résumés ou des liens vers des connaissances pertinentes, pas de nouveau contenu. Exemples :
+      relier une question au bon article d'aide, retrouver la clause qui s'applique à un dossier,
+      reconnaître le sujet d'une phrase.
+symbol_id: mode_semantic

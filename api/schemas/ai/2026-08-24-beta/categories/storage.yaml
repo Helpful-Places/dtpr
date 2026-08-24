@@ -1,0 +1,35 @@
+id: storage
+name:
+  - locale: en
+    value: Data Storage
+  - locale: fr
+    value: Stockage des données
+description:
+  - locale: en
+    value: Where the data produced by this AI system is kept.
+  - locale: fr
+    value: Où sont conservées les données produites par ce système d’IA.
+prompt:
+  - locale: en
+    value: Where is the data stored?
+  - locale: fr
+    value: Où sont stockées les données ?
+required: false
+order: 14
+datachain_type: ai
+shape: rounded-square
+element_variables:
+  - id: additional_description
+    label:
+      - locale: en
+        value: Description
+      - locale: fr
+        value: Description
+    required: false
+  - id: duration
+    label:
+      - locale: en
+        value: Duration
+      - locale: fr
+        value: Durée
+    required: true

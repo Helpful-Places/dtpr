@@ -69,6 +69,32 @@ const content: SystemContent = {
   },
 }
 
+// Version 2 — restyled onto ai@2026-08-24-beta: Predicts + Recommends
+// replace the shoehorned "Deciding" mode (the score advises; it never
+// takes effect on its own), autonomy takes the schema's renamed
+// human_oversees value, and the flow shows its ends — county case files
+// in, a caseworker acting on the score out.
+const content2: SystemContent = {
+  ...content,
+  schema: 'ai@2026-08-24-beta',
+  modes: [
+    { id: 'predicts', t: t('Predicts', 'Prédit'), s: t('scores each application', 'note chaque demande') },
+    { id: 'recommends', t: t('Recommends', 'Recommande'), s: t('flags cases for caseworkers', 'signale des dossiers aux agents') },
+  ],
+  autonomy: { id: 'human_oversees' },
+  collection: {
+    id: 'existing_records',
+    type: t('Existing Records', 'Dossiers existants'),
+    instance: t('county case files', 'les dossiers du comté'),
+    facts: [t('collected for benefits administration', 'constitués pour la gestion des aides')],
+  },
+  manifestation: {
+    id: 'person_acting_on_it',
+    type: t('A person acting on it', 'Une personne qui agit sur cette base'),
+    instance: t('a caseworker acts on the score', 'un agent s’appuie sur le score'),
+  },
+}
+
 export const benefitsScoring: CanvasSystem = {
   systemKey: 'benefits-scoring',
   variants: [
@@ -76,7 +102,10 @@ export const benefitsScoring: CanvasSystem = {
       variantKey: 'v6',
       label: t('Power canvas', 'Panneau'),
       live: true,
-      versions: [{ versionKey: '1', content }],
+      versions: [
+        { versionKey: '1', content },
+        { versionKey: '2', content: content2 },
+      ],
     },
   ],
 }

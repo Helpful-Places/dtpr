@@ -63,7 +63,8 @@ describe('canvas data registry (U2)', () => {
     expect(r).not.toBeNull()
     expect(r!.systemKey).toBe('face-gates')
     expect(r!.variantKey).toBe('v6')
-    expect(r!.versionKey).toBe('1')
+    // Version 2 (ai@2026-08-24-beta) is the current version of every seed.
+    expect(r!.versionKey).toBe('2')
     expect(r!.live).toBe(true)
   })
 

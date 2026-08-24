@@ -1,0 +1,40 @@
+id: risks_mitigation
+name:
+  - locale: en
+    value: Risks & Mitigation
+  - locale: fr
+    value: Risques et atténuation
+description:
+  - locale: en
+    value: The risks this AI system could create and how they’re being addressed.
+  - locale: fr
+    value: Les risques que ce système d’IA pourrait créer et la manière dont ils sont traités.
+prompt:
+  - locale: en
+    value: What are the risks and how are they mitigated?
+  - locale: fr
+    value: Quels sont les risques et comment sont-ils atténués ?
+required: false
+order: 5
+datachain_type: ai
+shape: octagon
+sources:
+  - type: research_paper
+    title: A Collaborative, Human-Centred Taxonomy of AI, Algorithmic, and Automation Harms
+    url: https://arxiv.org/abs/2407.01294
+    citation: Abercrombie et al. (2024). arXiv:2407.01294. CC BY-SA 4.0.
+element_variables:
+  - id: risk
+    label:
+      - locale: en
+        value: Description of the risk
+      - locale: fr
+        value: Description du risque
+    required: true
+  - id: mitigation
+    label:
+      - locale: en
+        value: Description of the mitigation
+      - locale: fr
+        value: Description de l'atténuation
+    required: false

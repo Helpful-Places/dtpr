@@ -1,0 +1,27 @@
+id: societal_cultural_harm
+category_id: risks_mitigation
+title:
+  - locale: en
+    value: Societal & cultural harm
+  - locale: fr
+    value: Préjudice sociétal et culturel
+description:
+  - locale: en
+    value: >-
+      The risk that the AI system harms communities or culture through erosion of trust, loss of
+      linguistic and cultural diversity, or unhealthy dependency on opaque systems. This includes
+      risks of misinformation at scale, homogenization of cultural expression, replacement of local
+      knowledge, and degradation of public-information ecosystems. Mitigations may include
+      multilingual support, partnerships with affected communities, provenance signals on generated
+      content, and investment in local-language and local-context models.
+  - locale: fr
+    value: >-
+      Le risque que le système d'IA porte atteinte aux communautés ou à la culture par l'érosion de
+      la confiance, la perte de diversité linguistique et culturelle ou une dépendance malsaine à
+      des systèmes opaques. Cela inclut les risques de désinformation à grande échelle,
+      d'homogénéisation de l'expression culturelle, de substitution des savoirs locaux et de
+      dégradation des écosystèmes d'information publique. Les mesures d'atténuation peuvent inclure
+      un support multilingue, des partenariats avec les communautés concernées, des signaux de
+      provenance sur les contenus générés et des investissements dans des modèles spécifiques aux
+      langues et aux contextes locaux.
+symbol_id: risks_societal-cultural

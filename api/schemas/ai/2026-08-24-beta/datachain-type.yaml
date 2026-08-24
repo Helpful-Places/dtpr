@@ -1,0 +1,46 @@
+id: ai
+name:
+  - locale: en
+    value: AI / Algorithm
+  - locale: fr
+    value: IA / Algorithme
+description:
+  - locale: en
+    value: >-
+      A snapshot of how this AI system works — its purpose, what it processes, who's responsible,
+      and your rights.
+  - locale: fr
+    value: >-
+      Un aperçu du fonctionnement de ce système d’IA — son objectif, ce qu’il traite, qui en est
+      responsable et vos droits.
+categories:
+  - purpose
+  - accountable
+  - affected
+  - action
+  - risks_mitigation
+  - rights
+  - collection
+  - input_dataset
+  - processing
+  - output_dataset
+  - manifestation
+  - access
+  - retention
+  - storage
+subchains:
+  - id: data_flow
+    name:
+      - locale: en
+        value: Data Flow
+      - locale: fr
+        value: Flux de données
+    categories:
+      - collection
+      - input_dataset
+      - processing
+      - output_dataset
+      - manifestation
+locales:
+  - en
+  - fr

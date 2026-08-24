@@ -26,6 +26,9 @@ const { locale } = useI18n()
 const loc = computed<Loc>(() => props.loc ?? (locale.value as Loc))
 const sy = computed(() => props.content)
 
+// Element icons resolve against the content's pinned schema version.
+const icon = (id: string): string => iconUrl(id, sy.value.schema)
+
 const purposeAlt = computed(() => tr(sy.value.purpose.t, loc.value))
 
 // Build each risk's view once per render rather than re-deriving it per
@@ -96,7 +99,7 @@ onBeforeUnmount(() => {
             <h2>{{ tr(sy.name, loc) }}</h2>
           </div>
           <span class="chip" :data-seat="SEAT.purpose">
-            <img :src="iconUrl(sy.purpose.id)" :alt="purposeAlt" :data-tip="purposeAlt" width="22" height="22" loading="lazy" style="object-fit:contain">
+            <img :src="icon(sy.purpose.id)" :alt="purposeAlt" :data-tip="purposeAlt" width="22" height="22" loading="lazy" style="object-fit:contain">
             <span><span class="k">{{ $t('canvas.for') }}</span> {{ tr(sy.purpose.t, loc) }}</span>
           </span>
         </div>
@@ -108,7 +111,7 @@ onBeforeUnmount(() => {
         <div class="zl">{{ $t('canvas.runBy') }}</div>
         <PieceStack :stack="orgStack(sy.runby, loc)" :sentence="props.sentence ? orgSentence(sy.runby, loc) : null">
           <template #icon>
-            <img :src="iconUrl(sy.runby.el)" :alt="tr(sy.runby.role, loc)" :data-tip="tr(sy.runby.role, loc)" width="44" height="44" loading="lazy" style="object-fit:contain">
+            <img :src="icon(sy.runby.el)" :alt="tr(sy.runby.role, loc)" :data-tip="tr(sy.runby.role, loc)" width="44" height="44" loading="lazy" style="object-fit:contain">
           </template>
         </PieceStack>
       </div>
@@ -116,7 +119,7 @@ onBeforeUnmount(() => {
         <div class="zl">{{ $t('canvas.builtBy') }}</div>
         <PieceStack :stack="orgStack(sy.builtby, loc)" :sentence="props.sentence ? orgSentence(sy.builtby, loc) : null">
           <template #icon>
-            <img :src="iconUrl(sy.builtby.el)" :alt="tr(sy.builtby.role, loc)" :data-tip="tr(sy.builtby.role, loc)" width="44" height="44" loading="lazy" style="object-fit:contain">
+            <img :src="icon(sy.builtby.el)" :alt="tr(sy.builtby.role, loc)" :data-tip="tr(sy.builtby.role, loc)" width="44" height="44" loading="lazy" style="object-fit:contain">
           </template>
         </PieceStack>
       </div>
@@ -128,7 +131,7 @@ onBeforeUnmount(() => {
           <div class="mode-icons">
             <img
               v-for="m in sy.modes" :key="m.id"
-              :src="iconUrl(m.id)" :alt="`${tr(m.t, loc)} (${tr(m.s, loc)})`" :data-tip="`${tr(m.t, loc)} (${tr(m.s, loc)})`"
+              :src="icon(m.id)" :alt="`${tr(m.t, loc)} (${tr(m.s, loc)})`" :data-tip="`${tr(m.t, loc)} (${tr(m.s, loc)})`"
               width="40" height="40" loading="lazy" style="object-fit:contain"
             >
           </div>
@@ -146,10 +149,20 @@ onBeforeUnmount(() => {
       <div class="cell span2">
         <div class="zl">{{ $t('canvas.dataFlow') }}</div>
         <div class="vflow">
+          <template v-if="sy.collection">
+            <div :data-seat="SEAT.collection">
+              <PieceStack :stack="dataStack(sy.collection, loc)" :sentence="props.sentence ? dataSentence(sy.collection, loc) : null">
+                <template #icon>
+                  <img :src="icon(sy.collection.id)" :alt="tr(sy.collection.type, loc)" :data-tip="tr(sy.collection.type, loc)" width="40" height="40" loading="lazy" style="object-fit:contain">
+                </template>
+              </PieceStack>
+            </div>
+            <div class="varrow">↓</div>
+          </template>
           <div :data-seat="SEAT.dataInput">
             <PieceStack :stack="dataStack(sy.input, loc)" :tag="dataTag(sy.input, loc)" :sentence="props.sentence ? dataSentence(sy.input, loc) : null">
               <template #icon>
-                <img :src="iconUrl(sy.input.id)" :alt="tr(sy.input.type, loc)" :data-tip="tr(sy.input.type, loc)" width="40" height="40" loading="lazy" style="object-fit:contain">
+                <img :src="icon(sy.input.id)" :alt="tr(sy.input.type, loc)" :data-tip="tr(sy.input.type, loc)" width="40" height="40" loading="lazy" style="object-fit:contain">
               </template>
             </PieceStack>
           </div>
@@ -157,7 +170,7 @@ onBeforeUnmount(() => {
           <div :data-seat="SEAT.processing">
             <PieceStack :stack="dataStack(sy.processing, loc)" :tag="dataTag(sy.processing, loc)" :sentence="props.sentence ? processingSentence(sy.processing, loc) : null">
               <template #icon>
-                <img :src="iconUrl(sy.processing.id)" :alt="tr(sy.processing.type, loc)" :data-tip="tr(sy.processing.type, loc)" width="40" height="40" loading="lazy" style="object-fit:contain">
+                <img :src="icon(sy.processing.id)" :alt="tr(sy.processing.type, loc)" :data-tip="tr(sy.processing.type, loc)" width="40" height="40" loading="lazy" style="object-fit:contain">
               </template>
             </PieceStack>
           </div>
@@ -165,10 +178,20 @@ onBeforeUnmount(() => {
           <div :data-seat="SEAT.dataOutput">
             <PieceStack :stack="dataStack(sy.output, loc)" :tag="dataTag(sy.output, loc)" :sentence="props.sentence ? dataSentence(sy.output, loc) : null">
               <template #icon>
-                <img :src="iconUrl(sy.output.id)" :alt="tr(sy.output.type, loc)" :data-tip="tr(sy.output.type, loc)" width="40" height="40" loading="lazy" style="object-fit:contain">
+                <img :src="icon(sy.output.id)" :alt="tr(sy.output.type, loc)" :data-tip="tr(sy.output.type, loc)" width="40" height="40" loading="lazy" style="object-fit:contain">
               </template>
             </PieceStack>
           </div>
+          <template v-if="sy.manifestation">
+            <div class="varrow">↓</div>
+            <div :data-seat="SEAT.manifestation">
+              <PieceStack :stack="dataStack(sy.manifestation, loc)" :sentence="props.sentence ? dataSentence(sy.manifestation, loc) : null">
+                <template #icon>
+                  <img :src="icon(sy.manifestation.id)" :alt="tr(sy.manifestation.type, loc)" :data-tip="tr(sy.manifestation.type, loc)" width="40" height="40" loading="lazy" style="object-fit:contain">
+                </template>
+              </PieceStack>
+            </div>
+          </template>
         </div>
       </div>
 
@@ -179,7 +202,7 @@ onBeforeUnmount(() => {
           <div v-for="(r, i) in sy.risks" :key="i" :data-seat="riskSeat(i)" class="pc">
             <div class="pc-a">
               <div class="pc-ic">
-                <img :src="iconUrl(r.harm)" :alt="tr(r.title, loc)" :data-tip="tr(r.title, loc)" width="40" height="40" loading="lazy" style="object-fit:contain">
+                <img :src="icon(r.harm)" :alt="tr(r.title, loc)" :data-tip="tr(r.title, loc)" width="40" height="40" loading="lazy" style="object-fit:contain">
               </div>
               <div class="astack">
                 <div class="a-l1">{{ riskViews[i].title }}</div>
@@ -220,7 +243,7 @@ onBeforeUnmount(() => {
         <div class="rights">
           <template v-if="sy.rights.length">
             <div v-for="r in sy.rights" :key="r.id" class="right">
-              <img :src="iconUrl(r.id)" :alt="tr(r.t, loc)" :data-tip="tr(r.t, loc)" width="26" height="26" loading="lazy" style="object-fit:contain">
+              <img :src="icon(r.id)" :alt="tr(r.t, loc)" :data-tip="tr(r.t, loc)" width="26" height="26" loading="lazy" style="object-fit:contain">
               <div>
                 <span class="rn">{{ tr(r.t, loc) }}</span>
                 <span v-if="r.s" class="rs"> — {{ tr(r.s, loc) }}</span>

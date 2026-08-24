@@ -1,0 +1,21 @@
+id: network_connection
+category_id: collection
+title:
+  - locale: en
+    value: Network Connection
+  - locale: fr
+    value: Connexion réseau
+description:
+  - locale: en
+    value: >-
+      Connects this system to a network — a cellular modem, a WiFi access point, or a wired link.
+      It moves data rather than capturing it, but connection logs can still reveal which devices
+      were nearby or connected, and an access point that offers public WiFi is also a service
+      people join.
+  - locale: fr
+    value: >-
+      Relie ce système à un réseau — modem cellulaire, point d'accès WiFi ou liaison filaire. Il
+      transporte les données plutôt qu'il ne les capte, mais les journaux de connexion peuvent
+      révéler quels appareils étaient à proximité ou connectés, et un point d'accès offrant du WiFi
+      public est aussi un service auquel les gens se joignent.
+symbol_id: connectivity

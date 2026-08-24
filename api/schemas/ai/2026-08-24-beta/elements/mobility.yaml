@@ -1,0 +1,13 @@
+id: mobility
+category_id: purpose
+title:
+  - locale: en
+    value: Mobility
+  - locale: fr
+    value: Mobilité
+description:
+  - locale: en
+    value: Supports how people and materials move around.
+  - locale: fr
+    value: Contribue à la maniére dont les personnes et les matériaux se déplacent.
+symbol_id: mobility

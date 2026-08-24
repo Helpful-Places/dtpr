@@ -1,0 +1,22 @@
+id: affect_emotion_analysis
+category_id: processing
+title:
+  - locale: en
+    value: Affect & Emotion Analysis
+  - locale: fr
+    value: Analyse de l'affect et des émotions
+description:
+  - locale: en
+    value: >-
+      AI systems that infer emotional state, mood, or sentiment from text, speech, facial
+      expressions, or physiological signals. Used to gauge crowd sentiment, evaluate service
+      experience, or screen for distress. The accuracy and cultural fairness of affect inference is
+      contested, and some jurisdictions restrict its use in workplaces and public services.
+  - locale: fr
+    value: >-
+      Systèmes d'IA qui infèrent un état émotionnel, une humeur ou un sentiment à partir de texte,
+      de parole, d'expressions faciales ou de signaux physiologiques. Utilisés pour évaluer le
+      ressenti d'une foule, mesurer l'expérience d'un service ou détecter une détresse. La précision
+      et l'équité culturelle de l'inférence d'affect sont contestées, et certaines juridictions
+      limitent son usage en milieu professionnel et dans les services publics.
+symbol_id: processing_sentiment-analysis

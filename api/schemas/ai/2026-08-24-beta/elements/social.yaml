@@ -1,0 +1,13 @@
+id: social
+category_id: purpose
+title:
+  - locale: en
+    value: Social
+  - locale: fr
+    value: Social
+description:
+  - locale: en
+    value: For interacting with another person or a group.
+  - locale: fr
+    value: Pour interagir avec une autre personne ou un groupe.
+symbol_id: social

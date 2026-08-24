@@ -1,0 +1,19 @@
+id: input_about_a_place
+category_id: input_dataset
+title:
+  - locale: en
+    value: Data about a place
+  - locale: fr
+    value: Données sur un lieu
+description:
+  - locale: en
+    value: >-
+      Locations, routes, surroundings, or floor plans. The AI takes in data describing where
+      something is. Examples: GPS coordinates from a phone, foot-traffic counts on a sidewalk, a map
+      of building corridors.
+  - locale: fr
+    value: >-
+      Lieux, itinéraires, environnement ou plans. L'IA reçoit des données décrivant l'endroit où se
+      trouve quelque chose. Exemples : des coordonnées GPS d'un téléphone, des comptages de passages
+      piétons, le plan des couloirs d'un bâtiment.
+symbol_id: spatial

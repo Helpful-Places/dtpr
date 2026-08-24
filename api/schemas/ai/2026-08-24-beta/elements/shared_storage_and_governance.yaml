@@ -1,0 +1,20 @@
+id: shared_storage_and_governance
+category_id: storage
+title:
+  - locale: en
+    value: Shared storage and governance
+  - locale: fr
+    value: Stockage et gouvernance partagés
+description:
+  - locale: en
+    value: >-
+      In a shared data store model the data store is shared across multiple parties and because the
+      infrastructure is shared it becomes possible to enforce governance around the retention,
+      access and destruction of the data by policies built into the structure of the data itself.
+  - locale: fr
+    value: >-
+      Dans un modéle de magasin de données partagé, le magasin de données est partagé entre
+      plusieurs parties et, comme l'infrastructure est partagée, il devient possible d'appliquer la
+      gouvernance autour de la conservation, de l'accés et de la destruction des données par des
+      politiques intégrées à la structure des données elles-mêmes.
+symbol_id: stored

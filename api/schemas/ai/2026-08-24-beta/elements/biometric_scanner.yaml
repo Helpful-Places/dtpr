@@ -1,0 +1,20 @@
+id: biometric_scanner
+category_id: collection
+title:
+  - locale: en
+    value: Biometric Scanner
+  - locale: fr
+    value: Lecteur biométrique
+description:
+  - locale: en
+    value: >-
+      Captures a physical trait for identification — fingerprint, palm, iris, or a face scan at a
+      gate, kiosk, or turnstile. The capture device itself; matching the scan against stored
+      templates is biometric recognition, which appears under Algorithm or Model.
+  - locale: fr
+    value: >-
+      Capte un trait physique à des fins d'identification — empreinte digitale, paume, iris ou
+      visage à une porte, une borne ou un tourniquet. Le dispositif de capture lui-même ; la
+      comparaison avec des gabarits enregistrés relève de la reconnaissance biométrique, qui figure
+      sous Algorithme ou modèle.
+symbol_id: biometrics

@@ -1,0 +1,20 @@
+id: third_party_feed
+category_id: collection
+title:
+  - locale: en
+    value: Third-Party Data Feed
+  - locale: fr
+    value: Flux de données tiers
+description:
+  - locale: en
+    value: >-
+      Data received from another organization — purchased, licensed, or delivered through an API or
+      data-sharing agreement. Examples: credit bureau records, weather services, map providers,
+      data brokers. The people the data describes may never have dealt with this system's operator.
+  - locale: fr
+    value: >-
+      Données reçues d'une autre organisation — achetées, sous licence ou livrées via une API ou un
+      accord de partage. Exemples : dossiers d'agences de crédit, services météo, fournisseurs de
+      cartes, courtiers en données. Les personnes décrites n'ont peut-être jamais eu affaire à
+      l'exploitant de ce système.
+symbol_id: dtpr_api

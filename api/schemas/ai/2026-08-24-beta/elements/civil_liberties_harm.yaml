@@ -1,0 +1,26 @@
+id: civil_liberties_harm
+category_id: risks_mitigation
+title:
+  - locale: en
+    value: Civil liberties harm
+  - locale: fr
+    value: Atteinte aux libertés civiles
+description:
+  - locale: en
+    value: >-
+      The risk that the AI system compromises fundamental human rights and civil liberties — speech,
+      assembly, movement, due process, or freedom from arbitrary surveillance. This includes risks
+      from mass facial recognition, predictive policing, censorship of lawful expression, and
+      chilling effects on protest. Mitigations may include strict purpose limits, judicial or
+      independent oversight, narrow data retention, and human-rights impact assessments before
+      deployment.
+  - locale: fr
+    value: >-
+      Le risque que le système d'IA compromette les droits humains fondamentaux et les libertés
+      civiles — expression, réunion, circulation, procédure équitable ou protection contre la
+      surveillance arbitraire. Cela inclut les risques liés à la reconnaissance faciale de masse, à
+      la police prédictive, à la censure de l'expression légale et aux effets dissuasifs sur la
+      contestation. Les mesures d'atténuation peuvent inclure des limites strictes de finalité, une
+      supervision judiciaire ou indépendante, une rétention de données restreinte et des évaluations
+      d'impact sur les droits humains avant le déploiement.
+symbol_id: risks_civil-liberties

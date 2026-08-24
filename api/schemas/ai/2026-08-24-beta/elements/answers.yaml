@@ -1,0 +1,22 @@
+id: answers
+category_id: action
+title:
+  - locale: en
+    value: Answers
+  - locale: fr
+    value: Répond
+description:
+  - locale: en
+    value: >-
+      Answers — responds to people's questions in conversation: a chatbot, a voice assistant, an
+      automated phone line. It holds a back-and-forth addressed to you in the moment. Examples: a
+      transit chatbot explaining a delay, a service line routing your request. Distinct from
+      Creates, which produces content that stands on its own afterward.
+  - locale: fr
+    value: >-
+      Répond — répond aux questions des personnes en conversation : un chatbot, un assistant
+      vocal, une ligne téléphonique automatisée. Il tient un échange qui s'adresse à vous sur le
+      moment. Exemples : un chatbot de transport expliquant un retard, une ligne de service
+      orientant votre demande. Distinct de Crée, qui produit un contenu qui existe ensuite par
+      lui-même.
+symbol_id: chatbot

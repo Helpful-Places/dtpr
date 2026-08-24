@@ -1,0 +1,19 @@
+id: available_to_me
+category_id: access
+title:
+  - locale: en
+    value: Available to me
+  - locale: fr
+    value: Disponible pour moi
+description:
+  - locale: en
+    value: >-
+      Available to me but not to other individuals. For example, as an individual you have access to
+      all your electronic toll records for your car, but other individuals do not have access to
+      that.
+  - locale: fr
+    value: >-
+      Disponible pour moi mais pas pour d'autres individus. Par exemple, en tant qu'individu, vous
+      avez accés à tous vos enregistrements de péage électronique pour votre voiture, mais les
+      autres individus n'y ont pas accés.
+symbol_id: available

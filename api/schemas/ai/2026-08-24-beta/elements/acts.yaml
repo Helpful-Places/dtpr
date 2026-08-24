@@ -1,0 +1,22 @@
+id: acts
+category_id: action
+title:
+  - locale: en
+    value: Acts
+  - locale: fr
+    value: Agit
+description:
+  - locale: en
+    value: >-
+      Acts — plans a goal into steps and carries them out in software: calling tools, booking,
+      filing, escalating, running multi-step workflows on someone's behalf. The output is an
+      action taken, not a piece of content returned. Examples: booking a meeting, filing a return,
+      escalating a ticket. When the action moves something physical, that is Moves.
+  - locale: fr
+    value: >-
+      Agit — décompose un objectif en étapes et les exécute dans le logiciel : appeler des outils,
+      réserver, déposer, escalader, dérouler des processus en plusieurs étapes pour le compte de
+      quelqu'un. Le résultat est une action accomplie, pas un contenu renvoyé. Exemples : réserver
+      une réunion, déposer une déclaration, escalader un ticket. Quand l'action déplace quelque
+      chose de physique, il s'agit d'Actionne.
+symbol_id: mode_agentic

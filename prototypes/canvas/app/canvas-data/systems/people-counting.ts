@@ -79,6 +79,24 @@ const content: SystemContent = {
   },
 }
 
+// Version 2 — restyled onto ai@2026-08-24-beta: the curbside camera gets
+// its own collection seat. Deliberately no manifestation — passers-by
+// never encounter this system's output directly (counts go to planners),
+// which exercises the optional downstream end.
+const content2: SystemContent = {
+  ...content,
+  schema: 'ai@2026-08-24-beta',
+  modes: [
+    { id: 'senses', t: t('Senses', 'Perçoit'), s: t('counts passers-by in live video', 'compte les passants en vidéo') },
+  ],
+  collection: {
+    id: 'camera',
+    type: t('Camera', 'Caméra'),
+    instance: t('curbside camera on the pole', 'caméra de trottoir sur le mât'),
+    facts: [t('images processed on the device', 'images traitées sur l’appareil')],
+  },
+}
+
 export const peopleCounting: CanvasSystem = {
   systemKey: 'people-counting',
   variants: [
@@ -86,7 +104,10 @@ export const peopleCounting: CanvasSystem = {
       variantKey: 'v6',
       label: t('Power canvas', 'Panneau'),
       live: true,
-      versions: [{ versionKey: '1', content }],
+      versions: [
+        { versionKey: '1', content },
+        { versionKey: '2', content: content2 },
+      ],
     },
   ],
 }

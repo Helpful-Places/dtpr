@@ -33,6 +33,12 @@ export const ContextSchema = z
     id: z.string().min(1).describe('Context dimension id, unique within the category'),
     name: LocaleValueArraySchema,
     description: LocaleValueArraySchema,
+    required: z
+      .boolean()
+      .optional()
+      .describe(
+        'Instance strictness for context_type_id: true → omission is an error; false → omission is silent (the context is an optional annotation); absent → omission warns (CONTEXT_TYPE_MISSING).',
+      ),
     values: z
       .array(ContextValueSchema)
       .min(1)

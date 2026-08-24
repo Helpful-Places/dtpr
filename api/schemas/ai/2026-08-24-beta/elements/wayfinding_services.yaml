@@ -1,0 +1,13 @@
+id: wayfinding_services
+category_id: purpose
+title:
+  - locale: en
+    value: Wayfinding & Services
+  - locale: fr
+    value: Signalisation et services
+description:
+  - locale: en
+    value: Enables navigation of a location and its amenities and services.
+  - locale: fr
+    value: Permet la navigation d'un lieu et de ses équipements et services.
+symbol_id: light_waves

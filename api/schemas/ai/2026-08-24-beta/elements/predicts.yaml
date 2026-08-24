@@ -1,0 +1,22 @@
+id: predicts
+category_id: action
+title:
+  - locale: en
+    value: Predicts
+  - locale: fr
+    value: Prédit
+description:
+  - locale: en
+    value: >-
+      Predicts — estimates what is likely: a forecast, a risk score, a probability. It says what
+      may happen; someone or something else still decides what to do about it. Examples: a
+      queue-length forecast, a credit-risk score, a crowding prediction for the next hour. Distinct
+      from Decides, which makes an outcome take effect.
+  - locale: fr
+    value: >-
+      Prédit — estime ce qui est probable : une prévision, un score de risque, une probabilité. Il
+      dit ce qui peut arriver ; quelqu'un ou quelque chose d'autre décide encore de la suite.
+      Exemples : une prévision de file d'attente, un score de risque de crédit, une prévision
+      d'affluence pour la prochaine heure. Distinct de Décide, qui fait prendre effet à un
+      résultat.
+symbol_id: mode_analytical

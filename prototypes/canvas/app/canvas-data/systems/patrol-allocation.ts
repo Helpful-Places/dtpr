@@ -83,6 +83,31 @@ const content: SystemContent = {
   },
 }
 
+// Version 2 — restyled onto ai@2026-08-24-beta: Predicts + Recommends
+// replace "Deciding" (the heat-map advises; commanders choose), and the
+// flow shows its ends — the incident database in, patrol officers acting
+// on the map out. The manifestation seat is how a whole neighbourhood
+// actually encounters this system: more patrols on the same blocks.
+const content2: SystemContent = {
+  ...content,
+  schema: 'ai@2026-08-24-beta',
+  modes: [
+    { id: 'predicts', t: t('Predicts', 'Prédit'), s: t('forecasts incident hotspots', 'prévoit les points chauds') },
+    { id: 'recommends', t: t('Recommends', 'Recommande'), s: t('proposes patrol routes', 'propose des itinéraires de patrouille') },
+  ],
+  collection: {
+    id: 'existing_records',
+    type: t('Existing Records', 'Dossiers existants'),
+    instance: t('police incident database', 'la base des incidents de la police'),
+    facts: [t('records past calls and reports', 'recense appels et signalements passés')],
+  },
+  manifestation: {
+    id: 'person_acting_on_it',
+    type: t('A person acting on it', 'Une personne qui agit sur cette base'),
+    instance: t('patrols shift to flagged blocks', 'les patrouilles se déplacent vers les secteurs signalés'),
+  },
+}
+
 export const patrolAllocation: CanvasSystem = {
   systemKey: 'patrol-allocation',
   variants: [
@@ -90,7 +115,10 @@ export const patrolAllocation: CanvasSystem = {
       variantKey: 'v6',
       label: t('Power canvas', 'Panneau'),
       live: true,
-      versions: [{ versionKey: '1', content }],
+      versions: [
+        { versionKey: '1', content },
+        { versionKey: '2', content: content2 },
+      ],
     },
   ],
 }

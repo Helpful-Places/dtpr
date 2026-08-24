@@ -3,8 +3,11 @@ import type { Localized } from './loc'
 // ── Published schema classifications (the only values that earn colour) ──
 /** PII classification on a data value (input/output). */
 export type PiiKey = 'identifiable' | 'de_identified' | 'pseudonymous'
-/** Autonomy classification on the system sentence. */
-export type AutonomyKey = 'autonomous' | 'human_decides' | 'human_executes'
+/** Autonomy classification on the system sentence. `human_executes` is the
+ *  ai@2026-05-06-beta value; ai@2026-08-24-beta renames it `human_oversees`
+ *  ("a person oversees or carries it out") — both stay valid so old
+ *  versions keep rendering. */
+export type AutonomyKey = 'autonomous' | 'human_decides' | 'human_executes' | 'human_oversees'
 /** Affected relationship — a *neutral* classification (never coloured). */
 export type RelationKey = 'subject' | 'bystander' | 'community'
 
@@ -85,6 +88,9 @@ export interface Purpose {
 /** Everything needed to draw one canvas — the seats of a single system. */
 export interface SystemContent {
   ref: string
+  /** DTPR schema version the element ids resolve against (icon URLs).
+   *  Absent → the original `ai@2026-05-06-beta` pin. */
+  schema?: string
   name: Localized
   read: Localized
   purpose: Purpose
@@ -92,9 +98,16 @@ export interface SystemContent {
   runby: OrgPiece
   modes: Mode[]
   autonomy: { id: AutonomyKey }
+  /** ai@2026-08-24-beta: the technology that captures the input data —
+   *  the flow's upstream end (world → system). Optional; older content
+   *  and pure-software systems omit it. */
+  collection?: DataPiece
   input: DataPiece
   processing: DataPiece
   output: DataPiece
+  /** ai@2026-08-24-beta: the form the output takes when people encounter
+   *  it — the flow's downstream end (system → world). Optional. */
+  manifestation?: DataPiece
   risks: RiskPiece[]
   usedon: PeoplePiece
   rights: Right[]
@@ -146,9 +159,11 @@ export const SEAT = {
   runBy: 'run-by',
   builtBy: 'built-by',
   system: 'system',
+  collection: 'collection',
   dataInput: 'data-input',
   processing: 'processing',
   dataOutput: 'data-output',
+  manifestation: 'manifestation',
   usedOn: 'used-on',
   rights: 'rights',
 } as const

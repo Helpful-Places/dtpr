@@ -1,0 +1,15 @@
+id: water_efficiency
+category_id: purpose
+title:
+  - locale: en
+    value: Water Efficiency
+  - locale: fr
+    value: Efficacité de l'eau
+description:
+  - locale: en
+    value: Reduces water use and/or helps conserve water.
+  - locale: fr
+    value: >-
+      Réduit la consommation d'eau et/ou contribue à sa conservation. Pour en savoir plus sur
+      l'efficacité et la conservation de l'eau, ainsi que sur l'infrastructure verte.
+symbol_id: water_efficiency

@@ -1,0 +1,22 @@
+id: camera
+category_id: collection
+title:
+  - locale: en
+    value: Camera
+  - locale: fr
+    value: Caméra
+description:
+  - locale: en
+    value: >-
+      Captures still images or video of a place — mounted on a pole, a vehicle, a drone, or built
+      into a device. Includes infrared and thermal cameras. This is the capture device itself; the
+      techniques that analyze the footage appear under Algorithm or Model, and how identifiable the
+      footage is appears on the Input Data category.
+  - locale: fr
+    value: >-
+      Capte des images fixes ou de la vidéo d'un lieu — montée sur un poteau, un véhicule, un drone
+      ou intégrée à un appareil. Comprend les caméras infrarouges et thermiques. Il s'agit du
+      dispositif de capture lui-même ; les techniques qui analysent les images figurent sous
+      Algorithme ou modèle, et le degré d'identifiabilité des images figure sur les données
+      d'entrée.
+symbol_id: camera

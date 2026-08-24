@@ -1,0 +1,36 @@
+id: healthcare
+category_id: purpose
+title:
+  - locale: en
+    value: Healthcare
+  - locale: fr
+    value: Soins de santé
+description:
+  - locale: en
+    value: >-
+      Supports clinical care for individuals — for example, diagnosis assistance, treatment
+      recommendations, patient triage, or health chatbots. Distinct from Environmental Health, which
+      monitors the physical environment.
+  - locale: fr
+    value: >-
+      Soutient les soins cliniques aux personnes — par exemple, aide au diagnostic, recommandations
+      de traitement, triage des patients ou chatbots de santé. À distinguer de Santé
+      environnementale, qui surveille l'environnement physique.
+sources:
+  - type: policy_document
+    title: Ethics and Governance of Artificial Intelligence for Health
+    url: https://www.who.int/publications/i/item/9789240029200
+    citation: World Health Organization, 2021.
+  - type: regulation
+    title: EU Medical Device Regulation
+    url: https://eur-lex.europa.eu/eli/reg/2017/745/oj
+    citation: Regulation (EU) 2017/745.
+  - type: regulation
+    title: EU In Vitro Diagnostic Regulation
+    url: https://eur-lex.europa.eu/eli/reg/2017/746/oj
+    citation: Regulation (EU) 2017/746.
+  - type: regulation
+    title: EU AI Act Annex II — Safety components overlay
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+    citation: Regulation (EU) 2024/1689, Annex II.
+symbol_id: health
