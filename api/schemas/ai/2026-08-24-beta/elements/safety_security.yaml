@@ -1,0 +1,20 @@
+id: safety_security
+category_id: purpose
+title:
+  - locale: en
+    value: Safety & Security
+  - locale: fr
+    value: Sûreté et sécurité
+description:
+  - locale: en
+    value: >-
+      Supports preventive risk reduction in physical environments — for example, fire safety, home
+      security, or ensuring safe passage in airports or on roads. Distinct from Enforcement (rule
+      application) and from Fire & Emergency (incident response).
+  - locale: fr
+    value: >-
+      Soutient la réduction préventive des risques dans les environnements physiques — par exemple
+      la sécurité incendie, la sécurité domestique ou la sécurité de passage dans les aéroports ou
+      sur les routes. À distinguer de Cadre légal (application des règles) et de Incendie et urgence
+      (réponse aux incidents).
+symbol_id: safety_security

@@ -1,0 +1,20 @@
+id: wireless_signal_sensing
+category_id: collection
+title:
+  - locale: en
+    value: Wireless Signal Sensing
+  - locale: fr
+    value: Détection de signaux sans fil
+description:
+  - locale: en
+    value: >-
+      Detects the radio signals devices give off — WiFi probes from phones, Bluetooth, RFID tags,
+      or NFC taps. Often used to count or track devices moving through a space; a device's signal
+      can act as a persistent identifier for the person carrying it.
+  - locale: fr
+    value: >-
+      Détecte les signaux radio émis par les appareils — sondes WiFi des téléphones, Bluetooth,
+      étiquettes RFID ou contacts NFC. Souvent utilisé pour compter ou suivre les appareils qui
+      traversent un espace ; le signal d'un appareil peut servir d'identifiant persistant pour la
+      personne qui le porte.
+symbol_id: signal

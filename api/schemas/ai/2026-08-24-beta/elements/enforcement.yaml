@@ -1,0 +1,13 @@
+id: enforcement
+category_id: purpose
+title:
+  - locale: en
+    value: Enforcement
+  - locale: fr
+    value: Cadre légal
+description:
+  - locale: en
+    value: Used for enforcement of rules or regulations.
+  - locale: fr
+    value: Utilisé pour l'application de lois ou de réglements.
+symbol_id: enforcement

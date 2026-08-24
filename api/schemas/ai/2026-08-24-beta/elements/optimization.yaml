@@ -1,0 +1,22 @@
+id: optimization
+category_id: processing
+title:
+  - locale: en
+    value: Optimization
+  - locale: fr
+    value: Optimisation
+description:
+  - locale: en
+    value: >-
+      AI systems that search for the best assignment, route, schedule, or allocation under
+      constraints. Includes vehicle routing, transit signal timing, energy and HVAC scheduling,
+      staff rostering, and resource allocation. Works by exploring possibilities to maximize or
+      minimize a stated objective such as cost, time, or emissions.
+  - locale: fr
+    value: >-
+      Systèmes d'IA qui recherchent la meilleure affectation, le meilleur itinéraire, le meilleur
+      horaire ou la meilleure répartition sous contraintes. Inclut le routage des véhicules, la
+      synchronisation des feux, la planification énergétique et CVC, la planification du personnel
+      et l'allocation de ressources. Fonctionne en explorant des possibilités pour maximiser ou
+      minimiser un objectif comme le coût, le temps ou les émissions.
+symbol_id: processing_optimization-algorithm

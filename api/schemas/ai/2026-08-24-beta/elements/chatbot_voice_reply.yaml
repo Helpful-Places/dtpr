@@ -1,0 +1,24 @@
+id: chatbot_voice_reply
+category_id: manifestation
+title:
+  - locale: en
+    value: A chatbot or voice reply
+  - locale: fr
+    value: Une réponse de chatbot ou vocale
+description:
+  - locale: en
+    value: >-
+      The output arrives as a conversational answer — a chatbot message, a voice assistant's
+      response, an automated phone agent. You encounter the system by talking with it, and it
+      should be clear you are not talking to a person.
+  - locale: fr
+    value: >-
+      Le résultat arrive sous forme de réponse conversationnelle — message de chatbot, réponse
+      d'assistant vocal, agent téléphonique automatisé. Vous rencontrez le système en dialoguant
+      avec lui, et il doit être clair que vous ne parlez pas à une personne.
+sources:
+  - type: regulation
+    title: EU AI Act Article 50(1) — people must be informed they are interacting with an AI system
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+    citation: Regulation (EU) 2024/1689, Article 50(1).
+symbol_id: chatbot

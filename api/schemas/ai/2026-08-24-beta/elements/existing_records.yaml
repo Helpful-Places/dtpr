@@ -1,0 +1,19 @@
+id: existing_records
+category_id: collection
+title:
+  - locale: en
+    value: Existing Records
+  - locale: fr
+    value: Dossiers existants
+description:
+  - locale: en
+    value: >-
+      Data the organization already holds — customer accounts, case files, registries, transaction
+      histories, past applications. Nothing new is captured from the world; the system draws on
+      what was recorded before, sometimes for a different original purpose.
+  - locale: fr
+    value: >-
+      Données que l'organisation détient déjà — comptes clients, dossiers, registres, historiques
+      de transactions, demandes antérieures. Rien de nouveau n'est capté dans le monde ; le système
+      puise dans ce qui a été enregistré auparavant, parfois à une autre fin d'origine.
+symbol_id: tabular

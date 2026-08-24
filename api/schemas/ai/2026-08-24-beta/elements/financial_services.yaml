@@ -1,0 +1,23 @@
+id: financial_services
+category_id: purpose
+title:
+  - locale: en
+    value: Financial Services
+  - locale: fr
+    value: Services financiers
+description:
+  - locale: en
+    value: >-
+      Supports lending, insurance, fraud detection, or other financial decisions about people — for
+      example, credit scoring, insurance underwriting, transaction-fraud flagging.
+  - locale: fr
+    value: >-
+      Soutient le crédit, l'assurance, la détection de fraude ou d'autres décisions financières
+      concernant des personnes — par exemple, l'évaluation du crédit, la souscription d'assurance,
+      le signalement de fraude transactionnelle.
+sources:
+  - type: regulation
+    title: EU AI Act Annex III §5(b)+(c) — Credit-scoring and life/health insurance risk assessment & pricing
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+    citation: Regulation (EU) 2024/1689, Article 6(2) and Annex III §5(b) and §5(c).
+symbol_id: financial_services

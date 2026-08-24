@@ -1,0 +1,20 @@
+id: connected_device_telemetry
+category_id: collection
+title:
+  - locale: en
+    value: Connected Device Telemetry
+  - locale: fr
+    value: Télémétrie d'appareils connectés
+description:
+  - locale: en
+    value: >-
+      Readings streamed automatically by connected things — vehicles reporting speed and position,
+      wearables reporting heart rate, smart meters reporting energy use, machines reporting their
+      own status. Continuous capture that runs in the background of everyday use.
+  - locale: fr
+    value: >-
+      Mesures transmises automatiquement par des objets connectés — véhicules signalant vitesse et
+      position, objets portables signalant le rythme cardiaque, compteurs intelligents signalant la
+      consommation d'énergie, machines signalant leur propre état. Une captation continue qui
+      s'exécute en arrière-plan de l'usage quotidien.
+symbol_id: connectivity

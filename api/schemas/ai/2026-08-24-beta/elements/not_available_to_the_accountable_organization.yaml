@@ -1,0 +1,13 @@
+id: not_available_to_the_accountable_organization
+category_id: access
+title:
+  - locale: en
+    value: Not available to the accountable organization
+  - locale: fr
+    value: Non disponible pour l'organisation responsable
+description:
+  - locale: en
+    value: Data is not available to the accountable organization
+  - locale: fr
+    value: Les données ne sont pas disponibles pour l'organisation responsable
+symbol_id: not_available

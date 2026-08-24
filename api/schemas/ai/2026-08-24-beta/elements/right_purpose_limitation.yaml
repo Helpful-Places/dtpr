@@ -1,0 +1,23 @@
+id: right_purpose_limitation
+category_id: rights
+title:
+  - locale: en
+    value: Right to Purpose Limitation
+  - locale: fr
+    value: Limitation du droit à l'objet
+description:
+  - locale: en
+    value: >-
+      The right that your data is only used for the specific purposes that were stated when it was
+      collected. The organization must declare and document those purposes before collection begins,
+      and is barred from later using your data for new, unrelated purposes without your knowledge or
+      consent. This is an upstream limit on what use is ever allowed; the right to stop processing
+      already underway is a separate right.
+  - locale: fr
+    value: >-
+      Le droit que vos données ne soient utilisées qu'aux fins spécifiques annoncées lors de leur
+      collecte. L'organisation doit déclarer et documenter ces finalités avant le début de la
+      collecte, et il lui est interdit d'utiliser ensuite vos données à des fins nouvelles et sans
+      rapport, sans votre connaissance ni votre consentement. Il s'agit d'une limite en amont sur
+      l'usage autorisé ; le droit d'arrêter un traitement déjà en cours est un droit distinct.
+symbol_id: rights_purpose-limitation

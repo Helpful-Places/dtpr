@@ -1,0 +1,19 @@
+id: signal_light_change
+category_id: manifestation
+title:
+  - locale: en
+    value: A signal or light change
+  - locale: fr
+    value: Un changement de signal ou d'éclairage
+description:
+  - locale: en
+    value: >-
+      The output changes what the environment tells you — a traffic light that adapts to flow,
+      street lighting that brightens when people pass, a status light turning red. Subtle enough
+      that most people never realize a system decided it.
+  - locale: fr
+    value: >-
+      Le résultat change ce que l'environnement vous indique — un feu de circulation qui s'adapte
+      au trafic, un éclairage public qui s'intensifie au passage, un voyant qui passe au rouge.
+      Assez discret pour que la plupart des gens ne réalisent jamais qu'un système en a décidé.
+symbol_id: switch_tech

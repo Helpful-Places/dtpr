@@ -1,0 +1,13 @@
+id: commerce
+category_id: purpose
+title:
+  - locale: en
+    value: Commerce
+  - locale: fr
+    value: Commerce
+description:
+  - locale: en
+    value: Enables the buying and selling of goods and services.
+  - locale: fr
+    value: Permet l'achat et la vente de biens et de services.
+symbol_id: commerce

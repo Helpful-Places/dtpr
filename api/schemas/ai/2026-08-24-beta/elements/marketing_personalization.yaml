@@ -1,0 +1,27 @@
+id: marketing_personalization
+category_id: purpose
+title:
+  - locale: en
+    value: Marketing & Personalization
+  - locale: fr
+    value: Marketing et personnalisation
+description:
+  - locale: en
+    value: >-
+      Targets advertising, personalizes recommendations, or profiles audiences for marketing — for
+      example, in-store loyalty offers, personalized signage, behavioural ad targeting.
+  - locale: fr
+    value: >-
+      Cible la publicité, personnalise les recommandations ou profile les audiences à des fins
+      marketing — par exemple, offres de fidélité en magasin, signalétique personnalisée, ciblage
+      publicitaire comportemental.
+sources:
+  - type: regulation
+    title: GDPR Article 22 — Automated individual decision-making, including profiling
+    url: https://eur-lex.europa.eu/eli/reg/2016/679/oj
+    citation: Regulation (EU) 2016/679, Article 22.
+  - type: regulation
+    title: EU Digital Services Act Articles 26 and 39 — Online platform advertising transparency
+    url: https://eur-lex.europa.eu/eli/reg/2022/2065/oj
+    citation: Regulation (EU) 2022/2065, Articles 26 and 39.
+symbol_id: marketing_personalization

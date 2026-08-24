@@ -1,0 +1,25 @@
+id: border_immigration
+category_id: purpose
+title:
+  - locale: en
+    value: Border & Immigration
+  - locale: fr
+    value: Frontière et immigration
+description:
+  - locale: en
+    value: >-
+      Supports immigration, asylum, or border-crossing decisions or processing — for example,
+      border-control facial recognition, visa adjudication, asylum risk assessment.
+  - locale: fr
+    value: >-
+      Soutient les décisions ou traitements en matière d'immigration, d'asile ou de passage de
+      frontière — par exemple, la reconnaissance faciale au contrôle frontalier, la décision sur les
+      visas, l'évaluation du risque en asile.
+sources:
+  - type: regulation
+    title: EU AI Act Annex III §7 — Migration, asylum, and border-control management
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+    citation: >-
+      Regulation (EU) 2024/1689, Article 6(2) and Annex III §7 — including risk assessments,
+      polygraph-style detection, and verification of travel-document authenticity.
+symbol_id: border_immigration

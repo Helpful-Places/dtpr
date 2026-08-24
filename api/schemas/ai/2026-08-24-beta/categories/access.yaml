@@ -1,0 +1,28 @@
+id: access
+name:
+  - locale: en
+    value: Access
+  - locale: fr
+    value: Accéder
+description:
+  - locale: en
+    value: Who can see or use the data produced by this AI system.
+  - locale: fr
+    value: Qui peut voir ou utiliser les données produites par ce système d’IA.
+prompt:
+  - locale: en
+    value: Who has access to the data?
+  - locale: fr
+    value: Qui a accès aux données ?
+required: false
+order: 12
+datachain_type: ai
+shape: rounded-square
+element_variables:
+  - id: additional_description
+    label:
+      - locale: en
+        value: Description
+      - locale: fr
+        value: Description
+    required: false

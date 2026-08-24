@@ -1,0 +1,24 @@
+id: autonomy_loss
+category_id: risks_mitigation
+title:
+  - locale: en
+    value: Loss of autonomy
+  - locale: fr
+    value: Perte d'autonomie
+description:
+  - locale: en
+    value: >-
+      The risk that the AI system limits a person's ability to make their own decisions, control
+      their identity, or choose freely. This includes risks of restricted access to alternatives,
+      deceptive design that nudges decisions toward a particular outcome, and lack of meaningful
+      consent. Mitigations may include opt-out mechanisms, transparent recommendations, defaults
+      that protect agency, and human review of consequential decisions.
+  - locale: fr
+    value: >-
+      Le risque que le système d'IA limite la capacité d'une personne à prendre ses propres
+      décisions, à contrôler son identité ou à choisir librement. Cela inclut les risques d'accès
+      restreint à des alternatives, de conception trompeuse qui oriente les décisions vers un
+      résultat particulier et d'absence de consentement significatif. Les mesures d'atténuation
+      peuvent inclure des mécanismes de retrait, des recommandations transparentes, des paramètres
+      par défaut qui protègent l'agentivité et un examen humain des décisions importantes.
+symbol_id: risks_autonomy

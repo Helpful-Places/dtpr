@@ -1,0 +1,19 @@
+id: screen_or_sign
+category_id: manifestation
+title:
+  - locale: en
+    value: A screen or sign
+  - locale: fr
+    value: Un écran ou un panneau
+description:
+  - locale: en
+    value: >-
+      The output appears on a display in the place — a variable message sign over a road, a
+      departure board, a kiosk screen, a dashboard readout. You encounter the system by reading
+      what it shows.
+  - locale: fr
+    value: >-
+      Le résultat s'affiche sur un écran dans le lieu — panneau à message variable au-dessus d'une
+      route, tableau des départs, écran de borne, affichage de tableau de bord. Vous rencontrez le
+      système en lisant ce qu'il montre.
+symbol_id: system_screen

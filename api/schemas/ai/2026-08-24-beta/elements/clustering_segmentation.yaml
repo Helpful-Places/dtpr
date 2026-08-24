@@ -1,0 +1,22 @@
+id: clustering_segmentation
+category_id: processing
+title:
+  - locale: en
+    value: Clustering & Segmentation
+  - locale: fr
+    value: Regroupement et segmentation
+description:
+  - locale: en
+    value: >-
+      AI systems that group people, places, or events into clusters based on similarity, without
+      using pre-defined labels. Used to segment audiences, mobility patterns, energy-use profiles,
+      or service-demand zones. Outputs are cluster assignments that downstream systems may treat as
+      categories — even though clusters are inferred, not authored.
+  - locale: fr
+    value: >-
+      Systèmes d'IA qui regroupent des personnes, lieux ou événements en groupes par similarité,
+      sans utiliser d'étiquettes prédéfinies. Utilisés pour segmenter des audiences, des modèles de
+      mobilité, des profils d'usage énergétique ou des zones de demande de services. Les sorties
+      sont des affectations de groupe que les systèmes en aval peuvent traiter comme des catégories,
+      bien que les groupes soient inférés et non définis.
+symbol_id: social

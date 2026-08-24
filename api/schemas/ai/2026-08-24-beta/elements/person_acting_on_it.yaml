@@ -1,0 +1,20 @@
+id: person_acting_on_it
+category_id: manifestation
+title:
+  - locale: en
+    value: A person acting on it
+  - locale: fr
+    value: Une personne qui agit sur cette base
+description:
+  - locale: en
+    value: >-
+      The output reaches you through a human — an officer who stops you after an alert, a case
+      worker who follows a recommendation, a doctor reading a risk score. You meet a person, but a
+      system shaped what they do; your right to know and contest that still applies.
+  - locale: fr
+    value: >-
+      Le résultat vous parvient par l'intermédiaire d'un humain — un agent qui vous arrête après
+      une alerte, un travailleur social qui suit une recommandation, un médecin qui lit un score de
+      risque. Vous rencontrez une personne, mais un système a orienté son action ; votre droit de
+      le savoir et de le contester s'applique toujours.
+symbol_id: agency_interaction

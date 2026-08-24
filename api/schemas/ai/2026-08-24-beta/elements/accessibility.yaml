@@ -1,0 +1,13 @@
+id: accessibility
+category_id: purpose
+title:
+  - locale: en
+    value: Accessibility
+  - locale: fr
+    value: Accessibilité
+description:
+  - locale: en
+    value: Ensures that everyone has equal access to a space or a service.
+  - locale: fr
+    value: Garantit l'égalité d'accés de tous à un espace ou à un service.
+symbol_id: accessibility

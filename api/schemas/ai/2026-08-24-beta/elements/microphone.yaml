@@ -1,0 +1,21 @@
+id: microphone
+category_id: collection
+title:
+  - locale: en
+    value: Microphone
+  - locale: fr
+    value: Microphone
+description:
+  - locale: en
+    value: >-
+      Captures sound — speech, ambient noise, or specific audio events like breaking glass or
+      gunshots. Found in smart speakers, kiosks, intercoms, and acoustic monitoring installations.
+      The capture device itself; speech recognition and other analysis appear under Algorithm or
+      Model.
+  - locale: fr
+    value: >-
+      Capte le son — la parole, le bruit ambiant ou des événements sonores précis comme un bris de
+      verre. Présent dans les enceintes connectées, les bornes, les interphones et les
+      installations de surveillance acoustique. Le dispositif de capture lui-même ; la
+      reconnaissance vocale et les autres analyses figurent sous Algorithme ou modèle.
+symbol_id: audio

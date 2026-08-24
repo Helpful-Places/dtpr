@@ -1,0 +1,25 @@
+id: eligibility_benefits
+category_id: purpose
+title:
+  - locale: en
+    value: Eligibility & Public Benefits
+  - locale: fr
+    value: Éligibilité et prestations publiques
+description:
+  - locale: en
+    value: >-
+      Determines eligibility for, or distribution of, government benefits and essential public
+      services — for example, welfare allocation, housing assistance, child-services risk scoring.
+  - locale: fr
+    value: >-
+      Détermine l'éligibilité ou la distribution de prestations publiques et de services publics
+      essentiels — par exemple, l'attribution d'aides sociales, l'aide au logement, l'évaluation du
+      risque en protection de l'enfance.
+sources:
+  - type: regulation
+    title: EU AI Act Annex III §5(a) — Essential public assistance benefits and services
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+    citation: >-
+      Regulation (EU) 2024/1689, Article 6(2) and Annex III §5(a). AIAAIC repository documents
+      recurring harms in welfare-fraud detection and child-services scoring (e.g., SyRI, Robodebt).
+symbol_id: eligibility_benefits

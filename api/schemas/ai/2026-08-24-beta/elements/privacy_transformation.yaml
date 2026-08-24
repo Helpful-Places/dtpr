@@ -1,0 +1,23 @@
+id: privacy_transformation
+category_id: processing
+title:
+  - locale: en
+    value: Privacy-Preserving Transformation
+  - locale: fr
+    value: Transformation préservant la vie privée
+description:
+  - locale: en
+    value: >-
+      AI systems whose primary job is to transform input data so identifying details are removed,
+      blurred, or replaced before any downstream use. Includes face blurring, license-plate masking,
+      tokenization, k-anonymization, differential privacy, and synthetic-data generation. Acts as a
+      barrier between raw collected data and the data used for analysis or decisions.
+  - locale: fr
+    value: >-
+      Systèmes d'IA dont la fonction principale est de transformer les données d'entrée afin de
+      supprimer, flouter ou remplacer les détails identifiants avant toute utilisation en aval.
+      Inclut le floutage de visages, le masquage de plaques d'immatriculation, la tokenisation, la
+      k-anonymisation, la confidentialité différentielle et la génération de données synthétiques.
+      Sert de barrière entre les données brutes collectées et celles utilisées pour l'analyse ou les
+      décisions.
+symbol_id: processing_privacy-preserving-transformation

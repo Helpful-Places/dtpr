@@ -1,0 +1,31 @@
+id: output_decision
+category_id: output_dataset
+title:
+  - locale: en
+    value: A decision about you
+  - locale: fr
+    value: Une décision à propos de vous
+description:
+  - locale: en
+    value: >-
+      The AI produces a binding determination about a person — eligibility, classification, ranking,
+      or yes/no. Examples: an access-control system deciding to open a gate, an automated benefits
+      eligibility result, an automated screening that rules someone out.
+  - locale: fr
+    value: >-
+      L'IA produit une détermination contraignante sur une personne : éligibilité, classification,
+      hiérarchisation, ou oui/non. Exemples : un système de contrôle d'accès qui décide d'ouvrir un
+      portique, un résultat d'éligibilité automatisé à des prestations, un filtrage automatisé qui
+      élimine quelqu'un.
+sources:
+  - type: regulation
+    title: EU AI Act Article 3(1) — output class "decisions"
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+    citation: Regulation (EU) 2024/1689, Article 3(1).
+  - type: regulation
+    title: EU AI Act Annex III — High-risk decision domains
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+    citation: >-
+      Regulation (EU) 2024/1689, Annex III — biometric ID, employment, essential services, justice,
+      migration, education.
+symbol_id: dm_accept-or-deny

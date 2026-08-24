@@ -1,0 +1,22 @@
+id: right_to_human_review
+category_id: rights
+title:
+  - locale: en
+    value: Right to a Human Review
+  - locale: fr
+    value: Droit à un examen humain
+description:
+  - locale: en
+    value: >-
+      The right to have a person — not an automated system — make or meaningfully reconsider a
+      decision affecting you. This is a path to a non-automated decision, separate from the right to
+      challenge a decision that has already been made. The reviewing person must have the authority
+      and information to actually change the outcome.
+  - locale: fr
+    value: >-
+      Le droit qu'une personne — et non un système automatisé — prenne ou réexamine de manière
+      significative une décision vous concernant. Il s'agit d'une voie vers une décision non
+      automatisée, distincte du droit de contester une décision déjà prise. La personne qui procède
+      à l'examen doit disposer de l'autorité et des informations nécessaires pour modifier
+      effectivement le résultat.
+symbol_id: dtpr_api

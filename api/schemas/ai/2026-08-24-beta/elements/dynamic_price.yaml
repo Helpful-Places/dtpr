@@ -1,0 +1,20 @@
+id: dynamic_price
+category_id: manifestation
+title:
+  - locale: en
+    value: A dynamic price or fee
+  - locale: fr
+    value: Un prix ou tarif dynamique
+description:
+  - locale: en
+    value: >-
+      The output shows up as what something costs — a road toll that rises with congestion, surge
+      pricing for a ride, a parking rate that changes by demand, a personalized offer. You may
+      never see the system itself, only the price it set.
+  - locale: fr
+    value: >-
+      Le résultat se manifeste par le coût de quelque chose — un péage qui augmente avec la
+      congestion, une tarification de pointe pour une course, un tarif de stationnement qui varie
+      selon la demande, une offre personnalisée. Vous ne verrez peut-être jamais le système
+      lui-même, seulement le prix qu'il a fixé.
+symbol_id: commerce
