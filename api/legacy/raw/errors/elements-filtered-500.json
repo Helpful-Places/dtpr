@@ -1,0 +1,7 @@
+{
+  "error": true,
+  "url": "https://dtpr.io/api/dtpr/v1/elements?locales=en",
+  "statusCode": 500,
+  "statusMessage": "Server Error",
+  "message": "Server Error"
+}

@@ -35,6 +35,7 @@
     "test:watch": "vitest --config vitest.config.ts",
     "types": "wrangler types",
     "typecheck": "tsc --noEmit",
+    "capture:legacy": "tsx scripts/capture-legacy.ts",
     "schema:build": "tsx cli/bin.ts build",
     "schema:validate": "tsx cli/bin.ts validate",
     "schema:new": "tsx cli/bin.ts new",
