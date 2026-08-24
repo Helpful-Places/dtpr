@@ -1,0 +1,21 @@
+id: identifies
+category_id: action
+title:
+  - locale: en
+    value: Identifies
+  - locale: fr
+    value: Identifie
+description:
+  - locale: en
+    value: >-
+      Identifies — recognizes who or what something is by matching a face, voice, fingerprint,
+      plate, or account against known records. It turns "someone is here" into "this person is
+      here." Examples: a face match at a boarding gate, a plate lookup at a toll gantry. Distinct
+      from Senses, which detects without naming.
+  - locale: fr
+    value: >-
+      Identifie — reconnaît qui ou quoi en comparant un visage, une voix, une empreinte, une plaque
+      ou un compte à des références connues. Il transforme « quelqu'un est là » en « cette personne
+      est là ». Exemples : une correspondance faciale à une porte d'embarquement, une recherche de
+      plaque à un portique de péage. Distinct de Perçoit, qui détecte sans nommer.
+symbol_id: biometric

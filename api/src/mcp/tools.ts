@@ -166,7 +166,7 @@ function getSchemaTool(ctx: LoadContext): ToolDef {
     descriptor: {
       name: 'get_schema',
       description:
-        'Fetch a schema version. By default returns manifest + categories + datachain-type; pass include="full" to also inline every element. Each returned category may carry an element_context block (a per-instance discriminator with allowed values); authors must read it and set context_type_id on every instance element placed in such a category.',
+        'Fetch a schema version. By default returns manifest + categories + datachain-type; pass include="full" to also inline every element. Each returned category may carry an element_context block (a per-instance discriminator with allowed values); authors must read it and set context_type_id on instance elements placed in such a category, except where the context declares required: false (then it is an optional annotation).',
       inputSchema: schemaToJson(inputSchema),
     },
     handler: async (raw) => {

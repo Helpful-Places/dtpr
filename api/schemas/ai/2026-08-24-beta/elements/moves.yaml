@@ -1,0 +1,21 @@
+id: moves
+category_id: action
+title:
+  - locale: en
+    value: Moves
+  - locale: fr
+    value: Actionne
+description:
+  - locale: en
+    value: >-
+      Moves — acts on the physical world. The system drives motors, valves, signals, or other
+      actuators and changes something around you. Examples: steering a robot, changing a
+      traffic-signal phase, opening a gate, adjusting a building's ventilation, releasing a
+      parking barrier.
+  - locale: fr
+    value: >-
+      Actionne — agit sur le monde physique. Le système commande des moteurs, des vannes, des
+      signaux ou d'autres actionneurs et change quelque chose autour de vous. Exemples : diriger un
+      robot, changer la phase d'un feu de circulation, ouvrir une barrière, ajuster la ventilation
+      d'un bâtiment, libérer une barrière de stationnement.
+symbol_id: mode_physical

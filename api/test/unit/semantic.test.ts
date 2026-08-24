@@ -441,6 +441,28 @@ describe('validateInstance — instance-level rules', () => {
     expect(w!.fix_hint).toMatch(/ai_only/)
   })
 
+  it('Rule 4 (context_type_missing): silent when the context declares required: false', () => {
+    const src = baseSource()
+    const cat = src.categories.find((c: { id: string }) => c.id === 'ai__decision')!
+    ;(cat.element_context as { required?: boolean }).required = false
+    const inst = validInstance()
+    delete (inst.elements[0] as { context_type_id?: string }).context_type_id
+    const r = validateInstance(src, inst)
+    expect(r.ok).toBe(true)
+    expect(r.warnings.some((x) => x.code === 'CONTEXT_TYPE_MISSING')).toBe(false)
+  })
+
+  it('Rule 4 (context_type_missing): error when the context declares required: true', () => {
+    const src = baseSource()
+    const cat = src.categories.find((c: { id: string }) => c.id === 'ai__decision')!
+    ;(cat.element_context as { required?: boolean }).required = true
+    const inst = validInstance()
+    delete (inst.elements[0] as { context_type_id?: string }).context_type_id
+    const r = validateInstance(src, inst)
+    expect(r.ok).toBe(false)
+    expect(r.errors.some((x) => x.code === 'CONTEXT_TYPE_MISSING')).toBe(true)
+  })
+
   it('Rule 4 (context_type_missing): no warning when category has no element_context', () => {
     const inst = validInstance()
     // cloud_storage is in ai__storage which has no element_context.

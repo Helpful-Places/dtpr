@@ -1,0 +1,21 @@
+id: decides
+category_id: action
+title:
+  - locale: en
+    value: Decides
+  - locale: fr
+    value: Décide
+description:
+  - locale: en
+    value: >-
+      Decides — determines an outcome that takes effect: approving or denying, pricing,
+      allocating, flagging for action. Examples: a dynamic road toll set from traffic, an
+      application approved or refused, a dispatch assignment. When a person makes the final call
+      from its suggestions, that is Recommends instead.
+  - locale: fr
+    value: >-
+      Décide — détermine un résultat qui prend effet : approuver ou refuser, fixer un prix,
+      répartir, signaler pour action. Exemples : un péage dynamique fixé selon le trafic, une
+      demande approuvée ou refusée, une affectation d'intervention. Quand une personne tranche à
+      partir de ses suggestions, il s'agit plutôt de Recommande.
+symbol_id: dm_accept-or-deny

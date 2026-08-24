@@ -169,12 +169,11 @@ export function checkInstance(
     // element's effective context. Element.context overrides
     // Category.element_context fully (no merge); resolve in that order.
     // When the effective context exists but the instance omits
-    // context_type_id, emit a CONTEXT_TYPE_MISSING warning rather than
-    // an error — historic published chains predate this discriminator
-    // and must keep passing — but make the silence audible so authors
-    // can opt in. If a future taxonomy needs hard enforcement, add
-    // `Category.element_context.required: boolean` and promote this
-    // finding to `err(...)` when the flag is true.
+    // context_type_id, strictness follows the context's `required` flag:
+    // true → error; false → silent (the context is an optional
+    // annotation, e.g. action.autonomy); absent → warning, so historic
+    // published chains predating the discriminator keep passing while
+    // the silence stays audible.
     const cat = categoryById.get(el.category_id)
     const effectiveCtx = el.context ?? cat?.element_context
     if (ie.context_type_id) {
@@ -191,10 +190,11 @@ export function checkInstance(
           ),
         )
       }
-    } else if (effectiveCtx) {
+    } else if (effectiveCtx && effectiveCtx.required !== false) {
       const available = effectiveCtx.values.map((v) => v.id).join(', ')
+      const finding = effectiveCtx.required === true ? err : warn
       findings.push(
-        warn(
+        finding(
           'CONTEXT_TYPE_MISSING',
           `Element '${el.id}' is in category '${el.category_id}' which declares an element_context ('${effectiveCtx.id}'); instance omits context_type_id.`,
           {

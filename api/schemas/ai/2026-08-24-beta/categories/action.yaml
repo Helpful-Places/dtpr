@@ -1,0 +1,124 @@
+id: action
+name:
+  - locale: en
+    value: What it does
+  - locale: fr
+    value: Ce qu'il fait
+description:
+  - locale: en
+    value: >-
+      This system's actions, said as everyday verbs — it senses, predicts, decides, creates, moves.
+      Naming the verbs makes it easier to reason about what the system touches and what could go
+      wrong.
+  - locale: fr
+    value: >-
+      Les actions de ce système, dites en verbes de tous les jours — il perçoit, prédit, décide,
+      crée, actionne. Nommer les verbes aide à comprendre ce que le système touche et ce qui
+      pourrait mal tourner.
+prompt:
+  - locale: en
+    value: What is this system doing?
+  - locale: fr
+    value: Que fait ce système ?
+authoring_guidance:
+  - locale: en
+    value: >-
+      Pick the verbs a reader would recognize; one to three is usually right. To flag autonomy, set
+      Human involvement on the most downstream verb as the system-level signal; set it on other
+      verbs only when their stage genuinely differs; omit it when it would confuse.
+  - locale: fr
+    value: >-
+      Choisissez les verbes qu'un lecteur reconnaîtrait ; un à trois suffisent généralement. Pour
+      signaler l'autonomie, définissez Intervention humaine sur le verbe le plus en aval comme
+      signal d'ensemble ; ne la définissez sur d'autres verbes que si leur étape diffère vraiment ;
+      omettez-la en cas de doute.
+required: false
+order: 4
+datachain_type: ai
+shape: hexagon
+sources:
+  - type: framework
+    title: AI Taxonomy — An Operational Framework for Precision in AI Discourse
+    url: https://dropleaf.app/d/AlXez8scbd
+    citation: >-
+      Narain Jashanmal, v1.1, January 2026. This category extends the source's six modes into a
+      ten-verb vocabulary for public comprehension.
+element_context:
+  id: autonomy
+  name:
+    - locale: en
+      value: Human involvement
+    - locale: fr
+      value: Intervention humaine
+  description:
+    - locale: en
+      value: >-
+        Who completes the loop — a quick, system-level signal of how much runs without a person,
+        shown on the verb it colors. A general characterization of the deployment, not a technical
+        audit.
+    - locale: fr
+      value: >-
+        Qui boucle la boucle — un signal d'ensemble rapide indiquant ce qui fonctionne sans
+        personne, affiché sur le verbe qu'il colore. Une caractérisation générale du déploiement,
+        pas un audit technique.
+  required: false
+  values:
+    - id: human_decides
+      name:
+        - locale: en
+          value: A person decides
+        - locale: fr
+          value: Une personne décide
+      description:
+        - locale: en
+          value: >-
+            This system suggests or informs; a person makes the call before anything takes effect.
+            Example: a triage tool ranks cases for a clinician who chooses which to see first.
+        - locale: fr
+          value: >-
+            Ce système suggère ou informe ; une personne tranche avant que quoi que ce soit prenne
+            effet. Exemple : un outil de triage classe les cas pour qu'un clinicien choisisse
+            lesquels examiner en premier.
+      color: "#2A9D8F"
+    - id: human_oversees
+      name:
+        - locale: en
+          value: A person oversees or carries it out
+        - locale: fr
+          value: Une personne supervise ou exécute
+      description:
+        - locale: en
+          value: >-
+            This system works out the result on its own; people supervise it, can step in, or carry
+            out the result themselves. Example: an optimizer plans the day's collection routes, and
+            drivers run them.
+        - locale: fr
+          value: >-
+            Ce système produit le résultat par lui-même ; des personnes le supervisent, peuvent
+            intervenir ou exécutent le résultat elles-mêmes. Exemple : un optimiseur planifie les
+            tournées de collecte de la journée, et les chauffeurs les effectuent.
+      color: "#6A1B7A"
+    - id: autonomous
+      name:
+        - locale: en
+          value: Runs on its own
+        - locale: fr
+          value: Fonctionne par lui-même
+      description:
+        - locale: en
+          value: >-
+            This system decides and takes effect without a person reviewing each result. Example: a
+            road toll that reprices and charges automatically as traffic changes.
+        - locale: fr
+          value: >-
+            Ce système décide et prend effet sans qu'une personne examine chaque résultat.
+            Exemple : un péage qui se réévalue et prélève automatiquement selon le trafic.
+      color: "#E76F51"
+element_variables:
+  - id: additional_description
+    label:
+      - locale: en
+        value: Description
+      - locale: fr
+        value: Description
+    required: false

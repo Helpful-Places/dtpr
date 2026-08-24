@@ -1,0 +1,23 @@
+id: senses
+category_id: action
+title:
+  - locale: en
+    value: Senses
+  - locale: fr
+    value: Perçoit
+description:
+  - locale: en
+    value: >-
+      Senses — turns raw signals from cameras, microphones, or sensors into things the rest of the
+      system can use: detections, transcriptions, readings. Includes continuous monitoring that
+      watches for events. Examples: detecting a vehicle in a camera frame, transcribing a spoken
+      sentence, noticing that a platform is crowded. Distinct from Identifies, which puts a name to
+      who or what it perceives.
+  - locale: fr
+    value: >-
+      Perçoit — transforme les signaux bruts des caméras, microphones ou capteurs en éléments
+      utilisables par le reste du système : détections, transcriptions, mesures. Comprend la
+      surveillance continue qui guette des événements. Exemples : détecter un véhicule dans une
+      image, transcrire une phrase parlée, remarquer qu'un quai est bondé. Distinct d'Identifie,
+      qui met un nom sur ce qui est perçu.
+symbol_id: mode_perceptive

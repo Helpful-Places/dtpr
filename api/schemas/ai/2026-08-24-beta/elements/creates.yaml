@@ -1,0 +1,23 @@
+id: creates
+category_id: action
+title:
+  - locale: en
+    value: Creates
+  - locale: fr
+    value: Crée
+description:
+  - locale: en
+    value: >-
+      Creates — produces new text, images, audio, video, or code that did not exist before this
+      system ran. The output is content authored by the system, not a label or score about
+      existing data. Examples: drafting a paragraph from a prompt, generating an image from a
+      description, composing audio, completing code. Distinct from Answers, which responds to you
+      in conversation.
+  - locale: fr
+    value: >-
+      Crée — produit de nouveaux textes, images, sons, vidéos ou codes qui n'existaient pas avant
+      l'exécution de ce système. Le résultat est un contenu rédigé par le système, pas une
+      étiquette ni une note sur des données existantes. Exemples : rédiger un paragraphe à partir
+      d'une consigne, générer une image à partir d'une description, composer de l'audio, compléter
+      du code. Distinct de Répond, qui vous répond en conversation.
+symbol_id: mode_generative
