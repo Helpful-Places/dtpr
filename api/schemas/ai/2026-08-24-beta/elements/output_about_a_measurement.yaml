@@ -2,9 +2,9 @@ id: output_about_a_measurement
 category_id: output_dataset
 title:
   - locale: en
-    value: About a measurement
+    value: Data about a measurement
   - locale: fr
-    value: À propos d'une mesure
+    value: Données sur une mesure
 description:
   - locale: en
     value: >-

@@ -2,9 +2,9 @@ id: output_biometric
 category_id: output_dataset
 title:
   - locale: en
-    value: Biometric
+    value: Biometric data
   - locale: fr
-    value: Biométrie
+    value: Données biométriques
 description:
   - locale: en
     value: >-

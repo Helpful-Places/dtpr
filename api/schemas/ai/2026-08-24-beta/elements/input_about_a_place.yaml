@@ -2,9 +2,9 @@ id: input_about_a_place
 category_id: input_dataset
 title:
   - locale: en
-    value: About a place
+    value: Data about a place
   - locale: fr
-    value: À propos d'un lieu
+    value: Données sur un lieu
 description:
   - locale: en
     value: >-

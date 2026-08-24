@@ -1,9 +1,9 @@
 id: input_dataset
 name:
   - locale: en
-    value: Input Dataset
+    value: Input Data
   - locale: fr
-    value: Ensemble de données d'entrée
+    value: Données d'entrée
 description:
   - locale: en
     value: >-

@@ -3,7 +3,7 @@ name:
   - locale: en
     value: Data Storage
   - locale: fr
-    value: Stockage de données
+    value: Stockage des données
 description:
   - locale: en
     value: Where the data produced by this AI system is kept.

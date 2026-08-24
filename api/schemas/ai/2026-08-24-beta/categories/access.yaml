@@ -1,9 +1,9 @@
 id: access
 name:
   - locale: en
-    value: Access
+    value: Data Access
   - locale: fr
-    value: Accéder
+    value: Accès aux données
 description:
   - locale: en
     value: Who can see or use the data produced by this AI system.

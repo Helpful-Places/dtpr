@@ -1,9 +1,9 @@
 id: output_dataset
 name:
   - locale: en
-    value: Output Dataset
+    value: Output Data
   - locale: fr
-    value: Ensemble de données de sortie
+    value: Données de sortie
 description:
   - locale: en
     value: >-

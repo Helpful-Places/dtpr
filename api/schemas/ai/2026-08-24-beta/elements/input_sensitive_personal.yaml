@@ -2,9 +2,9 @@ id: input_sensitive_personal
 category_id: input_dataset
 title:
   - locale: en
-    value: Sensitive personal information
+    value: Sensitive personal data
   - locale: fr
-    value: Informations personnelles sensibles
+    value: Données personnelles sensibles
 description:
   - locale: en
     value: >-

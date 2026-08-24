@@ -1,9 +1,9 @@
 id: retention
 name:
   - locale: en
-    value: Retention
+    value: Data Retention
   - locale: fr
-    value: Rétention
+    value: Conservation des données
 description:
   - locale: en
     value: How long the data produced by this AI system is kept.

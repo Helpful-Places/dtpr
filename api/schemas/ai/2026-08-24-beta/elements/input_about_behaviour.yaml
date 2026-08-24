@@ -2,9 +2,9 @@ id: input_about_behaviour
 category_id: input_dataset
 title:
   - locale: en
-    value: About behaviour
+    value: Data about behaviour
   - locale: fr
-    value: À propos du comportement
+    value: Données sur le comportement
 description:
   - locale: en
     value: >-
