@@ -76,20 +76,93 @@ jobs:
           R2_BUCKET: dtpr-api-preview
         run: pnpm tsx scripts/r2-upload.ts "${{ steps.schema.outputs.version }}"
 
+      # Mirrors the production step. The frozen legacy snapshot has no
+      # version to resolve — it is one fixed artifact — so this runs
+      # unconditionally and no-ops whenever the preview bucket already
+      # holds it (sha256 sidecar).
+      - name: R2 upload — legacy snapshot (preview)
+        working-directory: api
+        env:
+          R2_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID_PREVIEW }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY_PREVIEW }}
+          R2_BUCKET: dtpr-api-preview
+        run: pnpm tsx scripts/r2-upload-legacy.ts
+
       - name: Post-deploy smoke tests
+        env:
+          HOST: https://api-preview.dtpr.io
         run: |
           set -euo pipefail
 
           echo "::group::healthz"
-          curl -fsS https://api-preview.dtpr.io/healthz | tee /tmp/healthz
+          curl -fsS "$HOST/healthz" | tee /tmp/healthz
           grep -q '"ok":true' /tmp/healthz
           echo "::endgroup::"
 
           echo "::group::noindex header"
-          headers=$(curl -sSI https://api-preview.dtpr.io/healthz)
+          headers=$(curl -sSI "$HOST/healthz")
           echo "$headers"
           if ! printf '%s\n' "$headers" | tr -d '\r' | grep -i -q '^x-robots-tag: noindex, nofollow$'; then
             echo "::error::Preview response missing X-Robots-Tag: noindex, nofollow"
             exit 1
           fi
           echo "::endgroup::"
+
+          # Whole-inventory legacy sweep, identical to the production
+          # workflow's except for $HOST — keep the two in step. Every one
+          # of the 282 objects is fetched and hashed against
+          # api/legacy/manifest.json, because there is no index flip to
+          # hide a partial upload behind and a spot check would miss one.
+          # Paced to stay well inside the RL_READ bucket (300 req / 60 s,
+          # keyed by IP + DTPR-Client).
+          echo "::group::legacy snapshot (282 objects)"
+          jq -r '
+            (.documents | to_entries[] | "/api/\(.key)\t\(.value.sha256)"),
+            (.icons.v0[] as $id | "/api/v0/icons/\($id).svg\t\(.icons.hashes[$id])"),
+            (.icons.v1[] as $id | "/api/v1/icons/\($id).svg\t\(.icons.hashes[$id])")
+          ' api/legacy/manifest.json > /tmp/legacy-inventory.tsv
+          inventory=$(wc -l < /tmp/legacy-inventory.tsv | tr -d ' ')
+          echo "manifest inventory: $inventory objects"
+          if [ "$inventory" -ne 282 ]; then
+            echo "::error::Expected 282 objects in api/legacy/manifest.json, found $inventory"
+            exit 1
+          fi
+
+          checked=0
+          failures=0
+          while IFS=$'\t' read -r path expected; do
+            status=$(curl -sS -H 'DTPR-Client: dtpr-deploy-smoke/1' \
+              -D /tmp/legacy-head -o /tmp/legacy-body -w '%{http_code}' "$HOST$path" || true)
+            checked=$((checked + 1))
+            if [ "$status" != "200" ]; then
+              echo "::error::$path returned HTTP $status (expected 200)"
+              failures=$((failures + 1))
+            else
+              actual="sha256-$(sha256sum < /tmp/legacy-body | cut -d' ' -f1)"
+              if [ "$actual" != "$expected" ]; then
+                echo "::error::$path served bytes the capture does not recognise ($actual != $expected)"
+                failures=$((failures + 1))
+              fi
+              # Frozen content, so the icon routes promise the immutable
+              # one-year Cache-Control. Documents deliberately carry no
+              # Cache-Control at all — the retired service sent none.
+              case "$path" in
+                *.svg)
+                  if ! tr -d '\r' < /tmp/legacy-head \
+                    | grep -qi '^cache-control: public, max-age=31536000, immutable$'; then
+                    echo "::error::$path is missing the immutable Cache-Control header"
+                    failures=$((failures + 1))
+                  fi
+                  ;;
+              esac
+            fi
+            if [ $((checked % 25)) -eq 0 ]; then echo "  checked $checked/$inventory"; fi
+            sleep 0.25
+          done < /tmp/legacy-inventory.tsv
+          echo "checked $checked legacy objects, $failures failure(s)"
+          echo "::endgroup::"
+          if [ "$failures" -ne 0 ]; then
+            echo "::error::$failures legacy object(s) failed verification — the preview R2 snapshot is incomplete or wrong. Re-running this workflow re-uploads if the sidecar is stale; otherwise run scripts/r2-upload-legacy.ts --force to republish every object."
+            exit 1
+          fi
