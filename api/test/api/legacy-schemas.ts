@@ -62,7 +62,8 @@ export const LegacyLocaleValueSchema = z.strictObject({
  * ------------------------------------------------------------------ */
 
 /** Where the frozen surface serves v0's 123 icons from, post-rewrite. */
-export const LEGACY_V0_ICON_URL_PATTERN = /^\/api\/v0\/icons\/[A-Za-z0-9_-]+\.svg$/
+export const LEGACY_V0_ICON_URL_PATTERN =
+  /^https:\/\/api\.dtpr\.io\/api\/v0\/icons\/[A-Za-z0-9_-]+\.svg$/
 
 /**
  * One v0 record.
@@ -102,7 +103,8 @@ export const LegacyV0DocumentSchema = z.array(LegacyV0RecordSchema)
  * ------------------------------------------------------------------ */
 
 /** Where the frozen surface serves v1's 148 icons from, post-rewrite. */
-export const LEGACY_V1_ICON_URL_PATTERN = /^\/api\/v1\/icons\/[A-Za-z0-9_-]+\.svg$/
+export const LEGACY_V1_ICON_URL_PATTERN =
+  /^https:\/\/api\.dtpr\.io\/api\/v1\/icons\/[A-Za-z0-9_-]+\.svg$/
 
 /**
  * The `schema` block every v1 record is wrapped in.

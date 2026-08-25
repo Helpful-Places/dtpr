@@ -1,4 +1,5 @@
 import { describe, it, expect, beforeAll } from 'vitest'
+import { iconBaseFor } from '../../scripts/capture-legacy.ts'
 import { env, SELF } from 'cloudflare:test'
 import type { z } from 'zod'
 import { LEGACY_V0_LOCALES, type LegacyV0Locale } from '../../src/rest/legacy-v0.ts'
@@ -128,7 +129,16 @@ function routeOf(id: string): string {
 }
 
 /** Where the frozen surface serves one major's icons from. */
+// Two different things that used to be one. `iconPathFor` is the value
+// *embedded* in a document — an absolute URL, shared with the capture
+// script so a drifted base cannot make the suite agree with itself. The
+// transform below stays independently expressed. `iconRouteFor` is the
+// path the icon is *requested* at, which is still relative to the host.
 function iconPathFor(version: LegacyVersion): string {
+  return iconBaseFor(version)
+}
+
+function iconRouteFor(version: LegacyVersion): string {
   return `/api/${version}/icons`
 }
 
@@ -540,7 +550,7 @@ describe('legacy conformance: icon bytes (R2, R6, R8)', () => {
     async ({ version, ids, count }) => {
       expect(ids).toHaveLength(count)
       for (const id of ids) {
-        const res = await get(`${iconPathFor(version)}/${id}.svg`)
+        const res = await get(`${iconRouteFor(version)}/${id}.svg`)
         expect(res.status, `${version} icon ${id}`).toBe(200)
         expect(await res.text(), `${version} icon ${id}`).toBe(legacyIcon(id))
       }
@@ -590,8 +600,18 @@ describe('legacy conformance: icon bytes (R2, R6, R8)', () => {
         expect(owned.has(url.slice(prefix.length, -'.svg'.length)), `${id} → ${url}`).toBe(true)
       }
 
+      // The embedded value is an absolute URL pointing at this API, which
+      // is what lets a cross-origin consumer bind it straight into an
+      // <img src>. Assert that, then fetch its path to prove it resolves.
       const probe = urls[0] as string
-      const res = await get(probe)
+      const probeUrl = new URL(probe)
+      // Hard-coded, not derived from `iconBaseFor`. Comparing the embedded
+      // origin against the constant that produced it proves nothing: change
+      // the constant, republish, and both sides agree on a wrong value. The
+      // Zod mirror pins the same literal for the same reason.
+      expect(probeUrl.origin, `${id} → ${probe}`).toBe('https://api.dtpr.io')
+
+      const res = await get(probeUrl.pathname)
       expect(res.status, `${id} → ${probe}`).toBe(200)
       expect(res.headers.get('Content-Type'), `${id} → ${probe}`).toBe('image/svg+xml')
     }
@@ -1005,14 +1025,14 @@ const R21_DEPARTURES: readonly R21Departure[] = [
     frozen: 'the raw-segment traversal guard rejects it at 400 (KTD7)',
     assert: async () => {
       for (const version of ['v0', 'v1'] as const) {
-        const encoded = await get(`${iconPathFor(version)}/%61ccessibility.svg`)
+        const encoded = await get(`${iconRouteFor(version)}/%61ccessibility.svg`)
         expect(encoded.status, `${version} encoded`).toBe(400)
         expect(encoded.headers.get('Content-Type'), `${version} encoded`).toBe('application/json')
         const body = JSON.parse(await encoded.text()) as { statusMessage: string }
         expect(body.statusMessage).toBe('Invalid icon id. Must match [a-zA-Z0-9_-]')
         // Scoped to the encoding: the decoded id is the same 200 it
         // always was.
-        const decoded = await get(`${iconPathFor(version)}/${PRESENT_ICON_ID}.svg`)
+        const decoded = await get(`${iconRouteFor(version)}/${PRESENT_ICON_ID}.svg`)
         expect(decoded.status, `${version} decoded`).toBe(200)
         expect(await decoded.text()).toBe(legacyIcon(PRESENT_ICON_ID))
       }
@@ -1142,7 +1162,7 @@ describe('legacy conformance: response headers (R4)', () => {
   it.each(['v0', 'v1'] as const)(
     '%s icons: bare image/svg+xml with the immutable cache header',
     async (version) => {
-      const res = await get(`${iconPathFor(version)}/${PRESENT_ICON_ID}.svg`)
+      const res = await get(`${iconRouteFor(version)}/${PRESENT_ICON_ID}.svg`)
       expect(res.status).toBe(200)
       expect(res.headers.get('Content-Type')).toBe('image/svg+xml')
       expect(res.headers.get('Cache-Control')).toBe('public, max-age=31536000, immutable')

@@ -194,6 +194,29 @@ jobs:
           # issue them would spend nearly the whole budget. The sleep
           # holds the sweep near 3 req/s; the header keeps it in a bucket
           # of its own.
+          # Follow an icon URL exactly as a consumer would: take it out of a
+          # served document and fetch it unmodified. Reconstructing the route
+          # from the manifest (as the sweep below does) cannot catch an
+          # embedded URL that is well-formed but does not resolve — which is
+          # precisely how a root-relative value shipped once already.
+          for v in v0 v1; do
+            if [ "$v" = v0 ]; then
+              embedded=$(curl -sS -H 'DTPR-Client: dtpr-deploy-smoke/1' "$HOST/api/v0/en" | jq -r '.[0].icon')
+            else
+              embedded=$(curl -sS -H 'DTPR-Client: dtpr-deploy-smoke/1' "$HOST/api/v1/elements" | jq -r '.[0].element.icon.url')
+            fi
+            case "$embedded" in
+              https://*) ;;
+              *) echo "::error::$v embeds a non-absolute icon URL ($embedded) — a consumer on another origin cannot resolve it"; exit 1 ;;
+            esac
+            code=$(curl -sS -o /dev/null -w '%{http_code}' -H 'DTPR-Client: dtpr-deploy-smoke/1' "$embedded")
+            if [ "$code" != "200" ]; then
+              echo "::error::$v embedded icon URL $embedded returned $code"
+              exit 1
+            fi
+            echo "$v embedded icon URL resolves: $embedded"
+          done
+
           echo "::group::legacy snapshot (282 objects)"
           jq -r '
             (.documents | to_entries[] | "/api/\(.key)\t\(.value.sha256)"),

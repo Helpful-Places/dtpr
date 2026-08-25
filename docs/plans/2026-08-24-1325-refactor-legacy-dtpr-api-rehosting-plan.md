@@ -65,7 +65,7 @@ The content behind these responses was frozen in April 2026 and is not expected 
 **Icons**
 
 - R6. Each legacy version serves its own icon set — v0's 123 icons under `/api/v0/icons/`, v1's 148 under `/api/v1/icons/` — with no cross-version references.
-- R7. Icon URLs embedded in a response point at that version's own icon path, so a consumer following the URLs in the JSON needs no separate configuration.
+- R7. Icon URLs embedded in a response are **absolute** and point at that version's own icon namespace, so a consumer following the URLs in the JSON needs no separate configuration. The retired service emitted absolute URLs and consumers bind the value straight into an image source; a root-relative value would resolve against the consumer's origin instead of the API's and 404.
 - R8. Legacy icons are served as the original flat files, with no variants and no composition from shapes and symbols.
 - R16. An unknown icon id returns 404, including a v1-only id requested under `/api/v0/icons/`. The 25 icons that exist only in v1's set are not reachable through the v0 namespace.
 

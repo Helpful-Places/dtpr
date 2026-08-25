@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url'
 import {
   assertOnlyIconUrlsChanged,
   canonicalTargets,
+  iconBaseFor,
   iconIdsIn,
   rewriteIconUrls,
   V0_LOCALES,
@@ -23,6 +24,17 @@ const readDoc = (id: string, kind: 'raw' | 'documents') =>
   readFile(join(legacyRoot, kind, `${id}.json`), 'utf8')
 
 describe('rewriteIconUrls', () => {
+  it('emits an absolute URL so a cross-origin consumer can use it directly', () => {
+    // The regression this guards: a root-relative value resolves against
+    // the consumer's origin, not ours, and 404s.
+    const body = '{"icon":"https://dtpr.io/dtpr-icons/aggregated.svg"}'
+    for (const version of ['v0', 'v1'] as const) {
+      const out = rewriteIconUrls(body, iconBaseFor(version))
+      expect(out).toContain(`https://api.dtpr.io/api/${version}/icons/aggregated.svg`)
+      expect(new URL(iconBaseFor(version)).origin).toBe('https://api.dtpr.io')
+    }
+  })
+
   it('rewrites an icon URL to the version-appropriate namespace', () => {
     const body = '{"icon":"https://dtpr.io/dtpr-icons/aggregated.svg"}'
     expect(rewriteIconUrls(body, '/api/v0/icons')).toBe('{"icon":"/api/v0/icons/aggregated.svg"}')
@@ -76,7 +88,7 @@ describe('the committed capture', () => {
 
   it('published documents reverse cleanly to their raw capture', async () => {
     for (const { id } of canonicalTargets()) {
-      const iconPath = id.startsWith('v0/') ? '/api/v0/icons' : '/api/v1/icons'
+      const iconPath = iconBaseFor(id.startsWith('v0/') ? 'v0' : 'v1')
       const raw = await readDoc(id, 'raw')
       const published = await readDoc(id, 'documents')
       expect(() => assertOnlyIconUrlsChanged(raw, published, iconPath)).not.toThrow()

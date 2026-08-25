@@ -45,9 +45,27 @@ import { dirname, join } from 'node:path'
 const LEGACY_ORIGIN = 'https://dtpr.io'
 const LEGACY_BASE = `${LEGACY_ORIGIN}/api/dtpr`
 
-/** Where the frozen surface will serve icons from, per version. */
-const ICON_PATH_V0 = '/api/v0/icons'
-const ICON_PATH_V1 = '/api/v1/icons'
+/**
+ * Where the frozen surface serves icons from, per version.
+ *
+ * Absolute, not root-relative. The retired service emitted an absolute
+ * URL built from its own `BASE_URL`, and consumers bind `icon` /
+ * `icon.url` straight into an `<img src>`. A root-relative value would
+ * resolve against the *consumer's* origin instead of ours and 404 —
+ * which is the opposite of R7's promise that following the URL in the
+ * body needs no extra configuration.
+ *
+ * The host is fixed rather than derived per request, because these
+ * documents are frozen bytes streamed verbatim (KTD1); rewriting them
+ * per request would mean re-serialising the largest one on every read.
+ * Consequence: the preview deployment serves documents that point at
+ * production icons. Those icons are byte-identical to preview's own, so
+ * a consumer still resolves correctly; only the host in the string
+ * differs.
+ */
+const PUBLISHED_ORIGIN = 'https://api.dtpr.io'
+const ICON_PATH_V0 = `${PUBLISHED_ORIGIN}/api/v0/icons`
+const ICON_PATH_V1 = `${PUBLISHED_ORIGIN}/api/v1/icons`
 
 export const V0_LOCALES = ['en', 'fr', 'es', 'pt', 'tl', 'km'] as const
 export const DATACHAIN_TYPES = ['ai', 'device'] as const
@@ -154,9 +172,19 @@ export function rewriteIconUrls(body: string, iconPath: string): string {
   return body.replace(ICON_URL_RE, (_m, id: string) => `${iconPath}/${id}.svg`)
 }
 
+/**
+ * The absolute icon base a version's documents point at. Exported so the
+ * uploader, the sub-apps' tests and the conformance suite all read one
+ * value — an earlier revision let each side spell it out and they drifted
+ * into a root-relative form that resolved against the consumer's origin.
+ */
+export function iconBaseFor(version: 'v0' | 'v1'): string {
+  return version === 'v0' ? ICON_PATH_V0 : ICON_PATH_V1
+}
+
 /** Which icon namespace a document's URLs should point at. */
 function iconPathFor(documentId: string): string {
-  return documentId.startsWith('v0/') ? ICON_PATH_V0 : ICON_PATH_V1
+  return iconBaseFor(documentId.startsWith('v0/') ? 'v0' : 'v1')
 }
 
 /**
@@ -165,8 +193,9 @@ function iconPathFor(documentId: string): string {
  * corrupting the 367 `schema.namespace` occurrences (KTD9).
  */
 export function assertOnlyIconUrlsChanged(raw: string, published: string, iconPath: string): void {
+  const escaped = iconPath.replaceAll('.', '\\.')
   const restored = published.replaceAll(
-    new RegExp(`${iconPath}/([A-Za-z0-9_-]+)\\.svg`, 'g'),
+    new RegExp(`${escaped}/([A-Za-z0-9_-]+)\\.svg`, 'g'),
     (_m, id: string) => `${LEGACY_ORIGIN}/dtpr-icons/${id}.svg`,
   )
   if (restored !== raw) {
@@ -303,10 +332,61 @@ export async function capture(legacyRoot: string): Promise<void> {
   console.log('live cross-check passed for every icon')
 }
 
+/**
+ * Regenerate the published documents and their manifest hashes from the
+ * committed raw captures, without touching the network.
+ *
+ * `capture()` can only ever run once — it reads a service that is being
+ * switched off. But the rewrite rule it applies is ordinary code and can
+ * be wrong, as it was: the first published artifact carried root-relative
+ * icon URLs that resolved against the consumer's origin rather than ours.
+ * Fixing that must not require re-reading a host that may already be gone,
+ * so the raw captures under `raw/` are the durable input and this is the
+ * replay.
+ *
+ * Icons and their hashes are untouched — the rewrite never altered them.
+ */
+export async function republish(legacyRoot: string): Promise<void> {
+  const rawDir = join(legacyRoot, 'raw')
+  const docsDir = join(legacyRoot, 'documents')
+  const manifestPath = join(legacyRoot, 'manifest.json')
+
+  const manifest = JSON.parse(await readFile(manifestPath, 'utf8')) as {
+    documents: Record<string, { sha256: string; rawSha256: string }>
+    [key: string]: unknown
+  }
+
+  for (const { id } of canonicalTargets()) {
+    const raw = await readFile(join(rawDir, `${id}.json`), 'utf8')
+
+    const entry = manifest.documents[id]
+    if (!entry) throw new Error(`Manifest has no entry for ${id}`)
+    if (entry.rawSha256 !== sha256(raw)) {
+      throw new Error(
+        `Raw capture for ${id} does not match its recorded hash — refusing to republish ` +
+          'from a capture that has been edited since it was taken.',
+      )
+    }
+
+    const iconPath = iconPathFor(id)
+    const published = rewriteIconUrls(raw, iconPath)
+    assertOnlyIconUrlsChanged(raw, published, iconPath)
+    await writeFileEnsuringDir(join(docsDir, `${id}.json`), published)
+
+    entry.sha256 = sha256(published)
+    console.log(`republished ${id}`)
+  }
+
+  await writeFileEnsuringDir(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`)
+}
+
 const isCli = import.meta.url === `file://${process.argv[1]}`
 if (isCli) {
   const root = join(process.cwd(), 'legacy')
-  capture(root).catch((err: unknown) => {
+  // `--republish` replays the rewrite over the committed captures; the
+  // bare form re-reads the live service and can only run while it is up.
+  const run = process.argv.includes('--republish') ? republish : capture
+  run(root).catch((err: unknown) => {
     console.error(err instanceof Error ? err.message : err)
     process.exitCode = 1
   })

@@ -1,4 +1,5 @@
 import { describe, it, expect, beforeAll, afterAll } from 'vitest'
+import { iconBaseFor } from '../../scripts/capture-legacy.ts'
 import { Hono } from 'hono'
 import { env, createExecutionContext, waitOnExecutionContext } from 'cloudflare:test'
 import type { AppEnv } from '../../src/app-types.ts'
@@ -105,7 +106,7 @@ describe('legacy v0: locale documents', () => {
     const res = await get('/en')
     const records = (await res.json()) as Array<{ icon: string }>
     for (const record of records) {
-      expect(record.icon.startsWith('/api/v0/icons/')).toBe(true)
+      expect(record.icon.startsWith(`${iconBaseFor('v0')}/`)).toBe(true)
     }
   })
 })
@@ -171,17 +172,19 @@ describe('legacy v0: icons', () => {
 
   it('resolves the icon URL a v0 record actually carries (AE5)', async () => {
     const records = (await (await get('/en')).json()) as Array<{ icon: string }>
-    const iconPath = records[0]?.icon ?? ''
-    expect(iconPath).toMatch(/^\/api\/v0\/icons\/.+\.svg$/)
+    const iconUrl = records[0]?.icon ?? ''
+    // Absolute, so it is fetched as-is rather than pasted onto an origin —
+    // that is the whole point of R7.
+    expect(iconUrl).toMatch(/^https:\/\/api\.dtpr\.io\/api\/v0\/icons\/.+\.svg$/)
 
     const ctx = createExecutionContext()
-    const res = await app.fetch(new Request(`${ORIGIN}${iconPath}`), env, ctx)
+    const res = await app.fetch(new Request(iconUrl), env, ctx)
     await waitOnExecutionContext(ctx)
 
     expect(res.status).toBe(200)
     expect(res.headers.get('Content-Type')).toBe('image/svg+xml')
     expect(res.headers.get('Cache-Control')).toBe('public, max-age=31536000, immutable')
-    const id = iconPath.slice('/api/v0/icons/'.length, -'.svg'.length)
+    const id = iconUrl.slice(`${iconBaseFor('v0')}/`.length, -'.svg'.length)
     expect(await res.text()).toBe(legacyIcon(id))
   })
 
