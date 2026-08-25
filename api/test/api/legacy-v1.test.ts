@@ -4,7 +4,7 @@ import { env, createExecutionContext, waitOnExecutionContext } from 'cloudflare:
 import type { AppEnv } from '../../src/app-types.ts'
 import { createLegacyV1App, LEGACY_V1_DOCUMENT_PATHS } from '../../src/rest/legacy-v1.ts'
 import { legacyDocumentKey, legacyIconKey } from '../../src/store/keys.ts'
-import { rewriteIconUrls } from '../../scripts/capture-legacy.ts'
+import { iconBaseFor, rewriteIconUrls } from '../../scripts/capture-legacy.ts'
 import {
   LEGACY_LOCALE_VARIANTS,
   legacyDocument,
@@ -36,7 +36,9 @@ import { clearBucket } from './seed.ts'
 
 const ORIGIN = 'https://api.dtpr.io'
 const MOUNT = '/api/v1'
-const ICON_PATH = `${MOUNT}/icons`
+// Absolute, and read from the capture script rather than rebuilt from
+// MOUNT: the embedded value is a full URL, not a path under the mount.
+const ICON_PATH = iconBaseFor('v1')
 
 const V1_ICON_IDS = legacyIconIds('v1')
 const V0_ICON_IDS = legacyIconIds('v0')
@@ -375,17 +377,19 @@ describe('legacy v1: icons', () => {
     const records = (await (await get('/elements/ai')).json()) as Array<{
       element: { icon: { url: string } }
     }>
-    const iconPath = records[0]?.element.icon.url ?? ''
-    expect(iconPath).toMatch(/^\/api\/v1\/icons\/.+\.svg$/)
+    const iconUrl = records[0]?.element.icon.url ?? ''
+    // Absolute, so it is fetched as-is rather than pasted onto an origin —
+    // that is the whole point of R7.
+    expect(iconUrl).toMatch(/^https:\/\/api\.dtpr\.io\/api\/v1\/icons\/.+\.svg$/)
 
     const ctx = createExecutionContext()
-    const res = await app.fetch(new Request(`${ORIGIN}${iconPath}`), env, ctx)
+    const res = await app.fetch(new Request(iconUrl), env, ctx)
     await waitOnExecutionContext(ctx)
 
     expect(res.status).toBe(200)
     expect(res.headers.get('Content-Type')).toBe('image/svg+xml')
     expect(res.headers.get('Cache-Control')).toBe('public, max-age=31536000, immutable')
-    const id = iconPath.slice(`${ICON_PATH}/`.length, -'.svg'.length)
+    const id = iconUrl.slice(`${ICON_PATH}/`.length, -'.svg'.length)
     expect(await res.text()).toBe(legacyIcon(id))
   })
 

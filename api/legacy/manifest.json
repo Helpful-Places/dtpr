@@ -3,35 +3,35 @@
   "source": "https://dtpr.io/api/dtpr",
   "documents": {
     "v0/en": {
-      "sha256": "sha256-d7d16a61904c4bb4011b36bdc02b3406c5aafd7f02c8c5c6dd6fde472a632748",
+      "sha256": "sha256-0585852bbeea79ce01ccc57a528858b0ef84e4d85e6c91adb93fd7947ead373f",
       "rawSha256": "sha256-558114c479f967d945ac51104e8ff90475975f171c83f16f9fcfd49c581b20c4"
     },
     "v0/fr": {
-      "sha256": "sha256-ba01577bbaa37d7f25f128f979356dbcec866de86e2ac9444d68a67be6bc8785",
+      "sha256": "sha256-cc37422e516125492d31af359cd9e420326e9b8f0e1741eae273044dbd64ec09",
       "rawSha256": "sha256-e1c89304d320b6600a0dc45a8c0ee86c9f0f1f2db36525bde2edbafbdeda0abd"
     },
     "v0/es": {
-      "sha256": "sha256-89fca3eda5b32506aae9e0f8013c7f31904b91b679a1637b90551f969bf6a7fa",
+      "sha256": "sha256-33680c4d389d3d7a64df5ea2bff75d4abfe2194f429ae2fd7f2895b748fc7f08",
       "rawSha256": "sha256-8c89fa642194f46288495c573996f7dd0c5804840ab4df249e5021e9207d5f1a"
     },
     "v0/pt": {
-      "sha256": "sha256-4e59fdb399d1698a42f5e979095ce0fd039203aa1c22a48a08adbfdc4019cca9",
+      "sha256": "sha256-a1acf55d862d697e371cfc71ad15a526cccc8ad8ed52f6ecf3d5b562a4d09edf",
       "rawSha256": "sha256-c79babfabcfd6d00176e6b08566a4469b81718fcd1554e70c0446b53f29b09d4"
     },
     "v0/tl": {
-      "sha256": "sha256-df8fb85d09343ac4f5ba8af56c4eb3b59ecffc002d0a5657e3c649c75950dd14",
+      "sha256": "sha256-1f4b32e339e5bd2aae778a7a1cb6b251d161fcd6677b1a25257928017b860f0a",
       "rawSha256": "sha256-4e10c6b81229628eaec05099c816a795a493306a9ba48f82211d108abe1c75a6"
     },
     "v0/km": {
-      "sha256": "sha256-664d67e022185cb8ecd7c4aa4c9d2487412614c5ac8799e7507d2f0d8e9fb153",
+      "sha256": "sha256-6d33993d1e8f058cd1d6dd95363c50e82d4e8ad1935ada664bd1266470cd1182",
       "rawSha256": "sha256-6fb01d19c47e548be21002805f9ced50959a683576815443f044ade8a0d56b2c"
     },
     "v1/elements": {
-      "sha256": "sha256-3147bb4a03f6356f56a043dae976b0bda00388a2b9ba3d64c93e9fb237c71c0e",
+      "sha256": "sha256-6c7b833b8f6beb61899ffcebfa05b18aa9fc7d31a6db4d1c4e0164ec5887fedd",
       "rawSha256": "sha256-e1cf96e39986257cd689b91400d4997cfda5aced907137c2f5adfa0dba26f971"
     },
     "v1/elements/ai": {
-      "sha256": "sha256-1cfb0859f6f817148625a40cecc873b4d569d70936e1cd45a6553a1c7924531b",
+      "sha256": "sha256-1c1f02b05a610290175dbb470183c34df0ccccedfe2cc054b41cf7bd9e144d8d",
       "rawSha256": "sha256-3676a101c7006e36a75db1b4511b2b07e0ffadff68f9e07f905b06f86ac1c9b4"
     },
     "v1/categories/ai": {
@@ -39,7 +39,7 @@
       "rawSha256": "sha256-220d8d97f1fc811e0a84e7a9b43fd54529c8495ae44c8856ac8348174292c033"
     },
     "v1/elements/device": {
-      "sha256": "sha256-abc35030ecf0ca9a9851d4b56217da73ce82c6accd9ad1f11ac6f54ced27df9f",
+      "sha256": "sha256-cc7c69265add4cde150992f8766776a9c59191420af6890f7462313ae8df6b9a",
       "rawSha256": "sha256-47203af97e7cbc633800b3a0df8928630cf7fbe0cc7a95bd0dea0e3257e1e564"
     },
     "v1/categories/device": {
