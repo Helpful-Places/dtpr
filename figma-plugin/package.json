@@ -1,0 +1,19 @@
+{
+  "name": "@dtpr/figma-plugin",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Figma plugin that generates a DTPR icon component library from api.dtpr.io",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@figma/plugin-typings": "^1.109.0",
+    "esbuild": "^0.24.0",
+    "typescript": "5.9.3",
+    "vitest": "^3.0.0"
+  }
+}

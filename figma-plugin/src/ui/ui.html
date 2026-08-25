@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      /* `themeColors: true` in figma.showUI() injects these variables,
+         so the panel follows Figma's light/dark theme for free. */
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        padding: 16px;
+        font-family: Inter, -apple-system, system-ui, sans-serif;
+        font-size: 11px;
+        line-height: 1.5;
+        color: var(--figma-color-text, #333);
+        background: var(--figma-color-bg, #fff);
+      }
+
+      h1 {
+        margin: 0 0 2px;
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      .subtitle {
+        margin: 0 0 16px;
+        color: var(--figma-color-text-secondary, #777);
+      }
+
+      label { display: block; margin-bottom: 12px; }
+
+      .label-text {
+        display: block;
+        margin-bottom: 4px;
+        font-weight: 500;
+      }
+
+      select,
+      input[type='text'] {
+        width: 100%;
+        padding: 6px 8px;
+        font: inherit;
+        color: inherit;
+        background: var(--figma-color-bg-secondary, #fff);
+        border: 1px solid var(--figma-color-border, #ddd);
+        border-radius: 4px;
+      }
+
+      select:disabled,
+      input:disabled { opacity: 0.5; }
+
+      fieldset {
+        margin: 0 0 16px;
+        padding: 12px;
+        border: 1px solid var(--figma-color-border, #eee);
+        border-radius: 6px;
+      }
+
+      legend {
+        padding: 0 4px;
+        font-weight: 500;
+        color: var(--figma-color-text-secondary, #777);
+      }
+
+      .check {
+        display: flex;
+        gap: 8px;
+        align-items: flex-start;
+        margin-bottom: 10px;
+      }
+
+      .check:last-child { margin-bottom: 0; }
+      .check input { margin: 2px 0 0; flex: none; }
+      .check span { display: block; }
+      .check .hint { color: var(--figma-color-text-secondary, #888); }
+
+      .actions { display: flex; gap: 8px; margin-bottom: 12px; }
+
+      button {
+        flex: 1;
+        padding: 8px 12px;
+        font: inherit;
+        font-weight: 500;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        background: var(--figma-color-bg-brand, #0d99ff);
+        color: var(--figma-color-text-onbrand, #fff);
+      }
+
+      button:disabled { opacity: 0.4; cursor: default; }
+
+      button.secondary {
+        flex: 0 0 auto;
+        background: var(--figma-color-bg-secondary, #f0f0f0);
+        color: var(--figma-color-text, #333);
+      }
+
+      .track {
+        height: 4px;
+        margin-bottom: 8px;
+        overflow: hidden;
+        background: var(--figma-color-bg-secondary, #eee);
+        border-radius: 999px;
+      }
+
+      .track div {
+        width: 0;
+        height: 100%;
+        background: var(--figma-color-bg-brand, #0d99ff);
+        transition: width 120ms linear;
+      }
+
+      #status { margin: 0; min-height: 2.6em; }
+      #status[data-tone='error'] { color: var(--figma-color-text-danger, #d33); }
+      #status[data-tone='ok'] { color: var(--figma-color-text-success, #0a0); }
+      #estimate { margin: 0; color: var(--figma-color-text-secondary, #888); }
+    </style>
+  </head>
+  <body>
+    <h1>DTPR Icon Library</h1>
+    <p class="subtitle">Generates a component page from api.dtpr.io.</p>
+
+    <label>
+      <span class="label-text">Schema version</span>
+      <select id="version"></select>
+    </label>
+
+    <label>
+      <span class="label-text">Locale</span>
+      <input id="locale" type="text" value="en" spellcheck="false" />
+    </label>
+
+    <fieldset>
+      <legend>Options</legend>
+
+      <label class="check">
+        <input id="defaultContextOnly" type="checkbox" />
+        <span>
+          Default context only
+          <span class="hint">Skips per-context icons (vendor, identifiable, …).</span>
+        </span>
+      </label>
+
+      <label class="check">
+        <input id="lightThemeOnly" type="checkbox" />
+        <span>
+          Light theme only
+          <span class="hint">Skips every dark-theme icon.</span>
+        </span>
+      </label>
+
+      <label class="check">
+        <input id="includeLabels" type="checkbox" checked />
+        <span>
+          Caption each icon
+          <span class="hint">Draws the element title under the component.</span>
+        </span>
+      </label>
+    </fieldset>
+
+    <div class="actions">
+      <button id="generate" type="button">Generate library</button>
+      <button id="cancel" class="secondary" type="button" hidden>Cancel</button>
+    </div>
+
+    <div class="track"><div id="progressBar"></div></div>
+    <p id="status" data-tone="idle">Loading…</p>
+    <p id="estimate"></p>
+
+    <script>%BUNDLE%</script>
+  </body>
+</html>

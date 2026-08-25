@@ -2,6 +2,7 @@ packages:
   - 'app'
   - 'api'
   - 'docs-site'
+  - 'figma-plugin'
   - 'dtpr-ai'
   - 'packages/*'
   - 'prototypes/canvas'
