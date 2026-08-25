@@ -1,0 +1,10 @@
+{
+  "error": true,
+  "url": "https://dtpr.io/dtpr-icons/__does_not_exist__.svg",
+  "statusCode": 404,
+  "statusMessage": "Page not found: /dtpr-icons/__does_not_exist__.svg",
+  "message": "Page not found: /dtpr-icons/__does_not_exist__.svg",
+  "data": {
+    "path": "/dtpr-icons/__does_not_exist__.svg"
+  }
+}

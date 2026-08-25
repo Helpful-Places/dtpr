@@ -1,9 +1,14 @@
 <script setup lang="ts">
 const route = useRoute()
 
+// v2 is the maintained API. v1 and v0 are frozen: preserved byte-for-byte
+// from the retired dtpr.io service, never updated again. The v0 pages live
+// under `_v0/`, which keeps them out of the nav but also out of the router
+// at `/api/v0/...` — so its path here is the real one it renders at.
 const versions = [
-  { id: 'v1', label: 'v1 (Current)', path: '/api/v1/overview' },
-  { id: 'v0', label: 'v0 (Deprecated)', path: '/api/v0/overview' }
+  { id: 'v2', label: 'v2 (Current)', path: '/api/v2/overview' },
+  { id: 'v1', label: 'v1 (Frozen)', path: '/api/v1/overview' },
+  { id: 'v0', label: 'v0 (Frozen)', path: '/api/_v0/overview' }
 ]
 
 const currentVersion = computed(() => {
@@ -16,8 +21,8 @@ const currentVersion = computed(() => {
   return null
 })
 
-const isDeprecated = computed(() => {
-  return currentVersion.value && currentVersion.value !== 'v1'
+const isFrozen = computed(() => {
+  return currentVersion.value !== null && currentVersion.value !== 'v2'
 })
 
 function navigateToVersion(version: typeof versions[number]) {
@@ -41,8 +46,8 @@ function navigateToVersion(version: typeof versions[number]) {
         {{ version.label }}
       </option>
     </select>
-    <span v-if="isDeprecated" class="version-switcher-badge">
-      Deprecated
+    <span v-if="isFrozen" class="version-switcher-badge">
+      Frozen
     </span>
   </div>
 </template>

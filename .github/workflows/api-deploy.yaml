@@ -116,6 +116,30 @@ jobs:
             echo "::endgroup::"
           done <<< "${{ steps.schemas.outputs.list }}"
 
+      # The frozen legacy snapshot (`api/legacy/`), published under the
+      # `legacy/` prefix by its own script (KTD6): there is no
+      # per-version manifest, no stable-immutability rule and no index to
+      # flip here. Idempotency comes from a sha256 sidecar the uploader
+      # writes only after the last of the 282 puts resolves, so an
+      # unchanged artifact is a no-op and an interrupted run re-uploads.
+      #
+      # Unconditional, including under the workflow_dispatch
+      # single-version override: the snapshot is version-independent, so
+      # there is nothing for that input to narrow.
+      #
+      # Ordering: the worker deploy above already published `/api/v0` and
+      # `/api/v1`, so on a first deploy those routes exist and 404 until
+      # this step finishes. The smoke tests below are what catch a run
+      # that stops in between.
+      - name: R2 upload — legacy snapshot (production)
+        working-directory: api
+        env:
+          R2_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID_PROD }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY_PROD }}
+          R2_BUCKET: dtpr-api
+        run: pnpm tsx scripts/r2-upload-legacy.ts
+
       # Prune index entries whose source dir was deleted (e.g. after
       # schema:promote renamed `<date>-beta` to `<date>`). Skipped when
       # the workflow_dispatch single-version override is set, since we
@@ -133,11 +157,12 @@ jobs:
       - name: Post-deploy smoke tests
         env:
           ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          HOST: https://api.dtpr.io
         run: |
           set -euo pipefail
 
           echo "::group::healthz"
-          curl -fsS https://api.dtpr.io/healthz | tee /tmp/healthz
+          curl -fsS "$HOST/healthz" | tee /tmp/healthz
           grep -q '"ok":true' /tmp/healthz
           echo "::endgroup::"
 
@@ -145,22 +170,96 @@ jobs:
           # ships /api/v2/schemas; until then we just verify the worker
           # handles the request without 5xx).
           echo "::group::cache check"
-          first=$(curl -sS -o /dev/null -w '%{http_code}' https://api.dtpr.io/api/v2/schemas || true)
-          second_status=$(curl -sS -D - -o /dev/null https://api.dtpr.io/api/v2/schemas | tr -d '\r' || true)
+          first=$(curl -sS -o /dev/null -w '%{http_code}' "$HOST/api/v2/schemas" || true)
+          second_status=$(curl -sS -D - -o /dev/null "$HOST/api/v2/schemas" | tr -d '\r' || true)
           echo "first=$first"
           echo "$second_status" | head -10
           echo "::endgroup::"
 
-          # Direct R2 public URL must NOT serve the bundle. The bucket
-          # should never be publicly accessible — Worker is the gatekeeper.
-          echo "::group::r2 public access"
-          public_status=$(curl -sS -o /dev/null -w '%{http_code}' \
-            "https://pub-${ACCOUNT_ID}.r2.dev/schemas/index.json" || true)
-          echo "public_status=$public_status"
-          if [ "$public_status" = "200" ]; then
-            echo "::error::R2 bucket is publicly readable — bypasses Worker middleware. Disable r2.dev public access."
+          # The frozen legacy surface: every object, not a sample. 11
+          # documents + 271 icons (123 under v0, 148 under v1), each
+          # compared against the sha256 the capture recorded in
+          # api/legacy/manifest.json.
+          #
+          # It has to be the whole inventory. There is no index flip to
+          # hide a partial upload behind, so a run that stopped halfway
+          # shows up only as 404s on whichever objects never landed, and
+          # a four-object spot check would miss them. Worse, if that run
+          # had managed to write its sidecar the next deploy would be a
+          # no-op — so an unnoticed gap would never heal on its own.
+          #
+          # Paced deliberately: the legacy prefixes sit behind the shared
+          # RL_READ bucket (300 requests / 60 s, keyed by IP + the
+          # DTPR-Client header), and 282 requests as fast as curl can
+          # issue them would spend nearly the whole budget. The sleep
+          # holds the sweep near 3 req/s; the header keeps it in a bucket
+          # of its own.
+          echo "::group::legacy snapshot (282 objects)"
+          jq -r '
+            (.documents | to_entries[] | "/api/\(.key)\t\(.value.sha256)"),
+            (.icons.v0[] as $id | "/api/v0/icons/\($id).svg\t\(.icons.hashes[$id])"),
+            (.icons.v1[] as $id | "/api/v1/icons/\($id).svg\t\(.icons.hashes[$id])")
+          ' api/legacy/manifest.json > /tmp/legacy-inventory.tsv
+          inventory=$(wc -l < /tmp/legacy-inventory.tsv | tr -d ' ')
+          echo "manifest inventory: $inventory objects"
+          if [ "$inventory" -ne 282 ]; then
+            echo "::error::Expected 282 objects in api/legacy/manifest.json, found $inventory"
             exit 1
           fi
+
+          checked=0
+          failures=0
+          while IFS=$'\t' read -r path expected; do
+            status=$(curl -sS -H 'DTPR-Client: dtpr-deploy-smoke/1' \
+              -D /tmp/legacy-head -o /tmp/legacy-body -w '%{http_code}' "$HOST$path" || true)
+            checked=$((checked + 1))
+            if [ "$status" != "200" ]; then
+              echo "::error::$path returned HTTP $status (expected 200)"
+              failures=$((failures + 1))
+            else
+              actual="sha256-$(sha256sum < /tmp/legacy-body | cut -d' ' -f1)"
+              if [ "$actual" != "$expected" ]; then
+                echo "::error::$path served bytes the capture does not recognise ($actual != $expected)"
+                failures=$((failures + 1))
+              fi
+              # Frozen content, so the icon routes promise the immutable
+              # one-year Cache-Control. Documents deliberately carry no
+              # Cache-Control at all — the retired service sent none.
+              case "$path" in
+                *.svg)
+                  if ! tr -d '\r' < /tmp/legacy-head \
+                    | grep -qi '^cache-control: public, max-age=31536000, immutable$'; then
+                    echo "::error::$path is missing the immutable Cache-Control header"
+                    failures=$((failures + 1))
+                  fi
+                  ;;
+              esac
+            fi
+            if [ $((checked % 25)) -eq 0 ]; then echo "  checked $checked/$inventory"; fi
+            sleep 0.25
+          done < /tmp/legacy-inventory.tsv
+          echo "checked $checked legacy objects, $failures failure(s)"
+          echo "::endgroup::"
+          if [ "$failures" -ne 0 ]; then
+            echo "::error::$failures legacy object(s) failed verification — the R2 snapshot is incomplete or wrong. Re-running this workflow re-uploads if the sidecar is stale; otherwise run scripts/r2-upload-legacy.ts --force to republish every object."
+            exit 1
+          fi
+
+          # Direct R2 public URL must NOT serve the bundle. The bucket
+          # should never be publicly accessible — Worker is the gatekeeper.
+          # Checked per prefix: `legacy/` is a separate tree written by a
+          # separate uploader, so "schemas/ is private" says nothing
+          # about it.
+          echo "::group::r2 public access"
+          for key in schemas/index.json legacy/documents/v1/elements.json legacy/icons/v1/aggregated.svg; do
+            public_status=$(curl -sS -o /dev/null -w '%{http_code}' \
+              "https://pub-${ACCOUNT_ID}.r2.dev/$key" || true)
+            echo "public_status[$key]=$public_status"
+            if [ "$public_status" = "200" ]; then
+              echo "::error::R2 bucket is publicly readable ($key) — bypasses Worker middleware. Disable r2.dev public access."
+              exit 1
+            fi
+          done
           echo "::endgroup::"
 
       # dtpr-ai bakes the schemas index into prerendered HTML at build

@@ -1,0 +1,7 @@
+{
+  "error": true,
+  "url": "https://dtpr.io/api/dtpr/v1/elements/bogus",
+  "statusCode": 400,
+  "statusMessage": "Invalid datachain_type. Must be \"ai\" or \"device\"",
+  "message": "Invalid datachain_type. Must be \"ai\" or \"device\""
+}

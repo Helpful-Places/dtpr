@@ -1,0 +1,9 @@
+{
+  "captured_at": "2026-08-24T13:16:37.805Z",
+  "source": "https://dtpr.io/api/dtpr",
+  "note": "Captured from the live Nuxt service before shutdown. Every document was fetched twice and both runs agreed. The rewrite was reversed and compared against the raw capture to prove only icon URLs changed.",
+  "document_count": 11,
+  "variant_count": 36,
+  "error_count": 4,
+  "icon_count": 148
+}

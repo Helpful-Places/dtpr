@@ -11,10 +11,13 @@ import {
   datachainTypeKey,
   elementKey,
   elementsKey,
+  legacyDocumentKey,
+  legacyIconKey,
   manifestKey,
   schemaJsonKey,
   searchIndexKey,
   symbolKey,
+  type LegacyVersion,
 } from './keys.ts'
 
 /** Default per-version cache TTL for stable versions. 24 hours. */
@@ -179,6 +182,61 @@ export function loadComposedIconSvg(
 ): Promise<string | null> {
   const key = composedIconKey(version, elementId, variant)
   return cachedText(key, () => getText(ctx.bucket, key), cacheOptionsFor(version, ctx.ctx))
+}
+
+/* ------------------------------------------------------------------ *
+ * Legacy snapshot loaders
+ * ------------------------------------------------------------------ */
+
+/**
+ * Cache options for the frozen legacy snapshot.
+ *
+ * The sibling `cacheOptionsFor` keys its `enabled` flag off
+ * `version.beta`, because beta schema content is mutable. Legacy
+ * content has no channel — it is a capture of a service that no longer
+ * exists — so caching is unconditionally on at the stable TTL. See the
+ * invalidation caveat in `keys.ts` for what that costs if the snapshot
+ * is ever corrected in place.
+ */
+function legacyCacheOptions(ctx?: ExecutionLike): CacheOptions {
+  return { enabled: true, ttl: STABLE_TTL_SECONDS, ctx }
+}
+
+/**
+ * Load one captured legacy document as text.
+ *
+ * Deliberately *not* parsed. The unfiltered serving path streams these
+ * stored bytes straight into a `Response` with an explicit
+ * `application/json` content type (KTD1): parsing and re-serialising
+ * would reformat the body and `c.json()` would append a `charset`
+ * parameter the legacy service never sent. Only the v1 locale-filter
+ * path parses, and it does so from this same text.
+ *
+ * Returns `null` on R2 miss so the route layer can answer in the
+ * legacy shape rather than the house error envelope.
+ */
+export function loadLegacyDocument(
+  ctx: LoadContext,
+  version: LegacyVersion,
+  documentPath: string,
+): Promise<string | null> {
+  const key = legacyDocumentKey(version, documentPath)
+  return cachedText(key, () => getText(ctx.bucket, key), legacyCacheOptions(ctx.ctx))
+}
+
+/**
+ * Load one captured legacy icon SVG as text. Mirrors `loadSymbolSvg`,
+ * minus the version parameter. Returns `null` on R2 miss — which for
+ * legacy icons is a real answer, not a fallback trigger: the two
+ * majors have different id sets, so a v1-only id under v0 is a 404.
+ */
+export function loadLegacyIconSvg(
+  ctx: LoadContext,
+  version: LegacyVersion,
+  iconId: string,
+): Promise<string | null> {
+  const key = legacyIconKey(version, iconId)
+  return cachedText(key, () => getText(ctx.bucket, key), legacyCacheOptions(ctx.ctx))
 }
 
 /**
