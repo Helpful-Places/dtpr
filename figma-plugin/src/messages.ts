@@ -58,6 +58,12 @@ export type UiToCode =
     }
   | { type: 'build-batch'; icons: IconPayload[] }
   | { type: 'build-end' }
+  /**
+   * Cancel a document build already handed to the sandbox. Cooperative:
+   * the sandbox notices it at the next yield, so it lands between
+   * elements rather than mid-node.
+   */
+  | { type: 'build-cancel' }
   | { type: 'build-abort'; message: string }
   | { type: 'close' }
 

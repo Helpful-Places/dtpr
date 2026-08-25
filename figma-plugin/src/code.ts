@@ -46,6 +46,16 @@ interface BuildState {
 
 let state: BuildState | null = null
 
+/**
+ * Set by a `build-cancel` while `build()` is running. The build reads it
+ * at its yield points, so cancellation lands between elements rather
+ * than halfway through a component set.
+ */
+let cancelRequested = false
+
+/** Status text for a user-cancelled build; matches the fetch phase. */
+const CANCELLED_MESSAGE = 'Cancelled.'
+
 figma.showUI(__html__, { width: 400, height: 560, themeColors: true })
 
 function post(message: CodeToUi): void {
@@ -64,6 +74,7 @@ figma.ui.onmessage = async (message: UiToCode) => {
         await figma.clientStorage.setAsync(SETTINGS_KEY, message.settings)
         break
       case 'build-start':
+        cancelRequested = false
         state = {
           settings: message.settings,
           contentHash: message.contentHash,
@@ -88,6 +99,11 @@ figma.ui.onmessage = async (message: UiToCode) => {
         if (!state) break
         await build(state)
         state = null
+        break
+      case 'build-cancel':
+        // Only meaningful mid-`build()`; the flag is read at its yield
+        // points. Before `build-end` the UI stops on its own.
+        cancelRequested = true
         break
       case 'build-abort':
         state = null
@@ -222,13 +238,35 @@ function boxFor(node: SceneNode, label: TextNode | null): Box {
 }
 
 async function build(current: BuildState): Promise<void> {
-  const { settings, categories, contentHash } = current
   const fonts = await loadFonts()
 
+  const previousPage = figma.currentPage
   const page = figma.createPage()
-  page.name = `DTPR Icons — ${settings.version}`
+  page.name = `DTPR Icons — ${current.settings.version}`
   await focusPage(page)
 
+  try {
+    await buildInto(page, current, fonts)
+  } catch (error) {
+    // Half a library is worse than none: it looks complete enough to
+    // publish, and a retry would add a second page beside it rather
+    // than replacing this one. Drop it and let the error propagate.
+    try {
+      await focusPage(previousPage)
+      page.remove()
+    } catch (cleanupError) {
+      console.warn('DTPR: could not remove the partial page', cleanupError)
+    }
+    throw error
+  }
+}
+
+async function buildInto(
+  page: PageNode,
+  current: BuildState,
+  fonts: Fonts,
+): Promise<void> {
+  const { settings, categories, contentHash } = current
   const ordered = categories.slice().sort((a, b) => a.order - b.order)
   let cursorY = PAGE_PADDING
   let componentCount = 0
@@ -321,7 +359,11 @@ async function build(current: BuildState): Promise<void> {
           total: current.elements.length,
           label: `${category.id}/${meta.id}`,
         })
+        // Yielding is what lets `build-cancel` reach us at all — the
+        // sandbox is single-threaded, so a message queued during the
+        // build is only delivered here.
         await new Promise((resolve) => setTimeout(resolve, 0))
+        if (cancelRequested) throw new Error(CANCELLED_MESSAGE)
       }
     }
 

@@ -316,6 +316,10 @@ generateButton.addEventListener('click', () => {
 
 cancelButton.addEventListener('click', () => {
   cancelled = true
+  // The local flag only stops the fetch phase. Once `build-end` has been
+  // sent the sandbox owns the work, so it has to be told separately —
+  // otherwise cancelling mid-build still ends in "Done".
+  toCode({ type: 'build-cancel' })
   setStatus('Cancelling…', 'busy')
 })
 
