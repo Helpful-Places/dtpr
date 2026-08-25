@@ -1,0 +1,12 @@
+{
+  "name": "DTPR Icon Library",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "ui": "dist/ui.html",
+  "editorType": ["figma"],
+  "documentAccess": "dynamic-page",
+  "networkAccess": {
+    "allowedDomains": ["https://api.dtpr.io"],
+    "reasoning": "Reads the public DTPR schema (categories, elements, and icon SVGs) from the DTPR API so the plugin can generate an up-to-date icon component library. No data is sent to the API and no credentials are used."
+  }
+}
