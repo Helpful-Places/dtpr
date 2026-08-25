@@ -605,7 +605,11 @@ describe('legacy conformance: icon bytes (R2, R6, R8)', () => {
       // <img src>. Assert that, then fetch its path to prove it resolves.
       const probe = urls[0] as string
       const probeUrl = new URL(probe)
-      expect(probeUrl.origin, `${id} → ${probe}`).toBe(new URL(iconBaseFor(version)).origin)
+      // Hard-coded, not derived from `iconBaseFor`. Comparing the embedded
+      // origin against the constant that produced it proves nothing: change
+      // the constant, republish, and both sides agree on a wrong value. The
+      // Zod mirror pins the same literal for the same reason.
+      expect(probeUrl.origin, `${id} → ${probe}`).toBe('https://api.dtpr.io')
 
       const res = await get(probeUrl.pathname)
       expect(res.status, `${id} → ${probe}`).toBe(200)
