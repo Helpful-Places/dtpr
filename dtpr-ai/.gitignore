@@ -9,3 +9,4 @@ dist
 .data
 .DS_Store
 public/skills
+public/figma-plugin
