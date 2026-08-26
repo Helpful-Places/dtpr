@@ -65,13 +65,11 @@ function post(message: CodeToUi): void {
 figma.ui.onmessage = async (message: UiToCode) => {
   try {
     switch (message.type) {
-      case 'ui-ready': {
-        const saved = await figma.clientStorage.getAsync(SETTINGS_KEY)
-        post({ type: 'code-ready', settings: (saved as GenerateSettings) ?? null })
+      case 'ui-ready':
+        post({ type: 'code-ready', settings: await loadSettings() })
         break
-      }
       case 'save-settings':
-        await figma.clientStorage.setAsync(SETTINGS_KEY, message.settings)
+        await saveSettings(message.settings)
         break
       case 'build-start':
         cancelRequested = false
@@ -122,6 +120,40 @@ figma.ui.onmessage = async (message: UiToCode) => {
 function describeError(error: unknown): string {
   if (error instanceof Error) return error.message
   return String(error)
+}
+
+/**
+ * Remembering the form state is best-effort, and deliberately cannot
+ * fail the plugin.
+ *
+ * `figma.clientStorage` throws "Cannot access client storage without a
+ * plugin ID" when the manifest has no `id`. `manifest.json` now carries
+ * one, so the common case works — but this stays defensive, because
+ * storage can also fail on quota or a cleared cache, and because a
+ * manifest edit must not be able to break a build.
+ *
+ * Letting a storage failure reach the shared `catch` below was actively
+ * harmful: on load it painted a red error before the user had done
+ * anything, and on Generate it posted `build-failed` mid-run, which
+ * re-enabled the button and reported a failure while the build was
+ * still going. Losing remembered settings is a papercut; losing the
+ * build is not.
+ */
+async function loadSettings(): Promise<GenerateSettings | null> {
+  try {
+    const saved = await figma.clientStorage.getAsync(SETTINGS_KEY)
+    return (saved as GenerateSettings) ?? null
+  } catch {
+    return null
+  }
+}
+
+async function saveSettings(settings: GenerateSettings): Promise<void> {
+  try {
+    await figma.clientStorage.setAsync(SETTINGS_KEY, settings)
+  } catch {
+    // See loadSettings. The next run just starts from defaults.
+  }
 }
 
 async function loadFonts(): Promise<Fonts> {
