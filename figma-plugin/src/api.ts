@@ -17,8 +17,19 @@ export const DEFAULT_API_BASE = 'https://api.dtpr.io'
 export const CLIENT_HEADER = 'DTPR-Client'
 export const CLIENT_ID = 'dtpr-figma-plugin/0.1.0'
 
-/** `RL_READ` in `api/wrangler.jsonc`: 300 requests per 60s. */
+/**
+ * `RL_READ` in `api/wrangler.jsonc`: 300 requests per 60s. Governs the
+ * JSON metadata reads (versions, categories, elements) only.
+ */
 export const READ_LIMIT_PER_MINUTE = 300
+
+/**
+ * `RL_ICONS` in `api/wrangler.jsonc`: 1200 requests per 60s. The
+ * icon-serving routes consume this bucket instead of `RL_READ`, and it
+ * is sized so a whole-library sweep clears inside one window — which is
+ * why a build no longer has to spread itself across two minutes.
+ */
+export const ICON_LIMIT_PER_MINUTE = 1200
 
 /** Elements endpoint caps `?limit=` at 200; 137 elements fit in one page. */
 export const MAX_PAGE_SIZE = 200

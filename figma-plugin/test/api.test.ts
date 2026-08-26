@@ -1,5 +1,13 @@
+import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
-import { DEFAULT_API_BASE, elementsUrl, iconUrl, localized } from '../src/api.ts'
+import {
+  DEFAULT_API_BASE,
+  ICON_LIMIT_PER_MINUTE,
+  READ_LIMIT_PER_MINUTE,
+  elementsUrl,
+  iconUrl,
+  localized,
+} from '../src/api.ts'
 
 describe('iconUrl', () => {
   it('spells the default variant as icon.svg', () => {
@@ -46,5 +54,39 @@ describe('localized', () => {
   it('is empty for a missing list', () => {
     expect(localized(undefined, 'en')).toBe('')
     expect(localized([], 'en')).toBe('')
+  })
+})
+
+/**
+ * The plugin hardcodes the API's rate-limit ceilings so it can pace
+ * itself and size its own estimate. Nothing at runtime tells it when
+ * those move, so read the ceilings straight out of the Worker config
+ * and fail here instead of discovering the drift as a 429 mid-build.
+ */
+describe('rate-limit constants track api/wrangler.jsonc', () => {
+  const wrangler = readFileSync(
+    new URL('../../api/wrangler.jsonc', import.meta.url),
+    'utf8',
+  )
+
+  /** First `simple.limit` following the named binding, top-level env. */
+  const limitFor = (binding: string): number => {
+    const match = wrangler.match(
+      new RegExp(`"name":\\s*"${binding}"[\\s\\S]*?"limit":\\s*(\\d+)`),
+    )
+    if (!match) throw new Error(`No ${binding} binding in api/wrangler.jsonc`)
+    return Number(match[1])
+  }
+
+  it('matches RL_READ', () => {
+    expect(READ_LIMIT_PER_MINUTE).toBe(limitFor('RL_READ'))
+  })
+
+  it('matches RL_ICONS', () => {
+    expect(ICON_LIMIT_PER_MINUTE).toBe(limitFor('RL_ICONS'))
+  })
+
+  it('leaves the icon ceiling above a full 468-icon build', () => {
+    expect(ICON_LIMIT_PER_MINUTE).toBeGreaterThan(468)
   })
 })
