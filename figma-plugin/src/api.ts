@@ -15,7 +15,7 @@ export const DEFAULT_API_BASE = 'https://api.dtpr.io'
  * matters, because a full library build is ~470 requests.
  */
 export const CLIENT_HEADER = 'DTPR-Client'
-export const CLIENT_ID = 'dtpr-figma-plugin/0.1.0'
+export const CLIENT_ID = 'dtpr-figma-plugin/0.2.0'
 
 /**
  * `RL_READ` in `api/wrangler.jsonc`: 300 requests per 60s. Governs the

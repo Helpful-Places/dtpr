@@ -117,7 +117,7 @@ The API meters icons and JSON separately (`api/src/app.ts`):
 library now fits inside one icon window and downloads in a single
 pass. The plugin:
 
-- sends `DTPR-Client: dtpr-figma-plugin/0.1.0` so the API buckets it
+- sends `DTPR-Client: dtpr-figma-plugin/0.2.0` so the API buckets it
   separately from the shared anonymous pool
   (`api/src/middleware/rate-limit.ts`),
 - runs two sliding-window limiters, one per bucket, each set below its
