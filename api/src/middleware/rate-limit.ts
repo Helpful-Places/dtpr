@@ -47,6 +47,15 @@ export interface RateLimitMiddlewareOptions {
  * get a typed 429 envelope with a `Retry-After` header and a
  * fix_hint that points clients at the `DTPR-Client` convention.
  *
+ * At most one bucket is charged per request. `app.ts` mounts the
+ * specific buckets (RL_VALIDATE, RL_RESOLVE, RL_ICONS) ahead of the
+ * `/api/v2/*` RL_READ wildcard, and every matching mount runs — so
+ * without this guard an icon request would spend an RL_ICONS token
+ * *and* an RL_READ token, and the wildcard's 300/60s would still cap
+ * the whole-library sweep that RL_ICONS exists to allow. First mount
+ * to run wins; the wildcard stays a safe default for anything without
+ * a dedicated bucket.
+ *
  * No-op when the binding is missing so the middleware is safe to
  * include in test and preview builds without extra gating.
  */
@@ -54,10 +63,15 @@ export const rateLimit = (
   options: RateLimitMiddlewareOptions,
 ): MiddlewareHandler<AppEnv> => async (c, next) => {
   const binding = getBinding(c.env, options.binding)
-  if (!binding) {
+  // A missing binding is a no-op rather than a charge, so it must not
+  // claim the request either — otherwise a partially-provisioned env
+  // would leave the request unmetered instead of falling through to
+  // the wildcard.
+  if (!binding || c.get('rateLimitCharged')) {
     await next()
     return
   }
+  c.set('rateLimitCharged', true)
   const key = composeRateKey(c.req)
   const { success } = await binding.limit({ key })
   if (!success) {

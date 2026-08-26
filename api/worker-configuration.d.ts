@@ -11,6 +11,7 @@ declare namespace Cloudflare {
 		RL_READ: RateLimit;
 		RL_VALIDATE: RateLimit;
 		RL_RESOLVE: RateLimit;
+		RL_ICONS: RateLimit;
 	}
 	interface Env {
 		CONTENT: R2Bucket;
@@ -18,6 +19,7 @@ declare namespace Cloudflare {
 		RL_READ: RateLimit;
 		RL_VALIDATE: RateLimit;
 		RL_RESOLVE: RateLimit;
+		RL_ICONS: RateLimit;
 	}
 }
 interface Env extends Cloudflare.Env {}

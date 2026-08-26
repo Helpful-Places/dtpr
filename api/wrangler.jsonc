@@ -42,6 +42,18 @@
         "type": "ratelimit",
         "namespace_id": "1003",
         "simple": { "limit": 15, "period": 60 }
+      },
+      {
+        // Icon bytes only (shapes, symbols, composed icons). Sized so a
+        // whole-library sweep fits inside one window: the Figma plugin's
+        // full build is ~470 icon requests, and it must not have to pace
+        // itself across two minutes to get them. Icons are pre-baked R2
+        // point-reads served with long `Cache-Control`, so they are far
+        // cheaper per request than the JSON reads on RL_READ.
+        "name": "RL_ICONS",
+        "type": "ratelimit",
+        "namespace_id": "1004",
+        "simple": { "limit": 1200, "period": 60 }
       }
     ]
   },
@@ -85,6 +97,12 @@
             "type": "ratelimit",
             "namespace_id": "2003",
             "simple": { "limit": 15, "period": 60 }
+          },
+          {
+            "name": "RL_ICONS",
+            "type": "ratelimit",
+            "namespace_id": "2004",
+            "simple": { "limit": 1200, "period": 60 }
           }
         ]
       }

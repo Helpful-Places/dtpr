@@ -1,14 +1,17 @@
 /// <reference types="@cloudflare/vitest-pool-workers" />
 
-// Augment the generated Env with the rate-limit bindings declared in
-// wrangler.jsonc's `unsafe.bindings`. `wrangler types` does not emit
-// types for `unsafe.bindings`, so we declare them here by hand.
+// Re-declare the `unsafe.bindings` rate limiters as optional. The
+// generated `worker-configuration.d.ts` types them as required, but
+// tests routinely build envs that provision only the bucket under
+// test — and the middleware is a documented no-op when a binding is
+// absent, so those envs are legitimate.
 declare global {
   namespace Cloudflare {
     interface Env {
       RL_READ?: RateLimit
       RL_VALIDATE?: RateLimit
       RL_RESOLVE?: RateLimit
+      RL_ICONS?: RateLimit
     }
   }
 }
