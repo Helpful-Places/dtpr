@@ -1,0 +1,34 @@
+id: collection
+name:
+  - locale: en
+    value: Collection Technology
+  - locale: fr
+    value: Technologie de collecte
+description:
+  - locale: en
+    value: >-
+      The devices and channels that capture this system's input data — cameras, sensors,
+      microphones, forms, or feeds from other systems. The instrument that collects the data,
+      distinct from the algorithm that processes it.
+  - locale: fr
+    value: >-
+      Les dispositifs et canaux qui captent les données d'entrée de ce système — caméras, capteurs,
+      microphones, formulaires ou flux d'autres systèmes. L'instrument qui collecte les données,
+      distinct de l'algorithme qui les traite.
+prompt:
+  - locale: en
+    value: What captures the data this system uses?
+  - locale: fr
+    value: Qu'est-ce qui capte les données que ce système utilise ?
+required: false
+order: 7
+datachain_type: dtpr
+shape: hexagon
+element_variables:
+  - id: additional_description
+    label:
+      - locale: en
+        value: Description
+      - locale: fr
+        value: Description
+    required: false

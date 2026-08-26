@@ -1,0 +1,46 @@
+id: dtpr
+name:
+  - locale: en
+    value: Datachain
+  - locale: fr
+    value: Datachain
+description:
+  - locale: en
+    value: >-
+      A snapshot of how a technology or AI system works — what it collects, who's responsible,
+      and your rights.
+  - locale: fr
+    value: >-
+      Un aperçu du fonctionnement d’une technologie ou d’un système d’IA — ce qu’elle collecte,
+      qui en est responsable et vos droits.
+categories:
+  - purpose
+  - accountable
+  - affected
+  - action
+  - risks_mitigation
+  - rights
+  - collection
+  - input_dataset
+  - processing
+  - output_dataset
+  - manifestation
+  - access
+  - retention
+  - storage
+subchains:
+  - id: data_flow
+    name:
+      - locale: en
+        value: Data Flow
+      - locale: fr
+        value: Flux de données
+    categories:
+      - collection
+      - input_dataset
+      - processing
+      - output_dataset
+      - manifestation
+locales:
+  - en
+  - fr

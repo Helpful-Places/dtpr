@@ -1,0 +1,24 @@
+id: right_be_forgotten
+category_id: rights
+title:
+  - locale: en
+    value: Right to Be Forgotten
+  - locale: fr
+    value: Droit à l'oubli
+description:
+  - locale: en
+    value: >-
+      The right to have your personal data deleted from an AI system when the data is no longer
+      needed for its original purpose, when you withdraw consent, or when there is no legitimate
+      interest in continuing to process it. Where technically feasible, this also includes having
+      the system "unlearn" information derived from your data. This is a right of deletion; the
+      right to stop processing without deletion is a separate right.
+  - locale: fr
+    value: >-
+      Le droit à l'effacement de vos données à caractère personnel d'un système d'IA lorsque les
+      données ne sont plus nécessaires à leur finalité initiale, lorsque vous retirez votre
+      consentement ou lorsqu'il n'y a pas d'intérêt légitime à continuer leur traitement. Lorsque
+      cela est techniquement possible, cela inclut également que le système "désapprenne" les
+      informations dérivées de vos données. Il s'agit d'un droit à l'effacement ; le droit d'arrêter
+      le traitement sans effacement est un droit distinct.
+symbol_id: trash_bin

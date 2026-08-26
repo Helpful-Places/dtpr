@@ -38,6 +38,7 @@
     "capture:legacy": "tsx scripts/capture-legacy.ts",
     "republish:legacy": "tsx scripts/capture-legacy.ts --republish",
     "schema:build": "tsx cli/bin.ts build",
+    "seed:local": "tsx scripts/r2-seed-local.ts",
     "schema:validate": "tsx cli/bin.ts validate",
     "schema:new": "tsx cli/bin.ts new",
     "schema:promote": "tsx cli/bin.ts promote",

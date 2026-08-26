@@ -1,0 +1,19 @@
+id: mobile_notification
+category_id: manifestation
+title:
+  - locale: en
+    value: A mobile notification
+  - locale: fr
+    value: Une notification mobile
+description:
+  - locale: en
+    value: >-
+      The output reaches you on your own device — a push notification, text message, email, or
+      in-app alert. The system finds you rather than waiting for you to look; whether you can turn
+      it off is an Access and Rights question.
+  - locale: fr
+    value: >-
+      Le résultat vous parvient sur votre propre appareil — notification push, SMS, courriel ou
+      alerte dans l'appli. Le système vient vous trouver au lieu d'attendre que vous regardiez ;
+      savoir si vous pouvez le désactiver relève de l'accès et des droits.
+symbol_id: phone_notification

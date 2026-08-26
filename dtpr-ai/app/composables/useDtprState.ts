@@ -13,7 +13,7 @@
 import { computed } from 'vue'
 import {
   DTPR_API_BASE as API_BASE,
-  DTPR_DATACHAIN_TYPE as DATACHAIN_TYPE,
+  DTPR_DATACHAIN_TYPES as DATACHAIN_TYPES,
   DTPR_FETCH_TIMEOUT_MS as FETCH_TIMEOUT_MS,
 } from '../utils/dtpr-api-config'
 
@@ -54,7 +54,7 @@ export function useDtprState() {
   const availableVersions = computed<SchemaVersion[]>(() => {
     const all = schemasData.value?.versions ?? []
     return all
-      .filter((v) => v.id.startsWith(`${DATACHAIN_TYPE}@`))
+      .filter((v) => DATACHAIN_TYPES.some((t) => v.id.startsWith(`${t}@`)))
       .slice()
       .sort((a, b) => {
         if (a.status === 'stable' && b.status !== 'stable') return -1
@@ -117,5 +117,5 @@ export function useDtprState() {
 // Re-export so existing call sites (`import { DTPR_API_BASE } from
 // '../composables/useDtprState'`) keep working. New non-Nuxt callers
 // should import the constants directly from `utils/dtpr-api-config`.
-export { DTPR_API_BASE, DTPR_DATACHAIN_TYPE, DTPR_FETCH_TIMEOUT_MS } from '../utils/dtpr-api-config'
+export { DTPR_API_BASE, DTPR_DATACHAIN_TYPES, DTPR_FETCH_TIMEOUT_MS } from '../utils/dtpr-api-config'
 export { SUPPORTED_LOCALES }

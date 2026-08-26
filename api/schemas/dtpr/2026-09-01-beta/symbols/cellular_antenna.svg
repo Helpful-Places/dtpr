@@ -1,0 +1,8 @@
+<svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.35 7.35C10.9 8.8 10 10.8 10 13C10 15.2 10.9 17.2 12.35 18.65L13.76 17.24C12.67 16.15 12 14.65 12 13C12 11.35 12.67 9.85 13.76 8.76L12.35 7.35Z" fill="currentColor"/>
+<path d="M23.65 7.35L22.24 8.76C23.33 9.85 24 11.35 24 13C24 14.65 23.33 16.15 22.24 17.24L23.65 18.65C25.1 17.2 26 15.2 26 13C26 10.8 25.1 8.8 23.65 7.35Z" fill="currentColor"/>
+<circle cx="18" cy="13" r="2.2" fill="currentColor"/>
+<path d="M17 15H19V28H17V15Z" fill="currentColor"/>
+<path d="M12.5 28L17.2 21.5L18.6 22.9L15 28H12.5Z" fill="currentColor"/>
+<path d="M23.5 28L18.8 21.5L17.4 22.9L21 28H23.5Z" fill="currentColor"/>
+</svg>
