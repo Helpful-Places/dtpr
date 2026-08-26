@@ -1,0 +1,19 @@
+id: automatic_transaction
+category_id: manifestation
+title:
+  - locale: en
+    value: An automatic charge or payment
+  - locale: fr
+    value: Un débit ou paiement automatique
+description:
+  - locale: en
+    value: >-
+      The output is money moving without you acting — a toll deducted as you drive through a
+      gantry, a fare charged as you tap out, a fine issued, a payout released. Often the least
+      visible encounter: you learn about it from a statement afterwards.
+  - locale: fr
+    value: >-
+      Le résultat est un mouvement d'argent sans action de votre part — un péage prélevé au passage
+      d'un portique, un tarif débité à la sortie, une amende émise, un versement déclenché. Souvent
+      la rencontre la moins visible : vous l'apprenez après coup sur un relevé.
+symbol_id: contactless_payment

@@ -1,0 +1,20 @@
+id: user_input
+category_id: collection
+title:
+  - locale: en
+    value: User Input
+  - locale: fr
+    value: Saisie de l'utilisateur
+description:
+  - locale: en
+    value: >-
+      Information people provide deliberately — a form they fill in, text they type, a search they
+      run, a photo they upload, a voice command they speak. The person knows they are handing
+      something over, unlike sensing that happens around them.
+  - locale: fr
+    value: >-
+      Informations que les personnes fournissent délibérément — un formulaire rempli, un texte
+      saisi, une recherche lancée, une photo téléversée, une commande vocale prononcée. La personne
+      sait qu'elle transmet quelque chose, contrairement à la captation qui se produit autour
+      d'elle.
+symbol_id: form_field

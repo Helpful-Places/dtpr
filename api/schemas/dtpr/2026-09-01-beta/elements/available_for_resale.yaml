@@ -1,0 +1,13 @@
+id: available_for_resale
+category_id: access
+title:
+  - locale: en
+    value: Available for resale
+  - locale: fr
+    value: Disponible à la revente
+description:
+  - locale: en
+    value: The data collected may be resold to other 3rd parties
+  - locale: fr
+    value: Les données collectées peuvent être revendues à d'autres tiers.
+symbol_id: resale_cycle

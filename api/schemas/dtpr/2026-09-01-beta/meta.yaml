@@ -1,0 +1,15 @@
+version: dtpr@2026-09-01-beta
+status: beta
+created_at: "2026-08-26T00:00:00.000Z"
+notes: >-
+  Renamed from ai@2026-08-24-beta: first version under the consolidated `dtpr` type, which
+  merges the ai and device taxonomies into a single datachain type. Content is unchanged from
+  ai@2026-08-24-beta — the collection (capture technology, echoing DTPR v1's Technology
+  category) and manifestation (the form the output takes when people encounter it) categories
+  added there already carry the device-side concepts. data_flow subchain: collection →
+  input_dataset → processing → output_dataset → manifestation. The ai@ line is superseded and
+  receives no further versions.
+content_hash: sha256-0000000000000000000000000000000000000000000000000000000000000000
+locales:
+  - en
+  - fr

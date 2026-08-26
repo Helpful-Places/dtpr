@@ -1,0 +1,19 @@
+id: printed_output
+category_id: manifestation
+title:
+  - locale: en
+    value: A printed ticket or letter
+  - locale: fr
+    value: Un billet ou une lettre imprimés
+description:
+  - locale: en
+    value: >-
+      The output arrives on paper — a parking ticket, a queue number, a boarding pass, a decision
+      letter in the mail. The system's work reaches you through a physical document, sometimes days
+      after it ran.
+  - locale: fr
+    value: >-
+      Le résultat arrive sur papier — une contravention, un ticket de file d'attente, une carte
+      d'embarquement, une lettre de décision par la poste. Le travail du système vous parvient par
+      un document physique, parfois des jours après son exécution.
+symbol_id: receipt

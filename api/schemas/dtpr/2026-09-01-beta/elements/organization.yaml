@@ -1,0 +1,13 @@
+id: organization
+category_id: accountable
+title:
+  - locale: en
+    value: Organization
+  - locale: fr
+    value: Organisation
+description:
+  - locale: en
+    value: The entity that is responsible and accountable for this data collection activity
+  - locale: fr
+    value: L'entité qui est responsable et redevable de cette activité de collecte de données
+symbol_id: building

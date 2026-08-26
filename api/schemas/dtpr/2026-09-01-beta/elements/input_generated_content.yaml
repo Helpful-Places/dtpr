@@ -1,0 +1,33 @@
+id: input_generated_content
+category_id: input_dataset
+title:
+  - locale: en
+    value: Generated content
+  - locale: fr
+    value: Contenu généré
+description:
+  - locale: en
+    value: >-
+      Text, images, audio, or video that another AI made. The AI takes in this synthetic content and
+      processes it further. Examples: an LLM-written summary fed into a translator, a generated
+      photo passed to a moderation model, a text-to-speech clip routed to an audio system.
+  - locale: fr
+    value: >-
+      Texte, images, audio ou vidéo créés par une autre IA. L'IA reçoit ce contenu synthétique et le
+      traite encore. Exemples : un résumé écrit par un LLM transmis à un traducteur, une photo
+      générée passée à un modèle de modération, un extrait synthèse vocale acheminé vers un système
+      audio.
+sources:
+  - type: regulation
+    title: EU AI Act Article 3(1) — output class "content"
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+    citation: Regulation (EU) 2024/1689, Article 3(1).
+  - type: regulation
+    title: EU AI Act Article 50 — Synthetic-content disclosure
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+    citation: Regulation (EU) 2024/1689, Article 50.
+  - type: standard
+    title: NIST AI 100-4 — AI Risk Management Framework
+    url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-4.pdf
+    citation: NIST.
+symbol_id: generated_content_in

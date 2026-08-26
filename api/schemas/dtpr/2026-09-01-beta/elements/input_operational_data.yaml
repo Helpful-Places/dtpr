@@ -1,0 +1,21 @@
+id: input_operational_data
+category_id: input_dataset
+title:
+  - locale: en
+    value: Operational data
+  - locale: fr
+    value: Données opérationnelles
+description:
+  - locale: en
+    value: >-
+      Schedules, routes, budgets, occupancy counts, public records, or other administrative data —
+      not about any one person. The AI takes in data describing how a place or service runs.
+      Examples: school occupancy by hour, trash-collection routes, a transit timetable, a department
+      budget.
+  - locale: fr
+    value: >-
+      Horaires, itinéraires, budgets, comptages d'occupation, registres publics ou autres données
+      administratives — qui ne concernent aucune personne en particulier. L'IA reçoit des données
+      décrivant le fonctionnement d'un lieu ou d'un service. Exemples : occupation d'une école par
+      heure, tournées de collecte des ordures, horaires de transports, budget d'un service.
+symbol_id: operational_data_in

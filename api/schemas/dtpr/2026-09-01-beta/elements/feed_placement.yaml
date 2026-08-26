@@ -1,0 +1,19 @@
+id: feed_placement
+category_id: manifestation
+title:
+  - locale: en
+    value: What you see in an app or feed
+  - locale: fr
+    value: Ce que vous voyez dans une appli ou un fil
+description:
+  - locale: en
+    value: >-
+      The output is the ordering itself — which posts, products, results, or prices appear first,
+      and which you never see. There is no moment of encounter to notice; the system shapes the
+      surface you were already looking at.
+  - locale: fr
+    value: >-
+      Le résultat est l'ordre lui-même — quels contenus, produits, résultats ou prix apparaissent
+      en premier, et lesquels vous ne voyez jamais. Il n'y a pas de moment de rencontre à
+      remarquer ; le système façonne la surface que vous regardiez déjà.
+symbol_id: feed_placement
