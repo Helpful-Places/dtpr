@@ -27,4 +27,4 @@ sources:
     title: Apple App Store privacy labels — Sensitive Info / Health & Fitness / Financial Info
     url: https://developer.apple.com/app-store/app-privacy-details/
     citation: Apple.
-symbol_id: sensitive_personal_out
+symbol_id: sensitive_personal

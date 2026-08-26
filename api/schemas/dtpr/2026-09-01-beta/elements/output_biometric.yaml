@@ -17,4 +17,4 @@ description:
       faciaux, empreintes vocales, vecteurs de démarche, séquences de gestes. Exemples : un modèle
       facial enrôlé stocké en aval, une empreinte vocale pour appariement ultérieur, une signature
       de démarche exportée vers un autre système.
-symbol_id: biometric_out
+symbol_id: biometric

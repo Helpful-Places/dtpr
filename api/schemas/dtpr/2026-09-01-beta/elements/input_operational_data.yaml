@@ -18,4 +18,4 @@ description:
       administratives — qui ne concernent aucune personne en particulier. L'IA reçoit des données
       décrivant le fonctionnement d'un lieu ou d'un service. Exemples : occupation d'une école par
       heure, tournées de collecte des ordures, horaires de transports, budget d'un service.
-symbol_id: operational_data_in
+symbol_id: operational_data

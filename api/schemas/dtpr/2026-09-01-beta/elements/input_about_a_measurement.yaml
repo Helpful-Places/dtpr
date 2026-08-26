@@ -18,4 +18,4 @@ description:
       reçoit des mesures numériques issues de capteurs physiques, généralement non rattachées à une
       personne. Exemples : des relevés PM2,5 d'un moniteur de qualité de l'air, des décibels d'un
       capteur acoustique, des kilowattheures d'un compteur.
-symbol_id: values_time_in
+symbol_id: values_time

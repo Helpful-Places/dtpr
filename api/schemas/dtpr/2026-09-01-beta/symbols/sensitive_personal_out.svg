@@ -1,8 +1,0 @@
-<svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g transform="translate(5.04 5.04) scale(0.72)">
-<path d="M9.5 15C9.5 13.07 11.07 11.5 13 11.5C14.93 11.5 16.5 13.07 16.5 15C16.5 16.93 14.93 18.5 13 18.5C11.07 18.5 9.5 16.93 9.5 15ZM6 25C6 22.24 9.13 20 13 20C16.87 20 20 22.24 20 25V26H6V25Z" fill="currentColor"/>
-<path d="M23 13.8H25C25.28 13.8 25.5 14.02 25.5 14.3V16.5H27.7C27.98 16.5 28.2 16.72 28.2 17V19C28.2 19.28 27.98 19.5 27.7 19.5H25.5V21.7C25.5 21.98 25.28 22.2 25 22.2H23C22.72 22.2 22.5 21.98 22.5 21.7V19.5H20.3C20.02 19.5 19.8 19.28 19.8 19V17C19.8 16.72 20.02 16.5 20.3 16.5H22.5V14.3C22.5 14.02 22.72 13.8 23 13.8Z" fill="currentColor"/>
-</g>
-<path d="M27.8 18H30.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-<path d="M29.2 15.7L31.4 18L29.2 20.3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>

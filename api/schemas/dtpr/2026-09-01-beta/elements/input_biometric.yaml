@@ -17,4 +17,4 @@ description:
       reçoit des signaux biologiques provenant du corps d'une personne. Exemples : un visage capturé
       à un tourniquet, une voix enregistrée par le microphone d'une borne, une démarche analysée par
       une caméra zénithale.
-symbol_id: biometric_in
+symbol_id: biometric

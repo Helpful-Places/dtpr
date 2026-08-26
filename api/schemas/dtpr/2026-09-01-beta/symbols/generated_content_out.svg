@@ -1,7 +1,0 @@
-<svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g transform="translate(5.04 5.04) scale(0.72)">
-<path d="M18 9L19.5 13.5L24 15L19.5 16.5L18 21L16.5 16.5L12 15L16.5 13.5ZM24 21L24.7 23.3L27 24L24.7 24.7L24 27L23.3 24.7L21 24L23.3 23.3ZM11 22L11.5 23.5L13 24L11.5 24.5L11 26L10.5 24.5L9 24L10.5 23.5Z" fill="currentColor"/>
-</g>
-<path d="M27.8 18H30.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-<path d="M29.2 15.7L31.4 18L29.2 20.3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>

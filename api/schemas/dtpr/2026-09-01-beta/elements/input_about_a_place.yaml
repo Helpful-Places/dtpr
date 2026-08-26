@@ -16,4 +16,4 @@ description:
       Lieux, itinéraires, environnement ou plans. L'IA reçoit des données décrivant l'endroit où se
       trouve quelque chose. Exemples : des coordonnées GPS d'un téléphone, des comptages de passages
       piétons, le plan des couloirs d'un bâtiment.
-symbol_id: spatial_in
+symbol_id: spatial
