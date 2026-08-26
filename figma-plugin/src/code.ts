@@ -8,6 +8,7 @@
 
 import { ICON_SIZE, flowWrap, type Box } from './layout.ts'
 import { localized, type Category } from './api.ts'
+import { resolveCurrentColor } from './svg.ts'
 import { planVariants } from './variants.ts'
 import type { CodeToUi, ElementMeta, GenerateSettings, UiToCode } from './messages.ts'
 
@@ -208,7 +209,9 @@ function makeText(
  * that is what a designer sees when they expand the layer.
  */
 function componentFromSvg(svg: string, name: string): ComponentNode {
-  const svgFrame = figma.createNodeFromSvg(svg)
+  // `resolveCurrentColor` first — Figma cannot resolve `currentColor`
+  // itself and would silently paint every symbol black. See `svg.ts`.
+  const svgFrame = figma.createNodeFromSvg(resolveCurrentColor(svg))
   svgFrame.name = 'icon'
   const kids = svgFrame.children
   if (kids[0]) kids[0].name = 'shape'
