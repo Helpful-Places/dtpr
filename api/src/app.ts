@@ -120,20 +120,41 @@ export function createApp(options: CreateAppOptions = {}) {
   )
   app.use('/mcp', timeout({ budgetMs: readBudget }))
 
-  // Rate limits (three buckets — validate is tighter, resolve is
-  // tightest). Middleware is a no-op when the bindings are absent, so
-  // dev / test / preview builds don't need to provision them.
+  // Rate limits (four buckets — icons are loosest, then read, then
+  // validate, and resolve is tightest). Middleware is a no-op when the
+  // bindings are absent, so dev / test / preview builds don't need to
+  // provision them.
   //
-  // Mount order matters: Hono runs `app.use` middleware in declaration
-  // order, so the route-specific RL_VALIDATE / RL_RESOLVE mounts must
-  // precede the wildcard RL_READ mount, otherwise the wildcard would
-  // consume an RL_READ token first and the dedicated buckets would
-  // see traffic only on requests that survived the RL_READ ceiling.
+  // Mount order matters. Hono runs `app.use` middleware in declaration
+  // order and every matching mount runs, but a request is charged to
+  // only the first bucket to run (see `middleware/rate-limit.ts`). So
+  // the route-specific RL_VALIDATE / RL_RESOLVE / RL_ICONS mounts must
+  // precede the wildcard RL_READ mount — behind it, they would never
+  // be charged at all and every route would fall back to RL_READ's
+  // ceiling.
   app.use('/api/v2/schemas/:version/validate', rateLimit({ binding: 'RL_VALIDATE' }))
   app.use('/api/v2/schemas/:version/resolve', rateLimit({ binding: 'RL_RESOLVE' }))
   app.use(
     '/api/v2/schemas/:version/validate_resolved',
     rateLimit({ binding: 'RL_RESOLVE' }),
+  )
+  // Icon bytes get their own, much larger bucket. They are pre-baked
+  // R2 point-reads with a long `Cache-Control`, so they cost a
+  // fraction of a JSON read, and they arrive in whole-library sweeps
+  // rather than one at a time — the Figma plugin fetches ~470 in a
+  // single build. Sharing RL_READ's 300/60s forced that build to pace
+  // itself across two windows. These mount patterns must mirror the
+  // route patterns in `rest/routes.ts` (and the timeout mounts above)
+  // exactly; drifting one from the other silently drops the affected
+  // route back onto the RL_READ wildcard below.
+  app.use('/api/v2/shapes/:shape.svg', rateLimit({ binding: 'RL_ICONS' }))
+  app.use(
+    '/api/v2/schemas/:version/symbols/:symbol_id.svg',
+    rateLimit({ binding: 'RL_ICONS' }),
+  )
+  app.use(
+    '/api/v2/schemas/:version/elements/:element_id/:icon_variant',
+    rateLimit({ binding: 'RL_ICONS' }),
   )
   app.use('/api/v2/*', rateLimit({ binding: 'RL_READ' }))
   app.use('/mcp', rateLimit({ binding: 'RL_READ' }))

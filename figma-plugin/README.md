@@ -66,8 +66,33 @@ Development → Hot reload plugin* in Figma to pick changes up.
 
 ## Publishing
 
-`manifest.json` deliberately has no `id` field. Figma assigns one the
-first time you publish — add it to the manifest then and commit it.
+`manifest.json` carries a Figma-assigned `id`. It is **not** a
+publishing artifact — the id came from *Plugins → Development → New
+plugin* in the desktop app, which reserves one without listing
+anything; per the [manifest
+docs](https://developers.figma.com/docs/plugins/manifest/) publishing is
+merely the *other* way to obtain one. The plugin is unpublished and the
+id is committed, so `figma.clientStorage` works for every local import —
+yours and anyone else's.
+
+**Don't change the id.** `clientStorage` is namespaced by it, and data
+[becomes inaccessible if the id
+changes](https://developers.figma.com/docs/plugins/api/figma-clientStorage/),
+so editing it silently orphans everyone's saved settings. Publishing
+later should reuse this id rather than taking a fresh one.
+
+**Don't delete the plugin record this id came from.** It still exists in
+Figma under the name it was created with, and looks like a stray dev
+entry worth tidying up. Removing a plugin in development ["will delete
+the plugin from
+Figma"](https://help.figma.com/hc/en-us/articles/360042293714-Manage-plugins-as-a-developer)
+and cannot be undone, which would forfeit this id for publishing. Local
+storage would likely keep working — it is a per-machine namespace keyed
+on the id string — but the id would be gone for good.
+
+Storage is still best-effort in `code.ts` (see `loadSettings`) — it can
+fail on quota or a cleared cache, and losing remembered settings must
+never take a build down with it.
 
 Distribution options, in rough order of effort:
 
@@ -85,22 +110,31 @@ the plugin.
 
 This is the one thing that will bite you if you change the fetch logic.
 
-`RL_READ` in `api/wrangler.jsonc` allows **300 requests per minute**, and
-a full build is **468 icon requests** plus metadata. The plugin
-therefore:
+The API meters icons and JSON separately (`api/src/app.ts`):
+`RL_ICONS` allows **1200 requests per minute** on the icon routes,
+`RL_READ` **300 per minute** on everything else. A full build is
+**468 icon requests** plus a handful of metadata reads, so the whole
+library now fits inside one icon window and downloads in a single
+pass. The plugin:
 
-- sends `DTPR-Client: dtpr-figma-plugin/0.1.0` so the API buckets it
+- sends `DTPR-Client: dtpr-figma-plugin/0.2.0` so the API buckets it
   separately from the shared anonymous pool
   (`api/src/middleware/rate-limit.ts`),
-- paces itself with a sliding-window limiter set 20 requests below the
-  ceiling,
+- runs two sliding-window limiters, one per bucket, each set below its
+  ceiling — mirroring one client-side limiter across both buckets
+  would re-impose `RL_READ`'s tighter number on the icon sweep,
 - honours `Retry-After` on a 429 and backs off exponentially on 5xx,
 - lets a single failed icon drop just that variant rather than the
   whole element.
 
-A full run takes roughly two minutes. The **Default context only** and
-**Light theme only** options cut it to 137–274 requests when you just
-need a quick refresh.
+The limiters are now a backstop, not the thing that sets build time —
+they only engage if a ceiling moves down or a build grows well past
+468 icons. `test/api.test.ts` reads the ceilings back out of
+`api/wrangler.jsonc` and fails if the constants in `src/api.ts` drift
+from them, since nothing at runtime would tell the plugin they moved.
+
+The **Default context only** and **Light theme only** options cut a
+build to 137–274 requests when you just need a quick refresh.
 
 ## Layout
 

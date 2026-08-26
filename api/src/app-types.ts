@@ -8,6 +8,13 @@ export interface AppVariables {
   requestId: string
   /** Populated by the timeout middleware; loaders may honor it. */
   abortSignal: AbortSignal
+  /**
+   * Set by the first `rateLimit()` mount to run on a request. Later
+   * mounts see it and skip, so a request is charged to exactly one
+   * bucket — the most specific one — rather than to every mount whose
+   * pattern happens to match. See `middleware/rate-limit.ts`.
+   */
+  rateLimitCharged?: true
 }
 
 export interface AppEnv {

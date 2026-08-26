@@ -10,6 +10,7 @@ import {
   CLIENT_HEADER,
   CLIENT_ID,
   DEFAULT_API_BASE,
+  ICON_LIMIT_PER_MINUTE,
   READ_LIMIT_PER_MINUTE,
   categoriesUrl,
   elementsUrl,
@@ -31,12 +32,28 @@ import type {
 import { RateLimiter, get, mapPool } from './net.ts'
 
 /**
- * Stay under the API's 300/min so a normal build never trips the
- * limiter. The margin absorbs the metadata requests and any retry.
+ * Two budgets, because the API meters icons and JSON separately:
+ * icon routes consume `RL_ICONS`, everything else `RL_READ`
+ * (`api/src/app.ts`). Sharing one client-side limiter across both
+ * would re-impose the tighter of the two on the icon sweep.
+ *
+ * Both sit a margin below their ceiling so retries have room. The icon
+ * budget is comfortably above a full build's ~470 requests, so the
+ * limiter is now a backstop rather than the thing that sets build
+ * time — it only engages if the ceiling moves down or a build gets
+ * much larger.
  */
-const REQUEST_BUDGET_PER_MINUTE = READ_LIMIT_PER_MINUTE - 20
-const CONCURRENCY = 6
+const META_BUDGET_PER_MINUTE = READ_LIMIT_PER_MINUTE - 20
+const ICON_BUDGET_PER_MINUTE = ICON_LIMIT_PER_MINUTE - 100
+/**
+ * In-flight icon requests. Latency, not the rate limit, is what bounds
+ * a build now, so this is set by what the UI iframe and the origin
+ * absorb comfortably rather than by the per-minute budget.
+ */
+const CONCURRENCY = 12
 const BATCH_SIZE = 24
+/** Assumed round-trip for one pre-baked icon; used only by the hint. */
+const ASSUMED_ICON_SECONDS = 0.15
 
 const HEADERS: Record<string, string> = { [CLIENT_HEADER]: CLIENT_ID }
 
@@ -131,7 +148,7 @@ async function fetchJson<T>(url: string, limiter: RateLimiter): Promise<T> {
 }
 
 async function loadVersions(): Promise<void> {
-  const limiter = new RateLimiter(REQUEST_BUDGET_PER_MINUTE)
+  const limiter = new RateLimiter(META_BUDGET_PER_MINUTE)
   setStatus('Loading schema versions…', 'busy')
   const body = await fetchJson<{ versions: SchemaVersionSummary[] }>(
     versionsUrl(DEFAULT_API_BASE),
@@ -185,16 +202,17 @@ async function generate(): Promise<void> {
   setProgress(0, 1)
   toCode({ type: 'save-settings', settings })
 
-  const limiter = new RateLimiter(REQUEST_BUDGET_PER_MINUTE)
+  const metaLimiter = new RateLimiter(META_BUDGET_PER_MINUTE)
+  const iconLimiter = new RateLimiter(ICON_BUDGET_PER_MINUTE)
 
   try {
     setStatus('Loading categories and elements…', 'busy')
     const [categoriesBody, elements] = await Promise.all([
       fetchJson<{ categories: Category[] }>(
         categoriesUrl(DEFAULT_API_BASE, settings.version, settings.locale),
-        limiter,
+        metaLimiter,
       ),
-      loadElements(settings.version, settings.locale, limiter),
+      loadElements(settings.version, settings.locale, metaLimiter),
     ])
 
     const metas: ElementMeta[] = []
@@ -247,7 +265,7 @@ async function generate(): Promise<void> {
         try {
           const response = await get(
             iconUrl(DEFAULT_API_BASE, settings.version, task.elementId, task.token),
-            { limiter, headers: HEADERS, signal: () => cancelled },
+            { limiter: iconLimiter, headers: HEADERS, signal: () => cancelled },
           )
           return {
             elementId: task.elementId,
@@ -298,16 +316,29 @@ async function generate(): Promise<void> {
   }
 }
 
-/** Rough "how long will this take" hint, driven by the rate limit. */
+/**
+ * Rough "how long will this take" hint.
+ *
+ * Now that `RL_ICONS` swallows a whole library in one window, the
+ * pipeline — concurrency times per-request latency — is what sets
+ * build time, not the limiter. The overflow term only contributes when
+ * a build is larger than the icon budget, which keeps the hint honest
+ * if the ceiling ever moves back down.
+ */
 function updateEstimate(): void {
   const settings = readSettings()
   // 137 elements: 104 with light+dark only, 33 with context variants.
   const approxIcons = settings.defaultContextOnly
     ? 137 * (settings.lightThemeOnly ? 1 : 2)
     : settings.lightThemeOnly ? 234 : 468
-  const minutes = approxIcons / REQUEST_BUDGET_PER_MINUTE
-  const label = minutes < 1 ? 'under a minute' : `about ${Math.ceil(minutes)} min`
-  estimateLine.textContent = `~${approxIcons} icons · ${label} (API allows ${READ_LIMIT_PER_MINUTE} requests/min)`
+  const pipelineSeconds = (approxIcons / CONCURRENCY) * ASSUMED_ICON_SECONDS
+  const overflow = Math.max(0, approxIcons - ICON_BUDGET_PER_MINUTE)
+  const seconds = pipelineSeconds + (overflow / ICON_BUDGET_PER_MINUTE) * 60
+  const label =
+    seconds < 60
+      ? `about ${Math.max(5, Math.ceil(seconds / 5) * 5)} sec`
+      : `about ${Math.ceil(seconds / 60)} min`
+  estimateLine.textContent = `~${approxIcons} icons · ${label} (API allows ${ICON_LIMIT_PER_MINUTE} icon requests/min)`
 }
 
 generateButton.addEventListener('click', () => {

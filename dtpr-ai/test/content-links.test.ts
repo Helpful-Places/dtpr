@@ -32,7 +32,7 @@ describe('shouldLocalizePath', () => {
     expect(localize('/skills/0.3.2/dtpr-skills.zip')).toBe(false)
     expect(localize('/skills/0.3.2/dtpr-translate.skill')).toBe(false)
     expect(localize('/figma-plugin/manifest.json')).toBe(false)
-    expect(localize('/figma-plugin/0.1.0/dtpr-figma-plugin.zip')).toBe(false)
+    expect(localize('/figma-plugin/0.2.0/dtpr-figma-plugin.zip')).toBe(false)
     expect(localize('/dtpr-for-ai.bib')).toBe(false)
   })
 
