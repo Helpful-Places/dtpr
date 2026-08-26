@@ -9,4 +9,7 @@
 // without the var keep the public API.
 export const DTPR_API_BASE = import.meta.env?.VITE_DTPR_API_BASE ?? 'https://api.dtpr.io/api/v2'
 export const DTPR_FETCH_TIMEOUT_MS = 8000
-export const DTPR_DATACHAIN_TYPE = 'ai'
+// `dtpr` is the consolidated type (dtpr@2026-09-01-beta onward); `ai`
+// covers the earlier versions still in the index. One selector shows
+// the whole lineage across the rename.
+export const DTPR_DATACHAIN_TYPES = ['dtpr', 'ai'] as const
