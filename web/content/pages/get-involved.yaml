@@ -1,0 +1,24 @@
+title: Get Involved
+sections:
+  - type: Hero
+    heading: We’re Building a Movement, Come Join Us
+    subHeading: The DTPR community is made up of people who care deeply about and invest in accountable technology.  We are public servants, technologists, designers, policy makers, community advocates, parents, and students. We believe that it’s possible for technology to be accountable and legible to the people it serves. If that sounds like you, we’d love to hear from you.
+    orientation: vertical
+
+  - type: Two Columns
+    cards:
+      - type: card
+        heading: Slack
+        body: Join our slack community and stay up to date on the latest discussions about DTPR
+        link: https://join.slack.com/t/dtprworkspace/shared_invite/zt-48k9n9apd-j0ucFCsJcKPnpkUZKR~SsQ
+      - type: card
+        heading: Github
+        body: Propose changes or additions to the standard as it grows
+        link: https://github.com/Helpful-Places/dtpr
+      - type: card
+        heading: Email
+        body: Shoot us a message at hello@dtpr.io if you have any questions or want to talk about an idea for collaboration. 
+        link: mailto:hello@dtpr.io
+    image: /images/get-involved.png
+
+

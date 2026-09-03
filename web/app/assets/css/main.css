@@ -1,0 +1,277 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+@plugin "@tailwindcss/typography";
+
+
+
+@theme {
+  /* ---- Full 11-step color ramps (50 -> 950), exposed as Tailwind utilities:
+     bg-primary-300, text-error-700, border-tertiary-100, etc. ---- */
+
+   
+    /* Primary — MakeShift Navy */
+    --color-primary-50: #F0F5FF;
+    --color-primary-100: #E1E8F9;
+    --color-primary-200: #C6D1EB;
+    --color-primary-300: #A583D9; /* NOTE: exported value; verify with design — jumps hue vs neighbors */
+    --color-primary-400: #8294C5;
+    --color-primary-500: #5C71AF;
+    --color-primary-600: #3D529A;
+    --color-primary-700: #1B2B80; /* canonical "MakeShift Navy" */
+    --color-primary-800: #0E1C60;
+    --color-primary-850: #07094D;
+    --color-primary-950: #02001D;
+
+    /* Secondary — Medium Blue */
+    --color-secondary-50: #DCF7FF;
+    --color-secondary-100: #CBE9FF;
+    --color-secondary-200: #ADD2FF;
+    --color-secondary-300: #89B5FF;
+    --color-secondary-400: #6194ED;
+    --color-secondary-500: #2563D0; /* canonical "Medium Blue" */
+    --color-secondary-600: #2251B2;
+    --color-secondary-700: #097C84;
+    --color-secondary-800: #002A59;
+    --color-secondary-850: #001445;
+    --color-secondary-950: #00000F;
+
+    /* Tertiary — Cool Paper */
+    --color-tertiary-50: #F2F4FF;
+    --color-tertiary-100: #E8EAF5; /* canonical "Cool Paper" */
+    --color-tertiary-200: #CFD0DA;
+    --color-tertiary-300: #B2B4BC;
+    --color-tertiary-400: #94959B;
+    --color-tertiary-500: #737479;
+    --color-tertiary-600: #57585B;
+    --color-tertiary-700: #3D3D3F;
+    --color-tertiary-800: #393A3C;
+    --color-tertiary-850: #1E1E20;
+    --color-tertiary-950: #010101;
+
+    /* Success — Positive */
+    --color-success-50: #DDFFE3;
+    --color-success-100: #CCF4D3;
+    --color-success-200: #AFDFB8;
+    --color-success-300: #8AC596;
+    --color-success-400: #60A871;
+    --color-success-500: #15803D; /* canonical "Positive" */
+    --color-success-600: #056A5F;
+    --color-success-700: #004B26;
+    --color-success-800: #005C0A;
+    --color-success-850: #003203;
+    --color-success-950: #000200;
+
+    /* Info */
+    --color-info-50: #E7F5FF;
+    --color-info-100: #D7E8FF;
+    --color-info-200: #B8D1FF;
+    --color-info-300: #98B3F1;
+    --color-info-400: #7293DE;
+    --color-info-500: #4B6FCA;
+    --color-info-600: #1E40AF; /* canonical "Info" */
+    --color-info-700: #165E91;
+    --color-info-800: #051966;
+    --color-info-850: #020851;
+    --color-info-950: #02001D;
+
+    /* Warning — Caution */
+    --color-warning-50: #FFE5D2;
+    --color-warning-100: #FFD6C0;
+    --color-warning-200: #FFB8A1;
+    --color-warning-300: #F6987A;
+    --color-warning-400: #DF714E;
+    --color-warning-500: #C2410C; /* canonical "Caution" */
+    --color-warning-600: #9A5800;
+    --color-warning-700: #702000;
+    --color-warning-800: #490500;
+    --color-warning-850: #7E0000; /* NOTE: exported value; lighter than 800 — verify with design */
+    --color-warning-950: #060000;
+
+    /* Error */
+    --color-error-50: #FFE5DD;
+    --color-error-100: #FFD5CC;
+    --color-error-200: #FFB9AF;
+    --color-error-300: #F7958A;
+    --color-error-400: #E16D62;
+    --color-error-500: #C73D76;
+    --color-error-600: #B91C1C; /* canonical "Error" */
+    --color-error-700: #7A0003;
+    --color-error-800: #510000;
+    --color-error-850: #3E0000;
+    --color-error-950: #090000;
+
+    --font-sans: 'Public Sans', sans-serif;
+    --font-serif: 'Source Serif 4', serif;
+    --font-code: 'Source Code Pro';
+    --font-handwritten: 'Kalam';
+
+}
+
+:root {
+  /* ==========================================================================
+     Semantic variables — map Nuxt UI tokens to DTPR brand colors (light mode)
+     Referencing the ramp above as the single source of truth for each brand
+     color, rather than repeating hex values.
+     ========================================================================== */
+  --ui-primary: var(--color-primary-700);
+  --ui-secondary: var(--color-secondary-500);
+  --ui-success: var(--color-success-500);
+  --ui-info: var(--color-info-600);
+  --ui-warning: var(--color-warning-500);
+  --ui-error: var(--color-error-600);
+
+  --ui-text-dimmed: #E2E0D8;
+  --ui-text-muted: #475569;
+  --ui-text-toned: #475569;
+  --ui-text: #0F172A;
+  --ui-text-highlighted: #0F172A;
+
+  --ui-bg: #F4F2EC ;
+  --ui-bg-elevated: #F8F8F2;
+  --ui-bg-accented: #E8EAF5;
+  --ui-bg-inverted: #0A0E1A;
+
+  --ui-border: #E2E0D8;
+  --ui-border-accented: #E8EAF5;
+  --ui-border-inverted: #0A0E1A;
+
+  /* ==========================================================================
+     Opacity / state-overlay variants
+     The token site expresses these as "base hex + alpha suffix" (e.g. 1A =
+     10%, 26 = 15%, 33 = 20%, 40 = 25%, 80 = 50%, BF = 75%, E6 = 90%). Rather
+     than duplicating each base color as a hardcoded hex string per variant,
+     these derive the same percentages from the semantic var above via
+     color-mix(), so there's one source of truth per color.
+     ========================================================================== */
+  --ui-primary-10: color-mix(in srgb, var(--ui-primary) 10%, transparent);
+  --ui-primary-15: color-mix(in srgb, var(--ui-primary) 15%, transparent);
+  --ui-primary-20: color-mix(in srgb, var(--ui-primary) 20%, transparent);
+  --ui-primary-25: color-mix(in srgb, var(--ui-primary) 25%, transparent);
+  --ui-primary-50: color-mix(in srgb, var(--ui-primary) 50%, transparent);
+  --ui-primary-75: color-mix(in srgb, var(--ui-primary) 75%, transparent);
+  --ui-primary-90: color-mix(in srgb, var(--ui-primary) 90%, transparent);
+
+  --ui-secondary-10: color-mix(in srgb, var(--ui-secondary) 10%, transparent);
+  --ui-secondary-15: color-mix(in srgb, var(--ui-secondary) 15%, transparent);
+  --ui-secondary-20: color-mix(in srgb, var(--ui-secondary) 20%, transparent);
+  --ui-secondary-25: color-mix(in srgb, var(--ui-secondary) 25%, transparent);
+  --ui-secondary-50: color-mix(in srgb, var(--ui-secondary) 50%, transparent);
+  --ui-secondary-75: color-mix(in srgb, var(--ui-secondary) 75%, transparent);
+  --ui-secondary-90: color-mix(in srgb, var(--ui-secondary) 90%, transparent);
+
+  --ui-success-10: color-mix(in srgb, var(--ui-success) 10%, transparent);
+  --ui-success-15: color-mix(in srgb, var(--ui-success) 15%, transparent);
+  --ui-success-20: color-mix(in srgb, var(--ui-success) 20%, transparent);
+  --ui-success-25: color-mix(in srgb, var(--ui-success) 25%, transparent);
+  --ui-success-50: color-mix(in srgb, var(--ui-success) 50%, transparent);
+  --ui-success-75: color-mix(in srgb, var(--ui-success) 75%, transparent);
+  --ui-success-90: color-mix(in srgb, var(--ui-success) 90%, transparent);
+
+  --ui-info-10: color-mix(in srgb, var(--ui-info) 10%, transparent);
+  --ui-info-15: color-mix(in srgb, var(--ui-info) 15%, transparent);
+  --ui-info-20: color-mix(in srgb, var(--ui-info) 20%, transparent);
+  --ui-info-25: color-mix(in srgb, var(--ui-info) 25%, transparent);
+  --ui-info-50: color-mix(in srgb, var(--ui-info) 50%, transparent);
+  --ui-info-75: color-mix(in srgb, var(--ui-info) 75%, transparent);
+  --ui-info-90: color-mix(in srgb, var(--ui-info) 90%, transparent);
+
+  --ui-warning-10: color-mix(in srgb, var(--ui-warning) 10%, transparent);
+  --ui-warning-15: color-mix(in srgb, var(--ui-warning) 15%, transparent);
+  --ui-warning-20: color-mix(in srgb, var(--ui-warning) 20%, transparent);
+  --ui-warning-25: color-mix(in srgb, var(--ui-warning) 25%, transparent);
+  --ui-warning-50: color-mix(in srgb, var(--ui-warning) 50%, transparent);
+  --ui-warning-75: color-mix(in srgb, var(--ui-warning) 75%, transparent);
+  --ui-warning-90: color-mix(in srgb, var(--ui-warning) 90%, transparent);
+
+  --ui-error-10: color-mix(in srgb, var(--ui-error) 10%, transparent);
+  --ui-error-15: color-mix(in srgb, var(--ui-error) 15%, transparent);
+  --ui-error-20: color-mix(in srgb, var(--ui-error) 20%, transparent);
+  --ui-error-25: color-mix(in srgb, var(--ui-error) 25%, transparent);
+  --ui-error-50: color-mix(in srgb, var(--ui-error) 50%, transparent);
+  --ui-error-75: color-mix(in srgb, var(--ui-error) 75%, transparent);
+  --ui-error-90: color-mix(in srgb, var(--ui-error) 90%, transparent);
+
+  --ui-text-dimmed-10: color-mix(in srgb, var(--ui-text-dimmed) 10%, transparent);
+  --ui-text-dimmed-15: color-mix(in srgb, var(--ui-text-dimmed) 15%, transparent);
+  --ui-text-dimmed-20: color-mix(in srgb, var(--ui-text-dimmed) 20%, transparent);
+  --ui-text-dimmed-25: color-mix(in srgb, var(--ui-text-dimmed) 25%, transparent);
+  --ui-text-dimmed-50: color-mix(in srgb, var(--ui-text-dimmed) 50%, transparent);
+  --ui-text-dimmed-75: color-mix(in srgb, var(--ui-text-dimmed) 75%, transparent);
+  --ui-text-dimmed-90: color-mix(in srgb, var(--ui-text-dimmed) 90%, transparent);
+
+  --ui-text-muted-10: color-mix(in srgb, var(--ui-text-muted) 10%, transparent);
+  --ui-text-muted-15: color-mix(in srgb, var(--ui-text-muted) 15%, transparent);
+  --ui-text-muted-20: color-mix(in srgb, var(--ui-text-muted) 20%, transparent);
+  --ui-text-muted-25: color-mix(in srgb, var(--ui-text-muted) 25%, transparent);
+  --ui-text-muted-50: color-mix(in srgb, var(--ui-text-muted) 50%, transparent);
+  --ui-text-muted-75: color-mix(in srgb, var(--ui-text-muted) 75%, transparent);
+  --ui-text-muted-90: color-mix(in srgb, var(--ui-text-muted) 90%, transparent);
+
+  --ui-text-toned-10: color-mix(in srgb, var(--ui-text-toned) 10%, transparent);
+  --ui-text-toned-15: color-mix(in srgb, var(--ui-text-toned) 15%, transparent);
+  --ui-text-toned-20: color-mix(in srgb, var(--ui-text-toned) 20%, transparent);
+  --ui-text-toned-25: color-mix(in srgb, var(--ui-text-toned) 25%, transparent);
+  --ui-text-toned-50: color-mix(in srgb, var(--ui-text-toned) 50%, transparent);
+  --ui-text-toned-75: color-mix(in srgb, var(--ui-text-toned) 75%, transparent);
+  --ui-text-toned-90: color-mix(in srgb, var(--ui-text-toned) 90%, transparent);
+
+  --ui-text-10: color-mix(in srgb, var(--ui-text) 10%, transparent);
+  --ui-text-15: color-mix(in srgb, var(--ui-text) 15%, transparent);
+  --ui-text-20: color-mix(in srgb, var(--ui-text) 20%, transparent);
+  --ui-text-25: color-mix(in srgb, var(--ui-text) 25%, transparent);
+  --ui-text-50: color-mix(in srgb, var(--ui-text) 50%, transparent);
+  --ui-text-75: color-mix(in srgb, var(--ui-text) 75%, transparent);
+  --ui-text-90: color-mix(in srgb, var(--ui-text) 90%, transparent);
+
+  --ui-text-highlighted-10: color-mix(in srgb, var(--ui-text-highlighted) 10%, transparent);
+  --ui-text-highlighted-15: color-mix(in srgb, var(--ui-text-highlighted) 15%, transparent);
+
+  --ui-bg-10: color-mix(in srgb, var(--ui-bg) 10%, transparent);
+  --ui-bg-75: color-mix(in srgb, var(--ui-bg) 75%, transparent);
+  --ui-bg-90: color-mix(in srgb, var(--ui-bg) 90%, transparent);
+
+  --ui-bg-elevated-75: color-mix(in srgb, var(--ui-bg-elevated) 75%, transparent);
+  --ui-bg-elevated-90: color-mix(in srgb, var(--ui-bg-elevated) 90%, transparent);
+
+  --ui-bg-accented-10: color-mix(in srgb, var(--ui-bg-accented) 10%, transparent);
+  --ui-bg-accented-15: color-mix(in srgb, var(--ui-bg-accented) 15%, transparent);
+  --ui-bg-accented-20: color-mix(in srgb, var(--ui-bg-accented) 20%, transparent);
+  --ui-bg-accented-25: color-mix(in srgb, var(--ui-bg-accented) 25%, transparent);
+  --ui-bg-accented-50: color-mix(in srgb, var(--ui-bg-accented) 50%, transparent);
+  --ui-bg-accented-75: color-mix(in srgb, var(--ui-bg-accented) 75%, transparent);
+  --ui-bg-accented-90: color-mix(in srgb, var(--ui-bg-accented) 90%, transparent);
+
+  --ui-bg-inverted-10: color-mix(in srgb, var(--ui-bg-inverted) 10%, transparent);
+  --ui-bg-inverted-15: color-mix(in srgb, var(--ui-bg-inverted) 15%, transparent);
+  --ui-bg-inverted-20: color-mix(in srgb, var(--ui-bg-inverted) 20%, transparent);
+  --ui-bg-inverted-25: color-mix(in srgb, var(--ui-bg-inverted) 25%, transparent);
+  --ui-bg-inverted-50: color-mix(in srgb, var(--ui-bg-inverted) 50%, transparent);
+  --ui-bg-inverted-75: color-mix(in srgb, var(--ui-bg-inverted) 75%, transparent);
+  --ui-bg-inverted-90: color-mix(in srgb, var(--ui-bg-inverted) 90%, transparent);
+
+  --ui-border-10: color-mix(in srgb, var(--ui-border) 10%, transparent);
+  --ui-border-15: color-mix(in srgb, var(--ui-border) 15%, transparent);
+  --ui-border-20: color-mix(in srgb, var(--ui-border) 20%, transparent);
+  --ui-border-25: color-mix(in srgb, var(--ui-border) 25%, transparent);
+  --ui-border-50: color-mix(in srgb, var(--ui-border) 50%, transparent);
+  --ui-border-75: color-mix(in srgb, var(--ui-border) 75%, transparent);
+  --ui-border-90: color-mix(in srgb, var(--ui-border) 90%, transparent);
+
+  --ui-border-accented-10: color-mix(in srgb, var(--ui-border-accented) 10%, transparent);
+  --ui-border-accented-15: color-mix(in srgb, var(--ui-border-accented) 15%, transparent);
+  --ui-border-accented-20: color-mix(in srgb, var(--ui-border-accented) 20%, transparent);
+  --ui-border-accented-25: color-mix(in srgb, var(--ui-border-accented) 25%, transparent);
+  --ui-border-accented-50: color-mix(in srgb, var(--ui-border-accented) 50%, transparent);
+  --ui-border-accented-75: color-mix(in srgb, var(--ui-border-accented) 75%, transparent);
+  --ui-border-accented-90: color-mix(in srgb, var(--ui-border-accented) 90%, transparent);
+
+  --ui-border-inverted-10: color-mix(in srgb, var(--ui-border-inverted) 10%, transparent);
+  --ui-border-inverted-15: color-mix(in srgb, var(--ui-border-inverted) 15%, transparent);
+  --ui-border-inverted-20: color-mix(in srgb, var(--ui-border-inverted) 20%, transparent);
+  --ui-border-inverted-25: color-mix(in srgb, var(--ui-border-inverted) 25%, transparent);
+  --ui-border-inverted-50: color-mix(in srgb, var(--ui-border-inverted) 50%, transparent);
+  --ui-border-inverted-75: color-mix(in srgb, var(--ui-border-inverted) 75%, transparent);
+  --ui-border-inverted-90: color-mix(in srgb, var(--ui-border-inverted) 90%, transparent);
+
+  --ui-radius: 4px;
+}

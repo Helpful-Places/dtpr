@@ -1,0 +1,30 @@
+title: DTPR In The World
+sections:
+  - type: Hero
+    heading: See DTPR In Action
+    subheading: Over the last six years, DTPR has been used in 15 communities across 3 continents to build trust and strengthen technology accountability. 
+    horizontal: false
+    image: /images/map.png
+  - type: Marquee
+    headline: Awards and Funding
+    elements:
+      - type: Marquee Item
+        image: /images/awards/knight-award.png
+      - type: Marquee Item
+        image: /images/awards/nsf-award.png
+      - type: Marquee Item
+        image: /images/awards/picasso.png
+      - type: Marquee Item
+        image: /images/awards/wsc-award.png
+  - type: Two Columns
+    headingLeft: Fostering digital trust for smarter places.
+    bodyLeft: Sydney Olympic Park is advancing a model of responsible innovation. With DTPR, the Park introduced transparent communication about its use of CCTV, public WiFi, crowd measurement, and smart irrigation systems—establishing a new standard for accountability and public trust in urban technology.
+    image: /images/sydney-case-study.png
+    hasButton: true,
+    buttonText: Read the Case study
+    buttonLink: https://www.sydneyolympicpark.nsw.gov.au/sites/default/files/2024-07/fostering-digital-trust-for-smarter-places-case-study.pdf
+
+
+    
+
+    

@@ -1,0 +1,41 @@
+title: DTPR
+sections:
+  - type: Hero
+    heading: Digital Trust for Places and Routines is an open standard for translating complicated technologies into simple understanding
+    subHeading: Making the Invisible Visible
+    horizontal: true
+    image: /images/home_hero.png
+  - type: Two Columns
+    isDark: False
+    headingLeft: You Can't Trust a Technology You Can't Understand
+    bodyLeft: Technology increasingly influences our lives, but in ways that are invisible and hard to see. Without the ability to understand how it works, people become distrustful of these systems and the organizations that use them. But when big tech companies bury that information under technical jargon or dense legalese, building that understanding becomes almost impossible.
+    headingRight: DTPR makes being transparent doable.
+    bodyRight: DTPR is an open standard that gives people a common language for how technology uses data to impact their lives. The standard combines a taxonomy of technology concepts and an accessible design system to present detailed information about specific technologies in a way that’s easy to understand.
+  - type: Centered Content
+    heading: Communities around the world are using DTPR to put people's needs at the center of technology usage.
+    image: /images/map.png
+  - type: Two Columns
+    cards:
+      - type: card
+        heading: Government And Community Leaders
+        body: Learn how to use DTPR when deploying technology
+      - type: card
+        heading: Technologists and Designers
+        body: Get tools and documentation for embedding DTPR into your work
+      - type: card
+        heading: Join the Movement
+        body: Learn how to shape DTPR as it grows
+    image: /images/workshop_notes.png
+  - type: Centered Content
+    heading: How Might DTPR...
+  - type: Vision Section
+    heading: Make automated services easier to use?
+    component: Chat Footer
+  - type: Vision Section
+    heading: Make decision making more transparent
+    component: Decision Letter
+  - type: Vision Section
+    heading: Make Public Services More Legible
+    component: Canvas Card
+    src: /data/cbsa-tci.datachain.json
+
