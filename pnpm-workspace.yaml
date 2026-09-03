@@ -1,5 +1,6 @@
 packages:
   - 'app'
+  - 'web'
   - 'api'
   - 'docs-site'
   - 'figma-plugin'
@@ -39,3 +40,9 @@ overrides:
   # pull TypeScript 6.x, which fails the @dtpr/ui dts build (stricter Vue
   # `h()` prop + CSS side-effect import checks).
   typescript: 5.9.3
+  # One Vue for the whole repo. pnpm's hidden hoisted store leaked vue 3.5.39
+  # (api, prototypes/canvas) into web's Nitro server bundle alongside its own
+  # 3.5.42, so `renderSlot` read a `currentRenderingInstance` set by the other
+  # copy and every SSR page 500'd with "Cannot read properties of null
+  # (reading 'ce')". Only reproduces on the workerd build, not node-server.
+  vue: 3.5.42

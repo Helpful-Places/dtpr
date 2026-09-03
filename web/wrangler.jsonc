@@ -1,0 +1,35 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "dtpr-web",
+  "account_id": "f978769622a3e15ad770688a80811aa8",
+  "main": ".output/server/index.mjs",
+  "compatibility_date": "2026-04-16",
+  "compatibility_flags": ["nodejs_compat"],
+  // No custom domain yet. This deploys to the workers.dev subdomain while the
+  // refresh is still a candidate replacement for `app/`. Add a `routes` entry
+  // with `custom_domain: true` (see api/ and docs-site/) when it takes over a
+  // hostname.
+  "workers_dev": true,
+  "assets": {
+    "directory": ".output/public",
+    // @nuxt/content's Cloudflare preset serves its SQL dump from a server
+    // handler that reads `env.ASSETS` (runtime/presets/cloudflare/database-handler).
+    // Without this binding it falls back to build-time storage, which isn't in
+    // the Worker bundle, so the dump comes back empty and the D1 seed fails with
+    // "no such table: _content_pages" on every request.
+    "binding": "ASSETS"
+  },
+  "observability": {
+    "enabled": true
+  },
+  "d1_databases": [
+    {
+      // @nuxt/content v3 dumps its parsed content into D1 on the Cloudflare
+      // preset and looks for a binding named exactly "DB". Same convention as
+      // docs-site/wrangler.toml.
+      "binding": "DB",
+      "database_name": "dtpr-web-content",
+      "database_id": "2a479576-88c6-40d3-b21a-f6909e4fd9c2"
+    }
+  ]
+}

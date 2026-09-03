@@ -1,0 +1,28 @@
+title: Who We Are
+sections:
+  - type: Hero
+    heading: Technology today feels increasingly invasive and threatening
+    subHeading: The implementation of technology has outpaced our ability to talk about it.
+    image: /images/who_we_are_hero.png
+  - type: Centered Content
+    heading: DTPR Can
+    headingLeft: DTPR Can
+    cards:
+      - type: card
+        body: Help people understand how data’s being used 
+      - type: card
+        body: Enable better communication through shared language 
+      - type: card
+        body: Support organizations with technology documentation and inventory in a consistent, standardized way
+      - type: card
+        body: Raise awareness, educate, and foster community trust 
+  - type: Centered Content
+    heading: How We Began
+    body: |
+      In 2019, Sidewalk Labs brought over 100 experts to answer a central question, how could we create a standard for open communication about how data is used in the public realm?
+
+      In 2020, the first draft of what would eventually become DTPR. Conveners held usability tests, expert interviews, and community codesign sessions to understand if what they’d created was actually useful. The response was a resounding yes. The original prototype draft standard as well as all the co-design activities and materials used to generate it, are publicly and freely available . Today, DTPR kept its letters but has a new name - Digital Trust for Places and Routines. It also has a new steward, Helpful Places, and continues to evolve into a more comprehensive framework for digital transparency. 
+
+      Helpful Places continues to develop and expand DTPR in collaboration with a growing coalition of partners, ensuring it remains an evolving resource for fostering transparency in the public realm.
+
+  
