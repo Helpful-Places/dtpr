@@ -11,8 +11,8 @@ import {
 
 describe('iconUrl', () => {
   it('spells the default variant as icon.svg', () => {
-    expect(iconUrl(DEFAULT_API_BASE, 'ai@2026-08-24-beta', 'accessibility', 'default')).toBe(
-      'https://api.dtpr.io/api/v2/schemas/ai%402026-08-24-beta/elements/accessibility/icon.svg',
+    expect(iconUrl(DEFAULT_API_BASE, 'dtpr@2026-09-01-beta', 'accessibility', 'default')).toBe(
+      'https://api.dtpr.io/api/v2/schemas/dtpr%402026-09-01-beta/elements/accessibility/icon.svg',
     )
   })
 
