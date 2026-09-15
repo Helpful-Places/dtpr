@@ -13,6 +13,15 @@ The plugin lives inside the `Helpful-Places/dtpr` repository. Installation paths
 /plugin install dtpr
 ```
 
+**Claude Code on a Teams/Enterprise account** — adding a plugin from GitHub requires a private
+repository, so use the private mirror of this directory instead. It is a one-way subtree mirror of
+`plugin/dtpr`; open PRs against `Helpful-Places/dtpr`, not the mirror.
+
+```
+/plugin marketplace add Helpful-Places/dtpr-plugin
+/plugin install dtpr
+```
+
 Verify the MCP is live:
 
 ```
