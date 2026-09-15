@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { resolveCurrentColor } from '../src/svg.ts'
 
 /**
- * Trimmed from a real response — `GET /api/v2/schemas/ai@2026-08-24-beta
+ * Trimmed from a real response — `GET /api/v2/schemas/dtpr@2026-09-01-beta
  * /elements/accessibility/icon.dark.svg`. Shape colors are literal, the
  * symbol inherits from the `<g>`.
  */

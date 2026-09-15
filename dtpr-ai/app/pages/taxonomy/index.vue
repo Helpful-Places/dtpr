@@ -308,7 +308,7 @@ function handleScroll() {
         <h1 class="taxonomy-page__title">Taxonomy</h1>
         <p class="taxonomy-page__subtitle">
           Browse every element in the
-          <code>{{ activeVersion || 'ai' }}</code> schema.
+          <code>{{ activeVersion || 'dtpr' }}</code> schema.
         </p>
       </template>
       <template #actions>

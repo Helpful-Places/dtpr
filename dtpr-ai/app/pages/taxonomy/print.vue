@@ -189,7 +189,7 @@ function triggerPrint() {
       <div>
         <h1 class="print-taxonomy__title">DTPR Taxonomy — Print Layout</h1>
         <p class="print-taxonomy__subtitle">
-          <code>{{ activeVersion || 'ai' }}</code> · locale
+          <code>{{ activeVersion || 'dtpr' }}</code> · locale
           <code>{{ activeLocale }}</code> ·
           {{ sections.length }} categories
         </p>

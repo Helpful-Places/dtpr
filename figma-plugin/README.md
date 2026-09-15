@@ -21,11 +21,11 @@ serves composed icons as ready-made SVG strings that
 
 ## What it produces
 
-For `ai@2026-08-24-beta`: **137 elements across 14 categories, 468
+For `dtpr@2026-09-01-beta`: **137 elements across 14 categories, 468
 icons**.
 
 ```
-Page  "DTPR Icons — ai@2026-08-24-beta"
+Page  "DTPR Icons — dtpr@2026-09-01-beta"
  └ Frame "purpose"                      one section per category, in schema order
     ├ Text  "Purpose"                   category name + description
     ├ ComponentSet "purpose/accessibility"

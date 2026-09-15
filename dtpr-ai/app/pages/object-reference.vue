@@ -119,7 +119,7 @@ const objects: ObjectEntry[] = [
     name: 'DatachainType',
     group: 'definitions',
     blurb:
-      'Top-level grouping such as `ai`. Declares the ordered category list, optional subchains, and the locale allow-list mirrored onto the Manifest.',
+      'Top-level grouping such as `dtpr`. Declares the ordered category list, optional subchains, and the locale allow-list mirrored onto the Manifest.',
     schema: (schemas as any).DatachainType,
   },
   {
