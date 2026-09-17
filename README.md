@@ -73,6 +73,10 @@ Install with:
 
 See [`plugin/dtpr/README.md`](plugin/dtpr/README.md) for the skill summaries and troubleshooting notes.
 
+### Private mirror (Teams/Enterprise)
+
+Claude Teams and Enterprise only install plugins from private GitHub repos, so `plugin/dtpr/` is mirrored to the private [`Helpful-Places/dtpr-plugin`](https://github.com/Helpful-Places/dtpr-plugin). CI does not update the mirror: **after merging any `plugin/**` change to `main`, run `pnpm sync:plugin` from an up-to-date `main`** (needs push access to the mirror). Never commit in the mirror directly — a diverged mirror makes the next sync push get rejected.
+
 ## Original Co-Design Session Materials
 
 The DTPR standard was created through an open development process, including co-design and consultation sessions with global experts and with the general public. The materials and facilitation guide created to run those co-design sessions can be found [here](https://github.com/Helpful-Places/dtpr/tree/main/resources/codesignkit).
