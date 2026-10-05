@@ -321,6 +321,14 @@ ${keys.map((k) => `      - ${k}`).join('\n')}
     expect(JSON.parse(await emitted('manifest.json')).content_hash).toBe(hashBefore)
   })
 
+  it('reports a YAML syntax error as a status problem instead of throwing', async () => {
+    await writeFile(versionFile('translations.yaml'), 'source_locale: en\nlocales: [\n', 'utf8')
+    const result = await buildScratch()
+    expect(result.ok).toBe(false)
+    expect(logs.some((l) => l.includes('TRANSLATION_STATUS') && l.includes('YAML syntax error'))).toBe(true)
+    expect((await translateStatus(VERSION, { sourceRoot: scratch, log })).ok).toBe(false)
+  })
+
   it('fails the build when a flag points at a missing field', async () => {
     await translateApply(VERSION, [await filledCatalog('fr', (en) => `FR ${en}`)], { sourceRoot: scratch, log })
     await writeFile(versionFile('translations.yaml'), statusYaml(['elements/nope.yaml#title']), 'utf8')

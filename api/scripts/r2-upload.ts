@@ -31,6 +31,7 @@ import { readdir, readFile, stat } from 'node:fs/promises'
 import { join, relative, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import {
+  DeleteObjectCommand,
   GetObjectCommand,
   NoSuchKey,
   PutObjectCommand,
@@ -138,19 +139,28 @@ async function getText(client: S3Client, bucket: string, key: string): Promise<s
 }
 
 /**
- * Upload `translations.json` when it differs from what R2 holds. Runs
- * on the unchanged-hash path, where the rest of the bundle is skipped:
- * a reviewer settling a flag changes this file and nothing the hash
- * covers. Returns whether a write happened.
+ * Bring R2's `translations.json` in line with the local build: upload
+ * it when the bytes differ, delete it when the build no longer emits
+ * one (the version dropped its `translations.yaml`). Runs on the
+ * unchanged-hash path, where the rest of the bundle is skipped — a
+ * reviewer settling a flag changes this file and nothing the hash
+ * covers — and after a full upload, which only ever writes. Returns
+ * whether R2 changed.
  */
 export async function syncTranslations(
   opts: Pick<UploadOptions, 'version' | 'distRoot' | 'client' | 'bucket' | 'log'>,
 ): Promise<boolean> {
   const { version, distRoot, client, bucket, log } = opts
-  const local = await readFile(join(distRoot, version.dir, TRANSLATIONS_FILE)).catch(() => null)
-  if (!local) return false
   const key = `schemas/${version.dir}/${TRANSLATIONS_FILE}`
-  if ((await getText(client, bucket, key)) === local.toString('utf8')) return false
+  const local = await readFile(join(distRoot, version.dir, TRANSLATIONS_FILE)).catch(() => null)
+  const remote = await getText(client, bucket, key)
+  if (!local) {
+    if (remote === null) return false
+    await client.send(new DeleteObjectCommand({ Bucket: bucket, Key: key }))
+    log(`  deleted ${key} (no longer built)`)
+    return true
+  }
+  if (remote === local.toString('utf8')) return false
   await putFile(client, bucket, key, local, contentTypeFor(TRANSLATIONS_FILE))
   log(`  uploaded ${key} (${local.byteLength} B)`)
   return true
@@ -195,6 +205,9 @@ async function uploadVersion(opts: UploadOptions): Promise<{ uploaded: boolean; 
     await putFile(client, bucket, key, body, contentTypeFor(rel))
     log(`  uploaded ${key} (${body.byteLength} B)`)
   }
+
+  // The loop above only writes; drop a status file a previous build left behind.
+  await syncTranslations(opts)
 
   // 2. Verify the manifest is readable through R2 before we flip the index.
   const verifyManifest = await getJson<ManifestFile>(client, bucket, remoteManifestKey)

@@ -584,7 +584,13 @@ export async function checkTranslationStatus(versionDir: string): Promise<Transl
   } catch {
     return { kind: 'missing' }
   }
-  const parsed = TranslationStatusSchema.safeParse(yaml.load(raw))
+  let doc: unknown
+  try {
+    doc = yaml.load(raw)
+  } catch (e) {
+    return { kind: 'invalid', problems: [`YAML syntax error: ${(e as Error).message.split('\n')[0]}`] }
+  }
+  const parsed = TranslationStatusSchema.safeParse(doc)
   if (!parsed.success) {
     return { kind: 'invalid', problems: parsed.error.issues.map((i) => `${i.path.join('.')}: ${i.message}`) }
   }
