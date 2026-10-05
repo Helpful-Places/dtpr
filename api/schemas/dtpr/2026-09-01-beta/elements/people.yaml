@@ -5,9 +5,43 @@ title:
     value: People
   - locale: fr
     value: Personnes
+  - locale: es
+    value: Personas
+  - locale: pt
+    value: Pessoas
+  - locale: fil
+    value: Mga tao
+  - locale: km
+    value: មនុស្ស
+  - locale: vi
+    value: Con người
+  - locale: zh-Hans
+    value: 人群
+  - locale: zh-Hant
+    value: 人
 description:
   - locale: en
     value: The people this system is used on, or whose lives its decisions affect.
   - locale: fr
     value: Les personnes sur lesquelles ce système est utilisé, ou dont ses décisions affectent la vie.
+  - locale: es
+    value: >-
+      Las personas a las que se aplica este sistema, o cuyas vidas se ven afectadas por sus
+      decisiones.
+  - locale: pt
+    value: As pessoas em quem este sistema é usado, ou cujas vidas são afetadas pelas decisões dele.
+  - locale: fil
+    value: >-
+      Ang mga taong pinaggagamitan ng sistemang ito, o ang mga taong ang buhay ay naaapektuhan ng
+      mga desisyon nito.
+  - locale: km
+    value: មនុស្សដែលប្រព័ន្ធនេះត្រូវបានប្រើលើ ឬដែលជីវិតរបស់ពួកគេរងផលប៉ះពាល់ពីការសម្រេចចិត្តរបស់វា។
+  - locale: vi
+    value: >-
+      Những người là đối tượng áp dụng của hệ thống này, hoặc những người có cuộc sống bị ảnh hưởng
+      bởi quyết định của nó.
+  - locale: zh-Hans
+    value: 本系统的使用对象，或生活受其决定影响的人。
+  - locale: zh-Hant
+    value: 這個系統所針對的人，或生活受其決定影響的人。
 symbol_id: people

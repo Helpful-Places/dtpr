@@ -5,9 +5,37 @@ title:
     value: Social
   - locale: fr
     value: Social
+  - locale: es
+    value: Interacción social
+  - locale: pt
+    value: Interação social
+  - locale: fil
+    value: Pakikisalamuha
+  - locale: km
+    value: សង្គម
+  - locale: vi
+    value: Giao tiếp xã hội
+  - locale: zh-Hans
+    value: 社交
+  - locale: zh-Hant
+    value: 社交
 description:
   - locale: en
     value: For interacting with another person or a group.
   - locale: fr
     value: Pour interagir avec une autre personne ou un groupe.
+  - locale: es
+    value: Para interactuar con otra persona o con un grupo.
+  - locale: pt
+    value: Para interagir com outra pessoa ou com um grupo.
+  - locale: fil
+    value: Para sa pakikipag-ugnayan sa ibang tao o sa isang grupo.
+  - locale: km
+    value: សម្រាប់ប្រាស្រ័យទាក់ទងជាមួយបុគ្គលផ្សេង ឬក្រុមមួយ។
+  - locale: vi
+    value: Để tương tác với một người khác hoặc một nhóm.
+  - locale: zh-Hans
+    value: 用于与他人或群体互动。
+  - locale: zh-Hant
+    value: 用於與他人或群體互動。
 symbol_id: social

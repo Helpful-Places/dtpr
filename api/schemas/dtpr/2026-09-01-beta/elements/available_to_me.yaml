@@ -5,6 +5,20 @@ title:
     value: Available to me
   - locale: fr
     value: Disponible pour moi
+  - locale: es
+    value: Disponibles para mí
+  - locale: pt
+    value: Disponíveis para mim
+  - locale: fil
+    value: Maa-access ko
+  - locale: km
+    value: ខ្ញុំអាចចូលប្រើបាន
+  - locale: vi
+    value: Tôi có thể truy cập
+  - locale: zh-Hans
+    value: 本人可获取
+  - locale: zh-Hant
+    value: 我可取得
 description:
   - locale: en
     value: >-
@@ -16,4 +30,33 @@ description:
       Disponible pour moi mais pas pour d'autres individus. Par exemple, en tant qu'individu, vous
       avez accés à tous vos enregistrements de péage électronique pour votre voiture, mais les
       autres individus n'y ont pas accés.
+  - locale: es
+    value: >-
+      Disponibles para mí, pero no para otras personas. Por ejemplo, usted, como particular, tiene
+      acceso a todos los registros de peaje electrónico de su automóvil, pero otras personas no
+      tienen acceso a ellos.
+  - locale: pt
+    value: >-
+      Disponíveis para mim, mas não para outras pessoas. Por exemplo, como indivíduo, você tem
+      acesso a todos os registros de pedágio eletrônico do seu carro, mas outras pessoas não têm
+      acesso a eles.
+  - locale: fil
+    value: >-
+      Maa-access ko pero hindi ng ibang indibidwal. Halimbawa, bilang indibidwal, may access kayo sa
+      lahat ng rekord ng electronic toll ng inyong sasakyan, pero walang access doon ang ibang
+      indibidwal.
+  - locale: km
+    value: >-
+      ខ្ញុំអាចចូលប្រើបាន ប៉ុន្តែបុគ្គលផ្សេងទៀតមិនអាចទេ។ ឧទាហរណ៍ ក្នុងនាមជាបុគ្គល
+      អ្នកអាចចូលមើលកំណត់ត្រាបង់ថ្លៃផ្លូវអេឡិចត្រូនិកទាំងអស់នៃរថយន្តរបស់អ្នក
+      ប៉ុន្តែបុគ្គលផ្សេងទៀតមិនអាចចូលមើលបានទេ។
+  - locale: vi
+    value: >-
+      Tôi có thể truy cập nhưng các cá nhân khác thì không. Ví dụ, với tư cách cá nhân, bạn được
+      truy cập toàn bộ hồ sơ thu phí điện tử của xe mình, nhưng các cá nhân khác không được truy cập
+      những hồ sơ đó.
+  - locale: zh-Hans
+    value: 本人可以获取，但其他个人不能。例如，您作为个人可以查看自己车辆的全部电子收费记录，而其他个人无法查看。
+  - locale: zh-Hant
+    value: 我可取得，但其他人無法取得。例如，您個人可以查閱自己車輛的所有電子收費紀錄，但其他人無法查閱。
 symbol_id: available

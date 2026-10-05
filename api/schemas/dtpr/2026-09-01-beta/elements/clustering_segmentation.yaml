@@ -5,6 +5,20 @@ title:
     value: Clustering & Segmentation
   - locale: fr
     value: Regroupement et segmentation
+  - locale: es
+    value: Agrupamiento y segmentación
+  - locale: pt
+    value: Agrupamento e segmentação
+  - locale: fil
+    value: Pagpapangkat at segmentasyon
+  - locale: km
+    value: ការដាក់ជាក្រុម និងការបែងចែកផ្នែក
+  - locale: vi
+    value: Phân cụm và phân nhóm
+  - locale: zh-Hans
+    value: 聚类与细分
+  - locale: zh-Hant
+    value: 分群與區隔
 description:
   - locale: en
     value: >-
@@ -19,4 +33,45 @@ description:
       mobilité, des profils d'usage énergétique ou des zones de demande de services. Les sorties
       sont des affectations de groupe que les systèmes en aval peuvent traiter comme des catégories,
       bien que les groupes soient inférés et non définis.
+  - locale: es
+    value: >-
+      Sistemas de IA que agrupan personas, lugares o eventos según su similitud, sin usar etiquetas
+      definidas de antemano. Se usan para segmentar audiencias, patrones de movilidad, perfiles de
+      consumo de energía o zonas de demanda de servicios. Sus resultados son asignaciones a grupos
+      que los sistemas posteriores pueden tratar como categorías — aunque los grupos son inferidos,
+      no definidos por una persona.
+  - locale: pt
+    value: >-
+      Sistemas de IA que reúnem pessoas, lugares ou eventos em grupos com base em semelhança, sem
+      usar rótulos predefinidos. Usados para segmentar públicos, padrões de mobilidade, perfis de
+      consumo de energia ou zonas de demanda por serviços. As saídas são atribuições a grupos que os
+      sistemas seguintes podem tratar como categorias — embora os grupos sejam inferidos, e não
+      definidos por alguém.
+  - locale: fil
+    value: >-
+      Mga sistemang AI na nagpapangkat ng mga tao, lugar, o pangyayari batay sa pagkakatulad, nang
+      hindi gumagamit ng mga tatak na itinakda nang maaga. Ginagamit para hatiin sa mga pangkat ang
+      mga audience, pattern ng pagbiyahe, profile ng paggamit ng enerhiya, o mga sonang may
+      pangangailangan sa serbisyo. Ang mga output ay pagtatalaga sa mga pangkat na maaaring ituring
+      na kategorya ng mga susunod na sistema — kahit hinuha lang ang mga pangkat at hindi sadyang
+      itinakda ninuman.
+  - locale: km
+    value: >-
+      ប្រព័ន្ធ AI ដែលដាក់មនុស្ស, ទីកន្លែង, ឬព្រឹត្តិការណ៍ជាក្រុមៗតាមភាពស្រដៀងគ្នា
+      ដោយមិនប្រើស្លាកដែលកំណត់ទុកជាមុន។ ប្រើដើម្បីបែងចែកក្រុមទស្សនិកជន, លំនាំនៃការធ្វើដំណើរ,
+      ទម្រង់នៃការប្រើថាមពល, ឬតំបន់តម្រូវការសេវា។ លទ្ធផលគឺជាការចាត់ចូលក្រុម
+      ដែលប្រព័ន្ធបន្ទាប់អាចចាត់ទុកជាប្រភេទ — ទោះបីក្រុមទាំងនោះកើតពីការសន្និដ្ឋាន
+      មិនមែនមនុស្សជាអ្នកកំណត់ក៏ដោយ។
+  - locale: vi
+    value: >-
+      Các hệ thống AI gom người, địa điểm hoặc sự kiện thành các cụm dựa trên sự giống nhau, không
+      dùng nhãn định sẵn. Được dùng để phân nhóm đối tượng, kiểu đi lại, kiểu sử dụng năng lượng
+      hoặc khu vực có nhu cầu dịch vụ. Kết quả đầu ra là việc xếp vào cụm, mà các hệ thống phía sau
+      có thể coi như các loại — dù các cụm là do suy đoán mà ra, không phải do con người đặt ra.
+  - locale: zh-Hans
+    value: >-
+      不使用预先定义的标签，而是根据相似性将人、地点或事件归为若干群组的AI系统。用于细分受众、出行模式、用能特征或服务需求区域。其输出是群组归属，下游系统可能将其当作类别使用——尽管这些群组是推断出来的，而非人为设定的。
+  - locale: zh-Hant
+    value: >-
+      不使用預先定義的標籤，而依相似程度將人、地點或事件分成群組的AI系統。用於區隔受眾、移動模式、用電型態或服務需求區域。輸出結果是群組歸屬，下游系統可能將其視為類別，但這些群組是推斷出來的，並非由人訂定。
 symbol_id: social

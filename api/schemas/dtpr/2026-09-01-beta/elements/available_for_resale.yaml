@@ -5,9 +5,37 @@ title:
     value: Available for resale
   - locale: fr
     value: Disponible à la revente
+  - locale: es
+    value: Disponibles para reventa
+  - locale: pt
+    value: Disponíveis para revenda
+  - locale: fil
+    value: Maaaring ibentang muli
+  - locale: km
+    value: អាចលក់បន្តបាន
+  - locale: vi
+    value: Có thể bán lại
+  - locale: zh-Hans
+    value: 可转售
+  - locale: zh-Hant
+    value: 可轉售
 description:
   - locale: en
     value: The data collected may be resold to other 3rd parties
   - locale: fr
     value: Les données collectées peuvent être revendues à d'autres tiers.
+  - locale: es
+    value: Los datos recopilados pueden revenderse a otros terceros
+  - locale: pt
+    value: Os dados coletados podem ser revendidos a terceiros
+  - locale: fil
+    value: Maaaring ibentang muli sa iba pang ikatlong partido ang nakolektang data
+  - locale: km
+    value: ទិន្នន័យដែលប្រមូលបានអាចត្រូវបានលក់បន្តទៅភាគីទីបី ផ្សេងទៀត។
+  - locale: vi
+    value: Dữ liệu thu thập được có thể được bán lại cho các bên thứ ba khác
+  - locale: zh-Hans
+    value: 收集的数据可能被转售给其他第三方。
+  - locale: zh-Hant
+    value: 收集的資料可能轉售給其他第三方。
 symbol_id: resale_cycle

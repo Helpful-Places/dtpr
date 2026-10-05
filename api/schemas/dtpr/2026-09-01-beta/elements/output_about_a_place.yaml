@@ -5,6 +5,20 @@ title:
     value: Data about a place
   - locale: fr
     value: Données sur un lieu
+  - locale: es
+    value: Datos sobre un lugar
+  - locale: pt
+    value: Dados sobre um lugar
+  - locale: fil
+    value: Data tungkol sa lugar
+  - locale: km
+    value: ទិន្នន័យអំពីទីកន្លែង
+  - locale: vi
+    value: Dữ liệu về địa điểm
+  - locale: zh-Hans
+    value: 场所数据
+  - locale: zh-Hant
+    value: 地點資料
 description:
   - locale: en
     value: >-
@@ -16,4 +30,33 @@ description:
       L'IA produit une sortie de localisation, d'itinéraire, de zone ou de plan. Exemples : un
       itinéraire affiché sur une borne, une carte de chaleur de la densité piétonne, les limites
       d'une géoclôture publiées à des systèmes en aval.
+  - locale: es
+    value: >-
+      La IA produce un resultado de ubicación, ruta, zona o plano de planta. Ejemplos: una ruta de
+      orientación que se muestra en un quiosco, un mapa de calor de la densidad de peatones, el
+      límite de una geocerca publicado para sistemas posteriores.
+  - locale: pt
+    value: >-
+      A IA produz saídas de localização, rota, região ou planta baixa. Exemplos: uma rota de
+      orientação exibida em um totem, um mapa de calor da densidade de pedestres, o limite de uma
+      cerca virtual publicado para sistemas seguintes.
+  - locale: fil
+    value: >-
+      Lumilikha ang AI ng output na lokasyon, ruta, rehiyon, o floor plan. Mga halimbawa: rutang
+      ipinapakita sa kiosk, heatmap ng dami ng mga naglalakad, hangganan ng geofence na ipinapasa sa
+      mga susunod na sistema.
+  - locale: km
+    value: >-
+      AI បង្កើតលទ្ធផលអំពីទីតាំង, ផ្លូវធ្វើដំណើរ, តំបន់, ឬប្លង់អគារ។ ឧទាហរណ៍៖
+      ផ្លូវដែលបង្ហាញលើបញ្ជរស្វ័យសេវា, ផែនទីកម្ដៅនៃដង់ស៊ីតេអ្នកដើរកាត់, ព្រំដែនរបងនិម្មិតភូមិសាស្ត្រ
+      (geofence) ដែលបញ្ជូនទៅប្រព័ន្ធបន្ទាប់។
+  - locale: vi
+    value: >-
+      AI tạo ra kết quả đầu ra về vị trí, tuyến đường, khu vực hoặc sơ đồ mặt bằng. Ví dụ: một tuyến
+      chỉ đường hiển thị trên ki-ốt, bản đồ nhiệt về mật độ người đi bộ, ranh giới hàng rào địa lý
+      được gửi đến các hệ thống phía sau.
+  - locale: zh-Hans
+    value: AI产生位置、路线、区域或平面图方面的输出。示例：自助终端上显示的导览路线、人流密度热力图、发布给下游系统的地理围栏边界。
+  - locale: zh-Hant
+    value: AI產生位置、路線、區域或樓層平面圖等輸出結果。例如：自助服務機上顯示的指引路線、人流密度熱區圖、發布給下游系統的地理圍欄範圍。
 symbol_id: spatial

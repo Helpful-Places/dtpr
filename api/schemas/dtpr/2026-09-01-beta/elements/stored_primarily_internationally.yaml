@@ -5,9 +5,37 @@ title:
     value: Stored primarily internationally
   - locale: fr
     value: Stockés principalement à l'international
+  - locale: es
+    value: Almacenados principalmente en el extranjero
+  - locale: pt
+    value: Armazenamento principalmente internacional
+  - locale: fil
+    value: Pangunahing nakaimbak sa ibang bansa
+  - locale: km
+    value: ផ្ទុកជាចម្បងនៅក្រៅប្រទេស
+  - locale: vi
+    value: Lưu trữ chủ yếu ở nước ngoài
+  - locale: zh-Hans
+    value: 主要存储于境外
+  - locale: zh-Hant
+    value: 主要儲存於境外
 description:
   - locale: en
     value: Data is stored outside the jurisdiction where it was collected.
   - locale: fr
     value: Les données sont stockées en dehors de la juridiction où elles ont été collectées.
+  - locale: es
+    value: Los datos se almacenan fuera de la jurisdicción donde se recopilaron.
+  - locale: pt
+    value: Os dados são armazenados fora da jurisdição onde foram coletados.
+  - locale: fil
+    value: Nakaimbak ang data sa labas ng hurisdiksiyon kung saan ito kinolekta.
+  - locale: km
+    value: ទិន្នន័យត្រូវបានផ្ទុកនៅក្រៅយុត្តាធិការដែលវាត្រូវបានប្រមូល។
+  - locale: vi
+    value: Dữ liệu được lưu trữ bên ngoài khu vực pháp lý nơi nó được thu thập.
+  - locale: zh-Hans
+    value: 数据存储在收集地所属司法管辖区之外。
+  - locale: zh-Hant
+    value: 資料儲存在收集地所屬的司法管轄區之外。
 symbol_id: stored

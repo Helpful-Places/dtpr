@@ -5,6 +5,20 @@ title:
     value: Right to Stop Processing
   - locale: fr
     value: Droit d'opposition au traitement
+  - locale: es
+    value: Derecho a detener el procesamiento
+  - locale: pt
+    value: Direito de interromper o tratamento
+  - locale: fil
+    value: Karapatang ipatigil ang pagproseso
+  - locale: km
+    value: សិទ្ធិបញ្ឈប់ការដំណើរការទិន្នន័យ
+  - locale: vi
+    value: Quyền yêu cầu ngừng xử lý
+  - locale: zh-Hans
+    value: 停止处理权
+  - locale: zh-Hant
+    value: 要求停止處理的權利
 description:
   - locale: en
     value: >-
@@ -21,4 +35,45 @@ description:
       restreint les finalités initialement annoncées). Il s'agit du levier d'arrêt immédiat actionné
       par l'utilisateur : vos données peuvent rester archivées, mais aucun traitement supplémentaire
       ne doit être effectué.
+  - locale: es
+    value: >-
+      El derecho a pedirle a una organización que deje de usar sus datos personales, aunque los
+      datos en sí no se eliminen. Es distinto del derecho al olvido (que elimina los datos) y del
+      derecho a la limitación de la finalidad (que restringe los propósitos declarados
+      originalmente). Es la opción de “detener ya” que activa la propia persona — sus datos pueden
+      seguir archivados, pero no deben procesarse más.
+  - locale: pt
+    value: >-
+      O direito de pedir a uma organização que pare de usar seus dados pessoais, mesmo quando os
+      dados em si não são excluídos. É separado do direito ao esquecimento (que exclui os dados) e
+      do direito à limitação da finalidade (que restringe as finalidades originalmente declaradas).
+      É o recurso de parada imediata acionado pela própria pessoa — seus dados podem continuar
+      arquivados, mas nenhum novo tratamento deve ser feito com eles.
+  - locale: fil
+    value: >-
+      Ang karapatang hilingin sa isang organisasyon na itigil ang paggamit sa inyong personal na
+      data, kahit hindi binubura ang data mismo. Hiwalay ito sa karapatang makalimutan (na nagbubura
+      ng data) at sa karapatan sa limitasyon ng layunin (na naglilimita sa mga orihinal na layuning
+      inihayag). Ito ang paraan ng user para ipatigil agad ang paggamit — maaaring manatili sa
+      talaan ang inyong data, pero hindi na ito dapat iproseso pa.
+  - locale: km
+    value: >-
+      សិទ្ធិស្នើឱ្យអង្គភាពបញ្ឈប់ការប្រើទិន្នន័យផ្ទាល់ខ្លួនរបស់អ្នក
+      ទោះបីទិន្នន័យនោះផ្ទាល់មិនត្រូវបានលុបក៏ដោយ។ សិទ្ធិនេះដាច់ដោយឡែកពីសិទ្ធិត្រូវបានបំភ្លេច
+      (ដែលលុបទិន្នន័យ) និងពីសិទ្ធិកំណត់គោលបំណងប្រើប្រាស់ (ដែលកម្រិតតាមគោលបំណងដែលបានប្រកាសពីដំបូង)។
+      នេះជាមធ្យោបាយដែលអ្នកប្រើប្រាស់អាចប្រើដើម្បីបញ្ឈប់ភ្លាមៗ —
+      ទិន្នន័យរបស់អ្នកអាចនៅតែត្រូវបានរក្សាទុក ប៉ុន្តែមិនគួរមានការដំណើរការបន្ថែមលើវាទៀតទេ។
+  - locale: vi
+    value: >-
+      Quyền yêu cầu một tổ chức ngừng sử dụng dữ liệu cá nhân của bạn, ngay cả khi bản thân dữ liệu
+      không bị xóa. Quyền này khác với quyền được lãng quên (là quyền xóa dữ liệu) và với quyền giới
+      hạn mục đích sử dụng (là quyền giới hạn việc sử dụng trong các mục đích đã nêu ban đầu). Đây
+      là cách để chính người dùng yêu cầu dừng ngay — dữ liệu của bạn có thể vẫn nằm trong hồ sơ,
+      nhưng không được xử lý thêm nữa.
+  - locale: zh-Hans
+    value: >-
+      有权要求组织停止使用您的个人数据，即使数据本身并未删除。这有别于被遗忘权（删除数据）和目的限制权（将用途限定在最初声明的目的之内）。这是由用户主动提出、要求立即停止的手段——您的数据可以继续留存，但不得再对其作任何进一步处理。
+  - locale: zh-Hant
+    value: >-
+      您有權要求組織停止使用您的個人資料，即使資料本身並未刪除。這與被遺忘權（會刪除資料）及限定使用目的的權利（限制原先聲明的目的）不同。這是由使用者主動提出、立即停止的機制：您的資料可能仍留存在檔案中，但不得再對其進行任何處理。
 symbol_id: hand_raised

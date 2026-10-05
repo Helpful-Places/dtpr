@@ -5,6 +5,20 @@ title:
     value: Search & Retrieval
   - locale: fr
     value: Recherche et récupération
+  - locale: es
+    value: Búsqueda y recuperación
+  - locale: pt
+    value: Busca e recuperação
+  - locale: fil
+    value: Paghahanap at pagkuha
+  - locale: km
+    value: ការស្វែងរក និងការទាញយកព័ត៌មាន
+  - locale: vi
+    value: Tìm kiếm và truy xuất
+  - locale: zh-Hans
+    value: 搜索与检索
+  - locale: zh-Hant
+    value: 搜尋與檢索
 description:
   - locale: en
     value: >-
@@ -19,4 +33,45 @@ description:
       vectorielle et les pipelines de génération augmentée par récupération (RAG) qui injectent des
       passages pertinents dans un modèle de langage. Utilisé dans la QA documentaire, la
       consultation de registres publics et la recherche en bibliothèque ou en archives.
+  - locale: es
+    value: >-
+      Sistemas de IA que encuentran y muestran contenido relevante de un conjunto de documentos,
+      registros o archivos multimedia en respuesta a una consulta. Incluye búsqueda semántica,
+      recuperación vectorial y procesos de generación aumentada por recuperación (RAG) que entregan
+      pasajes relevantes a un modelo de lenguaje. Se usan para responder preguntas sobre documentos,
+      consultar registros públicos y buscar en bibliotecas o archivos.
+  - locale: pt
+    value: >-
+      Sistemas de IA que encontram e apresentam conteúdo relevante em um conjunto de documentos,
+      registros ou mídias em resposta a uma consulta. Incluem busca semântica, recuperação vetorial
+      e fluxos de geração aumentada por recuperação (RAG), que enviam trechos relevantes a um modelo
+      de linguagem. Usados para responder a perguntas sobre documentos, consultar registros públicos
+      e pesquisar em bibliotecas ou arquivos.
+  - locale: fil
+    value: >-
+      Mga sistemang AI na naghahanap at naglalabas ng kaugnay na nilalaman mula sa isang koleksiyon
+      ng mga dokumento, rekord, o media bilang tugon sa isang tanong. Kasama ang semantic search,
+      vector retrieval, at mga pipeline ng retrieval-augmented generation (RAG) na nagpapasok ng mga
+      kaugnay na sipi sa isang modelo ng wika. Ginagamit sa pagsagot ng tanong mula sa mga
+      dokumento, paghahanap sa mga pampublikong rekord, at paghahanap sa aklatan o arkibo.
+  - locale: km
+    value: >-
+      ប្រព័ន្ធ AI ដែលស្វែងរក និងបង្ហាញខ្លឹមសារពាក់ព័ន្ធពីបណ្តុំឯកសារ, កំណត់ត្រា, ឬមេឌៀ
+      ដើម្បីឆ្លើយតបនឹងសំណួរស្វែងរក។ រួមមានការស្វែងរកតាមអត្ថន័យ, ការទាញយកដោយវ៉ិចទ័រ,
+      និងខ្សែដំណើរការបង្កើតអត្ថបទដោយមានការទាញយកព័ត៌មានជំនួយ (RAG)
+      ដែលបញ្ជូនអត្ថបទពាក់ព័ន្ធទៅក្នុងម៉ូដែលភាសា។ ប្រើក្នុងការឆ្លើយសំណួរអំពីឯកសារ,
+      ការស្វែងរកកំណត់ត្រាសាធារណៈ, និងការស្វែងរកក្នុងបណ្ណាល័យ ឬបណ្ណសារ។
+  - locale: vi
+    value: >-
+      Các hệ thống AI tìm và đưa ra nội dung phù hợp từ một kho tài liệu, hồ sơ hoặc tư liệu để đáp
+      lại một câu truy vấn. Bao gồm tìm kiếm theo ngữ nghĩa, truy xuất bằng vectơ, và các quy trình
+      tạo nội dung có tăng cường truy xuất (RAG) đưa những đoạn phù hợp vào một mô hình ngôn ngữ.
+      Được dùng trong hỏi đáp trên tài liệu, tra cứu hồ sơ công, và tìm kiếm trong thư viện hoặc kho
+      lưu trữ.
+  - locale: zh-Hans
+    value: >-
+      根据查询，从大量文档、记录或媒体中找出并呈现相关内容的AI系统。包括语义搜索、向量检索，以及将相关段落送入语言模型的检索增强生成（RAG）流程。用于文档问答、公共记录查询以及图书馆或档案检索。
+  - locale: zh-Hant
+    value: >-
+      因應查詢，從大量文件、紀錄或媒體中找出並呈現相關內容的AI系統。包括語意搜尋、向量檢索，以及將相關段落送入語言模型的檢索增強生成（RAG）流程。用於文件問答、公共紀錄查詢，以及圖書館或檔案館的搜尋。
 symbol_id: search_retrieval

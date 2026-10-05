@@ -5,6 +5,20 @@ title:
     value: Stored on 3rd Party Cloud
   - locale: fr
     value: Stocké sur un cloud tiers
+  - locale: es
+    value: Almacenados en la nube de un tercero
+  - locale: pt
+    value: Armazenamento em nuvem de terceiros
+  - locale: fil
+    value: Nakaimbak sa cloud ng ikatlong partido
+  - locale: km
+    value: ផ្ទុកលើក្លោដរបស់ភាគីទីបី
+  - locale: vi
+    value: Lưu trữ trên đám mây của bên thứ ba
+  - locale: zh-Hans
+    value: 存储于第三方云
+  - locale: zh-Hant
+    value: 儲存於第三方雲端
 description:
   - locale: en
     value: >-
@@ -14,4 +28,28 @@ description:
     value: >-
       Les données sont stockées au nom de l'organisation ou du collecteur de données dans un centre
       de données hors site.
+  - locale: es
+    value: >-
+      Los datos se almacenan, en nombre de la organización o de quien recopila los datos, en un
+      centro de datos externo, como Amazon Web Services, Google Cloud y Microsoft Azure
+  - locale: pt
+    value: >-
+      Os dados são armazenados, em nome da organização ou de quem coleta os dados, em um data center
+      externo, como Amazon Web Services, Google Cloud e Microsoft Azure
+  - locale: fil
+    value: >-
+      Iniimbak ang data para sa organisasyon o sa nangongolekta ng data sa isang data center na nasa
+      ibang lugar, gaya ng Amazon Web Services, Google Cloud at Microsoft Azure
+  - locale: km
+    value: >-
+      ទិន្នន័យត្រូវបានផ្ទុកជំនួសអង្គភាព ឬអ្នកប្រមូលទិន្នន័យ នៅមជ្ឈមណ្ឌលទិន្នន័យខាងក្រៅ ដូចជា Amazon
+      Web Services, Google Cloud និង Microsoft Azure។
+  - locale: vi
+    value: >-
+      Dữ liệu được lưu trữ thay mặt cho tổ chức hoặc bên thu thập dữ liệu tại một trung tâm dữ liệu
+      bên ngoài, chẳng hạn như Amazon Web Services, Google Cloud và Microsoft Azure
+  - locale: zh-Hans
+    value: 数据由异地数据中心代该组织或数据收集方存储，例如Amazon Web Services、Google Cloud和Microsoft Azure。
+  - locale: zh-Hant
+    value: 資料由異地的資料中心代組織或資料收集者儲存，例如Amazon Web Services、Google Cloud及Microsoft Azure。
 symbol_id: stored

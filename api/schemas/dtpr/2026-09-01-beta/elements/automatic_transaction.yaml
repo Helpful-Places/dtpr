@@ -5,6 +5,20 @@ title:
     value: An automatic charge or payment
   - locale: fr
     value: Un débit ou paiement automatique
+  - locale: es
+    value: Un cobro o pago automático
+  - locale: pt
+    value: Uma cobrança ou um pagamento automático
+  - locale: fil
+    value: Awtomatikong singil o bayad
+  - locale: km
+    value: ការគិតប្រាក់ ឬការទូទាត់ស្វ័យប្រវត្តិ
+  - locale: vi
+    value: Khoản thu hoặc thanh toán tự động
+  - locale: zh-Hans
+    value: 自动扣费或付款
+  - locale: zh-Hant
+    value: 自動扣款或付款
 description:
   - locale: en
     value: >-
@@ -16,4 +30,38 @@ description:
       Le résultat est un mouvement d'argent sans action de votre part — un péage prélevé au passage
       d'un portique, un tarif débité à la sortie, une amende émise, un versement déclenché. Souvent
       la rencontre la moins visible : vous l'apprenez après coup sur un relevé.
+  - locale: es
+    value: >-
+      El resultado es dinero que se mueve sin que usted haga nada — un peaje que se descuenta al
+      pasar bajo un pórtico, una tarifa que se cobra al pasar su tarjeta a la salida, una multa
+      emitida, un pago liberado. A menudo es el encuentro menos visible: usted se entera después,
+      por un estado de cuenta.
+  - locale: pt
+    value: >-
+      O resultado é dinheiro que se movimenta sem que você faça nada — um pedágio debitado quando
+      você passa por um pórtico, uma tarifa cobrada quando você valida o cartão na saída, uma multa
+      emitida, um pagamento liberado. Muitas vezes é o contato menos visível: você fica sabendo
+      depois, por um extrato.
+  - locale: fil
+    value: >-
+      Ang output ay perang gumagalaw nang wala kayong ginagawa — toll na ibinabawas pagdaan ninyo sa
+      ilalim ng gantry, pamasaheng sinisingil pag-tap ninyo palabas, multang ipinapataw, bayad na
+      inilalabas. Kadalasan ito ang pinakamahirap mapansin: nalalaman na lang ninyo ito sa statement
+      pagkatapos.
+  - locale: km
+    value: >-
+      លទ្ធផលគឺប្រាក់ដែលត្រូវបានផ្ទេរដោយអ្នកមិនបានធ្វើអ្វីសោះ —
+      ថ្លៃផ្លូវដែលកាត់ចេញពេលអ្នកបើកឆ្លងកាត់ច្រកគិតថ្លៃ, ថ្លៃធ្វើដំណើរដែលគិតពេលអ្នកស្កេនចេញ,
+      ការពិន័យដែលបានចេញ, ប្រាក់ដែលបានបើកឱ្យ។ ជារឿយៗនេះជាការជួបដែលគេកត់សម្គាល់ឃើញតិចបំផុត៖
+      អ្នកដឹងអំពីវាពីរបាយការណ៍គណនីនៅពេលក្រោយ។
+  - locale: vi
+    value: >-
+      Kết quả đầu ra là tiền được chuyển đi mà bạn không cần làm gì — phí đường bộ bị trừ khi bạn
+      lái xe qua giàn thu phí, tiền vé bị tính khi bạn quẹt thẻ ra, một khoản tiền phạt được đưa ra,
+      một khoản chi trả được giải ngân. Đây thường là hình thức khó nhận thấy nhất: bạn chỉ biết đến
+      nó sau đó qua bảng sao kê.
+  - locale: zh-Hans
+    value: 输出表现为无需您操作的资金变动——驶过龙门架时扣除的通行费、出站刷卡时收取的车费、开出的罚单、发放的款项。这往往是最不易察觉的接触方式：您要到事后看账单才会知道。
+  - locale: zh-Hant
+    value: 輸出結果是不需您動手就發生的金錢往來：通過收費門架時扣除通行費、刷卡出站時收取車資、開出罰單、發放款項。這往往是最不容易察覺的接觸方式：您事後看到帳單明細才會知道。
 symbol_id: contactless_payment

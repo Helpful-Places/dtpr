@@ -5,6 +5,20 @@ title:
     value: A person acting on it
   - locale: fr
     value: Une personne qui agit sur cette base
+  - locale: es
+    value: Una persona que actúa en consecuencia
+  - locale: pt
+    value: Uma pessoa agindo com base no resultado
+  - locale: fil
+    value: Taong kumikilos batay rito
+  - locale: km
+    value: មនុស្សដែលធ្វើតាមលទ្ធផលនោះ
+  - locale: vi
+    value: Một người hành động dựa trên kết quả
+  - locale: zh-Hans
+    value: 据此行动的人
+  - locale: zh-Hant
+    value: 由人據以行動
 description:
   - locale: en
     value: >-
@@ -17,4 +31,38 @@ description:
       une alerte, un travailleur social qui suit une recommandation, un médecin qui lit un score de
       risque. Vous rencontrez une personne, mais un système a orienté son action ; votre droit de
       le savoir et de le contester s'applique toujours.
+  - locale: es
+    value: >-
+      El resultado le llega a través de un ser humano — un agente que le detiene tras una alerta,
+      alguien de trabajo social que sigue una recomendación, personal médico que lee un puntaje de
+      riesgo. Usted se encuentra con una persona, pero un sistema influyó en lo que hace; su derecho
+      a saberlo y a impugnarlo sigue vigente.
+  - locale: pt
+    value: >-
+      O resultado chega a você por meio de um ser humano — um agente que aborda você depois de um
+      alerta, um assistente social que segue uma recomendação, um médico que lê uma pontuação de
+      risco. Você encontra uma pessoa, mas um sistema influenciou o que ela faz; seu direito de
+      saber disso e de contestar continua valendo.
+  - locale: fil
+    value: >-
+      Nakararating sa inyo ang output sa pamamagitan ng isang tao — opisyal na nagpapahinto sa inyo
+      matapos ang isang alerto, case worker na sumusunod sa isang rekomendasyon, doktor na bumabasa
+      ng iskor ng panganib. Tao ang kaharap ninyo, pero sistema ang humubog sa ginagawa nila; may
+      bisa pa rin ang karapatan ninyong malaman at tutulan iyon.
+  - locale: km
+    value: >-
+      លទ្ធផលមកដល់អ្នកតាមរយៈមនុស្ស — មន្ត្រីដែលឃាត់អ្នកបន្ទាប់ពីមានការជូនដំណឹង,
+      បុគ្គលិកសង្គមកិច្ចដែលធ្វើតាមអនុសាសន៍, វេជ្ជបណ្ឌិតដែលអានពិន្ទុហានិភ័យ។ អ្នកជួបមនុស្ស
+      ប៉ុន្តែប្រព័ន្ធបានជះឥទ្ធិពលលើអ្វីដែលគាត់ធ្វើ ហើយសិទ្ធិរបស់អ្នកក្នុងការដឹង
+      និងតវ៉ាចំពោះរឿងនោះនៅតែមានដដែល។
+  - locale: vi
+    value: >-
+      Kết quả đầu ra đến với bạn qua một con người — một cảnh sát chặn bạn lại sau một cảnh báo, một
+      nhân viên xã hội làm theo một đề xuất, một bác sĩ đọc điểm rủi ro. Bạn gặp một con người,
+      nhưng một hệ thống đã định hình việc họ làm; quyền được biết và quyền khiếu nại của bạn về
+      điều đó vẫn được áp dụng.
+  - locale: zh-Hans
+    value: 输出通过人传达给您——收到警报后拦下您的执法人员、依照推荐办事的个案工作人员、查看风险评分的医生。您面对的是人，但他们的做法受到了系统的影响；您的知情权和申诉权依然适用。
+  - locale: zh-Hant
+    value: 輸出結果經由人傳達給您：在警示後攔下您的執法人員、依照建議行事的個案承辦人員、判讀風險評分的醫師。您面對的是人，但他們的作為受到系統影響；您知情及提出異議的權利依然適用。
 symbol_id: person_handoff

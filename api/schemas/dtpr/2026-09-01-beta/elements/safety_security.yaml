@@ -5,6 +5,20 @@ title:
     value: Safety & Security
   - locale: fr
     value: Sûreté et sécurité
+  - locale: es
+    value: Seguridad y protección
+  - locale: pt
+    value: Segurança e proteção
+  - locale: fil
+    value: Kaligtasan at seguridad
+  - locale: km
+    value: សុវត្ថិភាព និងសន្តិសុខ
+  - locale: vi
+    value: An toàn và an ninh
+  - locale: zh-Hans
+    value: 安全与安保
+  - locale: zh-Hant
+    value: 安全與保全
 description:
   - locale: en
     value: >-
@@ -17,4 +31,37 @@ description:
       la sécurité incendie, la sécurité domestique ou la sécurité de passage dans les aéroports ou
       sur les routes. À distinguer de Cadre légal (application des règles) et de Incendie et urgence
       (réponse aux incidents).
+  - locale: es
+    value: >-
+      Apoya la reducción preventiva de riesgos en entornos físicos — por ejemplo, seguridad contra
+      incendios, seguridad en el hogar o garantizar un paso seguro en aeropuertos o carreteras. Se
+      distingue de Aplicación de normas (hacer cumplir las reglas) y de Incendios y emergencias
+      (respuesta a incidentes).
+  - locale: pt
+    value: >-
+      Apoia a redução preventiva de riscos em ambientes físicos — por exemplo, segurança contra
+      incêndio, segurança residencial ou garantia de circulação segura em aeroportos ou em vias.
+      Diferente de Fiscalização (aplicação de regras) e de Incêndio e emergência (resposta a
+      incidentes).
+  - locale: fil
+    value: >-
+      Sumusuporta sa maagap na pagbabawas ng panganib sa mga pisikal na kapaligiran — halimbawa,
+      kaligtasan sa sunog, seguridad sa bahay, o pagtiyak ng ligtas na pagdaan sa mga paliparan o
+      kalsada. Iba sa Pagpapatupad ng patakaran (paglalapat ng mga patakaran) at sa Sunog at
+      emergency (pagtugon sa insidente).
+  - locale: km
+    value: >-
+      គាំទ្រការកាត់បន្ថយហានិភ័យជាមុនក្នុងបរិស្ថានរូបវន្ត — ឧទាហរណ៍ សុវត្ថិភាពអគ្គិភ័យ,
+      សន្តិសុខលំនៅឋាន, ឬការធានាការធ្វើដំណើរប្រកបដោយសុវត្ថិភាពក្នុងអាកាសយានដ្ឋាន ឬលើផ្លូវថ្នល់។ ខុសពី
+      «ការអនុវត្តច្បាប់» (ការអនុវត្តវិធាន) និងពី «អគ្គិភ័យ និងគ្រាអាសន្ន»
+      (ការឆ្លើយតបនឹងឧប្បត្តិហេតុ)។
+  - locale: vi
+    value: >-
+      Hỗ trợ việc giảm rủi ro mang tính phòng ngừa trong môi trường vật lý — ví dụ: an toàn phòng
+      cháy, an ninh nhà ở, hoặc bảo đảm đi lại an toàn ở sân bay hoặc trên đường. Khác với Thực thi
+      quy định (áp dụng quy tắc) và Cứu hỏa và khẩn cấp (ứng phó sự cố).
+  - locale: zh-Hans
+    value: 支持在物理环境中以预防方式降低风险——例如消防安全、住宅安防，或保障机场、道路的通行安全。有别于“执法”（执行规则）和“消防与应急”（事件响应）。
+  - locale: zh-Hant
+    value: 協助在實體環境中預先降低風險，例如消防安全、居家保全，或確保機場或道路上的通行安全。與「執法」（執行規則）及「消防與緊急應變」（事故應變）不同。
 symbol_id: safety_security

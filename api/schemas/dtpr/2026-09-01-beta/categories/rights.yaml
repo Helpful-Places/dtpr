@@ -4,6 +4,20 @@ name:
     value: Rights
   - locale: fr
     value: Droits
+  - locale: es
+    value: Derechos
+  - locale: pt
+    value: Direitos
+  - locale: fil
+    value: Mga karapatan
+  - locale: km
+    value: សិទ្ធិ
+  - locale: vi
+    value: Quyền
+  - locale: zh-Hans
+    value: 权利
+  - locale: zh-Hant
+    value: 權利
 description:
   - locale: en
     value: What you can do in relation to this AI system — how to access, contest, or opt out.
@@ -11,11 +25,47 @@ description:
     value: >-
       Ce que vous pouvez faire par rapport à ce système d’IA — comment y accéder, le contester ou
       vous y soustraire.
+  - locale: es
+    value: >-
+      Lo que usted puede hacer en relación con este sistema de IA — cómo acceder, impugnar o
+      excluirse.
+  - locale: pt
+    value: >-
+      O que você pode fazer em relação a este sistema de IA — como acessar, contestar ou optar por
+      não participar.
+  - locale: fil
+    value: >-
+      Kung ano ang maaari ninyong gawin kaugnay ng sistemang AI na ito — kung paano mag-access,
+      tumutol, o tumangging mapasama.
+  - locale: km
+    value: អ្វីដែលអ្នកអាចធ្វើបានទាក់ទងនឹងប្រព័ន្ធ AI នេះ — របៀបចូលប្រើ, តវ៉ា, ឬដកខ្លួនចេញ។
+  - locale: vi
+    value: >-
+      Những gì bạn có thể làm liên quan đến hệ thống AI này — cách truy cập, khiếu nại hoặc từ chối
+      tham gia.
+  - locale: zh-Hans
+    value: 针对本AI系统您可以做什么——如何查阅、提出申诉或选择退出。
+  - locale: zh-Hant
+    value: 您對這個AI系統可以採取的行動：如何查閱、提出異議或選擇退出。
 prompt:
   - locale: en
     value: What are your rights?
   - locale: fr
     value: Quels sont vos droits ?
+  - locale: es
+    value: ¿Cuáles son sus derechos?
+  - locale: pt
+    value: Quais são os seus direitos?
+  - locale: fil
+    value: Ano ang inyong mga karapatan?
+  - locale: km
+    value: តើអ្នកមានសិទ្ធិអ្វីខ្លះ?
+  - locale: vi
+    value: Bạn có những quyền gì?
+  - locale: zh-Hans
+    value: 您有哪些权利？
+  - locale: zh-Hant
+    value: 您有哪些權利？
 required: false
 order: 6
 datachain_type: dtpr
@@ -27,4 +77,18 @@ element_variables:
         value: Description of Rights
       - locale: fr
         value: Description des droits
+      - locale: es
+        value: Descripción de los derechos
+      - locale: pt
+        value: Descrição dos direitos
+      - locale: fil
+        value: Paglalarawan ng mga karapatan
+      - locale: km
+        value: ការពណ៌នាអំពីសិទ្ធិ
+      - locale: vi
+        value: Mô tả các quyền
+      - locale: zh-Hans
+        value: 权利描述
+      - locale: zh-Hant
+        value: 權利說明
     required: true

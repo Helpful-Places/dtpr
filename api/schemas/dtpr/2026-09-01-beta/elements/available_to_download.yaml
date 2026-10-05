@@ -5,9 +5,37 @@ title:
     value: Available to download
   - locale: fr
     value: Disponible pour le téléchargement
+  - locale: es
+    value: Disponibles para descargar
+  - locale: pt
+    value: Disponíveis para download
+  - locale: fil
+    value: Maaaring i-download
+  - locale: km
+    value: អាចទាញយកបាន
+  - locale: vi
+    value: Có thể tải xuống
+  - locale: zh-Hans
+    value: 可下载
+  - locale: zh-Hant
+    value: 可下載
 description:
   - locale: en
     value: Data that can be accessed and downloaded online, either for free or for a fee
   - locale: fr
     value: Des données qui peuvent être consultées et téléchargées en ligne.
+  - locale: es
+    value: Datos que se pueden consultar y descargar en línea, de forma gratuita o mediante pago
+  - locale: pt
+    value: Dados que podem ser acessados e baixados on-line, gratuitamente ou mediante pagamento
+  - locale: fil
+    value: Data na maaaring i-access at i-download online, libre man o may bayad
+  - locale: km
+    value: ទិន្នន័យដែលអាចចូលប្រើ និងទាញយកតាមអនឡាញបាន ដោយឥតគិតថ្លៃ ឬដោយបង់ថ្លៃ។
+  - locale: vi
+    value: Dữ liệu có thể được truy cập và tải xuống trực tuyến, miễn phí hoặc có trả phí
+  - locale: zh-Hans
+    value: 可以免费或付费在线访问和下载的数据。
+  - locale: zh-Hant
+    value: 可在網路上免費或付費存取並下載的資料。
 symbol_id: available_to_download

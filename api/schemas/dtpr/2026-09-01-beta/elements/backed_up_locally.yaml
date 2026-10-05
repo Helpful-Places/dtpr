@@ -5,9 +5,37 @@ title:
     value: Backed up locally
   - locale: fr
     value: Sauvegardé localement
+  - locale: es
+    value: Respaldados localmente
+  - locale: pt
+    value: Backup local
+  - locale: fil
+    value: May lokal na backup
+  - locale: km
+    value: បម្រុងទុកក្នុងស្រុក
+  - locale: vi
+    value: Sao lưu tại địa phương
+  - locale: zh-Hans
+    value: 本地备份
+  - locale: zh-Hant
+    value: 本地備份
 description:
   - locale: en
-    value: Data is backed up with the jurisdiction where it was collected.
+    value: Data is backed up within the jurisdiction where it was collected.
   - locale: fr
     value: Les données sont sauvegardées dans la juridiction où elles ont été collectées.
+  - locale: es
+    value: Los datos se respaldan dentro de la jurisdicción donde se recopilaron.
+  - locale: pt
+    value: O backup dos dados é feito na jurisdição onde foram coletados.
+  - locale: fil
+    value: May backup ang data sa loob ng hurisdiksiyon kung saan ito kinolekta.
+  - locale: km
+    value: ទិន្នន័យត្រូវបានបម្រុងទុកក្នុងយុត្តាធិការដែលវាត្រូវបានប្រមូល។
+  - locale: vi
+    value: Dữ liệu được sao lưu trong khu vực pháp lý nơi nó được thu thập.
+  - locale: zh-Hans
+    value: 数据备份在收集地所属司法管辖区之内。
+  - locale: zh-Hant
+    value: 資料備份在收集地所屬司法管轄區之內。
 symbol_id: stored

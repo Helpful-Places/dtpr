@@ -5,6 +5,20 @@ title:
     value: Right to Purpose Limitation
   - locale: fr
     value: Limitation du droit à l'objet
+  - locale: es
+    value: Derecho a la limitación de la finalidad
+  - locale: pt
+    value: Direito à limitação da finalidade
+  - locale: fil
+    value: Karapatan sa limitasyon ng layunin
+  - locale: km
+    value: សិទ្ធិកំណត់គោលបំណងប្រើប្រាស់
+  - locale: vi
+    value: Quyền giới hạn mục đích sử dụng
+  - locale: zh-Hans
+    value: 目的限制权
+  - locale: zh-Hant
+    value: 限定使用目的的權利
 description:
   - locale: en
     value: >-
@@ -20,4 +34,47 @@ description:
       collecte, et il lui est interdit d'utiliser ensuite vos données à des fins nouvelles et sans
       rapport, sans votre connaissance ni votre consentement. Il s'agit d'une limite en amont sur
       l'usage autorisé ; le droit d'arrêter un traitement déjà en cours est un droit distinct.
+  - locale: es
+    value: >-
+      El derecho a que sus datos se usen solo para los propósitos específicos que se declararon
+      cuando se recopilaron. La organización debe declarar y documentar esos propósitos antes de
+      comenzar la recopilación, y tiene prohibido usar después sus datos para propósitos nuevos y no
+      relacionados sin su conocimiento o consentimiento. Es un límite previo que define qué usos
+      pueden llegar a permitirse; el derecho a detener un procesamiento ya en curso es un derecho
+      aparte.
+  - locale: pt
+    value: >-
+      O direito de que seus dados sejam usados apenas para as finalidades específicas declaradas no
+      momento da coleta. A organização deve declarar e documentar essas finalidades antes do início
+      da coleta e fica proibida de usar seus dados depois para finalidades novas e não relacionadas
+      sem o seu conhecimento ou consentimento. É um limite prévio que define quais usos podem ser
+      permitidos; o direito de interromper um tratamento já em andamento é um direito separado.
+  - locale: fil
+    value: >-
+      Ang karapatang gamitin lang ang inyong data para sa mga partikular na layuning inihayag noong
+      kinolekta ito. Dapat ideklara at idokumento ng organisasyon ang mga layuning iyon bago
+      magsimula ang pangongolekta, at bawal nitong gamitin sa bandang huli ang inyong data para sa
+      mga bago at walang-kaugnayang layunin nang hindi ninyo alam o walang pahintulot ninyo. Ito ay
+      paunang limitasyon sa kung anong paggamit ang pinapayagan kailanman; hiwalay na karapatan ang
+      karapatang ipatigil ang pagprosesong nagaganap na.
+  - locale: km
+    value: >-
+      សិទ្ធិដែលទិន្នន័យរបស់អ្នកត្រូវបានប្រើតែសម្រាប់គោលបំណងជាក់លាក់ដែលបានប្រកាសនៅពេលប្រមូលប៉ុណ្ណោះ។
+      អង្គភាពត្រូវប្រកាស និងចងក្រងជាឯកសារនូវគោលបំណងទាំងនោះមុនពេលចាប់ផ្តើមប្រមូល
+      ហើយត្រូវបានហាមមិនឱ្យប្រើទិន្នន័យរបស់អ្នកនៅពេលក្រោយសម្រាប់គោលបំណងថ្មីដែលមិនពាក់ព័ន្ធ
+      ដោយអ្នកមិនដឹង ឬមិនយល់ព្រម។ នេះជាការកំណត់ពីដំបូងលើការប្រើប្រាស់ដែលអនុញ្ញាត
+      ចំណែកសិទ្ធិបញ្ឈប់ការដំណើរការដែលកំពុងប្រព្រឹត្តទៅ គឺជាសិទ្ធិដាច់ដោយឡែក។
+  - locale: vi
+    value: >-
+      Quyền bảo đảm dữ liệu của bạn chỉ được dùng cho những mục đích cụ thể đã nêu khi dữ liệu được
+      thu thập. Tổ chức phải công bố và ghi lại các mục đích đó trước khi bắt đầu thu thập, và không
+      được về sau dùng dữ liệu của bạn cho những mục đích mới, không liên quan, mà bạn không biết
+      hoặc không đồng ý. Đây là giới hạn từ đầu đối với những cách sử dụng được phép; quyền yêu cầu
+      ngừng việc xử lý đang diễn ra là một quyền riêng.
+  - locale: zh-Hans
+    value: >-
+      有权要求您的数据只用于收集时声明的特定目的。组织必须在开始收集之前声明并记录这些目的，此后不得在您不知情或未同意的情况下，将您的数据用于新的、无关的目的。这是从源头上对允许用途的限制；要求停止已在进行的处理的权利，是另一项单独的权利。
+  - locale: zh-Hant
+    value: >-
+      您有權要求您的資料只用於收集時所聲明的特定目的。組織必須在開始收集前聲明並記錄這些目的，且不得在您不知情或未經您同意的情況下，日後將您的資料用於新的、無關的目的。這是從源頭限制可允許的用途；要求停止已在進行中的處理，則是另一項權利。
 symbol_id: bullseye

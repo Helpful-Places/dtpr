@@ -5,9 +5,37 @@ title:
     value: Not available to the accountable organization
   - locale: fr
     value: Non disponible pour l'organisation responsable
+  - locale: es
+    value: No disponibles para la organización responsable
+  - locale: pt
+    value: Não disponíveis para a organização responsável
+  - locale: fil
+    value: Hindi maa-access ng organisasyong may pananagutan
+  - locale: km
+    value: អង្គភាពទទួលខុសត្រូវមិនអាចចូលប្រើបាន
+  - locale: vi
+    value: Tổ chức chịu trách nhiệm không thể truy cập
+  - locale: zh-Hans
+    value: 责任方不可获取
+  - locale: zh-Hant
+    value: 負責組織無法取得
 description:
   - locale: en
     value: Data is not available to the accountable organization
   - locale: fr
     value: Les données ne sont pas disponibles pour l'organisation responsable
+  - locale: es
+    value: Los datos no están disponibles para la organización responsable
+  - locale: pt
+    value: Os dados não estão disponíveis para a organização responsável
+  - locale: fil
+    value: Hindi maa-access ang data ng organisasyong may pananagutan
+  - locale: km
+    value: អង្គភាពទទួលខុសត្រូវមិនអាចចូលប្រើទិន្នន័យបានទេ។
+  - locale: vi
+    value: Tổ chức chịu trách nhiệm không thể truy cập dữ liệu
+  - locale: zh-Hans
+    value: 责任方无法获取数据。
+  - locale: zh-Hant
+    value: 負責組織無法取得資料。
 symbol_id: not_available

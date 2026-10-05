@@ -5,6 +5,20 @@ title:
     value: Right to an Explanation of a Decision
   - locale: fr
     value: Droit à une explication d'une décision
+  - locale: es
+    value: Derecho a una explicación de una decisión
+  - locale: pt
+    value: Direito à explicação de uma decisão
+  - locale: fil
+    value: Karapatan sa paliwanag ng isang desisyon
+  - locale: km
+    value: សិទ្ធិទទួលបានការពន្យល់អំពីការសម្រេចចិត្ត
+  - locale: vi
+    value: Quyền được giải thích về một quyết định
+  - locale: zh-Hans
+    value: 决定解释权
+  - locale: zh-Hant
+    value: 要求說明決定的權利
 description:
   - locale: en
     value: >-
@@ -19,4 +33,45 @@ description:
       principaux facteurs qui ont conduit au résultat et ce que cela signifie pour vous. Ce droit
       couvre la décision effectivement prise à votre sujet ; le droit d'être informé du
       fonctionnement général du système est un droit distinct.
+  - locale: es
+    value: >-
+      El derecho a una explicación clara y significativa de cómo un sistema de IA contribuyó a una
+      decisión específica que le afecta — qué papel tuvo el sistema, los principales factores que
+      llevaron al resultado y qué significa para usted. Este derecho abarca la decisión que
+      realmente se tomó sobre usted; el derecho a que le informen cómo funciona el sistema en
+      general es un derecho aparte.
+  - locale: pt
+    value: >-
+      O direito a uma explicação clara e significativa de como um sistema de IA contribuiu para uma
+      decisão específica que afeta você — que papel o sistema teve, os principais fatores que
+      levaram ao resultado e o que isso significa para você. Esse direito abrange a decisão
+      efetivamente tomada sobre você; o direito de receber informações sobre como o sistema funciona
+      de modo geral é um direito separado.
+  - locale: fil
+    value: >-
+      Ang karapatan sa malinaw at makabuluhang paliwanag kung paano nakaambag ang isang sistemang AI
+      sa isang partikular na desisyong nakaaapekto sa inyo — kung ano ang naging papel ng sistema,
+      ang mga pangunahing salik na humantong sa resulta, at kung ano ang kahulugan nito para sa
+      inyo. Saklaw ng karapatang ito ang desisyong aktuwal na ginawa tungkol sa inyo; hiwalay na
+      karapatan ang karapatang maipaalam kung paano gumagana sa pangkalahatan ang sistema.
+  - locale: km
+    value: >-
+      សិទ្ធិទទួលបានការពន្យល់ច្បាស់លាស់ និងមានអត្ថន័យ អំពីរបៀបដែលប្រព័ន្ធ AI
+      បានចូលរួមក្នុងការសម្រេចចិត្តជាក់លាក់ណាមួយដែលប៉ះពាល់ដល់អ្នក — តួនាទីដែលប្រព័ន្ធបានដើរ,
+      កត្តាចម្បងដែលនាំទៅរកលទ្ធផល, និងអត្ថន័យរបស់វាចំពោះអ្នក។
+      សិទ្ធិនេះគ្របដណ្តប់លើការសម្រេចចិត្តដែលបានធ្វើឡើងជាក់ស្តែងអំពីអ្នក
+      ចំណែកសិទ្ធិទទួលបានព័ត៌មានអំពីរបៀបដែលប្រព័ន្ធដំណើរការជាទូទៅ គឺជាសិទ្ធិដាច់ដោយឡែក។
+  - locale: vi
+    value: >-
+      Quyền được giải thích rõ ràng và thỏa đáng về việc một hệ thống AI đã góp phần như thế nào vào
+      một quyết định cụ thể ảnh hưởng đến bạn — hệ thống đóng vai trò gì, những yếu tố chính nào dẫn
+      đến kết quả, và điều đó có ý nghĩa gì với bạn. Quyền này áp dụng cho quyết định thực sự đã
+      được đưa ra về bạn; quyền được thông báo về cách hệ thống hoạt động nói chung là một quyền
+      riêng.
+  - locale: zh-Hans
+    value: >-
+      有权就AI系统如何促成某项影响您的具体决定，获得清晰且有实际意义的解释——系统起了什么作用、导致该结果的主要因素，以及这对您意味着什么。这项权利针对的是实际对您作出的决定；获知系统总体上如何运作的权利，是另一项单独的权利。
+  - locale: zh-Hant
+    value: >-
+      您有權獲得清楚且有意義的說明，了解AI系統如何促成某項影響您的特定決定：系統扮演什麼角色、導致該結果的主要因素，以及這對您代表什麼。這項權利涵蓋實際針對您所做的決定；獲知系統大致如何運作，則是另一項權利。
 symbol_id: speech_question

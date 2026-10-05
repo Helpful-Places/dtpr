@@ -4,6 +4,20 @@ name:
     value: What it does
   - locale: fr
     value: Ce qu'il fait
+  - locale: es
+    value: Qué hace
+  - locale: pt
+    value: O que faz
+  - locale: fil
+    value: Ano ang ginagawa nito
+  - locale: km
+    value: អ្វីដែលប្រព័ន្ធធ្វើ
+  - locale: vi
+    value: Hệ thống làm gì
+  - locale: zh-Hans
+    value: 系统做什么
+  - locale: zh-Hant
+    value: 系統做什麼
 description:
   - locale: en
     value: >-
@@ -15,11 +29,55 @@ description:
       Les actions de ce système, dites en verbes de tous les jours — il perçoit, prédit, décide,
       crée, actionne. Nommer les verbes aide à comprendre ce que le système touche et ce qui
       pourrait mal tourner.
+  - locale: es
+    value: >-
+      Las acciones de este sistema, dichas con verbos de todos los días — percibe, predice, decide,
+      crea, mueve. Nombrar los verbos ayuda a razonar sobre qué toca el sistema y qué podría salir
+      mal.
+  - locale: pt
+    value: >-
+      As ações deste sistema, ditas com verbos do dia a dia — ele percebe, prevê, decide, cria,
+      move. Dar nome aos verbos ajuda a entender no que o sistema interfere e o que pode dar errado.
+  - locale: fil
+    value: >-
+      Ang mga kilos ng sistemang ito, na inilalahad gamit ang mga pang-araw-araw na pandiwa —
+      sumasagap, humuhula, nagdedesisyon, lumilikha, nagpapagalaw. Kapag pinangalanan ang mga
+      pandiwa, mas madaling pag-isipan kung ano ang naaabot ng sistema at kung saan maaaring
+      magkaproblema.
+  - locale: km
+    value: >-
+      សកម្មភាពរបស់ប្រព័ន្ធនេះ ដែលរៀបរាប់ជាកិរិយាសព្ទប្រើប្រចាំថ្ងៃ — វាចាប់សញ្ញា, ព្យាករណ៍,
+      សម្រេចចិត្ត, បង្កើតខ្លឹមសារ, បញ្ជាចលនា។
+      ការដាក់ឈ្មោះកិរិយាសព្ទទាំងនេះជួយឱ្យងាយពិចារណាថាប្រព័ន្ធនេះពាក់ព័ន្ធនឹងអ្វីខ្លះ
+      និងអ្វីដែលអាចដំណើរការខុស។
+  - locale: vi
+    value: >-
+      Các hành động của hệ thống này, diễn đạt bằng những động từ thường ngày — hệ thống cảm nhận,
+      dự đoán, quyết định, tạo nội dung, tác động vật lý. Gọi tên các động từ giúp dễ suy xét hơn về
+      những gì hệ thống chạm đến và điều gì có thể trục trặc.
+  - locale: zh-Hans
+    value: 用日常动词说明本系统的行为——它感知、预测、决定、生成、操控。把这些动词说出来，更容易想清楚系统会触及什么、可能出什么问题。
+  - locale: zh-Hant
+    value: 用日常動詞說明這個系統的行為：它感測、預測、決定、創作、驅動。把動詞說出來，更容易思考系統會影響什麼，以及哪裡可能出錯。
 prompt:
   - locale: en
     value: What is this system doing?
   - locale: fr
     value: Que fait ce système ?
+  - locale: es
+    value: ¿Qué hace este sistema?
+  - locale: pt
+    value: O que este sistema está fazendo?
+  - locale: fil
+    value: Ano ang ginagawa ng sistemang ito?
+  - locale: km
+    value: តើប្រព័ន្ធនេះកំពុងធ្វើអ្វី?
+  - locale: vi
+    value: Hệ thống này đang làm gì?
+  - locale: zh-Hans
+    value: 本系统在做什么？
+  - locale: zh-Hant
+    value: 這個系統在做什麼？
 authoring_guidance:
   - locale: en
     value: >-
@@ -32,6 +90,41 @@ authoring_guidance:
       signaler l'autonomie, définissez Intervention humaine sur le verbe le plus en aval comme
       signal d'ensemble ; ne la définissez sur d'autres verbes que si leur étape diffère vraiment ;
       omettez-la en cas de doute.
+  - locale: es
+    value: >-
+      Elija los verbos que reconocería quien lea la divulgación; por lo general, de uno a tres es lo
+      adecuado. Para señalar la autonomía, asigne Intervención humana al verbo que esté más al final
+      del proceso, como señal a nivel de todo el sistema; asígnela a otros verbos solo cuando su
+      etapa sea realmente distinta; omítala cuando pueda confundir.
+  - locale: pt
+    value: >-
+      Escolha os verbos que quem lê reconheceria; de um a três costuma ser o ideal. Para sinalizar
+      autonomia, defina Participação humana no verbo mais ao final do fluxo, como sinal do sistema
+      como um todo; defina-a em outros verbos apenas quando a etapa deles for realmente diferente;
+      omita-a quando puder confundir.
+  - locale: fil
+    value: >-
+      Piliin ang mga pandiwang makikilala ng mambabasa; kadalasan ay tama na ang isa hanggang tatlo.
+      Para ipakita kung gaano ito kusang gumagana, itakda ang Pakikilahok ng tao sa pandiwang nasa
+      pinakadulo ng daloy bilang hudyat para sa buong sistema; itakda lang ito sa ibang pandiwa kung
+      talagang naiiba ang yugto ng mga iyon; huwag na itong ilagay kung makalilito lang.
+  - locale: km
+    value: >-
+      ជ្រើសរើសកិរិយាសព្ទដែលអ្នកអានងាយស្គាល់ ជាធម្មតាមួយទៅបីគឺល្មម។ ដើម្បីបង្ហាញពីស្វ័យភាព សូមកំណត់
+      «ការចូលរួមរបស់មនុស្ស» លើកិរិយាសព្ទដែលនៅចុងគេបំផុតក្នុងលំដាប់ដំណើរការ
+      ជាសញ្ញាតំណាងឱ្យប្រព័ន្ធទាំងមូល។ កំណត់វាលើកិរិយាសព្ទផ្សេងទៀតតែនៅពេលដែលដំណាក់កាលនោះពិតជាខុសគ្នា
+      ហើយកុំដាក់វានៅពេលដែលវាអាចធ្វើឱ្យច្រឡំ។
+  - locale: vi
+    value: >-
+      Chọn những động từ mà người đọc sẽ nhận ra; thường từ một đến ba động từ là vừa. Để nêu rõ mức
+      độ tự động, hãy đặt Sự tham gia của con người trên động từ nằm cuối cùng trong chuỗi, làm tín
+      hiệu cho cả hệ thống; chỉ đặt trên các động từ khác khi giai đoạn của chúng thật sự khác; bỏ
+      qua nếu nó gây khó hiểu.
+  - locale: zh-Hans
+    value: >-
+      选择读者能看懂的动词，通常一到三个为宜。如需标示自主程度，请在最下游的动词上设置“人工参与”，作为系统层面的信号；只有当其他动词所处环节确实不同时，才为它们单独设置；如果反而会造成困惑，则可省略。
+  - locale: zh-Hant
+    value: 選擇讀者看得懂的動詞，通常一到三個就夠。若要標示自主程度，請在最下游的動詞上設定「人為參與」，作為系統層級的訊號；只有在其他動詞所處階段確實不同時，才另行設定；若會造成混淆，則省略不設。
 required: false
 order: 4
 datachain_type: dtpr
@@ -50,6 +143,20 @@ element_context:
       value: Human involvement
     - locale: fr
       value: Intervention humaine
+    - locale: es
+      value: Intervención humana
+    - locale: pt
+      value: Participação humana
+    - locale: fil
+      value: Pakikilahok ng tao
+    - locale: km
+      value: ការចូលរួមរបស់មនុស្ស
+    - locale: vi
+      value: Sự tham gia của con người
+    - locale: zh-Hans
+      value: 人工参与
+    - locale: zh-Hant
+      value: 人為參與
   description:
     - locale: en
       value: >-
@@ -61,6 +168,36 @@ element_context:
         Qui boucle la boucle — un signal d'ensemble rapide indiquant ce qui fonctionne sans
         personne, affiché sur le verbe qu'il colore. Une caractérisation générale du déploiement,
         pas un audit technique.
+    - locale: es
+      value: >-
+        Quién cierra el ciclo — una señal rápida, a nivel de todo el sistema, de cuánto funciona sin
+        una persona, que se muestra en el verbo al que da color. Es una caracterización general de
+        la implementación, no una auditoría técnica.
+    - locale: pt
+      value: >-
+        Quem fecha o ciclo — um sinal rápido, no nível do sistema, de quanto funciona sem uma
+        pessoa, mostrado no verbo que ele colore. Uma caracterização geral da implantação, não uma
+        auditoria técnica.
+    - locale: fil
+      value: >-
+        Kung sino ang kumukumpleto sa proseso — isang mabilis na hudyat, sa antas ng buong sistema,
+        kung gaano karami ang tumatakbo nang walang tao, na ipinapakita sa pandiwang kinukulayan
+        nito. Isang pangkalahatang paglalarawan ng pagpapatupad, hindi isang teknikal na audit.
+    - locale: km
+      value: >-
+        អ្នកណាជាអ្នកបញ្ចប់ដំណើរការ —
+        សញ្ញាសង្ខេបកម្រិតប្រព័ន្ធដែលបង្ហាញថាមានការងារប៉ុន្មានដែលដំណើរការដោយគ្មានមនុស្ស
+        ហើយបង្ហាញលើកិរិយាសព្ទដែលវាផ្តល់ពណ៌។ នេះជាការពណ៌នាទូទៅអំពីការដាក់ឱ្យប្រើប្រាស់
+        មិនមែនជាសវនកម្មបច្ចេកទេសទេ។
+    - locale: vi
+      value: >-
+        Ai là người hoàn tất quy trình — một tín hiệu nhanh ở cấp hệ thống cho biết bao nhiêu phần
+        chạy mà không cần con người, hiển thị trên động từ mà nó tô màu. Đây là mô tả khái quát về
+        việc triển khai, không phải một cuộc kiểm tra kỹ thuật.
+    - locale: zh-Hans
+      value: 由谁完成最后一环——从系统整体上简要提示有多少环节无需人工即可运行，显示在它所标示的动词上。这是对部署情况的概括性描述，并非技术审计。
+    - locale: zh-Hant
+      value: 由誰完成最後一步：以簡明的系統層級訊號，表示有多少環節不需人力即可運作，並顯示在它所標示的動詞上。這是對部署情形的概括描述，不是技術稽核。
   required: false
   values:
     - id: human_decides
@@ -69,6 +206,20 @@ element_context:
           value: A person decides
         - locale: fr
           value: Une personne décide
+        - locale: es
+          value: Una persona decide
+        - locale: pt
+          value: Uma pessoa decide
+        - locale: fil
+          value: Tao ang nagdedesisyon
+        - locale: km
+          value: មនុស្សជាអ្នកសម្រេច
+        - locale: vi
+          value: Con người quyết định
+        - locale: zh-Hans
+          value: 由人决定
+        - locale: zh-Hant
+          value: 由人決定
       description:
         - locale: en
           value: >-
@@ -79,6 +230,35 @@ element_context:
             Ce système suggère ou informe ; une personne tranche avant que quoi que ce soit prenne
             effet. Exemple : un outil de triage classe les cas pour qu'un clinicien choisisse
             lesquels examiner en premier.
+        - locale: es
+          value: >-
+            Este sistema sugiere o informa; una persona toma la decisión antes de que algo surta
+            efecto. Ejemplo: una herramienta de triaje ordena los casos para un profesional clínico,
+            que elige cuáles atender primero.
+        - locale: pt
+          value: >-
+            Este sistema sugere ou informa; uma pessoa toma a decisão antes que qualquer coisa
+            produza efeito. Exemplo: uma ferramenta de triagem ordena os casos para um profissional
+            de saúde, que escolhe quais atender primeiro.
+        - locale: fil
+          value: >-
+            Nagmumungkahi o nagbibigay-impormasyon ang sistemang ito; tao ang nagpapasya bago
+            magkabisa ang anuman. Halimbawa: isang triage tool na nagraranggo ng mga kaso para sa
+            isang clinician na siyang pumipili kung alin ang uunahin.
+        - locale: km
+          value: >-
+            ប្រព័ន្ធនេះផ្តល់ការស្នើ ឬផ្តល់ព័ត៌មាន ហើយមនុស្សជាអ្នកសម្រេចមុនពេលអ្វីមួយមានផលអនុវត្ត។
+            ឧទាហរណ៍៖ ឧបករណ៍ចាត់អាទិភាពរៀបលំដាប់ករណី
+            ដើម្បីឱ្យគ្រូពេទ្យជ្រើសរើសថាត្រូវពិនិត្យករណីណាមុន។
+        - locale: vi
+          value: >-
+            Hệ thống này gợi ý hoặc cung cấp thông tin; một người đưa ra quyết định trước khi bất cứ
+            điều gì có hiệu lực. Ví dụ: một công cụ phân loại ưu tiên xếp hạng các ca bệnh để bác sĩ
+            chọn ca nào khám trước.
+        - locale: zh-Hans
+          value: 本系统只提供建议或信息；在任何结果生效之前，由人作出决定。示例：分诊工具为临床医生排列病例的先后顺序，由医生选择先看哪一例。
+        - locale: zh-Hant
+          value: 這個系統提供建議或資訊；任何結果生效前，都由人做出決定。例如：分流工具為臨床人員排列個案順序，由臨床人員選擇先看哪一位。
       color: "#2A9D8F"
     - id: human_oversees
       name:
@@ -86,6 +266,20 @@ element_context:
           value: A person oversees or carries it out
         - locale: fr
           value: Une personne supervise ou exécute
+        - locale: es
+          value: Una persona lo supervisa o lo ejecuta
+        - locale: pt
+          value: Uma pessoa supervisiona ou executa
+        - locale: fil
+          value: Tao ang nagbabantay o nagsasagawa
+        - locale: km
+          value: មនុស្សត្រួតពិនិត្យ ឬអនុវត្ត
+        - locale: vi
+          value: Con người giám sát hoặc thực hiện
+        - locale: zh-Hans
+          value: 由人监督或执行
+        - locale: zh-Hant
+          value: 由人監督或執行
       description:
         - locale: en
           value: >-
@@ -97,6 +291,37 @@ element_context:
             Ce système produit le résultat par lui-même ; des personnes le supervisent, peuvent
             intervenir ou exécutent le résultat elles-mêmes. Exemple : un optimiseur planifie les
             tournées de collecte de la journée, et les chauffeurs les effectuent.
+        - locale: es
+          value: >-
+            Este sistema obtiene el resultado por sí solo; las personas lo supervisan, pueden
+            intervenir o ejecutan el resultado ellas mismas. Ejemplo: un optimizador planifica las
+            rutas de recolección del día y quienes conducen las recorren.
+        - locale: pt
+          value: >-
+            Este sistema chega ao resultado por conta própria; pessoas o supervisionam, podem
+            intervir ou executam elas mesmas o resultado. Exemplo: um otimizador planeja as rotas de
+            coleta do dia, e os motoristas as percorrem.
+        - locale: fil
+          value: >-
+            Mag-isang binubuo ng sistemang ito ang resulta; binabantayan ito ng mga tao, maaari
+            silang makialam, o sila mismo ang nagsasagawa ng resulta. Halimbawa: isang optimizer na
+            nagpaplano ng mga ruta ng pangongolekta para sa araw na iyon, at mga drayber ang
+            bumibiyahe sa mga ito.
+        - locale: km
+          value: >-
+            ប្រព័ន្ធនេះរកលទ្ធផលដោយខ្លួនឯង ហើយមនុស្សត្រួតពិនិត្យវា អាចចូលអន្តរាគមន៍
+            ឬអនុវត្តតាមលទ្ធផលនោះដោយខ្លួនឯង។ ឧទាហរណ៍៖
+            ប្រព័ន្ធធ្វើឱ្យប្រសើរបំផុតរៀបចំផែនការផ្លូវធ្វើដំណើរប្រមូលប្រចាំថ្ងៃ
+            ហើយអ្នកបើកបរធ្វើដំណើរតាមផ្លូវទាំងនោះ។
+        - locale: vi
+          value: >-
+            Hệ thống này tự tìm ra kết quả; con người giám sát, có thể can thiệp, hoặc tự mình thực
+            hiện kết quả đó. Ví dụ: một công cụ tối ưu hóa lập các tuyến thu gom trong ngày, và tài
+            xế chạy theo các tuyến đó.
+        - locale: zh-Hans
+          value: 本系统自行得出结果；由人监督、可随时介入，或由人亲自执行结果。示例：优化工具规划当天的收运路线，由司机按路线行驶。
+        - locale: zh-Hant
+          value: 這個系統自行算出結果；由人監督、可介入，或由人親自執行結果。例如：最佳化工具規劃當天的收運路線，再由司機照著行駛。
       color: "#6A1B7A"
     - id: autonomous
       name:
@@ -104,6 +329,20 @@ element_context:
           value: Runs on its own
         - locale: fr
           value: Fonctionne par lui-même
+        - locale: es
+          value: Funciona por sí solo
+        - locale: pt
+          value: Funciona por conta própria
+        - locale: fil
+          value: Kusang tumatakbo
+        - locale: km
+          value: ដំណើរការដោយខ្លួនឯង
+        - locale: vi
+          value: Tự vận hành
+        - locale: zh-Hans
+          value: 自行运行
+        - locale: zh-Hant
+          value: 自行運作
       description:
         - locale: en
           value: >-
@@ -113,6 +352,32 @@ element_context:
           value: >-
             Ce système décide et prend effet sans qu'une personne examine chaque résultat.
             Exemple : un péage qui se réévalue et prélève automatiquement selon le trafic.
+        - locale: es
+          value: >-
+            Este sistema decide y surte efecto sin que una persona revise cada resultado. Ejemplo:
+            un peaje que cambia su precio y cobra automáticamente según varía el tráfico.
+        - locale: pt
+          value: >-
+            Este sistema decide e produz efeito sem que uma pessoa revise cada resultado. Exemplo:
+            um pedágio que muda de preço e cobra automaticamente conforme o trânsito varia.
+        - locale: fil
+          value: >-
+            Nagdedesisyon ang sistemang ito at nagkakabisa ang desisyon nang walang taong sumusuri
+            sa bawat resulta. Halimbawa: isang toll sa kalsada na awtomatikong nagbabago ng presyo
+            at naniningil habang nagbabago ang trapiko.
+        - locale: km
+          value: >-
+            ប្រព័ន្ធនេះសម្រេចចិត្ត ហើយការសម្រេចនោះមានផលអនុវត្តដោយគ្មានមនុស្សពិនិត្យលទ្ធផលនីមួយៗ។
+            ឧទាហរណ៍៖ ថ្លៃផ្លូវដែលកំណត់តម្លៃឡើងវិញ និងគិតប្រាក់ដោយស្វ័យប្រវត្តិនៅពេលចរាចរណ៍ប្រែប្រួល។
+        - locale: vi
+          value: >-
+            Hệ thống này quyết định và quyết định có hiệu lực mà không có người xem xét từng kết
+            quả. Ví dụ: một trạm thu phí đường bộ tự động đổi giá và trừ tiền khi lưu lượng xe thay
+            đổi.
+        - locale: zh-Hans
+          value: 本系统作出决定并直接生效，无需人逐一审核每个结果。示例：道路通行费随车流变化自动调价并自动扣费。
+        - locale: zh-Hant
+          value: 這個系統自行決定並使結果生效，不需有人逐一審查。例如：道路通行費隨車流變化自動調整費率並扣款。
       color: "#E76F51"
 element_variables:
   - id: additional_description
@@ -121,4 +386,18 @@ element_variables:
         value: Description
       - locale: fr
         value: Description
+      - locale: es
+        value: Descripción
+      - locale: pt
+        value: Descrição
+      - locale: fil
+        value: Paglalarawan
+      - locale: km
+        value: ការពណ៌នា
+      - locale: vi
+        value: Mô tả
+      - locale: zh-Hans
+        value: 描述
+      - locale: zh-Hant
+        value: 說明
     required: false

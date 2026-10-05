@@ -5,6 +5,20 @@ title:
     value: What you see in an app or feed
   - locale: fr
     value: Ce que vous voyez dans une appli ou un fil
+  - locale: es
+    value: Lo que ve en una aplicación o un feed
+  - locale: pt
+    value: O que você vê em um aplicativo ou feed
+  - locale: fil
+    value: Ang nakikita ninyo sa app o feed
+  - locale: km
+    value: អ្វីដែលអ្នកឃើញក្នុងកម្មវិធី ឬទំព័រព័ត៌មាន
+  - locale: vi
+    value: Những gì bạn thấy trong ứng dụng hoặc bảng tin
+  - locale: zh-Hans
+    value: 您在应用或信息流中看到的内容
+  - locale: zh-Hant
+    value: 應用程式或動態消息顯示的內容
 description:
   - locale: en
     value: >-
@@ -16,4 +30,33 @@ description:
       Le résultat est l'ordre lui-même — quels contenus, produits, résultats ou prix apparaissent
       en premier, et lesquels vous ne voyez jamais. Il n'y a pas de moment de rencontre à
       remarquer ; le système façonne la surface que vous regardiez déjà.
+  - locale: es
+    value: >-
+      El resultado es el orden mismo — qué publicaciones, productos, resultados o precios aparecen
+      primero, y cuáles usted nunca ve. No hay un momento de encuentro que se pueda notar; el
+      sistema da forma a la superficie que usted ya estaba mirando.
+  - locale: pt
+    value: >-
+      O resultado é a própria ordenação — quais publicações, produtos, resultados ou preços aparecem
+      primeiro, e quais você nunca vê. Não há um momento de contato que se possa notar; o sistema
+      molda a superfície para a qual você já estava olhando.
+  - locale: fil
+    value: >-
+      Ang output ay ang pagkakasunod-sunod mismo — kung aling mga post, produkto, resulta, o presyo
+      ang unang lumalabas, at kung alin ang hindi ninyo kailanman makikita. Wala kayong mapapansing
+      sandali na nakaharap ninyo ang sistema; hinuhubog nito ang mismong tinitingnan na ninyo.
+  - locale: km
+    value: >-
+      លទ្ធផលគឺជាការរៀបលំដាប់ផ្ទាល់ — ថាតើការបង្ហោះ, ផលិតផល, លទ្ធផលស្វែងរក, ឬតម្លៃណាលេចឡើងមុនគេ
+      ហើយណាដែលអ្នកមិនដែលឃើញសោះ។ គ្មានពេលជួបណាមួយឱ្យអ្នកកត់សម្គាល់ទេ
+      ប្រព័ន្ធរៀបចំផ្ទៃអេក្រង់ដែលអ្នកកំពុងមើលស្រាប់។
+  - locale: vi
+    value: >-
+      Kết quả đầu ra chính là thứ tự sắp xếp — bài đăng, sản phẩm, kết quả hoặc mức giá nào hiện ra
+      trước, và cái nào bạn không bao giờ thấy. Không có khoảnh khắc tiếp xúc rõ ràng nào để bạn
+      nhận ra; hệ thống định hình chính những gì bạn vốn đang xem.
+  - locale: zh-Hans
+    value: 输出就是排序本身——哪些帖子、商品、结果或价格排在前面，哪些您永远看不到。这里没有一个可供察觉的接触时刻；系统塑造的是您本来就在看的界面。
+  - locale: zh-Hant
+    value: 輸出結果就是排列順序本身：哪些貼文、商品、搜尋結果或價格排在前面，哪些您永遠看不到。過程中沒有可察覺的接觸時刻；系統塑造的是您本來就在看的畫面。
 symbol_id: feed_placement

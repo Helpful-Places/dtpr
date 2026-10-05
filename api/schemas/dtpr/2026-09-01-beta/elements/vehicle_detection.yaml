@@ -5,6 +5,20 @@ title:
     value: Vehicle Detection
   - locale: fr
     value: Détection de véhicules
+  - locale: es
+    value: Detección de vehículos
+  - locale: pt
+    value: Detecção de veículos
+  - locale: fil
+    value: Pagtuklas ng sasakyan
+  - locale: km
+    value: ការរកឃើញយានយន្ត
+  - locale: vi
+    value: Phát hiện xe cộ
+  - locale: zh-Hans
+    value: 车辆检测
+  - locale: zh-Hant
+    value: 車輛偵測
 description:
   - locale: en
     value: >-
@@ -17,4 +31,37 @@ description:
       dans la chaussée, bandes piézoélectriques ou détecteurs montés sur portique. Sert à compter
       le trafic, mesurer la vitesse et détecter la congestion. Les caméras de plaques
       d'immatriculation relèvent de Caméra.
+  - locale: es
+    value: >-
+      Detecta vehículos en una vía o en un espacio — radar, LiDAR, espiras de inducción en el
+      pavimento, bandas piezoeléctricas o detectores montados en pórticos. Se usa para contar el
+      tráfico, medir la velocidad y detectar congestión. Las cámaras de placas corresponden a
+      Cámara.
+  - locale: pt
+    value: >-
+      Detecta veículos em uma via ou em um espaço — radar, LiDAR, laços indutivos no pavimento,
+      faixas piezoelétricas ou detectores instalados em pórticos. Usada para contar o fluxo de
+      veículos, medir a velocidade e detectar congestionamentos. Câmeras de leitura de placas
+      pertencem a Câmera.
+  - locale: fil
+    value: >-
+      Sumasagap ng mga sasakyan sa kalsada o sa isang lugar — radar, LiDAR, induction loop sa
+      kalsada, piezoelectric strip, o detector na nakakabit sa gantry. Ginagamit para bilangin ang
+      mga sasakyan, sukatin ang bilis, at tuklasin ang pagsisikip. Ang mga kamera para sa plaka ay
+      kabilang sa Kamera.
+  - locale: km
+    value: >-
+      ចាប់សញ្ញាយានយន្តលើផ្លូវ ឬក្នុងទីកន្លែងមួយ — រ៉ាដា, LiDAR,
+      រង្វិលអាំងឌុចស្យុងបង្កប់ក្នុងផ្ទៃផ្លូវ, បន្ទះព្យែហ្សូអេឡិចត្រិច,
+      ឬឧបករណ៍រកឃើញដែលដំឡើងលើស៊ុមដែកពីលើផ្លូវ។ ប្រើដើម្បីរាប់ចរាចរណ៍, វាស់ល្បឿន, និងរកឃើញការកកស្ទះ។
+      កាមេរ៉ាថតស្លាកលេខយានយន្តស្ថិតនៅក្រោម «កាមេរ៉ា»។
+  - locale: vi
+    value: >-
+      Phát hiện xe cộ trên đường hoặc trong một không gian — radar, LiDAR, vòng cảm ứng từ dưới mặt
+      đường, dải áp điện, hoặc đầu dò gắn trên giàn. Được dùng để đếm lưu lượng xe, đo tốc độ và
+      phát hiện ùn tắc. Camera đọc biển số xe thuộc mục Camera.
+  - locale: zh-Hans
+    value: 感知道路上或某一空间内的车辆——雷达、激光雷达（LiDAR）、埋设在路面下的感应线圈、压电条或安装在龙门架上的检测器。用于统计车流量、测量车速和检测拥堵。车牌摄像头归入“摄像头”。
+  - locale: zh-Hant
+    value: 感測道路上或空間內的車輛：雷達、光達（LiDAR）、埋設在路面下的感應線圈、壓電感測條或裝設在門架上的偵測器。用於計算車流量、測量車速及偵測壅塞。車牌攝影機屬於「攝影機」。
 symbol_id: vehicle

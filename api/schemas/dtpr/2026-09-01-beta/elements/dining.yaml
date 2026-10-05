@@ -5,9 +5,37 @@ title:
     value: Dining
   - locale: fr
     value: Restauration
+  - locale: es
+    value: Servicios de comida
+  - locale: pt
+    value: Alimentação
+  - locale: fil
+    value: Kainan
+  - locale: km
+    value: សេវាអាហារ
+  - locale: vi
+    value: Ăn uống
+  - locale: zh-Hans
+    value: 餐饮
+  - locale: zh-Hant
+    value: 餐飲
 description:
   - locale: en
     value: For providing food or meal services.
   - locale: fr
     value: Pour la fourniture de services de restauration ou de repas.
+  - locale: es
+    value: Para brindar servicios de alimentos o comidas.
+  - locale: pt
+    value: Para oferecer serviços de alimentação ou refeições.
+  - locale: fil
+    value: Para sa pagbibigay ng serbisyo ng pagkain o kainan.
+  - locale: km
+    value: សម្រាប់ផ្តល់សេវាម្ហូបអាហារ ឬអាហារពេល។
+  - locale: vi
+    value: Để cung cấp đồ ăn hoặc dịch vụ ăn uống.
+  - locale: zh-Hans
+    value: 用于提供食品或餐饮服务。
+  - locale: zh-Hant
+    value: 用於提供食物或餐點服務。
 symbol_id: dining

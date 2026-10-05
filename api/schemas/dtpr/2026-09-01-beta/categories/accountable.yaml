@@ -4,16 +4,58 @@ name:
     value: Accountable
   - locale: fr
     value: Responsable
+  - locale: es
+    value: Responsable
+  - locale: pt
+    value: Responsável
+  - locale: fil
+    value: May pananagutan
+  - locale: km
+    value: អ្នកទទួលខុសត្រូវ
+  - locale: vi
+    value: Chịu trách nhiệm
+  - locale: zh-Hans
+    value: 责任方
+  - locale: zh-Hant
+    value: 負責組織
 description:
   - locale: en
     value: The organization responsible for deploying and operating this AI system.
   - locale: fr
     value: L’organisation responsable du déploiement et de l’exploitation de ce système d’IA.
+  - locale: es
+    value: La organización responsable de implementar y operar este sistema de IA.
+  - locale: pt
+    value: A organização responsável por implantar e operar este sistema de IA.
+  - locale: fil
+    value: Ang organisasyong responsable sa pagpapatupad at pagpapatakbo ng sistemang AI na ito.
+  - locale: km
+    value: អង្គភាពដែលទទួលខុសត្រូវលើការដាក់ឱ្យប្រើប្រាស់ និងការដំណើរការប្រព័ន្ធ AI នេះ។
+  - locale: vi
+    value: Tổ chức chịu trách nhiệm triển khai và vận hành hệ thống AI này.
+  - locale: zh-Hans
+    value: 负责部署和运营本AI系统的组织。
+  - locale: zh-Hant
+    value: 負責部署及營運這個AI系統的組織。
 prompt:
   - locale: en
     value: Who is accountable for this AI system?
   - locale: fr
     value: Qui est responsable de ce système d’IA ?
+  - locale: es
+    value: ¿Quién es responsable de este sistema de IA?
+  - locale: pt
+    value: Quem é responsável por este sistema de IA?
+  - locale: fil
+    value: Sino ang may pananagutan sa sistemang AI na ito?
+  - locale: km
+    value: តើអ្នកណាទទួលខុសត្រូវចំពោះប្រព័ន្ធ AI នេះ?
+  - locale: vi
+    value: Ai chịu trách nhiệm về hệ thống AI này?
+  - locale: zh-Hans
+    value: 谁对本AI系统负责？
+  - locale: zh-Hant
+    value: 誰為這個AI系統負責？
 required: true
 order: 2
 datachain_type: dtpr
@@ -25,11 +67,39 @@ element_context:
       value: Role
     - locale: fr
       value: Rôle
+    - locale: es
+      value: Rol
+    - locale: pt
+      value: Papel
+    - locale: fil
+      value: Tungkulin
+    - locale: km
+      value: តួនាទី
+    - locale: vi
+      value: Vai trò
+    - locale: zh-Hans
+      value: 角色
+    - locale: zh-Hant
+      value: 角色
   description:
     - locale: en
       value: How this organization participates in the deployment of the AI system.
     - locale: fr
       value: Comment cette organisation participe au déploiement du système d’IA.
+    - locale: es
+      value: Cómo participa esta organización en la implementación del sistema de IA.
+    - locale: pt
+      value: Como esta organização participa da implantação do sistema de IA.
+    - locale: fil
+      value: Kung paano nakikilahok ang organisasyong ito sa pagpapatupad ng sistemang AI.
+    - locale: km
+      value: របៀបដែលអង្គភាពនេះចូលរួមក្នុងការដាក់ឱ្យប្រើប្រាស់ប្រព័ន្ធ AI។
+    - locale: vi
+      value: Tổ chức này tham gia vào việc triển khai hệ thống AI như thế nào.
+    - locale: zh-Hans
+      value: 该组织以何种方式参与AI系统的部署。
+    - locale: zh-Hant
+      value: 這個組織以何種方式參與AI系統的部署。
   values:
     - id: vendor
       name:
@@ -37,11 +107,39 @@ element_context:
           value: Vendor
         - locale: fr
           value: Fournisseur
+        - locale: es
+          value: Proveedor
+        - locale: pt
+          value: Fornecedor
+        - locale: fil
+          value: Supplier
+        - locale: km
+          value: អ្នកផ្គត់ផ្គង់
+        - locale: vi
+          value: Nhà cung cấp
+        - locale: zh-Hans
+          value: 供应商
+        - locale: zh-Hant
+          value: 供應商
       description:
         - locale: en
           value: The organization that builds, supplies, or licenses the AI system.
         - locale: fr
           value: L’organisation qui construit, fournit ou concède sous licence le système d’IA.
+        - locale: es
+          value: La organización que desarrolla, suministra o licencia el sistema de IA.
+        - locale: pt
+          value: A organização que desenvolve, fornece ou licencia o sistema de IA.
+        - locale: fil
+          value: Ang organisasyong bumubuo, nagsusuplay, o nagbibigay ng lisensiya sa sistemang AI.
+        - locale: km
+          value: អង្គភាពដែលបង្កើត, ផ្គត់ផ្គង់, ឬផ្តល់អាជ្ញាបណ្ណប្រើប្រាស់ប្រព័ន្ធ AI។
+        - locale: vi
+          value: Tổ chức xây dựng, cung cấp hoặc cấp phép sử dụng hệ thống AI.
+        - locale: zh-Hans
+          value: 构建、供应或授权许可该AI系统的组织。
+        - locale: zh-Hant
+          value: 建置、供應或授權這個AI系統的組織。
       color: null
     - id: deployer
       name:
@@ -49,11 +147,39 @@ element_context:
           value: Deployer
         - locale: fr
           value: Déployeur
+        - locale: es
+          value: Implementador
+        - locale: pt
+          value: Implantador
+        - locale: fil
+          value: Nagpapatupad
+        - locale: km
+          value: អ្នកដាក់ឱ្យប្រើប្រាស់
+        - locale: vi
+          value: Đơn vị triển khai
+        - locale: zh-Hans
+          value: 部署方
+        - locale: zh-Hant
+          value: 部署者
       description:
         - locale: en
           value: The organization that deploys and operates the AI system in this place.
         - locale: fr
           value: L’organisation qui déploie et exploite le système d’IA dans ce lieu.
+        - locale: es
+          value: La organización que implementa y opera el sistema de IA en este lugar.
+        - locale: pt
+          value: A organização que implanta e opera o sistema de IA neste local.
+        - locale: fil
+          value: Ang organisasyong nagpapatupad at nagpapatakbo ng sistemang AI sa lugar na ito.
+        - locale: km
+          value: អង្គភាពដែលដាក់ឱ្យប្រើប្រាស់ និងដំណើរការប្រព័ន្ធ AI នៅទីកន្លែងនេះ។
+        - locale: vi
+          value: Tổ chức triển khai và vận hành hệ thống AI tại nơi này.
+        - locale: zh-Hans
+          value: 在此地部署并运营该AI系统的组织。
+        - locale: zh-Hant
+          value: 在此地點部署及營運這個AI系統的組織。
       color: null
 element_variables:
   - id: title
@@ -62,6 +188,20 @@ element_variables:
         value: Title
       - locale: fr
         value: Titre
+      - locale: es
+        value: Título
+      - locale: pt
+        value: Título
+      - locale: fil
+        value: Pamagat
+      - locale: km
+        value: ចំណងជើង
+      - locale: vi
+        value: Tiêu đề
+      - locale: zh-Hans
+        value: 标题
+      - locale: zh-Hant
+        value: 標題
     required: true
   - id: description
     label:
@@ -69,4 +209,18 @@ element_variables:
         value: Description
       - locale: fr
         value: Description
+      - locale: es
+        value: Descripción
+      - locale: pt
+        value: Descrição
+      - locale: fil
+        value: Paglalarawan
+      - locale: km
+        value: ការពណ៌នា
+      - locale: vi
+        value: Mô tả
+      - locale: zh-Hans
+        value: 描述
+      - locale: zh-Hant
+        value: 說明
     required: true

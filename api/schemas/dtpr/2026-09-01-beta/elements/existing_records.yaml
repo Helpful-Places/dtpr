@@ -5,6 +5,20 @@ title:
     value: Existing Records
   - locale: fr
     value: Dossiers existants
+  - locale: es
+    value: Registros existentes
+  - locale: pt
+    value: Registros existentes
+  - locale: fil
+    value: Mga dati nang rekord
+  - locale: km
+    value: កំណត់ត្រាដែលមានស្រាប់
+  - locale: vi
+    value: Hồ sơ có sẵn
+  - locale: zh-Hans
+    value: 已有记录
+  - locale: zh-Hant
+    value: 既有紀錄
 description:
   - locale: en
     value: >-
@@ -16,4 +30,33 @@ description:
       Données que l'organisation détient déjà — comptes clients, dossiers, registres, historiques
       de transactions, demandes antérieures. Rien de nouveau n'est capté dans le monde ; le système
       puise dans ce qui a été enregistré auparavant, parfois à une autre fin d'origine.
+  - locale: es
+    value: >-
+      Datos que la organización ya tiene — cuentas de clientes, expedientes, padrones, historiales
+      de transacciones, solicitudes anteriores. No se capta nada nuevo del mundo; el sistema recurre
+      a lo que se registró antes, a veces con un propósito original distinto.
+  - locale: pt
+    value: >-
+      Dados que a organização já possui — contas de clientes, processos, cadastros, históricos de
+      transações, solicitações anteriores. Nada de novo é captado do mundo; o sistema recorre ao que
+      foi registrado antes, às vezes para uma finalidade original diferente.
+  - locale: fil
+    value: >-
+      Data na hawak na ng organisasyon — mga account ng customer, case file, rehistro, kasaysayan ng
+      transaksiyon, mga nakaraang aplikasyon. Walang bagong kinukuha mula sa mundo; humuhugot ang
+      sistema sa mga naitala na noon, na kung minsan ay para sa ibang orihinal na layunin.
+  - locale: km
+    value: >-
+      ទិន្នន័យដែលអង្គភាពមានរួចហើយ — គណនីអតិថិជន, សំណុំរឿង, បញ្ជីចុះឈ្មោះ, ប្រវត្តិប្រតិបត្តិការ,
+      ពាក្យសុំពីមុន។ គ្មានអ្វីថ្មីត្រូវបានចាប់យកពីពិភពខាងក្រៅទេ
+      ប្រព័ន្ធប្រើអ្វីដែលបានកត់ត្រាទុកពីមុន ដែលពេលខ្លះកត់ត្រាសម្រាប់គោលបំណងដើមផ្សេង។
+  - locale: vi
+    value: >-
+      Dữ liệu mà tổ chức đã nắm giữ từ trước — tài khoản khách hàng, hồ sơ vụ việc, sổ đăng ký, lịch
+      sử giao dịch, các đơn đã nộp trước đây. Không có gì mới được thu nhận từ thế giới bên ngoài;
+      hệ thống dùng những gì đã được ghi lại trước đó, đôi khi vốn cho một mục đích khác.
+  - locale: zh-Hans
+    value: 组织已经持有的数据——客户账户、案卷、登记册、交易记录、过往申请。没有从现实世界采集新的数据；系统利用的是以前记录下来的内容，而当初记录的目的有时并不相同。
+  - locale: zh-Hant
+    value: 組織已經持有的資料：客戶帳戶、個案檔案、登記冊、交易紀錄、過去的申請案。系統並未從外界擷取新資料，而是取用先前留下的紀錄，這些紀錄當初的用途有時並不相同。
 symbol_id: tabular

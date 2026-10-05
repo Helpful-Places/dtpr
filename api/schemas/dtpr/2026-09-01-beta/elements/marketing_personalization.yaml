@@ -5,6 +5,20 @@ title:
     value: Marketing & Personalization
   - locale: fr
     value: Marketing et personnalisation
+  - locale: es
+    value: Marketing y personalización
+  - locale: pt
+    value: Marketing e personalização
+  - locale: fil
+    value: Marketing at personalisasyon
+  - locale: km
+    value: ការធ្វើទីផ្សារ និងការកំណត់តាមបុគ្គល
+  - locale: vi
+    value: Tiếp thị và cá nhân hóa
+  - locale: zh-Hans
+    value: 营销与个性化
+  - locale: zh-Hant
+    value: 行銷與個人化
 description:
   - locale: en
     value: >-
@@ -15,6 +29,36 @@ description:
       Cible la publicité, personnalise les recommandations ou profile les audiences à des fins
       marketing — par exemple, offres de fidélité en magasin, signalétique personnalisée, ciblage
       publicitaire comportemental.
+  - locale: es
+    value: >-
+      Dirige publicidad, personaliza recomendaciones o elabora perfiles de audiencias con fines de
+      marketing — por ejemplo, ofertas de fidelidad en tiendas, señalización personalizada,
+      publicidad dirigida según el comportamiento.
+  - locale: pt
+    value: >-
+      Direciona publicidade, personaliza recomendações ou traça perfis de públicos para fins de
+      marketing — por exemplo, ofertas de fidelidade na loja, sinalização personalizada,
+      direcionamento de anúncios com base em comportamento.
+  - locale: fil
+    value: >-
+      Nagtutuon ng advertising sa piling tao, nag-aangkop ng mga rekomendasyon sa bawat tao, o
+      gumagawa ng profile ng mga audience para sa marketing — halimbawa, mga alok para sa suki sa
+      loob ng tindahan, karatulang iniangkop sa tao, ad na itinutuon batay sa kilos ng tao.
+  - locale: km
+    value: >-
+      កំណត់គោលដៅផ្សាយពាណិជ្ជកម្ម, កំណត់អនុសាសន៍តាមបុគ្គល,
+      ឬរៀបចំទម្រង់ព័ត៌មានរបស់ទស្សនិកជនសម្រាប់ការធ្វើទីផ្សារ — ឧទាហរណ៍
+      ការផ្តល់ជូនសម្រាប់អតិថិជនស្មោះត្រង់ក្នុងហាង, ផ្លាកសញ្ញាដែលកំណត់តាមបុគ្គល,
+      ការកំណត់គោលដៅផ្សាយពាណិជ្ជកម្មតាមឥរិយាបថ។
+  - locale: vi
+    value: >-
+      Nhắm mục tiêu quảng cáo, cá nhân hóa các đề xuất, hoặc lập hồ sơ đối tượng khách hàng để tiếp
+      thị — ví dụ: ưu đãi khách hàng thân thiết tại cửa hàng, biển hiệu cá nhân hóa, quảng cáo nhắm
+      theo hành vi.
+  - locale: zh-Hans
+    value: 为营销目的定向投放广告、提供个性化推荐或进行受众画像——例如店内会员优惠、个性化标牌、基于行为的广告定向。
+  - locale: zh-Hant
+    value: 為行銷目的投放廣告、提供個人化推薦或分析受眾輪廓，例如店內會員優惠、個人化看板、行為式廣告投放。
 sources:
   - type: regulation
     title: GDPR Article 22 — Automated individual decision-making, including profiling

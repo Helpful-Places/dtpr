@@ -5,6 +5,20 @@ title:
     value: Decides
   - locale: fr
     value: Décide
+  - locale: es
+    value: Decide
+  - locale: pt
+    value: Decide
+  - locale: fil
+    value: Nagdedesisyon
+  - locale: km
+    value: សម្រេចចិត្ត
+  - locale: vi
+    value: Quyết định
+  - locale: zh-Hans
+    value: 决定
+  - locale: zh-Hant
+    value: 決定
 description:
   - locale: en
     value: >-
@@ -18,4 +32,41 @@ description:
       répartir, signaler pour action. Exemples : un péage dynamique fixé selon le trafic, une
       demande approuvée ou refusée, une affectation d'intervention. Quand une personne tranche à
       partir de ses suggestions, il s'agit plutôt de Recommande.
+  - locale: es
+    value: >-
+      Decide — determina un resultado que surte efecto: aprobar o rechazar, fijar un precio,
+      asignar, marcar para que se actúe. Ejemplos: un peaje dinámico fijado según el tráfico, una
+      solicitud aprobada o rechazada, la asignación de una unidad a una llamada. Cuando una persona
+      toma la decisión final a partir de sus sugerencias, eso es Recomienda.
+  - locale: pt
+    value: >-
+      Decide — determina um resultado que produz efeito: aprovar ou negar, definir preços,
+      distribuir recursos, sinalizar para providências. Exemplos: um pedágio dinâmico definido
+      conforme o trânsito, um pedido aprovado ou recusado, a designação de uma equipe para um
+      atendimento. Quando uma pessoa toma a decisão final a partir das sugestões do sistema,
+      trata-se de Recomenda.
+  - locale: fil
+    value: >-
+      Nagdedesisyon — nagtatakda ng resultang nagkakabisa: pag-apruba o pagtanggi, pagpepresyo,
+      paglalaan, pagmamarka para aksiyunan. Mga halimbawa: pabago-bagong toll sa kalsada na
+      itinatakda batay sa trapiko, aplikasyong inaprubahan o tinanggihan, pagtatalaga ng ipapadalang
+      tauhan o sasakyan. Kapag tao ang gumagawa ng huling pasya mula sa mga mungkahi nito, iyon ay
+      Nagrerekomenda.
+  - locale: km
+    value: >-
+      សម្រេចចិត្ត — កំណត់លទ្ធផលដែលមានផលអនុវត្ត៖ អនុម័ត ឬបដិសេធ, កំណត់តម្លៃ, បែងចែក,
+      ចង្អុលបង្ហាញដើម្បីចាត់វិធានការ។ ឧទាហរណ៍៖ ថ្លៃផ្លូវប្រែប្រួលដែលកំណត់តាមចរាចរណ៍,
+      ពាក្យសុំដែលត្រូវបានអនុម័ត ឬបដិសេធ, ការចាត់តាំងក្រុមឱ្យចេញបំពេញការងារ។
+      នៅពេលមនុស្សជាអ្នកសម្រេចចុងក្រោយពីការស្នើរបស់វា នោះគឺ «ផ្តល់អនុសាសន៍» វិញ។
+  - locale: vi
+    value: >-
+      Quyết định — định ra một kết quả có hiệu lực: chấp thuận hoặc từ chối, định giá, phân bổ, đánh
+      dấu để xử lý. Ví dụ: mức phí đường bộ thay đổi theo lưu lượng xe, một hồ sơ được chấp thuận
+      hoặc bị từ chối, việc phân công điều phối. Khi một người đưa ra quyết định cuối cùng dựa trên
+      gợi ý của hệ thống, đó là Đề xuất.
+  - locale: zh-Hans
+    value: 决定——确定一个会生效的结果：批准或拒绝、定价、分配、标记以待处置。示例：根据车流设定的动态道路通行费、获批或被拒的申请、调度派单。如果由人根据系统的建议作出最终决定，则属于“推荐”。
+  - locale: zh-Hant
+    value: >-
+      決定：判定會實際生效的結果，例如核准或拒絕、定價、分配、標記以待處理。例如：依車流訂定的動態道路通行費、申請案的核准或駁回、派遣任務的指派。若是由人根據系統的建議做最後決定，則屬於「建議」。
 symbol_id: dm_accept-or-deny

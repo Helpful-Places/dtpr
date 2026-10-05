@@ -5,6 +5,20 @@ title:
     value: Affect & Emotion Analysis
   - locale: fr
     value: Analyse de l'affect et des émotions
+  - locale: es
+    value: Análisis de afecto y emociones
+  - locale: pt
+    value: Análise de afeto e emoções
+  - locale: fil
+    value: Pagsusuri ng damdamin at emosyon
+  - locale: km
+    value: ការវិភាគអារម្មណ៍ និងមនោសញ្ចេតនា
+  - locale: vi
+    value: Phân tích tâm trạng và cảm xúc
+  - locale: zh-Hans
+    value: 情感与情绪分析
+  - locale: zh-Hant
+    value: 情感與情緒分析
 description:
   - locale: en
     value: >-
@@ -19,4 +33,46 @@ description:
       ressenti d'une foule, mesurer l'expérience d'un service ou détecter une détresse. La précision
       et l'équité culturelle de l'inférence d'affect sont contestées, et certaines juridictions
       limitent son usage en milieu professionnel et dans les services publics.
+  - locale: es
+    value: >-
+      Sistemas de IA que infieren el estado emocional, el ánimo o el sentimiento a partir de texto,
+      voz, expresiones faciales o señales fisiológicas. Se usan para medir el sentir de una
+      multitud, evaluar la experiencia de un servicio o detectar señales de angustia. La precisión y
+      la equidad cultural de la inferencia de emociones están en disputa, y algunas jurisdicciones
+      restringen su uso en lugares de trabajo y servicios públicos.
+  - locale: pt
+    value: >-
+      Sistemas de IA que inferem estado emocional, humor ou sentimento a partir de texto, fala,
+      expressões faciais ou sinais fisiológicos. Usados para medir o sentimento de uma multidão,
+      avaliar a experiência com um serviço ou identificar sinais de sofrimento. A precisão e a
+      imparcialidade cultural da inferência de afeto são contestadas, e algumas jurisdições
+      restringem seu uso em locais de trabalho e serviços públicos.
+  - locale: fil
+    value: >-
+      Mga sistemang AI na naghihinuha ng emosyonal na kalagayan, timpla ng loob, o saloobin mula sa
+      teksto, pananalita, ekspresyon ng mukha, o mga senyales ng katawan. Ginagamit para sukatin ang
+      saloobin ng maraming tao, tasahin ang karanasan sa serbisyo, o alamin kung may taong
+      nababagabag. Pinagtatalunan kung gaano katumpak ang paghihinuha ng damdamin at kung patas ito
+      sa iba't ibang kultura, at may mga hurisdiksiyong naglilimita sa paggamit nito sa mga lugar ng
+      trabaho at pampublikong serbisyo.
+  - locale: km
+    value: >-
+      ប្រព័ន្ធ AI ដែលសន្និដ្ឋានអំពីស្ថានភាពអារម្មណ៍, អារម្មណ៍នៅពេលនោះ, ឬមនោសញ្ចេតនា ពីអត្ថបទ, សំដី,
+      ទឹកមុខ, ឬសញ្ញាសរីរវិទ្យា។ ប្រើដើម្បីវាស់អារម្មណ៍របស់ហ្វូងមនុស្ស, វាយតម្លៃបទពិសោធន៍នៃសេវា,
+      ឬរកមើលភាពតានតឹងផ្លូវចិត្ត។ ភាពត្រឹមត្រូវ
+      និងភាពយុត្តិធម៌ផ្នែកវប្បធម៌នៃការសន្និដ្ឋានអារម្មណ៍នៅមានការជជែកវែកញែក
+      ហើយយុត្តាធិការខ្លះដាក់កម្រិតលើការប្រើវានៅកន្លែងធ្វើការ និងក្នុងសេវាសាធារណៈ។
+  - locale: vi
+    value: >-
+      Các hệ thống AI suy đoán trạng thái cảm xúc, tâm trạng hoặc thái độ từ văn bản, lời nói, nét
+      mặt hoặc tín hiệu sinh lý. Được dùng để đo tâm trạng đám đông, đánh giá trải nghiệm dịch vụ
+      hoặc sàng lọc dấu hiệu khủng hoảng tinh thần. Độ chính xác và tính công bằng về văn hóa của
+      việc suy đoán cảm xúc còn gây tranh cãi, và một số khu vực pháp lý hạn chế việc dùng nó tại
+      nơi làm việc và trong dịch vụ công.
+  - locale: zh-Hans
+    value: >-
+      根据文字、语音、面部表情或生理信号推断情绪状态、心情或态度倾向的AI系统。用于了解人群情绪、评估服务体验或筛查心理困扰。情感推断的准确性和文化公平性存在争议，一些司法管辖区限制在工作场所和公共服务中使用。
+  - locale: zh-Hant
+    value: >-
+      從文字、語音、臉部表情或生理訊號推斷情緒狀態、心情或感受的AI系統。用於掌握群眾情緒、評估服務體驗，或篩檢是否有人處於情緒困擾。情感推斷的準確度與文化公平性仍有爭議，部分司法管轄區限制在職場與公共服務中使用。
 symbol_id: processing_sentiment-analysis

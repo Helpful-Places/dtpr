@@ -5,9 +5,37 @@ title:
     value: Enforcement
   - locale: fr
     value: Cadre légal
+  - locale: es
+    value: Aplicación de normas
+  - locale: pt
+    value: Fiscalização
+  - locale: fil
+    value: Pagpapatupad ng patakaran
+  - locale: km
+    value: ការអនុវត្តច្បាប់
+  - locale: vi
+    value: Thực thi quy định
+  - locale: zh-Hans
+    value: 执法
+  - locale: zh-Hant
+    value: 執法
 description:
   - locale: en
     value: Used for enforcement of rules or regulations.
   - locale: fr
     value: Utilisé pour l'application de lois ou de réglements.
+  - locale: es
+    value: Se usa para hacer cumplir normas o reglamentos.
+  - locale: pt
+    value: Usado para fazer cumprir regras ou regulamentos.
+  - locale: fil
+    value: Ginagamit sa pagpapatupad ng mga patakaran o regulasyon.
+  - locale: km
+    value: ប្រើសម្រាប់ការអនុវត្តវិធាន ឬបទប្បញ្ញត្តិ។
+  - locale: vi
+    value: Được dùng để thực thi các quy tắc hoặc quy định.
+  - locale: zh-Hans
+    value: 用于执行规则或法规。
+  - locale: zh-Hant
+    value: 用於執行規則或法規。
 symbol_id: enforcement

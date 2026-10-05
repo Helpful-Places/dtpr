@@ -5,6 +5,20 @@ title:
     value: Environmental Sensor
   - locale: fr
     value: Capteur environnemental
+  - locale: es
+    value: Sensor ambiental
+  - locale: pt
+    value: Sensor ambiental
+  - locale: fil
+    value: Sensor na pangkapaligiran
+  - locale: km
+    value: ឧបករណ៍ចាប់សញ្ញាបរិស្ថាន
+  - locale: vi
+    value: Cảm biến môi trường
+  - locale: zh-Hans
+    value: 环境传感器
+  - locale: zh-Hant
+    value: 環境感測器
 description:
   - locale: en
     value: >-
@@ -16,4 +30,33 @@ description:
       Mesure les conditions ambiantes — qualité de l'air, température, humidité, niveau sonore,
       niveau d'eau ou météo. Ces capteurs lisent l'environnement, pas les personnes, même si les
       mesures de bruit et d'air peuvent refléter l'activité humaine.
+  - locale: es
+    value: >-
+      Mide las condiciones del entorno — calidad del aire, temperatura, humedad, nivel de ruido,
+      nivel del agua o el clima. Estos sensores leen el entorno, no a las personas, aunque las
+      lecturas de ruido y de aire pueden reflejar actividad humana.
+  - locale: pt
+    value: >-
+      Mede as condições do entorno — qualidade do ar, temperatura, umidade, nível de ruído, nível da
+      água ou clima. Esses sensores leem o ambiente, não as pessoas, embora as leituras de ruído e
+      de ar ainda possam refletir a atividade humana.
+  - locale: fil
+    value: >-
+      Sumusukat sa kalagayan ng paligid — kalidad ng hangin, temperatura, halumigmig, lakas ng
+      ingay, taas ng tubig, o panahon. Ang kapaligiran ang binabasa ng mga sensor na ito, hindi ang
+      mga tao, bagaman maaari pa ring makita sa mga sukat ng ingay at hangin ang gawain ng tao.
+  - locale: km
+    value: >-
+      វាស់ស្ថានភាពជុំវិញ — គុណភាពខ្យល់, សីតុណ្ហភាព, សំណើម, កម្រិតសំឡេងរំខាន, កម្ពស់ទឹក, ឬអាកាសធាតុ។
+      ឧបករណ៍ចាប់សញ្ញាទាំងនេះវាស់បរិស្ថាន មិនមែនមនុស្សទេ
+      ទោះបីទិន្នន័យវាស់សំឡេងរំខាននិងខ្យល់នៅតែអាចឆ្លុះបញ្ចាំងពីសកម្មភាពរបស់មនុស្សក៏ដោយ។
+  - locale: vi
+    value: >-
+      Đo các điều kiện xung quanh — chất lượng không khí, nhiệt độ, độ ẩm, mức tiếng ồn, mực nước
+      hoặc thời tiết. Các cảm biến này đo môi trường chứ không đo con người, dù số đo tiếng ồn và
+      không khí vẫn có thể phản ánh hoạt động của con người.
+  - locale: zh-Hans
+    value: 测量周围环境状况——空气质量、温度、湿度、噪声水平、水位或天气。这类传感器读取的是环境而不是人，不过噪声和空气读数仍可能反映人的活动。
+  - locale: zh-Hant
+    value: 測量周遭環境的狀況：空氣品質、溫度、濕度、噪音量、水位或天氣。這類感測器讀取的是環境，不是人，但噪音與空氣讀數仍可能反映人的活動。
 symbol_id: thermometer

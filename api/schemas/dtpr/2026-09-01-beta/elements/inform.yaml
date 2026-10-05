@@ -5,6 +5,20 @@ title:
     value: Inform
   - locale: fr
     value: Informer
+  - locale: es
+    value: Informar
+  - locale: pt
+    value: Informar
+  - locale: fil
+    value: Pagbibigay-impormasyon
+  - locale: km
+    value: ផ្តល់ព័ត៌មាន
+  - locale: vi
+    value: Cung cấp thông tin
+  - locale: zh-Hans
+    value: 信息告知
+  - locale: zh-Hant
+    value: 提供資訊
 description:
   - locale: en
     value: >-
@@ -16,4 +30,33 @@ description:
       Permet une assistance informative à usage général : conciergerie, FAQ, signalétique ou
       orientation sur un service. À distinguer de Signalisation et services, qui couvre
       l'orientation spatiale et les itinéraires dans un lieu.
+  - locale: es
+    value: >-
+      Apoya la asistencia informativa de uso general — conserjería, preguntas frecuentes,
+      señalización u orientación sobre un servicio. Se distingue de Orientación y servicios, que
+      abarca la orientación espacial y las rutas dentro de un lugar.
+  - locale: pt
+    value: >-
+      Apoia a prestação de informações de uso geral — balcão de atendimento, perguntas frequentes,
+      sinalização ou orientações sobre um serviço. Diferente de Orientação e serviços, que abrange a
+      orientação espacial e as rotas dentro de um lugar.
+  - locale: fil
+    value: >-
+      Sumusuporta sa pangkalahatang tulong sa impormasyon — concierge, FAQ, mga karatula, o gabay
+      tungkol sa isang serbisyo. Iba sa Paghahanap ng daan at mga serbisyo, na sumasaklaw sa
+      pag-alam ng kinaroroonan at mga ruta sa loob ng isang lugar.
+  - locale: km
+    value: >-
+      គាំទ្រជំនួយផ្តល់ព័ត៌មានសម្រាប់គោលបំណងទូទៅ — សេវាទទួលភ្ញៀវ, សំណួរដែលសួរញឹកញាប់, ផ្លាកសញ្ញា,
+      ឬការណែនាំអំពីសេវាណាមួយ។ ខុសពី «ការបង្ហាញផ្លូវ និងសេវា» ដែលគ្របដណ្តប់លើការតម្រង់ទិស
+      និងការរកផ្លូវនៅក្នុងទីកន្លែងមួយ។
+  - locale: vi
+    value: >-
+      Hỗ trợ việc cung cấp thông tin cho mục đích chung — hướng dẫn khách, câu hỏi thường gặp, biển
+      báo, hoặc chỉ dẫn về một dịch vụ. Khác với Chỉ đường và dịch vụ, vốn bao gồm việc định hướng
+      trong không gian và tìm đường trong một nơi.
+  - locale: zh-Hans
+    value: 支持通用的信息协助——礼宾服务、常见问题解答、标牌，或有关某项服务的指引。有别于“导览与服务”，后者涵盖场所内的空间定向和路线指引。
+  - locale: zh-Hant
+    value: 協助提供一般性的資訊服務：禮賓諮詢、常見問題、標示，或某項服務的使用指引。與「路線指引與服務」不同，後者涵蓋場所內的空間定位與路線規劃。
 symbol_id: light_waves

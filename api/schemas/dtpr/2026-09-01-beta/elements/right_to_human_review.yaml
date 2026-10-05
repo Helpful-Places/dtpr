@@ -5,6 +5,20 @@ title:
     value: Right to a Human Review
   - locale: fr
     value: Droit à un examen humain
+  - locale: es
+    value: Derecho a una revisión humana
+  - locale: pt
+    value: Direito à revisão humana
+  - locale: fil
+    value: Karapatan sa pagsusuri ng tao
+  - locale: km
+    value: សិទ្ធិទទួលបានការពិនិត្យដោយមនុស្ស
+  - locale: vi
+    value: Quyền được con người xem xét
+  - locale: zh-Hans
+    value: 人工复核权
+  - locale: zh-Hant
+    value: 要求人工審查的權利
 description:
   - locale: en
     value: >-
@@ -19,4 +33,41 @@ description:
       automatisée, distincte du droit de contester une décision déjà prise. La personne qui procède
       à l'examen doit disposer de l'autorité et des informations nécessaires pour modifier
       effectivement le résultat.
+  - locale: es
+    value: >-
+      El derecho a que una persona — y no un sistema automatizado — tome o reconsidere de verdad una
+      decisión que le afecta. Es una vía hacia una decisión no automatizada, distinta del derecho a
+      impugnar una decisión que ya se tomó. La persona que revisa debe tener la autoridad y la
+      información necesarias para cambiar realmente el resultado.
+  - locale: pt
+    value: >-
+      O direito de que uma pessoa — e não um sistema automatizado — tome ou reconsidere de forma
+      efetiva uma decisão que afeta você. É um caminho para uma decisão não automatizada, separado
+      do direito de contestar uma decisão que já foi tomada. A pessoa que faz a revisão deve ter
+      autoridade e informações para realmente mudar o resultado.
+  - locale: fil
+    value: >-
+      Ang karapatang isang tao — hindi isang awtomatikong sistema — ang gumawa o makabuluhang sumuri
+      muli ng isang desisyong nakaaapekto sa inyo. Daan ito tungo sa desisyong hindi awtomatiko,
+      hiwalay sa karapatang tutulan ang isang desisyong nagawa na. Dapat may awtoridad at
+      impormasyon ang taong sumusuri para talagang mabago ang resulta.
+  - locale: km
+    value: >-
+      សិទ្ធិឱ្យមនុស្ស — មិនមែនប្រព័ន្ធស្វ័យប្រវត្តិ — ធ្វើការសម្រេចចិត្ត
+      ឬពិចារណាឡើងវិញយ៉ាងពិតប្រាកដលើការសម្រេចចិត្តដែលប៉ះពាល់ដល់អ្នក។
+      នេះជាផ្លូវទៅរកការសម្រេចចិត្តដែលមិនស្វ័យប្រវត្តិ
+      ដាច់ដោយឡែកពីសិទ្ធិតវ៉ាចំពោះការសម្រេចចិត្តដែលបានធ្វើរួចហើយ។ អ្នកពិនិត្យត្រូវមានសិទ្ធិអំណាច
+      និងព័ត៌មានគ្រប់គ្រាន់ ដើម្បីអាចផ្លាស់ប្តូរលទ្ធផលបានពិតប្រាកដ។
+  - locale: vi
+    value: >-
+      Quyền yêu cầu một con người — không phải một hệ thống tự động — đưa ra hoặc xem xét lại một
+      cách thực chất quyết định ảnh hưởng đến bạn. Đây là con đường dẫn đến một quyết định không tự
+      động, khác với quyền khiếu nại một quyết định đã được đưa ra. Người xem xét phải có thẩm quyền
+      và thông tin để thực sự thay đổi được kết quả.
+  - locale: zh-Hans
+    value: >-
+      有权要求由人——而不是自动化系统——作出影响您的决定，或对该决定进行实质性的重新考虑。这是获得非自动化决定的途径，有别于对已作出的决定提出申诉的权利。负责复核的人必须拥有足以真正改变结果的权限和信息。
+  - locale: zh-Hant
+    value: >-
+      您有權要求由人（而非自動化系統）做出影響您的決定，或對該決定進行有意義的重新考慮。這是取得非自動化決定的途徑，與對已做出的決定提出異議的權利不同。負責審查的人必須具備實際改變結果的權限與資訊。
 symbol_id: person_review

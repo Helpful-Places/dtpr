@@ -5,6 +5,20 @@ title:
     value: Risk Assessment & Triage
   - locale: fr
     value: Évaluation des risques et triage
+  - locale: es
+    value: Evaluación de riesgos y triaje
+  - locale: pt
+    value: Avaliação de risco e triagem
+  - locale: fil
+    value: Pagtatasa ng panganib at triage
+  - locale: km
+    value: ការវាយតម្លៃហានិភ័យ និងការចាត់អាទិភាព
+  - locale: vi
+    value: Đánh giá rủi ro và phân loại ưu tiên
+  - locale: zh-Hans
+    value: 风险评估与优先排序
+  - locale: zh-Hant
+    value: 風險評估與分流
 description:
   - locale: en
     value: >-
@@ -17,6 +31,40 @@ description:
       exemple, notation de récidive, triage hospitalier, signalements de risque en protection de
       l'enfance. À distinguer de Planification et prise de décision, qui prévoit à l'échelle d'une
       population ou d'un système.
+  - locale: es
+    value: >-
+      Asigna puntajes o prioridades a personas o casos para darles más atención o tomar medidas —
+      por ejemplo, puntajes de reincidencia, triaje hospitalario, alertas de riesgo en protección
+      infantil. Se distingue de Planificación y toma de decisiones, que hace pronósticos a nivel de
+      población o de sistema.
+  - locale: pt
+    value: >-
+      Atribui pontuações ou prioridades a indivíduos ou casos para atenção ou providências
+      adicionais — por exemplo, pontuação de reincidência, triagem hospitalar, alertas de risco na
+      proteção à criança. Diferente de Planejamento e tomada de decisão, que faz previsões no nível
+      da população ou do sistema.
+  - locale: fil
+    value: >-
+      Nagbibigay ng iskor o nagtatakda ng prayoridad sa mga indibidwal o kaso para sa dagdag na
+      atensiyon o aksiyon — halimbawa, pag-iskor ng posibilidad na muling makagawa ng krimen, triage
+      sa ospital, mga marka ng panganib sa kapakanan ng bata. Iba sa Pagpaplano at pagdedesisyon, na
+      nagfo-forecast sa antas ng populasyon o ng sistema.
+  - locale: km
+    value: >-
+      ដាក់ពិន្ទុ ឬចាត់អាទិភាពបុគ្គល ឬករណី សម្រាប់ការយកចិត្តទុកដាក់ ឬចាត់វិធានការបន្ថែម — ឧទាហរណ៍
+      ការដាក់ពិន្ទុហានិភ័យនៃការប្រព្រឹត្តបទល្មើសម្តងទៀត, ការចាត់អាទិភាពអ្នកជំងឺនៅមន្ទីរពេទ្យ,
+      សញ្ញាព្រមានហានិភ័យផ្នែកសុខុមាលភាពកុមារ។ ខុសពី «ការធ្វើផែនការ និងការសម្រេចចិត្ត»
+      ដែលព្យាករណ៍នៅកម្រិតប្រជាជន ឬកម្រិតប្រព័ន្ធ។
+  - locale: vi
+    value: >-
+      Chấm điểm hoặc xếp thứ tự ưu tiên các cá nhân hoặc vụ việc để được chú ý hoặc xử lý thêm — ví
+      dụ: chấm điểm nguy cơ tái phạm, phân loại ưu tiên ở bệnh viện, đánh dấu rủi ro trong bảo vệ
+      trẻ em. Khác với Quy hoạch và ra quyết định, vốn dự báo ở quy mô toàn dân cư hoặc toàn hệ
+      thống.
+  - locale: zh-Hans
+    value: 对个人或个案进行评分或排定优先顺序，以便进一步关注或采取行动——例如再犯风险评分、医院分诊、儿童福利风险标记。有别于“规划与决策”，后者是在人口或系统层面进行预测。
+  - locale: zh-Hant
+    value: 對個人或個案評分或排定優先順序，以決定後續的關注或行動，例如再犯風險評分、醫院分流、兒童福利風險標記。與「規劃與決策」不同，後者是在人口或系統層級進行預測。
 sources:
   - type: regulation
     title: EU AI Act Annex III §6 and §8 — Law-enforcement profiling and individual risk assessment in the administration of justice

@@ -5,9 +5,37 @@ title:
     value: No data retained
   - locale: fr
     value: Aucune donnée conservée
+  - locale: es
+    value: No se conservan datos
+  - locale: pt
+    value: Nenhum dado retido
+  - locale: fil
+    value: Walang data na pinananatili
+  - locale: km
+    value: មិនរក្សាទុកទិន្នន័យ
+  - locale: vi
+    value: Không lưu giữ dữ liệu
+  - locale: zh-Hans
+    value: 不保留数据
+  - locale: zh-Hant
+    value: 不保留資料
 description:
   - locale: en
     value: No data is kept or stored
   - locale: fr
     value: Aucune donnée n'est conservée ou stockée
+  - locale: es
+    value: No se conserva ni se almacena ningún dato
+  - locale: pt
+    value: Nenhum dado é mantido ou armazenado
+  - locale: fil
+    value: Walang data na pinananatili o iniimbak
+  - locale: km
+    value: គ្មានទិន្នន័យណាត្រូវបានរក្សាទុក ឬផ្ទុកទេ។
+  - locale: vi
+    value: Không có dữ liệu nào được giữ lại hoặc lưu trữ
+  - locale: zh-Hans
+    value: 不保留、不存储任何数据。
+  - locale: zh-Hant
+    value: 不保存或儲存任何資料。
 symbol_id: no_data_retained

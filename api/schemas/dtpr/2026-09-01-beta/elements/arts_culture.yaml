@@ -5,9 +5,37 @@ title:
     value: Arts & Culture
   - locale: fr
     value: Arts et culture
+  - locale: es
+    value: Artes y cultura
+  - locale: pt
+    value: Artes e cultura
+  - locale: fil
+    value: Sining at kultura
+  - locale: km
+    value: សិល្បៈ និងវប្បធម៌
+  - locale: vi
+    value: Nghệ thuật và văn hóa
+  - locale: zh-Hans
+    value: 艺术与文化
+  - locale: zh-Hant
+    value: 藝術與文化
 description:
   - locale: en
     value: Enables artistic and/or cultural expression.
   - locale: fr
     value: Permet l'expression artistique et/ou culturelle.
+  - locale: es
+    value: Hace posible la expresión artística y/o cultural.
+  - locale: pt
+    value: Possibilita a expressão artística e/ou cultural.
+  - locale: fil
+    value: Nagbibigay-daan sa masining at/o pangkulturang pagpapahayag.
+  - locale: km
+    value: ជួយឱ្យមានការបង្ហាញបែបសិល្បៈ និង/ឬវប្បធម៌។
+  - locale: vi
+    value: Tạo điều kiện cho việc thể hiện nghệ thuật và/hoặc văn hóa.
+  - locale: zh-Hans
+    value: 促进艺术和/或文化表达。
+  - locale: zh-Hant
+    value: 促成藝術及（或）文化表達。
 symbol_id: arts_culture

@@ -5,6 +5,20 @@ title:
     value: A signal or light change
   - locale: fr
     value: Un changement de signal ou d'éclairage
+  - locale: es
+    value: Un cambio de señal o de luz
+  - locale: pt
+    value: Uma mudança de sinal ou de luz
+  - locale: fil
+    value: Pagbabago ng signal o ilaw
+  - locale: km
+    value: ការផ្លាស់ប្តូរសញ្ញា ឬភ្លើង
+  - locale: vi
+    value: Thay đổi tín hiệu hoặc đèn
+  - locale: zh-Hans
+    value: 信号或灯光变化
+  - locale: zh-Hant
+    value: 號誌或燈光變化
 description:
   - locale: en
     value: >-
@@ -16,4 +30,35 @@ description:
       Le résultat change ce que l'environnement vous indique — un feu de circulation qui s'adapte
       au trafic, un éclairage public qui s'intensifie au passage, un voyant qui passe au rouge.
       Assez discret pour que la plupart des gens ne réalisent jamais qu'un système en a décidé.
+  - locale: es
+    value: >-
+      El resultado cambia lo que el entorno le indica — un semáforo que se adapta al flujo, un
+      alumbrado público que se intensifica cuando pasa gente, una luz de estado que se pone roja. Es
+      tan sutil que la mayoría de las personas nunca se da cuenta de que lo decidió un sistema.
+  - locale: pt
+    value: >-
+      O resultado muda o que o ambiente diz a você — um semáforo que se adapta ao fluxo, a
+      iluminação pública que fica mais forte quando pessoas passam, uma luz de status que fica
+      vermelha. É sutil o bastante para que a maioria das pessoas nunca perceba que um sistema tomou
+      essa decisão.
+  - locale: fil
+    value: >-
+      Binabago ng output ang sinasabi sa inyo ng paligid — ilaw-trapiko na umaangkop sa daloy, ilaw
+      sa kalye na lumiliwanag kapag may dumaraan, status light na nagiging pula. Napakabanayad nito
+      kaya hindi napapansin ng karamihan na sistema pala ang nagpasya rito.
+  - locale: km
+    value: >-
+      លទ្ធផលផ្លាស់ប្តូរអ្វីដែលបរិស្ថានជុំវិញប្រាប់អ្នក — ភ្លើងសញ្ញាចរាចរណ៍ដែលសម្របតាមលំហូរចរាចរណ៍,
+      ភ្លើងបំភ្លឺផ្លូវដែលភ្លឺខ្លាំងឡើងពេលមានមនុស្សដើរកាត់, ភ្លើងបង្ហាញស្ថានភាពដែលប្តូរទៅជាពណ៌ក្រហម។
+      វាមិនសូវលេចធ្លោទេ ដូច្នេះមនុស្សភាគច្រើនមិនដែលដឹងថាមានប្រព័ន្ធមួយបានសម្រេចរឿងនោះទេ។
+  - locale: vi
+    value: >-
+      Kết quả đầu ra làm thay đổi những gì môi trường xung quanh báo cho bạn — đèn giao thông điều
+      chỉnh theo dòng xe, đèn đường sáng lên khi có người đi qua, đèn báo trạng thái chuyển sang đỏ.
+      Khó nhận thấy đến mức hầu hết mọi người không bao giờ nhận ra là một hệ thống đã quyết định
+      điều đó.
+  - locale: zh-Hans
+    value: 输出改变了环境向您传达的信息——随车流调整的交通信号灯、有人经过时变亮的路灯、变红的状态指示灯。这种变化十分细微，大多数人从未意识到是系统作出的决定。
+  - locale: zh-Hant
+    value: 輸出結果改變了環境向您傳達的訊息：依車流調整的交通號誌、有人經過時變亮的路燈、轉為紅色的狀態指示燈。變化十分細微，大多數人從未察覺這是系統做出的決定。
 symbol_id: traffic_signal

@@ -5,9 +5,37 @@ title:
     value: Retained {{duration}}
   - locale: fr
     value: Retenu {{duration}}
+  - locale: es
+    value: Se conservan {{duration}}
+  - locale: pt
+    value: Retidos por {{duration}}
+  - locale: fil
+    value: Pinananatili nang {{duration}}
+  - locale: km
+    value: រក្សាទុក {{duration}}
+  - locale: vi
+    value: Lưu giữ trong {{duration}}
+  - locale: zh-Hans
+    value: 保留{{duration}}
+  - locale: zh-Hant
+    value: 保留{{duration}}
 description:
   - locale: en
     value: Data is stored for {{duration}}, and after this time period is deleted
   - locale: fr
     value: Les données sont stockées pendant {{duration}} et sont supprimées après cette période.
+  - locale: es
+    value: Los datos se almacenan durante {{duration}} y, pasado ese período, se eliminan
+  - locale: pt
+    value: Os dados são armazenados por {{duration}} e, após esse período, são excluídos
+  - locale: fil
+    value: Iniimbak ang data nang {{duration}}, at binubura pagkatapos ng panahong ito
+  - locale: km
+    value: ទិន្នន័យត្រូវបានផ្ទុករយៈពេល {{duration}} ហើយក្រោយរយៈពេលនេះត្រូវបានលុបចោល។
+  - locale: vi
+    value: Dữ liệu được lưu trữ trong {{duration}}, và sau khoảng thời gian này sẽ bị xóa
+  - locale: zh-Hans
+    value: 数据存储{{duration}}，期满后删除。
+  - locale: zh-Hant
+    value: 資料儲存{{duration}}，期滿後即刪除。
 symbol_id: is_retained

@@ -5,6 +5,20 @@ title:
     value: Shared storage and governance
   - locale: fr
     value: Stockage et gouvernance partagés
+  - locale: es
+    value: Almacenamiento y gobernanza compartidos
+  - locale: pt
+    value: Armazenamento e governança compartilhados
+  - locale: fil
+    value: Pinagsasaluhang imbakan at pamamahala
+  - locale: km
+    value: ការផ្ទុក និងអភិបាលកិច្ចរួម
+  - locale: vi
+    value: Lưu trữ và quản trị dùng chung
+  - locale: zh-Hans
+    value: 共享存储与治理
+  - locale: zh-Hant
+    value: 共用儲存與治理
 description:
   - locale: en
     value: >-
@@ -17,4 +31,36 @@ description:
       plusieurs parties et, comme l'infrastructure est partagée, il devient possible d'appliquer la
       gouvernance autour de la conservation, de l'accés et de la destruction des données par des
       politiques intégrées à la structure des données elles-mêmes.
+  - locale: es
+    value: >-
+      En un modelo de almacén de datos compartido, varias partes comparten el almacén de datos y,
+      como la infraestructura es compartida, es posible hacer cumplir la gobernanza sobre la
+      conservación, el acceso y la destrucción de los datos mediante políticas integradas en la
+      estructura misma de los datos.
+  - locale: pt
+    value: >-
+      Em um modelo de repositório de dados compartilhado, o repositório é compartilhado entre várias
+      partes e, como a infraestrutura é compartilhada, torna-se possível aplicar a governança sobre
+      a retenção, o acesso e a destruição dos dados por meio de políticas incorporadas à própria
+      estrutura dos dados.
+  - locale: fil
+    value: >-
+      Sa modelong pinagsasaluhang imbakan ng data, pinaghahatian ng maraming partido ang imbakan ng
+      data, at dahil pinagsasaluhan ang imprastruktura, nagiging posibleng ipatupad ang pamamahala
+      sa pagpapanatili, access, at pagsira ng data sa pamamagitan ng mga patakarang nakapaloob sa
+      mismong estruktura ng data.
+  - locale: km
+    value: >-
+      ក្នុងគំរូឃ្លាំងទិន្នន័យរួម ឃ្លាំងទិន្នន័យត្រូវបានប្រើរួមគ្នាដោយភាគីច្រើន
+      ហើយដោយសារហេដ្ឋារចនាសម្ព័ន្ធត្រូវបានប្រើរួមគ្នា វាអាចអនុវត្តអភិបាលកិច្ចលើការរក្សាទុក,
+      ការចូលប្រើ, និងការបំផ្លាញទិន្នន័យ តាមរយៈគោលការណ៍ដែលបង្កប់ក្នុងរចនាសម្ព័ន្ធនៃទិន្នន័យផ្ទាល់។
+  - locale: vi
+    value: >-
+      Trong mô hình kho dữ liệu dùng chung, kho dữ liệu được nhiều bên cùng sử dụng, và vì hạ tầng
+      được dùng chung nên có thể thực thi việc quản trị đối với việc lưu giữ, truy cập và hủy dữ
+      liệu bằng các chính sách được tích hợp ngay trong cấu trúc của chính dữ liệu.
+  - locale: zh-Hans
+    value: 在共享数据存储模式下，数据存储由多方共用；由于基础设施是共享的，就可以通过内置于数据结构本身的策略，对数据的保留、访问和销毁实施治理。
+  - locale: zh-Hant
+    value: 在共用資料儲存模式中，資料儲存庫由多方共用；由於基礎設施是共用的，便可透過內建於資料結構本身的政策，對資料的保留、存取與銷毀落實治理。
 symbol_id: stored

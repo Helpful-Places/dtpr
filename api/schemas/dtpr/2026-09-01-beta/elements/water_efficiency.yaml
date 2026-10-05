@@ -5,6 +5,20 @@ title:
     value: Water Efficiency
   - locale: fr
     value: Efficacité de l'eau
+  - locale: es
+    value: Uso eficiente del agua
+  - locale: pt
+    value: Uso eficiente da água
+  - locale: fil
+    value: Pagtitipid sa tubig
+  - locale: km
+    value: ប្រសិទ្ធភាពប្រើប្រាស់ទឹក
+  - locale: vi
+    value: Tiết kiệm nước
+  - locale: zh-Hans
+    value: 节水
+  - locale: zh-Hant
+    value: 用水效率
 description:
   - locale: en
     value: Reduces water use and/or helps conserve water.
@@ -12,4 +26,18 @@ description:
     value: >-
       Réduit la consommation d'eau et/ou contribue à sa conservation. Pour en savoir plus sur
       l'efficacité et la conservation de l'eau, ainsi que sur l'infrastructure verte.
+  - locale: es
+    value: Reduce el consumo de agua y/o ayuda a ahorrarla.
+  - locale: pt
+    value: Reduz o consumo de água e/ou ajuda a economizar água.
+  - locale: fil
+    value: Nagbabawas ng paggamit ng tubig at/o tumutulong magtipid ng tubig.
+  - locale: km
+    value: កាត់បន្ថយការប្រើទឹក និង/ឬជួយសន្សំសំចៃទឹក។
+  - locale: vi
+    value: Giảm mức sử dụng nước và/hoặc giúp tiết kiệm nước.
+  - locale: zh-Hans
+    value: 减少用水量和/或帮助节约用水。
+  - locale: zh-Hant
+    value: 減少用水及（或）協助節約用水。
 symbol_id: water_efficiency

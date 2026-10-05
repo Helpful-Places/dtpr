@@ -5,6 +5,20 @@ title:
     value: Positioning & Location
   - locale: fr
     value: Positionnement et localisation
+  - locale: es
+    value: Posicionamiento y ubicación
+  - locale: pt
+    value: Posicionamento e localização
+  - locale: fil
+    value: Pagpoposisyon at lokasyon
+  - locale: km
+    value: ការកំណត់ទីតាំង
+  - locale: vi
+    value: Định vị và vị trí
+  - locale: zh-Hans
+    value: 定位与位置
+  - locale: zh-Hant
+    value: 定位與位置
 description:
   - locale: en
     value: >-
@@ -17,4 +31,35 @@ description:
       balises Bluetooth ou systèmes de positionnement intérieur. Produit des traces de
       localisation, l'une des données personnelles les plus révélatrices lorsqu'elle est liée à une
       personne ou à son appareil.
+  - locale: es
+    value: >-
+      Determina dónde está algo — receptores GPS en vehículos o aplicaciones, balizas Bluetooth o
+      sistemas de posicionamiento en interiores. Produce rastros de ubicación, uno de los tipos de
+      datos personales más reveladores cuando se vinculan con una persona o con su dispositivo.
+  - locale: pt
+    value: >-
+      Determina onde algo está — receptores de GPS em veículos ou aplicativos, beacons Bluetooth ou
+      sistemas de posicionamento em ambientes internos. Produz rastros de localização, um dos tipos
+      mais reveladores de dados pessoais quando ligados a uma pessoa ou ao dispositivo dela.
+  - locale: fil
+    value: >-
+      Inaalam kung nasaan ang isang bagay — mga GPS receiver sa mga sasakyan o app, Bluetooth
+      beacon, o sistema ng pagpoposisyon sa loob ng gusali. Lumilikha ng mga bakas ng lokasyon, isa
+      sa mga uri ng personal na data na pinakamaraming naibubunyag kapag naiugnay sa isang tao o sa
+      kanilang device.
+  - locale: km
+    value: >-
+      កំណត់ថាអ្វីមួយស្ថិតនៅទីណា — ឧបករណ៍ទទួល GPS ក្នុងយានយន្ត ឬកម្មវិធី, ឧបករណ៍បញ្ចេញសញ្ញា
+      Bluetooth, ឬប្រព័ន្ធកំណត់ទីតាំងក្នុងអគារ។ វាបង្កើតដានទីតាំង
+      ដែលជាប្រភេទទិន្នន័យផ្ទាល់ខ្លួនមួយដែលបង្ហាញព័ត៌មានច្រើនបំផុត នៅពេលភ្ជាប់ទៅនឹងបុគ្គល
+      ឬឧបករណ៍របស់គាត់។
+  - locale: vi
+    value: >-
+      Xác định một thứ gì đó đang ở đâu — bộ thu GPS trong xe hoặc ứng dụng, thiết bị phát tín hiệu
+      Bluetooth, hoặc hệ thống định vị trong nhà. Tạo ra dấu vết vị trí, một trong những loại dữ
+      liệu cá nhân tiết lộ nhiều nhất khi gắn với một người hoặc thiết bị của họ.
+  - locale: zh-Hans
+    value: 确定某物在哪里——车辆或应用中的GPS接收器、蓝牙信标或室内定位系统。会产生位置轨迹；当位置轨迹与某人或其设备相关联时，它是最能暴露个人情况的个人数据之一。
+  - locale: zh-Hant
+    value: 判定某物所在位置：車輛或應用程式中的GPS接收器、藍牙信標或室內定位系統。它會產生位置軌跡；當軌跡與某人或其裝置連結時，是最能透露個人隱私的個人資料之一。
 symbol_id: map_pin

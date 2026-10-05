@@ -5,6 +5,20 @@ title:
     value: Identifies
   - locale: fr
     value: Identifie
+  - locale: es
+    value: Identifica
+  - locale: pt
+    value: Identifica
+  - locale: fil
+    value: Kumikilala
+  - locale: km
+    value: កំណត់អត្តសញ្ញាណ
+  - locale: vi
+    value: Nhận diện
+  - locale: zh-Hans
+    value: 识别
+  - locale: zh-Hant
+    value: 識別
 description:
   - locale: en
     value: >-
@@ -18,4 +32,43 @@ description:
       ou un compte à des références connues. Il transforme « quelqu'un est là » en « cette personne
       est là ». Exemples : une correspondance faciale à une porte d'embarquement, une recherche de
       plaque à un portique de péage. Distinct de Perçoit, qui détecte sans nommer.
+  - locale: es
+    value: >-
+      Identifica — reconoce quién es alguien o qué es algo al comparar un rostro, una voz, una
+      huella dactilar, una placa o una cuenta con registros conocidos. Convierte “alguien está aquí”
+      en “esta persona está aquí”. Ejemplos: una coincidencia facial en una puerta de embarque, la
+      consulta de una placa en un pórtico de peaje. Se distingue de Percibe, que detecta sin
+      nombrar.
+  - locale: pt
+    value: >-
+      Identifica — reconhece quem é alguém ou o que é algo ao comparar um rosto, uma voz, uma
+      impressão digital, uma placa ou uma conta com registros conhecidos. Transforma "alguém está
+      aqui" em "esta pessoa está aqui". Exemplos: a conferência do rosto em um portão de embarque, a
+      consulta de uma placa em um pórtico de pedágio. Diferente de Percebe, que detecta sem dar
+      nome.
+  - locale: fil
+    value: >-
+      Kumikilala — inaalam kung sino o ano ang isang bagay sa pamamagitan ng pagtutugma ng mukha,
+      boses, fingerprint, plaka, o account sa mga rekord na dati nang nakatala. Ginagawa nitong
+      "narito ang taong ito" ang "may tao rito." Mga halimbawa: pagtutugma ng mukha sa boarding
+      gate, paghahanap ng plaka sa toll gantry. Iba sa Sumasagap, na tumutuklas nang hindi
+      nagpapangalan.
+  - locale: km
+    value: >-
+      កំណត់អត្តសញ្ញាណ — ស្គាល់ថាជានរណា ឬជាអ្វី ដោយផ្គូផ្គងមុខ, សំឡេង, ស្នាមម្រាមដៃ, ស្លាកលេខយានយន្ត,
+      ឬគណនី ជាមួយកំណត់ត្រាដែលស្គាល់រួចហើយ។ វាប្តូរពី «មាននរណាម្នាក់នៅទីនេះ» ទៅជា «បុគ្គលនេះនៅទីនេះ»។
+      ឧទាហរណ៍៖ ការផ្គូផ្គងមុខនៅច្រកឡើងយន្តហោះ, ការស្វែងរកស្លាកលេខនៅច្រកគិតថ្លៃផ្លូវ។ ខុសពី
+      «ចាប់សញ្ញា» ដែលរកឃើញដោយមិនបញ្ជាក់ឈ្មោះ។
+  - locale: vi
+    value: >-
+      Nhận diện — nhận ra một người hoặc một vật là ai, là gì bằng cách đối chiếu khuôn mặt, giọng
+      nói, dấu vân tay, biển số xe hoặc tài khoản với các hồ sơ đã biết. Nó biến “có người ở đây”
+      thành “người này ở đây”. Ví dụ: đối chiếu khuôn mặt tại cửa lên máy bay, tra cứu biển số xe
+      tại giàn thu phí. Khác với Cảm nhận, vốn phát hiện mà không gọi tên.
+  - locale: zh-Hans
+    value: >-
+      识别——将面部、声音、指纹、车牌或账户与已知记录比对，认出某人是谁或某物是什么。它把“这里有人”变成“这个人在这里”。示例：登机口的人脸比对、收费龙门架处的车牌查询。有别于“感知”，后者只检测而不指明身份。
+  - locale: zh-Hant
+    value: >-
+      識別：將臉孔、聲音、指紋、車牌或帳號與已知紀錄比對，辨認出某人是誰或某物是什麼。它把「有人在這裡」變成「這個人在這裡」。例如：登機門的臉部比對、收費門架的車牌查詢。與「感測」不同，後者只偵測而不指明身分。
 symbol_id: biometric

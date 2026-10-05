@@ -5,9 +5,37 @@ title:
     value: Mobility
   - locale: fr
     value: Mobilité
+  - locale: es
+    value: Movilidad
+  - locale: pt
+    value: Mobilidade
+  - locale: fil
+    value: Mobilidad
+  - locale: km
+    value: ការធ្វើដំណើរ
+  - locale: vi
+    value: Di chuyển
+  - locale: zh-Hans
+    value: 交通出行
+  - locale: zh-Hant
+    value: 交通移動
 description:
   - locale: en
     value: Supports how people and materials move around.
   - locale: fr
     value: Contribue à la maniére dont les personnes et les matériaux se déplacent.
+  - locale: es
+    value: Apoya la forma en que se desplazan las personas y los materiales.
+  - locale: pt
+    value: Apoia a forma como pessoas e materiais se deslocam.
+  - locale: fil
+    value: Sumusuporta sa paraan ng paggalaw at pagbiyahe ng mga tao at materyales.
+  - locale: km
+    value: គាំទ្ររបៀបដែលមនុស្ស និងសម្ភារផ្លាស់ទីពីកន្លែងមួយទៅកន្លែងមួយ។
+  - locale: vi
+    value: Hỗ trợ cách con người và vật liệu di chuyển từ nơi này đến nơi khác.
+  - locale: zh-Hans
+    value: 支持人员出行和物资流动。
+  - locale: zh-Hant
+    value: 協助人員與物料的移動。
 symbol_id: mobility

@@ -5,6 +5,20 @@ title:
     value: User Input
   - locale: fr
     value: Saisie de l'utilisateur
+  - locale: es
+    value: Datos que ingresan las personas
+  - locale: pt
+    value: Informações fornecidas pelas pessoas
+  - locale: fil
+    value: Input ng user
+  - locale: km
+    value: ព័ត៌មានបញ្ចូលដោយអ្នកប្រើប្រាស់
+  - locale: vi
+    value: Thông tin người dùng nhập
+  - locale: zh-Hans
+    value: 用户输入
+  - locale: zh-Hant
+    value: 使用者輸入
 description:
   - locale: en
     value: >-
@@ -17,4 +31,33 @@ description:
       saisi, une recherche lancée, une photo téléversée, une commande vocale prononcée. La personne
       sait qu'elle transmet quelque chose, contrairement à la captation qui se produit autour
       d'elle.
+  - locale: es
+    value: >-
+      Información que las personas proporcionan deliberadamente — un formulario que llenan, un texto
+      que escriben, una búsqueda que hacen, una foto que suben, un comando de voz que dicen. La
+      persona sabe que está entregando algo, a diferencia de la captación que ocurre a su alrededor.
+  - locale: pt
+    value: >-
+      Informações que as pessoas fornecem de propósito — um formulário que preenchem, um texto que
+      digitam, uma busca que fazem, uma foto que enviam, um comando de voz que dão. A pessoa sabe
+      que está entregando algo, ao contrário da captação que acontece ao seu redor.
+  - locale: fil
+    value: >-
+      Impormasyong sadyang ibinibigay ng mga tao — form na sinasagutan nila, tekstong itinitipa
+      nila, paghahanap na ginagawa nila, larawang ina-upload nila, utos na binibigkas nila. Alam ng
+      tao na may ibinibigay sila, di-gaya ng pagsagap na nangyayari sa paligid nila.
+  - locale: km
+    value: >-
+      ព័ត៌មានដែលមនុស្សផ្តល់ដោយចេតនា — ទម្រង់បែបបទដែលពួកគេបំពេញ, អត្ថបទដែលពួកគេវាយ,
+      ការស្វែងរកដែលពួកគេធ្វើ, រូបថតដែលពួកគេបង្ហោះ, បញ្ជាដោយសំឡេងដែលពួកគេនិយាយ។
+      បុគ្គលនោះដឹងថាខ្លួនកំពុងប្រគល់អ្វីមួយ ខុសពីការចាប់សញ្ញាដែលកើតឡើងជុំវិញខ្លួន។
+  - locale: vi
+    value: >-
+      Thông tin mà mọi người chủ động cung cấp — một biểu mẫu họ điền, văn bản họ gõ, một lượt tìm
+      kiếm họ thực hiện, một bức ảnh họ tải lên, một lệnh họ nói ra. Người đó biết mình đang trao đi
+      một thứ gì đó, khác với việc thu nhận tín hiệu diễn ra xung quanh họ.
+  - locale: zh-Hans
+    value: 人们主动提供的信息——填写的表单、输入的文字、发起的搜索、上传的照片、说出的语音指令。当事人知道自己在提交信息，这与在其周围不知不觉进行的感知不同。
+  - locale: zh-Hant
+    value: 人們主動提供的資訊：填寫的表單、輸入的文字、進行的搜尋、上傳的照片、說出的語音指令。當事人知道自己正在交出資料，這與在其周遭進行的感測不同。
 symbol_id: form_field

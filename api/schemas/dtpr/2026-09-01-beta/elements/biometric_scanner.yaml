@@ -5,6 +5,20 @@ title:
     value: Biometric Scanner
   - locale: fr
     value: Lecteur biométrique
+  - locale: es
+    value: Escáner biométrico
+  - locale: pt
+    value: Leitor biométrico
+  - locale: fil
+    value: Biometric na scanner
+  - locale: km
+    value: ឧបករណ៍ស្កេនជីវមាត្រ
+  - locale: vi
+    value: Máy quét sinh trắc học
+  - locale: zh-Hans
+    value: 生物特征扫描仪
+  - locale: zh-Hant
+    value: 生物特徵掃描器
 description:
   - locale: en
     value: >-
@@ -17,4 +31,37 @@ description:
       visage à une porte, une borne ou un tourniquet. Le dispositif de capture lui-même ; la
       comparaison avec des gabarits enregistrés relève de la reconnaissance biométrique, qui figure
       sous Algorithme ou modèle.
+  - locale: es
+    value: >-
+      Capta un rasgo físico para identificar a alguien — huella dactilar, palma, iris o un escaneo
+      del rostro en una puerta, un quiosco o un torniquete. Es el dispositivo de captación en sí;
+      comparar el escaneo con plantillas almacenadas es reconocimiento biométrico, que aparece en
+      Algoritmo o modelo.
+  - locale: pt
+    value: >-
+      Capta uma característica física para identificação — impressão digital, palma da mão, íris ou
+      leitura do rosto em um portão, totem ou catraca. É o dispositivo de captura em si; a
+      comparação da leitura com templates armazenados é o reconhecimento biométrico, que aparece em
+      Algoritmo ou modelo.
+  - locale: fil
+    value: >-
+      Kumukuha ng isang pisikal na katangian para sa pagkilala — fingerprint, palad, iris, o scan ng
+      mukha sa isang gate, kiosk, o turnstile. Ito ang device na kumukuha mismo; ang pagtutugma ng
+      scan sa mga nakaimbak na template ay pagkilalang biometric, na makikita sa ilalim ng Algorithm
+      o modelo.
+  - locale: km
+    value: >-
+      ចាប់យកលក្ខណៈរាងកាយសម្រាប់ការកំណត់អត្តសញ្ញាណ — ស្នាមម្រាមដៃ, បាតដៃ, ប្រស្រីភ្នែក,
+      ឬការស្កេនមុខនៅច្រកទ្វារ, បញ្ជរស្វ័យសេវា, ឬច្រកទ្វារបង្វិល។ នេះជាឧបករណ៍ចាប់យកផ្ទាល់
+      ចំណែកការផ្គូផ្គងលទ្ធផលស្កេនជាមួយគំរូដែលបានរក្សាទុក គឺជាការសម្គាល់ជីវមាត្រ ដែលបង្ហាញនៅក្រោម
+      «ក្បួនដោះស្រាយ ឬម៉ូដែល»។
+  - locale: vi
+    value: >-
+      Thu nhận một đặc điểm cơ thể để nhận diện — dấu vân tay, lòng bàn tay, mống mắt, hoặc quét
+      khuôn mặt tại cổng, ki-ốt hoặc cổng xoay. Đây là chính thiết bị thu nhận; việc đối chiếu bản
+      quét với các mẫu đã lưu là nhận diện sinh trắc học, nằm trong mục Thuật toán hoặc mô hình.
+  - locale: zh-Hans
+    value: 采集身体特征用于身份识别——在门禁、自助终端或闸机处采集指纹、掌纹、虹膜或面部扫描。这里指采集设备本身；将扫描结果与已存模板进行比对属于生物特征识别，列在“算法或模型”之下。
+  - locale: zh-Hant
+    value: 擷取身體特徵以供識別，例如在閘門、自助服務機或驗票閘門掃描指紋、手掌、虹膜或臉孔。此處指擷取裝置本身；將掃描結果與已儲存的特徵範本比對，屬於生物特徵辨識，列在「演算法或模型」之下。
 symbol_id: fingerprint_scan

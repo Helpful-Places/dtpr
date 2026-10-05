@@ -5,6 +5,20 @@ title:
     value: Employment & Work
   - locale: fr
     value: Emploi et travail
+  - locale: es
+    value: Empleo y trabajo
+  - locale: pt
+    value: Emprego e trabalho
+  - locale: fil
+    value: Empleyo at trabaho
+  - locale: km
+    value: ការងារ និងការជួលបុគ្គលិក
+  - locale: vi
+    value: Việc làm và lao động
+  - locale: zh-Hans
+    value: 就业与工作
+  - locale: zh-Hant
+    value: 就業與工作
 description:
   - locale: en
     value: >-
@@ -15,6 +29,34 @@ description:
       Soutient le recrutement, la planification, l'évaluation de la performance ou les opérations
       sur le lieu de travail — par exemple, le tri de CV, l'attribution des postes, le suivi de la
       productivité.
+  - locale: es
+    value: >-
+      Apoya la contratación, la programación de horarios, la evaluación del desempeño o las
+      operaciones del lugar de trabajo — por ejemplo, filtrado de currículums, asignación de turnos,
+      monitoreo de la productividad.
+  - locale: pt
+    value: >-
+      Apoia a contratação, a definição de escalas, a avaliação de desempenho ou as operações no
+      local de trabalho — por exemplo, triagem de currículos, distribuição de turnos, monitoramento
+      de produtividade.
+  - locale: fil
+    value: >-
+      Sumusuporta sa pagkuha ng empleyado, pag-iiskedyul, pagtatasa ng pagganap, o mga operasyon sa
+      lugar ng trabaho — halimbawa, pagsala ng résumé, pagtatalaga ng shift, pagbabantay sa
+      produktibidad.
+  - locale: km
+    value: >-
+      គាំទ្រការជ្រើសរើសបុគ្គលិក, ការរៀបកាលវិភាគ, ការវាយតម្លៃការបំពេញការងារ,
+      ឬប្រតិបត្តិការនៅកន្លែងធ្វើការ — ឧទាហរណ៍ ការពិនិត្យជម្រុះប្រវត្តិរូបសង្ខេប, ការចាត់វេនការងារ,
+      ការតាមដានផលិតភាព។
+  - locale: vi
+    value: >-
+      Hỗ trợ việc tuyển dụng, xếp lịch, đánh giá hiệu quả làm việc hoặc hoạt động tại nơi làm việc —
+      ví dụ: sàng lọc hồ sơ xin việc, phân ca, theo dõi năng suất.
+  - locale: zh-Hans
+    value: 支持招聘、排班、绩效评估或工作场所运营——例如简历筛选、班次分配、生产效率监测。
+  - locale: zh-Hant
+    value: 協助招募、排班、績效評估或職場營運，例如履歷篩選、班表指派、生產力監測。
 sources:
   - type: regulation
     title: EU AI Act Annex III §4 — Employment, workers management, and access to self-employment

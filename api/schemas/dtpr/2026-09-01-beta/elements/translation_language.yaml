@@ -5,6 +5,20 @@ title:
     value: Translation & Language Access
   - locale: fr
     value: Traduction et accès linguistique
+  - locale: es
+    value: Traducción y acceso lingüístico
+  - locale: pt
+    value: Tradução e acesso linguístico
+  - locale: fil
+    value: Pagsasalin at access sa wika
+  - locale: km
+    value: ការបកប្រែ និងលទ្ធភាពប្រើប្រាស់តាមភាសា
+  - locale: vi
+    value: Dịch thuật và hỗ trợ ngôn ngữ
+  - locale: zh-Hans
+    value: 翻译与语言无障碍
+  - locale: zh-Hant
+    value: 翻譯與語言服務
 description:
   - locale: en
     value: >-
@@ -15,6 +29,34 @@ description:
       Traduit la parole, le texte ou la signalétique pour rendre un lieu ou un service accessible
       dans plusieurs langues — par exemple, l'interprétation en temps réel à un guichet, la
       signalétique multilingue.
+  - locale: es
+    value: >-
+      Traduce voz, texto o letreros para que un lugar o servicio sea accesible en varios idiomas —
+      por ejemplo, interpretación en tiempo real en un mostrador de atención, señalización
+      multilingüe.
+  - locale: pt
+    value: >-
+      Traduz fala, texto ou sinalização para tornar um lugar ou serviço acessível em diferentes
+      línguas — por exemplo, interpretação em tempo real em um balcão de atendimento, sinalização
+      multilíngue.
+  - locale: fil
+    value: >-
+      Nagsasalin ng pananalita, teksto, o mga karatula para magamit ang isang lugar o serbisyo ng
+      mga taong iba-iba ang wika — halimbawa, sabayang pagsasalin sa isang service counter, mga
+      karatulang nasa maraming wika.
+  - locale: km
+    value: >-
+      បកប្រែសំដី, អត្ថបទ, ឬផ្លាកសញ្ញា ដើម្បីឱ្យទីកន្លែង ឬសេវាមួយអាចប្រើបានក្នុងភាសាផ្សេងៗ — ឧទាហរណ៍
+      ការបកប្រែផ្ទាល់មាត់ភ្លាមៗនៅបញ្ជរសេវា, ផ្លាកសញ្ញាច្រើនភាសា។
+  - locale: vi
+    value: >-
+      Dịch lời nói, văn bản hoặc biển báo để mọi người thuộc nhiều ngôn ngữ đều tiếp cận được một
+      nơi hoặc dịch vụ — ví dụ: thông dịch theo thời gian thực tại quầy dịch vụ, biển báo đa ngôn
+      ngữ.
+  - locale: zh-Hans
+    value: 翻译语音、文字或标牌，让不同语言的人都能使用某一场所或服务——例如服务窗口的实时口译、多语言标牌。
+  - locale: zh-Hant
+    value: 翻譯語音、文字或標示，讓使用不同語言的人都能利用場所或服務，例如服務櫃檯的即時口譯、多語言標示。
 sources:
   - type: framework
     title: European Charter for Regional or Minority Languages

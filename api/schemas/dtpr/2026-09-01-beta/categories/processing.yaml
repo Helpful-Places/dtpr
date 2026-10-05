@@ -4,6 +4,20 @@ name:
     value: Algorithm or Model
   - locale: fr
     value: Algorithme ou modèle
+  - locale: es
+    value: Algoritmo o modelo
+  - locale: pt
+    value: Algoritmo ou modelo
+  - locale: fil
+    value: Algorithm o modelo
+  - locale: km
+    value: ក្បួនដោះស្រាយ ឬម៉ូដែល
+  - locale: vi
+    value: Thuật toán hoặc mô hình
+  - locale: zh-Hans
+    value: 算法或模型
+  - locale: zh-Hant
+    value: 演算法或模型
 description:
   - locale: en
     value: >-
@@ -13,11 +27,49 @@ description:
     value: >-
       Ce qui traite les entrées — la famille d’algorithmes, la classe de modèle ou la technique
       utilisée pour transformer les entrées en sorties.
+  - locale: es
+    value: >-
+      Lo que procesa los datos de entrada — la familia de algoritmos, la clase de modelo o la
+      técnica que se usa para convertir las entradas en resultados.
+  - locale: pt
+    value: >-
+      O que processa os dados de entrada — a família de algoritmos, a classe de modelo ou a técnica
+      usada para transformar entradas em saídas.
+  - locale: fil
+    value: >-
+      Kung ano ang nagpoproseso ng input — ang pamilya ng algorithm, klase ng modelo, o teknik na
+      ginagamit para gawing output ang mga input.
+  - locale: km
+    value: >-
+      អ្វីដែលដំណើរការទិន្នន័យបញ្ចូល — ក្រុមក្បួនដោះស្រាយ, ប្រភេទម៉ូដែល,
+      ឬបច្ចេកទេសដែលប្រើដើម្បីបំប្លែងទិន្នន័យបញ្ចូលទៅជាលទ្ធផល។
+  - locale: vi
+    value: >-
+      Thứ xử lý đầu vào — nhóm thuật toán, loại mô hình hoặc kỹ thuật được dùng để biến đầu vào
+      thành đầu ra.
+  - locale: zh-Hans
+    value: 由什么来处理输入——将输入转化为输出所使用的算法族、模型类别或技术。
+  - locale: zh-Hant
+    value: 處理輸入資料的方式：用來將輸入轉換為輸出的演算法類別、模型類型或技術。
 prompt:
   - locale: en
     value: What algorithm or model processes the data?
   - locale: fr
     value: Quel algorithme ou modèle traite les données ?
+  - locale: es
+    value: ¿Qué algoritmo o modelo procesa los datos?
+  - locale: pt
+    value: Que algoritmo ou modelo processa os dados?
+  - locale: fil
+    value: Anong algorithm o modelo ang nagpoproseso ng data?
+  - locale: km
+    value: តើក្បួនដោះស្រាយ ឬម៉ូដែលអ្វីដំណើរការទិន្នន័យ?
+  - locale: vi
+    value: Thuật toán hoặc mô hình nào xử lý dữ liệu?
+  - locale: zh-Hans
+    value: 由什么算法或模型处理数据？
+  - locale: zh-Hant
+    value: 資料由什麼演算法或模型處理？
 required: false
 order: 9
 datachain_type: dtpr
@@ -29,4 +81,18 @@ element_variables:
         value: Description
       - locale: fr
         value: Description
+      - locale: es
+        value: Descripción
+      - locale: pt
+        value: Descrição
+      - locale: fil
+        value: Paglalarawan
+      - locale: km
+        value: ការពណ៌នា
+      - locale: vi
+        value: Mô tả
+      - locale: zh-Hans
+        value: 描述
+      - locale: zh-Hant
+        value: 說明
     required: false

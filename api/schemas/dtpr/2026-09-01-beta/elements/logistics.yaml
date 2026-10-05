@@ -5,9 +5,37 @@ title:
     value: Logistics
   - locale: fr
     value: Logistique
+  - locale: es
+    value: Logística
+  - locale: pt
+    value: Logística
+  - locale: fil
+    value: Lohistika
+  - locale: km
+    value: ភស្តុភារ
+  - locale: vi
+    value: Vận chuyển hàng hóa
+  - locale: zh-Hans
+    value: 物流
+  - locale: zh-Hant
+    value: 物流
 description:
   - locale: en
     value: Supports the movements of goods or materials.
   - locale: fr
     value: Favorise la circulation des marchandises ou des matériaux.
+  - locale: es
+    value: Apoya el traslado de bienes o materiales.
+  - locale: pt
+    value: Apoia a movimentação de bens ou materiais.
+  - locale: fil
+    value: Sumusuporta sa paghahatid at paglilipat ng mga produkto o materyales.
+  - locale: km
+    value: គាំទ្រការដឹកជញ្ជូនទំនិញ ឬសម្ភារ។
+  - locale: vi
+    value: Hỗ trợ việc di chuyển hàng hóa hoặc vật liệu.
+  - locale: zh-Hans
+    value: 支持货物或物资的运输流转。
+  - locale: zh-Hant
+    value: 協助貨物或物料的運送。
 symbol_id: logistics

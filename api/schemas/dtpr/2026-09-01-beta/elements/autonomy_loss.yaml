@@ -5,6 +5,20 @@ title:
     value: Loss of autonomy
   - locale: fr
     value: Perte d'autonomie
+  - locale: es
+    value: Pérdida de autonomía
+  - locale: pt
+    value: Perda de autonomia
+  - locale: fil
+    value: Pagkawala ng sariling pagpapasya
+  - locale: km
+    value: ការបាត់បង់ស្វ័យភាព
+  - locale: vi
+    value: Mất quyền tự chủ
+  - locale: zh-Hans
+    value: 自主权丧失
+  - locale: zh-Hant
+    value: 喪失自主權
 description:
   - locale: en
     value: >-
@@ -21,4 +35,51 @@ description:
       résultat particulier et d'absence de consentement significatif. Les mesures d'atténuation
       peuvent inclure des mécanismes de retrait, des recommandations transparentes, des paramètres
       par défaut qui protègent l'agentivité et un examen humain des décisions importantes.
+  - locale: es
+    value: >-
+      El riesgo de que el sistema de IA limite la capacidad de una persona para tomar sus propias
+      decisiones, controlar su identidad o elegir libremente. Esto incluye riesgos de acceso
+      restringido a alternativas, diseño engañoso que empuja las decisiones hacia un resultado
+      particular y falta de consentimiento real. Las medidas de mitigación pueden incluir mecanismos
+      de exclusión voluntaria, recomendaciones transparentes, opciones predeterminadas que protejan
+      la capacidad de decidir y revisión humana de las decisiones con consecuencias importantes.
+  - locale: pt
+    value: >-
+      O risco de que o sistema de IA limite a capacidade de uma pessoa de tomar as próprias
+      decisões, controlar sua identidade ou escolher livremente. Isso inclui riscos de acesso
+      restrito a alternativas, de design enganoso que empurra as decisões para um determinado
+      resultado e de falta de consentimento efetivo. As medidas de mitigação podem incluir
+      mecanismos para optar por não participar, recomendações transparentes, configurações padrão
+      que protejam a autonomia e revisão humana de decisões de grande impacto.
+  - locale: fil
+    value: >-
+      Ang panganib na limitahan ng sistemang AI ang kakayahan ng isang tao na gumawa ng sariling
+      desisyon, kontrolin ang sariling pagkakakilanlan, o malayang pumili. Kasama rito ang mga
+      panganib ng limitadong access sa ibang mapagpipilian, mapanlinlang na disenyong nagtutulak ng
+      mga desisyon tungo sa isang partikular na resulta, at kawalan ng makabuluhang pahintulot.
+      Maaaring kabilang sa mga hakbang para mabawasan ang panganib ang mga paraan para tumangging
+      mapasama, malilinaw na rekomendasyon, mga default na nagpoprotekta sa kalayaang pumili, at
+      pagsusuri ng tao sa mga desisyong may mabigat na epekto.
+  - locale: km
+    value: >-
+      ហានិភ័យដែលប្រព័ន្ធ AI កម្រិតសមត្ថភាពរបស់បុគ្គលក្នុងការសម្រេចចិត្តដោយខ្លួនឯង,
+      គ្រប់គ្រងអត្តសញ្ញាណរបស់ខ្លួន, ឬជ្រើសរើសដោយសេរី។
+      នេះរួមមានហានិភ័យនៃការរឹតត្បិតការចូលទៅរកជម្រើសផ្សេង,
+      ការរចនាបោកបញ្ឆោតដែលរុញការសម្រេចចិត្តទៅរកលទ្ធផលជាក់លាក់ណាមួយ,
+      និងកង្វះការយល់ព្រមដែលមានអត្ថន័យពិតប្រាកដ។ វិធានការកាត់បន្ថយអាចរួមមាន យន្តការដកខ្លួនចេញ,
+      អនុសាសន៍ដែលមានតម្លាភាព, ការកំណត់លំនាំដើមដែលការពារសិទ្ធិសម្រេចដោយខ្លួនឯង,
+      និងការពិនិត្យដោយមនុស្សលើការសម្រេចចិត្តដែលមានផលវិបាកធំ។
+  - locale: vi
+    value: >-
+      Rủi ro hệ thống AI hạn chế khả năng của một người trong việc tự đưa ra quyết định, kiểm soát
+      danh tính của mình hoặc tự do lựa chọn. Điều này bao gồm rủi ro bị hạn chế tiếp cận các lựa
+      chọn thay thế, thiết kế đánh lừa nhằm lái quyết định về một kết quả nhất định, và thiếu sự
+      đồng ý thực chất. Biện pháp giảm thiểu có thể gồm cơ chế từ chối tham gia, đề xuất minh bạch,
+      thiết lập mặc định bảo vệ quyền tự quyết, và việc con người xem xét các quyết định hệ trọng.
+  - locale: zh-Hans
+    value: >-
+      AI系统限制个人自行决定、掌控自身身份或自由选择的能力的风险。这包括获取替代方案受限、以欺骗性设计诱导决定偏向特定结果，以及缺乏有实际意义的同意等风险。缓解措施可包括退出机制、透明的推荐、保护自主权的默认设置，以及对重大决定进行人工复核。
+  - locale: zh-Hant
+    value: >-
+      AI系統限制個人自行做決定、掌控自身身分或自由選擇之能力的風險。包括難以取得替代選項、以欺瞞式設計將決定引導至特定結果，以及缺乏有意義的同意等風險。因應措施可包括選擇退出機制、透明的建議、保障自主的預設值，以及對重大決定進行人工審查。
 symbol_id: risks_autonomy

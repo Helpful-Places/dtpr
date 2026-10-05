@@ -5,6 +5,20 @@ title:
     value: Data about a place
   - locale: fr
     value: Données sur un lieu
+  - locale: es
+    value: Datos sobre un lugar
+  - locale: pt
+    value: Dados sobre um lugar
+  - locale: fil
+    value: Data tungkol sa lugar
+  - locale: km
+    value: ទិន្នន័យអំពីទីកន្លែង
+  - locale: vi
+    value: Dữ liệu về địa điểm
+  - locale: zh-Hans
+    value: 场所数据
+  - locale: zh-Hant
+    value: 地點資料
 description:
   - locale: en
     value: >-
@@ -16,4 +30,33 @@ description:
       Lieux, itinéraires, environnement ou plans. L'IA reçoit des données décrivant l'endroit où se
       trouve quelque chose. Exemples : des coordonnées GPS d'un téléphone, des comptages de passages
       piétons, le plan des couloirs d'un bâtiment.
+  - locale: es
+    value: >-
+      Ubicaciones, rutas, alrededores o planos de planta. La IA recibe datos que describen dónde
+      está algo. Ejemplos: coordenadas GPS de un teléfono, conteos de peatones en una acera, un mapa
+      de los pasillos de un edificio.
+  - locale: pt
+    value: >-
+      Localizações, rotas, arredores ou plantas baixas. A IA recebe dados que descrevem onde algo
+      está. Exemplos: coordenadas de GPS de um celular, contagens de pedestres em uma calçada, um
+      mapa dos corredores de um prédio.
+  - locale: fil
+    value: >-
+      Mga lokasyon, ruta, paligid, o floor plan. Tumatanggap ang AI ng data na naglalarawan kung
+      nasaan ang isang bagay. Mga halimbawa: GPS coordinates mula sa telepono, bilang ng mga
+      dumaraang naglalakad sa bangketa, mapa ng mga pasilyo ng gusali.
+  - locale: km
+    value: >-
+      ទីតាំង, ផ្លូវធ្វើដំណើរ, បរិវេណជុំវិញ, ឬប្លង់អគារ។ AI
+      ទទួលយកទិន្នន័យដែលពណ៌នាថាអ្វីមួយស្ថិតនៅទីណា។ ឧទាហរណ៍៖ កូអរដោនេ GPS ពីទូរសព្ទ,
+      ចំនួនអ្នកដើរកាត់លើចិញ្ចើមផ្លូវ, ផែនទីច្រករបៀងក្នុងអគារ។
+  - locale: vi
+    value: >-
+      Vị trí, tuyến đường, khu vực xung quanh hoặc sơ đồ mặt bằng. AI tiếp nhận dữ liệu mô tả một
+      thứ gì đó đang ở đâu. Ví dụ: tọa độ GPS từ điện thoại, số lượt người đi bộ trên vỉa hè, bản đồ
+      các hành lang trong một tòa nhà.
+  - locale: zh-Hans
+    value: 位置、路线、周边环境或平面图。AI接收描述某物所在位置的数据。示例：手机的GPS坐标、人行道上的人流计数、建筑走廊的地图。
+  - locale: zh-Hant
+    value: 位置、路線、周遭環境或樓層平面圖。AI接收描述某物所在位置的資料。例如：手機的GPS座標、人行道的人流計數、建築物走廊的地圖。
 symbol_id: spatial

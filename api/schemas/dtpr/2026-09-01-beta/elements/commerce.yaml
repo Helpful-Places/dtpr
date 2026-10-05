@@ -5,9 +5,37 @@ title:
     value: Commerce
   - locale: fr
     value: Commerce
+  - locale: es
+    value: Comercio
+  - locale: pt
+    value: Comércio
+  - locale: fil
+    value: Komersiyo
+  - locale: km
+    value: ពាណិជ្ជកម្ម
+  - locale: vi
+    value: Thương mại
+  - locale: zh-Hans
+    value: 商业
+  - locale: zh-Hant
+    value: 商業
 description:
   - locale: en
     value: Enables the buying and selling of goods and services.
   - locale: fr
     value: Permet l'achat et la vente de biens et de services.
+  - locale: es
+    value: Hace posible la compra y venta de bienes y servicios.
+  - locale: pt
+    value: Possibilita a compra e venda de bens e serviços.
+  - locale: fil
+    value: Nagbibigay-daan sa pagbili at pagbebenta ng mga produkto at serbisyo.
+  - locale: km
+    value: ជួយឱ្យមានការទិញ និងលក់ទំនិញ និងសេវា។
+  - locale: vi
+    value: Tạo điều kiện cho việc mua bán hàng hóa và dịch vụ.
+  - locale: zh-Hans
+    value: 促成商品和服务的买卖。
+  - locale: zh-Hant
+    value: 促成商品與服務的買賣。
 symbol_id: commerce

@@ -5,6 +5,20 @@ title:
     value: Content Moderation
   - locale: fr
     value: Modération de contenu
+  - locale: es
+    value: Moderación de contenido
+  - locale: pt
+    value: Moderação de conteúdo
+  - locale: fil
+    value: Pagmo-moderate ng nilalaman
+  - locale: km
+    value: ការត្រួតពិនិត្យខ្លឹមសារ
+  - locale: vi
+    value: Kiểm duyệt nội dung
+  - locale: zh-Hans
+    value: 内容审核
+  - locale: zh-Hant
+    value: 內容審核
 description:
   - locale: en
     value: >-
@@ -15,6 +29,33 @@ description:
       Filtre, classe ou retire du contenu généré par les utilisateurs selon des politiques — par
       exemple, la modération de commentaires sur une borne publique, le filtrage d'images, ou la
       détection de discours haineux.
+  - locale: es
+    value: >-
+      Filtra, ordena o elimina contenido generado por los usuarios según ciertas políticas — por
+      ejemplo, moderación de comentarios en un quiosco de uso público, filtrado de imágenes o
+      detección de discurso de odio.
+  - locale: pt
+    value: >-
+      Filtra, classifica ou remove conteúdo gerado por usuários com base em políticas — por exemplo,
+      moderação de comentários em um totem voltado ao público, filtragem de imagens ou detecção de
+      discurso de ódio.
+  - locale: fil
+    value: >-
+      Nagsasala, nagraranggo, o nag-aalis ng nilalamang gawa ng mga user batay sa mga patakaran —
+      halimbawa, pagmo-moderate ng mga komento sa isang kiosk na para sa publiko, pagsasala ng mga
+      larawan, o pagtuklas ng hate speech.
+  - locale: km
+    value: >-
+      ច្រោះ, រៀបលំដាប់, ឬដកចេញខ្លឹមសារដែលអ្នកប្រើប្រាស់បង្កើត ដោយផ្អែកលើគោលការណ៍ — ឧទាហរណ៍
+      ការត្រួតពិនិត្យមតិយោបល់លើបញ្ជរស្វ័យសេវាសាធារណៈ, ការច្រោះរូបភាព, ឬការរកឃើញពាក្យសំដីស្អប់ខ្ពើម។
+  - locale: vi
+    value: >-
+      Lọc, xếp hạng hoặc gỡ bỏ nội dung do người dùng tạo ra dựa trên các chính sách — ví dụ: kiểm
+      duyệt bình luận trên ki-ốt công cộng, lọc hình ảnh, hoặc phát hiện phát ngôn thù ghét.
+  - locale: zh-Hans
+    value: 依据规则过滤、排序或删除用户生成的内容——例如面向公众的自助终端上的评论审核、图像过滤或仇恨言论检测。
+  - locale: zh-Hant
+    value: 依據政策篩選、排序或移除使用者產生的內容，例如公共自助服務機上的留言審核、圖片篩選或仇恨言論偵測。
 sources:
   - type: regulation
     title: EU Digital Services Act — Articles 14–17 (notice-and-action, statements of reasons, internal complaint handling)

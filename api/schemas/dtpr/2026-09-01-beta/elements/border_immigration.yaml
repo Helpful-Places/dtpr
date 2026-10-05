@@ -5,6 +5,20 @@ title:
     value: Border & Immigration
   - locale: fr
     value: Frontière et immigration
+  - locale: es
+    value: Fronteras e inmigración
+  - locale: pt
+    value: Fronteiras e imigração
+  - locale: fil
+    value: Hangganan at imigrasyon
+  - locale: km
+    value: ព្រំដែន និងអន្តោប្រវេសន៍
+  - locale: vi
+    value: Biên giới và di trú
+  - locale: zh-Hans
+    value: 边境与移民
+  - locale: zh-Hant
+    value: 邊境與移民
 description:
   - locale: en
     value: >-
@@ -15,6 +29,34 @@ description:
       Soutient les décisions ou traitements en matière d'immigration, d'asile ou de passage de
       frontière — par exemple, la reconnaissance faciale au contrôle frontalier, la décision sur les
       visas, l'évaluation du risque en asile.
+  - locale: es
+    value: >-
+      Apoya decisiones o trámites de inmigración, asilo o cruce de fronteras — por ejemplo,
+      reconocimiento facial en el control fronterizo, resolución de visas, evaluación de riesgo en
+      casos de asilo.
+  - locale: pt
+    value: >-
+      Apoia decisões ou procedimentos de imigração, asilo ou travessia de fronteira — por exemplo,
+      reconhecimento facial no controle de fronteira, análise de pedidos de visto, avaliação de
+      risco em pedidos de asilo.
+  - locale: fil
+    value: >-
+      Sumusuporta sa mga desisyon o pagpoproseso kaugnay ng imigrasyon, asylum, o pagtawid sa
+      hangganan — halimbawa, pagkilala ng mukha sa kontrol sa hangganan, pagpapasya sa visa,
+      pagtatasa ng panganib sa asylum.
+  - locale: km
+    value: >-
+      គាំទ្រការសម្រេចចិត្ត ឬការដំណើរការសំណុំរឿងទាក់ទងនឹងអន្តោប្រវេសន៍, សិទ្ធិជ្រកកោន,
+      ឬការឆ្លងកាត់ព្រំដែន — ឧទាហរណ៍ ការសម្គាល់មុខនៅច្រកត្រួតពិនិត្យព្រំដែន, ការសម្រេចលើទិដ្ឋាការ,
+      ការវាយតម្លៃហានិភ័យក្នុងសំណុំរឿងសុំសិទ្ធិជ្រកកោន។
+  - locale: vi
+    value: >-
+      Hỗ trợ việc ra quyết định hoặc xử lý hồ sơ về di trú, tị nạn hoặc qua lại biên giới — ví dụ:
+      nhận diện khuôn mặt khi kiểm soát biên giới, xét duyệt thị thực, đánh giá rủi ro hồ sơ tị nạn.
+  - locale: zh-Hans
+    value: 支持移民、庇护或出入境方面的决定或办理——例如边检人脸识别、签证审批、庇护风险评估。
+  - locale: zh-Hant
+    value: 協助移民、庇護或出入境相關的決定或處理作業，例如邊境管制的臉部辨識、簽證審核、庇護風險評估。
 sources:
   - type: regulation
     title: EU AI Act Annex III §7 — Migration, asylum, and border-control management

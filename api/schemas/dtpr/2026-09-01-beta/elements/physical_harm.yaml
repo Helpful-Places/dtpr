@@ -5,6 +5,20 @@ title:
     value: Physical harm
   - locale: fr
     value: Préjudice physique
+  - locale: es
+    value: Daño físico
+  - locale: pt
+    value: Dano físico
+  - locale: fil
+    value: Pisikal na pinsala
+  - locale: km
+    value: ការខូចខាតដល់រាងកាយ
+  - locale: vi
+    value: Tổn hại thể chất
+  - locale: zh-Hans
+    value: 人身伤害
+  - locale: zh-Hant
+    value: 人身傷害
 description:
   - locale: en
     value: >-
@@ -22,4 +36,51 @@ description:
       d'atténuation peuvent inclure des tests de sécurité rigoureux, des paramètres par défaut à
       sécurité intégrée, le géorepérage des comportements dangereux et la supervision humaine des
       actions physiques à enjeux élevés.
+  - locale: es
+    value: >-
+      El riesgo de que los resultados del sistema de IA provoquen lesiones físicas a personas o
+      daños a la propiedad. Esto incluye riesgos derivados de vehículos autónomos, movimientos de
+      robots, indicaciones de navegación defectuosas o errores en infraestructura crítica que pongan
+      en peligro a personas o bienes. Las medidas de mitigación pueden incluir pruebas de seguridad
+      rigurosas, configuraciones predeterminadas a prueba de fallas, geocercas que limiten
+      comportamientos peligrosos y supervisión humana de las acciones físicas de alto riesgo.
+  - locale: pt
+    value: >-
+      O risco de que as saídas do sistema de IA levem a lesões físicas em indivíduos ou a danos a
+      bens. Isso inclui riscos decorrentes de veículos autônomos, de acionamentos robóticos, de
+      orientações de navegação com falhas ou de erros em infraestruturas críticas que colocam
+      pessoas ou bens em perigo. As medidas de mitigação podem incluir testes rigorosos de
+      segurança, configurações padrão à prova de falhas, cercas virtuais que bloqueiem
+      comportamentos perigosos e supervisão humana de ações físicas de alto risco.
+  - locale: fil
+    value: >-
+      Ang panganib na humantong ang mga output ng sistemang AI sa pisikal na pinsala sa mga
+      indibidwal o sa pagkasira ng ari-arian. Kasama rito ang mga panganib mula sa mga sasakyang
+      kusang umaandar, pagpapagalaw ng mga robot, maling gabay sa nabigasyon, o mga pagkakamali sa
+      kritikal na imprastruktura na naglalagay sa mga tao o ari-arian sa kapahamakan. Maaaring
+      kabilang sa mga hakbang para mabawasan ang panganib ang mahigpit na pagsubok sa kaligtasan,
+      mga default na ligtas kahit pumalya, geofencing ng mapanganib na kilos, at pagbabantay ng tao
+      sa mga pisikal na aksiyong malaki ang nakataya.
+  - locale: km
+    value: >-
+      ហានិភ័យដែលលទ្ធផលរបស់ប្រព័ន្ធ AI នាំឱ្យមានរបួសរាងកាយដល់បុគ្គល ឬការខូចខាតទ្រព្យសម្បត្តិ។
+      នេះរួមមានហានិភ័យពីយានយន្តស្វ័យបើកបរ, ចលនារបស់រ៉ូបូត, ការនាំផ្លូវខុស,
+      ឬកំហុសនៃហេដ្ឋារចនាសម្ព័ន្ធសំខាន់ៗ ដែលធ្វើឱ្យមនុស្ស ឬទ្រព្យសម្បត្តិប្រឈមនឹងគ្រោះថ្នាក់។
+      វិធានការកាត់បន្ថយអាចរួមមាន ការធ្វើតេស្តសុវត្ថិភាពយ៉ាងម៉ត់ចត់,
+      ការកំណត់លំនាំដើមដែលរក្សាសុវត្ថិភាពពេលមានបញ្ហា, ការកម្រិតឥរិយាបថគ្រោះថ្នាក់តាមតំបន់ភូមិសាស្ត្រ,
+      និងការត្រួតពិនិត្យដោយមនុស្សលើសកម្មភាពរូបវន្តដែលមានហានិភ័យខ្ពស់។
+  - locale: vi
+    value: >-
+      Rủi ro kết quả đầu ra của hệ thống AI dẫn đến thương tích thân thể cho cá nhân hoặc thiệt hại
+      về tài sản. Điều này bao gồm rủi ro từ xe tự lái, chuyển động của robot, chỉ dẫn đường đi bị
+      sai, hoặc lỗi ở hạ tầng trọng yếu khiến con người hoặc tài sản gặp nguy hiểm. Biện pháp giảm
+      thiểu có thể gồm kiểm tra an toàn nghiêm ngặt, thiết lập mặc định an toàn khi có sự cố, dùng
+      hàng rào địa lý để ngăn hành vi nguy hiểm, và việc con người giám sát các hành động vật lý có
+      hệ quả lớn.
+  - locale: zh-Hans
+    value: >-
+      AI系统的输出导致人身伤害或财产损失的风险。这包括自动驾驶车辆、机器人动作、错误的导航指引，或危及人身和财产安全的关键基础设施差错所带来的风险。缓解措施可包括严格的安全测试、故障安全的默认设置、用地理围栏限制危险行为，以及对高风险物理动作进行人工监督。
+  - locale: zh-Hant
+    value: >-
+      AI系統的輸出結果導致人身傷害或財物損壞的風險。包括自動駕駛車輛、機器人動作、錯誤的導航指引，或使人身或財物陷入危險的關鍵基礎設施錯誤所帶來的風險。因應措施可包括嚴謹的安全測試、失效安全的預設值、以地理圍欄限制危險行為，以及對高風險的實體動作進行人為監督。
 symbol_id: risks_physical

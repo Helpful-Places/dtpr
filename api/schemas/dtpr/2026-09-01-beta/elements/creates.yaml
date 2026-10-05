@@ -5,6 +5,20 @@ title:
     value: Creates
   - locale: fr
     value: Crée
+  - locale: es
+    value: Crea
+  - locale: pt
+    value: Cria
+  - locale: fil
+    value: Lumilikha
+  - locale: km
+    value: បង្កើតខ្លឹមសារ
+  - locale: vi
+    value: Tạo nội dung
+  - locale: zh-Hans
+    value: 生成
+  - locale: zh-Hant
+    value: 創作
 description:
   - locale: en
     value: >-
@@ -20,4 +34,44 @@ description:
       étiquette ni une note sur des données existantes. Exemples : rédiger un paragraphe à partir
       d'une consigne, générer une image à partir d'une description, composer de l'audio, compléter
       du code. Distinct de Répond, qui vous répond en conversation.
+  - locale: es
+    value: >-
+      Crea — produce texto, imágenes, audio, video o código nuevos que no existían antes de que este
+      sistema funcionara. El resultado es contenido elaborado por el sistema, no una etiqueta ni un
+      puntaje sobre datos existentes. Ejemplos: redactar un párrafo a partir de una instrucción,
+      generar una imagen a partir de una descripción, componer audio, completar código. Se distingue
+      de Responde, que le contesta en una conversación.
+  - locale: pt
+    value: >-
+      Cria — produz novos textos, imagens, áudios, vídeos ou códigos que não existiam antes de este
+      sistema ser executado. O resultado é um conteúdo de autoria do sistema, não um rótulo ou uma
+      pontuação sobre dados existentes. Exemplos: redigir um parágrafo a partir de um comando, gerar
+      uma imagem a partir de uma descrição, compor áudio, completar código. Diferente de Responde,
+      que responde a você em uma conversa.
+  - locale: fil
+    value: >-
+      Lumilikha — gumagawa ng bagong teksto, larawan, audio, video, o code na wala pa bago tumakbo
+      ang sistemang ito. Ang output ay nilalamang inakda ng sistema, hindi tatak o iskor tungkol sa
+      dati nang data. Mga halimbawa: pagsulat ng talata mula sa isang prompt, paglikha ng larawan
+      mula sa isang paglalarawan, pagbuo ng audio, pagkumpleto ng code. Iba sa Sumasagot, na
+      tumutugon sa inyo sa isang usapan.
+  - locale: km
+    value: >-
+      បង្កើតខ្លឹមសារ — បង្កើតអត្ថបទ, រូបភាព, សំឡេង, វីដេអូ, ឬកូដថ្មី
+      ដែលមិនធ្លាប់មានពីមុនពេលប្រព័ន្ធនេះដំណើរការ។ លទ្ធផលគឺជាខ្លឹមសារដែលប្រព័ន្ធនិពន្ធឡើង
+      មិនមែនជាស្លាក ឬពិន្ទុអំពីទិន្នន័យដែលមានស្រាប់ទេ។ ឧទាហរណ៍៖ តាក់តែងកថាខណ្ឌពីសំណើមួយ,
+      បង្កើតរូបភាពពីការពណ៌នា, និពន្ធសំឡេង, បំពេញកូដ។ ខុសពី «ឆ្លើយតប» ដែលឆ្លើយទៅអ្នកក្នុងការសន្ទនា។
+  - locale: vi
+    value: >-
+      Tạo nội dung — tạo ra văn bản, hình ảnh, âm thanh, video hoặc mã lập trình mới, chưa từng có
+      trước khi hệ thống này chạy. Kết quả đầu ra là nội dung do hệ thống soạn ra, không phải một
+      nhãn hay điểm số về dữ liệu có sẵn. Ví dụ: soạn một đoạn văn từ một câu lệnh, tạo hình ảnh từ
+      một mô tả, sáng tác âm thanh, viết tiếp mã lập trình. Khác với Trả lời, vốn đáp lại bạn trong
+      cuộc trò chuyện.
+  - locale: zh-Hans
+    value: >-
+      生成——产生本系统运行之前并不存在的新文本、图像、音频、视频或代码。其输出是系统创作的内容，而不是针对已有数据的标签或评分。示例：根据提示词起草一段文字、根据描述生成图像、创作音频、补全代码。有别于“回答”，后者是在对话中回应您。
+  - locale: zh-Hant
+    value: >-
+      創作：產生這個系統執行前並不存在的新文字、影像、音訊、影片或程式碼。輸出結果是系統撰寫的內容，而不是關於既有資料的標籤或分數。例如：依提示草擬一段文字、依描述生成圖片、製作音訊、補全程式碼。與「回答」不同，後者是在對話中回應您。
 symbol_id: mode_generative

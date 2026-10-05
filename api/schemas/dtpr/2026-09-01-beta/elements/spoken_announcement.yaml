@@ -5,6 +5,20 @@ title:
     value: A spoken announcement
   - locale: fr
     value: Une annonce sonore
+  - locale: es
+    value: Un anuncio por voz
+  - locale: pt
+    value: Um aviso falado
+  - locale: fil
+    value: Anunsiyong binibigkas
+  - locale: km
+    value: ការប្រកាសដោយសំឡេង
+  - locale: vi
+    value: Thông báo bằng lời nói
+  - locale: zh-Hans
+    value: 语音播报
+  - locale: zh-Hant
+    value: 語音廣播
 description:
   - locale: en
     value: >-
@@ -16,4 +30,33 @@ description:
       Le résultat est diffusé à voix haute dans le lieu — annonce par haut-parleur, voix de
       synthèse à un passage ou sur un quai, alarme sonore. Atteint toutes les personnes présentes,
       y compris celles qui n'ont jamais regardé d'écran.
+  - locale: es
+    value: >-
+      El resultado se reproduce en voz alta en el lugar — un anuncio por altavoces, una voz
+      sintetizada en un cruce o un andén, una alarma sonora. Llega a todas las personas presentes,
+      incluidas las que nunca miraron una pantalla.
+  - locale: pt
+    value: >-
+      O resultado é reproduzido em áudio no local — um aviso pelo sistema de som, uma voz
+      sintetizada em uma travessia ou plataforma, um alarme sonoro. Chega a todas as pessoas
+      presentes, inclusive a quem nunca olhou para uma tela.
+  - locale: fil
+    value: >-
+      Ipinaririnig nang malakas ang output sa lugar — anunsiyo sa public address, sintetikong boses
+      sa tawiran o plataporma, alarmang naririnig. Nakararating sa lahat ng naroroon, kasama ang mga
+      hindi kailanman tumingin sa screen.
+  - locale: km
+    value: >-
+      លទ្ធផលត្រូវបានចាក់ឮៗនៅទីកន្លែងនោះ — ការប្រកាសតាមប្រព័ន្ធបំពងសំឡេងសាធារណៈ,
+      សំឡេងសំយោគនៅកន្លែងឆ្លងផ្លូវ ឬកន្លែងរង់ចាំ, សំឡេងរោទ៍អាសន្ន។ វាទៅដល់មនុស្សគ្រប់គ្នាដែលនៅទីនោះ
+      រួមទាំងអ្នកដែលមិនដែលមើលអេក្រង់ផង។
+  - locale: vi
+    value: >-
+      Kết quả đầu ra được phát thành tiếng tại chỗ — thông báo qua loa phát thanh công cộng, giọng
+      nói tổng hợp ở lối qua đường hoặc sân ga, tiếng còi báo động. Đến được với mọi người có mặt,
+      kể cả những người không hề nhìn vào màn hình.
+  - locale: zh-Hans
+    value: 输出在现场公开播放——广播通知、路口或站台的合成语音、有声警报。它能传达给在场的每个人，包括从未看过屏幕的人。
+  - locale: zh-Hant
+    value: 輸出結果在現場以聲音播出：廣播系統的廣播、路口或月台的合成語音、聲響警報。在場的每個人都會聽到，包括沒有看螢幕的人。
 symbol_id: loudspeaker

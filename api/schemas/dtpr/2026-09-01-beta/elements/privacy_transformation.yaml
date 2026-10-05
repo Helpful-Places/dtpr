@@ -5,6 +5,20 @@ title:
     value: Privacy-Preserving Transformation
   - locale: fr
     value: Transformation préservant la vie privée
+  - locale: es
+    value: Transformación para proteger la privacidad
+  - locale: pt
+    value: Transformação que preserva a privacidade
+  - locale: fil
+    value: Pagbabagong nagpoprotekta sa privacy
+  - locale: km
+    value: ការបំប្លែងទិន្នន័យដើម្បីការពារឯកជនភាព
+  - locale: vi
+    value: Biến đổi bảo vệ quyền riêng tư
+  - locale: zh-Hans
+    value: 隐私保护转换
+  - locale: zh-Hant
+    value: 隱私保護轉換
 description:
   - locale: en
     value: >-
@@ -20,4 +34,48 @@ description:
       k-anonymisation, la confidentialité différentielle et la génération de données synthétiques.
       Sert de barrière entre les données brutes collectées et celles utilisées pour l'analyse ou les
       décisions.
+  - locale: es
+    value: >-
+      Sistemas de IA cuya tarea principal es transformar los datos de entrada para eliminar,
+      difuminar o reemplazar los detalles que identifican a alguien antes de cualquier uso
+      posterior. Incluye difuminado de rostros, ocultamiento de placas, tokenización,
+      k-anonimización, privacidad diferencial y generación de datos sintéticos. Funciona como una
+      barrera entre los datos recopilados sin procesar y los datos que se usan para análisis o
+      decisiones.
+  - locale: pt
+    value: >-
+      Sistemas de IA cuja principal função é transformar os dados de entrada para que os detalhes
+      que identificam pessoas sejam removidos, desfocados ou substituídos antes de qualquer uso
+      posterior. Incluem desfoque de rostos, mascaramento de placas de veículos, tokenização,
+      k-anonimização, privacidade diferencial e geração de dados sintéticos. Funcionam como uma
+      barreira entre os dados brutos coletados e os dados usados para análises ou decisões.
+  - locale: fil
+    value: >-
+      Mga sistemang AI na ang pangunahing trabaho ay baguhin ang input na data para maalis,
+      mapalabo, o mapalitan ang mga detalyeng tumutukoy sa tao bago ito gamitin sa mga susunod na
+      hakbang. Kasama ang pagpapalabo ng mukha, pagtatakip ng plaka, tokenization, k-anonymization,
+      differential privacy, at paglikha ng sintetikong data. Nagsisilbing harang sa pagitan ng hilaw
+      na nakolektang data at ng data na ginagamit sa pagsusuri o mga desisyon.
+  - locale: km
+    value: >-
+      ប្រព័ន្ធ AI ដែលមានតួនាទីចម្បងគឺបំប្លែងទិន្នន័យបញ្ចូល
+      ដើម្បីឱ្យព័ត៌មានលម្អិតដែលសម្គាល់អត្តសញ្ញាណត្រូវបានដកចេញ, ធ្វើឱ្យព្រិល, ឬជំនួស
+      មុនពេលប្រើប្រាស់បន្តណាមួយ។ រួមមានការធ្វើឱ្យមុខព្រិល, ការបិទបាំងស្លាកលេខយានយន្ត,
+      ការជំនួសដោយកូដសម្គាល់, k-anonymization, ឯកជនភាពឌីផេរ៉ង់ស្យែល,
+      និងការបង្កើតទិន្នន័យសិប្បនិម្មិត។ វាដើរតួជារបាំងរវាងទិន្នន័យដើមដែលប្រមូលបាន
+      និងទិន្នន័យដែលប្រើសម្រាប់ការវិភាគ ឬការសម្រេចចិត្ត។
+  - locale: vi
+    value: >-
+      Các hệ thống AI có nhiệm vụ chính là biến đổi dữ liệu đầu vào để các chi tiết nhận diện được
+      loại bỏ, làm mờ hoặc thay thế trước khi dữ liệu được dùng ở bất kỳ khâu nào phía sau. Bao gồm
+      làm mờ khuôn mặt, che biển số xe, thay bằng mã đại diện (tokenization), ẩn danh hóa theo k
+      (k-anonymization), quyền riêng tư vi sai (differential privacy) và tạo dữ liệu tổng hợp. Đóng
+      vai trò như một lớp ngăn giữa dữ liệu thô thu thập được và dữ liệu dùng để phân tích hoặc ra
+      quyết định.
+  - locale: zh-Hans
+    value: >-
+      这类AI系统的主要任务是转换输入数据，在数据进入任何下游使用之前，去除、模糊或替换其中可识别身份的细节。包括人脸模糊、车牌遮挡、令牌化、k-匿名化、差分隐私和合成数据生成。在收集的原始数据与用于分析或决定的数据之间起到屏障作用。
+  - locale: zh-Hant
+    value: >-
+      主要功能是在下游使用前轉換輸入資料，將可識別身分的細節移除、模糊化或替換的AI系統。包括臉部模糊化、車牌遮蔽、代碼化、k-匿名化、差分隱私及合成資料生成。它在收集到的原始資料與用於分析或決定的資料之間形成一道屏障。
 symbol_id: mask

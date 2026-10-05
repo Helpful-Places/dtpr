@@ -5,6 +5,20 @@ title:
     value: Environmental harm
   - locale: fr
     value: Préjudice environnemental
+  - locale: es
+    value: Daño ambiental
+  - locale: pt
+    value: Dano ambiental
+  - locale: fil
+    value: Pinsala sa kapaligiran
+  - locale: km
+    value: ការខូចខាតដល់បរិស្ថាន
+  - locale: vi
+    value: Tổn hại môi trường
+  - locale: zh-Hans
+    value: 环境损害
+  - locale: zh-Hant
+    value: 環境損害
 description:
   - locale: en
     value: >-
@@ -24,4 +38,55 @@ description:
       objectifs d'efficacité énergétique et hydrique, un reporting transparent de l'empreinte de
       calcul, une planification du cycle de vie du matériel et l'approvisionnement en énergies
       renouvelables pour les centres de données.
+  - locale: es
+    value: >-
+      El riesgo de que el sistema de IA cause deterioro ambiental por su consumo de energía, uso de
+      agua, residuos electrónicos, emisiones de carbono o extracción de recursos para fabricar
+      equipos. Esto incluye riesgos derivados del cómputo para el entrenamiento, de la inferencia
+      siempre activa, de las necesidades de enfriamiento de los centros de datos y del reemplazo
+      acelerado de equipos. Las medidas de mitigación pueden incluir metas de eficiencia energética
+      y de agua, informes transparentes sobre la huella de cómputo, planificación del ciclo de vida
+      de los equipos y compra de energía renovable para la operación de los centros de datos.
+  - locale: pt
+    value: >-
+      O risco de que o sistema de IA cause degradação ambiental por meio do consumo de energia, do
+      uso de água, do lixo eletrônico, das emissões de carbono ou da extração de recursos para
+      hardware. Isso inclui riscos decorrentes da computação usada no treinamento, da inferência
+      sempre ativa, da demanda de resfriamento dos data centers e da troca rápida de hardware. As
+      medidas de mitigação podem incluir metas de eficiência energética e hídrica, relatórios
+      transparentes sobre a pegada computacional, planejamento do ciclo de vida do hardware e
+      contratação de energia renovável para a operação de data centers.
+  - locale: fil
+    value: >-
+      Ang panganib na masira ng sistemang AI ang kapaligiran dahil sa konsumo ng enerhiya, paggamit
+      ng tubig, e-waste, carbon emission, o pagkuha ng likas-yaman para sa hardware. Kasama rito ang
+      mga panganib mula sa computing na kailangan sa pagsasanay, sa walang-tigil na pagpapatakbo ng
+      modelo, sa pangangailangan ng mga data center sa pagpapalamig, at sa mabilis na pagpapalit ng
+      hardware. Maaaring kabilang sa mga hakbang para mabawasan ang panganib ang mga target sa
+      pagtitipid ng enerhiya at tubig, hayagang pag-uulat ng computing footprint, pagpaplano sa
+      buong buhay ng hardware, at pagkuha ng renewable energy para sa operasyon ng mga data center.
+  - locale: km
+    value: >-
+      ហានិភ័យដែលប្រព័ន្ធ AI បង្កឱ្យបរិស្ថានធ្លាក់ចុះគុណភាព តាមរយៈការប្រើថាមពល, ការប្រើទឹក,
+      សំណល់អេឡិចត្រូនិក, ការបញ្ចេញកាបូន, ឬការទាញយកធនធានសម្រាប់ផលិតឧបករណ៍។
+      នេះរួមមានហានិភ័យពីការគណនាក្នុងពេលបង្វឹកម៉ូដែល, ការដំណើរការម៉ូដែលជាប់ជានិច្ច,
+      តម្រូវការធ្វើឱ្យត្រជាក់របស់មជ្ឈមណ្ឌលទិន្នន័យ, និងការផ្លាស់ប្តូរឧបករណ៍ញឹកញាប់។
+      វិធានការកាត់បន្ថយអាចរួមមាន គោលដៅប្រសិទ្ធភាពថាមពលនិងទឹក,
+      ការរាយការណ៍ប្រកបដោយតម្លាភាពអំពីទំហំនៃការគណនា, ការធ្វើផែនការវដ្តជីវិតឧបករណ៍,
+      និងការទិញថាមពលកកើតឡើងវិញសម្រាប់ប្រតិបត្តិការមជ្ឈមណ្ឌលទិន្នន័យ។
+  - locale: vi
+    value: >-
+      Rủi ro hệ thống AI làm suy thoái môi trường qua việc tiêu thụ năng lượng, sử dụng nước, rác
+      thải điện tử, khí thải carbon, hoặc khai thác tài nguyên để làm phần cứng. Điều này bao gồm
+      rủi ro từ lượng tính toán khi huấn luyện, việc chạy mô hình liên tục không nghỉ, nhu cầu làm
+      mát của trung tâm dữ liệu, và việc thay phần cứng quá nhanh. Biện pháp giảm thiểu có thể gồm
+      mục tiêu tiết kiệm năng lượng và nước, báo cáo minh bạch về lượng tài nguyên tính toán đã
+      dùng, lập kế hoạch vòng đời phần cứng, và mua năng lượng tái tạo cho hoạt động của trung tâm
+      dữ liệu.
+  - locale: zh-Hans
+    value: >-
+      AI系统因能源消耗、用水、电子垃圾、碳排放或为制造硬件而开采资源，造成环境恶化的风险。这包括训练阶段的算力消耗、持续不间断的推理、数据中心的冷却需求以及硬件快速更新换代所带来的风险。缓解措施可包括能效和水效目标、透明报告算力足迹、硬件生命周期规划，以及为数据中心运营采购可再生能源。
+  - locale: zh-Hant
+    value: >-
+      AI系統因能源消耗、用水、電子廢棄物、碳排放或為製造硬體而開採資源，造成環境惡化的風險。包括訓練階段的運算、全天候運作的推論、資料中心的冷卻需求，以及硬體快速汰換所帶來的風險。因應措施可包括能源與用水效率目標、透明公開運算足跡、硬體生命週期規劃，以及為資料中心營運採購再生能源。
 symbol_id: risks_environmental

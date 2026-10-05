@@ -5,6 +5,20 @@ title:
     value: Right to Contest
   - locale: fr
     value: Droit de contestation
+  - locale: es
+    value: Derecho a impugnar
+  - locale: pt
+    value: Direito de contestação
+  - locale: fil
+    value: Karapatang tumutol
+  - locale: km
+    value: សិទ្ធិតវ៉ា
+  - locale: vi
+    value: Quyền khiếu nại
+  - locale: zh-Hans
+    value: 申诉权
+  - locale: zh-Hant
+    value: 提出異議的權利
 description:
   - locale: en
     value: >-
@@ -19,4 +33,38 @@ description:
       réexaminée sur la base de votre contribution. Il s'agit d'un recours postérieur à la décision
       ; le droit à un examen humain avant qu'une décision ne soit exécutée constitue un droit
       distinct.
+  - locale: es
+    value: >-
+      El derecho a impugnar una decisión que un sistema de IA tomó sobre usted — a aportar
+      información adicional, expresar su punto de vista y lograr que la decisión se reconsidere a
+      partir de lo que usted aporte. Es un recurso posterior a la decisión; el derecho a una
+      revisión humana antes de que se actúe según una decisión es un derecho aparte.
+  - locale: pt
+    value: >-
+      O direito de contestar uma decisão que um sistema de IA tomou sobre você — de fornecer
+      informações adicionais, expressar seu ponto de vista e ter a decisão reconsiderada com base no
+      que você apresentou. É um recurso para depois que a decisão foi tomada; o direito à revisão
+      humana antes de uma decisão ser colocada em prática é um direito separado.
+  - locale: fil
+    value: >-
+      Ang karapatang tutulan ang isang desisyong ginawa ng sistemang AI tungkol sa inyo — magbigay
+      ng dagdag na impormasyon, ipahayag ang inyong pananaw, at ipasuri muli ang desisyon batay sa
+      inyong ibinigay. Ito ay remedyo matapos magawa ang desisyon; hiwalay na karapatan ang
+      karapatan sa pagsusuri ng tao bago ipatupad ang isang desisyon.
+  - locale: km
+    value: >-
+      សិទ្ធិតវ៉ាចំពោះការសម្រេចចិត្តដែលប្រព័ន្ធ AI បានធ្វើអំពីអ្នក — ផ្តល់ព័ត៌មានបន្ថែម,
+      បង្ហាញទស្សនៈរបស់អ្នក, និងឱ្យគេពិចារណាការសម្រេចចិត្តនោះឡើងវិញដោយផ្អែកលើអ្វីដែលអ្នកបានផ្តល់។
+      នេះជាដំណោះស្រាយក្រោយពេលមានការសម្រេចចិត្តរួចហើយ
+      ចំណែកសិទ្ធិទទួលបានការពិនិត្យដោយមនុស្សមុនពេលការសម្រេចចិត្តត្រូវបានអនុវត្ត គឺជាសិទ្ធិដាច់ដោយឡែក។
+  - locale: vi
+    value: >-
+      Quyền khiếu nại một quyết định mà hệ thống AI đã đưa ra về bạn — cung cấp thêm thông tin,
+      trình bày quan điểm của mình, và yêu cầu xem xét lại quyết định dựa trên ý kiến của bạn. Đây
+      là biện pháp khắc phục sau khi quyết định đã được đưa ra; quyền được con người xem xét trước
+      khi quyết định được thi hành là một quyền riêng.
+  - locale: zh-Hans
+    value: 有权对AI系统针对您作出的决定提出申诉——补充信息、表达您的观点，并要求根据您提供的内容重新考虑该决定。这是决定作出之后的救济途径；在决定执行之前要求人工复核的权利，是另一项单独的权利。
+  - locale: zh-Hant
+    value: 您有權對AI系統針對您所做的決定提出異議：提供補充資訊、表達您的看法，並要求依據您提供的內容重新考慮該決定。這是決定做出之後的救濟途徑；在決定執行前要求人工審查，則是另一項權利。
 symbol_id: flag

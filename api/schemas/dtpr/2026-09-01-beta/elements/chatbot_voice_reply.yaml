@@ -5,6 +5,20 @@ title:
     value: A chatbot or voice reply
   - locale: fr
     value: Une réponse de chatbot ou vocale
+  - locale: es
+    value: Una respuesta de chatbot o de voz
+  - locale: pt
+    value: Uma resposta de chatbot ou de voz
+  - locale: fil
+    value: Sagot ng chatbot o boses
+  - locale: km
+    value: ចម្លើយពីឆាតបត ឬជាសំឡេង
+  - locale: vi
+    value: Câu trả lời từ chatbot hoặc bằng giọng nói
+  - locale: zh-Hans
+    value: 聊天机器人或语音回复
+  - locale: zh-Hant
+    value: 聊天機器人或語音回覆
 description:
   - locale: en
     value: >-
@@ -16,6 +30,35 @@ description:
       Le résultat arrive sous forme de réponse conversationnelle — message de chatbot, réponse
       d'assistant vocal, agent téléphonique automatisé. Vous rencontrez le système en dialoguant
       avec lui, et il doit être clair que vous ne parlez pas à une personne.
+  - locale: es
+    value: >-
+      El resultado llega como una respuesta en una conversación — un mensaje de chatbot, la
+      respuesta de un asistente de voz, un agente telefónico automatizado. Usted se encuentra con el
+      sistema al conversar con él, y debe quedar claro que no está hablando con una persona.
+  - locale: pt
+    value: >-
+      O resultado chega como uma resposta em conversa — uma mensagem de chatbot, a resposta de um
+      assistente de voz, um atendente telefônico automatizado. Você tem contato com o sistema ao
+      conversar com ele, e deve ficar claro que você não está falando com uma pessoa.
+  - locale: fil
+    value: >-
+      Dumarating ang output bilang sagot sa isang usapan — mensahe ng chatbot, tugon ng voice
+      assistant, awtomatikong ahente sa telepono. Nakakaharap ninyo ang sistema sa pakikipag-usap
+      dito, at dapat malinaw na hindi tao ang kausap ninyo.
+  - locale: km
+    value: >-
+      លទ្ធផលមកដល់ជាចម្លើយបែបសន្ទនា — សារពីឆាតបត, ចម្លើយពីជំនួយការសំឡេង,
+      ភ្នាក់ងារទូរសព្ទស្វ័យប្រវត្តិ។ អ្នកជួបនឹងប្រព័ន្ធដោយនិយាយជាមួយវា
+      ហើយវាគួរតែច្បាស់ថាអ្នកមិនមែនកំពុងនិយាយជាមួយមនុស្សទេ។
+  - locale: vi
+    value: >-
+      Kết quả đầu ra đến dưới dạng một câu trả lời trong cuộc trò chuyện — tin nhắn của chatbot, lời
+      đáp của trợ lý giọng nói, tổng đài viên điện thoại tự động. Bạn tiếp xúc với hệ thống bằng
+      cách trò chuyện với nó, và bạn cần được biết rõ rằng mình không nói chuyện với người thật.
+  - locale: zh-Hans
+    value: 输出以对话回答的形式出现——聊天机器人的消息、语音助手的回应、自动电话客服。您通过与系统交谈来接触它，并且应当让您清楚知道对方不是真人。
+  - locale: zh-Hant
+    value: 輸出結果以對話式回答的形式出現：聊天機器人的訊息、語音助理的回應、自動電話客服。您透過與系統交談而接觸到它，而且系統應清楚表明您不是在與真人交談。
 sources:
   - type: regulation
     title: EU AI Act Article 50(1) — people must be informed they are interacting with an AI system

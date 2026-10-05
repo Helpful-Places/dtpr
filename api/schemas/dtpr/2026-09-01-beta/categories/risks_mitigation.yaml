@@ -4,16 +4,60 @@ name:
     value: Risks & Mitigation
   - locale: fr
     value: Risques et atténuation
+  - locale: es
+    value: Riesgos y mitigación
+  - locale: pt
+    value: Riscos e mitigação
+  - locale: fil
+    value: Mga panganib at pagbabawas nito
+  - locale: km
+    value: ហានិភ័យ និងការកាត់បន្ថយ
+  - locale: vi
+    value: Rủi ro và biện pháp giảm thiểu
+  - locale: zh-Hans
+    value: 风险与缓解措施
+  - locale: zh-Hant
+    value: 風險與因應措施
 description:
   - locale: en
     value: The risks this AI system could create and how they’re being addressed.
   - locale: fr
     value: Les risques que ce système d’IA pourrait créer et la manière dont ils sont traités.
+  - locale: es
+    value: Los riesgos que este sistema de IA podría generar y cómo se están atendiendo.
+  - locale: pt
+    value: Os riscos que este sistema de IA pode criar e como estão sendo enfrentados.
+  - locale: fil
+    value: >-
+      Ang mga panganib na maaaring idulot ng sistemang AI na ito at kung paano tinutugunan ang mga
+      ito.
+  - locale: km
+    value: ហានិភ័យដែលប្រព័ន្ធ AI នេះអាចបង្កឡើង និងរបៀបដែលហានិភ័យទាំងនោះកំពុងត្រូវបានដោះស្រាយ។
+  - locale: vi
+    value: Những rủi ro mà hệ thống AI này có thể gây ra và cách chúng đang được xử lý.
+  - locale: zh-Hans
+    value: 本AI系统可能带来的风险，以及应对这些风险的方式。
+  - locale: zh-Hant
+    value: 這個AI系統可能帶來的風險，以及目前的因應方式。
 prompt:
   - locale: en
     value: What are the risks and how are they mitigated?
   - locale: fr
     value: Quels sont les risques et comment sont-ils atténués ?
+  - locale: es
+    value: ¿Cuáles son los riesgos y cómo se mitigan?
+  - locale: pt
+    value: Quais são os riscos e como são mitigados?
+  - locale: fil
+    value: Ano ang mga panganib at paano binabawasan ang mga ito?
+  - locale: km
+    value: តើមានហានិភ័យអ្វីខ្លះ ហើយត្រូវបានកាត់បន្ថយដោយរបៀបណា?
+  - locale: vi
+    value: Có những rủi ro nào và chúng được giảm thiểu ra sao?
+  - locale: zh-Hans
+    value: 有哪些风险？如何缓解？
+  - locale: zh-Hant
+    value: 有哪些風險？如何因應？
 required: false
 order: 5
 datachain_type: dtpr
@@ -30,6 +74,20 @@ element_variables:
         value: Description of the risk
       - locale: fr
         value: Description du risque
+      - locale: es
+        value: Descripción del riesgo
+      - locale: pt
+        value: Descrição do risco
+      - locale: fil
+        value: Paglalarawan ng panganib
+      - locale: km
+        value: ការពណ៌នាអំពីហានិភ័យ
+      - locale: vi
+        value: Mô tả rủi ro
+      - locale: zh-Hans
+        value: 风险描述
+      - locale: zh-Hant
+        value: 風險說明
     required: true
   - id: mitigation
     label:
@@ -37,4 +95,18 @@ element_variables:
         value: Description of the mitigation
       - locale: fr
         value: Description de l'atténuation
+      - locale: es
+        value: Descripción de la mitigación
+      - locale: pt
+        value: Descrição da mitigação
+      - locale: fil
+        value: Paglalarawan ng pagbabawas ng panganib
+      - locale: km
+        value: ការពណ៌នាអំពីការកាត់បន្ថយ
+      - locale: vi
+        value: Mô tả biện pháp giảm thiểu
+      - locale: zh-Hans
+        value: 缓解措施描述
+      - locale: zh-Hant
+        value: 因應措施說明
     required: false

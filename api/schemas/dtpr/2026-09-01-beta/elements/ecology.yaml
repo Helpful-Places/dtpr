@@ -5,9 +5,37 @@ title:
     value: Ecology
   - locale: fr
     value: Écologie
+  - locale: es
+    value: Ecología
+  - locale: pt
+    value: Ecologia
+  - locale: fil
+    value: Ekolohiya
+  - locale: km
+    value: អេកូឡូស៊ី
+  - locale: vi
+    value: Sinh thái
+  - locale: zh-Hans
+    value: 生态
+  - locale: zh-Hant
+    value: 生態
 description:
   - locale: en
     value: Supports the measurement or monitoring of the natural environment.
   - locale: fr
     value: Permet la mesure ou la surveillance de l'environnement naturel.
+  - locale: es
+    value: Apoya la medición o el monitoreo del entorno natural.
+  - locale: pt
+    value: Apoia a medição ou o monitoramento do meio ambiente natural.
+  - locale: fil
+    value: Sumusuporta sa pagsukat o pagbabantay sa likas na kapaligiran.
+  - locale: km
+    value: គាំទ្រការវាស់ ឬការតាមដានបរិស្ថានធម្មជាតិ។
+  - locale: vi
+    value: Hỗ trợ việc đo lường hoặc theo dõi môi trường tự nhiên.
+  - locale: zh-Hans
+    value: 支持对自然环境的测量或监测。
+  - locale: zh-Hant
+    value: 協助測量或監測自然環境。
 symbol_id: ecology

@@ -5,6 +5,20 @@ title:
     value: Environmental Health
   - locale: fr
     value: Santé environnementale
+  - locale: es
+    value: Salud ambiental
+  - locale: pt
+    value: Saúde ambiental
+  - locale: fil
+    value: Kalusugang pangkapaligiran
+  - locale: km
+    value: សុខភាពបរិស្ថាន
+  - locale: vi
+    value: Sức khỏe môi trường
+  - locale: zh-Hans
+    value: 环境健康
+  - locale: zh-Hant
+    value: 環境衛生
 description:
   - locale: en
     value: >-
@@ -16,4 +30,34 @@ description:
       Mesure ou surveille les aspects de l'environnement physique qui affectent la santé humaine —
       qualité de l'air, qualité de l'eau, rayonnements, bruit ou expositions sur le lieu de travail.
       À distinguer de Soins de santé, qui soutient les soins cliniques aux personnes.
+  - locale: es
+    value: >-
+      Mide o monitorea aspectos del entorno físico que afectan la salud humana — calidad del aire,
+      calidad del agua, radiación, ruido o exposiciones en el lugar de trabajo. Se distingue de
+      Atención médica, que apoya la atención clínica de las personas.
+  - locale: pt
+    value: >-
+      Mede ou monitora aspectos do ambiente físico que afetam a saúde humana — qualidade do ar,
+      qualidade da água, radiação, ruído ou exposições no local de trabalho. Diferente de
+      Assistência à saúde, que apoia o cuidado clínico de indivíduos.
+  - locale: fil
+    value: >-
+      Sumusukat o nagbabantay sa mga aspekto ng pisikal na kapaligiran na nakaaapekto sa kalusugan
+      ng tao — kalidad ng hangin, kalidad ng tubig, radyasyon, ingay, o pagkalantad sa mga
+      mapanganib na bagay sa lugar ng trabaho. Iba sa Pangangalagang pangkalusugan, na sumusuporta
+      sa klinikal na pangangalaga sa mga indibidwal.
+  - locale: km
+    value: >-
+      វាស់ ឬតាមដានទិដ្ឋភាពនៃបរិស្ថានរូបវន្តដែលប៉ះពាល់ដល់សុខភាពមនុស្ស — គុណភាពខ្យល់, គុណភាពទឹក,
+      វិទ្យុសកម្ម, សំឡេងរំខាន, ឬការប៉ះពាល់នឹងសារធាតុគ្រោះថ្នាក់នៅកន្លែងធ្វើការ។ ខុសពី
+      «ការថែទាំសុខភាព» ដែលគាំទ្រការព្យាបាលថែទាំសម្រាប់បុគ្គល។
+  - locale: vi
+    value: >-
+      Đo lường hoặc theo dõi những yếu tố của môi trường vật lý ảnh hưởng đến sức khỏe con người —
+      chất lượng không khí, chất lượng nước, bức xạ, tiếng ồn hoặc các tác nhân phơi nhiễm tại nơi
+      làm việc. Khác với Chăm sóc sức khỏe, vốn hỗ trợ việc khám chữa bệnh cho từng người.
+  - locale: zh-Hans
+    value: 测量或监测影响人体健康的物理环境因素——空气质量、水质、辐射、噪声或工作场所中接触的有害因素。有别于“医疗保健”，后者支持面向个人的临床诊疗。
+  - locale: zh-Hant
+    value: 測量或監測實體環境中影響人體健康的因素：空氣品質、水質、輻射、噪音或職場暴露。與「醫療照護」不同，後者協助對個人的臨床照護。
 symbol_id: ecology
