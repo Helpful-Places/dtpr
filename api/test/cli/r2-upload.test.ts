@@ -177,4 +177,13 @@ describe('r2-upload: syncTranslations', () => {
     expect(await sync(empty.client)).toBe(false)
     expect(empty.writes).toEqual([])
   })
+
+  it('keeps the published status when the local file cannot be read', async () => {
+    // A directory in place of the file: readFile fails with EISDIR, not ENOENT.
+    await mkdir(join(distRoot, version.dir, 'translations.json'))
+    const r2 = fakeClient({ [KEY]: '{"v":1}' })
+    await expect(sync(r2.client)).rejects.toThrow()
+    expect(r2.objects[KEY]).toBe('{"v":1}')
+    expect(r2.writes).toEqual([])
+  })
 })

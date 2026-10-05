@@ -152,7 +152,12 @@ export async function syncTranslations(
 ): Promise<boolean> {
   const { version, distRoot, client, bucket, log } = opts
   const key = `schemas/${version.dir}/${TRANSLATIONS_FILE}`
-  const local = await readFile(join(distRoot, version.dir, TRANSLATIONS_FILE)).catch(() => null)
+  // Only a missing file means "not built"; any other read failure must
+  // not be mistaken for it, or it would delete the published status.
+  const local = await readFile(join(distRoot, version.dir, TRANSLATIONS_FILE)).catch((e) => {
+    if ((e as NodeJS.ErrnoException).code === 'ENOENT') return null
+    throw e
+  })
   const remote = await getText(client, bucket, key)
   if (!local) {
     if (remote === null) return false
