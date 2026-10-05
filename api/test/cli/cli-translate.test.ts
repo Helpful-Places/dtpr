@@ -81,6 +81,19 @@ describe('schema:translate extract', () => {
     expect(after.entries.slice(1).every((e) => e.value === `FR ${e.en}`)).toBe(true)
   })
 
+  it('prefers the YAML over an older catalog for fields already translated', async () => {
+    const path = await filledCatalog('fr', (en) => `OLD ${en}`)
+    const stale = await readFile(path, 'utf8')
+    const fresh = JSON.parse(stale) as Catalog
+    for (const entry of fresh.entries) entry.value = `NEW ${entry.en}`
+    await writeFile(path, JSON.stringify(fresh), 'utf8')
+    await translateApply(VERSION, [path], { sourceRoot: scratch, log })
+    await writeFile(path, stale, 'utf8')
+
+    await translateExtract(VERSION, ['fr'], { sourceRoot: scratch, outDir, log, all: true })
+    expect((await readCatalog('fr')).entries.every((e) => e.value === `NEW ${e.en}`)).toBe(true)
+  })
+
   it('rejects the source locale and locales outside LocaleCodeSchema', async () => {
     for (const locale of ['en', 'xx']) {
       const result = await translateExtract(VERSION, [locale], { sourceRoot: scratch, outDir, log })

@@ -363,8 +363,9 @@ export async function translateExtract(
           context: describeField(file, block.path),
           en: source.value,
           ...(Object.keys(reference).length > 0 ? { reference } : {}),
-          // Re-extracting must not discard work a translator has not applied yet.
-          value: inProgress.get(`${file.rel}#${block.path}\n${source.value}`) ?? existing?.value ?? '',
+          // The YAML wins for fields it already translates; for the rest, re-extracting
+          // must not discard work a translator has not applied yet.
+          value: existing?.value ?? inProgress.get(`${file.rel}#${block.path}\n${source.value}`) ?? '',
         })
       }
     }
