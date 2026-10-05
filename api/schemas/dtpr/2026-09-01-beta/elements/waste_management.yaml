@@ -5,6 +5,20 @@ title:
     value: Waste Management
   - locale: fr
     value: Gestion des déchets
+  - locale: es
+    value: Gestión de residuos
+  - locale: pt
+    value: Gestão de resíduos
+  - locale: fil
+    value: Pamamahala ng basura
+  - locale: km
+    value: ការគ្រប់គ្រងសំណល់
+  - locale: vi
+    value: Quản lý rác thải
+  - locale: zh-Hans
+    value: 废弃物管理
+  - locale: zh-Hant
+    value: 廢棄物管理
 description:
   - locale: en
     value: >-
@@ -14,4 +28,28 @@ description:
     value: >-
       Contribue à la manipulation et l'élimination des déchets, y compris les matiéres recyclables,
       le compost et les matiéres dangereuses.
+  - locale: es
+    value: >-
+      Apoya el manejo y la disposición de residuos, incluidos los reciclables, el compost y los
+      materiales peligrosos.
+  - locale: pt
+    value: >-
+      Apoia o manejo e a destinação de resíduos, inclusive recicláveis, compostáveis e materiais
+      perigosos.
+  - locale: fil
+    value: >-
+      Sumusuporta sa paghawak at pagtatapon ng basura, kasama ang mga nare-recycle, compost, at
+      mapanganib na materyales.
+  - locale: km
+    value: >-
+      គាំទ្រការចាត់ចែង និងការបោះចោលសំណល់ រួមទាំងវត្ថុដែលអាចកែច្នៃឡើងវិញបាន, ជីកំប៉ុស្ត,
+      និងសារធាតុគ្រោះថ្នាក់។
+  - locale: vi
+    value: >-
+      Hỗ trợ việc xử lý và thải bỏ rác thải, bao gồm rác tái chế, rác hữu cơ để ủ phân và chất thải
+      nguy hại.
+  - locale: zh-Hans
+    value: 支持废弃物的处理和处置，包括可回收物、可堆肥垃圾和危险废物。
+  - locale: zh-Hant
+    value: 協助廢棄物的處理與清運，包括可回收物、堆肥及有害物質。
 symbol_id: waste_management

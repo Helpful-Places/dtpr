@@ -5,6 +5,20 @@ title:
     value: Connected Device Telemetry
   - locale: fr
     value: Télémétrie d'appareils connectés
+  - locale: es
+    value: Telemetría de dispositivos conectados
+  - locale: pt
+    value: Telemetria de dispositivos conectados
+  - locale: fil
+    value: Telemetry ng mga konektadong device
+  - locale: km
+    value: ទិន្នន័យពីឧបករណ៍តភ្ជាប់បណ្តាញ
+  - locale: vi
+    value: Dữ liệu từ thiết bị kết nối
+  - locale: zh-Hans
+    value: 联网设备遥测
+  - locale: zh-Hant
+    value: 連網裝置遙測
 description:
   - locale: en
     value: >-
@@ -17,4 +31,37 @@ description:
       position, objets portables signalant le rythme cardiaque, compteurs intelligents signalant la
       consommation d'énergie, machines signalant leur propre état. Une captation continue qui
       s'exécute en arrière-plan de l'usage quotidien.
+  - locale: es
+    value: >-
+      Lecturas que transmiten automáticamente los objetos conectados — vehículos que informan su
+      velocidad y posición, dispositivos que se llevan puestos y que informan el ritmo cardíaco,
+      medidores inteligentes que informan el consumo de energía, máquinas que informan su propio
+      estado. Es una captación continua que ocurre en segundo plano durante el uso cotidiano.
+  - locale: pt
+    value: >-
+      Leituras transmitidas automaticamente por objetos conectados — veículos informando velocidade
+      e posição, dispositivos vestíveis informando batimentos cardíacos, medidores inteligentes
+      informando consumo de energia, máquinas informando o próprio estado. Uma captura contínua que
+      funciona em segundo plano no uso cotidiano.
+  - locale: fil
+    value: >-
+      Mga sukat na awtomatikong ipinapadala ng mga konektadong bagay — mga sasakyang nag-uulat ng
+      bilis at posisyon, mga wearable na nag-uulat ng tibok ng puso, mga smart meter na nag-uulat ng
+      konsumo ng enerhiya, mga makinang nag-uulat ng sarili nilang kalagayan. Tuloy-tuloy na pagkuha
+      na tumatakbo sa likod ng pang-araw-araw na paggamit.
+  - locale: km
+    value: >-
+      ទិន្នន័យវាស់ដែលបញ្ជូនដោយស្វ័យប្រវត្តិពីវត្ថុតភ្ជាប់បណ្តាញ — យានយន្តរាយការណ៍ល្បឿននិងទីតាំង,
+      ឧបករណ៍ពាក់លើខ្លួនរាយការណ៍ចង្វាក់បេះដូង, នាឡិកាស្ទង់ឆ្លាតវៃរាយការណ៍ការប្រើថាមពល,
+      ម៉ាស៊ីនរាយការណ៍ស្ថានភាពរបស់វាផ្ទាល់។
+      ជាការចាប់យកបន្តបន្ទាប់ដែលដំណើរការនៅពីក្រោយការប្រើប្រាស់ប្រចាំថ្ងៃ។
+  - locale: vi
+    value: >-
+      Các số đo được các thiết bị có kết nối tự động truyền về — xe cộ báo tốc độ và vị trí, thiết
+      bị đeo báo nhịp tim, đồng hồ điện thông minh báo mức dùng năng lượng, máy móc báo tình trạng
+      của chính nó. Việc thu nhận diễn ra liên tục, chạy ngầm trong sinh hoạt hằng ngày.
+  - locale: zh-Hans
+    value: 联网设备自动持续传送的读数——车辆上报速度和位置、可穿戴设备上报心率、智能表计上报能耗、机器上报自身状态。这是在日常使用的后台持续进行的采集。
+  - locale: zh-Hant
+    value: 由連網物品自動持續傳送的讀數：車輛回報速度與位置、穿戴式裝置回報心率、智慧電表回報用電量、機器回報自身狀態。這是在日常使用的背景中持續進行的擷取。
 symbol_id: cellular_antenna

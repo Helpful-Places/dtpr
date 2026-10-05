@@ -4,6 +4,20 @@ name:
     value: Collection Technology
   - locale: fr
     value: Technologie de collecte
+  - locale: es
+    value: Tecnología de recopilación
+  - locale: pt
+    value: Tecnologia de coleta
+  - locale: fil
+    value: Teknolohiya sa pangongolekta
+  - locale: km
+    value: បច្ចេកវិទ្យាប្រមូលទិន្នន័យ
+  - locale: vi
+    value: Công nghệ thu thập
+  - locale: zh-Hans
+    value: 数据收集技术
+  - locale: zh-Hant
+    value: 資料收集技術
 description:
   - locale: en
     value: >-
@@ -15,11 +29,54 @@ description:
       Les dispositifs et canaux qui captent les données d'entrée de ce système — caméras, capteurs,
       microphones, formulaires ou flux d'autres systèmes. L'instrument qui collecte les données,
       distinct de l'algorithme qui les traite.
+  - locale: es
+    value: >-
+      Los dispositivos y canales que captan los datos de entrada de este sistema — cámaras,
+      sensores, micrófonos, formularios o datos provenientes de otros sistemas. Es el instrumento
+      que recopila los datos, distinto del algoritmo que los procesa.
+  - locale: pt
+    value: >-
+      Os dispositivos e canais que captam os dados de entrada deste sistema — câmeras, sensores,
+      microfones, formulários ou dados recebidos de outros sistemas. É o instrumento que coleta os
+      dados, diferente do algoritmo que os processa.
+  - locale: fil
+    value: >-
+      Ang mga device at daluyang kumukuha ng input na data ng sistemang ito — mga kamera, sensor,
+      mikropono, form, o feed mula sa ibang sistema. Ito ang instrumentong nangongolekta ng data,
+      iba sa algorithm na nagpoproseso nito.
+  - locale: km
+    value: >-
+      ឧបករណ៍ និងមធ្យោបាយដែលចាប់យកទិន្នន័យបញ្ចូលរបស់ប្រព័ន្ធនេះ — កាមេរ៉ា, ឧបករណ៍ចាប់សញ្ញា,
+      មីក្រូហ្វូន, ទម្រង់បែបបទ, ឬទិន្នន័យបញ្ជូនពីប្រព័ន្ធផ្សេងទៀត។ នេះជាឧបករណ៍ដែលប្រមូលទិន្នន័យ
+      ខុសពីក្បួនដោះស្រាយដែលដំណើរការទិន្នន័យនោះ។
+  - locale: vi
+    value: >-
+      Các thiết bị và kênh thu nhận dữ liệu đầu vào của hệ thống này — camera, cảm biến, micrô, biểu
+      mẫu, hoặc nguồn dữ liệu từ các hệ thống khác. Đây là công cụ thu thập dữ liệu, khác với thuật
+      toán xử lý dữ liệu.
+  - locale: zh-Hans
+    value: 采集本系统输入数据的设备和渠道——摄像头、传感器、麦克风、表单，或来自其他系统的数据源。这是收集数据的工具，有别于处理数据的算法。
+  - locale: zh-Hant
+    value: 擷取這個系統輸入資料的裝置與管道：攝影機、感測器、麥克風、表單，或來自其他系統的資料來源。指收集資料的工具，有別於處理資料的演算法。
 prompt:
   - locale: en
     value: What captures the data this system uses?
   - locale: fr
     value: Qu'est-ce qui capte les données que ce système utilise ?
+  - locale: es
+    value: ¿Qué capta los datos que usa este sistema?
+  - locale: pt
+    value: O que capta os dados que este sistema usa?
+  - locale: fil
+    value: Ano ang kumukuha ng data na ginagamit ng sistemang ito?
+  - locale: km
+    value: តើអ្វីចាប់យកទិន្នន័យដែលប្រព័ន្ធនេះប្រើ?
+  - locale: vi
+    value: Dữ liệu mà hệ thống này sử dụng được thu nhận bằng gì?
+  - locale: zh-Hans
+    value: 本系统使用的数据由什么采集？
+  - locale: zh-Hant
+    value: 這個系統使用的資料由什麼擷取？
 required: false
 order: 7
 datachain_type: dtpr
@@ -31,4 +88,18 @@ element_variables:
         value: Description
       - locale: fr
         value: Description
+      - locale: es
+        value: Descripción
+      - locale: pt
+        value: Descrição
+      - locale: fil
+        value: Paglalarawan
+      - locale: km
+        value: ការពណ៌នា
+      - locale: vi
+        value: Mô tả
+      - locale: zh-Hans
+        value: 描述
+      - locale: zh-Hant
+        value: 說明
     required: false

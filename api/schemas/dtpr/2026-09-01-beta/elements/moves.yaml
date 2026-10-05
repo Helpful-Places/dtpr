@@ -5,6 +5,20 @@ title:
     value: Moves
   - locale: fr
     value: Actionne
+  - locale: es
+    value: Mueve
+  - locale: pt
+    value: Move
+  - locale: fil
+    value: Nagpapagalaw
+  - locale: km
+    value: បញ្ជាចលនា
+  - locale: vi
+    value: Tác động vật lý
+  - locale: zh-Hans
+    value: 操控
+  - locale: zh-Hant
+    value: 驅動
 description:
   - locale: en
     value: >-
@@ -18,4 +32,36 @@ description:
       signaux ou d'autres actionneurs et change quelque chose autour de vous. Exemples : diriger un
       robot, changer la phase d'un feu de circulation, ouvrir une barrière, ajuster la ventilation
       d'un bâtiment, libérer une barrière de stationnement.
+  - locale: es
+    value: >-
+      Mueve — actúa sobre el mundo físico. El sistema acciona motores, válvulas, señales u otros
+      actuadores y cambia algo alrededor de usted. Ejemplos: dirigir un robot, cambiar la fase de un
+      semáforo, abrir una puerta, ajustar la ventilación de un edificio, levantar una barrera de
+      estacionamiento.
+  - locale: pt
+    value: >-
+      Move — age sobre o mundo físico. O sistema aciona motores, válvulas, sinais ou outros
+      atuadores e muda algo ao seu redor. Exemplos: conduzir um robô, mudar a fase de um semáforo,
+      abrir um portão, ajustar a ventilação de um prédio, liberar uma cancela de estacionamento.
+  - locale: fil
+    value: >-
+      Nagpapagalaw — kumikilos sa pisikal na mundo. Pinaaandar ng sistema ang mga motor, balbula,
+      signal, o iba pang actuator at may binabago ito sa paligid ninyo. Mga halimbawa: pagmamaniobra
+      ng robot, pagpapalit ng ilaw-trapiko, pagbubukas ng gate, pagsasaayos ng bentilasyon ng
+      gusali, pag-angat ng harang sa paradahan.
+  - locale: km
+    value: >-
+      បញ្ជាចលនា — ធ្វើសកម្មភាពលើពិភពរូបវន្ត។ ប្រព័ន្ធបញ្ជាម៉ូទ័រ, វ៉ាន, សញ្ញា, ឬឧបករណ៍បញ្ជាផ្សេងទៀត
+      ហើយផ្លាស់ប្តូរអ្វីមួយនៅជុំវិញអ្នក។ ឧទាហរណ៍៖ បញ្ជាទិសដៅរ៉ូបូត, ប្តូរវគ្គភ្លើងសញ្ញាចរាចរណ៍,
+      បើកច្រកទ្វារ, កែតម្រូវខ្យល់ចេញចូលរបស់អគារ, លើករបាំងចំណតរថយន្ត។
+  - locale: vi
+    value: >-
+      Tác động vật lý — tác động lên thế giới vật lý. Hệ thống điều khiển động cơ, van, đèn tín hiệu
+      hoặc các bộ truyền động khác và làm thay đổi một thứ gì đó quanh bạn. Ví dụ: lái một robot,
+      đổi pha đèn giao thông, mở cổng, điều chỉnh hệ thống thông gió của tòa nhà, nâng thanh chắn
+      bãi đậu xe.
+  - locale: zh-Hans
+    value: 操控——作用于物理世界。系统驱动电机、阀门、信号装置或其他执行器，改变您周围的事物。示例：操纵机器人行进、切换交通信号灯相位、打开闸门、调节建筑通风、放行停车道闸。
+  - locale: zh-Hant
+    value: 驅動：對實體世界採取行動。系統驅動馬達、閥門、號誌或其他致動器，改變您周遭的事物。例如：操控機器人、變換交通號誌時相、開啟閘門、調整建築物的通風、升起停車場柵欄。
 symbol_id: mode_physical

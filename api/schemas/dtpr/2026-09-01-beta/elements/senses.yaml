@@ -5,6 +5,20 @@ title:
     value: Senses
   - locale: fr
     value: Perçoit
+  - locale: es
+    value: Percibe
+  - locale: pt
+    value: Percebe
+  - locale: fil
+    value: Sumasagap
+  - locale: km
+    value: ចាប់សញ្ញា
+  - locale: vi
+    value: Cảm nhận
+  - locale: zh-Hans
+    value: 感知
+  - locale: zh-Hant
+    value: 感測
 description:
   - locale: en
     value: >-
@@ -20,4 +34,46 @@ description:
       surveillance continue qui guette des événements. Exemples : détecter un véhicule dans une
       image, transcrire une phrase parlée, remarquer qu'un quai est bondé. Distinct d'Identifie,
       qui met un nom sur ce qui est perçu.
+  - locale: es
+    value: >-
+      Percibe — convierte señales sin procesar de cámaras, micrófonos o sensores en cosas que el
+      resto del sistema puede usar: detecciones, transcripciones, lecturas. Incluye el monitoreo
+      continuo que está atento a ciertos eventos. Ejemplos: detectar un vehículo en la imagen de una
+      cámara, transcribir una frase hablada, notar que un andén está lleno de gente. Se distingue de
+      Identifica, que le pone nombre a quién o qué percibe.
+  - locale: pt
+    value: >-
+      Percebe — transforma sinais brutos de câmeras, microfones ou sensores em coisas que o restante
+      do sistema pode usar: detecções, transcrições, leituras. Inclui o monitoramento contínuo à
+      espera de eventos. Exemplos: detectar um veículo em uma imagem de câmera, transcrever uma
+      frase falada, notar que uma plataforma está lotada. Diferente de Identifica, que dá nome a
+      quem ou ao que é percebido.
+  - locale: fil
+    value: >-
+      Sumasagap — ginagawang bagay na magagamit ng iba pang bahagi ng sistema ang mga hilaw na
+      signal mula sa mga kamera, mikropono, o sensor: mga natuklasan, transkripsiyon, sukat. Kasama
+      ang tuloy-tuloy na pagbabantay na nag-aabang ng mga pangyayari. Mga halimbawa: pagtuklas ng
+      sasakyan sa kuha ng kamera, pag-transcribe ng binigkas na pangungusap, pagpansin na siksikan
+      ang isang plataporma. Iba sa Kumikilala, na nagbibigay ng pangalan sa kung sino o ano ang
+      nasasagap nito.
+  - locale: km
+    value: >-
+      ចាប់សញ្ញា — បំប្លែងសញ្ញាដើមពីកាមេរ៉ា, មីក្រូហ្វូន, ឬឧបករណ៍ចាប់សញ្ញា
+      ទៅជាអ្វីដែលផ្នែកផ្សេងទៀតនៃប្រព័ន្ធអាចប្រើបាន៖ ការរកឃើញ, ការបំប្លែងសំដីជាអក្សរ, តម្លៃវាស់។
+      រួមទាំងការតាមដានបន្តបន្ទាប់ដែលចាំមើលព្រឹត្តិការណ៍។ ឧទាហរណ៍៖ រកឃើញយានយន្តក្នុងរូបភាពកាមេរ៉ា,
+      បំប្លែងប្រយោគដែលនិយាយជាអក្សរ, កត់សម្គាល់ថាកន្លែងរង់ចាំមានមនុស្សចង្អៀតណែន។ ខុសពី
+      «កំណត់អត្តសញ្ញាណ» ដែលបញ្ជាក់ឈ្មោះថាអ្វីដែលវាចាប់បានជានរណា ឬជាអ្វី។
+  - locale: vi
+    value: >-
+      Cảm nhận — biến tín hiệu thô từ camera, micrô hoặc cảm biến thành những thứ mà phần còn lại
+      của hệ thống dùng được: các lần phát hiện, bản chép lời, số đo. Bao gồm cả việc theo dõi liên
+      tục để chờ sự kiện xảy ra. Ví dụ: phát hiện một chiếc xe trong khung hình camera, chép lại một
+      câu nói, nhận thấy một sân ga đang đông người. Khác với Nhận diện, vốn gọi đúng tên người hoặc
+      vật mà nó cảm nhận được.
+  - locale: zh-Hans
+    value: >-
+      感知——把来自摄像头、麦克风或传感器的原始信号转化为系统其余部分可以使用的信息：检测结果、转写文本、读数。包括持续监测、留意事件发生。示例：在摄像头画面中检测到车辆、转写一句话、发现站台上很拥挤。有别于“识别”，后者会指明所感知的对象是谁或是什么。
+  - locale: zh-Hant
+    value: >-
+      感測：將攝影機、麥克風或感測器的原始訊號，轉換成系統其他部分可以使用的資訊，例如偵測結果、逐字稿、讀數。包括持續監測以留意特定事件。例如：偵測攝影機畫面中的車輛、將一句話轉成文字、察覺月台很擁擠。與「識別」不同，後者會指明所感知的人或物是誰或是什麼。
 symbol_id: mode_perceptive

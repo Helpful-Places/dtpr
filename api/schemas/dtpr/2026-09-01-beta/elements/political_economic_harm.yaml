@@ -5,6 +5,20 @@ title:
     value: Political & economic harm
   - locale: fr
     value: Préjudice politique et économique
+  - locale: es
+    value: Daño político y económico
+  - locale: pt
+    value: Dano político e econômico
+  - locale: fil
+    value: Pinsalang pampolitika at pang-ekonomiya
+  - locale: km
+    value: ការខូចខាតផ្នែកនយោបាយ និងសេដ្ឋកិច្ច
+  - locale: vi
+    value: Tổn hại chính trị và kinh tế
+  - locale: zh-Hans
+    value: 政治与经济损害
+  - locale: zh-Hant
+    value: 政治與經濟損害
 description:
   - locale: en
     value: >-
@@ -24,4 +38,57 @@ description:
       divulgation des contenus synthétiques, l'attention antitrust portée aux marchés de l'IA,
       l'accès d'audit pour les régulateurs et des obligations de transparence pour les publicités
       politiques.
+  - locale: es
+    value: >-
+      El riesgo de que el sistema de IA manipule el debate político, interfiera en elecciones,
+      concentre poder de mercado o dañe a las instituciones públicas. Esto incluye riesgos de
+      contenido sintético dirigido a votantes, publicidad dirigida de forma opaca, distorsión de la
+      competencia por el acceso monopólico a datos y capacidad de cómputo, y erosión de la confianza
+      en las instituciones. Las medidas de mitigación pueden incluir la divulgación del contenido
+      sintético, la vigilancia antimonopolio de los mercados de IA, el acceso de los organismos
+      reguladores para auditar y requisitos de transparencia para la publicidad política.
+  - locale: pt
+    value: >-
+      O risco de que o sistema de IA manipule o debate político, interfira em eleições, concentre
+      poder de mercado ou prejudique instituições públicas. Isso inclui riscos de mídia sintética
+      direcionada a eleitores, de direcionamento opaco de anúncios, de distorção da concorrência por
+      acesso monopolista a dados e a capacidade computacional e de erosão da confiança nas
+      instituições. As medidas de mitigação podem incluir a identificação de conteúdo sintético,
+      atenção antitruste aos mercados de IA, acesso de auditoria para órgãos reguladores e
+      exigências de transparência para anúncios políticos.
+  - locale: fil
+    value: >-
+      Ang panganib na manipulahin ng sistemang AI ang talakayang pampolitika, makialam sa halalan,
+      magtipon ng kapangyarihan sa merkado sa iilan, o makasira sa mga pampublikong institusyon.
+      Kasama rito ang mga panganib ng synthetic media na nakatuon sa mga botante, di-malinaw na
+      pagtutuon ng ad, pagkabaluktot ng kompetisyon dahil sa monopolyo sa access sa data at
+      computing, at paghina ng tiwala sa mga institusyon. Maaaring kabilang sa mga hakbang para
+      mabawasan ang panganib ang paglalantad kung sintetiko ang nilalaman, pagtutok ng mga awtoridad
+      laban sa monopolyo sa mga merkado ng AI, access ng mga regulator para sa audit, at mga
+      rekisito sa transparency ng mga political ad.
+  - locale: km
+    value: >-
+      ហានិភ័យដែលប្រព័ន្ធ AI រៀបចំបំភ្លៃការពិភាក្សានយោបាយ, ជ្រៀតជ្រែកក្នុងការបោះឆ្នោត,
+      ប្រមូលផ្តុំអំណាចទីផ្សារ, ឬធ្វើឱ្យខូចខាតស្ថាប័នសាធារណៈ។
+      នេះរួមមានហានិភ័យពីខ្លឹមសារសិប្បនិម្មិតដែលតម្រង់ទៅអ្នកបោះឆ្នោត,
+      ការកំណត់គោលដៅផ្សាយពាណិជ្ជកម្មដែលខ្វះតម្លាភាព,
+      ការបង្ខូចការប្រកួតប្រជែងដោយសារការកាន់កាប់ផ្តាច់មុខលើទិន្នន័យនិងសមត្ថភាពគណនា,
+      និងការធ្លាក់ចុះទំនុកចិត្តលើស្ថាប័ន។ វិធានការកាត់បន្ថយអាចរួមមាន
+      ការបង្ហាញឱ្យដឹងអំពីខ្លឹមសារសិប្បនិម្មិត, ការយកចិត្តទុកដាក់ផ្នែកប្រឆាំងការផ្តាច់មុខលើទីផ្សារ
+      AI, សិទ្ធិធ្វើសវនកម្មសម្រាប់និយ័តករ,
+      និងលក្ខខណ្ឌតម្រូវតម្លាភាពសម្រាប់ការផ្សាយពាណិជ្ជកម្មនយោបាយ។
+  - locale: vi
+    value: >-
+      Rủi ro hệ thống AI thao túng thảo luận chính trị, can thiệp vào bầu cử, tập trung quyền lực
+      thị trường hoặc làm tổn hại các thể chế công. Điều này bao gồm rủi ro từ nội dung do AI tạo ra
+      nhắm vào cử tri, quảng cáo nhắm mục tiêu thiếu minh bạch, cạnh tranh bị bóp méo do độc quyền
+      tiếp cận dữ liệu và năng lực tính toán, và sự xói mòn lòng tin vào các thể chế. Biện pháp giảm
+      thiểu có thể gồm công bố rõ nội dung do AI tạo ra, giám sát chống độc quyền đối với thị trường
+      AI, quyền kiểm tra dành cho cơ quan quản lý, và yêu cầu minh bạch đối với quảng cáo chính trị.
+  - locale: zh-Hans
+    value: >-
+      AI系统操纵政治讨论、干预选举、集中市场支配力或损害公共机构的风险。这包括针对选民的合成媒体、不透明的广告定向、因垄断数据和算力而造成的竞争扭曲，以及公众对机构的信任受到侵蚀等风险。缓解措施可包括披露合成内容、从反垄断角度关注AI市场、向监管机构开放审计权限，以及政治广告透明度要求。
+  - locale: zh-Hant
+    value: >-
+      AI系統操縱政治論述、干預選舉、集中市場力量或損害公共機構的風險。包括針對選民的合成媒體、不透明的廣告投放、因獨占資料與運算資源而扭曲競爭，以及侵蝕對機構的信任等風險。因應措施可包括揭露合成內容、對AI市場進行反托拉斯監督、讓主管機關得以稽核，以及政治廣告透明度規定。
 symbol_id: risks_political-economic

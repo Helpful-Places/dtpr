@@ -5,6 +5,20 @@ title:
     value: Biometric Recognition
   - locale: fr
     value: Reconnaissance biométrique
+  - locale: es
+    value: Reconocimiento biométrico
+  - locale: pt
+    value: Reconhecimento biométrico
+  - locale: fil
+    value: Pagkilalang biometric
+  - locale: km
+    value: ការសម្គាល់ជីវមាត្រ
+  - locale: vi
+    value: Nhận diện sinh trắc học
+  - locale: zh-Hans
+    value: 生物特征识别
+  - locale: zh-Hant
+    value: 生物特徵辨識
 description:
   - locale: en
     value: >-
@@ -19,4 +33,42 @@ description:
       ordinateur générique car la sortie est liée à un individu nommé. De nombreuses juridictions
       restreignent ou interdisent la reconnaissance biométrique dans les espaces accessibles au
       public.
+  - locale: es
+    value: >-
+      Sistemas de IA que identifican o verifican a una persona específica a partir de señales
+      biológicas — rostro, huella dactilar, voz, iris o forma de caminar. Se distingue de la visión
+      por computadora genérica porque el resultado está vinculado a una persona con nombre. Muchas
+      jurisdicciones restringen o prohíben el reconocimiento biométrico en espacios de acceso
+      público.
+  - locale: pt
+    value: >-
+      Sistemas de IA que identificam ou verificam uma pessoa específica a partir de sinais
+      biológicos — rosto, impressão digital, voz, íris ou modo de andar. Diferente da visão
+      computacional genérica porque a saída fica ligada a um indivíduo identificado pelo nome.
+      Muitas jurisdições restringem ou proíbem o reconhecimento biométrico em espaços acessíveis ao
+      público.
+  - locale: fil
+    value: >-
+      Mga sistemang AI na kumikilala o nagbeberipika ng isang partikular na tao mula sa mga senyales
+      ng katawan — mukha, fingerprint, boses, iris, o paraan ng paglakad. Iba sa pangkalahatang
+      computer vision dahil nakaugnay ang output sa isang indibidwal na may pangalan. Maraming
+      hurisdiksiyon ang naglilimita o nagbabawal sa pagkilalang biometric sa mga lugar na bukás sa
+      publiko.
+  - locale: km
+    value: >-
+      ប្រព័ន្ធ AI ដែលកំណត់អត្តសញ្ញាណ ឬផ្ទៀងផ្ទាត់បុគ្គលជាក់លាក់ណាម្នាក់ពីសញ្ញាជីវសាស្ត្រ — មុខ,
+      ស្នាមម្រាមដៃ, សំឡេង, ប្រស្រីភ្នែក, ឬរបៀបដើរ។ វាខុសពីចក្ខុវិស័យកុំព្យូទ័រទូទៅ
+      ព្រោះលទ្ធផលត្រូវបានភ្ជាប់ទៅនឹងបុគ្គលដែលមានឈ្មោះច្បាស់លាស់។ យុត្តាធិការជាច្រើនដាក់កម្រិត
+      ឬហាមឃាត់ការសម្គាល់ជីវមាត្រនៅទីកន្លែងដែលសាធារណជនអាចចូលបាន។
+  - locale: vi
+    value: >-
+      Các hệ thống AI nhận diện hoặc xác minh một người cụ thể từ các tín hiệu sinh học — khuôn mặt,
+      dấu vân tay, giọng nói, mống mắt hoặc dáng đi. Khác với thị giác máy tính nói chung vì kết quả
+      đầu ra gắn với một cá nhân có tên cụ thể. Nhiều khu vực pháp lý hạn chế hoặc cấm nhận diện
+      sinh trắc học ở những nơi công chúng lui tới.
+  - locale: zh-Hans
+    value: >-
+      根据生物信号——面部、指纹、声音、虹膜或步态——识别或核验特定个人的AI系统。它有别于一般的计算机视觉，因为其输出与具名的个人相关联。许多司法管辖区限制或禁止在公众可进入的场所使用生物特征识别。
+  - locale: zh-Hant
+    value: 根據生物訊號（臉孔、指紋、聲音、虹膜或步態）識別或驗證特定個人的AI系統。與一般電腦視覺不同，因為輸出結果會連結到具名的個人。許多司法管轄區限制或禁止在公眾可進入的空間使用生物特徵辨識。
 symbol_id: personal

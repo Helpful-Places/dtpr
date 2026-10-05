@@ -5,6 +5,20 @@ title:
     value: Computer Vision
   - locale: fr
     value: Vision par ordinateur
+  - locale: es
+    value: Visión por computadora
+  - locale: pt
+    value: Visão computacional
+  - locale: fil
+    value: Computer vision
+  - locale: km
+    value: ចក្ខុវិស័យកុំព្យូទ័រ
+  - locale: vi
+    value: Thị giác máy tính
+  - locale: zh-Hans
+    value: 计算机视觉
+  - locale: zh-Hant
+    value: 電腦視覺
 description:
   - locale: en
     value: >-
@@ -19,4 +33,40 @@ description:
       Courant dans la détection d'occupation, la surveillance du trafic et des foules, l'assistance
       à l'accessibilité et l'inspection de la signalisation. Distinct de la reconnaissance
       biométrique, qui identifie des personnes spécifiques.
+  - locale: es
+    value: >-
+      Sistemas de IA que interpretan imágenes o video — cuentan personas, detectan objetos, leen
+      texto en imágenes, siguen movimientos o segmentan escenas. Son comunes en la detección de
+      ocupación, el monitoreo de tráfico y multitudes, la asistencia para la accesibilidad y la
+      inspección de señalización. Se distingue del reconocimiento biométrico, que identifica a
+      personas específicas.
+  - locale: pt
+    value: >-
+      Sistemas de IA que interpretam imagens ou vídeo — contando pessoas, detectando objetos, lendo
+      texto em imagens, acompanhando movimentos ou segmentando cenas. Comuns em detecção de
+      ocupação, monitoramento de trânsito e de multidões, apoio à acessibilidade e inspeção de
+      sinalização. Diferente do reconhecimento biométrico, que identifica indivíduos específicos.
+  - locale: fil
+    value: >-
+      Mga sistemang AI na umuunawa ng mga larawan o video — nagbibilang ng tao, tumutuklas ng mga
+      bagay, bumabasa ng teksto sa larawan, sumusubaybay sa galaw, o naghahati ng mga eksena.
+      Karaniwan sa pag-alam kung may tao sa isang lugar, pagbabantay sa trapiko at dami ng tao,
+      tulong sa aksesibilidad, at inspeksiyon ng mga karatula. Iba sa pagkilalang biometric, na
+      tumutukoy ng mga partikular na indibidwal.
+  - locale: km
+    value: >-
+      ប្រព័ន្ធ AI ដែលបកស្រាយរូបភាព ឬវីដេអូ — រាប់ចំនួនមនុស្ស, រកឃើញវត្ថុ, អានអក្សរក្នុងរូបភាព,
+      តាមដានចលនា, ឬបែងចែកផ្នែកនៃទិដ្ឋភាព។ ប្រើជាទូទៅក្នុងការចាប់សញ្ញាវត្តមានមនុស្ស,
+      ការតាមដានចរាចរណ៍និងហ្វូងមនុស្ស, ជំនួយផ្នែកលទ្ធភាពចូលប្រើ, និងការត្រួតពិនិត្យផ្លាកសញ្ញា។
+      ខុសពីការសម្គាល់ជីវមាត្រ ដែលកំណត់អត្តសញ្ញាណបុគ្គលជាក់លាក់។
+  - locale: vi
+    value: >-
+      Các hệ thống AI diễn giải hình ảnh hoặc video — đếm người, phát hiện vật thể, đọc chữ trong
+      ảnh, theo dõi chuyển động hoặc phân vùng cảnh. Thường gặp trong việc phát hiện mức độ sử dụng
+      không gian, theo dõi giao thông và đám đông, hỗ trợ khả năng tiếp cận và kiểm tra biển báo.
+      Khác với nhận diện sinh trắc học, vốn nhận diện những cá nhân cụ thể.
+  - locale: zh-Hans
+    value: 解读图像或视频的AI系统——清点人数、检测物体、读取图片中的文字、跟踪运动或分割场景。常见于空间占用感知、交通和人流监测、无障碍辅助和标牌巡检。有别于生物特征识别，后者识别的是特定个人。
+  - locale: zh-Hant
+    value: 解讀影像或影片的AI系統：計算人數、偵測物體、讀取圖片中的文字、追蹤動態或分割場景。常見於空間使用偵測、交通與人群監測、無障礙輔助及標示檢查。與生物特徵辨識不同，後者會識別特定個人。
 symbol_id: pixel_based_image

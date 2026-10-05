@@ -4,6 +4,20 @@ name:
     value: Input Data
   - locale: fr
     value: Données d'entrée
+  - locale: es
+    value: Datos de entrada
+  - locale: pt
+    value: Dados de entrada
+  - locale: fil
+    value: Input na data
+  - locale: km
+    value: ទិន្នន័យបញ្ចូល
+  - locale: vi
+    value: Dữ liệu đầu vào
+  - locale: zh-Hans
+    value: 输入数据
+  - locale: zh-Hant
+    value: 輸入資料
 description:
   - locale: en
     value: >-
@@ -13,11 +27,49 @@ description:
     value: >-
       Les données d’entrée que ce système déployé traite lorsqu’il fonctionne. Distinctes des
       données d’entraînement.
+  - locale: es
+    value: >-
+      Los datos de entrada que este sistema implementado procesa cuando funciona. Son distintos de
+      los datos de entrenamiento.
+  - locale: pt
+    value: >-
+      Os dados de entrada que este sistema implantado processa quando está em funcionamento. São
+      diferentes dos dados de treinamento.
+  - locale: fil
+    value: >-
+      Ang input na data na pinoproseso ng ipinatutupad na sistemang ito kapag tumatakbo ito. Iba ito
+      sa data na ginamit sa pagsasanay nito.
+  - locale: km
+    value: >-
+      ទិន្នន័យបញ្ចូលដែលប្រព័ន្ធដែលបានដាក់ឱ្យប្រើប្រាស់នេះដំណើរការនៅពេលវាប្រតិបត្តិការ។
+      ខុសពីទិន្នន័យសម្រាប់បង្វឹក។
+  - locale: vi
+    value: >-
+      Dữ liệu đầu vào mà hệ thống đã triển khai này xử lý khi hoạt động. Khác với dữ liệu huấn
+      luyện.
+  - locale: zh-Hans
+    value: 这一已部署的系统在运行时处理的输入数据。有别于训练数据。
+  - locale: zh-Hant
+    value: 這個已部署的系統在運作時處理的輸入資料，有別於訓練資料。
 prompt:
   - locale: en
     value: What input data does this AI system process?
   - locale: fr
     value: Quelles données d’entrée ce système d’IA traite-t-il ?
+  - locale: es
+    value: ¿Qué datos de entrada procesa este sistema de IA?
+  - locale: pt
+    value: Que dados de entrada este sistema de IA processa?
+  - locale: fil
+    value: Anong input na data ang pinoproseso ng sistemang AI na ito?
+  - locale: km
+    value: តើប្រព័ន្ធ AI នេះដំណើរការទិន្នន័យបញ្ចូលអ្វីខ្លះ?
+  - locale: vi
+    value: Hệ thống AI này xử lý dữ liệu đầu vào nào?
+  - locale: zh-Hans
+    value: 本AI系统处理哪些输入数据？
+  - locale: zh-Hant
+    value: 這個AI系統處理哪些輸入資料？
 required: false
 order: 8
 datachain_type: dtpr
@@ -29,6 +81,20 @@ element_context:
       value: Personal Information
     - locale: fr
       value: Informations personnelles
+    - locale: es
+      value: Información personal
+    - locale: pt
+      value: Informações pessoais
+    - locale: fil
+      value: Personal na impormasyon
+    - locale: km
+      value: ព័ត៌មានផ្ទាល់ខ្លួន
+    - locale: vi
+      value: Thông tin cá nhân
+    - locale: zh-Hans
+      value: 个人信息
+    - locale: zh-Hant
+      value: 個人資訊
   description:
     - locale: en
       value: >-
@@ -39,6 +105,33 @@ element_context:
         À quel point les données sont identifiables lorsque ce système les traite. Le nom de
         l’élément indique de quoi parlent les données ; cette couleur indique dans quelle mesure
         elles identifient directement une personne.
+    - locale: es
+      value: >-
+        Qué tan identificables son los datos cuando este sistema los procesa. El nombre del elemento
+        dice de qué tratan los datos; este color indica qué tan directamente identifican a una
+        persona.
+    - locale: pt
+      value: >-
+        O quanto os dados são identificáveis quando este sistema os processa. O nome do elemento diz
+        sobre o que são os dados; esta cor diz o quão diretamente eles identificam uma pessoa.
+    - locale: fil
+      value: >-
+        Kung gaano natutukoy ang tao mula sa data kapag pinoproseso ito ng sistemang ito. Sinasabi
+        ng pangalan ng elemento kung tungkol saan ang data; sinasabi ng kulay na ito kung gaano nito
+        direktang natutukoy ang isang tao.
+    - locale: km
+      value: >-
+        កម្រិតដែលទិន្នន័យអាចកំណត់អត្តសញ្ញាណបាន នៅពេលប្រព័ន្ធនេះដំណើរការវា។
+        ឈ្មោះធាតុប្រាប់ថាទិន្នន័យនិយាយអំពីអ្វី
+        ហើយពណ៌នេះប្រាប់ថាវាកំណត់អត្តសញ្ញាណបុគ្គលដោយផ្ទាល់កម្រិតណា។
+    - locale: vi
+      value: >-
+        Dữ liệu có thể nhận diện con người đến mức nào khi hệ thống này xử lý nó. Tên của yếu tố cho
+        biết dữ liệu nói về điều gì; màu này cho biết nó nhận diện một người trực tiếp đến mức nào.
+    - locale: zh-Hans
+      value: 本系统处理数据时，数据的可识别程度。要素名称说明数据是关于什么的；这一颜色说明数据能在多大程度上直接识别个人。
+    - locale: zh-Hant
+      value: 這個系統處理資料時，資料可識別個人的程度。元素名稱說明資料的內容；這個顏色則表示資料識別個人的直接程度。
   values:
     - id: de_identified
       name:
@@ -46,6 +139,20 @@ element_context:
           value: Anonymized data
         - locale: fr
           value: Données anonymisées
+        - locale: es
+          value: Datos anonimizados
+        - locale: pt
+          value: Dados anonimizados
+        - locale: fil
+          value: Data na walang pagkakakilanlan
+        - locale: km
+          value: ទិន្នន័យអនាមិក
+        - locale: vi
+          value: Dữ liệu ẩn danh
+        - locale: zh-Hans
+          value: 匿名化数据
+        - locale: zh-Hant
+          value: 匿名化資料
       description:
         - locale: en
           value: >-
@@ -57,6 +164,36 @@ element_context:
             Données concernant des personnes dont le lien à l’identité est rompu. Privées
             d’identifiants, floutées, agrégées ou bruitées pour que ce système ne puisse pas
             raisonnablement relier un enregistrement à un individu.
+        - locale: es
+          value: >-
+            Datos sobre personas en los que se rompió el vínculo con su identidad. Se les quitaron
+            los identificadores, se difuminaron, se combinaron con los de otras personas o se les
+            añadió ruido para que este sistema no pueda, razonablemente, vincular un registro con
+            una persona.
+        - locale: pt
+          value: >-
+            Dados sobre pessoas em que o vínculo com a identidade foi rompido. Tiveram os
+            identificadores removidos ou foram desfocados, agregados ou alterados com ruído, de modo
+            que este sistema não consiga, de forma razoável, ligar um registro a um indivíduo.
+        - locale: fil
+          value: >-
+            Data tungkol sa mga tao na pinutol na ang ugnay sa kung sino sila. Inalisan ng mga
+            pantukoy, pinalabo, pinagsama-sama, o hinaluan ng ingay para hindi na makatwirang
+            maiugnay ng sistemang ito ang isang rekord sa isang indibidwal.
+        - locale: km
+          value: >-
+            ទិន្នន័យអំពីមនុស្ស ដែលត្រូវបានកាត់ផ្តាច់ទំនាក់ទំនងទៅនឹងអត្តសញ្ញាណ។
+            វាត្រូវបានដកព័ត៌មានសម្គាល់អត្តសញ្ញាណចេញ, ធ្វើឱ្យព្រិល, បូកសរុបរួម, ឬបន្ថែមទិន្នន័យរំខាន
+            ដើម្បីកុំឱ្យប្រព័ន្ធនេះអាចភ្ជាប់កំណត់ត្រាត្រឡប់ទៅបុគ្គលណាម្នាក់បានដោយសមហេតុផល។
+        - locale: vi
+          value: >-
+            Dữ liệu về con người nhưng mối liên kết với danh tính đã bị cắt đứt. Đã được loại bỏ
+            thông tin nhận diện, làm mờ, gộp chung hoặc thêm nhiễu để trên thực tế hệ thống này
+            không thể gắn một bản ghi trở lại với một cá nhân.
+        - locale: zh-Hans
+          value: 关于人的数据，但与具体个人的关联已被切断。已去除标识符，或经过模糊、汇总、加噪处理，使本系统无法合理地将某条记录对应到个人。
+        - locale: zh-Hant
+          value: 與人有關、但已切斷身分連結的資料。已去除識別資訊、模糊化、彙總或加入雜訊，使這個系統無法合理地將紀錄連回特定個人。
       color: "#4A90D9"
     - id: pseudonymous
       name:
@@ -64,6 +201,20 @@ element_context:
           value: Pseudonymous data
         - locale: fr
           value: Données pseudonymes
+        - locale: es
+          value: Datos seudonimizados
+        - locale: pt
+          value: Dados pseudonimizados
+        - locale: fil
+          value: Data na may alyas
+        - locale: km
+          value: ទិន្នន័យប្រើកូដជំនួសឈ្មោះ
+        - locale: vi
+          value: Dữ liệu bí danh
+        - locale: zh-Hans
+          value: 假名化数据
+        - locale: zh-Hant
+          value: 假名化資料
       description:
         - locale: en
           value: >-
@@ -76,6 +227,38 @@ element_context:
             permet à ce système de reconnaître la même personne d’un événement à l’autre, mais le
             jeton lui-même ne révèle pas de nom. La réidentification est possible avec des
             informations supplémentaires.
+        - locale: es
+          value: >-
+            Los datos de cada persona están vinculados a un token (hash, identificador, plantilla)
+            que permite a este sistema reconocer a la misma persona en distintos eventos, pero el
+            token por sí solo no revela un nombre. La reidentificación es posible con información
+            adicional.
+        - locale: pt
+          value: >-
+            Os dados de cada pessoa ficam ligados a um código (hash, ID, template) que permite a
+            este sistema reconhecer a mesma pessoa em diferentes eventos, mas o código em si não
+            revela um nome. A reidentificação é possível com informações adicionais.
+        - locale: fil
+          value: >-
+            Nakakabit ang data ng bawat tao sa isang token (hash, ID, template) na nagbibigay-daan
+            sa sistemang ito na makilala ang iisang tao sa iba't ibang pangyayari, pero hindi
+            naglalantad ng pangalan ang token mismo. Posibleng matukoy muli ang tao kung may dagdag
+            na impormasyon.
+        - locale: km
+          value: >-
+            ទិន្នន័យរបស់បុគ្គលម្នាក់ៗត្រូវបានភ្ជាប់ទៅនឹងកូដសម្គាល់ (កូដ hash, លេខសម្គាល់, គំរូ)
+            ដែលឱ្យប្រព័ន្ធនេះស្គាល់បុគ្គលដដែលនៅក្នុងព្រឹត្តិការណ៍ផ្សេងៗ
+            ប៉ុន្តែកូដសម្គាល់នោះផ្ទាល់មិនបង្ហាញឈ្មោះទេ។
+            ការកំណត់អត្តសញ្ញាណឡើងវិញអាចធ្វើទៅបានដោយមានព័ត៌មានបន្ថែម។
+        - locale: vi
+          value: >-
+            Dữ liệu của mỗi người được gắn với một mã đại diện (mã băm, ID, mẫu) cho phép hệ thống
+            này nhận ra cùng một người qua nhiều sự kiện, nhưng bản thân mã đó không tiết lộ tên. Có
+            thể nhận diện lại nếu có thêm thông tin.
+        - locale: zh-Hans
+          value: 每个人的数据都关联到一个令牌（哈希值、编号、模板），本系统可借此在不同事件中认出同一个人，但令牌本身不会透露姓名。借助额外信息，仍有可能重新识别身份。
+        - locale: zh-Hant
+          value: 每個人的資料都連結到一個代碼（雜湊值、ID、特徵範本），讓這個系統能在不同事件中認出同一個人，但代碼本身不會透露姓名。若有額外資訊，仍可能重新識別身分。
       color: "#9575CD"
     - id: identifiable
       name:
@@ -83,6 +266,20 @@ element_context:
           value: Identifiable data
         - locale: fr
           value: Données identifiables
+        - locale: es
+          value: Datos identificables
+        - locale: pt
+          value: Dados identificáveis
+        - locale: fil
+          value: Data na tumutukoy sa tao
+        - locale: km
+          value: ទិន្នន័យអាចកំណត់អត្តសញ្ញាណបាន
+        - locale: vi
+          value: Dữ liệu nhận diện được
+        - locale: zh-Hans
+          value: 可识别数据
+        - locale: zh-Hant
+          value: 可識別資料
       description:
         - locale: en
           value: >-
@@ -94,6 +291,35 @@ element_context:
             Les données contiennent un identifiant direct (nom, adresse, nom de compte, visage ou
             voix reconnaissable, plaque d’immatriculation) ou portent un jeton que ce système
             utilise pour rechercher l’identité légale pendant le traitement.
+        - locale: es
+          value: >-
+            Los datos contienen un identificador directo (nombre, dirección, nombre de cuenta,
+            rostro o voz reconocibles, número de placa) o llevan un token que este sistema usa para
+            consultar la identidad legal durante el procesamiento.
+        - locale: pt
+          value: >-
+            Os dados contêm um identificador direto (nome, endereço, nome de conta, rosto ou voz
+            reconhecível, número de placa) ou trazem um código que este sistema usa para consultar a
+            identidade legal durante o processamento.
+        - locale: fil
+          value: >-
+            Ang data ay may direktang pantukoy (pangalan, address, pangalan ng account, mukha o
+            boses na makikilala, numero ng plaka) o may dalang token na ginagamit ng sistemang ito
+            para hanapin ang legal na pagkakakilanlan habang nagpoproseso.
+        - locale: km
+          value: >-
+            ទិន្នន័យមានព័ត៌មានសម្គាល់អត្តសញ្ញាណដោយផ្ទាល់ (ឈ្មោះ, អាសយដ្ឋាន, ឈ្មោះគណនី, មុខ
+            ឬសំឡេងដែលអាចស្គាល់បាន, ស្លាកលេខយានយន្ត)
+            ឬមានកូដសម្គាល់ដែលប្រព័ន្ធនេះប្រើដើម្បីស្វែងរកអត្តសញ្ញាណស្របច្បាប់ក្នុងពេលដំណើរការ។
+        - locale: vi
+          value: >-
+            Dữ liệu chứa thông tin nhận diện trực tiếp (tên, địa chỉ, tên tài khoản, khuôn mặt hoặc
+            giọng nói nhận ra được, biển số xe) hoặc mang một mã đại diện mà hệ thống này dùng để
+            tra cứu danh tính pháp lý trong khi xử lý.
+        - locale: zh-Hans
+          value: 数据含有直接标识符（姓名、地址、账户名、可辨认的面部或声音、车牌号），或带有本系统在处理过程中用来查询法定身份的令牌。
+        - locale: zh-Hant
+          value: 資料含有直接識別資訊（姓名、地址、帳號名稱、可辨認的臉孔或聲音、車牌號碼），或帶有這個系統在處理過程中用來查出法定身分的代碼。
       color: "#FFD700"
 element_variables:
   - id: additional_description
@@ -102,4 +328,18 @@ element_variables:
         value: Description
       - locale: fr
         value: Description
+      - locale: es
+        value: Descripción
+      - locale: pt
+        value: Descrição
+      - locale: fil
+        value: Paglalarawan
+      - locale: km
+        value: ការពណ៌នា
+      - locale: vi
+        value: Mô tả
+      - locale: zh-Hans
+        value: 描述
+      - locale: zh-Hant
+        value: 說明
     required: true

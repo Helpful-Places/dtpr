@@ -5,6 +5,20 @@ title:
     value: A dynamic price or fee
   - locale: fr
     value: Un prix ou tarif dynamique
+  - locale: es
+    value: Un precio o una tarifa dinámicos
+  - locale: pt
+    value: Um preço ou uma tarifa dinâmica
+  - locale: fil
+    value: Pabago-bagong presyo o singil
+  - locale: km
+    value: តម្លៃ ឬថ្លៃសេវាប្រែប្រួល
+  - locale: vi
+    value: Giá hoặc phí thay đổi linh hoạt
+  - locale: zh-Hans
+    value: 动态价格或收费
+  - locale: zh-Hant
+    value: 動態價格或費用
 description:
   - locale: en
     value: >-
@@ -17,4 +31,36 @@ description:
       congestion, une tarification de pointe pour une course, un tarif de stationnement qui varie
       selon la demande, une offre personnalisée. Vous ne verrez peut-être jamais le système
       lui-même, seulement le prix qu'il a fixé.
+  - locale: es
+    value: >-
+      El resultado aparece como lo que algo cuesta — un peaje que sube con la congestión, un precio
+      más alto por un viaje en momentos de alta demanda, una tarifa de estacionamiento que cambia
+      según la demanda, una oferta personalizada. Puede que usted nunca vea el sistema en sí, solo
+      el precio que fijó.
+  - locale: pt
+    value: >-
+      O resultado aparece como o custo de algo — um pedágio que sobe com o congestionamento, a
+      tarifa dinâmica de uma corrida, um preço de estacionamento que muda conforme a demanda, uma
+      oferta personalizada. Talvez você nunca veja o sistema em si, apenas o preço que ele definiu.
+  - locale: fil
+    value: >-
+      Lumalabas ang output bilang halaga ng isang bagay — toll sa kalsada na tumataas kapag masikip
+      ang trapiko, surge pricing sa isang biyahe, singil sa paradahan na nagbabago ayon sa demand,
+      alok na iniangkop sa inyo. Maaaring hindi ninyo kailanman makita ang sistema mismo, kundi ang
+      presyong itinakda lang nito.
+  - locale: km
+    value: >-
+      លទ្ធផលលេចឡើងជាតម្លៃនៃអ្វីមួយ — ថ្លៃផ្លូវដែលកើនឡើងតាមការកកស្ទះ,
+      តម្លៃកើនពេលតម្រូវការខ្ពស់សម្រាប់ការជិះ, ថ្លៃចតរថយន្តដែលប្រែប្រួលតាមតម្រូវការ,
+      ការផ្តល់ជូនដែលកំណត់សម្រាប់បុគ្គល។ អ្នកប្រហែលជាមិនដែលឃើញប្រព័ន្ធនោះផ្ទាល់ទេ
+      គឺឃើញតែតម្លៃដែលវាកំណត់ប៉ុណ្ណោះ។
+  - locale: vi
+    value: >-
+      Kết quả đầu ra thể hiện qua giá của một thứ gì đó — phí đường bộ tăng theo mức ùn tắc, giá
+      cuốc xe tăng vào giờ cao điểm, giá đậu xe thay đổi theo nhu cầu, một ưu đãi dành riêng cho
+      bạn. Có thể bạn không bao giờ thấy chính hệ thống, chỉ thấy mức giá mà nó đặt ra.
+  - locale: zh-Hans
+    value: 输出表现为某样东西的价格——随拥堵上涨的道路通行费、网约车的高峰加价、随需求变化的停车费率、个性化优惠。您可能永远看不到系统本身，只看到它定下的价格。
+  - locale: zh-Hant
+    value: 輸出結果以價格的形式出現：隨壅塞程度上漲的道路通行費、叫車的尖峰加價、依需求變動的停車費率、個人化優惠。您可能永遠看不到系統本身，只看到它訂出的價格。
 symbol_id: price_tag

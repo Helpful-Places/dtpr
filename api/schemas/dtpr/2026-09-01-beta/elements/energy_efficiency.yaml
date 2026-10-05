@@ -5,9 +5,37 @@ title:
     value: Energy Efficiency
   - locale: fr
     value: Efficacité énergétique
+  - locale: es
+    value: Eficiencia energética
+  - locale: pt
+    value: Eficiência energética
+  - locale: fil
+    value: Pagtitipid sa enerhiya
+  - locale: km
+    value: ប្រសិទ្ធភាពថាមពល
+  - locale: vi
+    value: Tiết kiệm năng lượng
+  - locale: zh-Hans
+    value: 节能
+  - locale: zh-Hant
+    value: 能源效率
 description:
   - locale: en
     value: Reduces energy use and/or helps conserve energy.
   - locale: fr
     value: Réduit la consommation d'énergie et/ou aide à conserver l'énergie.
+  - locale: es
+    value: Reduce el consumo de energía y/o ayuda a ahorrarla.
+  - locale: pt
+    value: Reduz o consumo de energia e/ou ajuda a economizar energia.
+  - locale: fil
+    value: Nagbabawas ng paggamit ng enerhiya at/o tumutulong magtipid ng enerhiya.
+  - locale: km
+    value: កាត់បន្ថយការប្រើថាមពល និង/ឬជួយសន្សំសំចៃថាមពល។
+  - locale: vi
+    value: Giảm mức sử dụng năng lượng và/hoặc giúp tiết kiệm năng lượng.
+  - locale: zh-Hans
+    value: 减少能源消耗和/或帮助节约能源。
+  - locale: zh-Hant
+    value: 減少能源使用及（或）協助節約能源。
 symbol_id: energy_efficiency

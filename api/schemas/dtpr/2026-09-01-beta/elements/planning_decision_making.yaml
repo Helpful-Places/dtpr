@@ -5,6 +5,20 @@ title:
     value: Planning & Decision-making
   - locale: fr
     value: Planification et prise de décision
+  - locale: es
+    value: Planificación y toma de decisiones
+  - locale: pt
+    value: Planejamento e tomada de decisão
+  - locale: fil
+    value: Pagpaplano at pagdedesisyon
+  - locale: km
+    value: ការធ្វើផែនការ និងការសម្រេចចិត្ត
+  - locale: vi
+    value: Quy hoạch và ra quyết định
+  - locale: zh-Hans
+    value: 规划与决策
+  - locale: zh-Hant
+    value: 規劃與決策
 description:
   - locale: en
     value: >-
@@ -17,4 +31,37 @@ description:
       système — par exemple l'urbanisme, la planification d'infrastructures, ou la mesure de
       l'impact d'une décision de politique publique. À distinguer de Évaluation des risques et
       triage, qui note des personnes individuellement.
+  - locale: es
+    value: >-
+      Apoya los pronósticos y el análisis del impacto de políticas a nivel de población o de sistema
+      — por ejemplo, planificación urbana, planificación de infraestructura o medición del impacto
+      de una decisión de política pública. Se distingue de Evaluación de riesgos y triaje, que
+      asigna puntajes a personas.
+  - locale: pt
+    value: >-
+      Apoia previsões e análises de impacto de políticas no nível da população ou do sistema — por
+      exemplo, planejamento urbano, planejamento de infraestrutura ou medição do impacto de uma
+      decisão de política pública. Diferente de Avaliação de risco e triagem, que atribui pontuações
+      a indivíduos.
+  - locale: fil
+    value: >-
+      Sumusuporta sa forecasting at pagsusuri ng epekto ng patakaran sa antas ng populasyon o ng
+      sistema — halimbawa, pagpaplano ng lungsod, pagpaplano ng imprastruktura, o pagsukat sa epekto
+      ng isang desisyon sa patakaran. Iba sa Pagtatasa ng panganib at triage, na nagbibigay ng iskor
+      sa mga indibidwal.
+  - locale: km
+    value: >-
+      គាំទ្រការព្យាករណ៍ និងការវិភាគផលប៉ះពាល់នៃគោលនយោបាយ នៅកម្រិតប្រជាជន ឬកម្រិតប្រព័ន្ធ — ឧទាហរណ៍
+      ការរៀបចំផែនការទីក្រុង, ការរៀបចំផែនការហេដ្ឋារចនាសម្ព័ន្ធ,
+      ឬការវាស់ផលប៉ះពាល់នៃការសម្រេចចិត្តផ្នែកគោលនយោបាយ។ ខុសពី «ការវាយតម្លៃហានិភ័យ និងការចាត់អាទិភាព»
+      ដែលដាក់ពិន្ទុលើបុគ្គល។
+  - locale: vi
+    value: >-
+      Hỗ trợ việc dự báo và phân tích tác động chính sách ở quy mô toàn dân cư hoặc toàn hệ thống —
+      ví dụ: quy hoạch đô thị, quy hoạch hạ tầng, hoặc đo lường tác động của một quyết định chính
+      sách. Khác với Đánh giá rủi ro và phân loại ưu tiên, vốn chấm điểm từng cá nhân.
+  - locale: zh-Hans
+    value: 支持人口或系统层面的预测和政策影响分析——例如城市规划、基础设施规划，或衡量某项政策决定的影响。有别于“风险评估与优先排序”，后者是对个人评分。
+  - locale: zh-Hant
+    value: 協助在人口或系統層級進行預測與政策影響分析，例如都市規劃、基礎設施規劃，或衡量某項政策決定的影響。與「風險評估與分流」不同，後者是對個人評分。
 symbol_id: planning_decision_making

@@ -167,10 +167,9 @@ describe('validateVersion — version-level rules', () => {
   it('Rule 11 (locale_not_allowed): unknown locale in element title', () => {
     const src = baseSource()
     // Construct an entry with a locale outside the manifest. `'es'` is
-    // not in the current LocaleCode enum either, so the cast bypasses
-    // both the type and the manifest allow-list — the semantic rule
-    // is what we want to exercise here.
-    src.elements[0]!.title = [{ locale: 'es' as never, value: 'X' }]
+    // a valid LocaleCode, so Zod accepts it — the manifest allow-list
+    // (the semantic rule) is what we want to exercise here.
+    src.elements[0]!.title = [{ locale: 'es', value: 'X' }]
     const r = validateVersion(src)
     expect(r.errors.some((e) => e.code === 'LOCALE_NOT_ALLOWED')).toBe(true)
   })

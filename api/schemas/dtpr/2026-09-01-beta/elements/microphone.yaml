@@ -5,6 +5,20 @@ title:
     value: Microphone
   - locale: fr
     value: Microphone
+  - locale: es
+    value: Micrófono
+  - locale: pt
+    value: Microfone
+  - locale: fil
+    value: Mikropono
+  - locale: km
+    value: មីក្រូហ្វូន
+  - locale: vi
+    value: Micrô
+  - locale: zh-Hans
+    value: 麦克风
+  - locale: zh-Hant
+    value: 麥克風
 description:
   - locale: en
     value: >-
@@ -18,4 +32,38 @@ description:
       verre. Présent dans les enceintes connectées, les bornes, les interphones et les
       installations de surveillance acoustique. Le dispositif de capture lui-même ; la
       reconnaissance vocale et les autres analyses figurent sous Algorithme ou modèle.
+  - locale: es
+    value: >-
+      Capta sonido — voz, ruido ambiental o eventos sonoros específicos, como vidrios que se rompen
+      o disparos. Se encuentra en altavoces inteligentes, quioscos, intercomunicadores e
+      instalaciones de monitoreo acústico. Es el dispositivo de captación en sí; el reconocimiento
+      de voz y otros análisis aparecen en Algoritmo o modelo.
+  - locale: pt
+    value: >-
+      Capta som — fala, ruído ambiente ou eventos sonoros específicos, como vidro quebrando ou
+      disparos de arma de fogo. Encontrado em alto-falantes inteligentes, totens, interfones e
+      instalações de monitoramento acústico. É o dispositivo de captura em si; o reconhecimento de
+      fala e outras análises aparecem em Algoritmo ou modelo.
+  - locale: fil
+    value: >-
+      Kumukuha ng tunog — pananalita, ingay sa paligid, o mga partikular na tunog gaya ng nababasag
+      na salamin o putok ng baril. Makikita sa mga smart speaker, kiosk, intercom, at instalasyong
+      nagbabantay sa tunog. Ito ang device na kumukuha mismo; ang pagkilala ng pananalita at iba
+      pang pagsusuri ay makikita sa ilalim ng Algorithm o modelo.
+  - locale: km
+    value: >-
+      ចាប់យកសំឡេង — សំដី, សំឡេងជុំវិញ, ឬព្រឹត្តិការណ៍សំឡេងជាក់លាក់ដូចជាកញ្ចក់បែក ឬសំឡេងកាំភ្លើង។
+      មាននៅក្នុងឧបករណ៍បំពងសំឡេងឆ្លាតវៃ, បញ្ជរស្វ័យសេវា, ឧបករណ៍និយាយឆ្លើយឆ្លង,
+      និងបរិក្ខារតាមដានសំឡេង។ នេះជាឧបករណ៍ចាប់យកផ្ទាល់ ចំណែកការសម្គាល់សំដី
+      និងការវិភាគផ្សេងទៀតបង្ហាញនៅក្រោម «ក្បួនដោះស្រាយ ឬម៉ូដែល»។
+  - locale: vi
+    value: >-
+      Thu nhận âm thanh — lời nói, tiếng ồn xung quanh, hoặc những sự kiện âm thanh cụ thể như tiếng
+      kính vỡ hay tiếng súng. Có trong loa thông minh, ki-ốt, hệ thống liên lạc nội bộ và các hệ
+      thống theo dõi âm thanh. Đây là chính thiết bị thu nhận; nhận diện giọng nói và các phân tích
+      khác nằm trong mục Thuật toán hoặc mô hình.
+  - locale: zh-Hans
+    value: 采集声音——语音、环境噪声，或玻璃破碎、枪声等特定声音事件。见于智能音箱、自助终端、对讲机和声学监测装置。这里指采集设备本身；语音识别及其他分析列在“算法或模型”之下。
+  - locale: zh-Hant
+    value: 擷取聲音：語音、環境噪音，或玻璃破裂、槍聲等特定聲音事件。常見於智慧音箱、自助服務機、對講機及聲音監測設施。此處指擷取裝置本身；語音辨識及其他分析列在「演算法或模型」之下。
 symbol_id: audio

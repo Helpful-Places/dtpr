@@ -5,6 +5,20 @@ title:
     value: Not available to vendor
   - locale: fr
     value: Non disponible pour le vendeur
+  - locale: es
+    value: No disponibles para el proveedor
+  - locale: pt
+    value: Não disponíveis para o fornecedor
+  - locale: fil
+    value: Hindi maa-access ng supplier
+  - locale: km
+    value: អ្នកផ្គត់ផ្គង់មិនអាចចូលប្រើបាន
+  - locale: vi
+    value: Nhà cung cấp không thể truy cập
+  - locale: zh-Hans
+    value: 供应商不可获取
+  - locale: zh-Hant
+    value: 供應商無法取得
 description:
   - locale: en
     value: Data is not available to the data collection or technology provider.
@@ -12,4 +26,20 @@ description:
     value: >-
       Les données ne sont pas disponibles pour le fournisseur de la collecte de données ou de la
       technologie.
+  - locale: es
+    value: >-
+      Los datos no están disponibles para el proveedor de la recopilación de datos o de la
+      tecnología.
+  - locale: pt
+    value: Os dados não estão disponíveis para o fornecedor da coleta de dados ou da tecnologia.
+  - locale: fil
+    value: Hindi maa-access ang data ng provider ng pangongolekta ng data o ng teknolohiya.
+  - locale: km
+    value: អ្នកផ្តល់សេវាប្រមូលទិន្នន័យ ឬអ្នកផ្តល់បច្ចេកវិទ្យាមិនអាចចូលប្រើទិន្នន័យបានទេ។
+  - locale: vi
+    value: Nhà cung cấp dịch vụ thu thập dữ liệu hoặc công nghệ không thể truy cập dữ liệu.
+  - locale: zh-Hans
+    value: 数据收集方或技术提供方无法获取数据。
+  - locale: zh-Hant
+    value: 資料收集或技術的供應商無法取得資料。
 symbol_id: not_available

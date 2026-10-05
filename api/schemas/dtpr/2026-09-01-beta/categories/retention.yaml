@@ -4,16 +4,58 @@ name:
     value: Data Retention
   - locale: fr
     value: Conservation des données
+  - locale: es
+    value: Conservación de datos
+  - locale: pt
+    value: Retenção de dados
+  - locale: fil
+    value: Pagpapanatili ng data
+  - locale: km
+    value: ការរក្សាទុកទិន្នន័យ
+  - locale: vi
+    value: Lưu giữ dữ liệu
+  - locale: zh-Hans
+    value: 数据保留
+  - locale: zh-Hant
+    value: 資料保留
 description:
   - locale: en
     value: How long the data produced by this AI system is kept.
   - locale: fr
     value: Combien de temps les données produites par ce système d’IA sont conservées.
+  - locale: es
+    value: Cuánto tiempo se conservan los datos que produce este sistema de IA.
+  - locale: pt
+    value: Por quanto tempo os dados produzidos por este sistema de IA são mantidos.
+  - locale: fil
+    value: Kung gaano katagal pinananatili ang data na nililikha ng sistemang AI na ito.
+  - locale: km
+    value: រយៈពេលដែលទិន្នន័យបង្កើតដោយប្រព័ន្ធ AI នេះត្រូវបានរក្សាទុក។
+  - locale: vi
+    value: Dữ liệu do hệ thống AI này tạo ra được giữ trong bao lâu.
+  - locale: zh-Hans
+    value: 本AI系统产生的数据保留多久。
+  - locale: zh-Hant
+    value: 這個AI系統產生的資料會保存多久。
 prompt:
   - locale: en
     value: How long is the data kept?
   - locale: fr
     value: Combien de temps les données sont-elles conservées ?
+  - locale: es
+    value: ¿Cuánto tiempo se conservan los datos?
+  - locale: pt
+    value: Por quanto tempo os dados são mantidos?
+  - locale: fil
+    value: Gaano katagal pinananatili ang data?
+  - locale: km
+    value: តើទិន្នន័យត្រូវបានរក្សាទុករយៈពេលប៉ុន្មាន?
+  - locale: vi
+    value: Dữ liệu được giữ trong bao lâu?
+  - locale: zh-Hans
+    value: 数据保留多久？
+  - locale: zh-Hant
+    value: 資料會保存多久？
 required: false
 order: 13
 datachain_type: dtpr
@@ -25,6 +67,20 @@ element_variables:
         value: Description
       - locale: fr
         value: Description
+      - locale: es
+        value: Descripción
+      - locale: pt
+        value: Descrição
+      - locale: fil
+        value: Paglalarawan
+      - locale: km
+        value: ការពណ៌នា
+      - locale: vi
+        value: Mô tả
+      - locale: zh-Hans
+        value: 描述
+      - locale: zh-Hant
+        value: 說明
     required: false
   - id: duration
     label:
@@ -32,4 +88,18 @@ element_variables:
         value: Duration
       - locale: fr
         value: Durée
+      - locale: es
+        value: Duración
+      - locale: pt
+        value: Duração
+      - locale: fil
+        value: Tagal
+      - locale: km
+        value: រយៈពេល
+      - locale: vi
+        value: Thời hạn
+      - locale: zh-Hans
+        value: 期限
+      - locale: zh-Hant
+        value: 期間
     required: true

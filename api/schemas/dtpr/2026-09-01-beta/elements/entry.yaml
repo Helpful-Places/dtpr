@@ -5,9 +5,39 @@ title:
     value: Entry
   - locale: fr
     value: Entrée
+  - locale: es
+    value: Ingreso
+  - locale: pt
+    value: Entrada
+  - locale: fil
+    value: Pagpasok
+  - locale: km
+    value: ការចូល
+  - locale: vi
+    value: Kiểm soát ra vào
+  - locale: zh-Hans
+    value: 准入
+  - locale: zh-Hant
+    value: 進入驗證
 description:
   - locale: en
     value: Supports authentication or validation in order to access a space or a service.
   - locale: fr
     value: Permet l'authentification ou la validation afin d'accéder à un espace ou à un service.
+  - locale: es
+    value: Apoya la autenticación o validación para acceder a un espacio o servicio.
+  - locale: pt
+    value: Apoia a autenticação ou validação para acessar um espaço ou serviço.
+  - locale: fil
+    value: >-
+      Sumusuporta sa pagpapatunay ng pagkakakilanlan o pagbeberipika para makapasok sa isang lugar o
+      makagamit ng isang serbisyo.
+  - locale: km
+    value: គាំទ្រការផ្ទៀងផ្ទាត់អត្តសញ្ញាណ ឬការបញ្ជាក់សុពលភាព ដើម្បីចូលទៅកាន់ទីកន្លែង ឬប្រើសេវា។
+  - locale: vi
+    value: Hỗ trợ việc xác thực hoặc xác nhận để được vào một không gian hoặc sử dụng một dịch vụ.
+  - locale: zh-Hans
+    value: 支持为进入某一空间或使用某项服务而进行的身份认证或验证。
+  - locale: zh-Hant
+    value: 協助進行身分驗證或確認，以便進入空間或使用服務。
 symbol_id: entry

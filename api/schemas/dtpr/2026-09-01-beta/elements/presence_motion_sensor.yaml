@@ -5,6 +5,20 @@ title:
     value: Presence & Motion Sensor
   - locale: fr
     value: Capteur de présence et de mouvement
+  - locale: es
+    value: Sensor de presencia y movimiento
+  - locale: pt
+    value: Sensor de presença e movimento
+  - locale: fil
+    value: Sensor ng presensiya at galaw
+  - locale: km
+    value: ឧបករណ៍ចាប់សញ្ញាវត្តមាន និងចលនា
+  - locale: vi
+    value: Cảm biến hiện diện và chuyển động
+  - locale: zh-Hans
+    value: 存在与移动传感器
+  - locale: zh-Hant
+    value: 存在與動作感測器
 description:
   - locale: en
     value: >-
@@ -16,4 +30,33 @@ description:
       Détecte qu'une personne ou une chose est présente, ou en mouvement, sans capter d'image —
       infrarouge passif, ultrasons, tapis de pression, compteurs de porte, capteurs d'occupation de
       siège. Indique au système qu'un espace est occupé, pas qui l'occupe.
+  - locale: es
+    value: >-
+      Detecta que alguien o algo está presente, o se mueve, sin captar una imagen — infrarrojo
+      pasivo, ultrasonido, tapetes de presión, contadores en puertas, sensores de ocupación de
+      asientos. Le indica al sistema que un espacio está ocupado, no quién lo ocupa.
+  - locale: pt
+    value: >-
+      Detecta que alguém ou algo está ali, ou está se movendo, sem captar imagem — infravermelho
+      passivo, ultrassom, tapetes de pressão, contadores de porta, sensores de ocupação de assentos.
+      Informa ao sistema que um espaço está ocupado, não quem o ocupa.
+  - locale: fil
+    value: >-
+      Tumutuklas na may tao o bagay sa isang lugar, o na gumagalaw ito, nang hindi kumukuha ng
+      larawan — passive infrared, ultrasonic, pressure mat, pambilang sa pinto, sensor kung may
+      nakaupo. Sinasabi sa sistema na may tao sa isang lugar, hindi kung sino ang naroon.
+  - locale: km
+    value: >-
+      រកឃើញថាមាននរណាម្នាក់ ឬអ្វីមួយនៅទីនោះ ឬកំពុងធ្វើចលនា ដោយមិនចាប់យករូបភាព — អ៊ីនហ្វ្រារ៉េដអកម្ម,
+      អ៊ុលត្រាសោន, កម្រាលចាប់សម្ពាធ, ឧបករណ៍រាប់នៅមាត់ទ្វារ, ឧបករណ៍ចាប់សញ្ញាថាកៅអីមានអ្នកអង្គុយ។
+      វាប្រាប់ប្រព័ន្ធថាទីកន្លែងមួយមានមនុស្ស មិនមែនប្រាប់ថាជានរណាទេ។
+  - locale: vi
+    value: >-
+      Phát hiện có người hoặc vật đang ở đó, hoặc đang chuyển động, mà không thu nhận hình ảnh —
+      hồng ngoại thụ động, siêu âm, thảm cảm ứng áp lực, bộ đếm ở cửa, cảm biến ghế có người ngồi.
+      Cho hệ thống biết một không gian đang có người, chứ không cho biết đó là ai.
+  - locale: zh-Hans
+    value: 在不采集图像的情况下，检测是否有人或物在场或在移动——被动红外、超声波、压力垫、门口计数器、座位占用传感器。它只告诉系统某个空间有人，而不说明是谁。
+  - locale: zh-Hant
+    value: 在不擷取影像的情況下，偵測是否有人或物體存在或移動：被動式紅外線、超音波、壓力墊、門口計數器、座位感測器。它告訴系統某個空間有人使用，而不是使用者是誰。
 symbol_id: motion_detector

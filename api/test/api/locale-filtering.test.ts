@@ -2,6 +2,7 @@ import { describe, it, expect, beforeAll } from 'vitest'
 import { SELF } from 'cloudflare:test'
 import { SAMPLE_VERSION, seedVersion } from './seed.ts'
 import { deepFilterLocales, parseLocalesParam } from '../../src/rest/responses.ts'
+import { resolveLocaleCode } from '../../src/schema/locale.ts'
 
 beforeAll(async () => {
   await seedVersion()
@@ -26,6 +27,25 @@ describe('locale filtering: parseLocalesParam', () => {
     expect(set?.size).toBe(2)
     expect(set?.has('en')).toBe(true)
     expect(set?.has('fr')).toBe(true)
+  })
+})
+
+describe('locale filtering: resolveLocaleCode', () => {
+  it('resolves aliases, regions and case to canonical codes', () => {
+    expect(resolveLocaleCode('fil')).toBe('fil')
+    expect(resolveLocaleCode('tl')).toBe('fil')
+    expect(resolveLocaleCode('tl-PH')).toBe('fil')
+    expect(resolveLocaleCode('pt-BR')).toBe('pt')
+    expect(resolveLocaleCode('es_MX')).toBe('es')
+    expect(resolveLocaleCode('zh')).toBe('zh-Hans')
+    expect(resolveLocaleCode('zh-TW')).toBe('zh-Hant')
+    expect(resolveLocaleCode('ZH-hant-HK')).toBe('zh-Hant')
+    expect(resolveLocaleCode('zh-Hans-SG')).toBe('zh-Hans')
+    expect(resolveLocaleCode('zz')).toBeNull()
+  })
+
+  it('is applied by parseLocalesParam, keeping unknown codes as-is', () => {
+    expect(parseLocalesParam('tl,zh-HK,zz')).toEqual(new Set(['fil', 'zh-Hant', 'zz']))
   })
 })
 

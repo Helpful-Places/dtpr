@@ -5,6 +5,20 @@ title:
     value: Answers
   - locale: fr
     value: Répond
+  - locale: es
+    value: Responde
+  - locale: pt
+    value: Responde
+  - locale: fil
+    value: Sumasagot
+  - locale: km
+    value: ឆ្លើយតប
+  - locale: vi
+    value: Trả lời
+  - locale: zh-Hans
+    value: 回答
+  - locale: zh-Hant
+    value: 回答
 description:
   - locale: en
     value: >-
@@ -19,4 +33,45 @@ description:
       moment. Exemples : un chatbot de transport expliquant un retard, une ligne de service
       orientant votre demande. Distinct de Crée, qui produit un contenu qui existe ensuite par
       lui-même.
+  - locale: es
+    value: >-
+      Responde — contesta las preguntas de las personas en una conversación: un chatbot, un
+      asistente de voz, una línea telefónica automatizada. Mantiene un intercambio dirigido a usted
+      en el momento. Ejemplos: un chatbot de transporte público que explica un retraso, una línea de
+      atención que canaliza su solicitud. Se distingue de Crea, que produce contenido que después
+      existe por sí solo.
+  - locale: pt
+    value: >-
+      Responde — responde às perguntas das pessoas em uma conversa: um chatbot, um assistente de
+      voz, uma linha telefônica automatizada. Mantém um diálogo dirigido a você naquele momento.
+      Exemplos: um chatbot de transporte público explicando um atraso, uma central de atendimento
+      encaminhando seu pedido. Diferente de Cria, que produz conteúdo que continua existindo por si
+      só depois.
+  - locale: fil
+    value: >-
+      Sumasagot — tumutugon sa mga tanong ng mga tao sa isang usapan: isang chatbot, isang voice
+      assistant, isang awtomatikong linya ng telepono. Nakikipagpalitan ito ng usapan na nakatuon sa
+      inyo sa mismong sandaling iyon. Mga halimbawa: isang chatbot ng pampublikong sasakyan na
+      nagpapaliwanag ng pagkaantala, isang linya ng serbisyo na nagdadala ng inyong kahilingan sa
+      tamang tanggapan. Iba sa Lumilikha, na gumagawa ng nilalamang nakatatayo nang mag-isa
+      pagkatapos.
+  - locale: km
+    value: >-
+      ឆ្លើយតប — ឆ្លើយសំណួររបស់មនុស្សក្នុងការសន្ទនា៖ ឆាតបត, ជំនួយការសំឡេង, ខ្សែទូរសព្ទស្វ័យប្រវត្តិ។
+      វាធ្វើការសន្ទនាទៅវិញទៅមកជាមួយអ្នកនៅពេលនោះតែម្តង។ ឧទាហរណ៍៖
+      ឆាតបតដឹកជញ្ជូនសាធារណៈពន្យល់ពីការយឺតយ៉ាវ, ខ្សែទូរសព្ទសេវាបញ្ជូនសំណើរបស់អ្នកទៅកន្លែងត្រឹមត្រូវ។
+      ខុសពី «បង្កើតខ្លឹមសារ» ដែលបង្កើតខ្លឹមសារដែលនៅមានដោយឡែកបន្ទាប់ពីនោះ។
+  - locale: vi
+    value: >-
+      Trả lời — đáp lại câu hỏi của mọi người trong cuộc trò chuyện: một chatbot, một trợ lý giọng
+      nói, một đường dây điện thoại tự động. Hệ thống trao đổi qua lại với chính bạn ngay lúc đó. Ví
+      dụ: một chatbot giao thông công cộng giải thích về chuyến bị trễ, một đường dây dịch vụ chuyển
+      yêu cầu của bạn đến đúng nơi. Khác với Tạo nội dung, vốn tạo ra nội dung tồn tại độc lập về
+      sau.
+  - locale: zh-Hans
+    value: >-
+      回答——在对话中回应人们的问题：聊天机器人、语音助手、自动电话热线。它与您实时一来一往地交流。示例：公共交通聊天机器人解释延误原因、服务热线转接您的请求。有别于“生成”，后者产生的是事后可独立存在的内容。
+  - locale: zh-Hant
+    value: >-
+      回答：在對話中回應人們的問題，例如聊天機器人、語音助理、自動電話專線。它會當下與您一來一往地對話。例如：大眾運輸聊天機器人說明誤點原因、服務專線轉接您的需求。與「創作」不同，後者產生的內容在事後可獨立存在。
 symbol_id: chatbot

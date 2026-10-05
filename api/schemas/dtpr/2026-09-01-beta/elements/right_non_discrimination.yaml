@@ -5,6 +5,20 @@ title:
     value: Right to Non-discrimination
   - locale: fr
     value: Droit à la non-discrimination
+  - locale: es
+    value: Derecho a la no discriminación
+  - locale: pt
+    value: Direito à não discriminação
+  - locale: fil
+    value: Karapatan laban sa diskriminasyon
+  - locale: km
+    value: សិទ្ធិមិនត្រូវបានរើសអើង
+  - locale: vi
+    value: Quyền không bị phân biệt đối xử
+  - locale: zh-Hans
+    value: 不受歧视权
+  - locale: zh-Hant
+    value: 不受歧視的權利
 description:
   - locale: en
     value: >-
@@ -19,4 +33,40 @@ description:
       l'orientation sexuelle. Les organisations doivent mettre en œuvre et démontrer des mesures
       techniques et organisationnelles appropriées pour éviter que leurs systèmes d'IA ne produisent
       des résultats discriminatoires.
+  - locale: es
+    value: >-
+      El derecho a no recibir un trato discriminatorio de los sistemas de IA por características
+      protegidas como la raza, el género, la edad, la religión, la discapacidad o la orientación
+      sexual. Las organizaciones deben aplicar, y demostrar que aplican, medidas técnicas y
+      organizativas adecuadas para evitar que sus sistemas de IA produzcan resultados
+      discriminatorios.
+  - locale: pt
+    value: >-
+      O direito de não sofrer tratamento discriminatório por sistemas de IA com base em
+      características protegidas, como raça, gênero, idade, religião, deficiência ou orientação
+      sexual. As organizações devem implementar e comprovar medidas técnicas e organizacionais
+      adequadas para evitar que seus sistemas de IA produzam resultados discriminatórios.
+  - locale: fil
+    value: >-
+      Ang karapatang hindi makaranas ng diskriminasyon mula sa mga sistemang AI batay sa mga
+      protektadong katangian gaya ng lahi, kasarian, edad, relihiyon, kapansanan, o oryentasyong
+      seksuwal. Dapat magpatupad at magpakita ang mga organisasyon ng angkop na mga hakbang na
+      teknikal at pang-organisasyon para maiwasan ang mga resultang may diskriminasyon mula sa
+      kanilang mga sistemang AI.
+  - locale: km
+    value: >-
+      សិទ្ធិរួចផុតពីការប្រព្រឹត្តបែបរើសអើងដោយប្រព័ន្ធ AI ដោយផ្អែកលើលក្ខណៈដែលត្រូវការពារ
+      ដូចជាពូជសាសន៍, យេនឌ័រ, អាយុ, សាសនា, ពិការភាព, ឬទំនោរផ្លូវភេទ។ អង្គភាពត្រូវអនុវត្ត
+      និងបង្ហាញឱ្យឃើញនូវវិធានការបច្ចេកទេស និងវិធានការរៀបចំចាត់ចែងសមស្រប ដើម្បីការពារកុំឱ្យប្រព័ន្ធ
+      AI របស់ខ្លួនបង្កើតលទ្ធផលរើសអើង។
+  - locale: vi
+    value: >-
+      Quyền không bị các hệ thống AI phân biệt đối xử dựa trên những đặc điểm được pháp luật bảo vệ
+      như chủng tộc, giới tính, tuổi tác, tôn giáo, khuyết tật hoặc khuynh hướng tính dục. Các tổ
+      chức phải thực hiện và chứng minh được những biện pháp kỹ thuật và tổ chức phù hợp để ngăn hệ
+      thống AI của mình tạo ra kết quả mang tính phân biệt đối xử.
+  - locale: zh-Hans
+    value: 有权不因种族、性别、年龄、宗教、残疾或性取向等受保护特征而受到AI系统的歧视性对待。组织必须采取并证明其已采取适当的技术和组织措施，防止其AI系统产生歧视性结果。
+  - locale: zh-Hant
+    value: 您有權不因種族、性別、年齡、宗教、身心障礙或性傾向等受保護特徵，而受到AI系統的歧視性對待。組織必須採取適當的技術與組織措施，並證明已落實，以防止其AI系統產生歧視性的結果。
 symbol_id: rights_non-discrimination

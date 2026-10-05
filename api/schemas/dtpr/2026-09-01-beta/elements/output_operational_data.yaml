@@ -5,6 +5,20 @@ title:
     value: Operational data
   - locale: fr
     value: Données opérationnelles
+  - locale: es
+    value: Datos operativos
+  - locale: pt
+    value: Dados operacionais
+  - locale: fil
+    value: Data ng operasyon
+  - locale: km
+    value: ទិន្នន័យប្រតិបត្តិការ
+  - locale: vi
+    value: Dữ liệu vận hành
+  - locale: zh-Hans
+    value: 运营数据
+  - locale: zh-Hant
+    value: 營運資料
 description:
   - locale: en
     value: >-
@@ -19,4 +33,41 @@ description:
       Aucune personne en particulier n'est concernée. Exemples : une tournée de collecte des ordures
       optimisée, une projection d'occupation scolaire, une allocation budgétaire recommandée pour le
       trimestre suivant.
+  - locale: es
+    value: >-
+      La IA produce un resultado administrativo — horarios, rutas, estimaciones de ocupación,
+      asignaciones de presupuesto u otros registros sobre cómo funciona un lugar o un servicio. No
+      trata de ninguna persona en particular. Ejemplos: una ruta optimizada de recolección de
+      basura, una proyección de ocupación escolar, una asignación de presupuesto recomendada para el
+      próximo trimestre.
+  - locale: pt
+    value: >-
+      A IA produz saídas administrativas — horários, rotas, estimativas de ocupação, alocações de
+      orçamento ou outros registros sobre como um lugar ou serviço funciona. Não tratam de nenhuma
+      pessoa em particular. Exemplos: uma rota otimizada de coleta de lixo, uma projeção de ocupação
+      de uma escola, uma alocação de orçamento recomendada para o próximo trimestre.
+  - locale: fil
+    value: >-
+      Lumilikha ang AI ng output na administratibo — mga iskedyul, ruta, tantiya ng dami ng tao,
+      paglalaan ng badyet, o iba pang rekord kung paano tumatakbo ang isang lugar o serbisyo. Hindi
+      tungkol sa sinumang partikular na tao. Mga halimbawa: pinakamainam na ruta ng paghahakot ng
+      basura, tantiya ng dami ng tao sa paaralan, inirerekomendang paglalaan ng badyet para sa
+      susunod na quarter.
+  - locale: km
+    value: >-
+      AI បង្កើតលទ្ធផលផ្នែករដ្ឋបាល — កាលវិភាគ, ផ្លូវធ្វើដំណើរ, ការប៉ាន់ស្មានចំនួនអ្នកប្រើទីកន្លែង,
+      ការបែងចែកថវិកា, ឬកំណត់ត្រាផ្សេងទៀតអំពីរបៀបដែលទីកន្លែង ឬសេវាមួយដំណើរការ។
+      មិនមែនអំពីបុគ្គលណាម្នាក់ទេ។ ឧទាហរណ៍៖ ផ្លូវប្រមូលសំរាមដែលបានធ្វើឱ្យប្រសើរបំផុត,
+      ការព្យាករណ៍ចំនួនមនុស្សក្នុងសាលារៀន, ការបែងចែកថវិកាដែលផ្តល់អនុសាសន៍សម្រាប់ត្រីមាសបន្ទាប់។
+  - locale: vi
+    value: >-
+      AI tạo ra kết quả đầu ra mang tính hành chính — lịch trình, tuyến đường, ước tính số người có
+      mặt, phân bổ ngân sách, hoặc các bản ghi khác về cách một nơi hoặc một dịch vụ vận hành. Không
+      nói về riêng một người nào. Ví dụ: một tuyến thu gom rác đã được tối ưu hóa, dự báo số người
+      có mặt tại trường, một phương án phân bổ ngân sách được đề xuất cho quý tới.
+  - locale: zh-Hans
+    value: >-
+      AI产生行政管理方面的输出——日程安排、路线、占用情况估算、预算分配，或有关某一场所或服务如何运转的其他记录。不针对任何特定个人。示例：优化后的垃圾收运路线、学校使用人数预测、下一季度的预算分配建议。
+  - locale: zh-Hant
+    value: AI產生行政類的輸出結果：時程表、路線、使用人數估計、預算分配，或其他關於場所或服務如何運作的紀錄，不涉及任何特定個人。例如：最佳化的垃圾收運路線、學校使用人數推估、下一季的預算分配建議。
 symbol_id: operational_data

@@ -5,6 +5,20 @@ title:
     value: Healthcare
   - locale: fr
     value: Soins de santé
+  - locale: es
+    value: Atención médica
+  - locale: pt
+    value: Assistência à saúde
+  - locale: fil
+    value: Pangangalagang pangkalusugan
+  - locale: km
+    value: ការថែទាំសុខភាព
+  - locale: vi
+    value: Chăm sóc sức khỏe
+  - locale: zh-Hans
+    value: 医疗保健
+  - locale: zh-Hant
+    value: 醫療照護
 description:
   - locale: en
     value: >-
@@ -16,6 +30,35 @@ description:
       Soutient les soins cliniques aux personnes — par exemple, aide au diagnostic, recommandations
       de traitement, triage des patients ou chatbots de santé. À distinguer de Santé
       environnementale, qui surveille l'environnement physique.
+  - locale: es
+    value: >-
+      Apoya la atención clínica de las personas — por ejemplo, ayuda para el diagnóstico,
+      recomendaciones de tratamiento, triaje de pacientes o chatbots de salud. Se distingue de Salud
+      ambiental, que monitorea el entorno físico.
+  - locale: pt
+    value: >-
+      Apoia o cuidado clínico de indivíduos — por exemplo, apoio ao diagnóstico, recomendações de
+      tratamento, triagem de pacientes ou chatbots de saúde. Diferente de Saúde ambiental, que
+      monitora o ambiente físico.
+  - locale: fil
+    value: >-
+      Sumusuporta sa klinikal na pangangalaga sa mga indibidwal — halimbawa, tulong sa diyagnosis,
+      mga rekomendasyon sa paggamot, triage ng mga pasyente, o mga chatbot na pangkalusugan. Iba sa
+      Kalusugang pangkapaligiran, na nagbabantay sa pisikal na kapaligiran.
+  - locale: km
+    value: >-
+      គាំទ្រការព្យាបាលថែទាំសម្រាប់បុគ្គល — ឧទាហរណ៍ ជំនួយក្នុងការធ្វើរោគវិនិច្ឆ័យ,
+      អនុសាសន៍អំពីការព្យាបាល, ការចាត់អាទិភាពអ្នកជំងឺ, ឬឆាតបតសុខភាព។ ខុសពី «សុខភាពបរិស្ថាន»
+      ដែលតាមដានបរិស្ថានរូបវន្ត។
+  - locale: vi
+    value: >-
+      Hỗ trợ việc khám chữa bệnh cho từng người — ví dụ: hỗ trợ chẩn đoán, đề xuất điều trị, phân
+      loại ưu tiên bệnh nhân, hoặc chatbot về sức khỏe. Khác với Sức khỏe môi trường, vốn theo dõi
+      môi trường vật lý.
+  - locale: zh-Hans
+    value: 支持面向个人的临床诊疗——例如辅助诊断、治疗建议、患者分诊或健康咨询聊天机器人。有别于“环境健康”，后者监测的是物理环境。
+  - locale: zh-Hant
+    value: 協助對個人的臨床照護，例如輔助診斷、治療建議、病患分流或健康聊天機器人。與「環境衛生」不同，後者監測的是實體環境。
 sources:
   - type: policy_document
     title: Ethics and Governance of Artificial Intelligence for Health

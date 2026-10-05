@@ -5,6 +5,20 @@ title:
     value: Research & Development
   - locale: fr
     value: Recherche et développement
+  - locale: es
+    value: Investigación y desarrollo
+  - locale: pt
+    value: Pesquisa e desenvolvimento
+  - locale: fil
+    value: Pananaliksik at pagpapaunlad
+  - locale: km
+    value: ការស្រាវជ្រាវ និងអភិវឌ្ឍន៍
+  - locale: vi
+    value: Nghiên cứu và phát triển
+  - locale: zh-Hans
+    value: 研究与开发
+  - locale: zh-Hant
+    value: 研究與發展
 description:
   - locale: en
     value: >-
@@ -16,4 +30,33 @@ description:
       Permet le déploiement d'un instrument de recherche — un système qui étudie un lieu, une
       population ou un environnement dans le cadre d'un programme de recherche. À distinguer de l'IA
       de production qui rend un service au public.
+  - locale: es
+    value: >-
+      Apoya un instrumento de investigación implementado — un sistema que estudia un lugar, una
+      población o un entorno como parte de un programa de investigación. Se distingue de la IA en
+      producción, que presta un servicio al público.
+  - locale: pt
+    value: >-
+      Apoia um instrumento de pesquisa implantado — um sistema que estuda um lugar, uma população ou
+      um ambiente como parte de um programa de pesquisa. Diferente da IA de produção, que presta um
+      serviço ao público.
+  - locale: fil
+    value: >-
+      Sumusuporta sa isang ipinatutupad na instrumento sa pananaliksik — isang sistemang nag-aaral
+      ng isang lugar, populasyon, o kapaligiran bilang bahagi ng isang programa ng pananaliksik. Iba
+      sa AI na ganap nang ginagamit para maghatid ng serbisyo sa publiko.
+  - locale: km
+    value: >-
+      គាំទ្រឧបករណ៍ស្រាវជ្រាវដែលបានដាក់ឱ្យប្រើប្រាស់ — ប្រព័ន្ធដែលសិក្សាអំពីទីកន្លែង, ប្រជាជន,
+      ឬបរិស្ថាន ជាផ្នែកមួយនៃកម្មវិធីស្រាវជ្រាវ។ ខុសពី AI
+      ដែលដំណើរការជាផ្លូវការដើម្បីផ្តល់សេវាដល់សាធារណជន។
+  - locale: vi
+    value: >-
+      Hỗ trợ một công cụ nghiên cứu đã được triển khai — một hệ thống nghiên cứu về một nơi, một
+      nhóm dân cư hoặc một môi trường trong khuôn khổ một chương trình nghiên cứu. Khác với AI đang
+      vận hành thực tế để cung cấp dịch vụ cho công chúng.
+  - locale: zh-Hans
+    value: 支持已部署的研究工具——作为研究项目的一部分，对某一场所、人群或环境进行研究的系统。有别于正式投入使用、向公众提供服务的AI。
+  - locale: zh-Hant
+    value: 協助已部署的研究工具運作，也就是在研究計畫中用來研究某個地點、族群或環境的系統。與向大眾提供服務的正式上線AI不同。
 symbol_id: research_development

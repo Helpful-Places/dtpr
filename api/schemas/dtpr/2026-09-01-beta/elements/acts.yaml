@@ -5,6 +5,20 @@ title:
     value: Acts
   - locale: fr
     value: Agit
+  - locale: es
+    value: Actúa
+  - locale: pt
+    value: Age
+  - locale: fil
+    value: Kumikilos
+  - locale: km
+    value: អនុវត្តសកម្មភាព
+  - locale: vi
+    value: Hành động
+  - locale: zh-Hans
+    value: 执行
+  - locale: zh-Hant
+    value: 行動
 description:
   - locale: en
     value: >-
@@ -19,4 +33,46 @@ description:
       quelqu'un. Le résultat est une action accomplie, pas un contenu renvoyé. Exemples : réserver
       une réunion, déposer une déclaration, escalader un ticket. Quand l'action déplace quelque
       chose de physique, il s'agit d'Actionne.
+  - locale: es
+    value: >-
+      Actúa — convierte un objetivo en pasos y los ejecuta mediante software: usa herramientas, hace
+      reservas, presenta trámites, escala casos y ejecuta flujos de trabajo de varios pasos en
+      nombre de alguien. El resultado es una acción realizada, no un contenido que se entrega.
+      Ejemplos: agendar una reunión, presentar una declaración, escalar una solicitud de soporte.
+      Cuando la acción mueve algo físico, eso es Mueve.
+  - locale: pt
+    value: >-
+      Age — divide um objetivo em etapas e as executa em software: aciona ferramentas, faz reservas,
+      protocola documentos, encaminha casos a um nível superior, executa fluxos de trabalho de
+      várias etapas em nome de alguém. O resultado é uma ação realizada, não um conteúdo devolvido.
+      Exemplos: agendar uma reunião, enviar uma declaração, encaminhar um chamado a um nível
+      superior. Quando a ação move algo físico, trata-se de Move.
+  - locale: fil
+    value: >-
+      Kumikilos — hinahati ang isang layunin sa mga hakbang at isinasagawa ang mga ito sa software:
+      tumatawag ng mga tool, nagbu-book, nagsusumite, nag-aakyat ng usapin sa mas mataas na antas,
+      nagpapatakbo ng mga prosesong maraming hakbang para sa isang tao. Ang output ay isang aksiyong
+      naisagawa, hindi nilalamang ibinalik. Mga halimbawa: pag-book ng miting, pagsusumite ng tax
+      return, pag-aakyat ng ticket. Kapag may pisikal na bagay na pinagagalaw ang aksiyon, iyon ay
+      Nagpapagalaw.
+  - locale: km
+    value: >-
+      អនុវត្តសកម្មភាព — បំបែកគោលដៅជាជំហានៗ ហើយអនុវត្តជំហានទាំងនោះក្នុងកម្មវិធីកុំព្យូទ័រ៖
+      ហៅប្រើឧបករណ៍, កក់, ដាក់ឯកសារ, បញ្ជូនបន្តទៅថ្នាក់លើ,
+      ដំណើរការលំហូរការងារច្រើនជំហានជំនួសនរណាម្នាក់។ លទ្ធផលគឺជាសកម្មភាពដែលបានធ្វើ
+      មិនមែនជាខ្លឹមសារដែលបញ្ជូនត្រឡប់មកវិញទេ។ ឧទាហរណ៍៖ កក់ការប្រជុំ, ដាក់លិខិតប្រកាសពន្ធ,
+      បញ្ជូនសំណើបន្តទៅថ្នាក់លើ។ នៅពេលសកម្មភាពនោះធ្វើឱ្យវត្ថុរូបវន្តណាមួយមានចលនា នោះគឺ «បញ្ជាចលនា»។
+  - locale: vi
+    value: >-
+      Hành động — chia một mục tiêu thành các bước và thực hiện chúng trong phần mềm: gọi công cụ,
+      đặt chỗ, nộp hồ sơ, chuyển lên cấp cao hơn, chạy các quy trình nhiều bước thay mặt cho ai đó.
+      Kết quả đầu ra là một hành động đã được thực hiện, không phải một nội dung được trả về. Ví dụ:
+      đặt lịch họp, nộp tờ khai, chuyển một yêu cầu hỗ trợ lên cấp cao hơn. Khi hành động làm dịch
+      chuyển một vật thể thật, đó là Tác động vật lý.
+  - locale: zh-Hans
+    value: >-
+      执行——把目标分解为步骤，并在软件中逐步完成：调用工具、预订、提交申报、上报升级，代人运行多步骤流程。其输出是一项已完成的操作，而不是返回的一段内容。示例：预订会议、提交申报表、将工单升级处理。如果该操作会使实物移动，则属于“操控”。
+  - locale: zh-Hant
+    value: >-
+      行動：將目標拆解成步驟，並在軟體中執行，例如呼叫工具、預約、申報、向上呈報，或代人執行多步驟的工作流程。輸出結果是已採取的行動，而不是回傳的內容。例如：預約會議、申報稅務、將案件向上呈報。若行動會移動實體物品，則屬於「驅動」。
 symbol_id: mode_agentic

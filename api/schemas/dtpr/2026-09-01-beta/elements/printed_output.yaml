@@ -5,6 +5,20 @@ title:
     value: A printed ticket or letter
   - locale: fr
     value: Un billet ou une lettre imprimés
+  - locale: es
+    value: Un boleto o una carta impresos
+  - locale: pt
+    value: Um bilhete ou uma carta impressos
+  - locale: fil
+    value: Naka-print na tiket o sulat
+  - locale: km
+    value: សំបុត្រ ឬលិខិតបោះពុម្ព
+  - locale: vi
+    value: Vé hoặc thư in trên giấy
+  - locale: zh-Hans
+    value: 打印的票据或信函
+  - locale: zh-Hant
+    value: 列印的票券或信件
 description:
   - locale: en
     value: >-
@@ -16,4 +30,33 @@ description:
       Le résultat arrive sur papier — une contravention, un ticket de file d'attente, une carte
       d'embarquement, une lettre de décision par la poste. Le travail du système vous parvient par
       un document physique, parfois des jours après son exécution.
+  - locale: es
+    value: >-
+      El resultado llega en papel — una multa de estacionamiento, un número de turno, una tarjeta de
+      embarque, una carta con una decisión enviada por correo. El trabajo del sistema le llega
+      mediante un documento físico, a veces días después de que el sistema funcionó.
+  - locale: pt
+    value: >-
+      O resultado chega em papel — uma multa de estacionamento, uma senha de atendimento, um cartão
+      de embarque, uma carta com uma decisão pelo correio. O trabalho do sistema chega a você por
+      meio de um documento físico, às vezes dias depois de ele ter sido executado.
+  - locale: fil
+    value: >-
+      Dumarating ang output sa papel — tiket sa paglabag sa paradahan, numero sa pila, boarding
+      pass, sulat ng desisyon na ipinadala sa koreo. Nakararating sa inyo ang gawa ng sistema sa
+      pamamagitan ng pisikal na dokumento, na kung minsan ay ilang araw matapos itong tumakbo.
+  - locale: km
+    value: >-
+      លទ្ធផលមកដល់លើក្រដាស — លិខិតពិន័យចតរថយន្ត, លេខរង់ចាំ, ប័ណ្ណឡើងយន្តហោះ,
+      លិខិតជូនដំណឹងអំពីការសម្រេចចិត្តតាមប្រៃសណីយ៍។ ការងាររបស់ប្រព័ន្ធមកដល់អ្នកតាមរយៈឯកសាររូបវន្ត
+      ដែលពេលខ្លះមកដល់ច្រើនថ្ងៃក្រោយពេលវាដំណើរការ។
+  - locale: vi
+    value: >-
+      Kết quả đầu ra đến với bạn trên giấy — giấy phạt đậu xe, số thứ tự xếp hàng, thẻ lên máy bay,
+      thư thông báo quyết định gửi qua bưu điện. Việc hệ thống đã làm đến với bạn qua một tài liệu
+      giấy, đôi khi nhiều ngày sau khi nó chạy.
+  - locale: zh-Hans
+    value: 输出以纸质形式送达——停车罚单、排队号码、登机牌、邮寄的决定通知书。系统的工作成果通过实体文件到达您手中，有时是在系统运行数天之后。
+  - locale: zh-Hant
+    value: 輸出結果以紙本送達：違規停車罰單、號碼牌、登機證、郵寄的決定通知書。系統的工作成果透過實體文件送到您手上，有時是在系統執行數天之後。
 symbol_id: receipt

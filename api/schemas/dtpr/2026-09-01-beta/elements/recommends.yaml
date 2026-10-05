@@ -5,6 +5,20 @@ title:
     value: Recommends
   - locale: fr
     value: Recommande
+  - locale: es
+    value: Recomienda
+  - locale: pt
+    value: Recomenda
+  - locale: fil
+    value: Nagrerekomenda
+  - locale: km
+    value: ផ្តល់អនុសាសន៍
+  - locale: vi
+    value: Đề xuất
+  - locale: zh-Hans
+    value: 推荐
+  - locale: zh-Hant
+    value: 建議
 description:
   - locale: en
     value: >-
@@ -19,4 +33,44 @@ description:
       quelqu'un n'accepte pas la suggestion. Exemples : un classement de triage pour un clinicien,
       un itinéraire alternatif proposé à un conducteur, des produits affichés en premier. Distinct
       de Décide, où le résultat prend effet de lui-même.
+  - locale: es
+    value: >-
+      Recomienda — sugiere opciones para que una persona elija: un ranking, una lista corta, una
+      ruta o un tratamiento sugeridos. Nada surte efecto hasta que alguien acepta la sugerencia.
+      Ejemplos: un ranking de triaje para un profesional clínico, una ruta alterna ofrecida a quien
+      conduce, productos que se muestran primero. Se distingue de Decide, donde el resultado surte
+      efecto por sí solo.
+  - locale: pt
+    value: >-
+      Recomenda — sugere opções para uma pessoa escolher: um ranking, uma lista reduzida, uma rota
+      ou um tratamento sugeridos. Nada produz efeito até que alguém aceite a sugestão. Exemplos: um
+      ranking de triagem para um profissional de saúde, uma rota alternativa oferecida a quem
+      dirige, produtos mostrados primeiro. Diferente de Decide, em que o resultado produz efeito por
+      conta própria.
+  - locale: fil
+    value: >-
+      Nagrerekomenda — nagmumungkahi ng mga opsiyong mapagpipilian ng isang tao: isang ranggo,
+      maikling listahan, iminumungkahing ruta o paggamot. Walang nagkakabisa hangga't walang
+      tumatanggap sa mungkahi. Mga halimbawa: ranggo ng triage para sa isang clinician, ibang rutang
+      iniaalok sa drayber, mga produktong unang ipinapakita. Iba sa Nagdedesisyon, kung saan kusang
+      nagkakabisa ang resulta.
+  - locale: km
+    value: >-
+      ផ្តល់អនុសាសន៍ — ស្នើជម្រើសឱ្យមនុស្សជ្រើសរើស៖ ចំណាត់ថ្នាក់, បញ្ជីខ្លី, ផ្លូវ
+      ឬការព្យាបាលដែលស្នើ។ គ្មានអ្វីមានផលអនុវត្តទេ រហូតដល់មាននរណាម្នាក់ទទួលយកការស្នើនោះ។ ឧទាហរណ៍៖
+      ចំណាត់ថ្នាក់អាទិភាពសម្រាប់គ្រូពេទ្យ, ផ្លូវជំនួសដែលស្នើដល់អ្នកបើកបរ, ផលិតផលដែលបង្ហាញមុនគេ។
+      ខុសពី «សម្រេចចិត្ត» ដែលលទ្ធផលមានផលអនុវត្តដោយខ្លួនឯង។
+  - locale: vi
+    value: >-
+      Đề xuất — gợi ý các lựa chọn để một người chọn: một bảng xếp hạng, một danh sách rút gọn, một
+      tuyến đường hoặc cách điều trị được gợi ý. Không có gì có hiệu lực cho đến khi có người chấp
+      nhận gợi ý đó. Ví dụ: bảng xếp hạng ưu tiên ca bệnh cho bác sĩ, một tuyến đường khác được đưa
+      ra cho tài xế, các sản phẩm được hiển thị trước. Khác với Quyết định, khi kết quả tự nó có
+      hiệu lực.
+  - locale: zh-Hans
+    value: >-
+      推荐——提出选项供人选择：排名、候选名单、建议的路线或治疗方案。在有人采纳建议之前，什么都不会生效。示例：供临床医生参考的分诊排名、提供给司机的备选路线、优先展示的商品。有别于“决定”，后者的结果会自行生效。
+  - locale: zh-Hant
+    value: >-
+      建議：提出選項供人選擇，例如排名、候選清單、建議的路線或治療方式。在有人接受建議之前，不會有任何結果生效。例如：提供給臨床人員的分流排序、提供給駕駛的替代路線、優先顯示的商品。與「決定」不同，後者的結果會自行生效。
 symbol_id: dm_priority-ranking

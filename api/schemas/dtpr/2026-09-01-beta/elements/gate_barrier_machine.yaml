@@ -5,6 +5,20 @@ title:
     value: A gate, barrier, or machine
   - locale: fr
     value: Une barrière, un portail ou une machine
+  - locale: es
+    value: Una puerta, barrera o máquina
+  - locale: pt
+    value: Um portão, uma cancela ou uma máquina
+  - locale: fil
+    value: Gate, harang, o makina
+  - locale: km
+    value: ច្រកទ្វារ របាំង ឬម៉ាស៊ីន
+  - locale: vi
+    value: Cổng, rào chắn hoặc máy móc
+  - locale: zh-Hans
+    value: 闸门、道闸或机器
+  - locale: zh-Hant
+    value: 閘門、柵欄或機器
 description:
   - locale: en
     value: >-
@@ -17,4 +31,34 @@ description:
       levante, un robot de livraison, un verrou de porte. Le mouvement physique est la façon dont
       vous rencontrez la décision ; la commande qui le déclenche est la donnée de sortie du
       système.
+  - locale: es
+    value: >-
+      El resultado es algo que se mueve — un torniquete que se abre o permanece cerrado, una barrera
+      vehicular, un robot de reparto, la cerradura de una puerta. El movimiento físico es la forma
+      en que usted se encuentra con la decisión; la orden que lo activa son los datos de salida del
+      sistema.
+  - locale: pt
+    value: >-
+      O resultado é algo que se move — uma catraca que abre ou permanece fechada, uma cancela, um
+      robô de entrega, uma fechadura de porta. O movimento físico é a forma como você tem contato
+      com a decisão; o comando que o aciona são os dados de saída do sistema.
+  - locale: fil
+    value: >-
+      Ang output ay isang bagay na gumagalaw — turnstile na bumubukas o nananatiling sarado, boom
+      gate, delivery robot, kandado ng pinto. Sa pisikal na galaw ninyo nakakaharap ang desisyon;
+      ang utos na nagpapagana rito ang output na data ng sistema.
+  - locale: km
+    value: >-
+      លទ្ធផលគឺជាអ្វីមួយដែលធ្វើចលនា — ច្រកទ្វារបង្វិលដែលបើក ឬនៅបិទ, របាំងលើកចុះឡើង, រ៉ូបូតដឹកជញ្ជូន,
+      សោទ្វារ។ ចលនារូបវន្តគឺជារបៀបដែលអ្នកជួបនឹងការសម្រេចចិត្ត
+      ចំណែកបញ្ជាដែលធ្វើឱ្យវាកើតឡើងគឺជាទិន្នន័យលទ្ធផលរបស់ប្រព័ន្ធ។
+  - locale: vi
+    value: >-
+      Kết quả đầu ra là một thứ gì đó chuyển động — cổng xoay mở ra hoặc vẫn đóng, thanh chắn nâng
+      hạ, robot giao hàng, khóa cửa. Bạn tiếp xúc với quyết định đó qua chính chuyển động vật lý
+      này; còn lệnh kích hoạt nó là dữ liệu đầu ra của hệ thống.
+  - locale: zh-Hans
+    value: 输出表现为某样东西在动——开启或保持关闭的闸机、道闸栏杆、配送机器人、门锁。您通过物理动作接触到这一决定；触发动作的指令则是系统的输出数据。
+  - locale: zh-Hant
+    value: 輸出結果是某個東西的動作：開啟或保持關閉的驗票閘門、升降柵欄、送貨機器人、門鎖。您透過實體動作接觸到這項決定；觸發動作的指令則是系統的輸出資料。
 symbol_id: boom_barrier

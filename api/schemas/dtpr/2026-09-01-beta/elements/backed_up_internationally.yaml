@@ -5,9 +5,37 @@ title:
     value: Backed up internationally
   - locale: fr
     value: Sauvegardé à internationale
+  - locale: es
+    value: Respaldados en el extranjero
+  - locale: pt
+    value: Backup internacional
+  - locale: fil
+    value: May backup sa ibang bansa
+  - locale: km
+    value: បម្រុងទុកនៅក្រៅប្រទេស
+  - locale: vi
+    value: Sao lưu ở nước ngoài
+  - locale: zh-Hans
+    value: 境外备份
+  - locale: zh-Hant
+    value: 境外備份
 description:
   - locale: en
     value: Data is backed up outside the jurisdiction where it was collected.
   - locale: fr
     value: Les données sont sauvegardées en dehors de la juridiction où elles ont été collectées.
+  - locale: es
+    value: Los datos se respaldan fuera de la jurisdicción donde se recopilaron.
+  - locale: pt
+    value: O backup dos dados é feito fora da jurisdição onde foram coletados.
+  - locale: fil
+    value: May backup ang data sa labas ng hurisdiksiyon kung saan ito kinolekta.
+  - locale: km
+    value: ទិន្នន័យត្រូវបានបម្រុងទុកនៅក្រៅយុត្តាធិការដែលវាត្រូវបានប្រមូល។
+  - locale: vi
+    value: Dữ liệu được sao lưu bên ngoài khu vực pháp lý nơi nó được thu thập.
+  - locale: zh-Hans
+    value: 数据备份在收集地所属司法管辖区之外。
+  - locale: zh-Hant
+    value: 資料備份在收集地所屬司法管轄區之外。
 symbol_id: stored

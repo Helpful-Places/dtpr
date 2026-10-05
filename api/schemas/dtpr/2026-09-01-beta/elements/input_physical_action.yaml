@@ -5,6 +5,20 @@ title:
     value: A physical action
   - locale: fr
     value: Une action physique
+  - locale: es
+    value: Una acción física
+  - locale: pt
+    value: Uma ação física
+  - locale: fil
+    value: Pisikal na aksiyon
+  - locale: km
+    value: សកម្មភាពរូបវន្ត
+  - locale: vi
+    value: Hành động vật lý
+  - locale: zh-Hans
+    value: 物理动作
+  - locale: zh-Hant
+    value: 實體動作
 description:
   - locale: en
     value: >-
@@ -19,6 +33,42 @@ description:
       depuis des actionneurs ou capteurs en amont. Exemples : un événement de déverrouillage de
       tourniquet, un ajustement de CVC enregistré par un capteur, une alerte de sonorisation
       diffusée en amont.
+  - locale: es
+    value: >-
+      Una señal de que algo cambió en el mundo físico — una puerta que se abre, una luz que se
+      enciende, una alerta que suena. La IA recibe evidencia de estos cambios desde actuadores o
+      sensores anteriores en el proceso. Ejemplos: un evento de desbloqueo de un torniquete, un
+      ajuste de climatización registrado por un sensor, una alerta emitida antes por altavoces.
+  - locale: pt
+    value: >-
+      Um sinal de que algo mudou no mundo físico — uma porta que se abre, uma luz que acende, um
+      alerta que soa. A IA recebe indícios dessas mudanças vindos de atuadores ou sensores de etapas
+      anteriores. Exemplos: um evento de destravamento de catraca, um ajuste de climatização
+      registrado por um sensor, um alerta emitido pelo sistema de som em uma etapa anterior.
+  - locale: fil
+    value: >-
+      Isang hudyat na may nagbago sa pisikal na mundo — pintong bumukas, ilaw na sumindi, alertong
+      tumunog. Tumatanggap ang AI ng patunay ng mga pagbabagong ito mula sa mga naunang actuator o
+      sensor. Mga halimbawa: pangyayaring pag-unlock ng turnstile, pagbabago sa HVAC na naitala ng
+      sensor, alerto sa public address na ipinarinig ng naunang sistema.
+  - locale: km
+    value: >-
+      សញ្ញាដែលបង្ហាញថាអ្វីមួយក្នុងពិភពរូបវន្តបានផ្លាស់ប្តូរ — ទ្វារបើក, ភ្លើងភ្លឺឡើង,
+      សំឡេងប្រកាសអាសន្នបន្លឺឡើង។ AI ទទួលយកភស្តុតាងនៃការផ្លាស់ប្តូរទាំងនេះពីឧបករណ៍បញ្ជា
+      ឬឧបករណ៍ចាប់សញ្ញានៃប្រព័ន្ធមុន។ ឧទាហរណ៍៖ ព្រឹត្តិការណ៍ដោះសោច្រកទ្វារបង្វិល,
+      ការកែតម្រូវប្រព័ន្ធត្រជាក់និងខ្យល់ចេញចូល (HVAC) ដែលកត់ត្រាដោយឧបករណ៍ចាប់សញ្ញា,
+      ការប្រកាសអាសន្នតាមប្រព័ន្ធបំពងសំឡេងសាធារណៈដែលបានចាក់ពីប្រព័ន្ធមុន។
+  - locale: vi
+    value: >-
+      Một tín hiệu cho thấy điều gì đó trong thế giới vật lý đã thay đổi — một cánh cửa mở ra, một
+      bóng đèn bật lên, một tiếng cảnh báo vang lên. AI tiếp nhận bằng chứng về những thay đổi này
+      từ các bộ truyền động hoặc cảm biến ở khâu trước. Ví dụ: sự kiện mở khóa cổng xoay, một lần
+      điều chỉnh hệ thống sưởi và điều hòa (HVAC) được cảm biến ghi lại, một cảnh báo qua loa phát
+      thanh công cộng đã phát ở khâu trước.
+  - locale: zh-Hans
+    value: 表明物理世界中某样东西发生变化的信号——门打开、灯亮起、警报响起。AI从上游的执行器或传感器接收这些变化的迹象。示例：闸机解锁事件、传感器记录到的暖通空调调节、上游播放的广播警报。
+  - locale: zh-Hant
+    value: 顯示實體世界中某件事已改變的訊號：門打開、燈亮起、警報響起。AI從上游的致動器或感測器接收這些變化的跡象。例如：驗票閘門解鎖事件、感測器記錄到的空調調整、上游播放的廣播警示。
 sources:
   - type: regulation
     title: EU AI Act Article 3(1) — outputs that "influence physical or virtual environments"

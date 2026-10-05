@@ -5,6 +5,20 @@ title:
     value: Camera
   - locale: fr
     value: Caméra
+  - locale: es
+    value: Cámara
+  - locale: pt
+    value: Câmera
+  - locale: fil
+    value: Kamera
+  - locale: km
+    value: កាមេរ៉ា
+  - locale: vi
+    value: Camera
+  - locale: zh-Hans
+    value: 摄像头
+  - locale: zh-Hant
+    value: 攝影機
 description:
   - locale: en
     value: >-
@@ -19,4 +33,40 @@ description:
       dispositif de capture lui-même ; les techniques qui analysent les images figurent sous
       Algorithme ou modèle, et le degré d'identifiabilité des images figure sur les données
       d'entrée.
+  - locale: es
+    value: >-
+      Capta imágenes fijas o video de un lugar — montada en un poste, un vehículo o un dron, o
+      integrada en un dispositivo. Incluye cámaras infrarrojas y térmicas. Es el dispositivo de
+      captación en sí; las técnicas que analizan las grabaciones aparecen en Algoritmo o modelo, y
+      qué tan identificables son las grabaciones aparece en la categoría Datos de entrada.
+  - locale: pt
+    value: >-
+      Capta imagens estáticas ou vídeo de um lugar — instalada em um poste, um veículo, um drone ou
+      embutida em um dispositivo. Inclui câmeras infravermelhas e térmicas. É o dispositivo de
+      captura em si; as técnicas que analisam as imagens aparecem em Algoritmo ou modelo, e o quanto
+      as imagens são identificáveis aparece na categoria Dados de entrada.
+  - locale: fil
+    value: >-
+      Kumukuha ng mga larawan o video ng isang lugar — nakakabit sa poste, sasakyan, drone, o
+      nakapaloob sa isang device. Kasama ang mga infrared at thermal na kamera. Ito ang device na
+      kumukuha mismo; ang mga teknik na sumusuri sa kuha ay makikita sa ilalim ng Algorithm o
+      modelo, at kung gaano natutukoy ang tao mula sa kuha ay makikita sa kategoryang Input na data.
+  - locale: km
+    value: >-
+      ចាប់យករូបភាពនឹង ឬវីដេអូនៃទីកន្លែងមួយ — ដោយដំឡើងលើបង្គោល, យានយន្ត, ដ្រូន, ឬបង្កប់ក្នុងឧបករណ៍។
+      រួមទាំងកាមេរ៉ាអ៊ីនហ្វ្រារ៉េដ និងកាមេរ៉ាកម្ដៅ។ នេះជាឧបករណ៍ចាប់យកផ្ទាល់
+      ចំណែកបច្ចេកទេសដែលវិភាគរូបភាពបង្ហាញនៅក្រោម «ក្បួនដោះស្រាយ ឬម៉ូដែល»
+      ហើយកម្រិតដែលរូបភាពអាចកំណត់អត្តសញ្ញាណបានបង្ហាញនៅក្នុងប្រភេទ «ទិន្នន័យបញ្ចូល»។
+  - locale: vi
+    value: >-
+      Thu nhận ảnh tĩnh hoặc video về một nơi — gắn trên cột, xe cộ, thiết bị bay không người lái,
+      hoặc tích hợp trong một thiết bị. Bao gồm cả camera hồng ngoại và camera nhiệt. Đây là chính
+      thiết bị thu nhận; các kỹ thuật phân tích hình ảnh nằm trong mục Thuật toán hoặc mô hình, còn
+      mức độ nhận diện được của hình ảnh nằm ở mục Dữ liệu đầu vào.
+  - locale: zh-Hans
+    value: >-
+      采集某一场所的静态图像或视频——安装在立杆、车辆、无人机上，或内置于设备中。包括红外和热成像摄像头。这里指采集设备本身；分析影像的技术列在“算法或模型”之下，影像的可识别程度则标示在“输入数据”类别上。
+  - locale: zh-Hant
+    value: >-
+      擷取某個地點的靜態影像或影片，可裝設在桿柱、車輛、無人機上，或內建於裝置中。包括紅外線與熱像攝影機。此處指擷取裝置本身；分析影像的技術列在「演算法或模型」之下，影像可識別個人的程度則標示在「輸入資料」類別。
 symbol_id: camera

@@ -5,6 +5,20 @@ title:
     value: A physical action
   - locale: fr
     value: Une action physique
+  - locale: es
+    value: Una acción física
+  - locale: pt
+    value: Uma ação física
+  - locale: fil
+    value: Pisikal na aksiyon
+  - locale: km
+    value: សកម្មភាពរូបវន្ត
+  - locale: vi
+    value: Hành động vật lý
+  - locale: zh-Hans
+    value: 物理动作
+  - locale: zh-Hant
+    value: 實體動作
 description:
   - locale: en
     value: >-
@@ -18,6 +32,41 @@ description:
       lumière qui s'allume, une alerte qui retentit, une signalétique qui change, un système CVC qui
       s'ajuste. Exemples : un tourniquet qui s'ouvre sur reconnaissance faciale, une alerte de
       sonorisation diffusée automatiquement, un ajustement CVC commandé par un modèle de bâtiment.
+  - locale: es
+    value: >-
+      La IA activa algo en el mundo físico — una puerta que se desbloquea, una luz que se enciende,
+      una alerta que suena, un letrero que cambia, la climatización que se ajusta. Ejemplos: un
+      torniquete que se abre al coincidir un rostro, una alerta que se emite automáticamente por
+      altavoces, un ajuste de climatización ordenado por el modelo de un edificio.
+  - locale: pt
+    value: >-
+      A IA aciona algo no mundo físico — uma porta que destrava, uma luz que acende, um alerta que
+      soa, uma sinalização que muda, a climatização que se ajusta. Exemplos: uma catraca que abre
+      após a conferência do rosto, um alerta tocado automaticamente no sistema de som, um ajuste de
+      climatização comandado por um modelo do prédio.
+  - locale: fil
+    value: >-
+      May pinagagana ang AI sa pisikal na mundo — pintong nabubuksan ang kandado, ilaw na sumisindi,
+      alertong tumutunog, karatulang nagbabago, HVAC na nagbabago ng setting. Mga halimbawa:
+      turnstile na bumubukas kapag tumugma ang mukha, alerto sa public address na awtomatikong
+      ipinaririnig, pagbabago sa HVAC na iniutos ng isang modelo ng gusali.
+  - locale: km
+    value: >-
+      AI ធ្វើឱ្យអ្វីមួយកើតឡើងក្នុងពិភពរូបវន្ត — ទ្វារដោះសោ, ភ្លើងភ្លឺឡើង, សំឡេងប្រកាសអាសន្នបន្លឺឡើង,
+      ផ្លាកសញ្ញាផ្លាស់ប្តូរ, ប្រព័ន្ធ HVAC កែតម្រូវ។ ឧទាហរណ៍៖
+      ច្រកទ្វារបង្វិលដែលបើកនៅពេលមុខផ្គូផ្គងគ្នា,
+      ការប្រកាសអាសន្នដែលចាក់ដោយស្វ័យប្រវត្តិតាមប្រព័ន្ធបំពងសំឡេងសាធារណៈ, ការកែតម្រូវ HVAC
+      ដែលបញ្ជាដោយម៉ូដែលអគារ។
+  - locale: vi
+    value: >-
+      AI kích hoạt một điều gì đó trong thế giới vật lý — một cánh cửa mở khóa, một bóng đèn bật
+      lên, một tiếng cảnh báo vang lên, biển báo thay đổi, hệ thống sưởi và điều hòa (HVAC) tự điều
+      chỉnh. Ví dụ: cổng xoay mở ra khi khuôn mặt khớp, một cảnh báo tự động phát qua loa phát thanh
+      công cộng, một lần điều chỉnh HVAC theo lệnh của mô hình tòa nhà.
+  - locale: zh-Hans
+    value: AI触发物理世界中的某种变化——门解锁、灯亮起、警报响起、标牌内容变化、暖通空调调节。示例：人脸比对通过后开启的闸机、自动播放的广播警报、由建筑模型下令进行的暖通空调调节。
+  - locale: zh-Hant
+    value: AI觸發實體世界中的某件事：門解鎖、燈亮起、警報響起、標示變換、空調調整。例如：臉部比對成功後開啟的驗票閘門、自動播放的廣播警示、由建築模型下令的空調調整。
 sources:
   - type: regulation
     title: EU AI Act Article 3(1) — outputs that "influence physical or virtual environments"

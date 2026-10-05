@@ -5,6 +5,20 @@ title:
     value: Biometric data
   - locale: fr
     value: Données biométriques
+  - locale: es
+    value: Datos biométricos
+  - locale: pt
+    value: Dados biométricos
+  - locale: fil
+    value: Biometric na data
+  - locale: km
+    value: ទិន្នន័យជីវមាត្រ
+  - locale: vi
+    value: Dữ liệu sinh trắc học
+  - locale: zh-Hans
+    value: 生物特征数据
+  - locale: zh-Hant
+    value: 生物特徵資料
 description:
   - locale: en
     value: >-
@@ -17,4 +31,38 @@ description:
       faciaux, empreintes vocales, vecteurs de démarche, séquences de gestes. Exemples : un modèle
       facial enrôlé stocké en aval, une empreinte vocale pour appariement ultérieur, une signature
       de démarche exportée vers un autre système.
+  - locale: es
+    value: >-
+      La IA produce un resultado que contiene señales biológicas del cuerpo de una persona —
+      plantillas faciales, representaciones numéricas de la voz, vectores de la forma de caminar,
+      secuencias de gestos. Ejemplos: una plantilla facial registrada que se almacena en un sistema
+      posterior, una representación numérica de la voz para compararla más adelante, una firma de la
+      forma de caminar exportada a otro sistema.
+  - locale: pt
+    value: >-
+      A IA produz saídas que contêm sinais biológicos do corpo de uma pessoa — templates faciais,
+      representações numéricas da voz, vetores do modo de andar, sequências de gestos. Exemplos: um
+      template facial cadastrado e armazenado em uma etapa seguinte, uma representação numérica da
+      voz para comparação posterior, uma assinatura do modo de andar exportada para outro sistema.
+  - locale: fil
+    value: >-
+      Lumilikha ang AI ng output na may mga senyales mula sa katawan ng isang tao — mga template ng
+      mukha, voice embedding, gait vector, sunod-sunod na kumpas. Mga halimbawa: nakarehistrong
+      template ng mukha na iniimbak sa susunod na sistema, voice embedding para sa pagtutugma sa
+      hinaharap, gait signature na ine-export sa ibang sistema.
+  - locale: km
+    value: >-
+      AI បង្កើតលទ្ធផលដែលមានសញ្ញាជីវសាស្ត្រពីរាងកាយរបស់បុគ្គល — គំរូមុខ, ទិន្នន័យតំណាងសំឡេង,
+      វ៉ិចទ័ររបៀបដើរ, លំដាប់កាយវិការ។ ឧទាហរណ៍៖ គំរូមុខដែលបានចុះបញ្ជីហើយរក្សាទុកក្នុងប្រព័ន្ធបន្ទាប់,
+      ទិន្នន័យតំណាងសំឡេងសម្រាប់ផ្គូផ្គងនៅពេលក្រោយ, សញ្ញាសម្គាល់របៀបដើរដែលបញ្ជូនចេញទៅប្រព័ន្ធផ្សេង។
+  - locale: vi
+    value: >-
+      AI tạo ra kết quả đầu ra chứa các tín hiệu sinh học từ cơ thể một người — mẫu khuôn mặt, mẫu
+      giọng nói dạng số, vectơ dáng đi, chuỗi cử chỉ. Ví dụ: một mẫu khuôn mặt đã đăng ký được lưu ở
+      hệ thống phía sau, một mẫu giọng nói dạng số để đối chiếu về sau, một mẫu đặc trưng dáng đi
+      được xuất sang hệ thống khác.
+  - locale: zh-Hans
+    value: AI产生的输出含有来自人体的生物信号——人脸模板、声纹向量、步态向量、手势序列。示例：存储在下游的已登记人脸模板、供日后比对的声纹向量、导出到另一个系统的步态特征。
+  - locale: zh-Hant
+    value: AI產生含有人體生物訊號的輸出結果：臉部特徵範本、聲音嵌入向量、步態向量、手勢序列。例如：儲存在下游的已註冊臉部特徵範本、供日後比對的聲音嵌入向量、匯出到另一個系統的步態特徵。
 symbol_id: biometric

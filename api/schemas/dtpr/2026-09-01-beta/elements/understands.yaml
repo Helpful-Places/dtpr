@@ -5,6 +5,20 @@ title:
     value: Understands
   - locale: fr
     value: Comprend
+  - locale: es
+    value: Comprende
+  - locale: pt
+    value: Entende
+  - locale: fil
+    value: Umuunawa
+  - locale: km
+    value: យល់អត្ថន័យ
+  - locale: vi
+    value: Hiểu
+  - locale: zh-Hans
+    value: 理解
+  - locale: zh-Hant
+    value: 理解
 description:
   - locale: en
     value: >-
@@ -19,4 +33,44 @@ description:
       résumés ou des liens vers des connaissances pertinentes, pas de nouveau contenu. Exemples :
       relier une question au bon article d'aide, retrouver la clause qui s'applique à un dossier,
       reconnaître le sujet d'une phrase.
+  - locale: es
+    value: >-
+      Comprende — extrae el significado de un texto o de la voz, encuentra ideas relacionadas y
+      conecta lo que lee con el contexto guardado. Entrega coincidencias, intenciones, resúmenes o
+      enlaces a conocimientos previos relevantes, no contenido nuevo. Ejemplos: relacionar una
+      pregunta con el artículo de ayuda correcto, recuperar la cláusula de una política que se
+      aplica a un caso, reconocer el tema de una oración.
+  - locale: pt
+    value: >-
+      Entende — extrai significado de texto ou fala, encontra ideias relacionadas e conecta o que lê
+      a um contexto salvo. Devolve correspondências, intenções, resumos ou ligações com conhecimento
+      anterior relevante, não conteúdo novo. Exemplos: associar uma pergunta ao artigo de ajuda
+      certo, localizar a cláusula da política que se aplica a um caso, reconhecer o assunto de uma
+      frase.
+  - locale: fil
+    value: >-
+      Umuunawa — hinahango ang kahulugan mula sa teksto o pananalita, naghahanap ng magkakaugnay na
+      ideya, at iniuugnay ang binabasa nito sa nakaimbak na konteksto. Nagbabalik ito ng mga tugma,
+      intensiyon, buod, o link sa kaugnay na dati nang kaalaman, hindi ng bagong nilalaman. Mga
+      halimbawa: pagtutugma ng tanong sa tamang help article, pagkuha ng probisyon ng patakaran na
+      angkop sa isang kaso, pagkilala sa paksa ng isang pangungusap.
+  - locale: km
+    value: >-
+      យល់អត្ថន័យ — ទាញយកអត្ថន័យពីអត្ថបទ ឬសំដី, រកគំនិតដែលពាក់ព័ន្ធ,
+      ហើយភ្ជាប់អ្វីដែលវាអានទៅនឹងបរិបទដែលបានរក្សាទុក។ វាផ្តល់មកវិញនូវលទ្ធផលផ្គូផ្គង, បំណង,
+      សេចក្តីសង្ខេប, ឬតំណទៅកាន់ចំណេះដឹងពាក់ព័ន្ធដែលមានពីមុន មិនមែនខ្លឹមសារថ្មីទេ។ ឧទាហរណ៍៖
+      ផ្គូផ្គងសំណួរទៅនឹងអត្ថបទជំនួយដែលត្រឹមត្រូវ, រកប្រការនៃគោលការណ៍ដែលអនុវត្តចំពោះករណីមួយ,
+      ស្គាល់ប្រធានបទនៃប្រយោគមួយ។
+  - locale: vi
+    value: >-
+      Hiểu — rút ra ý nghĩa từ văn bản hoặc lời nói, tìm các ý liên quan, và kết nối những gì nó đọc
+      với ngữ cảnh đã lưu. Nó trả về các kết quả khớp, ý định, bản tóm tắt hoặc liên kết đến kiến
+      thức liên quan đã có, chứ không phải nội dung mới. Ví dụ: ghép một câu hỏi với đúng bài hướng
+      dẫn, tìm ra điều khoản chính sách áp dụng cho một vụ việc, nhận ra chủ đề của một câu.
+  - locale: zh-Hans
+    value: >-
+      理解——从文字或语音中提取含义，找出相关的概念，并把读到的内容与已保存的上下文联系起来。它返回的是匹配结果、意图、摘要或指向相关已有知识的链接，而不是新内容。示例：把问题匹配到合适的帮助文章、检索出适用于某一个案的政策条款、识别一句话的主题。
+  - locale: zh-Hant
+    value: >-
+      理解：從文字或語音中擷取意義、找出相關的概念，並將讀到的內容與已儲存的脈絡連結。它回傳的是比對結果、意圖、摘要或指向相關既有知識的連結，而不是新的內容。例如：將問題對應到正確的說明文章、找出適用於某個個案的政策條款、辨認一句話的主題。
 symbol_id: mode_semantic

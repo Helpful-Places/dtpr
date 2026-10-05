@@ -22,8 +22,8 @@ import type {
 // the array even when input omits it. The test fixtures are minimal
 // inputs; the helper under test reads only the fields it needs.
 
-// LocaleCodeSchema in @dtpr/api/schema is currently a closed union of
-// 'en' | 'fr'. Tests cast through `as LocaleValue` because some
+// LocaleCodeSchema in @dtpr/api/schema is a closed union of locale
+// codes. Tests cast through `as LocaleValue` because some
 // scenarios exercise locale fallthrough by requesting an unknown
 // locale code at the call site (the `extract` helper, not the
 // LocaleValue array, accepts arbitrary strings for the requested

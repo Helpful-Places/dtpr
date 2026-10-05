@@ -4,16 +4,58 @@ name:
     value: Data Access
   - locale: fr
     value: Accès aux données
+  - locale: es
+    value: Acceso a datos
+  - locale: pt
+    value: Acesso aos dados
+  - locale: fil
+    value: Access sa data
+  - locale: km
+    value: ការចូលប្រើទិន្នន័យ
+  - locale: vi
+    value: Truy cập dữ liệu
+  - locale: zh-Hans
+    value: 数据访问
+  - locale: zh-Hant
+    value: 資料存取
 description:
   - locale: en
     value: Who can see or use the data produced by this AI system.
   - locale: fr
     value: Qui peut voir ou utiliser les données produites par ce système d’IA.
+  - locale: es
+    value: Quién puede ver o usar los datos que produce este sistema de IA.
+  - locale: pt
+    value: Quem pode ver ou usar os dados produzidos por este sistema de IA.
+  - locale: fil
+    value: Kung sino ang maaaring makakita o gumamit ng data na nililikha ng sistemang AI na ito.
+  - locale: km
+    value: អ្នកណាអាចមើល ឬប្រើទិន្នន័យដែលប្រព័ន្ធ AI នេះបង្កើត។
+  - locale: vi
+    value: Ai có thể xem hoặc sử dụng dữ liệu do hệ thống AI này tạo ra.
+  - locale: zh-Hans
+    value: 谁可以查看或使用本AI系统产生的数据。
+  - locale: zh-Hant
+    value: 誰可以查看或使用這個AI系統產生的資料。
 prompt:
   - locale: en
     value: Who has access to the data?
   - locale: fr
     value: Qui a accès aux données ?
+  - locale: es
+    value: ¿Quién tiene acceso a los datos?
+  - locale: pt
+    value: Quem tem acesso aos dados?
+  - locale: fil
+    value: Sino ang may access sa data?
+  - locale: km
+    value: តើអ្នកណាអាចចូលប្រើទិន្នន័យបាន?
+  - locale: vi
+    value: Ai được truy cập dữ liệu?
+  - locale: zh-Hans
+    value: 谁可以访问这些数据？
+  - locale: zh-Hant
+    value: 誰可以存取資料？
 required: false
 order: 12
 datachain_type: dtpr
@@ -25,4 +67,18 @@ element_variables:
         value: Description
       - locale: fr
         value: Description
+      - locale: es
+        value: Descripción
+      - locale: pt
+        value: Descrição
+      - locale: fil
+        value: Paglalarawan
+      - locale: km
+        value: ការពណ៌នា
+      - locale: vi
+        value: Mô tả
+      - locale: zh-Hans
+        value: 描述
+      - locale: zh-Hant
+        value: 說明
     required: false

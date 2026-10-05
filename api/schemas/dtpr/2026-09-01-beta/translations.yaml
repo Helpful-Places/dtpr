@@ -1,0 +1,782 @@
+# Translation status for this schema version: how each locale was produced, how far it has
+# been reviewed, and what reviewers flagged. Data only; not part of the built bundle.
+# Check it with `pnpm --filter ./api schema:translate status dtpr@2026-09-01-beta`.
+#
+# Locale status:  unverified | machine_draft | machine_reviewed | human_reviewed
+# Flag kind:      term_choice     a defensible term with a live alternative; needs an owner's call
+#                 native_review   the reviewer could not settle it; needs a fluent speaker
+#                 divergence      the translation says something different from the English
+#                 source_issue    the English itself is the problem
+#                 layout          length or placeholder behaviour on a sign
+# Flag status:    open | resolved | wontfix
+# Flag keys are `<file>#<path>`, the same addresses `schema:translate` catalogs use.
+source_locale: en
+locales:
+  - locale: fr
+    status: unverified
+    updated_at: "2026-08-26"
+    summary: >-
+      Predates this workflow; who translated and reviewed it is not recorded. Two titles were
+      flagged as diverging from the English during the 2026-10 pass.
+  - locale: es
+    status: machine_reviewed
+    register: Neutral Latin American Spanish, usted
+    translated_by: claude-opus-5-5
+    reviewed_by: claude-opus-5-5 (independent pass, 24 corrections)
+    updated_at: "2026-10-05"
+    summary: >-
+      Reviewer judged it publishable. Defects found were isolated false friends and calques, all
+      corrected. A Latin American reader should settle the open term choices.
+  - locale: pt
+    status: machine_reviewed
+    register: Brazilian Portuguese
+    translated_by: claude-opus-5-5
+    reviewed_by: claude-opus-5-5 (independent pass, 13 corrections)
+    updated_at: "2026-10-05"
+    summary: >-
+      Reviewer judged it publishable. Only minor grammar and collocation slips, all corrected.
+      "Deployer" is the one term that needs an owner's decision.
+  - locale: fil
+    status: machine_reviewed
+    register: Filipino (KWF spelling), polite plural kayo/ninyo
+    translated_by: claude-opus-5-5
+    reviewed_by: claude-opus-5-5 (independent pass, 27 corrections)
+    updated_at: "2026-10-05"
+    summary: >-
+      Reviewer judged it publishable. Word-for-word calques in longer descriptions were corrected.
+      A native speaker should decide the deploy/enforce term collision before permanent signage.
+  - locale: km
+    status: machine_reviewed
+    register: Standard modern Khmer, no zero-width spaces
+    translated_by: claude-opus-5-5
+    reviewed_by: claude-opus-5-5 (independent pass, 24 corrections)
+    updated_at: "2026-10-05"
+    summary: >-
+      Acceptable for beta; needs a native pass before physical signage. Several short, visible
+      titles rest on calques or term choices the reviewer could not settle with confidence, and
+      model judgement of naturalness is least reliable in this locale.
+  - locale: vi
+    status: machine_reviewed
+    register: Vocabulary chosen to read naturally for both US diaspora and Vietnam readers
+    translated_by: claude-opus-5-5
+    reviewed_by: claude-opus-5-5 (independent pass, 49 corrections)
+    updated_at: "2026-10-05"
+    summary: >-
+      Reviewer judged it publishable with a short native spot-check. English-syntax calques were
+      the main weakness and were corrected, along with one wrong-sense error (smart meter).
+  - locale: zh-Hans
+    status: machine_reviewed
+    register: Simplified characters, Mainland vocabulary, 您
+    translated_by: claude-opus-5-5
+    reviewed_by: claude-opus-5-5 (independent pass, 23 corrections)
+    updated_at: "2026-10-05"
+    summary: >-
+      Reviewer judged it publishable. English-shaped syntax in longer descriptions was corrected.
+      A native spot-check of the short titles is prudent for rights-related signage.
+  - locale: zh-Hant
+    status: machine_reviewed
+    register: Traditional characters, Taiwan vocabulary, 您; translated independently of zh-Hans
+    translated_by: claude-opus-5-5
+    reviewed_by: claude-opus-5-5 (independent pass, 18 corrections)
+    updated_at: "2026-10-05"
+    summary: >-
+      Reviewer judged it publishable. Isolated word-sense slips were corrected. A native
+      spot-check of the short icon titles is worthwhile before printing.
+
+flags:
+  # --- English source ---
+  - id: en-duration-placeholder
+    locale: en
+    kind: layout
+    status: open
+    raised_by: translator
+    keys:
+      - elements/data_retained.yaml#title
+      - elements/data_retained.yaml#description
+    note: >-
+      Every translation assumes {{duration}} is filled with a bare span such as "30 days",
+      written in the target language. A value like "indefinitely", or one carrying its own
+      preposition, reads badly in most locales, and an English value abuts the text in Chinese.
+  - id: en-international-vs-jurisdiction
+    locale: en
+    kind: source_issue
+    status: open
+    raised_by: translator
+    keys:
+      - elements/stored_primarily_internationally.yaml#title
+      - elements/backed_up_internationally.yaml#title
+      - elements/stored_locally.yaml#title
+      - elements/backed_up_locally.yaml#title
+    note: >-
+      Titles say local / international but the descriptions define them as inside / outside the
+      jurisdiction, which may be sub-national. Translations follow the titles ("abroad") in most
+      locales and the descriptions in Chinese.
+  - id: en-institution-vs-organization
+    locale: en
+    kind: source_issue
+    status: open
+    raised_by: translator
+    keys:
+      - elements/institution.yaml#description
+      - elements/organization.yaml#description
+    note: >-
+      The two descriptions are identical, so the distinction rests on the title alone.
+      "Responsible and accountable" is also a single word in several target languages.
+  - id: en-vendor-vs-provider
+    locale: en
+    kind: source_issue
+    status: open
+    raised_by: translator
+    keys:
+      - elements/available_to_vendor.yaml#description
+      - elements/not_available_to_vendor.yaml#description
+    note: The title says "vendor"; the description says "data collection or technology provider".
+  - id: en-right-object-jargon
+    locale: en
+    kind: source_issue
+    status: open
+    raised_by: translator
+    keys:
+      - elements/right_object.yaml#description
+    note: >-
+      "User-invoked stop-now affordance" is jargon; every locale paraphrased it. Consider
+      plainer English.
+  - id: en-backed-up-typo
+    locale: en
+    kind: source_issue
+    status: resolved
+    raised_by: translator
+    keys:
+      - elements/backed_up_locally.yaml#description
+    note: '"Backed up with the jurisdiction" corrected to "within".'
+
+  # --- French ---
+  - id: fr-enforcement
+    locale: fr
+    kind: divergence
+    status: open
+    raised_by: translator
+    keys:
+      - elements/enforcement.yaml#title
+    note: '"Cadre légal" (legal framework) does not mean "Enforcement".'
+    alternatives:
+      - Application des règles
+  - id: fr-purpose-limitation
+    locale: fr
+    kind: divergence
+    status: open
+    raised_by: translator
+    keys:
+      - elements/right_purpose_limitation.yaml#title
+    note: '"Limitation du droit à l''objet" reads as a mistranslation of "Right to Purpose Limitation".'
+    alternatives:
+      - Droit à la limitation des finalités
+  - id: fr-dropped-clauses
+    locale: fr
+    kind: divergence
+    status: open
+    raised_by: translator
+    keys:
+      - elements/available_to_3rd_parties.yaml#description
+      - elements/available_to_download.yaml#description
+    note: Each omits a clause that the English has.
+  - id: fr-manifestation
+    locale: fr
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - categories/manifestation.yaml#name
+    note: >-
+      "Point de contact" departs from the English "Manifestation"; the other locales rendered
+      the English sense ("form the output takes").
+
+  # --- Spanish ---
+  - id: es-deployer
+    locale: es
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - categories/accountable.yaml#element_context.values[1].name
+    note: >-
+      "Implementador". The EU AI Act term "responsable del despliegue" is too long for a badge
+      and collides with "Responsable".
+    alternatives:
+      - Operador
+  - id: es-processing-term
+    locale: es
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - elements/right_object.yaml#title
+    note: >-
+      "Procesamiento" is used throughout for plainness; most Latin American privacy laws say
+      "tratamiento". Swap globally if legal alignment matters more.
+    alternatives:
+      - tratamiento
+  - id: es-purpose-term
+    locale: es
+    kind: term_choice
+    status: open
+    raised_by: reviewer
+    keys:
+      - elements/right_purpose_limitation.yaml#title
+      - categories/purpose.yaml#name
+    note: >-
+      The right uses the legal name "limitación de la finalidad" while the category and body
+      text use "propósito".
+  - id: es-reviewer-calls
+    locale: es
+    kind: native_review
+    status: open
+    raised_by: reviewer
+    keys:
+      - elements/enforcement.yaml#title
+      - elements/dining.yaml#title
+      - categories/affected.yaml#prompt
+    note: >-
+      Reviewer replacements to confirm: "Aplicación de normas" (was "Cumplimiento"), "Servicios
+      de comida" (was "Alimentación"), "¿A quiénes se aplica este sistema?".
+  - id: es-moves
+    locale: es
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - elements/moves.yaml#title
+    note: '"Mueve" follows the English; without an object it may read oddly.'
+    alternatives:
+      - Acciona
+  - id: es-em-dash
+    locale: es
+    kind: native_review
+    status: open
+    raised_by: reviewer
+    keys:
+      - elements/acts.yaml#description
+    note: >-
+      Systemic, about 150 descriptions: the English spaced em dash is carried over. Spanish
+      would use a colon, comma or paired rayas. Readable, but a style decision.
+  - id: es-regional-lean
+    locale: es
+    kind: native_review
+    status: open
+    raised_by: reviewer
+    keys:
+      - elements/printed_output.yaml#title
+    note: '"Placa", "boleto", "tapetes" and "padrones" skew Mexican / Andean; all widely understood.'
+  - id: es-user-input-length
+    locale: es
+    kind: layout
+    status: open
+    raised_by: translator
+    keys:
+      - elements/user_input.yaml#title
+    note: '"Datos que ingresan las personas" is gender-neutral but longer than the English.'
+    alternatives:
+      - Datos ingresados por el usuario
+
+  # --- Portuguese ---
+  - id: pt-deployer
+    locale: pt
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - categories/accountable.yaml#element_context.values[1].name
+    note: >-
+      "Implantador" matches "implantar / implantação" in the descriptions but is not an
+      established term. Brazil's AI bill (PL 2338) uses "aplicador"; "operador" was avoided
+      because under the LGPD it means data processor.
+    alternatives:
+      - Aplicador
+  - id: pt-tratamento
+    locale: pt
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - elements/right_object.yaml#title
+    note: >-
+      Rights entries use the LGPD term "tratamento" while system processing stays
+      "processar / processamento". The title may be opaque without its description.
+  - id: pt-long-titles
+    locale: pt
+    kind: layout
+    status: open
+    raised_by: reviewer
+    keys:
+      - elements/user_input.yaml#title
+      - elements/person_acting_on_it.yaml#title
+    note: The two longest titles; no clearly better short form was found.
+  - id: pt-acts
+    locale: pt
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - elements/acts.yaml#title
+    note: '"Age" is correct but very short.'
+    alternatives:
+      - Atua
+  - id: pt-dashboard
+    locale: pt
+    kind: source_issue
+    status: open
+    raised_by: translator
+    keys:
+      - elements/screen_or_sign.yaml#description
+    note: >-
+      "Dashboard readout" is ambiguous between a vehicle and a data dashboard; rendered with
+      the neutral "painel de controle".
+
+  - id: pt-manifestation
+    locale: pt
+    kind: term_choice
+    status: open
+    raised_by: reviewer
+    keys:
+      - categories/manifestation.yaml#name
+    note: >-
+      "Como se manifesta", after "Ponto de contato" (contact point) was rejected as misleading.
+      "Manifestação" reads first as a street protest in Brazil.
+    alternatives:
+      - Forma de apresentação
+
+  # --- Filipino ---
+  - id: fil-deploy-enforce
+    locale: fil
+    kind: native_review
+    status: open
+    raised_by: reviewer
+    keys:
+      - categories/accountable.yaml#element_context.values[1].name
+      - elements/enforcement.yaml#title
+    note: >-
+      "Deploy" is "pagpapatupad" in 9 entries and the Deployer badge is "Nagpapatupad", which
+      shares its root with Enforcement ("Pagpapatupad ng patakaran") and can read as
+      "Enforcer". "Nagpapatakbo" shifts the sense; "Nagde-deploy" is Taglish.
+    alternatives:
+      - Nagpapatakbo
+      - Nagde-deploy
+  - id: fil-vendor
+    locale: fil
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - categories/accountable.yaml#element_context.values[0].name
+    note: '"Supplier", because "vendor" / "tindero" suggests a street seller in Philippine usage.'
+  - id: fil-pseudonymous
+    locale: fil
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - categories/input_dataset.yaml#element_context.values[1].name
+      - categories/output_dataset.yaml#element_context.values[1].name
+    note: '"Data na may alyas" is a plain-language choice; more exact but opaque is the loan.'
+    alternatives:
+      - Pseudonymous na data
+  - id: fil-manifestation
+    locale: fil
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - categories/manifestation.yaml#name
+    note: '"Anyo ng output" (form of the output); no natural one-word equivalent exists.'
+  - id: fil-predicts
+    locale: fil
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - elements/predicts.yaml#title
+    note: '"Humuhula" is the plain word but can also mean "guesses".'
+    alternatives:
+      - Nagtataya
+  - id: fil-english-kept
+    locale: fil
+    kind: native_review
+    status: open
+    raised_by: translator
+    keys:
+      - elements/computer_vision.yaml#title
+      - elements/privacy_transformation.yaml#description
+    note: >-
+      "Computer vision" is kept in English, as are technical loanwords in example lists
+      (tokenization, differential privacy, geofencing, surge pricing, HVAC).
+  - id: fil-hispanized
+    locale: fil
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - elements/accessibility.yaml#title
+      - elements/mobility.yaml#title
+      - elements/logistics.yaml#title
+      - elements/optimization.yaml#title
+    note: >-
+      Hispanized forms (Aksesibilidad, Mobilidad, Lohistika, Optimisasyon) are attested but a
+      little formal; the English loans are equally common in speech.
+
+  # --- Khmer ---
+  - id: km-organization
+    locale: km
+    kind: native_review
+    status: open
+    raised_by: reviewer
+    keys:
+      - elements/organization.yaml#title
+    note: >-
+      អង្គភាព is used for "organization" everywhere but leans toward "unit / department". The
+      choice between អង្គភាព, អង្គការ and ស្ថាប័ន is a policy call.
+    alternatives:
+      - អង្គការ
+  - id: km-harm
+    locale: km
+    kind: native_review
+    status: open
+    raised_by: reviewer
+    keys:
+      - elements/physical_harm.yaml#title
+      - elements/psychological_harm.yaml#title
+      - elements/civil_liberties_harm.yaml#title
+    note: >-
+      The "harm" titles use ការខូចខាត, which leans toward material damage. ការប៉ះពាល់ is more
+      idiomatic but collides with "affected".
+  - id: km-computer-vision
+    locale: km
+    kind: native_review
+    status: open
+    raised_by: reviewer
+    keys:
+      - elements/computer_vision.yaml#title
+      - elements/biometric_recognition.yaml#description
+    note: ចក្ខុវិស័យកុំព្យូទ័រ is the usual calque, but ចក្ខុវិស័យ normally means "vision" as in a goal.
+  - id: km-decided-about
+    locale: km
+    kind: native_review
+    status: open
+    raised_by: reviewer
+    keys:
+      - categories/affected.yaml#element_context.values[0].name
+    note: Reviewer replacement រងការសម្រេចចិត្ត ("subject to a decision") to confirm as natural badge wording.
+  - id: km-eligibility
+    locale: km
+    kind: native_review
+    status: open
+    raised_by: reviewer
+    keys:
+      - categories/affected.yaml#element_context.values[0].description
+      - elements/input_decision.yaml#description
+      - elements/output_decision.yaml#description
+    note: ភាពមានសិទ្ធិទទួលបាន is used on its own for "eligibility"; the trailing "receive" has no object.
+  - id: km-sexuality
+    locale: km
+    kind: native_review
+    status: open
+    raised_by: reviewer
+    keys:
+      - elements/input_sensitive_personal.yaml#description
+      - elements/output_sensitive_personal.yaml#description
+    note: ភេទភាព for "sexuality" may not be established; right_non_discrimination uses ទំនោរផ្លូវភេទ.
+  - id: km-manipulation
+    locale: km
+    kind: native_review
+    status: open
+    raised_by: reviewer
+    keys:
+      - elements/financial_harm.yaml#description
+      - elements/political_economic_harm.yaml#description
+    note: រៀបចំបំភ្លៃ for "manipulation" is an odd compound.
+  - id: km-ticket-letter
+    locale: km
+    kind: native_review
+    status: open
+    raised_by: reviewer
+    keys:
+      - elements/printed_output.yaml#title
+    note: សំបុត្រ means both "ticket" and "letter", so the title may read as "letter or letter".
+  - id: km-misc-terms
+    locale: km
+    kind: native_review
+    status: open
+    raised_by: reviewer
+    keys:
+      - elements/ecology.yaml#title
+      - elements/employment.yaml#title
+      - elements/right_algorithmic_transparency.yaml#description
+      - categories/action.yaml#element_context.values[1].description
+    note: >-
+      អេកូឡូស៊ី is a transliteration (បរិស្ថានវិទ្យា is native); the employment title reads "work
+      and hiring staff"; តក្កវិជ្ជា is the discipline of logic, used for "the logic involved";
+      "collection routes" has no object.
+  - id: km-pseudonymous
+    locale: km
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - categories/input_dataset.yaml#element_context.values[1].name
+      - categories/output_dataset.yaml#element_context.values[1].name
+    note: No established term; rendered descriptively as "data using a code in place of a name".
+  - id: km-forgotten
+    locale: km
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - elements/right_be_forgotten.yaml#title
+    note: សិទ្ធិត្រូវបានបំភ្លេច is a calque of "right to be forgotten".
+    alternatives:
+      - សិទ្ធិលុបទិន្នន័យ
+  - id: km-technical-terms
+    locale: km
+    kind: native_review
+    status: open
+    raised_by: translator
+    keys:
+      - elements/privacy_transformation.yaml#description
+    note: >-
+      k-anonymization is left in Latin, differential privacy is transliterated, and geofence is
+      glossed with the English in parentheses; likely opaque to the public.
+  - id: km-accessibility-length
+    locale: km
+    kind: layout
+    status: open
+    raised_by: translator
+    keys:
+      - elements/accessibility.yaml#title
+    note: Long, but the short form would collide with "Data Access".
+
+  # --- Vietnamese ---
+  - id: vi-senses
+    locale: vi
+    kind: native_review
+    status: open
+    raised_by: reviewer
+    keys:
+      - elements/senses.yaml#title
+    note: '"Cảm nhận" is slightly anthropomorphic for a machine.'
+    alternatives:
+      - Nhận biết
+  - id: vi-pseudonymous
+    locale: vi
+    kind: native_review
+    status: open
+    raised_by: reviewer
+    keys:
+      - categories/input_dataset.yaml#element_context.values[1].name
+      - categories/output_dataset.yaml#element_context.values[1].name
+    note: '"Dữ liệu bí danh" is compact but not an established term.'
+  - id: vi-locally
+    locale: vi
+    kind: native_review
+    status: open
+    raised_by: reviewer
+    keys:
+      - elements/stored_locally.yaml#title
+      - elements/backed_up_locally.yaml#title
+    note: '"Tại địa phương" means "within the jurisdiction" here; a reader could take it more narrowly.'
+  - id: vi-accountable-heading
+    locale: vi
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - categories/accountable.yaml#name
+    note: '"Chịu trách nhiệm" is a bare adjective as a heading, mirroring the English.'
+    alternatives:
+      - Bên chịu trách nhiệm
+  - id: vi-institution
+    locale: vi
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - elements/institution.yaml#title
+    note: '"Cơ quan" leans governmental; see en-institution-vs-organization.'
+  - id: vi-contest
+    locale: vi
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - elements/right_contest.yaml#title
+    note: '"Quyền khiếu nại" is the administrative-complaint term familiar to both communities.'
+    alternatives:
+      - Quyền phản đối
+  - id: vi-plain-titles
+    locale: vi
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - elements/moves.yaml#title
+      - elements/mobility.yaml#title
+      - elements/logistics.yaml#title
+      - elements/entry.yaml#title
+    note: >-
+      Rendered by sense, not literally: "Tác động vật lý" (Moves), "Di chuyển" (Mobility),
+      "Vận chuyển hàng hóa" (Logistics), "Kiểm soát ra vào" (Entry).
+  - id: vi-long-titles
+    locale: vi
+    kind: layout
+    status: open
+    raised_by: translator
+    keys:
+      - elements/available_to_the_accountable_organization.yaml#title
+      - elements/not_available_to_the_accountable_organization.yaml#title
+      - elements/feed_placement.yaml#title
+    note: 40+ characters, matching the long English; check that they fit under the icon.
+
+  # --- Simplified Chinese ---
+  - id: zh-Hans-short-titles
+    locale: zh-Hans
+    kind: native_review
+    status: open
+    raised_by: reviewer
+    keys:
+      - elements/entry.yaml#title
+      - elements/presence_motion_sensor.yaml#title
+      - categories/affected.yaml#element_context.values[0].name
+      - categories/affected.yaml#element_context.values[2].name
+    note: >-
+      Correct but worth a native look: 准入 (Entry), 存在与移动传感器, 决定对象 (Decided about),
+      更广泛的社区 (Wider community).
+  - id: zh-Hans-wayfinding
+    locale: zh-Hans
+    kind: term_choice
+    status: open
+    raised_by: reviewer
+    keys:
+      - elements/wayfinding_services.yaml#title
+    note: 导览 leans toward "guided tour".
+    alternatives:
+      - 导向
+      - 指路
+  - id: zh-Hans-token
+    locale: zh-Hans
+    kind: term_choice
+    status: open
+    raised_by: reviewer
+    keys:
+      - categories/input_dataset.yaml#element_context.values[1].description
+      - categories/output_dataset.yaml#element_context.values[1].description
+    note: 令牌 for the pseudonymization "token" is the IT term; 代号 is plainer.
+    alternatives:
+      - 代号
+  - id: zh-Hans-title-label
+    locale: zh-Hans
+    kind: term_choice
+    status: open
+    raised_by: reviewer
+    keys:
+      - categories/accountable.yaml#element_variables[0].label
+    note: 标题 for the "Title" form label; 名称 fits better where the value is an organization name.
+    alternatives:
+      - 名称
+  - id: zh-Hans-action-verbs
+    locale: zh-Hans
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - elements/moves.yaml#title
+      - elements/acts.yaml#title
+      - elements/creates.yaml#title
+    note: >-
+      操控 (Moves), 执行 (Acts), 生成 (Creates). 执行 is close to the "carries it out" badge;
+      生成 deliberately echoes "generated content".
+  - id: zh-Hans-triage
+    locale: zh-Hans
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - elements/risk_assessment.yaml#title
+    note: 风险评估与优先排序; 分诊 is kept only where the context is clinical.
+
+  # --- Traditional Chinese ---
+  - id: zh-Hant-short-titles
+    locale: zh-Hant
+    kind: native_review
+    status: open
+    raised_by: reviewer
+    keys:
+      - elements/entry.yaml#title
+      - elements/mobility.yaml#title
+      - elements/presence_motion_sensor.yaml#title
+      - elements/person_acting_on_it.yaml#title
+    note: >-
+      Judgement calls about brevity, not errors: 進入驗證 (Entry), 交通移動 (Mobility),
+      存在與動作感測器, 由人據以行動.
+  - id: zh-Hant-personal-information
+    locale: zh-Hant
+    kind: term_choice
+    status: open
+    raised_by: reviewer
+    keys:
+      - categories/input_dataset.yaml#element_context.name
+      - categories/output_dataset.yaml#element_context.name
+    note: >-
+      "Personal Information" is 個人資訊 while "personal data" is 個人資料, mirroring the
+      English. Taiwan's legal term for both is 個人資料.
+  - id: zh-Hant-accountable
+    locale: zh-Hant
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - categories/accountable.yaml#name
+    note: 負責組織; 負責單位 would sound more like a Taiwan agency.
+    alternatives:
+      - 負責單位
+  - id: zh-Hant-action-verbs
+    locale: zh-Hant
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - elements/moves.yaml#title
+      - elements/acts.yaml#title
+      - elements/creates.yaml#title
+    note: >-
+      驅動 (Moves) reads slightly technical; 行動 (Acts) is noun-like where the others are
+      verbs; 創作 (Creates) carries an artistic nuance.
+    alternatives:
+      - 操控
+      - 執行
+      - 生成
+  - id: zh-Hant-triage
+    locale: zh-Hant
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - elements/risk_assessment.yaml#description
+    note: 分流 is used for "triage" everywhere; hospital triage is formally 檢傷分類 in Taiwan.
+  - id: zh-Hant-health-safety
+    locale: zh-Hant
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - elements/health.yaml#title
+      - elements/safety_security.yaml#title
+      - elements/people.yaml#title
+    note: >-
+      環境衛生 can suggest sanitation (alt 環境健康); 保全 in 安全與保全 leans toward premises
+      security; 人 (People) is a single character (alt 民眾).
+  - id: zh-Hant-feed-length
+    locale: zh-Hant
+    kind: layout
+    status: open
+    raised_by: translator
+    keys:
+      - elements/feed_placement.yaml#title
+    note: At 14 characters this is the longest title.

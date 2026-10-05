@@ -5,6 +5,20 @@ title:
     value: Financial Services
   - locale: fr
     value: Services financiers
+  - locale: es
+    value: Servicios financieros
+  - locale: pt
+    value: Serviços financeiros
+  - locale: fil
+    value: Mga serbisyong pinansiyal
+  - locale: km
+    value: សេវាហិរញ្ញវត្ថុ
+  - locale: vi
+    value: Dịch vụ tài chính
+  - locale: zh-Hans
+    value: 金融服务
+  - locale: zh-Hant
+    value: 金融服務
 description:
   - locale: en
     value: >-
@@ -15,6 +29,33 @@ description:
       Soutient le crédit, l'assurance, la détection de fraude ou d'autres décisions financières
       concernant des personnes — par exemple, l'évaluation du crédit, la souscription d'assurance,
       le signalement de fraude transactionnelle.
+  - locale: es
+    value: >-
+      Apoya préstamos, seguros, detección de fraude u otras decisiones financieras sobre personas —
+      por ejemplo, puntajes de crédito, evaluación de riesgos para seguros, alertas de fraude en
+      transacciones.
+  - locale: pt
+    value: >-
+      Apoia empréstimos, seguros, detecção de fraude ou outras decisões financeiras sobre pessoas —
+      por exemplo, pontuação de crédito, subscrição de seguros, sinalização de fraude em transações.
+  - locale: fil
+    value: >-
+      Sumusuporta sa pagpapautang, insurance, pagtuklas ng panloloko, o iba pang desisyong
+      pinansiyal tungkol sa mga tao — halimbawa, credit scoring, underwriting ng insurance,
+      pagmamarka ng kahina-hinalang transaksiyon.
+  - locale: km
+    value: >-
+      គាំទ្រការផ្តល់ប្រាក់កម្ចី, ការធានារ៉ាប់រង, ការរកឃើញការក្លែងបន្លំ,
+      ឬការសម្រេចចិត្តផ្នែកហិរញ្ញវត្ថុផ្សេងទៀតអំពីមនុស្ស — ឧទាហរណ៍ ការដាក់ពិន្ទុឥណទាន,
+      ការវាយតម្លៃដើម្បីទទួលធានារ៉ាប់រង, ការចង្អុលបង្ហាញប្រតិបត្តិការក្លែងបន្លំ។
+  - locale: vi
+    value: >-
+      Hỗ trợ việc cho vay, bảo hiểm, phát hiện gian lận hoặc các quyết định tài chính khác về con
+      người — ví dụ: chấm điểm tín dụng, thẩm định bảo hiểm, đánh dấu giao dịch gian lận.
+  - locale: zh-Hans
+    value: 支持贷款、保险、欺诈检测或其他涉及个人的金融决定——例如信用评分、保险核保、交易欺诈标记。
+  - locale: zh-Hant
+    value: 協助放款、保險、詐欺偵測或其他與個人有關的金融決定，例如信用評分、保險核保、可疑交易標記。
 sources:
   - type: regulation
     title: EU AI Act Annex III §5(b)+(c) — Credit-scoring and life/health insurance risk assessment & pricing

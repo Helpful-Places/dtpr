@@ -5,6 +5,20 @@ title:
     value: Civil liberties harm
   - locale: fr
     value: Atteinte aux libertés civiles
+  - locale: es
+    value: Daño a las libertades civiles
+  - locale: pt
+    value: Dano às liberdades civis
+  - locale: fil
+    value: Pinsala sa mga kalayaang sibil
+  - locale: km
+    value: ការខូចខាតដល់សេរីភាពពលរដ្ឋ
+  - locale: vi
+    value: Xâm phạm quyền tự do dân sự
+  - locale: zh-Hans
+    value: 公民自由受损
+  - locale: zh-Hant
+    value: 公民自由受損
 description:
   - locale: en
     value: >-
@@ -23,4 +37,54 @@ description:
       contestation. Les mesures d'atténuation peuvent inclure des limites strictes de finalité, une
       supervision judiciaire ou indépendante, une rétention de données restreinte et des évaluations
       d'impact sur les droits humains avant le déploiement.
+  - locale: es
+    value: >-
+      El riesgo de que el sistema de IA comprometa derechos humanos fundamentales y libertades
+      civiles — expresión, reunión, libre circulación, debido proceso o la protección contra la
+      vigilancia arbitraria. Esto incluye riesgos derivados del reconocimiento facial masivo, la
+      vigilancia policial predictiva, la censura de expresiones lícitas y los efectos inhibidores
+      sobre la protesta. Las medidas de mitigación pueden incluir límites estrictos de propósito,
+      supervisión judicial o independiente, una conservación de datos acotada y evaluaciones de
+      impacto en los derechos humanos antes de la implementación.
+  - locale: pt
+    value: >-
+      O risco de que o sistema de IA comprometa direitos humanos fundamentais e liberdades civis —
+      expressão, reunião, circulação, devido processo legal ou proteção contra vigilância
+      arbitrária. Isso inclui riscos decorrentes de reconhecimento facial em massa, policiamento
+      preditivo, censura de expressão lícita e efeitos inibidores sobre protestos. As medidas de
+      mitigação podem incluir limites rígidos de finalidade, supervisão judicial ou independente,
+      retenção de dados restrita e avaliações de impacto sobre direitos humanos antes da
+      implantação.
+  - locale: fil
+    value: >-
+      Ang panganib na malagay sa alanganin ng sistemang AI ang mga batayang karapatang pantao at
+      kalayaang sibil — pananalita, pagtitipon, paggalaw, tamang proseso ng batas, o kalayaan mula
+      sa di-makatwirang pagmamanman. Kasama rito ang mga panganib mula sa malawakang pagkilala ng
+      mukha, predictive policing, pagsensura sa legal na pagpapahayag, at pagkatakot ng mga tao na
+      magprotesta. Maaaring kabilang sa mga hakbang para mabawasan ang panganib ang mahihigpit na
+      limitasyon sa layunin, pagbabantay ng hukuman o ng independiyenteng lupon, limitadong
+      pagpapanatili ng data, at pagtatasa ng epekto sa karapatang pantao bago ang pagpapatupad.
+  - locale: km
+    value: >-
+      ហានិភ័យដែលប្រព័ន្ធ AI ធ្វើឱ្យប៉ះពាល់ដល់សិទ្ធិមនុស្សជាមូលដ្ឋាន និងសេរីភាពពលរដ្ឋ — ការបញ្ចេញមតិ,
+      ការជួបជុំ, ការធ្វើដំណើរ, នីតិវិធីត្រឹមត្រូវ, ឬសេរីភាពរួចផុតពីការឃ្លាំមើលតាមអំពើចិត្ត។
+      នេះរួមមានហានិភ័យពីការសម្គាល់មុខទ្រង់ទ្រាយធំ, ការងារនគរបាលផ្អែកលើការព្យាករណ៍,
+      ការត្រួតពិនិត្យបិទខ្ទប់ការបញ្ចេញមតិស្របច្បាប់, និងផលដែលធ្វើឱ្យមនុស្សមិនហ៊ានតវ៉ា។
+      វិធានការកាត់បន្ថយអាចរួមមាន ការកំណត់គោលបំណងយ៉ាងតឹងរ៉ឹង, ការត្រួតពិនិត្យដោយតុលាការ
+      ឬដោយស្ថាប័នឯករាជ្យ, ការរក្សាទុកទិន្នន័យក្នុងកម្រិតមានកំណត់,
+      និងការវាយតម្លៃផលប៉ះពាល់លើសិទ្ធិមនុស្សមុនពេលដាក់ឱ្យប្រើប្រាស់។
+  - locale: vi
+    value: >-
+      Rủi ro hệ thống AI làm tổn hại các quyền con người cơ bản và quyền tự do dân sự — ngôn luận,
+      hội họp, đi lại, thủ tục pháp lý công bằng, hoặc quyền không bị theo dõi tùy tiện. Điều này
+      bao gồm rủi ro từ việc nhận diện khuôn mặt hàng loạt, hoạt động cảnh sát dựa trên dự đoán,
+      kiểm duyệt phát ngôn hợp pháp, và tác động khiến người dân e ngại biểu tình. Biện pháp giảm
+      thiểu có thể gồm giới hạn mục đích chặt chẽ, sự giám sát của tòa án hoặc cơ quan độc lập, lưu
+      giữ dữ liệu ở mức tối thiểu, và đánh giá tác động đến quyền con người trước khi triển khai.
+  - locale: zh-Hans
+    value: >-
+      AI系统损害基本人权和公民自由的风险——言论、集会、行动、正当程序，或免受任意监控的自由。这包括大规模人脸识别、预测性警务、对合法言论的审查，以及对抗议活动的寒蝉效应所带来的风险。缓解措施可包括严格的目的限制、司法或独立监督、从严限定数据保留，以及在部署前进行人权影响评估。
+  - locale: zh-Hant
+    value: >-
+      AI系統損及基本人權與公民自由的風險，包括言論、集會、遷徙、正當程序，或免於任意監控的自由。包括大規模臉部辨識、預測性警務、審查合法言論，以及對抗議活動造成寒蟬效應等風險。因應措施可包括嚴格的目的限制、司法或獨立監督、限縮資料保留，以及在部署前進行人權影響評估。
 symbol_id: risks_civil-liberties

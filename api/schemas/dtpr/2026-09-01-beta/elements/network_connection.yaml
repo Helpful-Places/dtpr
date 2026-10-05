@@ -5,6 +5,20 @@ title:
     value: Network Connection
   - locale: fr
     value: Connexion réseau
+  - locale: es
+    value: Conexión de red
+  - locale: pt
+    value: Conexão de rede
+  - locale: fil
+    value: Koneksiyon sa network
+  - locale: km
+    value: ការតភ្ជាប់បណ្តាញ
+  - locale: vi
+    value: Kết nối mạng
+  - locale: zh-Hans
+    value: 网络连接
+  - locale: zh-Hant
+    value: 網路連線
 description:
   - locale: en
     value: >-
@@ -18,4 +32,38 @@ description:
       transporte les données plutôt qu'il ne les capte, mais les journaux de connexion peuvent
       révéler quels appareils étaient à proximité ou connectés, et un point d'accès offrant du WiFi
       public est aussi un service auquel les gens se joignent.
+  - locale: es
+    value: >-
+      Conecta este sistema a una red — un módem celular, un punto de acceso wifi o un enlace por
+      cable. Transporta datos en lugar de captarlos, pero los registros de conexión pueden revelar
+      qué dispositivos estaban cerca o conectados, y un punto de acceso que ofrece wifi público es
+      también un servicio al que la gente se conecta.
+  - locale: pt
+    value: >-
+      Conecta este sistema a uma rede — um modem de celular, um ponto de acesso Wi-Fi ou uma conexão
+      com fio. Ela transporta dados em vez de captá-los, mas os registros de conexão ainda podem
+      revelar quais dispositivos estavam por perto ou conectados, e um ponto de acesso que oferece
+      Wi-Fi público também é um serviço ao qual as pessoas se conectam.
+  - locale: fil
+    value: >-
+      Nag-uugnay sa sistemang ito sa isang network — cellular modem, WiFi access point, o
+      koneksiyong may kable. Naglilipat ito ng data sa halip na kumuha nito, pero maaari pa ring
+      ipakita ng mga log ng koneksiyon kung aling mga device ang nasa malapit o nakakonekta, at ang
+      access point na nag-aalok ng pampublikong WiFi ay isa ring serbisyong sinasalihan ng mga tao.
+  - locale: km
+    value: >-
+      ភ្ជាប់ប្រព័ន្ធនេះទៅបណ្តាញ — ម៉ូដឹមទូរសព្ទចល័ត, ចំណុចចូលប្រើ WiFi, ឬខ្សែតភ្ជាប់។
+      វាបញ្ជូនទិន្នន័យ ជាជាងចាប់យកទិន្នន័យ
+      ប៉ុន្តែកំណត់ហេតុនៃការតភ្ជាប់នៅតែអាចបង្ហាញថាឧបករណ៍ណាខ្លះនៅក្បែរ ឬបានតភ្ជាប់
+      ហើយចំណុចចូលប្រើដែលផ្តល់ WiFi សាធារណៈក៏ជាសេវាដែលមនុស្សចូលប្រើដែរ។
+  - locale: vi
+    value: >-
+      Kết nối hệ thống này với một mạng — modem di động, điểm phát WiFi hoặc đường truyền có dây. Nó
+      chuyển dữ liệu đi chứ không thu nhận dữ liệu, nhưng nhật ký kết nối vẫn có thể cho biết thiết
+      bị nào đã ở gần hoặc đã kết nối, và một điểm phát WiFi công cộng cũng là một dịch vụ mà mọi
+      người kết nối vào.
+  - locale: zh-Hans
+    value: 将本系统接入网络——蜂窝调制解调器、WiFi接入点或有线链路。它传输数据而不采集数据，但连接日志仍可能暴露哪些设备曾在附近或连接过；提供公共WiFi的接入点同时也是一项供人们接入的服务。
+  - locale: zh-Hant
+    value: 將這個系統連上網路：行動網路數據機、WiFi基地台或有線連線。它傳輸資料而非擷取資料，但連線紀錄仍可能透露哪些裝置曾在附近或曾經連線；提供公共WiFi的基地台同時也是人們會連上使用的服務。
 symbol_id: connectivity

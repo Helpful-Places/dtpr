@@ -13,3 +13,10 @@ content_hash: sha256-00000000000000000000000000000000000000000000000000000000000
 locales:
   - en
   - fr
+  - es
+  - pt
+  - fil
+  - km
+  - vi
+  - zh-Hans
+  - zh-Hant

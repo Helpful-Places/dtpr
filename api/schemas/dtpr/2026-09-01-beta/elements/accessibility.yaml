@@ -5,9 +5,37 @@ title:
     value: Accessibility
   - locale: fr
     value: Accessibilité
+  - locale: es
+    value: Accesibilidad
+  - locale: pt
+    value: Acessibilidade
+  - locale: fil
+    value: Aksesibilidad
+  - locale: km
+    value: លទ្ធភាពចូលប្រើសម្រាប់ទាំងអស់គ្នា
+  - locale: vi
+    value: Khả năng tiếp cận
+  - locale: zh-Hans
+    value: 无障碍
+  - locale: zh-Hant
+    value: 無障礙
 description:
   - locale: en
     value: Ensures that everyone has equal access to a space or a service.
   - locale: fr
     value: Garantit l'égalité d'accés de tous à un espace ou à un service.
+  - locale: es
+    value: Garantiza que todas las personas tengan igual acceso a un espacio o servicio.
+  - locale: pt
+    value: Garante que todas as pessoas tenham acesso igual a um espaço ou serviço.
+  - locale: fil
+    value: Tinitiyak na pantay-pantay ang access ng lahat sa isang lugar o serbisyo.
+  - locale: km
+    value: ធានាថាមនុស្សគ្រប់រូបអាចចូលប្រើទីកន្លែង ឬសេវាបានស្មើភាពគ្នា។
+  - locale: vi
+    value: Bảo đảm mọi người đều được tiếp cận bình đẳng với một không gian hoặc dịch vụ.
+  - locale: zh-Hans
+    value: 确保人人都能平等地使用某一空间或服务。
+  - locale: zh-Hant
+    value: 確保人人都能平等使用空間或服務。
 symbol_id: accessibility

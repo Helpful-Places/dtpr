@@ -5,6 +5,20 @@ title:
     value: A screen or sign
   - locale: fr
     value: Un écran ou un panneau
+  - locale: es
+    value: Una pantalla o un letrero
+  - locale: pt
+    value: Uma tela ou placa
+  - locale: fil
+    value: Screen o karatula
+  - locale: km
+    value: អេក្រង់ ឬផ្លាកសញ្ញា
+  - locale: vi
+    value: Màn hình hoặc biển báo
+  - locale: zh-Hans
+    value: 屏幕或标牌
+  - locale: zh-Hant
+    value: 螢幕或看板
 description:
   - locale: en
     value: >-
@@ -16,4 +30,33 @@ description:
       Le résultat s'affiche sur un écran dans le lieu — panneau à message variable au-dessus d'une
       route, tableau des départs, écran de borne, affichage de tableau de bord. Vous rencontrez le
       système en lisant ce qu'il montre.
+  - locale: es
+    value: >-
+      El resultado aparece en una pantalla en el lugar — un letrero de mensajes variables sobre una
+      carretera, un tablero de salidas, la pantalla de un quiosco, un indicador en un panel. Usted
+      se encuentra con el sistema al leer lo que muestra.
+  - locale: pt
+    value: >-
+      O resultado aparece em um visor ou tela no local — um painel de mensagens variáveis sobre uma
+      via, um quadro de partidas, a tela de um totem, uma leitura em um painel de controle. Você tem
+      contato com o sistema ao ler o que ele mostra.
+  - locale: fil
+    value: >-
+      Lumalabas ang output sa isang display sa lugar — variable message sign sa ibabaw ng kalsada,
+      departure board, screen ng kiosk, readout sa dashboard. Nakakaharap ninyo ang sistema sa
+      pagbasa ng ipinapakita nito.
+  - locale: km
+    value: >-
+      លទ្ធផលលេចឡើងលើអេក្រង់បង្ហាញនៅទីកន្លែងនោះ — ផ្លាកសារប្រែប្រួលនៅពីលើផ្លូវ, តារាងម៉ោងចេញដំណើរ,
+      អេក្រង់បញ្ជរស្វ័យសេវា, តម្លៃដែលបង្ហាញលើផ្ទាំងបង្ហាញទិន្នន័យ។
+      អ្នកជួបនឹងប្រព័ន្ធដោយអានអ្វីដែលវាបង្ហាញ។
+  - locale: vi
+    value: >-
+      Kết quả đầu ra hiện trên một màn hình tại chỗ — biển báo điện tử thay đổi nội dung phía trên
+      đường, bảng giờ khởi hành, màn hình ki-ốt, số liệu trên bảng thông tin. Bạn tiếp xúc với hệ
+      thống bằng cách đọc những gì nó hiển thị.
+  - locale: zh-Hans
+    value: 输出显示在现场的显示设备上——道路上方的可变信息标志、出发信息屏、自助终端屏幕、仪表盘读数。您通过阅读系统显示的内容来接触它。
+  - locale: zh-Hant
+    value: 輸出結果顯示在現場的顯示器上：道路上方的資訊可變標誌、發車資訊看板、自助服務機螢幕、儀表板讀數。您透過閱讀它顯示的內容而接觸到系統。
 symbol_id: system_screen

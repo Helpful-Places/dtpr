@@ -5,6 +5,20 @@ title:
     value: Eligibility & Public Benefits
   - locale: fr
     value: Éligibilité et prestations publiques
+  - locale: es
+    value: Elegibilidad y beneficios públicos
+  - locale: pt
+    value: Elegibilidade e benefícios públicos
+  - locale: fil
+    value: Kuwalipikasyon at benepisyong pampubliko
+  - locale: km
+    value: ភាពមានសិទ្ធិ និងអត្ថប្រយោជន៍ពីរដ្ឋ
+  - locale: vi
+    value: Xét điều kiện và phúc lợi xã hội
+  - locale: zh-Hans
+    value: 资格审核与公共福利
+  - locale: zh-Hant
+    value: 資格審查與公共福利
 description:
   - locale: en
     value: >-
@@ -15,6 +29,34 @@ description:
       Détermine l'éligibilité ou la distribution de prestations publiques et de services publics
       essentiels — par exemple, l'attribution d'aides sociales, l'aide au logement, l'évaluation du
       risque en protection de l'enfance.
+  - locale: es
+    value: >-
+      Determina la elegibilidad para recibir beneficios del gobierno y servicios públicos
+      esenciales, o su distribución — por ejemplo, asignación de asistencia social, ayuda para la
+      vivienda, puntajes de riesgo en servicios de protección infantil.
+  - locale: pt
+    value: >-
+      Determina a elegibilidade para benefícios governamentais e serviços públicos essenciais, ou a
+      distribuição deles — por exemplo, concessão de benefícios sociais, auxílio-moradia, pontuação
+      de risco em serviços de proteção à criança.
+  - locale: fil
+    value: >-
+      Nagtatakda kung sino ang kuwalipikado sa mga benepisyo ng gobyerno at mahahalagang serbisyong
+      pampubliko, o kung paano ipinamamahagi ang mga ito — halimbawa, paglalaan ng ayuda, tulong sa
+      pabahay, pag-iskor ng panganib para sa mga serbisyong pambata.
+  - locale: km
+    value: >-
+      កំណត់ភាពមានសិទ្ធិទទួលបាន ឬការបែងចែកអត្ថប្រយោជន៍ពីរដ្ឋ និងសេវាសាធារណៈចាំបាច់ — ឧទាហរណ៍
+      ការបែងចែកជំនួយសង្គម, ជំនួយផ្នែកលំនៅឋាន, ការដាក់ពិន្ទុហានិភ័យក្នុងសេវាការពារកុមារ។
+  - locale: vi
+    value: >-
+      Xác định ai đủ điều kiện hưởng phúc lợi của chính phủ và dịch vụ công thiết yếu, hoặc cách
+      phân phối các phúc lợi và dịch vụ đó — ví dụ: phân bổ trợ cấp xã hội, trợ giúp nhà ở, chấm
+      điểm rủi ro trong dịch vụ bảo vệ trẻ em.
+  - locale: zh-Hans
+    value: 判定享受政府福利和基本公共服务的资格，或决定其分配——例如福利发放、住房援助、儿童保护服务风险评分。
+  - locale: zh-Hant
+    value: 判定政府福利與基本公共服務的申請資格或分配方式，例如社會福利分配、住宅補助、兒童保護服務的風險評分。
 sources:
   - type: regulation
     title: EU AI Act Annex III §5(a) — Essential public assistance benefits and services

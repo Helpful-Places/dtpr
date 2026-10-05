@@ -5,6 +5,20 @@ title:
     value: Right to Correct Your Data
   - locale: fr
     value: Droit de rectifier vos données
+  - locale: es
+    value: Derecho a corregir sus datos
+  - locale: pt
+    value: Direito de corrigir seus dados
+  - locale: fil
+    value: Karapatang itama ang inyong data
+  - locale: km
+    value: សិទ្ធិកែតម្រូវទិន្នន័យរបស់អ្នក
+  - locale: vi
+    value: Quyền sửa dữ liệu của bạn
+  - locale: zh-Hans
+    value: 数据更正权
+  - locale: zh-Hant
+    value: 更正資料的權利
 description:
   - locale: en
     value: >-
@@ -19,4 +33,41 @@ description:
       consulter) et du droit à l'oubli (qui est le droit à leur effacement). Lorsque les données
       d'origine sont rectifiées, les décisions ultérieures prises à partir de données erronées
       devraient être réexaminées.
+  - locale: es
+    value: >-
+      El derecho a que se corrijan o completen los datos inexactos o incompletos que un sistema de
+      IA tiene sobre usted. Es distinto del derecho de acceso a sus datos (que es el derecho a
+      leerlos) y del derecho al olvido (que es el derecho a eliminarlos). Cuando se corrigen los
+      datos originales, deben revisarse las decisiones posteriores que se tomaron a partir de los
+      datos erróneos.
+  - locale: pt
+    value: >-
+      O direito de ter corrigidos ou completados os dados imprecisos ou incompletos que um sistema
+      de IA mantém sobre você. É separado do direito de acesso aos seus dados (que é o direito de
+      lê-los) e do direito ao esquecimento (que é o direito de excluí-los). Quando os dados
+      originais são corrigidos, as decisões posteriores tomadas a partir dos dados incorretos devem
+      ser revistas.
+  - locale: fil
+    value: >-
+      Ang karapatang maipatama o maipakumpleto ang di-tumpak o kulang na data na hawak ng isang
+      sistemang AI tungkol sa inyo. Hiwalay ito sa karapatan sa access sa inyong data (na karapatang
+      mabasa ito) at sa karapatang makalimutan (na karapatang mabura ito). Kapag naitama ang
+      orihinal na data, dapat balikan ang mga sumunod na desisyong ginawa batay sa maling data.
+  - locale: km
+    value: >-
+      សិទ្ធិឱ្យគេកែតម្រូវ ឬបំពេញបន្ថែមទិន្នន័យមិនត្រឹមត្រូវ ឬមិនពេញលេញ ដែលប្រព័ន្ធ AI មានអំពីអ្នក។
+      សិទ្ធិនេះដាច់ដោយឡែកពីសិទ្ធិចូលប្រើទិន្នន័យរបស់អ្នក (ដែលជាសិទ្ធិអានវា) និងសិទ្ធិត្រូវបានបំភ្លេច
+      (ដែលជាសិទ្ធិលុបវា)។ នៅពេលទិន្នន័យដើមត្រូវបានកែតម្រូវ
+      ការសម្រេចចិត្តបន្តបន្ទាប់ដែលបានធ្វើឡើងពីទិន្នន័យខុសគួរតែត្រូវបានពិនិត្យឡើងវិញ។
+  - locale: vi
+    value: >-
+      Quyền yêu cầu sửa hoặc bổ sung những dữ liệu không chính xác hoặc không đầy đủ mà một hệ thống
+      AI đang giữ về bạn. Quyền này khác với quyền truy cập dữ liệu của bạn (là quyền được đọc dữ
+      liệu) và quyền được lãng quên (là quyền xóa dữ liệu). Khi dữ liệu gốc được sửa, những quyết
+      định về sau đã dựa trên dữ liệu sai cần được xem xét lại.
+  - locale: zh-Hans
+    value: 有权要求更正或补充AI系统持有的关于您的不准确或不完整的数据。这有别于查阅权（即查看数据的权利）和被遗忘权（即删除数据的权利）。原始数据更正后，依据错误数据作出的下游决定也应重新审视。
+  - locale: zh-Hant
+    value: >-
+      您有權要求更正或補充AI系統所持有、關於您的不正確或不完整資料。這與查閱資料的權利（閱覽資料的權利）及被遺忘權（刪除資料的權利）不同。原始資料更正後，先前依據錯誤資料所做的下游決定也應重新檢視。
 symbol_id: pencil_edit

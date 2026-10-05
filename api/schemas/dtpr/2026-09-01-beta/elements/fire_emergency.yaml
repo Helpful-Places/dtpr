@@ -5,6 +5,20 @@ title:
     value: Fire & Emergency
   - locale: fr
     value: Incendie et urgence
+  - locale: es
+    value: Incendios y emergencias
+  - locale: pt
+    value: Incêndio e emergência
+  - locale: fil
+    value: Sunog at emergency
+  - locale: km
+    value: អគ្គិភ័យ និងគ្រាអាសន្ន
+  - locale: vi
+    value: Cứu hỏa và khẩn cấp
+  - locale: zh-Hans
+    value: 消防与应急
+  - locale: zh-Hant
+    value: 消防與緊急應變
 description:
   - locale: en
     value: Supports services that ensure public safety and health related to emergencies.
@@ -12,4 +26,22 @@ description:
     value: >-
       Contribue au fonctionnement des services qui assurent la sécurité et la santé publiques en cas
       d'urgences.
+  - locale: es
+    value: >-
+      Apoya los servicios que protegen la seguridad y la salud públicas en situaciones de
+      emergencia.
+  - locale: pt
+    value: Apoia serviços que garantem a segurança e a saúde públicas em situações de emergência.
+  - locale: fil
+    value: >-
+      Sumusuporta sa mga serbisyong tumitiyak sa kaligtasan at kalusugan ng publiko kaugnay ng mga
+      emergency.
+  - locale: km
+    value: គាំទ្រសេវាដែលធានាសុវត្ថិភាព និងសុខភាពសាធារណៈទាក់ទងនឹងគ្រាអាសន្ន។
+  - locale: vi
+    value: Hỗ trợ các dịch vụ bảo đảm an toàn và sức khỏe cộng đồng trong các tình huống khẩn cấp.
+  - locale: zh-Hans
+    value: 支持在紧急情况下保障公共安全和健康的服务。
+  - locale: zh-Hant
+    value: 協助在緊急情況下維護公共安全與健康的服務。
 symbol_id: fire_emergency

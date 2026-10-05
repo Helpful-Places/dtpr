@@ -5,6 +5,20 @@ title:
     value: Sensitive personal data
   - locale: fr
     value: Données personnelles sensibles
+  - locale: es
+    value: Datos personales sensibles
+  - locale: pt
+    value: Dados pessoais sensíveis
+  - locale: fil
+    value: Sensitibong personal na data
+  - locale: km
+    value: ទិន្នន័យផ្ទាល់ខ្លួនរសើប
+  - locale: vi
+    value: Dữ liệu cá nhân nhạy cảm
+  - locale: zh-Hans
+    value: 敏感个人数据
+  - locale: zh-Hant
+    value: 敏感個人資料
 description:
   - locale: en
     value: >-
@@ -18,6 +32,42 @@ description:
       personnelles porteuses de risque légal et social. L'IA reçoit ce type de données protégées.
       Exemples : éligibilité à une assurance sur une borne de clinique, état d'une demande de
       prestation, pronom auto-déclaré.
+  - locale: es
+    value: >-
+      Salud, finanzas, creencias, sexualidad, situación migratoria u otra información personal que
+      conlleva riesgos legales y sociales. La IA recibe este tipo de datos protegidos. Ejemplos:
+      elegibilidad para un seguro en el quiosco de una clínica, el estado de una solicitud de
+      beneficios, un pronombre declarado por la propia persona.
+  - locale: pt
+    value: >-
+      Saúde, finanças, crenças, sexualidade, situação migratória ou outras informações pessoais que
+      envolvem risco jurídico e social. A IA recebe esse tipo de dado protegido. Exemplos:
+      elegibilidade a um seguro em um totem de clínica, a situação de um pedido de benefício, um
+      pronome autodeclarado.
+  - locale: fil
+    value: >-
+      Kalusugan, pananalapi, paniniwala, seksuwalidad, katayuan sa imigrasyon, o iba pang personal
+      na impormasyong may kaakibat na panganib na legal at panlipunan. Tumatanggap ang AI ng
+      ganitong uri ng protektadong data. Mga halimbawa: pagiging kuwalipikado sa insurance sa kiosk
+      ng klinika, katayuan ng aplikasyon sa benepisyo, panghalip na idineklara ng tao para sa
+      sarili.
+  - locale: km
+    value: >-
+      សុខភាព, ហិរញ្ញវត្ថុ, ជំនឿ, ភេទភាព, ស្ថានភាពអន្តោប្រវេសន៍,
+      ឬព័ត៌មានផ្ទាល់ខ្លួនផ្សេងទៀតដែលមានហានិភ័យផ្នែកច្បាប់ និងសង្គម។ AI
+      ទទួលយកទិន្នន័យដែលត្រូវការពារប្រភេទនេះ។ ឧទាហរណ៍៖
+      ភាពមានសិទ្ធិទទួលបានការធានារ៉ាប់រងនៅបញ្ជរស្វ័យសេវារបស់គ្លីនិក,
+      ស្ថានភាពនៃពាក្យសុំអត្ថប្រយោជន៍ពីរដ្ឋ, សព្វនាមដែលបុគ្គលប្រកាសដោយខ្លួនឯង។
+  - locale: vi
+    value: >-
+      Sức khỏe, tài chính, tín ngưỡng, tính dục, tình trạng di trú, hoặc thông tin cá nhân khác mang
+      rủi ro về pháp lý và xã hội. AI tiếp nhận loại dữ liệu được bảo vệ này. Ví dụ: việc đủ điều
+      kiện bảo hiểm tại ki-ốt của phòng khám, tình trạng của một đơn xin phúc lợi, đại từ nhân xưng
+      do người dùng tự khai.
+  - locale: zh-Hans
+    value: 健康、财务、信仰、性取向、移民身份，或其他带有法律和社会风险的个人信息。AI接收这类受保护的数据。示例：诊所自助终端上的保险资格、福利申请的状态、自行申报的人称代词。
+  - locale: zh-Hant
+    value: 健康、財務、信仰、性傾向、移民身分，或其他帶有法律與社會風險的個人資訊。AI接收這類受保護的資料。例如：診所自助服務機上的保險資格、福利申請的進度、自行填報的人稱代名詞。
 sources:
   - type: regulation
     title: GDPR Article 9 — Special categories of personal data

@@ -5,6 +5,20 @@ title:
     value: Education & Learning
   - locale: fr
     value: Éducation et apprentissage
+  - locale: es
+    value: Educación y aprendizaje
+  - locale: pt
+    value: Educação e aprendizagem
+  - locale: fil
+    value: Edukasyon at pagkatuto
+  - locale: km
+    value: ការអប់រំ និងការរៀនសូត្រ
+  - locale: vi
+    value: Giáo dục và học tập
+  - locale: zh-Hans
+    value: 教育与学习
+  - locale: zh-Hant
+    value: 教育與學習
 description:
   - locale: en
     value: >-
@@ -15,6 +29,33 @@ description:
       Soutient l'enseignement, l'apprentissage, l'évaluation ou l'orientation pédagogique — par
       exemple, des assistants de tutorat, la notation automatisée, ou des recommandations de
       bibliothèques et musées.
+  - locale: es
+    value: >-
+      Apoya la enseñanza, el aprendizaje, la evaluación o la orientación educativa — por ejemplo,
+      asistentes de tutoría, calificación automatizada o sistemas de recomendación de bibliotecas y
+      museos.
+  - locale: pt
+    value: >-
+      Apoia o ensino, a aprendizagem, a avaliação ou a orientação educacional — por exemplo,
+      assistentes de tutoria, correção automatizada ou sistemas de recomendação de bibliotecas e
+      museus.
+  - locale: fil
+    value: >-
+      Sumusuporta sa pagtuturo, pagkatuto, pagtatasa, o paggabay sa pag-aaral — halimbawa, mga
+      tutoring assistant, awtomatikong pagmamarka, o mga tagarekomenda sa aklatan at museo.
+  - locale: km
+    value: >-
+      គាំទ្រការបង្រៀន, ការរៀនសូត្រ, ការវាយតម្លៃ, ឬការតម្រង់ទិសផ្នែកអប់រំ — ឧទាហរណ៍
+      ជំនួយការបង្រៀនបន្ថែម, ការដាក់ពិន្ទុស្វ័យប្រវត្តិ, ឬប្រព័ន្ធផ្តល់អនុសាសន៍របស់បណ្ណាល័យ
+      និងសារមន្ទីរ។
+  - locale: vi
+    value: >-
+      Hỗ trợ việc giảng dạy, học tập, đánh giá hoặc tư vấn học tập — ví dụ: trợ lý dạy kèm, chấm
+      điểm tự động, hoặc hệ thống gợi ý của thư viện và bảo tàng.
+  - locale: zh-Hans
+    value: 支持教学、学习、测评或教育指导——例如辅导助手、自动评分，或图书馆和博物馆的推荐系统。
+  - locale: zh-Hant
+    value: 協助教學、學習、評量或學習輔導，例如課業輔導助理、自動評分，或圖書館與博物館的推薦系統。
 sources:
   - type: regulation
     title: EU AI Act Annex III §3 — Education and vocational training

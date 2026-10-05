@@ -25,6 +25,9 @@ pnpm --filter ./api schema:build ai@2026-04-16-beta
 # Validate a schema version without emitting
 pnpm --filter ./api schema:validate ai@2026-04-16-beta
 
+# Translate a schema version (see "Translating a schema version" below)
+pnpm --filter ./api schema:translate extract dtpr@2026-09-01-beta --locales es,vi
+
 # Deploy to production (api.dtpr.io)
 pnpm --filter ./api deploy
 ```
@@ -39,6 +42,35 @@ api/
   migrations/     # One-shot migration scripts
   test/           # Vitest + vitest-pool-workers suite
 ```
+
+## Translating a schema version
+
+English is canonical. Other locales are filled in through JSON catalogs so the YAML structure is never edited by a translator:
+
+```bash
+# 1. Export every localized field that lacks the target locales (one catalog per locale,
+#    written to api/.translate/<version>/, gitignored). --all re-exports existing
+#    translations too, for a review pass.
+pnpm --filter ./api schema:translate extract dtpr@2026-09-01-beta --locales es,vi
+
+# 2. Fill in each entry's `value`. The catalog embeds the translation brief plus per-entry
+#    context, so it can be handed as-is to a translator or to a coding agent.
+
+# 3. Write the translations back. Adds the locale to meta.yaml and datachain-type.yaml,
+#    replaces values that changed, and refuses catalogs whose English is stale.
+pnpm --filter ./api schema:translate apply dtpr@2026-09-01-beta .translate/dtpr@2026-09-01-beta/es.json
+pnpm --filter ./api schema:validate dtpr@2026-09-01-beta
+```
+
+A new locale code must first be added to `LocaleCodeSchema` in `src/schema/locale.ts`. Codes are BCP 47 (`fil`, not `tl`; `zh-Hans` / `zh-Hant`, not `zh`).
+
+Review state lives next to the content in `schemas/<type>/<version>/translations.yaml`: one entry per locale (`unverified`, `machine_draft`, `machine_reviewed`, `human_reviewed`) plus the open items translators and reviewers flagged, each addressed by the same `<file>#<path>` keys the catalogs use. It is authoring data only (not in the built bundle). Update it when a locale is reviewed or a flag is settled, and check it with:
+
+```bash
+pnpm --filter ./api schema:translate status dtpr@2026-09-01-beta
+```
+
+Requests may use other tags for a supported locale: `?locales=tl` returns `fil`, `pt-BR` returns `pt`, `zh-TW` returns `zh-Hant` (`resolveLocaleCode` in `src/schema/locale.ts`). Stored content only carries canonical codes.
 
 ## Cloudflare prerequisites
 

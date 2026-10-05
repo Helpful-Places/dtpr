@@ -5,6 +5,20 @@ title:
     value: Third-Party Data Feed
   - locale: fr
     value: Flux de données tiers
+  - locale: es
+    value: Fuente de datos de terceros
+  - locale: pt
+    value: Dados recebidos de terceiros
+  - locale: fil
+    value: Data feed mula sa ikatlong partido
+  - locale: km
+    value: ទិន្នន័យបញ្ជូនពីភាគីទីបី
+  - locale: vi
+    value: Nguồn dữ liệu từ bên thứ ba
+  - locale: zh-Hans
+    value: 第三方数据源
+  - locale: zh-Hant
+    value: 第三方資料來源
 description:
   - locale: en
     value: >-
@@ -17,4 +31,38 @@ description:
       accord de partage. Exemples : dossiers d'agences de crédit, services météo, fournisseurs de
       cartes, courtiers en données. Les personnes décrites n'ont peut-être jamais eu affaire à
       l'exploitant de ce système.
+  - locale: es
+    value: >-
+      Datos recibidos de otra organización — comprados, bajo licencia o entregados mediante una API
+      o un acuerdo de intercambio de datos. Ejemplos: registros de agencias de informes de crédito,
+      servicios meteorológicos, proveedores de mapas, intermediarios de datos. Es posible que las
+      personas descritas en los datos nunca hayan tratado con quien opera este sistema.
+  - locale: pt
+    value: >-
+      Dados recebidos de outra organização — comprados, licenciados ou entregues por meio de uma API
+      ou de um acordo de compartilhamento de dados. Exemplos: registros de birôs de crédito,
+      serviços de meteorologia, fornecedores de mapas, corretores de dados. As pessoas descritas nos
+      dados talvez nunca tenham tido contato com quem opera este sistema.
+  - locale: fil
+    value: >-
+      Data na natanggap mula sa ibang organisasyon — binili, nilisensiyahan, o inihatid sa
+      pamamagitan ng API o kasunduan sa pagbabahagi ng data. Mga halimbawa: mga rekord ng credit
+      bureau, serbisyo sa panahon, provider ng mapa, data broker. Maaaring hindi kailanman
+      nakipag-ugnayan sa nagpapatakbo ng sistemang ito ang mga taong inilalarawan ng data.
+  - locale: km
+    value: >-
+      ទិន្នន័យដែលទទួលបានពីអង្គភាពផ្សេង — ដោយទិញ, ដោយមានអាជ្ញាបណ្ណ, ឬបញ្ជូនតាម API
+      ឬកិច្ចព្រមព្រៀងចែករំលែកទិន្នន័យ។ ឧទាហរណ៍៖ កំណត់ត្រារបស់ការិយាល័យឥណទាន, សេវាព័ត៌មានអាកាសធាតុ,
+      អ្នកផ្តល់ផែនទី, ឈ្មួញកណ្តាលទិន្នន័យ។ មនុស្សដែលទិន្នន័យនោះពណ៌នាអំពី
+      ប្រហែលជាមិនដែលបានទាក់ទងជាមួយប្រតិបត្តិករនៃប្រព័ន្ធនេះទេ។
+  - locale: vi
+    value: >-
+      Dữ liệu nhận từ một tổ chức khác — được mua, được cấp phép, hoặc được chuyển qua API hay thỏa
+      thuận chia sẻ dữ liệu. Ví dụ: hồ sơ của các công ty báo cáo tín dụng, dịch vụ thời tiết, nhà
+      cung cấp bản đồ, bên môi giới dữ liệu. Những người được dữ liệu mô tả có thể chưa bao giờ tiếp
+      xúc với đơn vị vận hành hệ thống này.
+  - locale: zh-Hans
+    value: 从另一个组织获得的数据——通过购买、授权许可，或经由API或数据共享协议提供。示例：征信机构记录、气象服务、地图服务商、数据经纪商。数据所描述的人可能从未与本系统的运营方打过交道。
+  - locale: zh-Hant
+    value: 從另一個組織取得的資料：購買、取得授權，或透過API或資料共享協議提供。例如：信用報告機構的紀錄、氣象服務、地圖供應商、資料仲介商。資料所描述的人，可能從未與這個系統的營運者往來。
 symbol_id: feed

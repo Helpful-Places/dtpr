@@ -1,21 +1,24 @@
 import type { Context } from 'hono'
-import type { LocaleCode, LocaleValue } from '../schema/locale.ts'
+import { resolveLocaleCode, type LocaleCode, type LocaleValue } from '../schema/locale.ts'
 import type { SchemaManifest } from '../schema/manifest.ts'
 
 /**
  * Parse a `?locales=en,fr` query param into a Set. Returns `null` when
  * the param is absent — callers interpret null as "no filter".
  *
- * Unknown locale codes (e.g. `?locales=zz`) are tolerated here; the
- * filter just removes nothing for them. The schema's locale allow-list
- * lives on the manifest, not the response shape.
+ * Tags are resolved to canonical codes first, so `tl`, `pt-BR` and
+ * `zh-TW` select `fil`, `pt` and `zh-Hant`. Unknown locale codes (e.g.
+ * `?locales=zz`) are tolerated here; the filter just removes nothing
+ * for them. The schema's locale allow-list lives on the manifest, not
+ * the response shape.
  */
 export function parseLocalesParam(raw?: string | null): Set<LocaleCode> | null {
   if (!raw) return null
   const parts = raw
     .split(',')
     .map((s) => s.trim())
-    .filter(Boolean) as LocaleCode[]
+    .filter(Boolean)
+    .map((s) => resolveLocaleCode(s) ?? (s as LocaleCode))
   return parts.length === 0 ? null : new Set(parts)
 }
 

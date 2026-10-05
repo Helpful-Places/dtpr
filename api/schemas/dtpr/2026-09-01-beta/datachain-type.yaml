@@ -4,6 +4,20 @@ name:
     value: Datachain
   - locale: fr
     value: Datachain
+  - locale: es
+    value: Datachain
+  - locale: pt
+    value: Datachain
+  - locale: fil
+    value: Datachain
+  - locale: km
+    value: Datachain
+  - locale: vi
+    value: Datachain
+  - locale: zh-Hans
+    value: Datachain
+  - locale: zh-Hant
+    value: Datachain
 description:
   - locale: en
     value: >-
@@ -13,6 +27,30 @@ description:
     value: >-
       Un aperçu du fonctionnement d’une technologie ou d’un système d’IA — ce qu’elle collecte,
       qui en est responsable et vos droits.
+  - locale: es
+    value: >-
+      Un resumen de cómo funciona una tecnología o un sistema de IA — qué recopila, quién es
+      responsable y qué derechos tiene usted.
+  - locale: pt
+    value: >-
+      Um retrato de como uma tecnologia ou um sistema de IA funciona — o que coleta, quem é
+      responsável e quais são os seus direitos.
+  - locale: fil
+    value: >-
+      Isang sulyap sa kung paano gumagana ang isang teknolohiya o sistemang AI — kung ano ang
+      kinokolekta nito, sino ang may pananagutan, at ano ang inyong mga karapatan.
+  - locale: km
+    value: >-
+      ទិដ្ឋភាពសង្ខេបអំពីរបៀបដែលបច្ចេកវិទ្យា ឬប្រព័ន្ធ AI ដំណើរការ — អ្វីដែលវាប្រមូល,
+      អ្នកណាទទួលខុសត្រូវ, និងសិទ្ធិរបស់អ្នក។
+  - locale: vi
+    value: >-
+      Bức tranh tóm tắt về cách một công nghệ hoặc hệ thống AI hoạt động — nó thu thập gì, ai chịu
+      trách nhiệm và quyền của bạn.
+  - locale: zh-Hans
+    value: 简要说明一项技术或AI系统如何运作——它收集什么、由谁负责，以及您有哪些权利。
+  - locale: zh-Hant
+    value: 概略說明一項技術或AI系統如何運作：收集哪些資料、由誰負責，以及您有哪些權利。
 categories:
   - purpose
   - accountable
@@ -35,6 +73,20 @@ subchains:
         value: Data Flow
       - locale: fr
         value: Flux de données
+      - locale: es
+        value: Flujo de datos
+      - locale: pt
+        value: Fluxo de dados
+      - locale: fil
+        value: Daloy ng data
+      - locale: km
+        value: លំហូរទិន្នន័យ
+      - locale: vi
+        value: Luồng dữ liệu
+      - locale: zh-Hans
+        value: 数据流
+      - locale: zh-Hant
+        value: 資料流程
     categories:
       - collection
       - input_dataset
@@ -44,3 +96,10 @@ subchains:
 locales:
   - en
   - fr
+  - es
+  - pt
+  - fil
+  - km
+  - vi
+  - zh-Hans
+  - zh-Hant

@@ -4,6 +4,20 @@ name:
     value: People affected
   - locale: fr
     value: Personnes concernées
+  - locale: es
+    value: Personas afectadas
+  - locale: pt
+    value: Pessoas afetadas
+  - locale: fil
+    value: Mga taong apektado
+  - locale: km
+    value: មនុស្សដែលរងផលប៉ះពាល់
+  - locale: vi
+    value: Người bị ảnh hưởng
+  - locale: zh-Hans
+    value: 受影响的人
+  - locale: zh-Hant
+    value: 受影響的人
 description:
   - locale: en
     value: >-
@@ -13,11 +27,49 @@ description:
     value: >-
       Les personnes sur lesquelles ce système est utilisé, ou dont ses décisions
       affectent la vie — y compris celles qui n’ont jamais choisi d’interagir avec lui.
+  - locale: es
+    value: >-
+      Las personas a las que se aplica este sistema, o cuyas vidas se ven afectadas por sus
+      decisiones — incluidas las que nunca eligieron interactuar con él.
+  - locale: pt
+    value: >-
+      As pessoas em quem este sistema é usado, ou cujas vidas são afetadas pelas decisões dele —
+      inclusive quem nunca escolheu interagir com ele.
+  - locale: fil
+    value: >-
+      Ang mga taong pinaggagamitan ng sistemang ito, o ang mga taong ang buhay ay naaapektuhan ng
+      mga desisyon nito — kasama ang mga hindi kailanman pumiling makipag-ugnayan dito.
+  - locale: km
+    value: >-
+      មនុស្សដែលប្រព័ន្ធនេះត្រូវបានប្រើលើ ឬដែលជីវិតរបស់ពួកគេរងផលប៉ះពាល់ពីការសម្រេចចិត្តរបស់វា —
+      រួមទាំងអ្នកដែលមិនដែលបានជ្រើសរើសប្រាស្រ័យទាក់ទងជាមួយវាផង។
+  - locale: vi
+    value: >-
+      Những người là đối tượng áp dụng của hệ thống này, hoặc những người có cuộc sống bị ảnh hưởng
+      bởi quyết định của nó — kể cả những người chưa bao giờ chọn tương tác với nó.
+  - locale: zh-Hans
+    value: 本系统的使用对象，或生活受其决定影响的人——包括从未选择与它打交道的人。
+  - locale: zh-Hant
+    value: 這個系統所針對的人，或生活受其決定影響的人，包括從未選擇與它互動的人。
 prompt:
   - locale: en
     value: Who is this system used on?
   - locale: fr
     value: Sur qui ce système est-il utilisé ?
+  - locale: es
+    value: ¿A quiénes se aplica este sistema?
+  - locale: pt
+    value: Em quem este sistema é usado?
+  - locale: fil
+    value: Kanino ginagamit ang sistemang ito?
+  - locale: km
+    value: តើប្រព័ន្ធនេះត្រូវបានប្រើលើអ្នកណា?
+  - locale: vi
+    value: Hệ thống này được áp dụng với ai?
+  - locale: zh-Hans
+    value: 本系统用在谁身上？
+  - locale: zh-Hant
+    value: 這個系統用在誰身上？
 required: true
 order: 3
 datachain_type: dtpr
@@ -29,11 +81,39 @@ element_context:
       value: Relationship
     - locale: fr
       value: Relation
+    - locale: es
+      value: Relación
+    - locale: pt
+      value: Relação
+    - locale: fil
+      value: Kaugnayan
+    - locale: km
+      value: ទំនាក់ទំនង
+    - locale: vi
+      value: Mối liên hệ
+    - locale: zh-Hans
+      value: 关系
+    - locale: zh-Hant
+      value: 關係
   description:
     - locale: en
       value: How this system touches this person or group.
     - locale: fr
       value: Comment ce système touche cette personne ou ce groupe.
+    - locale: es
+      value: Cómo afecta este sistema a esta persona o grupo.
+    - locale: pt
+      value: Como este sistema atinge esta pessoa ou este grupo.
+    - locale: fil
+      value: Kung paano naaabot ng sistemang ito ang taong ito o ang grupong ito.
+    - locale: km
+      value: របៀបដែលប្រព័ន្ធនេះប៉ះពាល់ដល់បុគ្គល ឬក្រុមនេះ។
+    - locale: vi
+      value: Hệ thống này tác động đến người hoặc nhóm này như thế nào.
+    - locale: zh-Hans
+      value: 本系统以何种方式涉及此人或此群体。
+    - locale: zh-Hant
+      value: 這個系統如何影響此人或此群體。
   values:
     - id: subject
       name:
@@ -41,11 +121,49 @@ element_context:
           value: Decided about
         - locale: fr
           value: Objet d’une décision
+        - locale: es
+          value: Objeto de una decisión
+        - locale: pt
+          value: Alvo de decisão
+        - locale: fil
+          value: Pinagdedesisyunan
+        - locale: km
+          value: រងការសម្រេចចិត្ត
+        - locale: vi
+          value: Đối tượng của quyết định
+        - locale: zh-Hans
+          value: 决定对象
+        - locale: zh-Hant
+          value: 被決定的對象
       description:
         - locale: en
           value: The system produces an output about this person that affects them directly — a score, a match, an eligibility call.
         - locale: fr
           value: Le système produit un résultat sur cette personne qui l’affecte directement — un score, une correspondance, une décision d’admissibilité.
+        - locale: es
+          value: >-
+            El sistema produce un resultado sobre esta persona que la afecta directamente — un
+            puntaje, una coincidencia, una decisión de elegibilidad.
+        - locale: pt
+          value: >-
+            O sistema produz um resultado sobre esta pessoa que a afeta diretamente — uma pontuação,
+            uma correspondência, uma decisão de elegibilidade.
+        - locale: fil
+          value: >-
+            Naglalabas ang sistema ng output tungkol sa taong ito na direktang nakaaapekto sa kanila
+            — isang iskor, isang tugma, isang desisyon kung kuwalipikado sila.
+        - locale: km
+          value: >-
+            ប្រព័ន្ធបង្កើតលទ្ធផលអំពីបុគ្គលនេះ ដែលប៉ះពាល់ដល់គាត់ដោយផ្ទាល់ — ដូចជាពិន្ទុ, ការផ្គូផ្គង,
+            ឬការសម្រេចអំពីភាពមានសិទ្ធិទទួលបាន។
+        - locale: vi
+          value: >-
+            Hệ thống tạo ra một kết quả đầu ra về người này và ảnh hưởng trực tiếp đến họ — một điểm
+            số, một kết quả đối chiếu, một quyết định về việc có đủ điều kiện hay không.
+        - locale: zh-Hans
+          value: 系统针对此人产生直接影响其本人的输出——评分、匹配结果或资格判定。
+        - locale: zh-Hant
+          value: 系統針對此人產生直接影響其本人的輸出結果，例如評分、比對結果或資格判定。
       color: null
     - id: bystander
       name:
@@ -53,11 +171,50 @@ element_context:
           value: Caught incidentally
         - locale: fr
           value: Capté incidemment
+        - locale: es
+          value: Captación incidental
+        - locale: pt
+          value: Captação incidental
+        - locale: fil
+          value: Nagkataong nahagip
+        - locale: km
+          value: ត្រូវបានចាប់យកដោយចៃដន្យ
+        - locale: vi
+          value: Vô tình bị ghi lại
+        - locale: zh-Hans
+          value: 被附带采集
+        - locale: zh-Hant
+          value: 無意間被收錄
       description:
         - locale: en
           value: Swept into the system’s data even though it isn’t making a decision about them — a face in the background of a camera aimed elsewhere.
         - locale: fr
           value: Capté dans les données du système même s’il ne prend pas de décision à son sujet — un visage à l’arrière-plan d’une caméra visant ailleurs.
+        - locale: es
+          value: >-
+            Personas que quedan incluidas en los datos del sistema aunque este no tome una decisión
+            sobre ellas — un rostro en el fondo de una cámara que apunta a otro lado.
+        - locale: pt
+          value: >-
+            Vai parar nos dados do sistema, mesmo que ele não esteja tomando uma decisão sobre a
+            pessoa — um rosto ao fundo de uma câmera apontada para outro lugar.
+        - locale: fil
+          value: >-
+            Napasama sa data ng sistema kahit hindi ito nagdedesisyon tungkol sa kanila — isang
+            mukha sa likuran ng kuha ng kamerang sa iba nakatutok.
+        - locale: km
+          value: >-
+            ត្រូវបានប្រមូលចូលក្នុងទិន្នន័យរបស់ប្រព័ន្ធ
+            ទោះបីប្រព័ន្ធមិនធ្វើការសម្រេចចិត្តអំពីពួកគេក៏ដោយ —
+            ដូចជាមុខមនុស្សនៅផ្ទៃខាងក្រោយនៃកាមេរ៉ាដែលតម្រង់ទៅកន្លែងផ្សេង។
+        - locale: vi
+          value: >-
+            Bị cuốn vào dữ liệu của hệ thống dù hệ thống không đưa ra quyết định về họ — một khuôn
+            mặt ở hậu cảnh của camera đang hướng về chỗ khác.
+        - locale: zh-Hans
+          value: 系统并未针对其作出决定，但其信息被卷入系统数据——例如对准别处的摄像头背景中出现的一张脸。
+        - locale: zh-Hant
+          value: 雖然系統並未針對他們做決定，卻仍被納入系統的資料，例如對準別處的攝影機背景中出現的臉孔。
       color: null
     - id: community
       name:
@@ -65,11 +222,50 @@ element_context:
           value: Wider community
         - locale: fr
           value: Communauté au sens large
+        - locale: es
+          value: Comunidad en general
+        - locale: pt
+          value: Comunidade em geral
+        - locale: fil
+          value: Mas malawak na komunidad
+        - locale: km
+          value: សហគមន៍ទូលំទូលាយ
+        - locale: vi
+          value: Cộng đồng rộng hơn
+        - locale: zh-Hans
+          value: 更广泛的社区
+        - locale: zh-Hant
+          value: 更廣大的社群
       description:
         - locale: en
           value: A place or group affected collectively, beyond the individuals the system processes — a neighbourhood under watch, a ranked workforce.
         - locale: fr
           value: Un lieu ou un groupe affecté collectivement, au-delà des individus que le système traite — un quartier surveillé, une main-d’œuvre classée.
+        - locale: es
+          value: >-
+            Un lugar o grupo afectado colectivamente, más allá de las personas cuyos datos procesa
+            el sistema — un barrio bajo vigilancia, un grupo de trabajadores ordenados en un
+            ranking.
+        - locale: pt
+          value: >-
+            Um lugar ou grupo afetado coletivamente, para além dos indivíduos que o sistema processa
+            — um bairro sob vigilância, uma equipe de trabalho classificada em ranking.
+        - locale: fil
+          value: >-
+            Isang lugar o grupong sama-samang naaapektuhan, lampas sa mga indibidwal na pinoproseso
+            ng sistema — isang komunidad na binabantayan, mga manggagawang niraranggo.
+        - locale: km
+          value: >-
+            ទីកន្លែង ឬក្រុមដែលរងផលប៉ះពាល់ជារួម លើសពីបុគ្គលដែលប្រព័ន្ធដំណើរការទិន្នន័យ —
+            ដូចជាសង្កាត់ដែលស្ថិតក្រោមការឃ្លាំមើល ឬកម្លាំងពលកម្មដែលត្រូវបានចាត់ចំណាត់ថ្នាក់។
+        - locale: vi
+          value: >-
+            Một nơi chốn hoặc một nhóm bị ảnh hưởng chung, ngoài những cá nhân mà hệ thống xử lý —
+            một khu phố bị theo dõi, một lực lượng lao động bị xếp hạng.
+        - locale: zh-Hans
+          value: 在系统所处理的个人之外，作为整体受到影响的地方或群体——例如受到监控的街区、被排名的员工群体。
+        - locale: zh-Hant
+          value: 除了系統處理的個人之外，整體受到影響的地方或群體，例如受監視的街區、被排名的全體員工。
       color: null
 element_variables:
   - id: title
@@ -78,6 +274,20 @@ element_variables:
         value: Title
       - locale: fr
         value: Titre
+      - locale: es
+        value: Título
+      - locale: pt
+        value: Título
+      - locale: fil
+        value: Pamagat
+      - locale: km
+        value: ចំណងជើង
+      - locale: vi
+        value: Tiêu đề
+      - locale: zh-Hans
+        value: 标题
+      - locale: zh-Hant
+        value: 標題
     required: true
   - id: description
     label:
@@ -85,4 +295,18 @@ element_variables:
         value: Description
       - locale: fr
         value: Description
+      - locale: es
+        value: Descripción
+      - locale: pt
+        value: Descrição
+      - locale: fil
+        value: Paglalarawan
+      - locale: km
+        value: ការពណ៌នា
+      - locale: vi
+        value: Mô tả
+      - locale: zh-Hans
+        value: 描述
+      - locale: zh-Hant
+        value: 說明
     required: true

@@ -5,9 +5,37 @@ title:
     value: Institution
   - locale: fr
     value: Institution
+  - locale: es
+    value: Institución
+  - locale: pt
+    value: Instituição
+  - locale: fil
+    value: Institusyon
+  - locale: km
+    value: ស្ថាប័ន
+  - locale: vi
+    value: Cơ quan
+  - locale: zh-Hans
+    value: 机构
+  - locale: zh-Hant
+    value: 機構
 description:
   - locale: en
     value: The entity that is responsible and accountable for this data collection activity
   - locale: fr
     value: L'entité qui est responsable et redevable de cette activité de collecte de données
+  - locale: es
+    value: La entidad responsable de esta actividad de recopilación de datos y que rinde cuentas por ella
+  - locale: pt
+    value: A entidade responsável por esta atividade de coleta de dados e que responde por ela
+  - locale: fil
+    value: Ang entidad na responsable at may pananagutan sa gawaing ito ng pangongolekta ng data
+  - locale: km
+    value: អង្គភាពដែលទទួលបន្ទុក និងទទួលខុសត្រូវចំពោះសកម្មភាពប្រមូលទិន្នន័យនេះ។
+  - locale: vi
+    value: Đơn vị có trách nhiệm và phải chịu trách nhiệm giải trình về hoạt động thu thập dữ liệu này
+  - locale: zh-Hans
+    value: 对这项数据收集活动负责并承担责任的实体。
+  - locale: zh-Hant
+    value: 對這項資料收集活動負責並承擔責任的實體。
 symbol_id: institution

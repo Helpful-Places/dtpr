@@ -3,6 +3,7 @@ import { build, validateCmd } from './commands/build.ts'
 import { bundleSkillsCmd } from './commands/bundle-skills.ts'
 import { schemaNew } from './commands/new.ts'
 import { schemaPromote } from './commands/promote.ts'
+import { translateApply, translateExtract, translateStatus } from './commands/translate.ts'
 
 /**
  * DTPR API CLI entry point. Single binary (`pnpm api <command>`) with
@@ -75,6 +76,35 @@ const commands: Record<string, Command> = {
     const result = await schemaPromote(version, flags)
     return result.ok ? 0 : 2
   },
+  translate: async (args) => {
+    const usage =
+      'usage: api translate extract <version> --locales a,b [--all] [--out-dir DIR] [--source-root DIR]\n' +
+      '       api translate apply <version> <catalog.json>... [--source-root DIR]\n' +
+      '       api translate status <version> [--source-root DIR]'
+    const [action, ...rest] = args
+    const positional: string[] = []
+    const opts: { sourceRoot?: string; outDir?: string; all?: boolean } = {}
+    let locales: string[] = []
+    for (let i = 0; i < rest.length; i++) {
+      const arg = rest[i]!
+      if (arg === '--source-root' && rest[i + 1]) opts.sourceRoot = rest[++i]
+      else if (arg === '--out-dir' && rest[i + 1]) opts.outDir = rest[++i]
+      else if (arg === '--locales' && rest[i + 1]) locales = rest[++i]!.split(',').filter(Boolean)
+      else if (arg === '--all') opts.all = true
+      else positional.push(arg)
+    }
+    const [version, ...catalogs] = positional
+    if (!version || (action !== 'extract' && action !== 'apply' && action !== 'status')) {
+      console.error(usage)
+      return 2
+    }
+    if (action === 'status') return (await translateStatus(version, opts)).ok ? 0 : 1
+    const result =
+      action === 'extract'
+        ? await translateExtract(version, locales, opts)
+        : await translateApply(version, catalogs, opts)
+    return result.ok ? 0 : 1
+  },
   'bundle-skills': async (args) => {
     const opts: { pluginRoot?: string; outputPath?: string } = {}
     for (let i = 0; i < args.length; i++) {
@@ -109,6 +139,9 @@ Commands:
   validate <version>             Validate a schema version (no emit)
   new <type> <YYYY-MM-DD-beta>   Draft a new beta by copying the newest existing version
   promote <type>@<date>-beta     Promote a beta version to stable (writes a branch ready for PR)
+  translate extract <version>    Export fields missing --locales to JSON catalogs for translation
+  translate apply <version>      Write filled catalogs back into the YAML sources
+  translate status <version>     Check translations.yaml and print per-locale review status
   bundle-skills                  Regenerate src/mcp/prompts/skills.generated.ts from plugin/dtpr/
 
 Version strings: '<type>@<YYYY-MM-DD>[-beta]' (e.g. 'ai@2026-04-16-beta')

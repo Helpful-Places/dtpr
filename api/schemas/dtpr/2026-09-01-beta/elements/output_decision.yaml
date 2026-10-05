@@ -5,6 +5,20 @@ title:
     value: A decision about you
   - locale: fr
     value: Une décision à propos de vous
+  - locale: es
+    value: Una decisión sobre usted
+  - locale: pt
+    value: Uma decisão sobre você
+  - locale: fil
+    value: Desisyon tungkol sa inyo
+  - locale: km
+    value: ការសម្រេចចិត្តអំពីអ្នក
+  - locale: vi
+    value: Quyết định về bạn
+  - locale: zh-Hans
+    value: 关于您的决定
+  - locale: zh-Hant
+    value: 關於您的決定
 description:
   - locale: en
     value: >-
@@ -17,6 +31,40 @@ description:
       hiérarchisation, ou oui/non. Exemples : un système de contrôle d'accès qui décide d'ouvrir un
       portique, un résultat d'éligibilité automatisé à des prestations, un filtrage automatisé qui
       élimine quelqu'un.
+  - locale: es
+    value: >-
+      La IA produce una determinación vinculante sobre una persona — elegibilidad, clasificación,
+      ranking o un sí/no. Ejemplos: un sistema de control de acceso que decide abrir una puerta, un
+      resultado automatizado de elegibilidad para beneficios, un filtrado automatizado que descarta
+      a alguien.
+  - locale: pt
+    value: >-
+      A IA produz uma determinação vinculante sobre uma pessoa — elegibilidade, classificação,
+      ranking ou sim/não. Exemplos: um sistema de controle de acesso que decide abrir um portão, um
+      resultado automatizado de elegibilidade a benefícios, uma triagem automatizada que exclui
+      alguém.
+  - locale: fil
+    value: >-
+      Lumilikha ang AI ng pasyang dapat sundin tungkol sa isang tao — kung kuwalipikado, pag-uuri,
+      pagraranggo, o oo/hindi. Mga halimbawa: sistema ng access control na nagdedesisyong buksan ang
+      gate, awtomatikong resulta kung kuwalipikado sa benepisyo, awtomatikong pagsalang nag-aalis sa
+      isang tao sa pagpipilian.
+  - locale: km
+    value: >-
+      AI បង្កើតការសម្រេចដែលមានកាតព្វកិច្ចអនុវត្តអំពីបុគ្គលម្នាក់ — ភាពមានសិទ្ធិទទួលបាន,
+      ការចាត់ថ្នាក់, ចំណាត់ថ្នាក់, ឬចម្លើយបាទ/ចាស ឬទេ។ ឧទាហរណ៍៖
+      ប្រព័ន្ធគ្រប់គ្រងការចូលដែលសម្រេចបើកច្រកទ្វារ,
+      លទ្ធផលស្វ័យប្រវត្តិអំពីភាពមានសិទ្ធិទទួលបានអត្ថប្រយោជន៍ពីរដ្ឋ,
+      ការពិនិត្យជម្រុះស្វ័យប្រវត្តិដែលដកនរណាម្នាក់ចេញ។
+  - locale: vi
+    value: >-
+      AI tạo ra một quyết định có tính ràng buộc về một người — kết quả xét điều kiện, phân loại,
+      xếp hạng, hoặc câu trả lời có/không. Ví dụ: hệ thống kiểm soát ra vào quyết định mở cổng, kết
+      quả xét điều kiện hưởng phúc lợi tự động, một lượt sàng lọc tự động loại ai đó ra.
+  - locale: zh-Hans
+    value: AI对某人作出具有约束力的判定——资格认定、分类、排名或“是/否”。示例：门禁系统决定打开闸门、自动化的福利资格审核结果、将某人排除在外的自动筛查。
+  - locale: zh-Hant
+    value: AI對某人做出具約束力的裁定：資格判定、分類、排名或是或否的判定。例如：門禁系統決定開啟閘門、自動化的福利資格審查結果、將某人排除在外的自動篩選。
 sources:
   - type: regulation
     title: EU AI Act Article 3(1) — output class "decisions"

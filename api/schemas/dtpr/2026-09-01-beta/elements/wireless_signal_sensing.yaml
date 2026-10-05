@@ -5,6 +5,20 @@ title:
     value: Wireless Signal Sensing
   - locale: fr
     value: Détection de signaux sans fil
+  - locale: es
+    value: Detección de señales inalámbricas
+  - locale: pt
+    value: Detecção de sinais sem fio
+  - locale: fil
+    value: Pagsagap ng wireless na signal
+  - locale: km
+    value: ការចាប់សញ្ញាឥតខ្សែ
+  - locale: vi
+    value: Dò tín hiệu không dây
+  - locale: zh-Hans
+    value: 无线信号感知
+  - locale: zh-Hant
+    value: 無線訊號感測
 description:
   - locale: en
     value: >-
@@ -17,4 +31,37 @@ description:
       étiquettes RFID ou contacts NFC. Souvent utilisé pour compter ou suivre les appareils qui
       traversent un espace ; le signal d'un appareil peut servir d'identifiant persistant pour la
       personne qui le porte.
+  - locale: es
+    value: >-
+      Detecta las señales de radio que emiten los dispositivos — sondeos wifi de los teléfonos,
+      Bluetooth, etiquetas RFID o toques NFC. Se usa a menudo para contar o seguir dispositivos que
+      se mueven por un espacio; la señal de un dispositivo puede funcionar como un identificador
+      persistente de la persona que lo lleva.
+  - locale: pt
+    value: >-
+      Detecta os sinais de rádio que os dispositivos emitem — sondagens de Wi-Fi de celulares,
+      Bluetooth, etiquetas RFID ou aproximações por NFC. Costuma ser usada para contar ou rastrear
+      dispositivos que passam por um espaço; o sinal de um dispositivo pode funcionar como um
+      identificador persistente da pessoa que o carrega.
+  - locale: fil
+    value: >-
+      Sumasagap ng mga radio signal na inilalabas ng mga device — WiFi probe mula sa mga telepono,
+      Bluetooth, RFID tag, o NFC tap. Madalas gamitin para bilangin o subaybayan ang mga device na
+      dumaraan sa isang lugar; maaaring magsilbing permanenteng pantukoy sa taong may dala nito ang
+      signal ng isang device.
+  - locale: km
+    value: >-
+      រកឃើញសញ្ញាវិទ្យុដែលឧបករណ៍បញ្ចេញ — សញ្ញាស្វែងរក WiFi ពីទូរសព្ទ, Bluetooth, ស្លាក RFID, ឬការប៉ះ
+      NFC។ ជារឿយៗប្រើដើម្បីរាប់ ឬតាមដានឧបករណ៍ដែលផ្លាស់ទីកាត់ទីកន្លែងមួយ
+      ហើយសញ្ញារបស់ឧបករណ៍អាចដើរតួជាព័ត៌មានសម្គាល់អត្តសញ្ញាណជាប់លាប់សម្រាប់បុគ្គលដែលកាន់វា។
+  - locale: vi
+    value: >-
+      Phát hiện tín hiệu vô tuyến mà các thiết bị phát ra — tín hiệu dò WiFi từ điện thoại,
+      Bluetooth, thẻ RFID hoặc các lượt chạm NFC. Thường được dùng để đếm hoặc theo dõi các thiết bị
+      di chuyển qua một không gian; tín hiệu của một thiết bị có thể đóng vai trò như một mã nhận
+      diện lâu dài của người mang nó.
+  - locale: zh-Hans
+    value: 检测设备发出的无线电信号——手机的WiFi探测信号、蓝牙、RFID标签或NFC触碰。常用于统计或追踪在某一空间内移动的设备；设备的信号可以充当携带者的持久标识符。
+  - locale: zh-Hant
+    value: 偵測裝置發出的無線電訊號：手機的WiFi探測訊號、藍牙、RFID標籤或NFC感應。常用於計算或追蹤在空間中移動的裝置；裝置的訊號可能成為攜帶者的持續性識別碼。
 symbol_id: signal

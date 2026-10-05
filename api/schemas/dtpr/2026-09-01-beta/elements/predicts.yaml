@@ -5,6 +5,20 @@ title:
     value: Predicts
   - locale: fr
     value: Prédit
+  - locale: es
+    value: Predice
+  - locale: pt
+    value: Prevê
+  - locale: fil
+    value: Humuhula
+  - locale: km
+    value: ព្យាករណ៍
+  - locale: vi
+    value: Dự đoán
+  - locale: zh-Hans
+    value: 预测
+  - locale: zh-Hant
+    value: 預測
 description:
   - locale: en
     value: >-
@@ -19,4 +33,43 @@ description:
       Exemples : une prévision de file d'attente, un score de risque de crédit, une prévision
       d'affluence pour la prochaine heure. Distinct de Décide, qui fait prendre effet à un
       résultat.
+  - locale: es
+    value: >-
+      Predice — estima lo que es probable: un pronóstico, un puntaje de riesgo, una probabilidad.
+      Dice lo que puede pasar; qué hacer al respecto lo decide otra persona u otro sistema.
+      Ejemplos: un pronóstico de la longitud de una fila, un puntaje de riesgo crediticio, una
+      predicción de aglomeración para la próxima hora. Se distingue de Decide, que hace que un
+      resultado surta efecto.
+  - locale: pt
+    value: >-
+      Prevê — estima o que é provável: uma previsão, uma pontuação de risco, uma probabilidade. Diz
+      o que pode acontecer; outra pessoa ou outra coisa ainda decide o que fazer a respeito.
+      Exemplos: uma previsão do tamanho da fila, uma pontuação de risco de crédito, uma previsão de
+      lotação para a próxima hora. Diferente de Decide, que faz um resultado produzir efeito.
+  - locale: fil
+    value: >-
+      Humuhula — tinataya kung ano ang malamang: isang forecast, iskor ng panganib, probabilidad.
+      Sinasabi nito kung ano ang maaaring mangyari; iba pang tao o bagay ang magdedesisyon kung ano
+      ang gagawin tungkol dito. Mga halimbawa: forecast ng haba ng pila, iskor ng panganib sa
+      pautang, hula ng siksikan sa susunod na oras. Iba sa Nagdedesisyon, na nagpapabisa ng isang
+      resulta.
+  - locale: km
+    value: >-
+      ព្យាករណ៍ — ប៉ាន់ស្មានអ្វីដែលទំនងជាកើតឡើង៖ ការព្យាករណ៍, ពិន្ទុហានិភ័យ, ប្រូបាប៊ីលីតេ។
+      វាប្រាប់ថាអ្វីអាចកើតឡើង ចំណែកនរណាម្នាក់
+      ឬអ្វីផ្សេងទៀតនៅតែជាអ្នកសម្រេចថាត្រូវធ្វើអ្វីចំពោះរឿងនោះ។ ឧទាហរណ៍៖ ការព្យាករណ៍ប្រវែងជួររង់ចាំ,
+      ពិន្ទុហានិភ័យឥណទាន, ការព្យាករណ៍ភាពចង្អៀតណែនសម្រាប់ម៉ោងបន្ទាប់។ ខុសពី «សម្រេចចិត្ត»
+      ដែលធ្វើឱ្យលទ្ធផលមានផលអនុវត្ត។
+  - locale: vi
+    value: >-
+      Dự đoán — ước tính điều gì có khả năng xảy ra: một dự báo, một điểm rủi ro, một xác suất. Nó
+      nói điều gì có thể xảy ra; một người hoặc một thứ khác vẫn là bên quyết định phải làm gì với
+      điều đó. Ví dụ: dự báo độ dài hàng chờ, điểm rủi ro tín dụng, dự đoán mức đông đúc trong giờ
+      tới. Khác với Quyết định, vốn làm cho một kết quả có hiệu lực.
+  - locale: zh-Hans
+    value: >-
+      预测——估计可能发生的情况：预报、风险评分、概率。它说明可能会发生什么；至于如何应对，仍由其他人或其他系统决定。示例：排队长度预报、信用风险评分、未来一小时的拥挤程度预测。有别于“决定”，后者使结果生效。
+  - locale: zh-Hant
+    value: >-
+      預測：估計可能發生的情況，例如預報、風險評分、機率。它說明可能會發生什麼；至於如何因應，仍由其他人或其他系統決定。例如：排隊長度預測、信用風險評分、下一小時的擁擠程度預測。與「決定」不同，後者會使結果生效。
 symbol_id: mode_analytical

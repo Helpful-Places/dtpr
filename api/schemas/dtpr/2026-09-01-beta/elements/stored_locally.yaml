@@ -5,6 +5,20 @@ title:
     value: Stored locally
   - locale: fr
     value: Stocké localement
+  - locale: es
+    value: Almacenados localmente
+  - locale: pt
+    value: Armazenamento local
+  - locale: fil
+    value: Nakaimbak nang lokal
+  - locale: km
+    value: ផ្ទុកក្នុងស្រុក
+  - locale: vi
+    value: Lưu trữ tại địa phương
+  - locale: zh-Hans
+    value: 本地存储
+  - locale: zh-Hant
+    value: 本地儲存
 description:
   - locale: en
     value: Data is stored in the jurisdiction where it was collected.
@@ -12,4 +26,18 @@ description:
     value: >-
       Les données sont stockées dans une zone soumise aux mêmes lois que celle où elles sont
       collectées.
+  - locale: es
+    value: Los datos se almacenan en la jurisdicción donde se recopilaron.
+  - locale: pt
+    value: Os dados são armazenados na jurisdição onde foram coletados.
+  - locale: fil
+    value: Nakaimbak ang data sa hurisdiksiyon kung saan ito kinolekta.
+  - locale: km
+    value: ទិន្នន័យត្រូវបានផ្ទុកក្នុងយុត្តាធិការដែលវាត្រូវបានប្រមូល។
+  - locale: vi
+    value: Dữ liệu được lưu trữ trong khu vực pháp lý nơi nó được thu thập.
+  - locale: zh-Hans
+    value: 数据存储在收集地所属司法管辖区之内。
+  - locale: zh-Hant
+    value: 資料儲存在收集地所屬的司法管轄區內。
 symbol_id: stored
