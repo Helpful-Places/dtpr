@@ -9,12 +9,13 @@ import type { DatachainType } from '../schema/datachain-type.ts'
 import type { Element } from '../schema/element.ts'
 import type { LocaleCode } from '../schema/locale.ts'
 import type { SchemaManifest } from '../schema/manifest.ts'
+import type { EmittedTranslationStatus } from '../schema/translation-status.ts'
 import type { ParsedVersion } from '../../cli/lib/version-parser.ts'
 import { getInlineBundle } from './inline-bundles.ts'
 import * as r2 from './r2-loader.ts'
 
 export type { LoadContext } from './r2-loader.ts'
-export { R2LoadError } from './r2-loader.ts'
+export { R2LoadError, TRANSLATIONS_TTL_SECONDS } from './r2-loader.ts'
 export { loadSchemaIndex, type SchemaIndex, type SchemaIndexEntry } from './index-loader.ts'
 
 /**
@@ -109,6 +110,15 @@ export async function loadSchemaJson(
   const inline = getInlineBundle(version.canonical)
   if (inline) return inline.schemaJson
   return r2.loadSchemaJson(ctx, version)
+}
+
+export async function loadTranslations(
+  ctx: r2.LoadContext,
+  version: ParsedVersion,
+): Promise<EmittedTranslationStatus | null> {
+  const inline = getInlineBundle(version.canonical)
+  if (inline) return inline.translations ?? null
+  return r2.loadTranslations(ctx, version)
 }
 
 export async function loadSymbolSvg(

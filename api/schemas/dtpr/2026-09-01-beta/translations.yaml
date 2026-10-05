@@ -1,5 +1,7 @@
 # Translation status for this schema version: how each locale was produced, how far it has
-# been reviewed, and what reviewers flagged. Data only; not part of the built bundle.
+# been reviewed, and what reviewers flagged. Review metadata: `schema:build` emits it as
+# translations.json (served at GET /api/v2/schemas/:version/translations) but keeps it out of
+# content_hash.
 # Check it with `pnpm --filter ./api schema:translate status dtpr@2026-09-01-beta`.
 #
 # Locale status:  unverified | machine_draft | machine_reviewed | human_reviewed

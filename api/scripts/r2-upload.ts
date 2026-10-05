@@ -9,7 +9,10 @@
  *
  * Idempotency + immutability:
  *   - If an existing manifest in R2 has the same `content_hash` as the
- *     local bundle, the upload short-circuits.
+ *     local bundle, the upload short-circuits — except for
+ *     `translations.json`, which is review metadata kept out of the
+ *     hash and is re-uploaded on its own whenever its bytes differ
+ *     (stable versions included).
  *   - If hashes differ and the version is `stable`, the script fails
  *     (immutability breach — promotion creates a new version, never
  *     overwrites a stable one).
@@ -120,6 +123,39 @@ async function putFile(
   )
 }
 
+/** Review metadata outside `content_hash`; see `syncTranslations`. */
+const TRANSLATIONS_FILE = 'translations.json'
+
+async function getText(client: S3Client, bucket: string, key: string): Promise<string | null> {
+  try {
+    const res = await client.send(new GetObjectCommand({ Bucket: bucket, Key: key }))
+    return await res.Body!.transformToString()
+  } catch (e) {
+    if (e instanceof NoSuchKey) return null
+    if ((e as { name?: string }).name === 'NoSuchKey') return null
+    throw e
+  }
+}
+
+/**
+ * Upload `translations.json` when it differs from what R2 holds. Runs
+ * on the unchanged-hash path, where the rest of the bundle is skipped:
+ * a reviewer settling a flag changes this file and nothing the hash
+ * covers. Returns whether a write happened.
+ */
+export async function syncTranslations(
+  opts: Pick<UploadOptions, 'version' | 'distRoot' | 'client' | 'bucket' | 'log'>,
+): Promise<boolean> {
+  const { version, distRoot, client, bucket, log } = opts
+  const local = await readFile(join(distRoot, version.dir, TRANSLATIONS_FILE)).catch(() => null)
+  if (!local) return false
+  const key = `schemas/${version.dir}/${TRANSLATIONS_FILE}`
+  if ((await getText(client, bucket, key)) === local.toString('utf8')) return false
+  await putFile(client, bucket, key, local, contentTypeFor(TRANSLATIONS_FILE))
+  log(`  uploaded ${key} (${local.byteLength} B)`)
+  return true
+}
+
 async function uploadVersion(opts: UploadOptions): Promise<{ uploaded: boolean; reason: string }> {
   const { version, distRoot, client, bucket, log } = opts
   const versionDir = join(distRoot, version.dir)
@@ -131,6 +167,10 @@ async function uploadVersion(opts: UploadOptions): Promise<{ uploaded: boolean; 
   const existing = await getJson<ManifestFile>(client, bucket, remoteManifestKey)
   if (existing) {
     if (existing.content_hash === localManifest.content_hash) {
+      if (await syncTranslations(opts)) {
+        log(`Translation status updated: ${version.canonical} (content unchanged)`)
+        return { uploaded: true, reason: 'translations' }
+      }
       log(`No-op: ${version.canonical} already at ${localManifest.content_hash}`)
       return { uploaded: false, reason: 'unchanged' }
     }

@@ -87,6 +87,7 @@ export function createApp(options: CreateAppOptions = {}) {
   app.use('/healthz', timeout({ budgetMs: readBudget }))
   app.use('/api/v2/schemas', timeout({ budgetMs: readBudget }))
   app.use('/api/v2/schemas/:version/manifest', timeout({ budgetMs: readBudget }))
+  app.use('/api/v2/schemas/:version/translations', timeout({ budgetMs: readBudget }))
   app.use('/api/v2/schemas/:version/categories', timeout({ budgetMs: readBudget }))
   app.use('/api/v2/schemas/:version/elements', timeout({ budgetMs: readBudget }))
   app.use('/api/v2/schemas/:version/elements/:element_id', timeout({ budgetMs: readBudget }))

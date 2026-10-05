@@ -5,10 +5,14 @@ import { bundleToFiles, buildBundle } from '../lib/json-emitter.ts'
 import { readSchemaVersion, YamlReadError } from '../lib/yaml-reader.ts'
 import { parseVersion } from '../lib/version-parser.ts'
 import { validateVersion } from '../../src/validator/index.ts'
+import { checkTranslationStatus } from './translate.ts'
 
 /** `api/` root computed from this module's location so the CLI works
  * regardless of the caller's cwd. */
 const API_ROOT = fileURLToPath(new URL('../..', import.meta.url))
+
+/** Emitted beside `manifest.json`; mirrors `translationsKey` in `src/store/keys.ts`. */
+export const TRANSLATIONS_FILE = 'translations.json'
 
 export interface BuildOptions {
   /** Schema source tree. Defaults to `<api>/schemas/`. */
@@ -34,7 +38,8 @@ export interface BuildResult {
  * Build a single schema version:
  *  1. Parse YAML source into typed schemas.
  *  2. Run semantic validation (never short-circuit).
- *  3. If valid, emit bundle files to <outputRoot>/<version.dir>/.
+ *  3. If valid, emit bundle files to <outputRoot>/<version.dir>/, plus
+ *     `translations.json` when the version has a `translations.yaml`.
  *
  * Returns a structured result (exit code is up to the bin wrapper).
  */
@@ -67,8 +72,25 @@ export async function build(versionArg: string, options: BuildOptions = {}): Pro
     }
   }
 
+  // Review metadata rides along with the bundle but stays out of
+  // `content_hash`: resolving a flag is not a taxonomy change.
+  const translations = await checkTranslationStatus(join(sourceRoot, version.dir))
+  if (translations.kind === 'invalid') {
+    for (const p of translations.problems) log(`  error [TRANSLATION_STATUS] translations.yaml: ${p}`)
+    return {
+      ok: false,
+      version: version.canonical,
+      errorCount: translations.problems.length,
+      warningCount: result.warnings.length,
+      bundleBytes: 0,
+    }
+  }
+
   const bundle = buildBundle(source)
   const files = bundleToFiles(bundle)
+  if (translations.kind === 'ok') {
+    files[TRANSLATIONS_FILE] = JSON.stringify(translations.emitted, null, 2)
+  }
 
   if (!options.dryRun) {
     const outDir = join(outputRoot, version.dir)
