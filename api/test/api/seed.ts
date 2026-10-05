@@ -10,6 +10,7 @@ import type { DatachainType } from '../../src/schema/datachain-type.ts'
 import type { Element } from '../../src/schema/element.ts'
 import type { LocaleCode } from '../../src/schema/locale.ts'
 import type { SchemaManifest } from '../../src/schema/manifest.ts'
+import type { EmittedTranslationStatus } from '../../src/schema/translation-status.ts'
 import type { ParsedVersion } from '../../cli/lib/version-parser.ts'
 import type { MaterializedElement } from '../../cli/lib/json-emitter.ts'
 import {
@@ -20,6 +21,7 @@ import {
   manifestKey,
   schemaJsonKey,
   searchIndexKey,
+  translationsKey,
   INDEX_KEY,
 } from '../../src/store/keys.ts'
 import { buildSearchIndexesByLocale } from '../../cli/lib/search-index-builder.ts'
@@ -190,6 +192,8 @@ export interface SeedOptions {
   datachainType?: DatachainType
   categories?: Category[]
   elements?: Element[] | MaterializedElement[]
+  /** Written as `translations.json` when given; absent otherwise, as for a version with no status file. */
+  translations?: EmittedTranslationStatus
   /** When true, also write `schemas/index.json` so the version is discoverable. */
   registerInIndex?: boolean
 }
@@ -212,6 +216,7 @@ export async function seedVersion(opts: SeedOptions = {}) {
   await putJson(categoriesKey(version), categories)
   await putJson(elementsKey(version), elements)
   await putJson(schemaJsonKey(version), { Element: { type: 'object' } })
+  if (opts.translations) await putJson(translationsKey(version), opts.translations)
   for (const el of elements) {
     await putJson(elementKey(version, el.id), el)
   }

@@ -26,6 +26,8 @@ import {
   loadManifest,
   loadSchemaIndex,
   loadSymbolSvg,
+  loadTranslations,
+  TRANSLATIONS_TTL_SECONDS,
   type LoadContext,
 } from '../store/index.ts'
 import { validateInstance, validateResolvedInstance } from '../validator/semantic.ts'
@@ -44,6 +46,12 @@ import {
   setVersionHeaders,
 } from './responses.ts'
 import { reorderByIds, searchElementIds } from './search.ts'
+import {
+  buildTranslationsPayload,
+  DEFAULT_FLAG_STATUS,
+  FLAG_STATUS_FILTERS,
+  isFlagStatusFilter,
+} from './translations.ts'
 import { normalizeVersionParam, resolveKnownVersion } from './version-resolver.ts'
 
 /**
@@ -298,6 +306,7 @@ function loadCtx(c: { env: Env; executionCtx?: { waitUntil(p: Promise<unknown>):
  * Routes:
  *   GET  /schemas
  *   GET  /schemas/:version/manifest
+ *   GET  /schemas/:version/translations
  *   GET  /schemas/:version/categories
  *   GET  /schemas/:version/elements
  *   GET  /schemas/:version/elements/:element_id
@@ -319,6 +328,33 @@ export function createRestApp() {
     if (!manifest) throw apiErrors.notFound(`Manifest for ${version.canonical} missing.`)
     setVersionHeaders(c, manifest)
     return c.json({ ok: true, manifest })
+  })
+
+  // Translation review status. Served from `translations.json`, which
+  // sits outside `content_hash` and can change in place even on a
+  // stable version — hence a short `max-age` instead of `immutable`.
+  app.get('/schemas/:version/translations', async (c) => {
+    const ctx = loadCtx(c)
+    const version = await resolveKnownVersion(ctx, c.req.param('version'))
+    const manifest = await loadManifest(ctx, version)
+    if (!manifest) throw apiErrors.notFound(`Manifest for ${version.canonical} missing.`)
+    const flagStatus = c.req.query('flag_status') ?? DEFAULT_FLAG_STATUS
+    if (!isFlagStatusFilter(flagStatus)) {
+      throw apiErrors.badRequest(
+        `Invalid flag_status '${flagStatus}'.`,
+        undefined,
+        `Use one of: ${FLAG_STATUS_FILTERS.join(', ')}.`,
+      )
+    }
+    const payload = buildTranslationsPayload(manifest, await loadTranslations(ctx, version), {
+      locales: parseLocalesParam(c.req.query('locales')),
+      flagStatus,
+    })
+    setVersionHeaders(c, manifest)
+    if (manifest.status === 'stable') {
+      c.header('Cache-Control', `public, max-age=${TRANSLATIONS_TTL_SECONDS}`)
+    }
+    return c.json({ ok: true, ...payload })
   })
 
   app.get('/schemas/:version/categories', async (c) => {

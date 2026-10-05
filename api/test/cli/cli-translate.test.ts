@@ -4,8 +4,14 @@ import { join } from 'node:path'
 import { tmpdir } from 'node:os'
 import { fileURLToPath } from 'node:url'
 import yaml from 'js-yaml'
-import { translateApply, translateExtract, translateStatus, type Catalog } from '../../cli/commands/translate.ts'
-import { validateCmd } from '../../cli/commands/build.ts'
+import {
+  flagTarget,
+  translateApply,
+  translateExtract,
+  translateStatus,
+  type Catalog,
+} from '../../cli/commands/translate.ts'
+import { build, validateCmd } from '../../cli/commands/build.ts'
 
 /**
  * Exercises `schema:translate extract|apply` end-to-end against a
@@ -255,5 +261,79 @@ flags:
   it('accepts the committed status file of every version that has one', async () => {
     const result = await translateStatus('dtpr@2026-09-01-beta', { log })
     expect(result.ok).toBe(true)
+  })
+})
+
+describe('schema:build with translations.yaml', () => {
+  const statusYaml = (keys: string[]) => `source_locale: en
+locales:
+  - locale: fr
+    status: machine_draft
+    updated_at: "2026-10-05"
+    summary: Draft.
+flags:
+  - id: fr-flag
+    locale: fr
+    kind: term_choice
+    status: open
+    raised_by: reviewer
+    keys:
+${keys.map((k) => `      - ${k}`).join('\n')}
+    note: Check.
+`
+  const buildScratch = () => build(VERSION, { sourceRoot: scratch, outputRoot: join(scratch, '_dist'), log })
+  const emitted = (file: string) => readFile(join(scratch, '_dist', 'ai', '2026-04-16-beta', file), 'utf8')
+
+  it('derives a target from each kind of flag key', () => {
+    expect(flagTarget('elements/accept_deny.yaml#title', 'accept_deny')).toEqual({
+      type: 'element',
+      id: 'accept_deny',
+      field: 'title',
+    })
+    expect(flagTarget('categories/ai__decision.yaml#element_context.values[0].name', 'ai__decision')).toEqual({
+      type: 'category',
+      id: 'ai__decision',
+      field: 'element_context.values[0].name',
+    })
+    expect(flagTarget('datachain-type.yaml#name', 'ai')).toEqual({ type: 'datachain_type', id: 'ai', field: 'name' })
+    expect(() => flagTarget('symbols/cloud.svg#title', 'cloud')).toThrow()
+  })
+
+  it('emits translations.json with targets, outside the content hash', async () => {
+    await translateApply(VERSION, [await filledCatalog('fr', (en) => `FR ${en}`)], { sourceRoot: scratch, log })
+    expect((await buildScratch()).ok).toBe(true)
+    await expect(emitted('translations.json')).rejects.toThrow()
+    const hashBefore = JSON.parse(await emitted('manifest.json')).content_hash
+
+    const keys = ['elements/accept_deny.yaml#title', 'categories/ai__decision.yaml#name', 'datachain-type.yaml#name']
+    await writeFile(versionFile('translations.yaml'), statusYaml(keys), 'utf8')
+    expect((await buildScratch()).ok).toBe(true)
+
+    const doc = JSON.parse(await emitted('translations.json'))
+    expect(doc.source_locale).toBe('en')
+    expect(doc.locales[0]).toMatchObject({ locale: 'fr', status: 'machine_draft' })
+    expect(doc.flags[0].keys).toEqual(keys)
+    expect(doc.flags[0].targets).toEqual([
+      { type: 'element', id: 'accept_deny', field: 'title' },
+      { type: 'category', id: 'ai__decision', field: 'name' },
+      { type: 'datachain_type', id: 'ai', field: 'name' },
+    ])
+    expect(JSON.parse(await emitted('manifest.json')).content_hash).toBe(hashBefore)
+  })
+
+  it('reports a YAML syntax error as a status problem instead of throwing', async () => {
+    await writeFile(versionFile('translations.yaml'), 'source_locale: en\nlocales: [\n', 'utf8')
+    const result = await buildScratch()
+    expect(result.ok).toBe(false)
+    expect(logs.some((l) => l.includes('TRANSLATION_STATUS') && l.includes('YAML syntax error'))).toBe(true)
+    expect((await translateStatus(VERSION, { sourceRoot: scratch, log })).ok).toBe(false)
+  })
+
+  it('fails the build when a flag points at a missing field', async () => {
+    await translateApply(VERSION, [await filledCatalog('fr', (en) => `FR ${en}`)], { sourceRoot: scratch, log })
+    await writeFile(versionFile('translations.yaml'), statusYaml(['elements/nope.yaml#title']), 'utf8')
+    const result = await buildScratch()
+    expect(result.ok).toBe(false)
+    expect(logs.some((l) => l.includes('TRANSLATION_STATUS') && l.includes('elements/nope.yaml#title not found'))).toBe(true)
   })
 })

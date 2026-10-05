@@ -48,6 +48,14 @@ export function schemaJsonKey(version: ParsedVersion): string {
   return `schemas/${version.dir}/schema.json`
 }
 
+/**
+ * Translation review status. Present only for versions authored with a
+ * `translations.yaml`, and deliberately outside `content_hash`.
+ */
+export function translationsKey(version: ParsedVersion): string {
+  return `schemas/${version.dir}/translations.json`
+}
+
 export function symbolKey(version: ParsedVersion, symbolId: string): string {
   return `schemas/${version.dir}/symbols/${symbolId}.svg`
 }

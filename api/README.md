@@ -64,7 +64,7 @@ pnpm --filter ./api schema:validate dtpr@2026-09-01-beta
 
 A new locale code must first be added to `LocaleCodeSchema` in `src/schema/locale.ts`. Codes are BCP 47 (`fil`, not `tl`; `zh-Hans` / `zh-Hant`, not `zh`).
 
-Review state lives next to the content in `schemas/<type>/<version>/translations.yaml`: one entry per locale (`unverified`, `machine_draft`, `machine_reviewed`, `human_reviewed`) plus the open items translators and reviewers flagged, each addressed by the same `<file>#<path>` keys the catalogs use. It is authoring data only (not in the built bundle). Update it when a locale is reviewed or a flag is settled, and check it with:
+Review state lives next to the content in `schemas/<type>/<version>/translations.yaml`: one entry per locale (`unverified`, `machine_draft`, `machine_reviewed`, `human_reviewed`) plus the open items translators and reviewers flagged, each addressed by the same `<file>#<path>` keys the catalogs use. `schema:build` checks it and emits it as `translations.json`, which the API serves at `GET /api/v2/schemas/:version/translations` and through the `get_translation_status` MCP tool. It is review metadata kept out of `content_hash`, so editing it never changes a version's hash; the deploy re-uploads it on its own when it differs, stable versions included. Update it when a locale is reviewed or a flag is settled, and check it with:
 
 ```bash
 pnpm --filter ./api schema:translate status dtpr@2026-09-01-beta

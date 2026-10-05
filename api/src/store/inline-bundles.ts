@@ -19,6 +19,7 @@ import type { DatachainType } from '../schema/datachain-type.ts'
 import type { Element } from '../schema/element.ts'
 import type { LocaleCode } from '../schema/locale.ts'
 import type { SchemaManifest } from '../schema/manifest.ts'
+import type { EmittedTranslationStatus } from '../schema/translation-status.ts'
 
 export interface InlineBundle {
   manifest: SchemaManifest
@@ -32,6 +33,8 @@ export interface InlineBundle {
   symbols: Record<string, string>
   /** Composed icon SVGs keyed by `<element_id>/<variant>`. */
   composedIcons: Record<string, string>
+  /** Translation review status, when the version records one. */
+  translations?: EmittedTranslationStatus
 }
 
 const REGISTRY = new Map<string, InlineBundle>()

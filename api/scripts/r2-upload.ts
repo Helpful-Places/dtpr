@@ -9,7 +9,10 @@
  *
  * Idempotency + immutability:
  *   - If an existing manifest in R2 has the same `content_hash` as the
- *     local bundle, the upload short-circuits.
+ *     local bundle, the upload short-circuits — except for
+ *     `translations.json`, which is review metadata kept out of the
+ *     hash and is re-uploaded on its own whenever its bytes differ
+ *     (stable versions included).
  *   - If hashes differ and the version is `stable`, the script fails
  *     (immutability breach — promotion creates a new version, never
  *     overwrites a stable one).
@@ -28,6 +31,7 @@ import { readdir, readFile, stat } from 'node:fs/promises'
 import { join, relative, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import {
+  DeleteObjectCommand,
   GetObjectCommand,
   NoSuchKey,
   PutObjectCommand,
@@ -120,6 +124,53 @@ async function putFile(
   )
 }
 
+/** Review metadata outside `content_hash`; see `syncTranslations`. */
+const TRANSLATIONS_FILE = 'translations.json'
+
+async function getText(client: S3Client, bucket: string, key: string): Promise<string | null> {
+  try {
+    const res = await client.send(new GetObjectCommand({ Bucket: bucket, Key: key }))
+    return await res.Body!.transformToString()
+  } catch (e) {
+    if (e instanceof NoSuchKey) return null
+    if ((e as { name?: string }).name === 'NoSuchKey') return null
+    throw e
+  }
+}
+
+/**
+ * Bring R2's `translations.json` in line with the local build: upload
+ * it when the bytes differ, delete it when the build no longer emits
+ * one (the version dropped its `translations.yaml`). Runs on the
+ * unchanged-hash path, where the rest of the bundle is skipped — a
+ * reviewer settling a flag changes this file and nothing the hash
+ * covers — and after a full upload, which only ever writes. Returns
+ * whether R2 changed.
+ */
+export async function syncTranslations(
+  opts: Pick<UploadOptions, 'version' | 'distRoot' | 'client' | 'bucket' | 'log'>,
+): Promise<boolean> {
+  const { version, distRoot, client, bucket, log } = opts
+  const key = `schemas/${version.dir}/${TRANSLATIONS_FILE}`
+  // Only a missing file means "not built"; any other read failure must
+  // not be mistaken for it, or it would delete the published status.
+  const local = await readFile(join(distRoot, version.dir, TRANSLATIONS_FILE)).catch((e) => {
+    if ((e as NodeJS.ErrnoException).code === 'ENOENT') return null
+    throw e
+  })
+  const remote = await getText(client, bucket, key)
+  if (!local) {
+    if (remote === null) return false
+    await client.send(new DeleteObjectCommand({ Bucket: bucket, Key: key }))
+    log(`  deleted ${key} (no longer built)`)
+    return true
+  }
+  if (remote === local.toString('utf8')) return false
+  await putFile(client, bucket, key, local, contentTypeFor(TRANSLATIONS_FILE))
+  log(`  uploaded ${key} (${local.byteLength} B)`)
+  return true
+}
+
 async function uploadVersion(opts: UploadOptions): Promise<{ uploaded: boolean; reason: string }> {
   const { version, distRoot, client, bucket, log } = opts
   const versionDir = join(distRoot, version.dir)
@@ -131,6 +182,10 @@ async function uploadVersion(opts: UploadOptions): Promise<{ uploaded: boolean; 
   const existing = await getJson<ManifestFile>(client, bucket, remoteManifestKey)
   if (existing) {
     if (existing.content_hash === localManifest.content_hash) {
+      if (await syncTranslations(opts)) {
+        log(`Translation status updated: ${version.canonical} (content unchanged)`)
+        return { uploaded: true, reason: 'translations' }
+      }
       log(`No-op: ${version.canonical} already at ${localManifest.content_hash}`)
       return { uploaded: false, reason: 'unchanged' }
     }
@@ -155,6 +210,9 @@ async function uploadVersion(opts: UploadOptions): Promise<{ uploaded: boolean; 
     await putFile(client, bucket, key, body, contentTypeFor(rel))
     log(`  uploaded ${key} (${body.byteLength} B)`)
   }
+
+  // The loop above only writes; drop a status file a previous build left behind.
+  await syncTranslations(opts)
 
   // 2. Verify the manifest is readable through R2 before we flip the index.
   const verifyManifest = await getJson<ManifestFile>(client, bucket, remoteManifestKey)

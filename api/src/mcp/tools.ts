@@ -12,6 +12,7 @@ import {
   loadManifest,
   loadSchemaIndex,
   loadSchemaJson,
+  loadTranslations,
   type LoadContext,
 } from '../store/index.ts'
 import {
@@ -26,11 +27,16 @@ import {
 } from '../rest/responses.ts'
 import { reorderByIds, searchElementIds } from '../rest/search.ts'
 import {
+  buildTranslationsPayload,
+  DEFAULT_FLAG_STATUS,
+  FLAG_STATUS_FILTERS,
+} from '../rest/translations.ts'
+import {
   resolveKnownVersion,
   normalizeVersionParam,
 } from '../rest/version-resolver.ts'
 import { DatachainInstanceSchema } from '../schema/datachain-instance.ts'
-import { LocaleCodeSchema, type LocaleCode } from '../schema/locale.ts'
+import { LocaleCodeSchema, resolveLocaleCode, type LocaleCode } from '../schema/locale.ts'
 import { validateInstance } from '../validator/semantic.ts'
 import {
   errEnvelope,
@@ -116,6 +122,7 @@ export function buildToolRegistry(ctx: LoadContext, sessionId: string): ToolRegi
     validateResolvedTool(ctx),
     renderDatachainTool(ctx, sessionId),
     getIconUrlTool(ctx),
+    getTranslationStatusTool(ctx),
   ]
   const byName = new Map(tools.map((t) => [t.descriptor.name, t]))
   return {
@@ -655,6 +662,55 @@ function getIconUrlTool(ctx: LoadContext): ToolDef {
             },
             { content_hash: manifest.content_hash, version: version.canonical },
           ),
+        )
+      } catch (e) {
+        return toToolResult(errEnvelope(zodOrApiErrors(e)))
+      }
+    },
+  }
+}
+
+// ------------------------------------------------------------------ get_translation_status
+function getTranslationStatusTool(ctx: LoadContext): ToolDef {
+  const inputSchema = z.object({
+    version: VersionString,
+    locales: z
+      .array(z.string().min(1))
+      .optional()
+      .describe('Locales to report on. Aliases resolve (tl → fil, zh-TW → zh-Hant). Omit for every locale.'),
+    flag_status: z
+      .enum(FLAG_STATUS_FILTERS)
+      .default(DEFAULT_FLAG_STATUS)
+      .describe('Which reviewer flags to return. Default "open".'),
+  })
+  return {
+    descriptor: {
+      name: 'get_translation_status',
+      description:
+        'Report how far each locale of a schema version has been reviewed (source, unverified, machine_draft, machine_reviewed, human_reviewed) and list the questions translators and reviewers flagged. Check it before authoring or publishing a datachain in a non-English locale.',
+      inputSchema: schemaToJson(inputSchema),
+    },
+    handler: async (raw) => {
+      try {
+        const args = inputSchema.parse(raw)
+        const version = await resolveKnownVersion(ctx, args.version)
+        const manifest = await loadManifest(ctx, version)
+        if (!manifest) {
+          return toToolResult(
+            errEnvelope([
+              { code: 'unknown_version', message: `Manifest for ${version.canonical} missing.` },
+            ]),
+          )
+        }
+        const locales = args.locales
+          ? new Set(args.locales.map((tag) => resolveLocaleCode(tag) ?? (tag as LocaleCode)))
+          : null
+        const payload = buildTranslationsPayload(manifest, await loadTranslations(ctx, version), {
+          locales,
+          flagStatus: args.flag_status,
+        })
+        return toToolResult(
+          okEnvelope(payload, { content_hash: manifest.content_hash, version: version.canonical }),
         )
       } catch (e) {
         return toToolResult(errEnvelope(zodOrApiErrors(e)))

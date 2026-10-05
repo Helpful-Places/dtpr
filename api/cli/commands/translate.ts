@@ -2,9 +2,14 @@ import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises'
 import { join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import yaml from 'js-yaml'
-import { z } from 'zod'
 import { InvalidVersionError, parseVersion } from '../lib/version-parser.ts'
 import { LocaleCodeSchema } from '../../src/schema/locale.ts'
+import {
+  TranslationStatusSchema,
+  type EmittedTranslationStatus,
+  type TranslationFlagTarget,
+  type TranslationStatus,
+} from '../../src/schema/translation-status.ts'
 
 /** `api/` root computed from this module's location so the CLI works
  * regardless of the caller's cwd. */
@@ -110,39 +115,7 @@ interface SchemaFile {
 
 const STATUS_FILE = 'translations.yaml'
 
-/**
- * `translations.yaml`: per-version record of how each locale was
- * produced, how far it has been reviewed, and what reviewers flagged.
- * Authoring data only; `schema:build` does not read or emit it.
- */
-export const TranslationStatusSchema = z.strictObject({
-  source_locale: LocaleCodeSchema,
-  locales: z.array(
-    z.strictObject({
-      locale: LocaleCodeSchema,
-      status: z.enum(['unverified', 'machine_draft', 'machine_reviewed', 'human_reviewed']),
-      register: z.string().optional(),
-      translated_by: z.string().optional(),
-      reviewed_by: z.string().optional(),
-      updated_at: z.string(),
-      summary: z.string(),
-    }),
-  ),
-  flags: z.array(
-    z.strictObject({
-      id: z.string(),
-      locale: LocaleCodeSchema,
-      kind: z.enum(['term_choice', 'native_review', 'divergence', 'source_issue', 'layout']),
-      status: z.enum(['open', 'resolved', 'wontfix']),
-      raised_by: z.enum(['translator', 'reviewer', 'human']),
-      keys: z.array(z.string()).min(1),
-      note: z.string(),
-      alternatives: z.array(z.string()).optional(),
-    }),
-  ),
-})
-
-export type TranslationStatus = z.infer<typeof TranslationStatusSchema>
+export { TranslationStatusSchema, type TranslationStatus }
 
 export interface StatusResult {
   ok: boolean
@@ -569,6 +542,103 @@ export async function translateApply(
   return { ok: true, applied, filesChanged: changed.size }
 }
 
+const TARGET_TYPE_BY_DIR: Record<string, TranslationFlagTarget['type']> = {
+  elements: 'element',
+  categories: 'category',
+}
+
+/**
+ * Resolve a flag key (`<file>#<path>`) to the entity it addresses.
+ * `id` is the entity's own `id`, read from the file by the caller.
+ */
+export function flagTarget(key: string, id: string): TranslationFlagTarget {
+  const [rel, field] = key.split('#') as [string, string]
+  const type = rel === 'datachain-type.yaml' ? 'datachain_type' : TARGET_TYPE_BY_DIR[rel.split('/')[0]!]
+  if (!type || !field) throw new Error(`flag key '${key}' does not address a localized field`)
+  return { type, id, field }
+}
+
+export type TranslationStatusCheck =
+  | { kind: 'missing' }
+  | { kind: 'invalid'; problems: string[] }
+  | {
+      kind: 'ok'
+      status: TranslationStatus
+      /** `status` with each flag's `targets` derived, as emitted to `translations.json`. */
+      emitted: EmittedTranslationStatus
+      /** Number of localized fields the source locale carries. */
+      total: number
+      /** Number of those fields that carry `locale`. */
+      coverage: (locale: string) => number
+    }
+
+/**
+ * Read a version's `translations.yaml` and check it against the
+ * sources: every target locale has an entry, every flag addresses a
+ * field that exists in its locale, and a reviewed locale is complete.
+ */
+export async function checkTranslationStatus(versionDir: string): Promise<TranslationStatusCheck> {
+  let raw: string
+  try {
+    raw = await readFile(join(versionDir, STATUS_FILE), 'utf8')
+  } catch {
+    return { kind: 'missing' }
+  }
+  let doc: unknown
+  try {
+    doc = yaml.load(raw)
+  } catch (e) {
+    return { kind: 'invalid', problems: [`YAML syntax error: ${(e as Error).message.split('\n')[0]}`] }
+  }
+  const parsed = TranslationStatusSchema.safeParse(doc)
+  if (!parsed.success) {
+    return { kind: 'invalid', problems: parsed.error.issues.map((i) => `${i.path.join('.')}: ${i.message}`) }
+  }
+  const status = parsed.data
+
+  const files = await loadVersion(versionDir)
+  const meta = yaml.load(await readFile(join(versionDir, 'meta.yaml'), 'utf8')) as { locales: string[] }
+  const blocks = new Map(files.flatMap((f) => f.blocks.map((b) => [`${f.rel}#${b.path}` as string, b] as const)))
+  const ids = new Map(files.map((f) => [f.rel, String((f.doc as { id?: unknown }).id)] as const))
+  const total = [...blocks.values()].filter((b) => b.entries.some((e) => e.locale === status.source_locale)).length
+
+  const problems: string[] = []
+  const targets = meta.locales.filter((l) => l !== status.source_locale)
+  const recorded = status.locales.map((l) => l.locale as string)
+  for (const locale of targets) if (!recorded.includes(locale)) problems.push(`locale '${locale}' has no status entry`)
+  for (const locale of recorded) if (!targets.includes(locale)) problems.push(`locale '${locale}' is not a target locale in meta.yaml`)
+  const flagIds = new Set<string>()
+  for (const flag of status.flags) {
+    if (flagIds.has(flag.id)) problems.push(`flag id '${flag.id}' is used twice`)
+    flagIds.add(flag.id)
+    if (!meta.locales.includes(flag.locale)) problems.push(`flag '${flag.id}': locale '${flag.locale}' not in meta.yaml`)
+    for (const key of flag.keys) {
+      const block = blocks.get(key)
+      if (!block) problems.push(`flag '${flag.id}': ${key} not found`)
+      else if (!block.entries.some((e) => e.locale === flag.locale)) {
+        problems.push(`flag '${flag.id}': ${key} has no '${flag.locale}' entry`)
+      }
+    }
+  }
+  const coverage = (locale: string) => [...blocks.values()].filter((b) => b.entries.some((e) => e.locale === locale)).length
+  for (const entry of status.locales) {
+    const translated = coverage(entry.locale)
+    if (entry.status.endsWith('_reviewed') && translated < total) {
+      problems.push(`locale '${entry.locale}' is ${entry.status} but only ${translated}/${total} fields are translated`)
+    }
+  }
+  if (problems.length > 0) return { kind: 'invalid', problems }
+
+  const emitted: EmittedTranslationStatus = {
+    ...status,
+    flags: status.flags.map((flag) => ({
+      ...flag,
+      targets: flag.keys.map((key) => flagTarget(key, ids.get(key.split('#')[0]!)!)),
+    })),
+  }
+  return { kind: 'ok', status, emitted, total, coverage }
+}
+
 /**
  * Check `translations.yaml` against the sources and print per-locale
  * status, coverage and open flags.
@@ -589,54 +659,16 @@ export async function translateStatus(version: string, options: TranslateOptions
     throw e
   }
 
-  let raw: string
-  try {
-    raw = await readFile(join(target.dir, STATUS_FILE), 'utf8')
-  } catch {
+  const check = await checkTranslationStatus(target.dir)
+  if (check.kind === 'missing') {
     err(`error: ${target.canonical} has no ${STATUS_FILE}`)
     return fail
   }
-  const parsed = TranslationStatusSchema.safeParse(yaml.load(raw))
-  if (!parsed.success) {
-    for (const issue of parsed.error.issues) err(`error: ${STATUS_FILE}: ${issue.path.join('.')}: ${issue.message}`)
+  if (check.kind === 'invalid') {
+    for (const p of check.problems) err(`error: ${STATUS_FILE}: ${p}`)
     return fail
   }
-  const status = parsed.data
-
-  const files = await loadVersion(target.dir)
-  const meta = yaml.load(await readFile(join(target.dir, 'meta.yaml'), 'utf8')) as { locales: string[] }
-  const blocks = new Map(files.flatMap((f) => f.blocks.map((b) => [`${f.rel}#${b.path}` as string, b] as const)))
-  const total = [...blocks.values()].filter((b) => b.entries.some((e) => e.locale === status.source_locale)).length
-
-  const problems: string[] = []
-  const targets = meta.locales.filter((l) => l !== status.source_locale)
-  const recorded = status.locales.map((l) => l.locale as string)
-  for (const locale of targets) if (!recorded.includes(locale)) problems.push(`locale '${locale}' has no status entry`)
-  for (const locale of recorded) if (!targets.includes(locale)) problems.push(`locale '${locale}' is not a target locale in meta.yaml`)
-  const ids = new Set<string>()
-  for (const flag of status.flags) {
-    if (ids.has(flag.id)) problems.push(`flag id '${flag.id}' is used twice`)
-    ids.add(flag.id)
-    if (!meta.locales.includes(flag.locale)) problems.push(`flag '${flag.id}': locale '${flag.locale}' not in meta.yaml`)
-    for (const key of flag.keys) {
-      const block = blocks.get(key)
-      if (!block) problems.push(`flag '${flag.id}': ${key} not found`)
-      else if (!block.entries.some((e) => e.locale === flag.locale)) {
-        problems.push(`flag '${flag.id}': ${key} has no '${flag.locale}' entry`)
-      }
-    }
-  }
-  const coverage = (locale: string) => [...blocks.values()].filter((b) => b.entries.some((e) => e.locale === locale)).length
-  for (const entry of status.locales) {
-    const translated = coverage(entry.locale)
-    if (entry.status.endsWith('_reviewed') && translated < total) {
-      problems.push(`locale '${entry.locale}' is ${entry.status} but only ${translated}/${total} fields are translated`)
-    }
-  }
-  if (problems.length > 0) {
-    for (const p of problems) err(`error: ${STATUS_FILE}: ${p}`)
-    return fail
-  }
+  const { status, total, coverage } = check
 
   const locales = status.locales.map((entry) => ({
     locale: entry.locale as string,

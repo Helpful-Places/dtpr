@@ -2,7 +2,14 @@ import { describe, it, expect, beforeAll, afterAll } from 'vitest'
 import { mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
 import { tmpdir } from 'node:os'
-import { contentTypeFor, walkFiles } from '../../scripts/r2-upload.ts'
+import {
+  DeleteObjectCommand,
+  GetObjectCommand,
+  PutObjectCommand,
+  type S3Client,
+} from '@aws-sdk/client-s3'
+import { contentTypeFor, syncTranslations, walkFiles } from '../../scripts/r2-upload.ts'
+import { parseVersion } from '../../cli/lib/version-parser.ts'
 
 /**
  * Exercises the key derivation + content-type mapping used by the
@@ -91,5 +98,92 @@ describe('r2-upload: walkFiles recurses the dist tree', () => {
     for (const rel of svgs) {
       expect(contentTypeFor(rel)).toBe('image/svg+xml')
     }
+  })
+})
+
+describe('r2-upload: syncTranslations', () => {
+  const version = parseVersion('ai@2026-04-16-beta')
+  const KEY = 'schemas/ai/2026-04-16-beta/translations.json'
+  let distRoot: string
+
+  /** In-memory stand-in for the S3 client: records writes against a key → body map. */
+  function fakeClient(objects: Record<string, string>) {
+    const writes: string[] = []
+    const client = {
+      async send(cmd: unknown) {
+        if (cmd instanceof GetObjectCommand) {
+          const body = objects[cmd.input.Key!]
+          if (body === undefined) throw Object.assign(new Error('missing'), { name: 'NoSuchKey' })
+          return { Body: { transformToString: async () => body } }
+        }
+        if (cmd instanceof PutObjectCommand) {
+          objects[cmd.input.Key!] = (cmd.input.Body as Buffer).toString('utf8')
+          writes.push(`put ${cmd.input.Key} ${cmd.input.ContentType}`)
+          return {}
+        }
+        if (cmd instanceof DeleteObjectCommand) {
+          delete objects[cmd.input.Key!]
+          writes.push(`delete ${cmd.input.Key}`)
+          return {}
+        }
+        throw new Error('unexpected command')
+      },
+    } as unknown as S3Client
+    return { client, objects, writes }
+  }
+
+  const sync = (client: S3Client) =>
+    syncTranslations({ version, distRoot, client, bucket: 'b', log: () => {} })
+
+  beforeAll(async () => {
+    distRoot = await mkdtemp(join(tmpdir(), 'dtpr-r2-sync-test-'))
+    await mkdir(join(distRoot, version.dir), { recursive: true })
+  })
+
+  afterAll(async () => {
+    if (distRoot) await rm(distRoot, { recursive: true, force: true })
+  })
+
+  it('uploads when R2 has no status yet', async () => {
+    await writeFile(join(distRoot, version.dir, 'translations.json'), '{"v":1}')
+    const r2 = fakeClient({})
+    expect(await sync(r2.client)).toBe(true)
+    expect(r2.objects[KEY]).toBe('{"v":1}')
+    expect(r2.writes).toEqual([`put ${KEY} application/json`])
+  })
+
+  it('is a no-op when R2 already holds the same bytes', async () => {
+    await writeFile(join(distRoot, version.dir, 'translations.json'), '{"v":1}')
+    const r2 = fakeClient({ [KEY]: '{"v":1}' })
+    expect(await sync(r2.client)).toBe(false)
+    expect(r2.writes).toEqual([])
+  })
+
+  it('overwrites when the status changed', async () => {
+    await writeFile(join(distRoot, version.dir, 'translations.json'), '{"v":2}')
+    const r2 = fakeClient({ [KEY]: '{"v":1}' })
+    expect(await sync(r2.client)).toBe(true)
+    expect(r2.objects[KEY]).toBe('{"v":2}')
+  })
+
+  it('deletes a published status the build no longer emits', async () => {
+    await rm(join(distRoot, version.dir, 'translations.json'), { force: true })
+    const r2 = fakeClient({ [KEY]: '{"v":1}' })
+    expect(await sync(r2.client)).toBe(true)
+    expect(r2.objects[KEY]).toBeUndefined()
+    expect(r2.writes).toEqual([`delete ${KEY}`])
+
+    const empty = fakeClient({})
+    expect(await sync(empty.client)).toBe(false)
+    expect(empty.writes).toEqual([])
+  })
+
+  it('keeps the published status when the local file cannot be read', async () => {
+    // A directory in place of the file: readFile fails with EISDIR, not ENOENT.
+    await mkdir(join(distRoot, version.dir, 'translations.json'))
+    const r2 = fakeClient({ [KEY]: '{"v":1}' })
+    await expect(sync(r2.client)).rejects.toThrow()
+    expect(r2.objects[KEY]).toBe('{"v":1}')
+    expect(r2.writes).toEqual([])
   })
 })

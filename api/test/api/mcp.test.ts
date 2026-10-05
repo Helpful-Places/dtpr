@@ -129,6 +129,7 @@ describe('MCP: handshake + tools/list', () => {
         'get_elements',
         'get_icon_url',
         'get_schema',
+        'get_translation_status',
         'list_categories',
         'list_elements',
         'list_schema_versions',

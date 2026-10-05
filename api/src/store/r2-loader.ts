@@ -3,6 +3,7 @@ import type { DatachainType } from '../schema/datachain-type.ts'
 import type { Element } from '../schema/element.ts'
 import type { LocaleCode } from '../schema/locale.ts'
 import type { SchemaManifest } from '../schema/manifest.ts'
+import type { EmittedTranslationStatus } from '../schema/translation-status.ts'
 import type { ParsedVersion } from '../../cli/lib/version-parser.ts'
 import { cached, cachedText, type CacheOptions } from './cache-wrapper.ts'
 import {
@@ -17,11 +18,19 @@ import {
   schemaJsonKey,
   searchIndexKey,
   symbolKey,
+  translationsKey,
   type LegacyVersion,
 } from './keys.ts'
 
 /** Default per-version cache TTL for stable versions. 24 hours. */
 const STABLE_TTL_SECONDS = 86_400
+
+/**
+ * Cache TTL for translation status on stable versions. Short because
+ * the file sits outside `content_hash` and can be re-uploaded in place
+ * when a reviewer settles a flag. Also the route's `max-age`.
+ */
+export const TRANSLATIONS_TTL_SECONDS = 300
 
 /**
  * Thrown when an R2 read fails for a non-404 reason. Routes map this
@@ -154,6 +163,21 @@ export function loadSearchIndex(
 ): Promise<string | null> {
   const key = searchIndexKey(version, locale)
   return cachedText(key, () => getText(ctx.bucket, key), cacheOptionsFor(version, ctx.ctx))
+}
+
+/**
+ * Load a version's translation review status. Returns `null` for
+ * versions built without a `translations.yaml`.
+ */
+export function loadTranslations(
+  ctx: LoadContext,
+  version: ParsedVersion,
+): Promise<EmittedTranslationStatus | null> {
+  const key = translationsKey(version)
+  return cached(key, () => getJson<EmittedTranslationStatus>(ctx.bucket, key), {
+    ...cacheOptionsFor(version, ctx.ctx),
+    ttl: TRANSLATIONS_TTL_SECONDS,
+  })
 }
 
 /**
