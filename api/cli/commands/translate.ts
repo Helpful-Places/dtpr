@@ -344,6 +344,8 @@ export async function translateExtract(
 
   const catalogs: ExtractResult['catalogs'] = []
   for (const locale of locales) {
+    const path = join(outDir, `${locale}.json`)
+    const inProgress = await filledValues(path, target.canonical)
     const entries: CatalogEntry[] = []
     for (const file of files) {
       for (const block of file.blocks) {
@@ -361,7 +363,8 @@ export async function translateExtract(
           context: describeField(file, block.path),
           en: source.value,
           ...(Object.keys(reference).length > 0 ? { reference } : {}),
-          value: existing?.value ?? '',
+          // Re-extracting must not discard work a translator has not applied yet.
+          value: inProgress.get(`${file.rel}#${block.path}\n${source.value}`) ?? existing?.value ?? '',
         })
       }
     }
@@ -372,12 +375,30 @@ export async function translateExtract(
       instructions: TRANSLATION_BRIEF,
       entries,
     }
-    const path = join(outDir, `${locale}.json`)
     await writeFile(path, `${JSON.stringify(catalog, null, 2)}\n`, 'utf8')
     catalogs.push({ locale, path, entries: entries.length })
     log(`${locale}: ${entries.length} entries → ${path}`)
   }
   return { ok: true, catalogs }
+}
+
+/**
+ * Filled values of a catalog already on disk for this version, keyed by
+ * entry key and English text so a changed source drops the stale value.
+ */
+async function filledValues(path: string, version: string): Promise<Map<string, string>> {
+  const filled = new Map<string, string>()
+  let previous: Catalog
+  try {
+    previous = JSON.parse(await readFile(path, 'utf8')) as Catalog
+  } catch {
+    return filled
+  }
+  if (previous.version !== version || !Array.isArray(previous.entries)) return filled
+  for (const entry of previous.entries) {
+    if (typeof entry.value === 'string' && entry.value.trim() !== '') filled.set(`${entry.key}\n${entry.en}`, entry.value)
+  }
+  return filled
 }
 
 /** `{{variable}}` references in a string, order-insensitive. */
@@ -471,6 +492,22 @@ export async function translateApply(
       else if (variables(entry.value) !== variables(entry.en)) {
         problems.push(`${catalog.locale}: ${entry.key} does not preserve the {{variables}} of the English`)
       }
+    }
+  }
+  // A locale joins the allow-lists only when this apply leaves no field without it.
+  const registered = (yaml.load(await readFile(join(target.dir, 'meta.yaml'), 'utf8')) as { locales: string[] }).locales
+  const sources = await loadVersion(target.dir)
+  for (const catalog of catalogs) {
+    if (registered.includes(catalog.locale)) continue
+    const covered = new Set(catalog.entries.map((e) => e.key))
+    const missing = sources
+      .flatMap((f) => f.blocks.map((b) => ({ key: `${f.rel}#${b.path}`, entries: b.entries })))
+      .filter((b) => b.entries.some((e) => e.locale === SOURCE_LOCALE))
+      .filter((b) => !b.entries.some((e) => e.locale === catalog.locale) && !covered.has(b.key))
+    if (missing.length > 0) {
+      problems.push(
+        `${catalog.locale}: catalog leaves ${missing.length} fields untranslated (first: ${missing[0]!.key}); a new locale must be complete`,
+      )
     }
   }
   if (problems.length > 0) {
@@ -588,6 +625,13 @@ export async function translateStatus(version: string, options: TranslateOptions
       }
     }
   }
+  const coverage = (locale: string) => [...blocks.values()].filter((b) => b.entries.some((e) => e.locale === locale)).length
+  for (const entry of status.locales) {
+    const translated = coverage(entry.locale)
+    if (entry.status.endsWith('_reviewed') && translated < total) {
+      problems.push(`locale '${entry.locale}' is ${entry.status} but only ${translated}/${total} fields are translated`)
+    }
+  }
   if (problems.length > 0) {
     for (const p of problems) err(`error: ${STATUS_FILE}: ${p}`)
     return fail
@@ -596,7 +640,7 @@ export async function translateStatus(version: string, options: TranslateOptions
   const locales = status.locales.map((entry) => ({
     locale: entry.locale as string,
     status: entry.status as string,
-    translated: [...blocks.values()].filter((b) => b.entries.some((e) => e.locale === entry.locale)).length,
+    translated: coverage(entry.locale),
     total,
     openFlags: status.flags.filter((f) => f.locale === entry.locale && f.status === 'open').length,
   }))

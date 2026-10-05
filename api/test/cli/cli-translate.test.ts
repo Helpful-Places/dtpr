@@ -69,6 +69,18 @@ describe('schema:translate extract', () => {
     expect(catalog.entries.some((e) => e.key.startsWith('categories/'))).toBe(true)
   })
 
+  it('keeps values already filled in when a catalog is extracted again', async () => {
+    const path = await filledCatalog('fr', (en) => `FR ${en}`)
+    const before = await readCatalog('fr')
+    before.entries[0]!.value = ''
+    await writeFile(path, JSON.stringify(before), 'utf8')
+
+    await translateExtract(VERSION, ['fr'], { sourceRoot: scratch, outDir, log })
+    const after = await readCatalog('fr')
+    expect(after.entries[0]!.value).toBe('')
+    expect(after.entries.slice(1).every((e) => e.value === `FR ${e.en}`)).toBe(true)
+  })
+
   it('rejects the source locale and locales outside LocaleCodeSchema', async () => {
     for (const locale of ['en', 'xx']) {
       const result = await translateExtract(VERSION, [locale], { sourceRoot: scratch, outDir, log })
@@ -160,6 +172,19 @@ describe('schema:translate apply', () => {
   })
 })
 
+describe('schema:translate apply: new locales', () => {
+  it('refuses to register a locale from a partial catalog', async () => {
+    const path = await filledCatalog('fr', (en) => `FR ${en}`)
+    const catalog = await readCatalog('fr')
+    catalog.entries.pop()
+    await writeFile(path, JSON.stringify(catalog), 'utf8')
+
+    expect((await translateApply(VERSION, [path], { sourceRoot: scratch, log })).ok).toBe(false)
+    expect(logs.some((l) => l.includes('a new locale must be complete'))).toBe(true)
+    expect((await readYaml('meta.yaml')).locales).toEqual(['en'])
+  })
+})
+
 describe('schema:translate status', () => {
   const statusYaml = (key: string) => `source_locale: en
 locales:
@@ -200,6 +225,18 @@ flags:
     await writeFile(versionFile('translations.yaml'), statusYaml('elements/accept_deny.yaml#title'), 'utf8')
     expect((await translateStatus(VERSION, { sourceRoot: scratch, log })).ok).toBe(false)
     expect(logs.some((l) => l.includes("locale 'es' has no status entry"))).toBe(true)
+  })
+
+  it('rejects a reviewed status on a locale with missing translations', async () => {
+    await translateApply(VERSION, [await filledCatalog('fr', (en) => `FR ${en}`)], { sourceRoot: scratch, log })
+    const element = versionFile('elements/accept_deny.yaml')
+    const text = await readFile(element, 'utf8')
+    await writeFile(element, text.replace(/  - locale: fr\n    value: FR Accept or deny\n/, ''), 'utf8')
+    const reviewed = statusYaml('elements/cloud_storage.yaml#title').replace('machine_draft', 'machine_reviewed')
+    await writeFile(versionFile('translations.yaml'), reviewed, 'utf8')
+
+    expect((await translateStatus(VERSION, { sourceRoot: scratch, log })).ok).toBe(false)
+    expect(logs.some((l) => l.includes('is machine_reviewed but only'))).toBe(true)
   })
 
   it('accepts the committed status file of every version that has one', async () => {

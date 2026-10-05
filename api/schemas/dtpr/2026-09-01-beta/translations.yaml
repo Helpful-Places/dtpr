@@ -188,8 +188,8 @@ flags:
     keys:
       - categories/manifestation.yaml#name
     note: >-
-      "Point de contact" departs from the English "Manifestation". pt followed the French; the
-      other locales rendered the English sense ("form the output takes").
+      "Point de contact" departs from the English "Manifestation"; the other locales rendered
+      the English sense ("form the output takes").
 
   # --- Spanish ---
   - id: es-deployer
@@ -331,6 +331,19 @@ flags:
     note: >-
       "Dashboard readout" is ambiguous between a vehicle and a data dashboard; rendered with
       the neutral "painel de controle".
+
+  - id: pt-manifestation
+    locale: pt
+    kind: term_choice
+    status: open
+    raised_by: reviewer
+    keys:
+      - categories/manifestation.yaml#name
+    note: >-
+      "Como se manifesta", after "Ponto de contato" (contact point) was rejected as misleading.
+      "Manifestação" reads first as a street protest in Brazil.
+    alternatives:
+      - Forma de apresentação
 
   # --- Filipino ---
   - id: fil-deploy-enforce
