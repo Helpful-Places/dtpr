@@ -46,3 +46,11 @@ overrides:
   # copy and every SSR page 500'd with "Cannot read properties of null
   # (reading 'ce')". Only reproduces on the workerd build, not node-server.
   vue: 3.5.42
+  # One vue-i18n 11 for the whole repo. dtpr-ai and prototypes/canvas resolved
+  # 11.4.6 while web resolved 11.4.10, and publicHoistPattern hoists a single
+  # @intlify/shared (11.4.6). @intlify/core-base@11.4.10 then imported
+  # `toDevtoolsGroupId` from the hoisted 11.4.6 copy, which lacks it, and
+  # `nuxt build` for dtpr-ai failed. Keep the two in step; app stays on
+  # vue-i18n 10.
+  'vue-i18n@11': 11.4.10
+  '@intlify/shared@11': 11.4.10
