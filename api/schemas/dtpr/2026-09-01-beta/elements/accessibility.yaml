@@ -19,6 +19,10 @@ title:
     value: 无障碍
   - locale: zh-Hant
     value: 無障礙
+  - locale: nl
+    value: Toegankelijkheid
+  - locale: de
+    value: Barrierefreiheit
 description:
   - locale: en
     value: Ensures that everyone has equal access to a space or a service.
@@ -38,4 +42,10 @@ description:
     value: 确保人人都能平等地使用某一空间或服务。
   - locale: zh-Hant
     value: 確保人人都能平等使用空間或服務。
+  - locale: nl
+    value: Zorgt ervoor dat iedereen gelijke toegang heeft tot een ruimte of dienst.
+  - locale: de
+    value: >-
+      Stellt sicher, dass alle gleichberechtigten Zugang zu einem Ort oder einer Dienstleistung
+      haben.
 symbol_id: accessibility

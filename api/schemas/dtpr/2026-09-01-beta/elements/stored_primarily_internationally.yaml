@@ -19,6 +19,10 @@ title:
     value: 主要存储于境外
   - locale: zh-Hant
     value: 主要儲存於境外
+  - locale: nl
+    value: Vooral internationaal opgeslagen
+  - locale: de
+    value: Überwiegend international gespeichert
 description:
   - locale: en
     value: Data is stored outside the jurisdiction where it was collected.
@@ -38,4 +42,8 @@ description:
     value: 数据存储在收集地所属司法管辖区之外。
   - locale: zh-Hant
     value: 資料儲存在收集地所屬的司法管轄區之外。
+  - locale: nl
+    value: Gegevens worden opgeslagen buiten het rechtsgebied waar ze zijn verzameld.
+  - locale: de
+    value: Die Daten werden außerhalb des Rechtsraums gespeichert, in dem sie erhoben wurden.
 symbol_id: stored

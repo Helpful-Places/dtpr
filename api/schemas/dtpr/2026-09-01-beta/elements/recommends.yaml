@@ -19,6 +19,10 @@ title:
     value: 推荐
   - locale: zh-Hant
     value: 建議
+  - locale: nl
+    value: Beveelt aan
+  - locale: de
+    value: Empfiehlt
 description:
   - locale: en
     value: >-
@@ -73,4 +77,18 @@ description:
   - locale: zh-Hant
     value: >-
       建議：提出選項供人選擇，例如排名、候選清單、建議的路線或治療方式。在有人接受建議之前，不會有任何結果生效。例如：提供給臨床人員的分流排序、提供給駕駛的替代路線、優先顯示的商品。與「決定」不同，後者的結果會自行生效。
+  - locale: nl
+    value: >-
+      Beveelt aan – stelt opties voor waaruit een mens kan kiezen: een rangschikking, een korte
+      lijst, een voorgestelde route of behandeling. Er gebeurt niets totdat iemand het voorstel
+      overneemt. Voorbeelden: een triagevolgorde voor een arts, een andere route die een bestuurder
+      krijgt aangeboden, producten die bovenaan worden getoond. Anders dan Beslist, waarbij de
+      uitkomst vanzelf ingaat.
+  - locale: de
+    value: >-
+      Empfiehlt – schlägt einer Person Optionen zur Auswahl vor: eine Rangfolge, eine engere
+      Auswahl, eine vorgeschlagene Route oder Behandlung. Nichts wird wirksam, bevor jemand den
+      Vorschlag annimmt. Beispiele: eine Triage-Rangfolge für medizinisches Fachpersonal, eine
+      Ausweichroute, die einer Person am Steuer angeboten wird, zuerst angezeigte Produkte. Im
+      Unterschied zu „Entscheidet“, bei dem das Ergebnis von selbst wirksam wird.
 symbol_id: dm_priority-ranking

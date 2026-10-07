@@ -19,6 +19,10 @@ title:
     value: 决定解释权
   - locale: zh-Hant
     value: 要求說明決定的權利
+  - locale: nl
+    value: Recht op uitleg over een beslissing
+  - locale: de
+    value: Recht auf Erläuterung einer Entscheidung
 description:
   - locale: en
     value: >-
@@ -74,4 +78,18 @@ description:
   - locale: zh-Hant
     value: >-
       您有權獲得清楚且有意義的說明，了解AI系統如何促成某項影響您的特定決定：系統扮演什麼角色、導致該結果的主要因素，以及這對您代表什麼。這項權利涵蓋實際針對您所做的決定；獲知系統大致如何運作，則是另一項權利。
+  - locale: nl
+    value: >-
+      Het recht op een duidelijke en betekenisvolle uitleg over hoe een AI-systeem heeft bijgedragen
+      aan een specifieke beslissing die jou raakt: welke rol het systeem speelde, welke factoren het
+      zwaarst wogen voor de uitkomst en wat dat voor jou betekent. Dit recht gaat over de beslissing
+      die daadwerkelijk over jou is genomen; het recht om te horen hoe het systeem in het algemeen
+      werkt, is een apart recht.
+  - locale: de
+    value: >-
+      Das Recht auf eine klare und aussagekräftige Erläuterung, wie ein KI-System zu einer
+      bestimmten Entscheidung beigetragen hat, die Sie betrifft – welche Rolle das System gespielt
+      hat, welche Hauptfaktoren zum Ergebnis geführt haben und was das für Sie bedeutet. Dieses
+      Recht betrifft die tatsächlich über Sie getroffene Entscheidung; das Recht, darüber informiert
+      zu werden, wie das System grundsätzlich funktioniert, ist ein eigenes Recht.
 symbol_id: speech_question

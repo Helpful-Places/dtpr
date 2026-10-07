@@ -19,6 +19,10 @@ title:
     value: 运营数据
   - locale: zh-Hant
     value: 營運資料
+  - locale: nl
+    value: Operationele gegevens
+  - locale: de
+    value: Betriebsdaten
 description:
   - locale: en
     value: >-
@@ -71,4 +75,16 @@ description:
       日程安排、路线、预算、占用人数统计、公共记录或其他行政管理数据——不针对任何特定个人。AI接收描述某一场所或服务如何运转的数据。示例：学校各时段的使用人数、垃圾收运路线、公共交通时刻表、部门预算。
   - locale: zh-Hant
     value: 時程表、路線、預算、使用人數統計、公共紀錄或其他行政資料，不涉及任何特定個人。AI接收描述場所或服務如何運作的資料。例如：學校各時段的使用人數、垃圾收運路線、大眾運輸時刻表、部門預算。
+  - locale: nl
+    value: >-
+      Roosters, routes, budgetten, bezettingscijfers, openbare registers of andere administratieve
+      gegevens, die niet over één persoon gaan. De AI krijgt gegevens binnen die beschrijven hoe een
+      plek of dienst draait. Voorbeelden: de bezetting van een school per uur, routes voor het
+      ophalen van afval, een dienstregeling van het openbaar vervoer, het budget van een afdeling.
+  - locale: de
+    value: >-
+      Zeitpläne, Routen, Budgets, Belegungszahlen, öffentliche Register oder andere Verwaltungsdaten
+      – nicht über eine einzelne Person. Die KI nimmt Daten auf, die beschreiben, wie ein Ort oder
+      eine Dienstleistung funktioniert. Beispiele: Schulbelegung nach Stunden, Routen der
+      Müllabfuhr, ein Nahverkehrsfahrplan, das Budget einer Abteilung.
 symbol_id: operational_data

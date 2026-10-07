@@ -19,6 +19,10 @@ title:
     value: 屏幕或标牌
   - locale: zh-Hant
     value: 螢幕或看板
+  - locale: nl
+    value: Een scherm of bord
+  - locale: de
+    value: Bildschirm oder Anzeigetafel
 description:
   - locale: en
     value: >-
@@ -59,4 +63,14 @@ description:
     value: 输出显示在现场的显示设备上——道路上方的可变信息标志、出发信息屏、自助终端屏幕、仪表盘读数。您通过阅读系统显示的内容来接触它。
   - locale: zh-Hant
     value: 輸出結果顯示在現場的顯示器上：道路上方的資訊可變標誌、發車資訊看板、自助服務機螢幕、儀表板讀數。您透過閱讀它顯示的內容而接觸到系統。
+  - locale: nl
+    value: >-
+      De uitvoer verschijnt op een scherm op de plek zelf: een matrixbord boven de weg, een
+      vertrekbord, het scherm van een informatiezuil, een uitlezing op een dashboard. Je komt met
+      het systeem in aanraking door te lezen wat het laat zien.
+  - locale: de
+    value: >-
+      Das Ergebnis erscheint auf einer Anzeige vor Ort – eine elektronische Anzeigetafel über einer
+      Straße, eine Abfahrtstafel, der Bildschirm eines Terminals, eine Anzeige auf einem Dashboard.
+      Sie begegnen dem System, indem Sie lesen, was es anzeigt.
 symbol_id: system_screen

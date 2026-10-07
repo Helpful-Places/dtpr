@@ -19,6 +19,10 @@ title:
     value: 聊天机器人或语音回复
   - locale: zh-Hant
     value: 聊天機器人或語音回覆
+  - locale: nl
+    value: Een chatbotbericht of gesproken antwoord
+  - locale: de
+    value: Chatbot- oder Sprachantwort
 description:
   - locale: en
     value: >-
@@ -59,6 +63,16 @@ description:
     value: 输出以对话回答的形式出现——聊天机器人的消息、语音助手的回应、自动电话客服。您通过与系统交谈来接触它，并且应当让您清楚知道对方不是真人。
   - locale: zh-Hant
     value: 輸出結果以對話式回答的形式出現：聊天機器人的訊息、語音助理的回應、自動電話客服。您透過與系統交談而接觸到它，而且系統應清楚表明您不是在與真人交談。
+  - locale: nl
+    value: >-
+      De uitvoer komt als antwoord in een gesprek: een bericht van een chatbot, een reactie van een
+      spraakassistent, een geautomatiseerde telefoonmedewerker. Je komt met het systeem in aanraking
+      door ermee te praten, en het moet duidelijk zijn dat je niet met een mens praat.
+  - locale: de
+    value: >-
+      Das Ergebnis kommt als Antwort im Gespräch – eine Chatbot-Nachricht, die Antwort eines
+      Sprachassistenten, ein automatisierter Telefonassistent. Sie begegnen dem System, indem Sie
+      mit ihm sprechen, und es sollte klar sein, dass Sie nicht mit einem Menschen sprechen.
 sources:
   - type: regulation
     title: EU AI Act Article 50(1) — people must be informed they are interacting with an AI system

@@ -19,6 +19,10 @@ title:
     value: 据此行动的人
   - locale: zh-Hant
     value: 由人據以行動
+  - locale: nl
+    value: Een mens die ernaar handelt
+  - locale: de
+    value: Person, die danach handelt
 description:
   - locale: en
     value: >-
@@ -65,4 +69,16 @@ description:
     value: 输出通过人传达给您——收到警报后拦下您的执法人员、依照推荐办事的个案工作人员、查看风险评分的医生。您面对的是人，但他们的做法受到了系统的影响；您的知情权和申诉权依然适用。
   - locale: zh-Hant
     value: 輸出結果經由人傳達給您：在警示後攔下您的執法人員、依照建議行事的個案承辦人員、判讀風險評分的醫師。您面對的是人，但他們的作為受到系統影響；您知情及提出異議的權利依然適用。
+  - locale: nl
+    value: >-
+      De uitvoer bereikt je via een mens: een agent die je staande houdt na een melding, een
+      dossierbehandelaar die een aanbeveling opvolgt, een arts die een risicoscore leest. Je hebt
+      met een mens te maken, maar een systeem heeft beïnvloed wat die doet; je recht om dat te weten
+      en aan te vechten blijft gelden.
+  - locale: de
+    value: >-
+      Das Ergebnis erreicht Sie über einen Menschen – eine Einsatzkraft, die Sie nach einem Alarm
+      anhält, eine Fachkraft im Amt, die einer Empfehlung folgt, eine Ärztin oder ein Arzt mit einem
+      Risikowert vor Augen. Sie begegnen einem Menschen, aber ein System hat geprägt, was dieser
+      tut; Ihr Recht, das zu erfahren und anzufechten, gilt weiterhin.
 symbol_id: person_handoff

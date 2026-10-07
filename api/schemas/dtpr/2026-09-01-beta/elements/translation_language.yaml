@@ -19,6 +19,10 @@ title:
     value: 翻译与语言无障碍
   - locale: zh-Hant
     value: 翻譯與語言服務
+  - locale: nl
+    value: Vertaling en taaltoegankelijkheid
+  - locale: de
+    value: Übersetzung und Sprachzugang
 description:
   - locale: en
     value: >-
@@ -57,6 +61,15 @@ description:
     value: 翻译语音、文字或标牌，让不同语言的人都能使用某一场所或服务——例如服务窗口的实时口译、多语言标牌。
   - locale: zh-Hant
     value: 翻譯語音、文字或標示，讓使用不同語言的人都能利用場所或服務，例如服務櫃檯的即時口譯、多語言標示。
+  - locale: nl
+    value: >-
+      Vertaalt spraak, tekst of borden om een plek of dienst toegankelijk te maken in verschillende
+      talen, bijvoorbeeld live tolken aan een balie of meertalige borden.
+  - locale: de
+    value: >-
+      Übersetzt Sprache, Text oder Schilder, um einen Ort oder eine Dienstleistung über
+      Sprachgrenzen hinweg zugänglich zu machen – zum Beispiel Dolmetschen in Echtzeit an einem
+      Serviceschalter, mehrsprachige Beschilderung.
 sources:
   - type: framework
     title: European Charter for Regional or Minority Languages

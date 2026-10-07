@@ -19,6 +19,10 @@ title:
     value: 物理动作
   - locale: zh-Hant
     value: 實體動作
+  - locale: nl
+    value: Een fysieke actie
+  - locale: de
+    value: Physische Handlung
 description:
   - locale: en
     value: >-
@@ -67,6 +71,19 @@ description:
     value: AI触发物理世界中的某种变化——门解锁、灯亮起、警报响起、标牌内容变化、暖通空调调节。示例：人脸比对通过后开启的闸机、自动播放的广播警报、由建筑模型下令进行的暖通空调调节。
   - locale: zh-Hant
     value: AI觸發實體世界中的某件事：門解鎖、燈亮起、警報響起、標示變換、空調調整。例如：臉部比對成功後開啟的驗票閘門、自動播放的廣播警示、由建築模型下令的空調調整。
+  - locale: nl
+    value: >-
+      De AI zet iets in gang in de fysieke wereld: een deur die van het slot gaat, een lamp die
+      aangaat, een alarm dat afgaat, borden die veranderen, een klimaatinstallatie die wordt
+      bijgesteld. Voorbeelden: een toegangspoortje dat opengaat bij een gezichtsmatch, een
+      waarschuwing die automatisch via de omroepinstallatie wordt afgespeeld, een aanpassing van de
+      klimaatinstallatie in opdracht van een gebouwmodel.
+  - locale: de
+    value: >-
+      Die KI löst etwas in der physischen Welt aus – eine Tür wird entriegelt, ein Licht geht an,
+      ein Alarm ertönt, eine Anzeige wechselt, Heizung oder Lüftung werden angepasst. Beispiele: ein
+      Drehkreuz, das sich nach erfolgreichem Gesichtsabgleich öffnet, eine automatisch abgespielte
+      Warndurchsage, eine von einem Gebäudemodell angeordnete Anpassung von Heizung oder Lüftung.
 sources:
   - type: regulation
     title: EU AI Act Article 3(1) — outputs that "influence physical or virtual environments"

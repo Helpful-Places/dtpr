@@ -19,6 +19,10 @@ title:
     value: 语言模型
   - locale: zh-Hant
     value: 語言模型
+  - locale: nl
+    value: Taalmodellen
+  - locale: de
+    value: Sprachmodelle
 description:
   - locale: en
     value: >-
@@ -63,4 +67,16 @@ description:
     value: 能用人类语言阅读、写作、总结、翻译或对话的AI系统。包括大语言模型（LLM）、聊天机器人和文本生成系统。其工作原理是根据输入和已有上下文，预测最可能出现的后续词元。
   - locale: zh-Hant
     value: 能以人類語言閱讀、書寫、摘要、翻譯或進行對話的AI系統。包括大型語言模型（LLM）、聊天機器人及文字生成系統。其運作方式是根據輸入內容與先前的脈絡，預測最可能接續的詞元（token）。
+  - locale: nl
+    value: >-
+      AI-systemen die menselijke taal lezen, schrijven, samenvatten, vertalen of er een gesprek in
+      voeren. Hieronder vallen grote taalmodellen (LLM's), chatbots en systemen die tekst genereren.
+      Ze werken door te voorspellen welke tokens het meest waarschijnlijk volgen op de invoer en de
+      eerdere context.
+  - locale: de
+    value: >-
+      KI-Systeme, die menschliche Sprache lesen, schreiben, zusammenfassen und übersetzen oder
+      Gespräche führen. Dazu gehören große Sprachmodelle (LLMs), Chatbots und Systeme, die Text
+      generieren. Sie funktionieren, indem sie aus der Eingabe und dem bisherigen Kontext die
+      wahrscheinlichsten nächsten Wortbausteine (Tokens) vorhersagen.
 symbol_id: processing_llm

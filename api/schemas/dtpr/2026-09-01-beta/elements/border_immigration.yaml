@@ -19,6 +19,10 @@ title:
     value: 边境与移民
   - locale: zh-Hant
     value: 邊境與移民
+  - locale: nl
+    value: Grens en immigratie
+  - locale: de
+    value: Grenze und Einwanderung
 description:
   - locale: en
     value: >-
@@ -57,6 +61,16 @@ description:
     value: 支持移民、庇护或出入境方面的决定或办理——例如边检人脸识别、签证审批、庇护风险评估。
   - locale: zh-Hant
     value: 協助移民、庇護或出入境相關的決定或處理作業，例如邊境管制的臉部辨識、簽證審核、庇護風險評估。
+  - locale: nl
+    value: >-
+      Ondersteunt beslissingen over immigratie, asiel of grensovergangen, of de afhandeling daarvan,
+      bijvoorbeeld gezichtsherkenning bij de grenscontrole, de beoordeling van visumaanvragen of
+      risicobeoordeling bij asiel.
+  - locale: de
+    value: >-
+      Unterstützt Entscheidungen oder Verfahren zu Einwanderung, Asyl oder Grenzübertritt – zum
+      Beispiel Gesichtserkennung bei der Grenzkontrolle, Entscheidungen über Visa, Risikobewertung
+      in Asylverfahren.
 sources:
   - type: regulation
     title: EU AI Act Annex III §7 — Migration, asylum, and border-control management

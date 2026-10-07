@@ -19,6 +19,10 @@ title:
     value: 本地存储
   - locale: zh-Hant
     value: 本地儲存
+  - locale: nl
+    value: Lokaal opgeslagen
+  - locale: de
+    value: Lokal gespeichert
 description:
   - locale: en
     value: Data is stored in the jurisdiction where it was collected.
@@ -40,4 +44,8 @@ description:
     value: 数据存储在收集地所属司法管辖区之内。
   - locale: zh-Hant
     value: 資料儲存在收集地所屬的司法管轄區內。
+  - locale: nl
+    value: Gegevens worden opgeslagen in het rechtsgebied waar ze zijn verzameld.
+  - locale: de
+    value: Die Daten werden in dem Rechtsraum gespeichert, in dem sie erhoben wurden.
 symbol_id: stored

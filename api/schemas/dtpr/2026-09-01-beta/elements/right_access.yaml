@@ -19,6 +19,10 @@ title:
     value: 查阅权
   - locale: zh-Hant
     value: 查閱資料的權利
+  - locale: nl
+    value: Recht op inzage
+  - locale: de
+    value: Recht auf Auskunft
 description:
   - locale: en
     value: >-
@@ -63,4 +67,16 @@ description:
     value: 有权要求并获得以下信息：AI系统收集了您的哪些个人数据、这些数据如何被使用，以及依据这些信息作出了哪些决定。这包括以可读格式获取您的数据副本的权利。
   - locale: zh-Hant
     value: 您有權要求並取得相關資訊，了解AI系統收集了哪些關於您的個人資料、這些資料如何被使用，以及曾依據這些資訊做出哪些決定。這包括以可閱讀的格式取得您的資料副本的權利。
+  - locale: nl
+    value: >-
+      Het recht om informatie op te vragen en te krijgen over welke persoonsgegevens een AI-systeem
+      over jou heeft verzameld, hoe deze gegevens worden gebruikt en welke beslissingen met deze
+      informatie zijn genomen. Daarbij hoort het recht op een kopie van je gegevens in een leesbare
+      vorm.
+  - locale: de
+    value: >-
+      Das Recht, Auskunft darüber zu verlangen und zu erhalten, welche personenbezogenen Daten ein
+      KI-System über Sie erhoben hat, wie diese Daten verwendet werden und welche Entscheidungen auf
+      ihrer Grundlage getroffen wurden. Dazu gehört das Recht, eine Kopie Ihrer Daten in einem
+      lesbaren Format zu erhalten.
 symbol_id: eye

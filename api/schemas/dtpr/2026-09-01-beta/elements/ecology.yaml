@@ -19,6 +19,10 @@ title:
     value: 生态
   - locale: zh-Hant
     value: 生態
+  - locale: nl
+    value: Ecologie
+  - locale: de
+    value: Ökologie
 description:
   - locale: en
     value: Supports the measurement or monitoring of the natural environment.
@@ -38,4 +42,8 @@ description:
     value: 支持对自然环境的测量或监测。
   - locale: zh-Hant
     value: 協助測量或監測自然環境。
+  - locale: nl
+    value: Ondersteunt het meten of monitoren van de natuurlijke omgeving.
+  - locale: de
+    value: Unterstützt die Messung oder Überwachung der natürlichen Umwelt.
 symbol_id: ecology

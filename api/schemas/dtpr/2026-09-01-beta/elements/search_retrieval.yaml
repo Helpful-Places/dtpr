@@ -19,6 +19,10 @@ title:
     value: 搜索与检索
   - locale: zh-Hant
     value: 搜尋與檢索
+  - locale: nl
+    value: Zoeken en terugvinden
+  - locale: de
+    value: Suche und Abruf
 description:
   - locale: en
     value: >-
@@ -74,4 +78,18 @@ description:
   - locale: zh-Hant
     value: >-
       因應查詢，從大量文件、紀錄或媒體中找出並呈現相關內容的AI系統。包括語意搜尋、向量檢索，以及將相關段落送入語言模型的檢索增強生成（RAG）流程。用於文件問答、公共紀錄查詢，以及圖書館或檔案館的搜尋。
+  - locale: nl
+    value: >-
+      AI-systemen die bij een zoekvraag relevante content opzoeken en tonen uit een verzameling
+      documenten, registraties of media. Hieronder vallen semantisch zoeken, zoeken met vectoren en
+      RAG-systemen (retrieval-augmented generation), die relevante passages doorgeven aan een
+      taalmodel. Worden gebruikt voor het beantwoorden van vragen over documenten, het opzoeken in
+      openbare registers en het zoeken in bibliotheken of archieven.
+  - locale: de
+    value: >-
+      KI-Systeme, die als Antwort auf eine Anfrage relevante Inhalte aus einem Bestand an
+      Dokumenten, Datensätzen oder Medien finden und anzeigen. Dazu gehören semantische Suche,
+      Vektorsuche und RAG-Verfahren (Retrieval-Augmented Generation), die passende Textstellen an
+      ein Sprachmodell weitergeben. Eingesetzt bei Fragen zu Dokumenten, bei der Abfrage
+      öffentlicher Register und bei der Suche in Bibliotheken oder Archiven.
 symbol_id: search_retrieval

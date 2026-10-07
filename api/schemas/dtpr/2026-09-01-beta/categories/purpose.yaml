@@ -18,6 +18,10 @@ name:
     value: 目的
   - locale: zh-Hant
     value: 目的
+  - locale: nl
+    value: Doel
+  - locale: de
+    value: Zweck
 description:
   - locale: en
     value: Why this AI system exists — the outcome it’s designed to achieve.
@@ -37,6 +41,10 @@ description:
     value: 本AI系统为何存在——它旨在实现的结果。
   - locale: zh-Hant
     value: 這個AI系統存在的原因，也就是它設計要達成的成果。
+  - locale: nl
+    value: "Waarom dit AI-systeem bestaat: het resultaat waarvoor het is ontworpen."
+  - locale: de
+    value: Warum es dieses KI-System gibt – das Ziel, das es erreichen soll.
 prompt:
   - locale: en
     value: What is the purpose of this AI system?
@@ -56,6 +64,10 @@ prompt:
     value: 本AI系统的目的是什么？
   - locale: zh-Hant
     value: 這個AI系統的目的是什麼？
+  - locale: nl
+    value: Wat is het doel van dit AI-systeem?
+  - locale: de
+    value: Welchen Zweck hat dieses KI-System?
 required: true
 order: 1
 datachain_type: dtpr
@@ -81,4 +93,8 @@ element_variables:
         value: 描述
       - locale: zh-Hant
         value: 說明
+      - locale: nl
+        value: Beschrijving
+      - locale: de
+        value: Beschreibung
     required: false

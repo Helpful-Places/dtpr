@@ -84,6 +84,26 @@ locales:
     summary: >-
       Reviewer judged it publishable. Isolated word-sense slips were corrected. A native
       spot-check of the short icon titles is worthwhile before printing.
+  - locale: nl
+    status: machine_reviewed
+    register: Netherlands Dutch at B1 level, je; neutral vocabulary that also reads in Flanders
+    translated_by: claude-opus-5-5
+    reviewed_by: claude-opus-5-5 (independent pass, 29 corrections)
+    updated_at: "2026-10-07"
+    summary: >-
+      Reviewer judged it publishable for beta. English-shaped syntax and a few false senses were
+      corrected. A native reader should settle the category and role names and check the rights
+      titles against AVG wording before physical signage.
+  - locale: de
+    status: machine_reviewed
+    register: Standard German (Germany), Sie; gender-neutral nouns and participles, no gender star
+    translated_by: claude-opus-5-5
+    reviewed_by: claude-opus-5-5 (independent pass, 30 corrections)
+    updated_at: "2026-10-07"
+    summary: >-
+      Reviewer judged it publishable for beta, with no wrong-sense errors in titles. Calques and
+      invented compounds in longer descriptions were corrected. A native reader with a
+      data-protection background should sign off the legally loaded titles before signage.
 
 flags:
   # --- English source ---
@@ -782,3 +802,330 @@ flags:
     keys:
       - elements/feed_placement.yaml#title
     note: At 14 characters this is the longest title.
+
+  # --- Dutch ---
+  - id: nl-deployer
+    locale: nl
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - categories/accountable.yaml#element_context.values[1].name
+    note: >-
+      "Gebruiksverantwoordelijke" is the Dutch EU AI Act term for deployer, but it is 25
+      characters, opaque at B1 and sits under a category called "Verantwoordelijke". The call is
+      legal alignment versus plain language.
+    alternatives:
+      - Organisatie die het inzet
+      - Beheerder
+  - id: nl-vendor
+    locale: nl
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - categories/accountable.yaml#element_context.values[0].name
+      - elements/available_to_vendor.yaml#title
+      - elements/not_available_to_vendor.yaml#title
+    note: '"Leverancier" is the everyday word; the EU AI Act term for provider is "aanbieder".'
+    alternatives:
+      - Aanbieder
+  - id: nl-people-affected
+    locale: nl
+    kind: term_choice
+    status: open
+    raised_by: reviewer
+    keys:
+      - categories/affected.yaml#name
+    note: >-
+      "Betrokken mensen" can read as "engaged people" and collides with "betrokken" used for
+      "involved" (Menselijke betrokkenheid). "Betrokkenen" is the AVG term but legalistic.
+    alternatives:
+      - Wie het raakt
+      - Betrokkenen
+  - id: nl-rights-avg-terms
+    locale: nl
+    kind: native_review
+    status: open
+    raised_by: reviewer
+    keys:
+      - elements/right_object.yaml#title
+      - elements/right_contest.yaml#title
+      - elements/right_be_forgotten.yaml#title
+      - elements/right_purpose_limitation.yaml#title
+      - elements/right_correction.yaml#title
+      - elements/right_to_human_review.yaml#title
+    note: >-
+      Rights titles mix plain and statutory wording. "Recht om verwerking te stoppen" avoids the
+      AVG name "recht van bezwaar", and "bezwaar" is kept out of the contest title so the two do
+      not collide; "correctie" and "menselijke beoordeling" replace "rectificatie" and "menselijke
+      tussenkomst"; "vergetelheid" and "doelbinding" are statutory but jargon at B1. A reader who
+      knows the AVG should decide how far to align.
+  - id: nl-identifiable
+    locale: nl
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - categories/input_dataset.yaml#element_context.values[2].name
+      - categories/output_dataset.yaml#element_context.values[2].name
+    note: '"Herleidbare gegevens" is the plain-language wording; the legal term is "identificeerbare gegevens".'
+    alternatives:
+      - Identificeerbare gegevens
+  - id: nl-action-verbs
+    locale: nl
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - elements/recommends.yaml#title
+      - elements/moves.yaml#title
+      - elements/acts.yaml#title
+    note: >-
+      "Beveelt aan" is a separable verb, the only two-word action title, and reads awkwardly when
+      quoted in other descriptions; "Beweegt" reads as intransitive; "Handelt" can also mean
+      "trades". These names are quoted inside other descriptions, so a change must be propagated.
+    alternatives:
+      - Adviseert
+      - Stuurt aan
+  - id: nl-computer-vision
+    locale: nl
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - elements/computer_vision.yaml#title
+      - elements/biometric_recognition.yaml#description
+    note: >-
+      "Beeldherkenning" is the everyday word but narrower than computer vision, which also
+      covers counting and tracking.
+    alternatives:
+      - Beeldanalyse
+      - Computer vision
+  - id: nl-wayfinding
+    locale: nl
+    kind: term_choice
+    status: open
+    raised_by: reviewer
+    keys:
+      - elements/wayfinding_services.yaml#title
+      - elements/inform.yaml#description
+    note: '"Bewegwijzering" strictly means physical signage, not navigation.'
+    alternatives:
+      - Routes en diensten
+  - id: nl-purpose-titles
+    locale: nl
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - elements/health.yaml#title
+      - elements/inform.yaml#title
+      - elements/translation_language.yaml#title
+      - elements/eligibility_benefits.yaml#title
+    note: >-
+      Natural terms were preferred over literal ones: "Gezonde leefomgeving" for Environmental
+      Health (literal "Milieugezondheid"). "Informeren" is the only infinitive among noun titles
+      (alt "Informatie"), and "Vertaling en taaltoegankelijkheid" is clunky.
+  - id: nl-gender
+    locale: nl
+    kind: native_review
+    status: open
+    raised_by: reviewer
+    keys:
+      - elements/right_non_discrimination.yaml#description
+    note: '"Gender" follows the English; Dutch equal-treatment law says "geslacht".'
+    alternatives:
+      - geslacht
+  - id: nl-parking-ticket
+    locale: nl
+    kind: source_issue
+    status: open
+    raised_by: translator
+    keys:
+      - elements/printed_output.yaml#description
+    note: >-
+      "Parking ticket" was read as a fine ("parkeerbon"); it could also be a pay-and-display
+      ticket ("parkeerkaartje").
+  - id: nl-long-titles
+    locale: nl
+    kind: layout
+    status: open
+    raised_by: reviewer
+    keys:
+      - elements/not_available_to_the_accountable_organization.yaml#title
+      - elements/available_to_the_accountable_organization.yaml#title
+      - elements/automatic_transaction.yaml#title
+      - elements/dynamic_price.yaml#title
+      - elements/chatbot_voice_reply.yaml#title
+    note: >-
+      The longest titles, at 40 to 54 characters. Long single words that will not wrap also
+      appear elsewhere (Gebruiksverantwoordelijke, taaltoegankelijkheid). Manifestation titles
+      keep the English leading article ("Een scherm of bord"); dropping it would save four
+      characters each.
+
+  # --- German ---
+  - id: de-accountable-heading
+    locale: de
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - categories/accountable.yaml#name
+    note: >-
+      The bare "Verantwortliche" can read as plural people or feminine singular, and echoes the
+      DSGVO "Verantwortlicher" (controller) although the category also covers the vendor, who is
+      often only a processor.
+    alternatives:
+      - Verantwortliche Stelle
+      - Verantwortliche Organisation
+  - id: de-right-object
+    locale: de
+    kind: native_review
+    status: open
+    raised_by: translator
+    keys:
+      - elements/right_object.yaml#title
+    note: >-
+      "Recht auf Stopp der Verarbeitung" mirrors the deliberately non-legal English but is
+      clumsy. The DSGVO terms are "Widerspruchsrecht" (Art. 21) or "Einschränkung der
+      Verarbeitung" (Art. 18). Other rights descriptions refer to this one, so a legal reader
+      should decide.
+    alternatives:
+      - Widerspruchsrecht
+      - Recht auf Einschränkung der Verarbeitung
+  - id: de-identifying-data
+    locale: de
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - categories/input_dataset.yaml#element_context.values[2].name
+      - categories/output_dataset.yaml#element_context.values[2].name
+    note: >-
+      "Identifizierende Daten" is not a statutory term. Plain "personenbezogene Daten" was
+      avoided because pseudonymized data is also personal data under the DSGVO.
+    alternatives:
+      - Direkt personenbezogene Daten
+      - Identifizierbare Daten
+  - id: de-race
+    locale: de
+    kind: native_review
+    status: open
+    raised_by: translator
+    keys:
+      - elements/right_non_discrimination.yaml#description
+    note: >-
+      "Race" is rendered "ethnische Herkunft". The AGG and the EU Charter say "Rasse oder
+      ethnische Herkunft"; dropping "Rasse" is common in public-facing text but departs from
+      the statute.
+  - id: de-local-international
+    locale: de
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - elements/stored_locally.yaml#title
+      - elements/stored_primarily_locally.yaml#title
+      - elements/stored_primarily_internationally.yaml#title
+      - elements/backed_up_locally.yaml#title
+      - elements/backed_up_internationally.yaml#title
+    note: >-
+      German "lokal" suggests on the device or on the premises, while the descriptions mean
+      within the jurisdiction ("Rechtsraum"). "Im Inland / Im Ausland" is clearer but wrong
+      where the jurisdiction is a state or city. See en-international-vs-jurisdiction.
+    alternatives:
+      - Im Inland gespeichert
+      - Im Ausland gespeichert
+  - id: de-output-outcome
+    locale: de
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - elements/decides.yaml#description
+      - elements/recommends.yaml#description
+      - elements/predicts.yaml#description
+    note: >-
+      "Output", "outcome" and "result" all become "Ergebnis"; only "output data" is
+      "Ausgabedaten". It reads naturally, but in these descriptions the two senses sit side by
+      side. "Ausgabe" for output throughout would be stiffer.
+  - id: de-collection-heading
+    locale: de
+    kind: term_choice
+    status: open
+    raised_by: reviewer
+    keys:
+      - categories/collection.yaml#name
+    note: >-
+      Capture is "erfassen" and collect is "erheben" throughout; only this category name,
+      "Erfassungstechnik" for Collection Technology, crosses the two.
+    alternatives:
+      - Erhebungstechnik
+  - id: de-reviewer-calls
+    locale: de
+    kind: term_choice
+    status: open
+    raised_by: reviewer
+    keys:
+      - elements/shared_storage_and_governance.yaml#title
+      - elements/translation_language.yaml#title
+      - elements/computer_vision.yaml#title
+      - elements/civil_liberties_harm.yaml#title
+      - elements/printed_output.yaml#title
+      - categories/affected.yaml#element_context.values[2].name
+    note: >-
+      Defensible titles with a live alternative: "Steuerung" for governance is vague (alt
+      Verwaltung); "Sprachzugang" is a calque (alt Sprachmittlung); "Maschinelles Sehen" (alt
+      Bilderkennung); "Eingriffe in Grundrechte" is the only risk title without "Schäden" and
+      uses a constitutional-law term; "Ticket" mainly means a fare ticket (alt Beleg oder
+      Brief); "Gemeinschaft als Ganzes" stresses "as a whole" (alt Weiteres Umfeld).
+  - id: de-action-verbs
+    locale: de
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - elements/predicts.yaml#title
+      - elements/senses.yaml#title
+    note: >-
+      "Sagt voraus" and "Nimmt wahr" are two-word separable verbs. "Erfasst" for senses would
+      collide with capture. Verb names quoted inside other descriptions are set in quotation
+      marks, which the English does not do.
+    alternatives:
+      - Prognostiziert
+  - id: de-dashboard
+    locale: de
+    kind: source_issue
+    status: open
+    raised_by: translator
+    keys:
+      - elements/screen_or_sign.yaml#description
+    note: >-
+      "Dashboard readout" was read as a data dashboard; if a vehicle dashboard is meant it
+      should be "Armaturenbrett".
+  - id: de-first-person-titles
+    locale: de
+    kind: source_issue
+    status: open
+    raised_by: reviewer
+    keys:
+      - elements/available_to_me.yaml#title
+      - elements/not_available_to_me.yaml#title
+    note: >-
+      The titles are first person ("Für mich zugänglich") while the descriptions address the
+      reader as "Sie". Faithful to the English, but the switch is jarring in German.
+  - id: de-long-titles
+    locale: de
+    kind: layout
+    status: open
+    raised_by: reviewer
+    keys:
+      - elements/not_available_to_the_accountable_organization.yaml#title
+      - elements/available_to_the_accountable_organization.yaml#title
+      - elements/right_individual_decision_explanation.yaml#title
+      - elements/right_to_notice.yaml#title
+      - elements/financial_harm.yaml#title
+    note: >-
+      The longest titles, at 37 to 53 characters. The first two could shorten to "(Nicht) für
+      verantwortliche Stelle zugänglich", depending on de-accountable-heading.

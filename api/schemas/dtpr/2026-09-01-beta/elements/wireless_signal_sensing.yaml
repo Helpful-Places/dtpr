@@ -19,6 +19,10 @@ title:
     value: 无线信号感知
   - locale: zh-Hant
     value: 無線訊號感測
+  - locale: nl
+    value: Detectie van draadloze signalen
+  - locale: de
+    value: Erfassung von Funksignalen
 description:
   - locale: en
     value: >-
@@ -64,4 +68,16 @@ description:
     value: 检测设备发出的无线电信号——手机的WiFi探测信号、蓝牙、RFID标签或NFC触碰。常用于统计或追踪在某一空间内移动的设备；设备的信号可以充当携带者的持久标识符。
   - locale: zh-Hant
     value: 偵測裝置發出的無線電訊號：手機的WiFi探測訊號、藍牙、RFID標籤或NFC感應。常用於計算或追蹤在空間中移動的裝置；裝置的訊號可能成為攜帶者的持續性識別碼。
+  - locale: nl
+    value: >-
+      Detecteert de radiosignalen die apparaten uitzenden: wifi-signalen van telefoons, bluetooth,
+      RFID-tags of NFC-contact. Wordt vaak gebruikt om apparaten te tellen of te volgen die door een
+      ruimte bewegen; het signaal van een apparaat kan werken als een blijvend herkenningsteken van
+      de persoon die het bij zich draagt.
+  - locale: de
+    value: >-
+      Erkennt die Funksignale, die Geräte aussenden – WLAN-Suchanfragen von Mobiltelefonen,
+      Bluetooth, RFID-Tags oder NFC-Kontakte. Wird oft eingesetzt, um Geräte zu zählen oder zu
+      verfolgen, die sich durch einen Raum bewegen; das Signal eines Geräts kann als dauerhafte
+      Kennung für die Person dienen, die es bei sich trägt.
 symbol_id: signal

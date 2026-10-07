@@ -19,6 +19,10 @@ title:
     value: 准入
   - locale: zh-Hant
     value: 進入驗證
+  - locale: nl
+    value: Toegangscontrole
+  - locale: de
+    value: Zugang
 description:
   - locale: en
     value: Supports authentication or validation in order to access a space or a service.
@@ -40,4 +44,12 @@ description:
     value: 支持为进入某一空间或使用某项服务而进行的身份认证或验证。
   - locale: zh-Hant
     value: 協助進行身分驗證或確認，以便進入空間或使用服務。
+  - locale: nl
+    value: >-
+      Ondersteunt het controleren van identiteit of geldigheid om toegang te krijgen tot een ruimte
+      of dienst.
+  - locale: de
+    value: >-
+      Unterstützt die Authentifizierung oder Überprüfung für den Zugang zu einem Ort oder einer
+      Dienstleistung.
 symbol_id: entry

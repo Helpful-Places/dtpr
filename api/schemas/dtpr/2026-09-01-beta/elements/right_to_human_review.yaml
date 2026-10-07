@@ -19,6 +19,10 @@ title:
     value: 人工复核权
   - locale: zh-Hant
     value: 要求人工審查的權利
+  - locale: nl
+    value: Recht op menselijke beoordeling
+  - locale: de
+    value: Recht auf menschliche Überprüfung
 description:
   - locale: en
     value: >-
@@ -70,4 +74,17 @@ description:
   - locale: zh-Hant
     value: >-
       您有權要求由人（而非自動化系統）做出影響您的決定，或對該決定進行有意義的重新考慮。這是取得非自動化決定的途徑，與對已做出的決定提出異議的權利不同。負責審查的人必須具備實際改變結果的權限與資訊。
+  - locale: nl
+    value: >-
+      Het recht dat een mens, en geen geautomatiseerd systeem, een beslissing die jou raakt neemt of
+      echt opnieuw bekijkt. Dit is een weg naar een niet-geautomatiseerde beslissing, los van het
+      recht om een beslissing aan te vechten die al is genomen. De persoon die beoordeelt moet de
+      bevoegdheid en de informatie hebben om de uitkomst ook echt te kunnen veranderen.
+  - locale: de
+    value: >-
+      Das Recht, dass ein Mensch – kein automatisiertes System – eine Entscheidung, die Sie
+      betrifft, trifft oder ernsthaft neu prüft. Dies ist ein Weg zu einer nicht automatisierten
+      Entscheidung, getrennt vom Recht, eine bereits getroffene Entscheidung anzufechten. Die
+      prüfende Person muss die Befugnis und die Informationen haben, um das Ergebnis tatsächlich zu
+      ändern.
 symbol_id: person_review

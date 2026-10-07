@@ -19,6 +19,10 @@ title:
     value: 推荐或预测
   - locale: zh-Hant
     value: 建議或預測
+  - locale: nl
+    value: Een aanbeveling of voorspelling
+  - locale: de
+    value: Empfehlung oder Vorhersage
 description:
   - locale: en
     value: >-
@@ -69,6 +73,19 @@ description:
   - locale: zh-Hant
     value: >-
       AI產生參考性的輸出結果：建議、預測、風險評分或排名。它與具約束力的決定不同，因為它只提供參考，而不做出裁定。例如：標示系統依預測的擁擠程度建議替代路線、明天的預測需求曲線、自助服務機上建議的下一個目的地。
+  - locale: nl
+    value: >-
+      De AI levert adviserende uitvoer op: een voorstel, prognose, risicoscore of rangschikking.
+      Anders dan een bindende beslissing, omdat het adviseert en niet bepaalt. Voorbeelden: een
+      bordensysteem dat een andere route voorstelt op basis van voorspelde drukte, een voorspelde
+      vraagcurve voor morgen, een aanbevolen volgende bestemming op een informatiezuil.
+  - locale: de
+    value: >-
+      Die KI erzeugt ein beratendes Ergebnis – einen Vorschlag, eine Prognose, einen Risikowert oder
+      eine Rangfolge. Anders als eine verbindliche Entscheidung berät es, statt festzulegen.
+      Beispiele: ein Anzeigesystem, das wegen vorhergesagten Gedränges eine Ausweichroute
+      vorschlägt, eine prognostizierte Nachfragekurve für morgen, ein empfohlenes nächstes Ziel an
+      einem Terminal.
 sources:
   - type: regulation
     title: EU AI Act Article 3(1) — output classes "predictions, recommendations"

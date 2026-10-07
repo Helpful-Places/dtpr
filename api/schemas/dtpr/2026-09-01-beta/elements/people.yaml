@@ -19,6 +19,10 @@ title:
     value: 人群
   - locale: zh-Hant
     value: 人
+  - locale: nl
+    value: Mensen
+  - locale: de
+    value: Menschen
 description:
   - locale: en
     value: The people this system is used on, or whose lives its decisions affect.
@@ -44,4 +48,12 @@ description:
     value: 本系统的使用对象，或生活受其决定影响的人。
   - locale: zh-Hant
     value: 這個系統所針對的人，或生活受其決定影響的人。
+  - locale: nl
+    value: >-
+      De mensen op wie dit systeem wordt toegepast, of van wie het leven door de beslissingen ervan
+      wordt beïnvloed.
+  - locale: de
+    value: >-
+      Die Personen, auf die dieses System angewendet wird oder auf deren Leben sich seine
+      Entscheidungen auswirken.
 symbol_id: people

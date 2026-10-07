@@ -19,6 +19,10 @@ title:
     value: 执法
   - locale: zh-Hant
     value: 執法
+  - locale: nl
+    value: Handhaving
+  - locale: de
+    value: Durchsetzung von Regeln
 description:
   - locale: en
     value: Used for enforcement of rules or regulations.
@@ -38,4 +42,8 @@ description:
     value: 用于执行规则或法规。
   - locale: zh-Hant
     value: 用於執行規則或法規。
+  - locale: nl
+    value: Wordt gebruikt om regels of voorschriften te handhaven.
+  - locale: de
+    value: Dient der Durchsetzung von Regeln oder Vorschriften.
 symbol_id: enforcement

@@ -19,6 +19,10 @@ title:
     value: 网络连接
   - locale: zh-Hant
     value: 網路連線
+  - locale: nl
+    value: Netwerkverbinding
+  - locale: de
+    value: Netzwerkverbindung
 description:
   - locale: en
     value: >-
@@ -66,4 +70,16 @@ description:
     value: 将本系统接入网络——蜂窝调制解调器、WiFi接入点或有线链路。它传输数据而不采集数据，但连接日志仍可能暴露哪些设备曾在附近或连接过；提供公共WiFi的接入点同时也是一项供人们接入的服务。
   - locale: zh-Hant
     value: 將這個系統連上網路：行動網路數據機、WiFi基地台或有線連線。它傳輸資料而非擷取資料，但連線紀錄仍可能透露哪些裝置曾在附近或曾經連線；提供公共WiFi的基地台同時也是人們會連上使用的服務。
+  - locale: nl
+    value: >-
+      Verbindt dit systeem met een netwerk: een mobiel modem, een wifi-toegangspunt of een bekabelde
+      verbinding. Het verplaatst gegevens en legt ze niet vast, maar uit verbindingslogboeken kan
+      toch blijken welke apparaten in de buurt of verbonden waren, en een toegangspunt dat openbare
+      wifi aanbiedt, is ook een dienst waar mensen gebruik van maken.
+  - locale: de
+    value: >-
+      Verbindet dieses System mit einem Netzwerk – ein Mobilfunkmodem, ein WLAN-Zugangspunkt oder
+      eine Kabelverbindung. Sie überträgt Daten, statt sie zu erfassen, aber Verbindungsprotokolle
+      können dennoch zeigen, welche Geräte in der Nähe oder verbunden waren, und ein Zugangspunkt
+      mit öffentlichem WLAN ist zugleich ein Dienst, den Menschen nutzen.
 symbol_id: connectivity

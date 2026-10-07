@@ -18,6 +18,10 @@ name:
     value: Datachain
   - locale: zh-Hant
     value: Datachain
+  - locale: nl
+    value: Datachain
+  - locale: de
+    value: Datachain
 description:
   - locale: en
     value: >-
@@ -51,6 +55,14 @@ description:
     value: 简要说明一项技术或AI系统如何运作——它收集什么、由谁负责，以及您有哪些权利。
   - locale: zh-Hant
     value: 概略說明一項技術或AI系統如何運作：收集哪些資料、由誰負責，以及您有哪些權利。
+  - locale: nl
+    value: >-
+      Een momentopname van hoe een technologie of AI-systeem werkt: wat het verzamelt, wie
+      verantwoordelijk is en welke rechten je hebt.
+  - locale: de
+    value: >-
+      Eine Momentaufnahme davon, wie eine Technologie oder ein KI-System funktioniert – was es
+      erhebt, wer verantwortlich ist und welche Rechte Sie haben.
 categories:
   - purpose
   - accountable
@@ -87,6 +99,10 @@ subchains:
         value: 数据流
       - locale: zh-Hant
         value: 資料流程
+      - locale: nl
+        value: Gegevensstroom
+      - locale: de
+        value: Datenfluss
     categories:
       - collection
       - input_dataset
@@ -103,3 +119,5 @@ locales:
   - vi
   - zh-Hans
   - zh-Hant
+  - nl
+  - de

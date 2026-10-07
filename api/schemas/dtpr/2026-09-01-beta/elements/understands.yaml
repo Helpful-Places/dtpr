@@ -19,6 +19,10 @@ title:
     value: 理解
   - locale: zh-Hant
     value: 理解
+  - locale: nl
+    value: Begrijpt
+  - locale: de
+    value: Versteht
 description:
   - locale: en
     value: >-
@@ -73,4 +77,18 @@ description:
   - locale: zh-Hant
     value: >-
       理解：從文字或語音中擷取意義、找出相關的概念，並將讀到的內容與已儲存的脈絡連結。它回傳的是比對結果、意圖、摘要或指向相關既有知識的連結，而不是新的內容。例如：將問題對應到正確的說明文章、找出適用於某個個案的政策條款、辨認一句話的主題。
+  - locale: nl
+    value: >-
+      Begrijpt – haalt betekenis uit tekst of spraak, vindt verwante ideeën en verbindt wat het
+      leest met opgeslagen context. Het geeft treffers, bedoelingen, samenvattingen of verwijzingen
+      naar relevante eerdere kennis terug, geen nieuwe content. Voorbeelden: bij een vraag het
+      juiste hulpartikel zoeken, de beleidsregel ophalen die op een geval van toepassing is, het
+      onderwerp van een zin herkennen.
+  - locale: de
+    value: >-
+      Versteht – entnimmt Texten oder gesprochener Sprache die Bedeutung, findet verwandte Gedanken
+      und verknüpft das Gelesene mit gespeichertem Kontext. Es liefert Treffer, Absichten,
+      Zusammenfassungen oder Verweise auf relevantes vorhandenes Wissen, keine neuen Inhalte.
+      Beispiele: einer Frage den passenden Hilfeartikel zuordnen, die Regelung heraussuchen, die auf
+      einen Fall zutrifft, das Thema eines Satzes erkennen.
 symbol_id: mode_semantic

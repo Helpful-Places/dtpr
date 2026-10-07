@@ -19,6 +19,10 @@ title:
     value: 就业与工作
   - locale: zh-Hant
     value: 就業與工作
+  - locale: nl
+    value: Werk en personeel
+  - locale: de
+    value: Beschäftigung und Arbeit
 description:
   - locale: en
     value: >-
@@ -57,6 +61,15 @@ description:
     value: 支持招聘、排班、绩效评估或工作场所运营——例如简历筛选、班次分配、生产效率监测。
   - locale: zh-Hant
     value: 協助招募、排班、績效評估或職場營運，例如履歷篩選、班表指派、生產力監測。
+  - locale: nl
+    value: >-
+      Ondersteunt werving, roostering, beoordeling van prestaties of de dagelijkse gang van zaken op
+      het werk, bijvoorbeeld het screenen van cv's, het indelen van diensten of het monitoren van
+      productiviteit.
+  - locale: de
+    value: >-
+      Unterstützt Personalauswahl, Einsatzplanung, Leistungsbeurteilung oder betriebliche Abläufe –
+      zum Beispiel Vorauswahl von Bewerbungen, Schichtzuteilung, Überwachung der Produktivität.
 sources:
   - type: regulation
     title: EU AI Act Annex III §4 — Employment, workers management, and access to self-employment

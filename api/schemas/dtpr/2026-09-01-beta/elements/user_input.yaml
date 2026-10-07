@@ -19,6 +19,10 @@ title:
     value: 用户输入
   - locale: zh-Hant
     value: 使用者輸入
+  - locale: nl
+    value: Invoer van gebruikers
+  - locale: de
+    value: Eigene Eingaben
 description:
   - locale: en
     value: >-
@@ -60,4 +64,15 @@ description:
     value: 人们主动提供的信息——填写的表单、输入的文字、发起的搜索、上传的照片、说出的语音指令。当事人知道自己在提交信息，这与在其周围不知不觉进行的感知不同。
   - locale: zh-Hant
     value: 人們主動提供的資訊：填寫的表單、輸入的文字、進行的搜尋、上傳的照片、說出的語音指令。當事人知道自己正在交出資料，這與在其周遭進行的感測不同。
+  - locale: nl
+    value: >-
+      Informatie die mensen bewust geven: een formulier dat ze invullen, tekst die ze typen, een
+      zoekopdracht die ze uitvoeren, een foto die ze uploaden, een spraakopdracht die ze geven.
+      Mensen weten dat ze iets afgeven, anders dan bij waarneming die om hen heen plaatsvindt.
+  - locale: de
+    value: >-
+      Informationen, die Menschen bewusst angeben – ein Formular, das sie ausfüllen, Text, den sie
+      eintippen, eine Suche, die sie starten, ein Foto, das sie hochladen, ein Sprachbefehl, den sie
+      sprechen. Die Person weiß, dass sie etwas übergibt, anders als bei einer Erfassung, die um sie
+      herum geschieht.
 symbol_id: form_field

@@ -17,7 +17,7 @@ import { z } from 'zod'
  * plain strings to stay decoupled from this enum.
  */
 export const LocaleCodeSchema = z
-  .enum(['en', 'fr', 'es', 'pt', 'fil', 'km', 'vi', 'zh-Hans', 'zh-Hant'])
+  .enum(['en', 'fr', 'es', 'pt', 'fil', 'km', 'vi', 'zh-Hans', 'zh-Hant', 'nl', 'de'])
   .describe('BCP 47 locale code from the schema version allow-list')
 
 export type LocaleCode = z.infer<typeof LocaleCodeSchema>

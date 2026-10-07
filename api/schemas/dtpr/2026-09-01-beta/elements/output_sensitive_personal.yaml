@@ -19,6 +19,10 @@ title:
     value: 敏感个人数据
   - locale: zh-Hant
     value: 敏感個人資料
+  - locale: nl
+    value: Gevoelige persoonsgegevens
+  - locale: de
+    value: Sensible personenbezogene Daten
 description:
   - locale: en
     value: >-
@@ -67,6 +71,20 @@ description:
     value: AI产生的输出涉及健康、财务、信仰、性取向、移民身份，或其他带有法律和社会风险的类别。示例：诊所分配的分诊优先级、发送到福利门户网站的资格审核结果、推断得出并导出到下游的受保护属性。
   - locale: zh-Hant
     value: AI產生涉及健康、財務、信仰、性傾向、移民身分，或其他帶有法律與社會風險之類別的輸出結果。例如：診所指派的分流優先順序、傳送到福利入口網站的資格審查結果、推斷出並匯出到下游的受保護特徵。
+  - locale: nl
+    value: >-
+      De AI levert uitvoer op over gezondheid, financiën, overtuigingen, seksualiteit,
+      verblijfsstatus of andere categorieën die juridische en sociale risico's met zich meebrengen.
+      Voorbeelden: een triageprioriteit die in een kliniek wordt toegekend, een uitslag over het
+      recht op een uitkering die naar een uitkeringsportaal wordt gestuurd, een afgeleid beschermd
+      kenmerk dat naar systemen verderop in de keten wordt geëxporteerd.
+  - locale: de
+    value: >-
+      Die KI erzeugt Ergebnisse zu Gesundheit, Finanzen, Überzeugungen, Sexualität,
+      Aufenthaltsstatus oder anderen Kategorien, die rechtliche und soziale Risiken bergen.
+      Beispiele: eine in einer Klinik vergebene Triage-Priorität, ein an ein Sozialleistungsportal
+      gesendetes Ergebnis einer Anspruchsprüfung, ein abgeleitetes geschütztes Merkmal, das an
+      nachgelagerte Systeme exportiert wird.
 sources:
   - type: regulation
     title: GDPR Article 9 — Special categories of personal data

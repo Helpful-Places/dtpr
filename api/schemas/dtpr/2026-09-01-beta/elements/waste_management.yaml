@@ -19,6 +19,10 @@ title:
     value: 废弃物管理
   - locale: zh-Hant
     value: 廢棄物管理
+  - locale: nl
+    value: Afvalbeheer
+  - locale: de
+    value: Abfallwirtschaft
 description:
   - locale: en
     value: >-
@@ -52,4 +56,12 @@ description:
     value: 支持废弃物的处理和处置，包括可回收物、可堆肥垃圾和危险废物。
   - locale: zh-Hant
     value: 協助廢棄物的處理與清運，包括可回收物、堆肥及有害物質。
+  - locale: nl
+    value: >-
+      Ondersteunt het verwerken en afvoeren van afval, waaronder recyclebaar afval, compost en
+      gevaarlijke stoffen.
+  - locale: de
+    value: >-
+      Unterstützt den Umgang mit Abfällen und ihre Entsorgung, einschließlich Wertstoffen, Kompost
+      und Gefahrstoffen.
 symbol_id: waste_management

@@ -19,6 +19,10 @@ title:
     value: 联网设备遥测
   - locale: zh-Hant
     value: 連網裝置遙測
+  - locale: nl
+    value: Meetgegevens van verbonden apparaten
+  - locale: de
+    value: Telemetrie vernetzter Geräte
 description:
   - locale: en
     value: >-
@@ -64,4 +68,16 @@ description:
     value: 联网设备自动持续传送的读数——车辆上报速度和位置、可穿戴设备上报心率、智能表计上报能耗、机器上报自身状态。这是在日常使用的后台持续进行的采集。
   - locale: zh-Hant
     value: 由連網物品自動持續傳送的讀數：車輛回報速度與位置、穿戴式裝置回報心率、智慧電表回報用電量、機器回報自身狀態。這是在日常使用的背景中持續進行的擷取。
+  - locale: nl
+    value: >-
+      Meetwaarden die verbonden apparaten automatisch doorsturen: voertuigen die snelheid en positie
+      melden, wearables die de hartslag melden, slimme meters die het energieverbruik melden,
+      machines die hun eigen status melden. De gegevens worden continu vastgelegd, op de achtergrond
+      van het dagelijks gebruik.
+  - locale: de
+    value: >-
+      Messwerte, die vernetzte Geräte automatisch übermitteln – Fahrzeuge melden Geschwindigkeit und
+      Position, Wearables die Herzfrequenz, intelligente Zähler den Energieverbrauch, Maschinen
+      ihren eigenen Zustand. Eine fortlaufende Erfassung, die im Hintergrund der alltäglichen
+      Nutzung läuft.
 symbol_id: cellular_antenna

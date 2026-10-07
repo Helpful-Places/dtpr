@@ -19,6 +19,10 @@ title:
     value: 闸门、道闸或机器
   - locale: zh-Hant
     value: 閘門、柵欄或機器
+  - locale: nl
+    value: Een poort, slagboom of machine
+  - locale: de
+    value: Schranke, Tor oder Maschine
 description:
   - locale: en
     value: >-
@@ -61,4 +65,14 @@ description:
     value: 输出表现为某样东西在动——开启或保持关闭的闸机、道闸栏杆、配送机器人、门锁。您通过物理动作接触到这一决定；触发动作的指令则是系统的输出数据。
   - locale: zh-Hant
     value: 輸出結果是某個東西的動作：開啟或保持關閉的驗票閘門、升降柵欄、送貨機器人、門鎖。您透過實體動作接觸到這項決定；觸發動作的指令則是系統的輸出資料。
+  - locale: nl
+    value: >-
+      De uitvoer is iets dat beweegt: een toegangspoortje dat opengaat of dicht blijft, een
+      slagboom, een bezorgrobot, een deurslot. Door de fysieke beweging merk je de beslissing; het
+      commando dat de beweging in gang zet, hoort bij de uitvoergegevens van het systeem.
+  - locale: de
+    value: >-
+      Das Ergebnis ist etwas, das sich bewegt – ein Drehkreuz, das sich öffnet oder geschlossen
+      bleibt, eine Schranke, ein Lieferroboter, ein Türschloss. In der physischen Bewegung begegnet
+      Ihnen die Entscheidung; der Befehl, der sie auslöst, gehört zu den Ausgabedaten des Systems.
 symbol_id: boom_barrier

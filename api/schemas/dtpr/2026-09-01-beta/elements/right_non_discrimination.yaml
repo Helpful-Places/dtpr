@@ -19,6 +19,10 @@ title:
     value: 不受歧视权
   - locale: zh-Hant
     value: 不受歧視的權利
+  - locale: nl
+    value: Recht op non-discriminatie
+  - locale: de
+    value: Recht auf Nichtdiskriminierung
 description:
   - locale: en
     value: >-
@@ -69,4 +73,16 @@ description:
     value: 有权不因种族、性别、年龄、宗教、残疾或性取向等受保护特征而受到AI系统的歧视性对待。组织必须采取并证明其已采取适当的技术和组织措施，防止其AI系统产生歧视性结果。
   - locale: zh-Hant
     value: 您有權不因種族、性別、年齡、宗教、身心障礙或性傾向等受保護特徵，而受到AI系統的歧視性對待。組織必須採取適當的技術與組織措施，並證明已落實，以防止其AI系統產生歧視性的結果。
+  - locale: nl
+    value: >-
+      Het recht om niet door AI-systemen te worden gediscrimineerd op grond van beschermde kenmerken
+      zoals ras, gender, leeftijd, religie, handicap of seksuele oriëntatie. Organisaties moeten
+      passende technische en organisatorische maatregelen nemen, en kunnen aantonen dat ze dat doen,
+      om discriminerende uitkomsten van hun AI-systemen te voorkomen.
+  - locale: de
+    value: >-
+      Das Recht, von KI-Systemen nicht aufgrund geschützter Merkmale wie ethnischer Herkunft,
+      Geschlecht, Alter, Religion, Behinderung oder sexueller Orientierung diskriminiert zu werden.
+      Organisationen müssen geeignete technische und organisatorische Maßnahmen umsetzen und
+      nachweisen, um diskriminierende Ergebnisse ihrer KI-Systeme zu verhindern.
 symbol_id: rights_non-discrimination

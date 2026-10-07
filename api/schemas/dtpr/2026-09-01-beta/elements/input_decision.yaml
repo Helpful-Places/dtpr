@@ -19,6 +19,10 @@ title:
     value: 关于您的决定
   - locale: zh-Hant
     value: 關於您的決定
+  - locale: nl
+    value: Een beslissing over jou
+  - locale: de
+    value: Entscheidung über Sie
 description:
   - locale: en
     value: >-
@@ -66,6 +70,19 @@ description:
     value: 另一个系统已针对某人作出的资格认定、分类、排名或“是/否”判定。AI接收这一先前的决定并将其作为输入。示例：来自另一个模型的信用评分、上游传来的准许通行标记、流程中较早环节给出的分诊级别。
   - locale: zh-Hant
     value: 另一個系統已經對某人做出的資格判定、分類、排名或是或否的判定。AI接收這項先前的決定並作為輸入。例如：來自另一個模型的信用評分、上游傳來的允許進入標記、流程前段指派的分流等級。
+  - locale: nl
+    value: >-
+      Een beslissing die een ander systeem al over een persoon heeft genomen: of iemand ergens recht
+      op heeft, een classificatie, een rangschikking of een ja of nee. De AI krijgt deze eerdere
+      beslissing binnen en gebruikt die als invoer. Voorbeelden: een kredietscore van een ander
+      model, een signaal van eerder in de keten dat iemand toegang mag krijgen, een triageklasse die
+      eerder in het proces is toegekend.
+  - locale: de
+    value: >-
+      Eine Anspruchsprüfung, Einstufung, Rangfolge oder Ja-Nein-Entscheidung, die ein anderes System
+      bereits über eine Person getroffen hat. Die KI nimmt diese frühere Entscheidung auf und nutzt
+      sie als Eingabe. Beispiele: ein Bonitätswert aus einem anderen Modell, eine Zugangsfreigabe
+      aus einem vorgelagerten System, eine Triage-Stufe, die früher im Ablauf vergeben wurde.
 sources:
   - type: regulation
     title: EU AI Act Article 3(1) — output classes (predictions, content, recommendations, decisions)

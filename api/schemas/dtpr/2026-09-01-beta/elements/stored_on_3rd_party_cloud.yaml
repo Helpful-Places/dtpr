@@ -19,6 +19,10 @@ title:
     value: 存储于第三方云
   - locale: zh-Hant
     value: 儲存於第三方雲端
+  - locale: nl
+    value: Opgeslagen in de cloud van derden
+  - locale: de
+    value: In Drittanbieter-Cloud gespeichert
 description:
   - locale: en
     value: >-
@@ -52,4 +56,13 @@ description:
     value: 数据由异地数据中心代该组织或数据收集方存储，例如Amazon Web Services、Google Cloud和Microsoft Azure。
   - locale: zh-Hant
     value: 資料由異地的資料中心代組織或資料收集者儲存，例如Amazon Web Services、Google Cloud及Microsoft Azure。
+  - locale: nl
+    value: >-
+      Gegevens worden namens de organisatie of de partij die de gegevens verzamelt opgeslagen in een
+      extern datacenter, zoals Amazon Web Services, Google Cloud en Microsoft Azure
+  - locale: de
+    value: >-
+      Die Daten werden im Auftrag der Organisation oder der datenerhebenden Stelle in einem externen
+      Rechenzentrum gespeichert, zum Beispiel bei Amazon Web Services, Google Cloud oder Microsoft
+      Azure
 symbol_id: stored

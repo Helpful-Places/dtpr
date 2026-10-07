@@ -19,6 +19,10 @@ title:
     value: 隐私保护转换
   - locale: zh-Hant
     value: 隱私保護轉換
+  - locale: nl
+    value: Privacybeschermende bewerking
+  - locale: de
+    value: Datenschutzwahrende Umwandlung
 description:
   - locale: en
     value: >-
@@ -78,4 +82,20 @@ description:
   - locale: zh-Hant
     value: >-
       主要功能是在下游使用前轉換輸入資料，將可識別身分的細節移除、模糊化或替換的AI系統。包括臉部模糊化、車牌遮蔽、代碼化、k-匿名化、差分隱私及合成資料生成。它在收集到的原始資料與用於分析或決定的資料之間形成一道屏障。
+  - locale: nl
+    value: >-
+      AI-systemen die vooral bedoeld zijn om invoergegevens zo te bewerken dat identificerende
+      details worden verwijderd, vervaagd of vervangen voordat de gegevens verder worden gebruikt.
+      Hieronder vallen het vervagen van gezichten, het afschermen van kentekens, tokenisatie,
+      k-anonimisering, differentiële privacy en het genereren van synthetische gegevens. Werken als
+      een barrière tussen de ruwe verzamelde gegevens en de gegevens die worden gebruikt voor
+      analyse of beslissingen.
+  - locale: de
+    value: >-
+      KI-Systeme, deren Hauptaufgabe es ist, Eingabedaten so umzuwandeln, dass identifizierende
+      Details vor jeder weiteren Nutzung entfernt, unkenntlich gemacht oder ersetzt werden. Dazu
+      gehören das Verpixeln von Gesichtern, das Unkenntlichmachen von Kennzeichen, Tokenisierung,
+      k-Anonymisierung, Differential Privacy und die Erzeugung synthetischer Daten. Die Umwandlung
+      wirkt als Barriere zwischen den erhobenen Rohdaten und den Daten, die für Auswertungen oder
+      Entscheidungen genutzt werden.
 symbol_id: mask

@@ -19,6 +19,10 @@ title:
     value: 保留{{duration}}
   - locale: zh-Hant
     value: 保留{{duration}}
+  - locale: nl
+    value: "Bewaard: {{duration}}"
+  - locale: de
+    value: "Speicherdauer: {{duration}}"
 description:
   - locale: en
     value: Data is stored for {{duration}}, and after this time period is deleted
@@ -38,4 +42,8 @@ description:
     value: 数据存储{{duration}}，期满后删除。
   - locale: zh-Hant
     value: 資料儲存{{duration}}，期滿後即刪除。
+  - locale: nl
+    value: Gegevens worden bewaard gedurende {{duration}} en daarna verwijderd
+  - locale: de
+    value: Die Daten werden für {{duration}} gespeichert und nach Ablauf dieser Zeit gelöscht
 symbol_id: is_retained

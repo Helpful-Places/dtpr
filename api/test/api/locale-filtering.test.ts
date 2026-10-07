@@ -37,6 +37,8 @@ describe('locale filtering: resolveLocaleCode', () => {
     expect(resolveLocaleCode('tl-PH')).toBe('fil')
     expect(resolveLocaleCode('pt-BR')).toBe('pt')
     expect(resolveLocaleCode('es_MX')).toBe('es')
+    expect(resolveLocaleCode('nl-BE')).toBe('nl')
+    expect(resolveLocaleCode('de-AT')).toBe('de')
     expect(resolveLocaleCode('zh')).toBe('zh-Hans')
     expect(resolveLocaleCode('zh-TW')).toBe('zh-Hant')
     expect(resolveLocaleCode('ZH-hant-HK')).toBe('zh-Hant')

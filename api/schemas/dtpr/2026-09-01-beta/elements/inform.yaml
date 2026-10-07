@@ -19,6 +19,10 @@ title:
     value: 信息告知
   - locale: zh-Hant
     value: 提供資訊
+  - locale: nl
+    value: Informeren
+  - locale: de
+    value: Information
 description:
   - locale: en
     value: >-
@@ -59,4 +63,14 @@ description:
     value: 支持通用的信息协助——礼宾服务、常见问题解答、标牌，或有关某项服务的指引。有别于“导览与服务”，后者涵盖场所内的空间定向和路线指引。
   - locale: zh-Hant
     value: 協助提供一般性的資訊服務：禮賓諮詢、常見問題、標示，或某項服務的使用指引。與「路線指引與服務」不同，後者涵蓋場所內的空間定位與路線規劃。
+  - locale: nl
+    value: >-
+      Ondersteunt algemene informatieverstrekking: een informatiebalie, veelgestelde vragen, borden
+      of uitleg over een dienst. Anders dan Bewegwijzering en diensten, dat gaat over oriëntatie en
+      routes binnen een plek.
+  - locale: de
+    value: >-
+      Unterstützt allgemeine Auskünfte – Empfang, häufige Fragen, Beschilderung oder Hinweise zu
+      einer Dienstleistung. Im Unterschied zu „Orientierung und Service“, das die räumliche
+      Orientierung und Wegeführung an einem Ort abdeckt.
 symbol_id: light_waves

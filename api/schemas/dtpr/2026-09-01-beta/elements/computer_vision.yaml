@@ -19,6 +19,10 @@ title:
     value: 计算机视觉
   - locale: zh-Hant
     value: 電腦視覺
+  - locale: nl
+    value: Beeldherkenning
+  - locale: de
+    value: Maschinelles Sehen
 description:
   - locale: en
     value: >-
@@ -69,4 +73,17 @@ description:
     value: 解读图像或视频的AI系统——清点人数、检测物体、读取图片中的文字、跟踪运动或分割场景。常见于空间占用感知、交通和人流监测、无障碍辅助和标牌巡检。有别于生物特征识别，后者识别的是特定个人。
   - locale: zh-Hant
     value: 解讀影像或影片的AI系統：計算人數、偵測物體、讀取圖片中的文字、追蹤動態或分割場景。常見於空間使用偵測、交通與人群監測、無障礙輔助及標示檢查。與生物特徵辨識不同，後者會識別特定個人。
+  - locale: nl
+    value: >-
+      AI-systemen die foto's of video interpreteren: mensen tellen, objecten detecteren, tekst in
+      beelden lezen, beweging volgen of beelden in delen opsplitsen. Veel gebruikt bij het meten van
+      bezetting, het bewaken van verkeer en drukte, hulp bij toegankelijkheid en de inspectie van
+      borden. Anders dan biometrische herkenning, die bepaalde personen identificeert.
+  - locale: de
+    value: >-
+      KI-Systeme, die Bilder oder Videos auswerten – Personen zählen, Objekte erkennen, Text in
+      Bildern lesen, Bewegungen verfolgen oder Szenen in Bereiche aufteilen. Verbreitet bei der
+      Belegungserfassung, der Überwachung von Verkehr und Menschenmengen, bei Hilfen zur
+      Barrierefreiheit und der Prüfung von Beschilderung. Im Unterschied zur biometrischen
+      Erkennung, die bestimmte Einzelpersonen identifiziert.
 symbol_id: pixel_based_image

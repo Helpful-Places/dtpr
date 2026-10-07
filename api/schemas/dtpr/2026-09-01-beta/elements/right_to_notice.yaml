@@ -19,6 +19,10 @@ title:
     value: AI使用知情权
   - locale: zh-Hant
     value: 獲知AI使用情形的權利
+  - locale: nl
+    value: Recht op informatie over AI-gebruik
+  - locale: de
+    value: Recht auf Information über KI-Einsatz
 description:
   - locale: en
     value: >-
@@ -78,4 +82,20 @@ description:
   - locale: zh-Hant
     value: >-
       在任何影響您的決定做出之前，您有權知道有AI系統正在運作。這包括在下列情況下獲得告知：您互動的對象是自動化系統而非真人、內容由AI生成，以及現場正在使用生物特徵或情緒辨識技術。這是本類別中其他所有權利的前提：您無法行使自己不知道適用於您的權利。
+  - locale: nl
+    value: >-
+      Het recht om te weten dat er een AI-systeem in werking is voordat er een beslissing wordt
+      genomen die jou raakt. Dat betekent ook dat je te horen krijgt wanneer je met een
+      geautomatiseerd systeem te maken hebt en niet met een mens, wanneer content door AI is
+      gegenereerd en wanneer biometrische technologie of technologie voor emotieherkenning wordt
+      gebruikt. Dit is de voorwaarde voor elk ander recht in deze categorie: je kunt geen rechten
+      uitoefenen waarvan je niet weet dat je ze hebt.
+  - locale: de
+    value: >-
+      Das Recht zu erfahren, dass ein KI-System im Einsatz ist, bevor eine Entscheidung getroffen
+      wird, die Sie betrifft. Dazu gehört, dass Ihnen mitgeteilt wird, wenn Sie mit einem
+      automatisierten System statt mit einem Menschen zu tun haben, wenn Inhalte KI-generiert sind
+      und wenn biometrische Technik oder Technik zur Emotionserkennung eingesetzt wird. Dies ist die
+      Voraussetzung für jedes andere Recht in dieser Kategorie – Sie können keine Rechte ausüben,
+      von denen Sie nicht wissen, dass sie für Sie gelten.
 symbol_id: notice_bell

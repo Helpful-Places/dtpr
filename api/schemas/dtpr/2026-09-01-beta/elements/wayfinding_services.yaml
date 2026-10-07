@@ -19,6 +19,10 @@ title:
     value: 导览与服务
   - locale: zh-Hant
     value: 路線指引與服務
+  - locale: nl
+    value: Bewegwijzering en diensten
+  - locale: de
+    value: Orientierung und Service
 description:
   - locale: en
     value: Enables navigation of a location and its amenities and services.
@@ -40,4 +44,10 @@ description:
     value: 帮助人们在某一场所内找到方向，并找到其中的设施和服务。
   - locale: zh-Hant
     value: 協助人們在某個地點找到方向，並利用其設施與服務。
+  - locale: nl
+    value: Helpt mensen de weg te vinden op een locatie en naar de voorzieningen en diensten daar.
+  - locale: de
+    value: >-
+      Erleichtert die Orientierung an einem Ort und das Auffinden seiner Einrichtungen und
+      Dienstleistungen.
 symbol_id: light_waves

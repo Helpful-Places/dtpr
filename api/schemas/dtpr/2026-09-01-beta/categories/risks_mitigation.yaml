@@ -18,6 +18,10 @@ name:
     value: 风险与缓解措施
   - locale: zh-Hant
     value: 風險與因應措施
+  - locale: nl
+    value: Risico's en maatregelen
+  - locale: de
+    value: Risiken und Gegenmaßnahmen
 description:
   - locale: en
     value: The risks this AI system could create and how they’re being addressed.
@@ -39,6 +43,10 @@ description:
     value: 本AI系统可能带来的风险，以及应对这些风险的方式。
   - locale: zh-Hant
     value: 這個AI系統可能帶來的風險，以及目前的因應方式。
+  - locale: nl
+    value: De risico's die dit AI-systeem kan veroorzaken en wat eraan wordt gedaan.
+  - locale: de
+    value: Die Risiken, die von diesem KI-System ausgehen könnten, und wie ihnen begegnet wird.
 prompt:
   - locale: en
     value: What are the risks and how are they mitigated?
@@ -58,6 +66,10 @@ prompt:
     value: 有哪些风险？如何缓解？
   - locale: zh-Hant
     value: 有哪些風險？如何因應？
+  - locale: nl
+    value: Wat zijn de risico's en hoe worden ze beperkt?
+  - locale: de
+    value: Welche Risiken gibt es und wie werden sie gemindert?
 required: false
 order: 5
 datachain_type: dtpr
@@ -88,6 +100,10 @@ element_variables:
         value: 风险描述
       - locale: zh-Hant
         value: 風險說明
+      - locale: nl
+        value: Beschrijving van het risico
+      - locale: de
+        value: Beschreibung des Risikos
     required: true
   - id: mitigation
     label:
@@ -109,4 +125,8 @@ element_variables:
         value: 缓解措施描述
       - locale: zh-Hant
         value: 因應措施說明
+      - locale: nl
+        value: Beschrijving van de maatregel
+      - locale: de
+        value: Beschreibung der Gegenmaßnahme
     required: false

@@ -19,6 +19,10 @@ title:
     value: 可下载
   - locale: zh-Hant
     value: 可下載
+  - locale: nl
+    value: Beschikbaar om te downloaden
+  - locale: de
+    value: Zum Download verfügbar
 description:
   - locale: en
     value: Data that can be accessed and downloaded online, either for free or for a fee
@@ -38,4 +42,8 @@ description:
     value: 可以免费或付费在线访问和下载的数据。
   - locale: zh-Hant
     value: 可在網路上免費或付費存取並下載的資料。
+  - locale: nl
+    value: Gegevens die je online kunt bekijken en downloaden, gratis of tegen betaling
+  - locale: de
+    value: Daten, die online abgerufen und heruntergeladen werden können, kostenlos oder gegen Gebühr
 symbol_id: available_to_download

@@ -19,6 +19,10 @@ title:
     value: 申诉权
   - locale: zh-Hant
     value: 提出異議的權利
+  - locale: nl
+    value: Recht om een beslissing aan te vechten
+  - locale: de
+    value: Recht auf Anfechtung
 description:
   - locale: en
     value: >-
@@ -67,4 +71,17 @@ description:
     value: 有权对AI系统针对您作出的决定提出申诉——补充信息、表达您的观点，并要求根据您提供的内容重新考虑该决定。这是决定作出之后的救济途径；在决定执行之前要求人工复核的权利，是另一项单独的权利。
   - locale: zh-Hant
     value: 您有權對AI系統針對您所做的決定提出異議：提供補充資訊、表達您的看法，並要求依據您提供的內容重新考慮該決定。這是決定做出之後的救濟途徑；在決定執行前要求人工審查，則是另一項權利。
+  - locale: nl
+    value: >-
+      Het recht om een beslissing die een AI-systeem over jou heeft genomen aan te vechten: om extra
+      informatie te geven, je standpunt te laten horen en de beslissing op basis van jouw inbreng
+      opnieuw te laten bekijken. Dit recht gebruik je nadat een beslissing is genomen; het recht op
+      menselijke beoordeling voordat een beslissing wordt uitgevoerd, is een apart recht.
+  - locale: de
+    value: >-
+      Das Recht, eine Entscheidung anzufechten, die ein KI-System über Sie getroffen hat –
+      zusätzliche Informationen vorzulegen, Ihren Standpunkt darzulegen und die Entscheidung auf
+      Grundlage Ihrer Angaben überprüfen zu lassen. Dies ist eine Abhilfemöglichkeit, nachdem eine
+      Entscheidung getroffen wurde; das Recht auf menschliche Überprüfung, bevor eine Entscheidung
+      umgesetzt wird, ist ein eigenes Recht.
 symbol_id: flag

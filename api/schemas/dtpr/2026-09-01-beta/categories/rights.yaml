@@ -18,6 +18,10 @@ name:
     value: 权利
   - locale: zh-Hant
     value: 權利
+  - locale: nl
+    value: Rechten
+  - locale: de
+    value: Rechte
 description:
   - locale: en
     value: What you can do in relation to this AI system — how to access, contest, or opt out.
@@ -47,6 +51,14 @@ description:
     value: 针对本AI系统您可以做什么——如何查阅、提出申诉或选择退出。
   - locale: zh-Hant
     value: 您對這個AI系統可以採取的行動：如何查閱、提出異議或選擇退出。
+  - locale: nl
+    value: >-
+      Wat je kunt doen als het om dit AI-systeem gaat: hoe je inzage krijgt, een beslissing aanvecht
+      of je afmeldt.
+  - locale: de
+    value: >-
+      Was Sie in Bezug auf dieses KI-System tun können – wie Sie Auskunft erhalten, Entscheidungen
+      anfechten oder widersprechen können.
 prompt:
   - locale: en
     value: What are your rights?
@@ -66,6 +78,10 @@ prompt:
     value: 您有哪些权利？
   - locale: zh-Hant
     value: 您有哪些權利？
+  - locale: nl
+    value: Wat zijn je rechten?
+  - locale: de
+    value: Welche Rechte haben Sie?
 required: false
 order: 6
 datachain_type: dtpr
@@ -91,4 +107,8 @@ element_variables:
         value: 权利描述
       - locale: zh-Hant
         value: 權利說明
+      - locale: nl
+        value: Beschrijving van de rechten
+      - locale: de
+        value: Beschreibung der Rechte
     required: true

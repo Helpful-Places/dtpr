@@ -19,6 +19,10 @@ title:
     value: 第三方可获取
   - locale: zh-Hant
     value: 第三方可取得
+  - locale: nl
+    value: Beschikbaar voor derden
+  - locale: de
+    value: Für Dritte zugänglich
 description:
   - locale: en
     value: >-
@@ -50,4 +54,12 @@ description:
     value: 未参与该数据活动的第三方可以获取数据。这并不一定意味着数据被转售。
   - locale: zh-Hant
     value: 未參與資料活動的第三方可取得資料。這不一定表示資料遭到轉售。
+  - locale: nl
+    value: >-
+      Gegevens zijn beschikbaar voor derden die niet betrokken zijn bij de gegevensverwerking. Dat
+      betekent niet altijd dat gegevens worden doorverkocht.
+  - locale: de
+    value: >-
+      Die Daten sind für Dritte zugänglich, die am Umgang mit den Daten nicht beteiligt sind. Das
+      bedeutet nicht immer, dass die Daten weiterverkauft werden.
 symbol_id: available_to_3rd_parties

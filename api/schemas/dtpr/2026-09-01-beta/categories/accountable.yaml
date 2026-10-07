@@ -18,6 +18,10 @@ name:
     value: 责任方
   - locale: zh-Hant
     value: 負責組織
+  - locale: nl
+    value: Verantwoordelijke
+  - locale: de
+    value: Verantwortliche
 description:
   - locale: en
     value: The organization responsible for deploying and operating this AI system.
@@ -37,6 +41,10 @@ description:
     value: 负责部署和运营本AI系统的组织。
   - locale: zh-Hant
     value: 負責部署及營運這個AI系統的組織。
+  - locale: nl
+    value: De organisatie die verantwoordelijk is voor het inzetten en beheren van dit AI-systeem.
+  - locale: de
+    value: Die Organisation, die für den Einsatz und Betrieb dieses KI-Systems verantwortlich ist.
 prompt:
   - locale: en
     value: Who is accountable for this AI system?
@@ -56,6 +64,10 @@ prompt:
     value: 谁对本AI系统负责？
   - locale: zh-Hant
     value: 誰為這個AI系統負責？
+  - locale: nl
+    value: Wie is verantwoordelijk voor dit AI-systeem?
+  - locale: de
+    value: Wer ist für dieses KI-System verantwortlich?
 required: true
 order: 2
 datachain_type: dtpr
@@ -81,6 +93,10 @@ element_context:
       value: 角色
     - locale: zh-Hant
       value: 角色
+    - locale: nl
+      value: Rol
+    - locale: de
+      value: Rolle
   description:
     - locale: en
       value: How this organization participates in the deployment of the AI system.
@@ -100,6 +116,10 @@ element_context:
       value: 该组织以何种方式参与AI系统的部署。
     - locale: zh-Hant
       value: 這個組織以何種方式參與AI系統的部署。
+    - locale: nl
+      value: Hoe deze organisatie betrokken is bij de inzet van het AI-systeem.
+    - locale: de
+      value: Wie diese Organisation am Einsatz des KI-Systems beteiligt ist.
   values:
     - id: vendor
       name:
@@ -121,6 +141,10 @@ element_context:
           value: 供应商
         - locale: zh-Hant
           value: 供應商
+        - locale: nl
+          value: Leverancier
+        - locale: de
+          value: Anbieter
       description:
         - locale: en
           value: The organization that builds, supplies, or licenses the AI system.
@@ -140,6 +164,10 @@ element_context:
           value: 构建、供应或授权许可该AI系统的组织。
         - locale: zh-Hant
           value: 建置、供應或授權這個AI系統的組織。
+        - locale: nl
+          value: De organisatie die het AI-systeem bouwt, levert of in licentie geeft.
+        - locale: de
+          value: Die Organisation, die das KI-System entwickelt, liefert oder lizenziert.
       color: null
     - id: deployer
       name:
@@ -161,6 +189,10 @@ element_context:
           value: 部署方
         - locale: zh-Hant
           value: 部署者
+        - locale: nl
+          value: Gebruiksverantwoordelijke
+        - locale: de
+          value: Betreiber
       description:
         - locale: en
           value: The organization that deploys and operates the AI system in this place.
@@ -180,6 +212,10 @@ element_context:
           value: 在此地部署并运营该AI系统的组织。
         - locale: zh-Hant
           value: 在此地點部署及營運這個AI系統的組織。
+        - locale: nl
+          value: De organisatie die het AI-systeem op deze plek inzet en beheert.
+        - locale: de
+          value: Die Organisation, die das KI-System an diesem Ort einsetzt und betreibt.
       color: null
 element_variables:
   - id: title
@@ -202,6 +238,10 @@ element_variables:
         value: 标题
       - locale: zh-Hant
         value: 標題
+      - locale: nl
+        value: Titel
+      - locale: de
+        value: Titel
     required: true
   - id: description
     label:
@@ -223,4 +263,8 @@ element_variables:
         value: 描述
       - locale: zh-Hant
         value: 說明
+      - locale: nl
+        value: Beschrijving
+      - locale: de
+        value: Beschreibung
     required: true

@@ -19,6 +19,10 @@ title:
     value: 麦克风
   - locale: zh-Hant
     value: 麥克風
+  - locale: nl
+    value: Microfoon
+  - locale: de
+    value: Mikrofon
 description:
   - locale: en
     value: >-
@@ -66,4 +70,16 @@ description:
     value: 采集声音——语音、环境噪声，或玻璃破碎、枪声等特定声音事件。见于智能音箱、自助终端、对讲机和声学监测装置。这里指采集设备本身；语音识别及其他分析列在“算法或模型”之下。
   - locale: zh-Hant
     value: 擷取聲音：語音、環境噪音，或玻璃破裂、槍聲等特定聲音事件。常見於智慧音箱、自助服務機、對講機及聲音監測設施。此處指擷取裝置本身；語音辨識及其他分析列在「演算法或模型」之下。
+  - locale: nl
+    value: >-
+      Legt geluid vast: spraak, omgevingsgeluid of bepaalde geluiden zoals brekend glas of schoten.
+      Zit in slimme speakers, informatiezuilen, intercoms en installaties die geluid monitoren. Dit
+      is alleen het apparaat dat vastlegt; spraakherkenning en andere analyses staan onder Algoritme
+      of model.
+  - locale: de
+    value: >-
+      Nimmt Schall auf – Sprache, Umgebungsgeräusche oder bestimmte Geräuschereignisse wie
+      splitterndes Glas oder Schüsse. Zu finden in intelligenten Lautsprechern, Terminals,
+      Gegensprechanlagen und Anlagen zur akustischen Überwachung. Gemeint ist das Erfassungsgerät
+      selbst; Spracherkennung und andere Auswertungen stehen unter „Algorithmus oder Modell“.
 symbol_id: audio

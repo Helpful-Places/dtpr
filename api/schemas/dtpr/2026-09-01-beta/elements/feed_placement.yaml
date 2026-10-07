@@ -19,6 +19,10 @@ title:
     value: 您在应用或信息流中看到的内容
   - locale: zh-Hant
     value: 應用程式或動態消息顯示的內容
+  - locale: nl
+    value: Wat je ziet in een app of feed
+  - locale: de
+    value: Was Sie in App oder Feed sehen
 description:
   - locale: en
     value: >-
@@ -59,4 +63,15 @@ description:
     value: 输出就是排序本身——哪些帖子、商品、结果或价格排在前面，哪些您永远看不到。这里没有一个可供察觉的接触时刻；系统塑造的是您本来就在看的界面。
   - locale: zh-Hant
     value: 輸出結果就是排列順序本身：哪些貼文、商品、搜尋結果或價格排在前面，哪些您永遠看不到。過程中沒有可察覺的接觸時刻；系統塑造的是您本來就在看的畫面。
+  - locale: nl
+    value: >-
+      De uitvoer is de volgorde zelf: welke berichten, producten, resultaten of prijzen bovenaan
+      staan, en welke je nooit ziet. Er is geen moment waarop je het systeem opmerkt; het bepaalt
+      hoe het scherm eruitziet waar je al naar keek.
+  - locale: de
+    value: >-
+      Das Ergebnis ist die Reihenfolge selbst – welche Beiträge, Produkte, Treffer oder Preise
+      zuerst erscheinen und welche Sie nie zu sehen bekommen. Es gibt keinen Moment der Begegnung,
+      der auffallen würde; das System formt die Oberfläche, auf die Sie ohnehin schon geschaut
+      haben.
 symbol_id: feed_placement

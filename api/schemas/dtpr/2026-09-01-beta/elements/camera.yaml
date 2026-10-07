@@ -19,6 +19,10 @@ title:
     value: 摄像头
   - locale: zh-Hant
     value: 攝影機
+  - locale: nl
+    value: Camera
+  - locale: de
+    value: Kamera
 description:
   - locale: en
     value: >-
@@ -69,4 +73,17 @@ description:
   - locale: zh-Hant
     value: >-
       擷取某個地點的靜態影像或影片，可裝設在桿柱、車輛、無人機上，或內建於裝置中。包括紅外線與熱像攝影機。此處指擷取裝置本身；分析影像的技術列在「演算法或模型」之下，影像可識別個人的程度則標示在「輸入資料」類別。
+  - locale: nl
+    value: >-
+      Legt foto's of video van een plek vast: gemonteerd op een paal, een voertuig of een drone, of
+      ingebouwd in een apparaat. Ook infrarood- en warmtebeeldcamera's vallen hieronder. Dit is
+      alleen het apparaat dat vastlegt; de technieken die de beelden analyseren staan onder
+      Algoritme of model, en hoe herleidbaar de beelden zijn staat bij de categorie Invoergegevens.
+  - locale: de
+    value: >-
+      Nimmt Standbilder oder Videos eines Ortes auf – an einem Mast, einem Fahrzeug oder einer
+      Drohne montiert oder in ein Gerät eingebaut. Dazu gehören auch Infrarot- und Wärmebildkameras.
+      Gemeint ist das Erfassungsgerät selbst; die Verfahren, die die Aufnahmen auswerten, stehen
+      unter „Algorithmus oder Modell“, und wie stark die Aufnahmen auf Personen schließen lassen,
+      steht bei der Kategorie „Eingabedaten“.
 symbol_id: camera

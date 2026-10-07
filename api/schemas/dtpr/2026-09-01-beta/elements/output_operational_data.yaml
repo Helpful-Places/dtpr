@@ -19,6 +19,10 @@ title:
     value: 运营数据
   - locale: zh-Hant
     value: 營運資料
+  - locale: nl
+    value: Operationele gegevens
+  - locale: de
+    value: Betriebsdaten
 description:
   - locale: en
     value: >-
@@ -70,4 +74,17 @@ description:
       AI产生行政管理方面的输出——日程安排、路线、占用情况估算、预算分配，或有关某一场所或服务如何运转的其他记录。不针对任何特定个人。示例：优化后的垃圾收运路线、学校使用人数预测、下一季度的预算分配建议。
   - locale: zh-Hant
     value: AI產生行政類的輸出結果：時程表、路線、使用人數估計、預算分配，或其他關於場所或服務如何運作的紀錄，不涉及任何特定個人。例如：最佳化的垃圾收運路線、學校使用人數推估、下一季的預算分配建議。
+  - locale: nl
+    value: >-
+      De AI levert administratieve uitvoer op: roosters, routes, schattingen van de bezetting,
+      verdelingen van budget of andere gegevens over hoe een plek of dienst draait. Niet over één
+      persoon. Voorbeelden: een geoptimaliseerde route voor het ophalen van afval, een prognose van
+      de bezetting van een school, een aanbevolen verdeling van het budget voor het volgende
+      kwartaal.
+  - locale: de
+    value: >-
+      Die KI erzeugt Verwaltungsdaten – Zeitpläne, Routen, Belegungsschätzungen, Budgetzuweisungen
+      oder andere Aufzeichnungen darüber, wie ein Ort oder eine Dienstleistung funktioniert. Nicht
+      über eine einzelne Person. Beispiele: eine optimierte Route der Müllabfuhr, eine Prognose der
+      Schulbelegung, eine empfohlene Budgetzuweisung für das nächste Quartal.
 symbol_id: operational_data

@@ -19,6 +19,10 @@ title:
     value: 被遗忘权
   - locale: zh-Hant
     value: 被遺忘權
+  - locale: nl
+    value: Recht op vergetelheid
+  - locale: de
+    value: Recht auf Vergessenwerden
 description:
   - locale: en
     value: >-
@@ -78,4 +82,20 @@ description:
   - locale: zh-Hant
     value: >-
       當資料已不再為原始目的所需、您撤回同意，或繼續處理已無正當利益時，您有權要求將您的個人資料從AI系統中刪除。在技術可行的情況下，這也包括讓系統「遺忘」由您的資料衍生出的資訊。這是刪除的權利；要求停止處理但不刪除，則是另一項權利。
+  - locale: nl
+    value: >-
+      Het recht om je persoonsgegevens uit een AI-systeem te laten verwijderen als de gegevens niet
+      meer nodig zijn voor het oorspronkelijke doel, als je je toestemming intrekt of als er geen
+      gerechtvaardigd belang is om ze te blijven verwerken. Waar dat technisch haalbaar is, hoort
+      hier ook bij dat het systeem informatie die uit jouw gegevens is afgeleid "afleert". Dit is
+      een recht op verwijdering; het recht om de verwerking te stoppen zonder verwijdering is een
+      apart recht.
+  - locale: de
+    value: >-
+      Das Recht, Ihre personenbezogenen Daten aus einem KI-System löschen zu lassen, wenn die Daten
+      für ihren ursprünglichen Zweck nicht mehr benötigt werden, wenn Sie Ihre Einwilligung
+      widerrufen oder wenn kein berechtigtes Interesse an der weiteren Verarbeitung besteht. Soweit
+      technisch machbar, gehört dazu auch, dass das System aus Ihren Daten abgeleitete Informationen
+      wieder „verlernt“. Dies ist ein Recht auf Löschung; das Recht, die Verarbeitung ohne Löschung
+      zu stoppen, ist ein eigenes Recht.
 symbol_id: trash_bin

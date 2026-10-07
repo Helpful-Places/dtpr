@@ -19,6 +19,10 @@ title:
     value: 内容审核
   - locale: zh-Hant
     value: 內容審核
+  - locale: nl
+    value: Contentmoderatie
+  - locale: de
+    value: Moderation von Inhalten
 description:
   - locale: en
     value: >-
@@ -56,6 +60,16 @@ description:
     value: 依据规则过滤、排序或删除用户生成的内容——例如面向公众的自助终端上的评论审核、图像过滤或仇恨言论检测。
   - locale: zh-Hant
     value: 依據政策篩選、排序或移除使用者產生的內容，例如公共自助服務機上的留言審核、圖片篩選或仇恨言論偵測。
+  - locale: nl
+    value: >-
+      Filtert, rangschikt of verwijdert content van gebruikers op basis van regels, bijvoorbeeld
+      moderatie van reacties op een openbare informatiezuil, het filteren van afbeeldingen of het
+      opsporen van haatzaaiende uitingen.
+  - locale: de
+    value: >-
+      Filtert, sortiert oder entfernt von Nutzenden erstellte Inhalte nach festgelegten Regeln – zum
+      Beispiel Kommentarmoderation an einem öffentlichen Terminal, Bildfilterung oder Erkennung von
+      Hassrede.
 sources:
   - type: regulation
     title: EU Digital Services Act — Articles 14–17 (notice-and-action, statements of reasons, internal complaint handling)

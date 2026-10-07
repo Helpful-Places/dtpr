@@ -19,6 +19,10 @@ title:
     value: 生物特征数据
   - locale: zh-Hant
     value: 生物特徵資料
+  - locale: nl
+    value: Biometrische gegevens
+  - locale: de
+    value: Biometrische Daten
 description:
   - locale: en
     value: >-
@@ -63,4 +67,16 @@ description:
     value: 面部、指纹、声纹、步态、手势、视线、姿态。AI接收来自人体的生物信号。示例：在闸机处采集的面部图像、自助终端麦克风录下的声音、由顶置摄像头分析的步态。
   - locale: zh-Hant
     value: 臉孔、指紋、聲紋、步態、手勢、視線、姿勢。AI接收來自人體的生物訊號。例如：在驗票閘門擷取的臉孔、自助服務機麥克風錄下的聲音、由上方攝影機分析的步態。
+  - locale: nl
+    value: >-
+      Gezichten, vingerafdrukken, stemafdrukken, manier van lopen, gebaren, blikrichting, houding.
+      De AI krijgt lichaamskenmerken van een persoon binnen. Voorbeelden: een gezicht dat bij een
+      toegangspoortje wordt vastgelegd, een stem die door de microfoon van een informatiezuil wordt
+      opgenomen, een manier van lopen die door een camera aan het plafond wordt geanalyseerd.
+  - locale: de
+    value: >-
+      Gesichter, Fingerabdrücke, Stimmabdrücke, Gang, Gesten, Blick, Körperhaltung. Die KI nimmt
+      biologische Merkmale vom Körper einer Person auf. Beispiele: ein an einem Drehkreuz erfasstes
+      Gesicht, eine vom Mikrofon eines Terminals aufgenommene Stimme, ein von einer Deckenkamera
+      ausgewerteter Gang.
 symbol_id: biometric

@@ -19,6 +19,10 @@ title:
     value: 教育与学习
   - locale: zh-Hant
     value: 教育與學習
+  - locale: nl
+    value: Onderwijs en leren
+  - locale: de
+    value: Bildung und Lernen
 description:
   - locale: en
     value: >-
@@ -56,6 +60,14 @@ description:
     value: 支持教学、学习、测评或教育指导——例如辅导助手、自动评分，或图书馆和博物馆的推荐系统。
   - locale: zh-Hant
     value: 協助教學、學習、評量或學習輔導，例如課業輔導助理、自動評分，或圖書館與博物館的推薦系統。
+  - locale: nl
+    value: >-
+      Ondersteunt lesgeven, leren, toetsen of studiebegeleiding, bijvoorbeeld digitale bijleshulpen,
+      automatisch nakijken of aanbevelingssystemen van bibliotheken en musea.
+  - locale: de
+    value: >-
+      Unterstützt Lehren, Lernen, Leistungsbewertung oder Bildungsberatung – zum Beispiel
+      Lernassistenten, automatische Benotung oder Empfehlungssysteme in Bibliotheken und Museen.
 sources:
   - type: regulation
     title: EU AI Act Annex III §3 — Education and vocational training

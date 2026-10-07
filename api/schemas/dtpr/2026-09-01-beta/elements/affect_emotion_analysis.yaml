@@ -19,6 +19,10 @@ title:
     value: 情感与情绪分析
   - locale: zh-Hant
     value: 情感與情緒分析
+  - locale: nl
+    value: Analyse van stemming en emotie
+  - locale: de
+    value: Stimmungs- und Emotionsanalyse
 description:
   - locale: en
     value: >-
@@ -75,4 +79,19 @@ description:
   - locale: zh-Hant
     value: >-
       從文字、語音、臉部表情或生理訊號推斷情緒狀態、心情或感受的AI系統。用於掌握群眾情緒、評估服務體驗，或篩檢是否有人處於情緒困擾。情感推斷的準確度與文化公平性仍有爭議，部分司法管轄區限制在職場與公共服務中使用。
+  - locale: nl
+    value: >-
+      AI-systemen die iemands emotionele toestand, stemming of sentiment afleiden uit tekst, spraak,
+      gezichtsuitdrukkingen of lichaamssignalen. Worden gebruikt om de stemming in een menigte te
+      peilen, de ervaring met een dienst te beoordelen of signalen van nood op te sporen. Of deze
+      techniek nauwkeurig is en eerlijk uitpakt voor verschillende culturen, is omstreden, en in
+      sommige rechtsgebieden is het gebruik ervan op het werk en bij publieke diensten beperkt.
+  - locale: de
+    value: >-
+      KI-Systeme, die aus Text, Sprache, Gesichtsausdrücken oder körperlichen Signalen auf
+      Gefühlszustand, Stimmung oder Haltung schließen. Sie werden eingesetzt, um die Stimmung in
+      Menschenmengen einzuschätzen, Serviceerlebnisse zu bewerten oder Anzeichen von Notlagen zu
+      erkennen. Wie genau und kulturell fair solche Rückschlüsse sind, ist umstritten, und in
+      manchen Rechtsräumen ist ihr Einsatz am Arbeitsplatz und bei öffentlichen Dienstleistungen
+      eingeschränkt.
 symbol_id: processing_sentiment-analysis

@@ -19,6 +19,10 @@ title:
     value: 算法透明权
   - locale: zh-Hant
     value: 演算法透明的權利
+  - locale: nl
+    value: Recht op transparantie over algoritmen
+  - locale: de
+    value: Recht auf algorithmische Transparenz
 description:
   - locale: en
     value: >-
@@ -69,4 +73,17 @@ description:
       有权以通俗易懂的语言获知AI系统总体上如何运作——所涉及的逻辑、处理的重要性，以及对受影响者可能产生的后果。这是了解系统本身的权利；就针对您作出的某项具体决定获得解释的权利，是另一项单独的权利。
   - locale: zh-Hant
     value: 您有權以淺顯易懂的語言獲知AI系統大致如何運作：其中的邏輯、這項處理的重要性，以及對受影響者可能產生的後果。這是了解系統本身的權利；要求說明針對您所做的特定決定，則是另一項權利。
+  - locale: nl
+    value: >-
+      Het recht om in begrijpelijke taal te horen hoe een AI-systeem in het algemeen werkt: de
+      logica erachter, het belang van de verwerking en de waarschijnlijke gevolgen voor de mensen
+      die het raakt. Dit is het recht om het systeem zelf te begrijpen; het recht op uitleg over een
+      specifieke beslissing over jou is een apart recht.
+  - locale: de
+    value: >-
+      Das Recht, in verständlicher Sprache darüber informiert zu werden, wie ein KI-System
+      grundsätzlich funktioniert – die zugrunde liegende Logik, die Tragweite der Verarbeitung und
+      die wahrscheinlichen Folgen für die betroffenen Personen. Dies ist das Recht, das System
+      selbst zu verstehen; das Recht auf Erläuterung einer bestimmten Entscheidung über Sie ist ein
+      eigenes Recht.
 symbol_id: flowchart

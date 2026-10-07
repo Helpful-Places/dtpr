@@ -19,6 +19,10 @@ title:
     value: 节水
   - locale: zh-Hant
     value: 用水效率
+  - locale: nl
+    value: Waterbesparing
+  - locale: de
+    value: Wassereffizienz
 description:
   - locale: en
     value: Reduces water use and/or helps conserve water.
@@ -40,4 +44,8 @@ description:
     value: 减少用水量和/或帮助节约用水。
   - locale: zh-Hant
     value: 減少用水及（或）協助節約用水。
+  - locale: nl
+    value: Vermindert het waterverbruik en/of helpt water te besparen.
+  - locale: de
+    value: Senkt den Wasserverbrauch und/oder hilft, Wasser zu sparen.
 symbol_id: water_efficiency

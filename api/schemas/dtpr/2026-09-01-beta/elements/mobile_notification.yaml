@@ -19,6 +19,10 @@ title:
     value: 手机通知
   - locale: zh-Hant
     value: 行動裝置通知
+  - locale: nl
+    value: Een melding op je telefoon
+  - locale: de
+    value: Mobile Benachrichtigung
 description:
   - locale: en
     value: >-
@@ -60,4 +64,14 @@ description:
     value: 输出发送到您自己的设备上——推送通知、短信、电子邮件或应用内提醒。系统主动找到您，而不是等您来看；能否关闭它，属于“数据访问”和“权利”方面的问题。
   - locale: zh-Hant
     value: 輸出結果傳送到您自己的裝置上：推播通知、簡訊、電子郵件或應用程式內的提醒。系統會主動找上您，而不是等您來查看；您能否關閉通知，屬於「資料存取」與「權利」的問題。
+  - locale: nl
+    value: >-
+      De uitvoer bereikt je op je eigen apparaat: een pushmelding, sms, e-mail of melding in een
+      app. Het systeem zoekt jou op in plaats van te wachten tot je kijkt; of je dit kunt uitzetten,
+      is een vraag die hoort bij Toegang tot gegevens en Rechten.
+  - locale: de
+    value: >-
+      Das Ergebnis erreicht Sie auf Ihrem eigenen Gerät – als Push-Benachrichtigung, SMS, E-Mail
+      oder Hinweis in einer App. Das System findet Sie, statt darauf zu warten, dass Sie nachsehen;
+      ob Sie das abschalten können, ist eine Frage von „Datenzugriff“ und „Rechte“.
 symbol_id: phone_notification

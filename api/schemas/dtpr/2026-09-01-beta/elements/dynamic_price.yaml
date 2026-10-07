@@ -19,6 +19,10 @@ title:
     value: 动态价格或收费
   - locale: zh-Hant
     value: 動態價格或費用
+  - locale: nl
+    value: Een dynamische prijs of dynamisch tarief
+  - locale: de
+    value: Dynamische Preise oder Gebühren
 description:
   - locale: en
     value: >-
@@ -63,4 +67,15 @@ description:
     value: 输出表现为某样东西的价格——随拥堵上涨的道路通行费、网约车的高峰加价、随需求变化的停车费率、个性化优惠。您可能永远看不到系统本身，只看到它定下的价格。
   - locale: zh-Hant
     value: 輸出結果以價格的形式出現：隨壅塞程度上漲的道路通行費、叫車的尖峰加價、依需求變動的停車費率、個人化優惠。您可能永遠看不到系統本身，只看到它訂出的價格。
+  - locale: nl
+    value: >-
+      De uitvoer zie je terug in wat iets kost: tol die stijgt bij drukte op de weg, een hogere
+      ritprijs bij veel vraag, een parkeertarief dat meebeweegt met de vraag, een persoonlijk
+      aanbod. Het systeem zelf zie je misschien nooit, alleen de prijs die het heeft bepaald.
+  - locale: de
+    value: >-
+      Das Ergebnis zeigt sich darin, was etwas kostet – eine Straßenmaut, die bei Stau steigt,
+      Preisaufschläge bei hoher Nachfrage für eine Fahrt, ein Parktarif, der sich nach der Nachfrage
+      richtet, ein personalisiertes Angebot. Das System selbst sehen Sie womöglich nie, nur den
+      Preis, den es festgelegt hat.
 symbol_id: price_tag

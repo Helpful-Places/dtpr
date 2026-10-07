@@ -19,6 +19,10 @@ title:
     value: 环境健康
   - locale: zh-Hant
     value: 環境衛生
+  - locale: nl
+    value: Gezonde leefomgeving
+  - locale: de
+    value: Umwelt und Gesundheit
 description:
   - locale: en
     value: >-
@@ -60,4 +64,15 @@ description:
     value: 测量或监测影响人体健康的物理环境因素——空气质量、水质、辐射、噪声或工作场所中接触的有害因素。有别于“医疗保健”，后者支持面向个人的临床诊疗。
   - locale: zh-Hant
     value: 測量或監測實體環境中影響人體健康的因素：空氣品質、水質、輻射、噪音或職場暴露。與「醫療照護」不同，後者協助對個人的臨床照護。
+  - locale: nl
+    value: >-
+      Meet of monitort onderdelen van de fysieke omgeving die de gezondheid van mensen beïnvloeden:
+      luchtkwaliteit, waterkwaliteit, straling, geluid of blootstelling op het werk. Anders dan
+      Gezondheidszorg, dat de medische zorg voor individuele mensen ondersteunt.
+  - locale: de
+    value: >-
+      Misst oder überwacht Faktoren der physischen Umwelt, die sich auf die menschliche Gesundheit
+      auswirken – Luftqualität, Wasserqualität, Strahlung, Lärm oder Belastungen am Arbeitsplatz. Im
+      Unterschied zu „Gesundheitsversorgung“, die die medizinische Behandlung einzelner Personen
+      unterstützt.
 symbol_id: ecology

@@ -19,6 +19,10 @@ title:
     value: 生成内容
   - locale: zh-Hant
     value: 生成內容
+  - locale: nl
+    value: Gegenereerde content
+  - locale: de
+    value: Generierte Inhalte
 description:
   - locale: en
     value: >-
@@ -64,6 +68,18 @@ description:
     value: AI产生新的内容——此前并不存在的文本、图像、音频或视频。示例：显示在标牌上、由大语言模型撰写的服务通告，通过广播系统播放的合成语音播报，数字自助终端上的生成插图。
   - locale: zh-Hant
     value: AI產生新的內容：先前並不存在的文字、影像、音訊或影片。例如：顯示在看板上、由大型語言模型（LLM）撰寫的服務公告，透過廣播系統播放的合成語音廣播，數位自助服務機上的生成插圖。
+  - locale: nl
+    value: >-
+      De AI levert nieuwe content op: tekst, beelden, audio of video die eerder niet bestond.
+      Voorbeelden: een door een taalmodel (LLM) geschreven mededeling over de dienstverlening op een
+      bord, een mededeling met computerstem via een omroepinstallatie, een gegenereerde illustratie
+      op een digitale informatiezuil.
+  - locale: de
+    value: >-
+      Die KI erzeugt neue Inhalte – Texte, Bilder, Audio oder Videos, die es vorher nicht gab.
+      Beispiele: ein von einem Sprachmodell (LLM) geschriebener Betriebshinweis auf einer
+      Anzeigetafel, eine Durchsage mit synthetischer Stimme über eine Lautsprecheranlage, eine
+      generierte Illustration auf einem digitalen Terminal.
 sources:
   - type: regulation
     title: EU AI Act Article 3(1) — output class "content"

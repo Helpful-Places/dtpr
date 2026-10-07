@@ -19,6 +19,10 @@ title:
     value: 本人可获取
   - locale: zh-Hant
     value: 我可取得
+  - locale: nl
+    value: Beschikbaar voor mij
+  - locale: de
+    value: Für mich zugänglich
 description:
   - locale: en
     value: >-
@@ -59,4 +63,12 @@ description:
     value: 本人可以获取，但其他个人不能。例如，您作为个人可以查看自己车辆的全部电子收费记录，而其他个人无法查看。
   - locale: zh-Hant
     value: 我可取得，但其他人無法取得。例如，您個人可以查閱自己車輛的所有電子收費紀錄，但其他人無法查閱。
+  - locale: nl
+    value: >-
+      Beschikbaar voor mij, maar niet voor anderen. Je kunt bijvoorbeeld zelf alle elektronische
+      tolgegevens van je auto inzien, maar anderen kunnen dat niet.
+  - locale: de
+    value: >-
+      Für mich zugänglich, aber nicht für andere Personen. Als Einzelperson haben Sie zum Beispiel
+      Zugriff auf alle elektronischen Mautdaten zu Ihrem Auto, andere Personen aber nicht.
 symbol_id: available

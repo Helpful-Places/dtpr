@@ -19,6 +19,10 @@ title:
     value: 定位与位置
   - locale: zh-Hant
     value: 定位與位置
+  - locale: nl
+    value: Plaatsbepaling en locatie
+  - locale: de
+    value: Ortung und Standort
 description:
   - locale: en
     value: >-
@@ -62,4 +66,14 @@ description:
     value: 确定某物在哪里——车辆或应用中的GPS接收器、蓝牙信标或室内定位系统。会产生位置轨迹；当位置轨迹与某人或其设备相关联时，它是最能暴露个人情况的个人数据之一。
   - locale: zh-Hant
     value: 判定某物所在位置：車輛或應用程式中的GPS接收器、藍牙信標或室內定位系統。它會產生位置軌跡；當軌跡與某人或其裝置連結時，是最能透露個人隱私的個人資料之一。
+  - locale: nl
+    value: >-
+      Bepaalt waar iets is: gps-ontvangers in voertuigen of apps, bluetoothbakens of systemen voor
+      plaatsbepaling binnenshuis. Levert locatiesporen op, een van de meest onthullende soorten
+      persoonsgegevens als ze aan een persoon of diens apparaat zijn gekoppeld.
+  - locale: de
+    value: >-
+      Bestimmt, wo sich etwas befindet – GPS-Empfänger in Fahrzeugen oder Apps, Bluetooth-Beacons
+      oder Systeme zur Ortung in Gebäuden. Erzeugt Standortverläufe, eine der aufschlussreichsten
+      Arten personenbezogener Daten, wenn sie mit einer Person oder ihrem Gerät verknüpft sind.
 symbol_id: map_pin

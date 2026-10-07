@@ -19,6 +19,10 @@ title:
     value: 关于您的决定
   - locale: zh-Hant
     value: 關於您的決定
+  - locale: nl
+    value: Een beslissing over jou
+  - locale: de
+    value: Entscheidung über Sie
 description:
   - locale: en
     value: >-
@@ -65,6 +69,18 @@ description:
     value: AI对某人作出具有约束力的判定——资格认定、分类、排名或“是/否”。示例：门禁系统决定打开闸门、自动化的福利资格审核结果、将某人排除在外的自动筛查。
   - locale: zh-Hant
     value: AI對某人做出具約束力的裁定：資格判定、分類、排名或是或否的判定。例如：門禁系統決定開啟閘門、自動化的福利資格審查結果、將某人排除在外的自動篩選。
+  - locale: nl
+    value: >-
+      De AI levert een bindende beslissing over een persoon op: of iemand ergens recht op heeft, een
+      classificatie, een rangschikking of een ja of nee. Voorbeelden: een toegangssysteem dat
+      beslist een poort te openen, een geautomatiseerde uitslag over het recht op een uitkering, een
+      geautomatiseerde screening waardoor iemand afvalt.
+  - locale: de
+    value: >-
+      Die KI trifft eine verbindliche Festlegung über eine Person – Anspruch, Einstufung, Rangfolge
+      oder Ja/Nein. Beispiele: ein Zugangskontrollsystem, das entscheidet, ein Tor zu öffnen, ein
+      automatisch ermitteltes Ergebnis zum Anspruch auf Sozialleistungen, eine automatisierte
+      Vorauswahl, die jemanden ausschließt.
 sources:
   - type: regulation
     title: EU AI Act Article 3(1) — output class "decisions"
