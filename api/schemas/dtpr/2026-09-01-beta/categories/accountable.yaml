@@ -24,50 +24,50 @@ name:
     value: Verantwortliche
 description:
   - locale: en
-    value: The organization responsible for deploying and operating this AI system.
+    value: The organization responsible for deploying and operating this system.
   - locale: fr
-    value: L’organisation responsable du déploiement et de l’exploitation de ce système d’IA.
+    value: L’organisation responsable du déploiement et de l’exploitation de ce système.
   - locale: es
-    value: La organización responsable de implementar y operar este sistema de IA.
+    value: La organización responsable de implementar y operar este sistema.
   - locale: pt
-    value: A organização responsável por implantar e operar este sistema de IA.
+    value: A organização responsável por implantar e operar este sistema.
   - locale: fil
-    value: Ang organisasyong responsable sa pagpapatupad at pagpapatakbo ng sistemang AI na ito.
+    value: Ang organisasyong responsable sa pagpapatupad at pagpapatakbo ng sistemang ito.
   - locale: km
-    value: អង្គភាពដែលទទួលខុសត្រូវលើការដាក់ឱ្យប្រើប្រាស់ និងការដំណើរការប្រព័ន្ធ AI នេះ។
+    value: អង្គភាពដែលទទួលខុសត្រូវលើការដាក់ឱ្យប្រើប្រាស់ និងការដំណើរការប្រព័ន្ធនេះ។
   - locale: vi
-    value: Tổ chức chịu trách nhiệm triển khai và vận hành hệ thống AI này.
+    value: Tổ chức chịu trách nhiệm triển khai và vận hành hệ thống này.
   - locale: zh-Hans
-    value: 负责部署和运营本AI系统的组织。
+    value: 负责部署和运营本系统的组织。
   - locale: zh-Hant
-    value: 負責部署及營運這個AI系統的組織。
+    value: 負責部署及營運這個系統的組織。
   - locale: nl
-    value: De organisatie die verantwoordelijk is voor het inzetten en beheren van dit AI-systeem.
+    value: De organisatie die verantwoordelijk is voor het inzetten en beheren van dit systeem.
   - locale: de
-    value: Die Organisation, die für den Einsatz und Betrieb dieses KI-Systems verantwortlich ist.
+    value: Die Organisation, die für den Einsatz und Betrieb dieses Systems verantwortlich ist.
 prompt:
   - locale: en
-    value: Who is accountable for this AI system?
+    value: Who is accountable for this system?
   - locale: fr
-    value: Qui est responsable de ce système d’IA ?
+    value: Qui est responsable de ce système ?
   - locale: es
-    value: ¿Quién es responsable de este sistema de IA?
+    value: ¿Quién es responsable de este sistema?
   - locale: pt
-    value: Quem é responsável por este sistema de IA?
+    value: Quem é responsável por este sistema?
   - locale: fil
-    value: Sino ang may pananagutan sa sistemang AI na ito?
+    value: Sino ang may pananagutan sa sistemang ito?
   - locale: km
-    value: តើអ្នកណាទទួលខុសត្រូវចំពោះប្រព័ន្ធ AI នេះ?
+    value: តើអ្នកណាទទួលខុសត្រូវចំពោះប្រព័ន្ធនេះ?
   - locale: vi
-    value: Ai chịu trách nhiệm về hệ thống AI này?
+    value: Ai chịu trách nhiệm về hệ thống này?
   - locale: zh-Hans
-    value: 谁对本AI系统负责？
+    value: 谁对本系统负责？
   - locale: zh-Hant
-    value: 誰為這個AI系統負責？
+    value: 誰為這個系統負責？
   - locale: nl
-    value: Wie is verantwoordelijk voor dit AI-systeem?
+    value: Wie is verantwoordelijk voor dit systeem?
   - locale: de
-    value: Wer ist für dieses KI-System verantwortlich?
+    value: Wer ist für dieses System verantwortlich?
 required: true
 order: 2
 datachain_type: dtpr
@@ -99,27 +99,27 @@ element_context:
       value: Rolle
   description:
     - locale: en
-      value: How this organization participates in the deployment of the AI system.
+      value: How this organization participates in the deployment of the system.
     - locale: fr
-      value: Comment cette organisation participe au déploiement du système d’IA.
+      value: Comment cette organisation participe au déploiement du système.
     - locale: es
-      value: Cómo participa esta organización en la implementación del sistema de IA.
+      value: Cómo participa esta organización en la implementación del sistema.
     - locale: pt
-      value: Como esta organização participa da implantação do sistema de IA.
+      value: Como esta organização participa da implantação do sistema.
     - locale: fil
-      value: Kung paano nakikilahok ang organisasyong ito sa pagpapatupad ng sistemang AI.
+      value: Kung paano nakikilahok ang organisasyong ito sa pagpapatupad ng sistema.
     - locale: km
-      value: របៀបដែលអង្គភាពនេះចូលរួមក្នុងការដាក់ឱ្យប្រើប្រាស់ប្រព័ន្ធ AI។
+      value: របៀបដែលអង្គភាពនេះចូលរួមក្នុងការដាក់ឱ្យប្រើប្រាស់ប្រព័ន្ធ។
     - locale: vi
-      value: Tổ chức này tham gia vào việc triển khai hệ thống AI như thế nào.
+      value: Tổ chức này tham gia vào việc triển khai hệ thống như thế nào.
     - locale: zh-Hans
-      value: 该组织以何种方式参与AI系统的部署。
+      value: 该组织以何种方式参与系统的部署。
     - locale: zh-Hant
-      value: 這個組織以何種方式參與AI系統的部署。
+      value: 這個組織以何種方式參與系統的部署。
     - locale: nl
-      value: Hoe deze organisatie betrokken is bij de inzet van het AI-systeem.
+      value: Hoe deze organisatie betrokken is bij de inzet van het systeem.
     - locale: de
-      value: Wie diese Organisation am Einsatz des KI-Systems beteiligt ist.
+      value: Wie diese Organisation am Einsatz des Systems beteiligt ist.
   values:
     - id: vendor
       name:
@@ -147,27 +147,27 @@ element_context:
           value: Anbieter
       description:
         - locale: en
-          value: The organization that builds, supplies, or licenses the AI system.
+          value: The organization that builds, supplies, or licenses the system.
         - locale: fr
-          value: L’organisation qui construit, fournit ou concède sous licence le système d’IA.
+          value: L’organisation qui construit, fournit ou concède sous licence le système.
         - locale: es
-          value: La organización que desarrolla, suministra o licencia el sistema de IA.
+          value: La organización que desarrolla, suministra o licencia el sistema.
         - locale: pt
-          value: A organização que desenvolve, fornece ou licencia o sistema de IA.
+          value: A organização que desenvolve, fornece ou licencia o sistema.
         - locale: fil
-          value: Ang organisasyong bumubuo, nagsusuplay, o nagbibigay ng lisensiya sa sistemang AI.
+          value: Ang organisasyong bumubuo, nagsusuplay, o nagbibigay ng lisensiya sa sistema.
         - locale: km
-          value: អង្គភាពដែលបង្កើត, ផ្គត់ផ្គង់, ឬផ្តល់អាជ្ញាបណ្ណប្រើប្រាស់ប្រព័ន្ធ AI។
+          value: អង្គភាពដែលបង្កើត, ផ្គត់ផ្គង់, ឬផ្តល់អាជ្ញាបណ្ណប្រើប្រាស់ប្រព័ន្ធ។
         - locale: vi
-          value: Tổ chức xây dựng, cung cấp hoặc cấp phép sử dụng hệ thống AI.
+          value: Tổ chức xây dựng, cung cấp hoặc cấp phép sử dụng hệ thống.
         - locale: zh-Hans
-          value: 构建、供应或授权许可该AI系统的组织。
+          value: 构建、供应或授权许可该系统的组织。
         - locale: zh-Hant
-          value: 建置、供應或授權這個AI系統的組織。
+          value: 建置、供應或授權這個系統的組織。
         - locale: nl
-          value: De organisatie die het AI-systeem bouwt, levert of in licentie geeft.
+          value: De organisatie die het systeem bouwt, levert of in licentie geeft.
         - locale: de
-          value: Die Organisation, die das KI-System entwickelt, liefert oder lizenziert.
+          value: Die Organisation, die das System entwickelt, liefert oder lizenziert.
       color: null
     - id: deployer
       name:
@@ -195,27 +195,27 @@ element_context:
           value: Betreiber
       description:
         - locale: en
-          value: The organization that deploys and operates the AI system in this place.
+          value: The organization that deploys and operates the system in this place.
         - locale: fr
-          value: L’organisation qui déploie et exploite le système d’IA dans ce lieu.
+          value: L’organisation qui déploie et exploite le système dans ce lieu.
         - locale: es
-          value: La organización que implementa y opera el sistema de IA en este lugar.
+          value: La organización que implementa y opera el sistema en este lugar.
         - locale: pt
-          value: A organização que implanta e opera o sistema de IA neste local.
+          value: A organização que implanta e opera o sistema neste local.
         - locale: fil
-          value: Ang organisasyong nagpapatupad at nagpapatakbo ng sistemang AI sa lugar na ito.
+          value: Ang organisasyong nagpapatupad at nagpapatakbo ng sistema sa lugar na ito.
         - locale: km
-          value: អង្គភាពដែលដាក់ឱ្យប្រើប្រាស់ និងដំណើរការប្រព័ន្ធ AI នៅទីកន្លែងនេះ។
+          value: អង្គភាពដែលដាក់ឱ្យប្រើប្រាស់ និងដំណើរការប្រព័ន្ធនៅទីកន្លែងនេះ។
         - locale: vi
-          value: Tổ chức triển khai và vận hành hệ thống AI tại nơi này.
+          value: Tổ chức triển khai và vận hành hệ thống tại nơi này.
         - locale: zh-Hans
-          value: 在此地部署并运营该AI系统的组织。
+          value: 在此地部署并运营该系统的组织。
         - locale: zh-Hant
-          value: 在此地點部署及營運這個AI系統的組織。
+          value: 在此地點部署及營運這個系統的組織。
         - locale: nl
-          value: De organisatie die het AI-systeem op deze plek inzet en beheert.
+          value: De organisatie die het systeem op deze plek inzet en beheert.
         - locale: de
-          value: Die Organisation, die das KI-System an diesem Ort einsetzt und betreibt.
+          value: Die Organisation, die das System an diesem Ort einsetzt und betreibt.
       color: null
 element_variables:
   - id: title

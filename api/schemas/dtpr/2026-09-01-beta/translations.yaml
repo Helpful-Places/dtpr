@@ -16,74 +16,90 @@ source_locale: en
 locales:
   - locale: fr
     status: unverified
-    updated_at: "2026-08-26"
+    updated_at: "2026-10-07"
     summary: >-
       Predates this workflow; who translated and reviewed it is not recorded. Two titles were
       flagged as diverging from the English during the 2026-10 pass.
+      On 2026-10-07, 73 strings were revised for sensor-neutral English wording and 4 added
+      for two new risk elements; those revisions have not had an independent review pass.
   - locale: es
     status: machine_reviewed
     register: Neutral Latin American Spanish, usted
     translated_by: claude-opus-5-5
     reviewed_by: claude-opus-5-5 (independent pass, 24 corrections)
-    updated_at: "2026-10-05"
+    updated_at: "2026-10-07"
     summary: >-
       Reviewer judged it publishable. Defects found were isolated false friends and calques, all
       corrected. A Latin American reader should settle the open term choices.
+      On 2026-10-07, 73 strings were revised for sensor-neutral English wording and 4 added
+      for two new risk elements; those revisions have not had an independent review pass.
   - locale: pt
     status: machine_reviewed
     register: Brazilian Portuguese
     translated_by: claude-opus-5-5
     reviewed_by: claude-opus-5-5 (independent pass, 13 corrections)
-    updated_at: "2026-10-05"
+    updated_at: "2026-10-07"
     summary: >-
       Reviewer judged it publishable. Only minor grammar and collocation slips, all corrected.
       "Deployer" is the one term that needs an owner's decision.
+      On 2026-10-07, 73 strings were revised for sensor-neutral English wording and 4 added
+      for two new risk elements; those revisions have not had an independent review pass.
   - locale: fil
     status: machine_reviewed
     register: Filipino (KWF spelling), polite plural kayo/ninyo
     translated_by: claude-opus-5-5
     reviewed_by: claude-opus-5-5 (independent pass, 27 corrections)
-    updated_at: "2026-10-05"
+    updated_at: "2026-10-07"
     summary: >-
       Reviewer judged it publishable. Word-for-word calques in longer descriptions were corrected.
       A native speaker should decide the deploy/enforce term collision before permanent signage.
+      On 2026-10-07, 73 strings were revised for sensor-neutral English wording and 4 added
+      for two new risk elements; those revisions have not had an independent review pass.
   - locale: km
     status: machine_reviewed
     register: Standard modern Khmer, no zero-width spaces
     translated_by: claude-opus-5-5
     reviewed_by: claude-opus-5-5 (independent pass, 24 corrections)
-    updated_at: "2026-10-05"
+    updated_at: "2026-10-07"
     summary: >-
       Acceptable for beta; needs a native pass before physical signage. Several short, visible
       titles rest on calques or term choices the reviewer could not settle with confidence, and
       model judgement of naturalness is least reliable in this locale.
+      On 2026-10-07, 73 strings were revised for sensor-neutral English wording and 4 added
+      for two new risk elements; those revisions have not had an independent review pass.
   - locale: vi
     status: machine_reviewed
     register: Vocabulary chosen to read naturally for both US diaspora and Vietnam readers
     translated_by: claude-opus-5-5
     reviewed_by: claude-opus-5-5 (independent pass, 49 corrections)
-    updated_at: "2026-10-05"
+    updated_at: "2026-10-07"
     summary: >-
       Reviewer judged it publishable with a short native spot-check. English-syntax calques were
       the main weakness and were corrected, along with one wrong-sense error (smart meter).
+      On 2026-10-07, 73 strings were revised for sensor-neutral English wording and 4 added
+      for two new risk elements; those revisions have not had an independent review pass.
   - locale: zh-Hans
     status: machine_reviewed
     register: Simplified characters, Mainland vocabulary, 您
     translated_by: claude-opus-5-5
     reviewed_by: claude-opus-5-5 (independent pass, 23 corrections)
-    updated_at: "2026-10-05"
+    updated_at: "2026-10-07"
     summary: >-
       Reviewer judged it publishable. English-shaped syntax in longer descriptions was corrected.
       A native spot-check of the short titles is prudent for rights-related signage.
+      On 2026-10-07, 73 strings were revised for sensor-neutral English wording and 4 added
+      for two new risk elements; those revisions have not had an independent review pass.
   - locale: zh-Hant
     status: machine_reviewed
     register: Traditional characters, Taiwan vocabulary, 您; translated independently of zh-Hans
     translated_by: claude-opus-5-5
     reviewed_by: claude-opus-5-5 (independent pass, 18 corrections)
-    updated_at: "2026-10-05"
+    updated_at: "2026-10-07"
     summary: >-
       Reviewer judged it publishable. Isolated word-sense slips were corrected. A native
       spot-check of the short icon titles is worthwhile before printing.
+      On 2026-10-07, 73 strings were revised for sensor-neutral English wording and 4 added
+      for two new risk elements; those revisions have not had an independent review pass.
   - locale: nl
     status: machine_reviewed
     register: Netherlands Dutch at B1 level, je; neutral vocabulary that also reads in Flanders
@@ -94,6 +110,8 @@ locales:
       Reviewer judged it publishable for beta. English-shaped syntax and a few false senses were
       corrected. A native reader should settle the category and role names and check the rights
       titles against AVG wording before physical signage.
+      On 2026-10-07, 73 strings were revised for sensor-neutral English wording and 4 added
+      for two new risk elements; those revisions have not had an independent review pass.
   - locale: de
     status: machine_reviewed
     register: Standard German (Germany), Sie; gender-neutral nouns and participles, no gender star
@@ -104,6 +122,8 @@ locales:
       Reviewer judged it publishable for beta, with no wrong-sense errors in titles. Calques and
       invented compounds in longer descriptions were corrected. A native reader with a
       data-protection background should sign off the legally loaded titles before signage.
+      On 2026-10-07, 73 strings were revised for sensor-neutral English wording and 4 added
+      for two new risk elements; those revisions have not had an independent review pass.
 
 flags:
   # --- English source ---
@@ -147,12 +167,25 @@ flags:
   - id: en-vendor-vs-provider
     locale: en
     kind: source_issue
-    status: open
+    status: resolved
     raised_by: translator
     keys:
       - elements/available_to_vendor.yaml#description
       - elements/not_available_to_vendor.yaml#description
-    note: The title says "vendor"; the description says "data collection or technology provider".
+    note: >-
+      The title said "vendor"; the description said "data collection or technology provider".
+      The descriptions now say "the vendor that builds or supplies the technology".
+  - id: en-right-to-notice-title
+    locale: en
+    kind: term_choice
+    status: open
+    raised_by: translator
+    keys:
+      - elements/right_to_notice.yaml#title
+    note: >-
+      Retitled from "Right to Be Informed of AI Use" so it also covers data collection. Without
+      its object the title reads bare or generic in several locales (es "Derecho a saber", pt
+      "Direito à informação", fil "Karapatang malaman", vi "Quyền được biết").
   - id: en-right-object-jargon
     locale: en
     kind: source_issue
@@ -199,9 +232,8 @@ flags:
     status: open
     raised_by: translator
     keys:
-      - elements/available_to_3rd_parties.yaml#description
       - elements/available_to_download.yaml#description
-    note: Each omits a clause that the English has.
+    note: Omits a clause that the English has.
   - id: fr-manifestation
     locale: fr
     kind: term_choice
@@ -1124,7 +1156,6 @@ flags:
       - elements/not_available_to_the_accountable_organization.yaml#title
       - elements/available_to_the_accountable_organization.yaml#title
       - elements/right_individual_decision_explanation.yaml#title
-      - elements/right_to_notice.yaml#title
       - elements/financial_harm.yaml#title
     note: >-
       The longest titles, at 37 to 53 characters. The first two could shorten to "(Nicht) für

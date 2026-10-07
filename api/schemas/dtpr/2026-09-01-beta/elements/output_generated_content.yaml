@@ -26,57 +26,57 @@ title:
 description:
   - locale: en
     value: >-
-      The AI produces new content — text, images, audio, or video that did not exist before.
+      The system produces new content — text, images, audio, or video that did not exist before.
       Examples: an LLM-written service advisory shown on a sign, a synthesized voice announcement
       played over a public-address system, a generated illustration on a digital kiosk.
   - locale: fr
     value: >-
-      L'IA produit du contenu nouveau : du texte, des images, de l'audio ou de la vidéo qui
+      Le système produit du contenu nouveau : du texte, des images, de l'audio ou de la vidéo qui
       n'existaient pas auparavant. Exemples : un avis de service rédigé par un LLM affiché sur un
       panneau, une annonce vocale synthétisée diffusée par un système de sonorisation, une
       illustration générée sur une borne numérique.
   - locale: es
     value: >-
-      La IA produce contenido nuevo — texto, imágenes, audio o video que no existían antes.
+      El sistema produce contenido nuevo — texto, imágenes, audio o video que no existían antes.
       Ejemplos: un aviso de servicio escrito por un modelo de lenguaje (LLM) que se muestra en un
       letrero, un anuncio con voz sintetizada que se emite por altavoces, una ilustración generada
       en un quiosco digital.
   - locale: pt
     value: >-
-      A IA produz conteúdo novo — texto, imagens, áudio ou vídeo que não existiam antes. Exemplos:
-      um aviso de serviço escrito por um LLM exibido em uma placa, um aviso com voz sintetizada
-      tocado em um sistema de som, uma ilustração gerada em um totem digital.
+      O sistema produz conteúdo novo — texto, imagens, áudio ou vídeo que não existiam antes.
+      Exemplos: um aviso de serviço escrito por um LLM exibido em uma placa, um aviso com voz
+      sintetizada tocado em um sistema de som, uma ilustração gerada em um totem digital.
   - locale: fil
     value: >-
-      Lumilikha ang AI ng bagong nilalaman — teksto, larawan, audio, o video na wala pa dati. Mga
-      halimbawa: abiso sa serbisyo na isinulat ng LLM at ipinapakita sa karatula, anunsiyo sa
+      Lumilikha ang sistema ng bagong nilalaman — teksto, larawan, audio, o video na wala pa dati.
+      Mga halimbawa: abiso sa serbisyo na isinulat ng LLM at ipinapakita sa karatula, anunsiyo sa
       sintetikong boses na ipinaririnig sa public address system, nilikhang ilustrasyon sa isang
       digital kiosk.
   - locale: km
     value: >-
-      AI បង្កើតខ្លឹមសារថ្មី — អត្ថបទ, រូបភាព, សំឡេង, ឬវីដេអូដែលមិនធ្លាប់មានពីមុន។ ឧទាហរណ៍៖
+      ប្រព័ន្ធបង្កើតខ្លឹមសារថ្មី — អត្ថបទ, រូបភាព, សំឡេង, ឬវីដេអូដែលមិនធ្លាប់មានពីមុន។ ឧទាហរណ៍៖
       សេចក្តីជូនដំណឹងអំពីសេវាសរសេរដោយ LLM ដែលបង្ហាញលើផ្លាកសញ្ញា,
       ការប្រកាសដោយសំឡេងសំយោគដែលចាក់តាមប្រព័ន្ធបំពងសំឡេងសាធារណៈ,
       រូបគំនូរដែលបង្កើតឡើងលើបញ្ជរស្វ័យសេវាឌីជីថល។
   - locale: vi
     value: >-
-      AI tạo ra nội dung mới — văn bản, hình ảnh, âm thanh hoặc video chưa từng có trước đó. Ví dụ:
-      một thông báo dịch vụ do mô hình ngôn ngữ lớn (LLM) viết hiển thị trên biển báo, một thông báo
-      bằng giọng nói tổng hợp phát qua loa phát thanh công cộng, một hình minh họa được tạo ra trên
-      ki-ốt kỹ thuật số.
+      Hệ thống tạo ra nội dung mới — văn bản, hình ảnh, âm thanh hoặc video chưa từng có trước đó.
+      Ví dụ: một thông báo dịch vụ do mô hình ngôn ngữ lớn (LLM) viết hiển thị trên biển báo, một
+      thông báo bằng giọng nói tổng hợp phát qua loa phát thanh công cộng, một hình minh họa được
+      tạo ra trên ki-ốt kỹ thuật số.
   - locale: zh-Hans
-    value: AI产生新的内容——此前并不存在的文本、图像、音频或视频。示例：显示在标牌上、由大语言模型撰写的服务通告，通过广播系统播放的合成语音播报，数字自助终端上的生成插图。
+    value: 系统产生新的内容——此前并不存在的文本、图像、音频或视频。示例：显示在标牌上、由大语言模型撰写的服务通告，通过广播系统播放的合成语音播报，数字自助终端上的生成插图。
   - locale: zh-Hant
-    value: AI產生新的內容：先前並不存在的文字、影像、音訊或影片。例如：顯示在看板上、由大型語言模型（LLM）撰寫的服務公告，透過廣播系統播放的合成語音廣播，數位自助服務機上的生成插圖。
+    value: 系統產生新的內容：先前並不存在的文字、影像、音訊或影片。例如：顯示在看板上、由大型語言模型（LLM）撰寫的服務公告，透過廣播系統播放的合成語音廣播，數位自助服務機上的生成插圖。
   - locale: nl
     value: >-
-      De AI levert nieuwe content op: tekst, beelden, audio of video die eerder niet bestond.
+      Het systeem levert nieuwe content op: tekst, beelden, audio of video die eerder niet bestond.
       Voorbeelden: een door een taalmodel (LLM) geschreven mededeling over de dienstverlening op een
       bord, een mededeling met computerstem via een omroepinstallatie, een gegenereerde illustratie
       op een digitale informatiezuil.
   - locale: de
     value: >-
-      Die KI erzeugt neue Inhalte – Texte, Bilder, Audio oder Videos, die es vorher nicht gab.
+      Das System erzeugt neue Inhalte – Texte, Bilder, Audio oder Videos, die es vorher nicht gab.
       Beispiele: ein von einem Sprachmodell (LLM) geschriebener Betriebshinweis auf einer
       Anzeigetafel, eine Durchsage mit synthetischer Stimme über eine Lautsprecheranlage, eine
       generierte Illustration auf einem digitalen Terminal.

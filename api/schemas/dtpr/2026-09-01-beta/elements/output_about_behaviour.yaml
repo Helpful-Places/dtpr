@@ -26,58 +26,58 @@ title:
 description:
   - locale: en
     value: >-
-      The AI produces records of what people did — paths walked, items selected, dwell times,
+      The system produces records of what people did — paths walked, items selected, dwell times,
       interaction patterns. Examples: a weekly report of most-visited destinations, a session log of
       touchscreen interactions, an inferred route someone took through a venue.
   - locale: fr
     value: >-
-      L'IA produit des registres de ce que les personnes ont fait : déplacements, articles choisis,
-      temps de présence, schémas d'interaction. Exemples : un rapport hebdomadaire des destinations
-      les plus visitées, un journal de session des interactions tactiles, un itinéraire inféré
-      qu'une personne a emprunté dans un lieu.
+      Le système produit des registres de ce que les personnes ont fait : déplacements, articles
+      choisis, temps de présence, schémas d'interaction. Exemples : un rapport hebdomadaire des
+      destinations les plus visitées, un journal de session des interactions tactiles, un itinéraire
+      inféré qu'une personne a emprunté dans un lieu.
   - locale: es
     value: >-
-      La IA produce registros de lo que hicieron las personas — recorridos a pie, artículos
+      El sistema produce registros de lo que hicieron las personas — recorridos a pie, artículos
       seleccionados, tiempos de permanencia, patrones de interacción. Ejemplos: un informe semanal
       de los destinos más visitados, un registro de sesión de las interacciones con una pantalla
       táctil, una ruta inferida que alguien siguió dentro de un recinto.
   - locale: pt
     value: >-
-      A IA produz registros do que as pessoas fizeram — trajetos percorridos, itens selecionados,
-      tempos de permanência, padrões de interação. Exemplos: um relatório semanal dos destinos mais
-      visitados, um registro de sessão das interações em tela sensível ao toque, uma rota inferida
-      que alguém percorreu em um local.
+      O sistema produz registros do que as pessoas fizeram — trajetos percorridos, itens
+      selecionados, tempos de permanência, padrões de interação. Exemplos: um relatório semanal dos
+      destinos mais visitados, um registro de sessão das interações em tela sensível ao toque, uma
+      rota inferida que alguém percorreu em um local.
   - locale: fil
     value: >-
-      Lumilikha ang AI ng mga rekord ng ginawa ng mga tao — mga dinaanang landas, mga piniling item,
-      tagal ng pananatili, mga pattern ng paggamit. Mga halimbawa: lingguhang ulat ng mga
+      Lumilikha ang sistema ng mga rekord ng ginawa ng mga tao — mga dinaanang landas, mga piniling
+      item, tagal ng pananatili, mga pattern ng paggamit. Mga halimbawa: lingguhang ulat ng mga
       destinasyong pinakamadalas puntahan, session log ng mga paggamit sa touchscreen, hinuhang
       rutang dinaanan ng isang tao sa loob ng isang venue.
   - locale: km
     value: >-
-      AI បង្កើតកំណត់ត្រាអំពីអ្វីដែលមនុស្សបានធ្វើ — ផ្លូវដែលបានដើរ, ទំនិញដែលបានជ្រើសរើស, រយៈពេលឈប់នៅ,
-      លំនាំនៃអន្តរកម្ម។ ឧទាហរណ៍៖ របាយការណ៍ប្រចាំសប្តាហ៍អំពីគោលដៅដែលមានអ្នកទៅច្រើនបំផុត,
+      ប្រព័ន្ធបង្កើតកំណត់ត្រាអំពីអ្វីដែលមនុស្សបានធ្វើ — ផ្លូវដែលបានដើរ, ទំនិញដែលបានជ្រើសរើស,
+      រយៈពេលឈប់នៅ, លំនាំនៃអន្តរកម្ម។ ឧទាហរណ៍៖ របាយការណ៍ប្រចាំសប្តាហ៍អំពីគោលដៅដែលមានអ្នកទៅច្រើនបំផុត,
       កំណត់ហេតុនៃអន្តរកម្មលើអេក្រង់ប៉ះក្នុងវគ្គប្រើប្រាស់មួយ,
       ផ្លូវដែលសន្និដ្ឋានថានរណាម្នាក់បានដើរកាត់ទីកន្លែងមួយ។
   - locale: vi
     value: >-
-      AI tạo ra các bản ghi về những gì mọi người đã làm — lối đi, món đã chọn, thời gian dừng lại,
-      kiểu tương tác. Ví dụ: báo cáo hằng tuần về các điểm đến được ghé nhiều nhất, nhật ký phiên về
-      các thao tác trên màn hình cảm ứng, một lộ trình được suy đoán mà ai đó đã đi qua trong một
-      địa điểm.
+      Hệ thống tạo ra các bản ghi về những gì mọi người đã làm — lối đi, món đã chọn, thời gian dừng
+      lại, kiểu tương tác. Ví dụ: báo cáo hằng tuần về các điểm đến được ghé nhiều nhất, nhật ký
+      phiên về các thao tác trên màn hình cảm ứng, một lộ trình được suy đoán mà ai đó đã đi qua
+      trong một địa điểm.
   - locale: zh-Hans
-    value: AI产生关于人们做了什么的记录——行走路径、所选项目、停留时间、交互模式。示例：列出到访最多的目的地的周报、触摸屏交互的会话日志、推断出的某人在场馆内的行走路线。
+    value: 系统产生关于人们做了什么的记录——行走路径、所选项目、停留时间、交互模式。示例：列出到访最多的目的地的周报、触摸屏交互的会话日志、推断出的某人在场馆内的行走路线。
   - locale: zh-Hant
-    value: AI產生人們行為的紀錄：行走路徑、選取的項目、停留時間、互動模式。例如：最常造訪目的地的每週報告、觸控螢幕互動的工作階段紀錄、推斷出某人在場館內行走的路線。
+    value: 系統產生人們行為的紀錄：行走路徑、選取的項目、停留時間、互動模式。例如：最常造訪目的地的每週報告、觸控螢幕互動的工作階段紀錄、推斷出某人在場館內行走的路線。
   - locale: nl
     value: >-
-      De AI levert gegevens op over wat mensen hebben gedaan: gelopen routes, gekozen items,
+      Het systeem levert gegevens op over wat mensen hebben gedaan: gelopen routes, gekozen items,
       verblijftijden, patronen in het gebruik. Voorbeelden: een weekrapport van de meest bezochte
       bestemmingen, een sessielogboek van aanrakingen op een touchscreen, een afgeleide route die
       iemand door een locatie heeft gelopen.
   - locale: de
     value: >-
-      Die KI erzeugt Aufzeichnungen darüber, was Menschen getan haben – zurückgelegte Wege,
+      Das System erzeugt Aufzeichnungen darüber, was Menschen getan haben – zurückgelegte Wege,
       ausgewählte Elemente, Verweildauern, Interaktionsmuster. Beispiele: ein Wochenbericht über die
       meistbesuchten Ziele, ein Sitzungsprotokoll der Eingaben am Touchscreen, eine abgeleitete
       Route, die jemand durch einen Veranstaltungsort genommen hat.

@@ -24,68 +24,50 @@ name:
     value: Eingabedaten
 description:
   - locale: en
-    value: >-
-      The input data this deployed system processes when it operates. Distinct from training
-      data.
+    value: The input data this deployed system processes when it operates.
   - locale: fr
-    value: >-
-      Les données d’entrée que ce système déployé traite lorsqu’il fonctionne. Distinctes des
-      données d’entraînement.
+    value: Les données d’entrée que ce système déployé traite lorsqu’il fonctionne.
   - locale: es
-    value: >-
-      Los datos de entrada que este sistema implementado procesa cuando funciona. Son distintos de
-      los datos de entrenamiento.
+    value: Los datos de entrada que este sistema implementado procesa cuando funciona.
   - locale: pt
-    value: >-
-      Os dados de entrada que este sistema implantado processa quando está em funcionamento. São
-      diferentes dos dados de treinamento.
+    value: Os dados de entrada que este sistema implantado processa quando está em funcionamento.
   - locale: fil
-    value: >-
-      Ang input na data na pinoproseso ng ipinatutupad na sistemang ito kapag tumatakbo ito. Iba ito
-      sa data na ginamit sa pagsasanay nito.
+    value: Ang input na data na pinoproseso ng ipinatutupad na sistemang ito kapag tumatakbo ito.
   - locale: km
-    value: >-
-      ទិន្នន័យបញ្ចូលដែលប្រព័ន្ធដែលបានដាក់ឱ្យប្រើប្រាស់នេះដំណើរការនៅពេលវាប្រតិបត្តិការ។
-      ខុសពីទិន្នន័យសម្រាប់បង្វឹក។
+    value: ទិន្នន័យបញ្ចូលដែលប្រព័ន្ធដែលបានដាក់ឱ្យប្រើប្រាស់នេះដំណើរការនៅពេលវាប្រតិបត្តិការ។
   - locale: vi
-    value: >-
-      Dữ liệu đầu vào mà hệ thống đã triển khai này xử lý khi hoạt động. Khác với dữ liệu huấn
-      luyện.
+    value: Dữ liệu đầu vào mà hệ thống đã triển khai này xử lý khi hoạt động.
   - locale: zh-Hans
-    value: 这一已部署的系统在运行时处理的输入数据。有别于训练数据。
+    value: 这一已部署的系统在运行时处理的输入数据。
   - locale: zh-Hant
-    value: 這個已部署的系統在運作時處理的輸入資料，有別於訓練資料。
+    value: 這個已部署的系統在運作時處理的輸入資料。
   - locale: nl
-    value: >-
-      De invoergegevens die dit ingezette systeem verwerkt terwijl het werkt. Dit zijn niet de
-      trainingsgegevens.
+    value: De invoergegevens die dit ingezette systeem verwerkt terwijl het werkt.
   - locale: de
-    value: >-
-      Die Eingabedaten, die dieses eingesetzte System im Betrieb verarbeitet. Nicht zu verwechseln
-      mit Trainingsdaten.
+    value: Die Eingabedaten, die dieses eingesetzte System im Betrieb verarbeitet.
 prompt:
   - locale: en
-    value: What input data does this AI system process?
+    value: What input data does this system process?
   - locale: fr
-    value: Quelles données d’entrée ce système d’IA traite-t-il ?
+    value: Quelles données d’entrée ce système traite-t-il ?
   - locale: es
-    value: ¿Qué datos de entrada procesa este sistema de IA?
+    value: ¿Qué datos de entrada procesa este sistema?
   - locale: pt
-    value: Que dados de entrada este sistema de IA processa?
+    value: Que dados de entrada este sistema processa?
   - locale: fil
-    value: Anong input na data ang pinoproseso ng sistemang AI na ito?
+    value: Anong input na data ang pinoproseso ng sistemang ito?
   - locale: km
-    value: តើប្រព័ន្ធ AI នេះដំណើរការទិន្នន័យបញ្ចូលអ្វីខ្លះ?
+    value: តើប្រព័ន្ធនេះដំណើរការទិន្នន័យបញ្ចូលអ្វីខ្លះ?
   - locale: vi
-    value: Hệ thống AI này xử lý dữ liệu đầu vào nào?
+    value: Hệ thống này xử lý dữ liệu đầu vào nào?
   - locale: zh-Hans
-    value: 本AI系统处理哪些输入数据？
+    value: 本系统处理哪些输入数据？
   - locale: zh-Hant
-    value: 這個AI系統處理哪些輸入資料？
+    value: 這個系統處理哪些輸入資料？
   - locale: nl
-    value: Welke invoergegevens verwerkt dit AI-systeem?
+    value: Welke invoergegevens verwerkt dit systeem?
   - locale: de
-    value: Welche Eingabedaten verarbeitet dieses KI-System?
+    value: Welche Eingabedaten verarbeitet dieses System?
 required: false
 order: 8
 datachain_type: dtpr

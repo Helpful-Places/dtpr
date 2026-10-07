@@ -24,27 +24,27 @@ name:
     value: Datenzugriff
 description:
   - locale: en
-    value: Who can see or use the data produced by this AI system.
+    value: Who can see or use the data this system collects or produces.
   - locale: fr
-    value: Qui peut voir ou utiliser les données produites par ce système d’IA.
+    value: Qui peut voir ou utiliser les données que ce système collecte ou produit.
   - locale: es
-    value: Quién puede ver o usar los datos que produce este sistema de IA.
+    value: Quién puede ver o usar los datos que recopila o produce este sistema.
   - locale: pt
-    value: Quem pode ver ou usar os dados produzidos por este sistema de IA.
+    value: Quem pode ver ou usar os dados que este sistema coleta ou produz.
   - locale: fil
-    value: Kung sino ang maaaring makakita o gumamit ng data na nililikha ng sistemang AI na ito.
+    value: Kung sino ang maaaring makakita o gumamit ng data na kinokolekta o nililikha ng sistemang ito.
   - locale: km
-    value: អ្នកណាអាចមើល ឬប្រើទិន្នន័យដែលប្រព័ន្ធ AI នេះបង្កើត។
+    value: អ្នកណាអាចមើល ឬប្រើទិន្នន័យដែលប្រព័ន្ធនេះប្រមូល ឬបង្កើត។
   - locale: vi
-    value: Ai có thể xem hoặc sử dụng dữ liệu do hệ thống AI này tạo ra.
+    value: Ai có thể xem hoặc sử dụng dữ liệu mà hệ thống này thu thập hoặc tạo ra.
   - locale: zh-Hans
-    value: 谁可以查看或使用本AI系统产生的数据。
+    value: 谁可以查看或使用本系统收集或产生的数据。
   - locale: zh-Hant
-    value: 誰可以查看或使用這個AI系統產生的資料。
+    value: 誰可以查看或使用這個系統收集或產生的資料。
   - locale: nl
-    value: Wie de gegevens die dit AI-systeem oplevert kan zien of gebruiken.
+    value: Wie de gegevens die dit systeem verzamelt of oplevert kan zien of gebruiken.
   - locale: de
-    value: Wer die Daten, die dieses KI-System erzeugt, einsehen oder nutzen kann.
+    value: Wer die Daten, die dieses System erhebt oder erzeugt, einsehen oder nutzen kann.
 prompt:
   - locale: en
     value: Who has access to the data?

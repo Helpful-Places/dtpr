@@ -25,31 +25,29 @@ title:
     value: Nicht für den Anbieter zugänglich
 description:
   - locale: en
-    value: Data is not available to the data collection or technology provider.
+    value: Data is not available to the vendor that builds or supplies the technology.
   - locale: fr
     value: >-
-      Les données ne sont pas disponibles pour le fournisseur de la collecte de données ou de la
+      Les données ne sont pas disponibles pour le fournisseur qui construit ou fournit la
       technologie.
   - locale: es
-    value: >-
-      Los datos no están disponibles para el proveedor de la recopilación de datos o de la
-      tecnología.
+    value: Los datos no están disponibles para el proveedor que desarrolla o suministra la tecnología.
   - locale: pt
-    value: Os dados não estão disponíveis para o fornecedor da coleta de dados ou da tecnologia.
+    value: Os dados não estão disponíveis para o fornecedor que desenvolve ou fornece a tecnologia.
   - locale: fil
-    value: Hindi maa-access ang data ng provider ng pangongolekta ng data o ng teknolohiya.
+    value: Hindi maa-access ang data ng vendor na bumubuo o nagsusuplay ng teknolohiya.
   - locale: km
-    value: អ្នកផ្តល់សេវាប្រមូលទិន្នន័យ ឬអ្នកផ្តល់បច្ចេកវិទ្យាមិនអាចចូលប្រើទិន្នន័យបានទេ។
+    value: អ្នកផ្គត់ផ្គង់ដែលបង្កើត ឬផ្គត់ផ្គង់បច្ចេកវិទ្យាមិនអាចចូលប្រើទិន្នន័យបានទេ។
   - locale: vi
-    value: Nhà cung cấp dịch vụ thu thập dữ liệu hoặc công nghệ không thể truy cập dữ liệu.
+    value: Nhà cung cấp xây dựng hoặc cung cấp công nghệ không thể truy cập dữ liệu.
   - locale: zh-Hans
-    value: 数据收集方或技术提供方无法获取数据。
+    value: 构建或供应该技术的供应商无法获取数据。
   - locale: zh-Hant
-    value: 資料收集或技術的供應商無法取得資料。
+    value: 建置或供應這項技術的供應商無法取得資料。
   - locale: nl
-    value: >-
-      Gegevens zijn niet beschikbaar voor de partij die de gegevens verzamelt of de technologie
-      levert.
+    value: Gegevens zijn niet beschikbaar voor de leverancier die de technologie bouwt of levert.
   - locale: de
-    value: Die Daten sind für den Anbieter der Datenerhebung oder der Technologie nicht zugänglich.
+    value: >-
+      Die Daten sind für den Anbieter, der die Technologie entwickelt oder liefert, nicht
+      zugänglich.
 symbol_id: not_available

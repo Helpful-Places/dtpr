@@ -1,0 +1,116 @@
+id: security_breach
+category_id: risks_mitigation
+title:
+  - locale: en
+    value: Security & data breach
+  - locale: fr
+    value: Sécurité et violation de données
+  - locale: es
+    value: Brecha de seguridad y de datos
+  - locale: pt
+    value: Violação de segurança e de dados
+  - locale: fil
+    value: Paglabag sa seguridad at data
+  - locale: km
+    value: ការបំពានសន្តិសុខ និងទិន្នន័យ
+  - locale: vi
+    value: Sự cố bảo mật và rò rỉ dữ liệu
+  - locale: zh-Hans
+    value: 安全与数据泄露
+  - locale: zh-Hant
+    value: 資安與資料外洩
+  - locale: nl
+    value: Beveiligingsincident en datalek
+  - locale: de
+    value: Sicherheitsverletzungen und Datenpannen
+description:
+  - locale: en
+    value: >-
+      The risk that this system or the data it holds is accessed, stolen, altered, or taken over by
+      someone who should not have it. This includes risks from hacked cameras or sensors, leaked
+      databases, intercepted transmissions, insider misuse, and tampering that makes a system
+      report or act falsely. Mitigations may include encryption in storage and in transit, strict
+      access controls, regular security testing, prompt software updates, and notifying affected
+      people when a breach occurs.
+  - locale: fr
+    value: >-
+      Le risque que ce système ou les données qu'il détient soient consultés, volés, modifiés ou
+      pris sous contrôle par une personne qui ne devrait pas y avoir accès. Cela inclut les risques
+      liés au piratage de caméras ou de capteurs, aux fuites de bases de données, à l'interception
+      de transmissions, aux abus internes et aux manipulations qui amènent un système à produire de
+      fausses informations ou à agir de manière erronée. Les mesures d'atténuation peuvent inclure
+      le chiffrement des données stockées et en transit, des contrôles d'accès stricts, des tests de
+      sécurité réguliers, des mises à jour logicielles rapides et la notification des personnes
+      concernées en cas de violation.
+  - locale: es
+    value: >-
+      El riesgo de que alguien que no debería tenerlos acceda a este sistema o a los datos que
+      guarda, los robe, los altere o tome su control. Esto incluye riesgos derivados de cámaras o
+      sensores hackeados, bases de datos filtradas, transmisiones interceptadas, uso indebido por
+      parte de personal interno y manipulaciones que hacen que un sistema informe o actúe de manera
+      falsa. Las medidas de mitigación pueden incluir cifrado de los datos almacenados y en
+      tránsito, controles de acceso estrictos, pruebas de seguridad periódicas, actualizaciones de
+      software oportunas y notificación a las personas afectadas cuando ocurre una brecha.
+  - locale: pt
+    value: >-
+      O risco de que este sistema ou os dados que ele mantém sejam acessados, roubados, alterados ou
+      controlados por alguém que não deveria ter acesso a eles. Isso inclui riscos decorrentes de
+      câmeras ou sensores invadidos, de bancos de dados vazados, de transmissões interceptadas, de
+      uso indevido por pessoas de dentro da organização e de adulterações que fazem um sistema
+      informar ou agir de forma falsa. As medidas de mitigação podem incluir criptografia no
+      armazenamento e na transmissão, controles rígidos de acesso, testes de segurança regulares,
+      atualizações rápidas de software e a notificação das pessoas afetadas quando ocorre uma
+      violação.
+  - locale: fil
+    value: >-
+      Ang panganib na ang sistemang ito o ang data na hawak nito ay ma-access, manakaw, mabago, o
+      makontrol ng sinumang hindi dapat magkaroon nito. Kasama rito ang mga panganib mula sa mga
+      na-hack na kamera o sensor, mga na-leak na database, mga naharang na transmisyon, maling
+      paggamit ng mga tagaloob, at pakikialam na nagiging dahilan para mag-ulat o kumilos nang mali
+      ang isang sistema. Maaaring kabilang sa mga hakbang para mabawasan ang panganib ang encryption
+      habang nakaimbak at habang ipinapadala, mahihigpit na kontrol sa access, regular na pagsubok
+      sa seguridad, agarang pag-update ng software, at pag-abiso sa mga apektadong tao kapag may
+      nangyaring paglabag.
+  - locale: km
+    value: >-
+      ហានិភ័យដែលប្រព័ន្ធនេះ ឬទិន្នន័យដែលវារក្សាទុក ត្រូវបានចូលប្រើ, លួច, កែប្រែ,
+      ឬដណ្តើមកាន់កាប់ដោយនរណាម្នាក់ដែលមិនគួរមានសិទ្ធិ។ នេះរួមមានហានិភ័យពីកាមេរ៉ា
+      ឬឧបករណ៍ចាប់សញ្ញាដែលត្រូវបានគេលួចចូល, មូលដ្ឋានទិន្នន័យដែលលេចធ្លាយ,
+      ការបញ្ជូនទិន្នន័យដែលត្រូវបានគេស្ទាក់ចាប់, ការប្រើប្រាស់ខុសដោយបុគ្គលផ្ទៃក្នុង,
+      និងការកែបន្លំដែលធ្វើឱ្យប្រព័ន្ធរាយការណ៍ ឬធ្វើសកម្មភាពមិនត្រឹមត្រូវ។ វិធានការកាត់បន្ថយអាចរួមមាន
+      ការអ៊ិនគ្រីបទិន្នន័យពេលរក្សាទុក និងពេលបញ្ជូន, ការគ្រប់គ្រងសិទ្ធិចូលប្រើយ៉ាងតឹងរ៉ឹង,
+      ការធ្វើតេស្តសន្តិសុខជាប្រចាំ, ការធ្វើបច្ចុប្បន្នភាពកម្មវិធីឱ្យបានឆាប់រហ័ស,
+      និងការជូនដំណឹងដល់អ្នករងផលប៉ះពាល់នៅពេលមានការបំពានកើតឡើង។
+  - locale: vi
+    value: >-
+      Rủi ro hệ thống này hoặc dữ liệu mà nó lưu giữ bị người không có quyền truy cập, đánh cắp, sửa
+      đổi hoặc chiếm quyền kiểm soát. Điều này bao gồm rủi ro từ camera hoặc cảm biến bị xâm nhập,
+      cơ sở dữ liệu bị rò rỉ, đường truyền bị chặn thu, người trong nội bộ lạm dụng quyền, và hành
+      vi can thiệp khiến hệ thống báo cáo hoặc hoạt động sai lệch. Biện pháp giảm thiểu có thể gồm
+      mã hóa khi lưu trữ và khi truyền, kiểm soát truy cập chặt chẽ, kiểm tra bảo mật định kỳ, cập
+      nhật phần mềm kịp thời, và thông báo cho những người bị ảnh hưởng khi xảy ra sự cố rò rỉ.
+  - locale: zh-Hans
+    value: >-
+      本系统或其持有的数据被无权者访问、窃取、篡改或控制的风险。这包括摄像头或传感器遭黑客入侵、数据库泄露、传输被截获、内部人员滥用，以及使系统作出虚假报告或错误动作的篡改所带来的风险。缓解措施可包括存储和传输过程中的加密、严格的访问控制、定期安全测试、及时更新软件，以及在发生泄露时通知受影响的人。
+  - locale: zh-Hant
+    value: >-
+      這個系統或其持有的資料遭不應取得的人存取、竊取、竄改或掌控的風險。包括攝影機或感測器遭駭、資料庫外洩、傳輸遭攔截、內部人員濫用，以及使系統回報不實資訊或做出錯誤動作的竄改等風險。因應措施可包括儲存與傳輸時加密、嚴格的存取控管、定期安全測試、即時更新軟體，以及在發生外洩時通知受影響的人。
+  - locale: nl
+    value: >-
+      Het risico dat iemand die dat niet mag, dit systeem of de gegevens die het bewaart kan inzien,
+      stelen, veranderen of overnemen. Hieronder vallen risico's door gehackte camera's of sensoren,
+      gelekte databases, onderschepte gegevensoverdracht, misbruik door mensen van binnenuit en
+      manipulatie waardoor een systeem verkeerde informatie doorgeeft of verkeerd handelt. Mogelijke
+      maatregelen zijn versleuteling bij opslag en tijdens verzending, strikte toegangscontrole,
+      regelmatige beveiligingstests, snelle software-updates en het informeren van getroffen mensen
+      bij een datalek.
+  - locale: de
+    value: >-
+      Das Risiko, dass Unbefugte auf dieses System oder die darin gespeicherten Daten zugreifen, sie
+      stehlen, verändern oder die Kontrolle darüber übernehmen. Dazu gehören Risiken durch gehackte
+      Kameras oder Sensoren, Datenlecks aus Datenbanken, abgefangene Übertragungen, Missbrauch durch
+      Personen mit internem Zugang und Manipulationen, durch die ein System falsche Angaben macht
+      oder falsch handelt. Mögliche Gegenmaßnahmen sind Verschlüsselung bei Speicherung und
+      Übertragung, strenge Zugriffskontrollen, regelmäßige Sicherheitstests, zeitnahe
+      Software-Updates und die Benachrichtigung betroffener Personen bei einer Datenpanne.
+symbol_id: risks_security

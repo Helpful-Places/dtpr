@@ -26,56 +26,56 @@ title:
 description:
   - locale: en
     value: >-
-      AI systems that read, write, summarize, translate, or hold a conversation in human language.
+      Models that read, write, summarize, translate, or hold a conversation in human language.
       Includes large language models (LLMs), chatbots, and generative-text systems. They work by
       predicting the most likely next tokens given the input and any prior context.
   - locale: fr
     value: >-
-      Systèmes d'IA qui lisent, écrivent, résument, traduisent ou tiennent une conversation en
-      langage humain. Cela inclut les grands modèles de langage (LLM), les chatbots et les systèmes
-      de génération de texte. Ils fonctionnent en prédisant les jetons les plus probables à partir
-      de l'entrée et du contexte antérieur.
+      Modèles qui lisent, écrivent, résument, traduisent ou tiennent une conversation en langage
+      humain. Cela inclut les grands modèles de langage (LLM), les chatbots et les systèmes de
+      génération de texte. Ils fonctionnent en prédisant les jetons les plus probables à partir de
+      l'entrée et du contexte antérieur.
   - locale: es
     value: >-
-      Sistemas de IA que leen, escriben, resumen, traducen o mantienen una conversación en lenguaje
-      humano. Incluye los modelos de lenguaje de gran tamaño (LLM), los chatbots y los sistemas que
-      generan texto. Funcionan prediciendo los tokens siguientes más probables a partir de la
-      entrada y de cualquier contexto previo.
+      Modelos que leen, escriben, resumen, traducen o mantienen una conversación en lenguaje humano.
+      Incluye los modelos de lenguaje de gran tamaño (LLM), los chatbots y los sistemas que generan
+      texto. Funcionan prediciendo los tokens siguientes más probables a partir de la entrada y de
+      cualquier contexto previo.
   - locale: pt
     value: >-
-      Sistemas de IA que leem, escrevem, resumem, traduzem ou mantêm uma conversa em linguagem
-      humana. Incluem grandes modelos de linguagem (LLMs), chatbots e sistemas de geração de texto.
+      Modelos que leem, escrevem, resumem, traduzem ou mantêm uma conversa em linguagem humana.
+      Incluem grandes modelos de linguagem (LLMs), chatbots e sistemas de geração de texto.
       Funcionam prevendo os próximos tokens mais prováveis a partir da entrada e de qualquer
       contexto anterior.
   - locale: fil
     value: >-
-      Mga sistemang AI na bumabasa, sumusulat, nagbubuod, nagsasalin, o nakikipag-usap sa wika ng
-      tao. Kasama ang mga large language model (LLM), chatbot, at sistemang lumilikha ng teksto.
-      Gumagana ang mga ito sa pamamagitan ng paghula ng pinakamalamang na susunod na mga token batay
-      sa input at anumang naunang konteksto.
+      Mga modelong bumabasa, sumusulat, nagbubuod, nagsasalin, o nakikipag-usap sa wika ng tao.
+      Kasama ang mga large language model (LLM), chatbot, at sistemang lumilikha ng teksto. Gumagana
+      ang mga ito sa pamamagitan ng paghula ng pinakamalamang na susunod na mga token batay sa input
+      at anumang naunang konteksto.
   - locale: km
     value: >-
-      ប្រព័ន្ធ AI ដែលអាន, សរសេរ, សង្ខេប, បកប្រែ, ឬសន្ទនាជាភាសាមនុស្ស។ រួមមានម៉ូដែលភាសាធំ (LLM),
-      ឆាតបត, និងប្រព័ន្ធបង្កើតអត្ថបទ។ វាដំណើរការដោយព្យាករណ៍បំណែកពាក្យ (token) បន្ទាប់ដែលទំនងបំផុត
+      ម៉ូដែលដែលអាន, សរសេរ, សង្ខេប, បកប្រែ, ឬសន្ទនាជាភាសាមនុស្ស។ រួមមានម៉ូដែលភាសាធំ (LLM), ឆាតបត,
+      និងប្រព័ន្ធបង្កើតអត្ថបទ។ វាដំណើរការដោយព្យាករណ៍បំណែកពាក្យ (token) បន្ទាប់ដែលទំនងបំផុត
       ដោយផ្អែកលើទិន្នន័យបញ្ចូល និងបរិបទពីមុន។
   - locale: vi
     value: >-
-      Các hệ thống AI đọc, viết, tóm tắt, dịch hoặc trò chuyện bằng ngôn ngữ của con người. Bao gồm
-      mô hình ngôn ngữ lớn (LLM), chatbot và các hệ thống tạo văn bản. Chúng hoạt động bằng cách dự
+      Các mô hình đọc, viết, tóm tắt, dịch hoặc trò chuyện bằng ngôn ngữ của con người. Bao gồm mô
+      hình ngôn ngữ lớn (LLM), chatbot và các hệ thống tạo văn bản. Chúng hoạt động bằng cách dự
       đoán những token tiếp theo có khả năng xuất hiện nhất, dựa trên đầu vào và ngữ cảnh trước đó.
   - locale: zh-Hans
-    value: 能用人类语言阅读、写作、总结、翻译或对话的AI系统。包括大语言模型（LLM）、聊天机器人和文本生成系统。其工作原理是根据输入和已有上下文，预测最可能出现的后续词元。
+    value: 能用人类语言阅读、写作、总结、翻译或对话的模型。包括大语言模型（LLM）、聊天机器人和文本生成系统。其工作原理是根据输入和已有上下文，预测最可能出现的后续词元。
   - locale: zh-Hant
-    value: 能以人類語言閱讀、書寫、摘要、翻譯或進行對話的AI系統。包括大型語言模型（LLM）、聊天機器人及文字生成系統。其運作方式是根據輸入內容與先前的脈絡，預測最可能接續的詞元（token）。
+    value: 能以人類語言閱讀、書寫、摘要、翻譯或進行對話的模型。包括大型語言模型（LLM）、聊天機器人及文字生成系統。其運作方式是根據輸入內容與先前的脈絡，預測最可能接續的詞元（token）。
   - locale: nl
     value: >-
-      AI-systemen die menselijke taal lezen, schrijven, samenvatten, vertalen of er een gesprek in
+      Modellen die menselijke taal lezen, schrijven, samenvatten, vertalen of er een gesprek in
       voeren. Hieronder vallen grote taalmodellen (LLM's), chatbots en systemen die tekst genereren.
       Ze werken door te voorspellen welke tokens het meest waarschijnlijk volgen op de invoer en de
       eerdere context.
   - locale: de
     value: >-
-      KI-Systeme, die menschliche Sprache lesen, schreiben, zusammenfassen und übersetzen oder
+      Modelle, die menschliche Sprache lesen, schreiben, zusammenfassen und übersetzen oder
       Gespräche führen. Dazu gehören große Sprachmodelle (LLMs), Chatbots und Systeme, die Text
       generieren. Sie funktionieren, indem sie aus der Eingabe und dem bisherigen Kontext die
       wahrscheinlichsten nächsten Wortbausteine (Tokens) vorhersagen.

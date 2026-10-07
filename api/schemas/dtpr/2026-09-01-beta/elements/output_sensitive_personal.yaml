@@ -26,61 +26,61 @@ title:
 description:
   - locale: en
     value: >-
-      The AI produces output about health, finances, beliefs, sexuality, immigration status, or
+      The system produces output about health, finances, beliefs, sexuality, immigration status, or
       other categories that carry legal and social risk. Examples: a triage priority assigned at a
       clinic, an eligibility result sent to a benefits portal, an inferred protected attribute
       exported downstream.
   - locale: fr
     value: >-
-      L'IA produit une sortie portant sur la santé, les finances, les convictions, la sexualité, la
-      situation migratoire ou d'autres catégories porteuses de risque légal et social. Exemples :
-      une priorité de triage attribuée en clinique, un résultat d'éligibilité envoyé à un portail de
-      prestations, un attribut protégé inféré et exporté.
+      Le système produit une sortie portant sur la santé, les finances, les convictions, la
+      sexualité, la situation migratoire ou d'autres catégories porteuses de risque légal et social.
+      Exemples : une priorité de triage attribuée en clinique, un résultat d'éligibilité envoyé à un
+      portail de prestations, un attribut protégé inféré et exporté.
   - locale: es
     value: >-
-      La IA produce un resultado sobre salud, finanzas, creencias, sexualidad, situación migratoria
-      u otras categorías que conllevan riesgos legales y sociales. Ejemplos: una prioridad de triaje
-      asignada en una clínica, un resultado de elegibilidad enviado a un portal de beneficios, un
-      atributo protegido inferido que se exporta a sistemas posteriores.
+      El sistema produce un resultado sobre salud, finanzas, creencias, sexualidad, situación
+      migratoria u otras categorías que conllevan riesgos legales y sociales. Ejemplos: una
+      prioridad de triaje asignada en una clínica, un resultado de elegibilidad enviado a un portal
+      de beneficios, un atributo protegido inferido que se exporta a sistemas posteriores.
   - locale: pt
     value: >-
-      A IA produz saídas sobre saúde, finanças, crenças, sexualidade, situação migratória ou outras
-      categorias que envolvem risco jurídico e social. Exemplos: uma prioridade de triagem atribuída
-      em uma clínica, um resultado de elegibilidade enviado a um portal de benefícios, um atributo
-      protegido inferido e exportado para etapas seguintes.
+      O sistema produz saídas sobre saúde, finanças, crenças, sexualidade, situação migratória ou
+      outras categorias que envolvem risco jurídico e social. Exemplos: uma prioridade de triagem
+      atribuída em uma clínica, um resultado de elegibilidade enviado a um portal de benefícios, um
+      atributo protegido inferido e exportado para etapas seguintes.
   - locale: fil
     value: >-
-      Lumilikha ang AI ng output tungkol sa kalusugan, pananalapi, paniniwala, seksuwalidad,
+      Lumilikha ang sistema ng output tungkol sa kalusugan, pananalapi, paniniwala, seksuwalidad,
       katayuan sa imigrasyon, o iba pang kategoryang may kaakibat na panganib na legal at
       panlipunan. Mga halimbawa: prayoridad sa triage na itinalaga sa klinika, resulta ng
       kuwalipikasyon na ipinadala sa portal ng benepisyo, hinuhang protektadong katangian na
       ine-export sa mga susunod na sistema.
   - locale: km
     value: >-
-      AI បង្កើតលទ្ធផលអំពីសុខភាព, ហិរញ្ញវត្ថុ, ជំនឿ, ភេទភាព, ស្ថានភាពអន្តោប្រវេសន៍,
+      ប្រព័ន្ធបង្កើតលទ្ធផលអំពីសុខភាព, ហិរញ្ញវត្ថុ, ជំនឿ, ភេទភាព, ស្ថានភាពអន្តោប្រវេសន៍,
       ឬប្រភេទផ្សេងទៀតដែលមានហានិភ័យផ្នែកច្បាប់ និងសង្គម។ ឧទាហរណ៍៖ កម្រិតអាទិភាពដែលកំណត់នៅគ្លីនិក,
       លទ្ធផលភាពមានសិទ្ធិទទួលបានដែលបញ្ជូនទៅវិបផតថលអត្ថប្រយោជន៍ពីរដ្ឋ,
       លក្ខណៈដែលត្រូវការពារដែលបានសន្និដ្ឋានហើយបញ្ជូនចេញទៅប្រព័ន្ធបន្ទាប់។
   - locale: vi
     value: >-
-      AI tạo ra kết quả đầu ra về sức khỏe, tài chính, tín ngưỡng, tính dục, tình trạng di trú, hoặc
-      các loại khác mang rủi ro về pháp lý và xã hội. Ví dụ: mức ưu tiên khám được gán tại một phòng
-      khám, kết quả xét điều kiện được gửi đến cổng thông tin phúc lợi, một đặc điểm được pháp luật
-      bảo vệ bị suy đoán ra rồi xuất sang hệ thống phía sau.
+      Hệ thống tạo ra kết quả đầu ra về sức khỏe, tài chính, tín ngưỡng, tính dục, tình trạng di
+      trú, hoặc các loại khác mang rủi ro về pháp lý và xã hội. Ví dụ: mức ưu tiên khám được gán tại
+      một phòng khám, kết quả xét điều kiện được gửi đến cổng thông tin phúc lợi, một đặc điểm được
+      pháp luật bảo vệ bị suy đoán ra rồi xuất sang hệ thống phía sau.
   - locale: zh-Hans
-    value: AI产生的输出涉及健康、财务、信仰、性取向、移民身份，或其他带有法律和社会风险的类别。示例：诊所分配的分诊优先级、发送到福利门户网站的资格审核结果、推断得出并导出到下游的受保护属性。
+    value: 系统产生的输出涉及健康、财务、信仰、性取向、移民身份，或其他带有法律和社会风险的类别。示例：诊所分配的分诊优先级、发送到福利门户网站的资格审核结果、推断得出并导出到下游的受保护属性。
   - locale: zh-Hant
-    value: AI產生涉及健康、財務、信仰、性傾向、移民身分，或其他帶有法律與社會風險之類別的輸出結果。例如：診所指派的分流優先順序、傳送到福利入口網站的資格審查結果、推斷出並匯出到下游的受保護特徵。
+    value: 系統產生涉及健康、財務、信仰、性傾向、移民身分，或其他帶有法律與社會風險之類別的輸出結果。例如：診所指派的分流優先順序、傳送到福利入口網站的資格審查結果、推斷出並匯出到下游的受保護特徵。
   - locale: nl
     value: >-
-      De AI levert uitvoer op over gezondheid, financiën, overtuigingen, seksualiteit,
+      Het systeem levert uitvoer op over gezondheid, financiën, overtuigingen, seksualiteit,
       verblijfsstatus of andere categorieën die juridische en sociale risico's met zich meebrengen.
       Voorbeelden: een triageprioriteit die in een kliniek wordt toegekend, een uitslag over het
       recht op een uitkering die naar een uitkeringsportaal wordt gestuurd, een afgeleid beschermd
       kenmerk dat naar systemen verderop in de keten wordt geëxporteerd.
   - locale: de
     value: >-
-      Die KI erzeugt Ergebnisse zu Gesundheit, Finanzen, Überzeugungen, Sexualität,
+      Das System erzeugt Ergebnisse zu Gesundheit, Finanzen, Überzeugungen, Sexualität,
       Aufenthaltsstatus oder anderen Kategorien, die rechtliche und soziale Risiken bergen.
       Beispiele: eine in einer Klinik vergebene Triage-Priorität, ein an ein Sozialleistungsportal
       gesendetes Ergebnis einer Anspruchsprüfung, ein abgeleitetes geschütztes Merkmal, das an

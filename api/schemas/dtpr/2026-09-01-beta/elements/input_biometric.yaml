@@ -26,56 +26,56 @@ title:
 description:
   - locale: en
     value: >-
-      Faces, fingerprints, voice prints, gait, gestures, gaze, posture. The AI takes in biological
-      signals from a person's body. Examples: a face captured at a turnstile, a voice recorded by a
-      kiosk microphone, gait analyzed by an overhead camera.
+      Faces, fingerprints, voice prints, gait, gestures, gaze, posture. The system takes in
+      biological signals from a person's body. Examples: a face captured at a turnstile, a voice
+      recorded by a kiosk microphone, gait analyzed by an overhead camera.
   - locale: fr
     value: >-
-      Visages, empreintes digitales, empreintes vocales, démarche, gestes, regard, posture. L'IA
-      reçoit des signaux biologiques provenant du corps d'une personne. Exemples : un visage capturé
-      à un tourniquet, une voix enregistrée par le microphone d'une borne, une démarche analysée par
-      une caméra zénithale.
+      Visages, empreintes digitales, empreintes vocales, démarche, gestes, regard, posture. Le
+      système reçoit des signaux biologiques provenant du corps d'une personne. Exemples : un visage
+      capturé à un tourniquet, une voix enregistrée par le microphone d'une borne, une démarche
+      analysée par une caméra zénithale.
   - locale: es
     value: >-
-      Rostros, huellas dactilares, huellas de voz, forma de caminar, gestos, mirada, postura. La IA
-      recibe señales biológicas del cuerpo de una persona. Ejemplos: un rostro captado en un
+      Rostros, huellas dactilares, huellas de voz, forma de caminar, gestos, mirada, postura. El
+      sistema recibe señales biológicas del cuerpo de una persona. Ejemplos: un rostro captado en un
       torniquete, una voz grabada por el micrófono de un quiosco, la forma de caminar analizada por
       una cámara instalada en lo alto.
   - locale: pt
     value: >-
-      Rostos, impressões digitais, impressões de voz, modo de andar, gestos, olhar, postura. A IA
-      recebe sinais biológicos do corpo de uma pessoa. Exemplos: um rosto captado em uma catraca,
-      uma voz gravada pelo microfone de um totem, o modo de andar analisado por uma câmera instalada
-      no alto.
+      Rostos, impressões digitais, impressões de voz, modo de andar, gestos, olhar, postura. O
+      sistema recebe sinais biológicos do corpo de uma pessoa. Exemplos: um rosto captado em uma
+      catraca, uma voz gravada pelo microfone de um totem, o modo de andar analisado por uma câmera
+      instalada no alto.
   - locale: fil
     value: >-
       Mga mukha, fingerprint, voice print, paraan ng paglakad, kumpas, tingin, tindig. Tumatanggap
-      ang AI ng mga senyales mula sa katawan ng isang tao. Mga halimbawa: mukhang nakunan sa
+      ang sistema ng mga senyales mula sa katawan ng isang tao. Mga halimbawa: mukhang nakunan sa
       turnstile, boses na ni-record ng mikropono ng kiosk, paraan ng paglakad na sinuri ng kamerang
       nasa itaas.
   - locale: km
     value: >-
-      មុខ, ស្នាមម្រាមដៃ, ស្នាមសំឡេង, របៀបដើរ, កាយវិការ, ទិសដៅភ្នែក, ឥរិយាបថរាងកាយ។ AI
-      ទទួលយកសញ្ញាជីវសាស្ត្រពីរាងកាយរបស់បុគ្គល។ ឧទាហរណ៍៖ មុខដែលចាប់បាននៅច្រកទ្វារបង្វិល,
+      មុខ, ស្នាមម្រាមដៃ, ស្នាមសំឡេង, របៀបដើរ, កាយវិការ, ទិសដៅភ្នែក, ឥរិយាបថរាងកាយ។
+      ប្រព័ន្ធទទួលយកសញ្ញាជីវសាស្ត្រពីរាងកាយរបស់បុគ្គល។ ឧទាហរណ៍៖ មុខដែលចាប់បាននៅច្រកទ្វារបង្វិល,
       សំឡេងដែលថតដោយមីក្រូហ្វូនរបស់បញ្ជរស្វ័យសេវា, របៀបដើរដែលវិភាគដោយកាមេរ៉ាពីលើ។
   - locale: vi
     value: >-
-      Khuôn mặt, dấu vân tay, mẫu giọng nói, dáng đi, cử chỉ, hướng nhìn, tư thế. AI tiếp nhận các
-      tín hiệu sinh học từ cơ thể một người. Ví dụ: một khuôn mặt được ghi lại tại cổng xoay, một
-      giọng nói được micrô của ki-ốt thu lại, dáng đi được camera gắn trên cao phân tích.
+      Khuôn mặt, dấu vân tay, mẫu giọng nói, dáng đi, cử chỉ, hướng nhìn, tư thế. Hệ thống tiếp nhận
+      các tín hiệu sinh học từ cơ thể một người. Ví dụ: một khuôn mặt được ghi lại tại cổng xoay,
+      một giọng nói được micrô của ki-ốt thu lại, dáng đi được camera gắn trên cao phân tích.
   - locale: zh-Hans
-    value: 面部、指纹、声纹、步态、手势、视线、姿态。AI接收来自人体的生物信号。示例：在闸机处采集的面部图像、自助终端麦克风录下的声音、由顶置摄像头分析的步态。
+    value: 面部、指纹、声纹、步态、手势、视线、姿态。系统接收来自人体的生物信号。示例：在闸机处采集的面部图像、自助终端麦克风录下的声音、由顶置摄像头分析的步态。
   - locale: zh-Hant
-    value: 臉孔、指紋、聲紋、步態、手勢、視線、姿勢。AI接收來自人體的生物訊號。例如：在驗票閘門擷取的臉孔、自助服務機麥克風錄下的聲音、由上方攝影機分析的步態。
+    value: 臉孔、指紋、聲紋、步態、手勢、視線、姿勢。系統接收來自人體的生物訊號。例如：在驗票閘門擷取的臉孔、自助服務機麥克風錄下的聲音、由上方攝影機分析的步態。
   - locale: nl
     value: >-
       Gezichten, vingerafdrukken, stemafdrukken, manier van lopen, gebaren, blikrichting, houding.
-      De AI krijgt lichaamskenmerken van een persoon binnen. Voorbeelden: een gezicht dat bij een
-      toegangspoortje wordt vastgelegd, een stem die door de microfoon van een informatiezuil wordt
-      opgenomen, een manier van lopen die door een camera aan het plafond wordt geanalyseerd.
+      Het systeem krijgt lichaamskenmerken van een persoon binnen. Voorbeelden: een gezicht dat bij
+      een toegangspoortje wordt vastgelegd, een stem die door de microfoon van een informatiezuil
+      wordt opgenomen, een manier van lopen die door een camera aan het plafond wordt geanalyseerd.
   - locale: de
     value: >-
-      Gesichter, Fingerabdrücke, Stimmabdrücke, Gang, Gesten, Blick, Körperhaltung. Die KI nimmt
+      Gesichter, Fingerabdrücke, Stimmabdrücke, Gang, Gesten, Blick, Körperhaltung. Das System nimmt
       biologische Merkmale vom Körper einer Person auf. Beispiele: ein an einem Drehkreuz erfasstes
       Gesicht, eine vom Mikrofon eines Terminals aufgenommene Stimme, ein von einer Deckenkamera
       ausgewerteter Gang.

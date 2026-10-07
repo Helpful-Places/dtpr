@@ -24,29 +24,27 @@ name:
     value: Risiken und Gegenmaßnahmen
 description:
   - locale: en
-    value: The risks this AI system could create and how they’re being addressed.
+    value: The risks this system could create and how they’re being addressed.
   - locale: fr
-    value: Les risques que ce système d’IA pourrait créer et la manière dont ils sont traités.
+    value: Les risques que ce système pourrait créer et la manière dont ils sont traités.
   - locale: es
-    value: Los riesgos que este sistema de IA podría generar y cómo se están atendiendo.
+    value: Los riesgos que este sistema podría generar y cómo se están atendiendo.
   - locale: pt
-    value: Os riscos que este sistema de IA pode criar e como estão sendo enfrentados.
+    value: Os riscos que este sistema pode criar e como estão sendo enfrentados.
   - locale: fil
-    value: >-
-      Ang mga panganib na maaaring idulot ng sistemang AI na ito at kung paano tinutugunan ang mga
-      ito.
+    value: Ang mga panganib na maaaring idulot ng sistemang ito at kung paano tinutugunan ang mga ito.
   - locale: km
-    value: ហានិភ័យដែលប្រព័ន្ធ AI នេះអាចបង្កឡើង និងរបៀបដែលហានិភ័យទាំងនោះកំពុងត្រូវបានដោះស្រាយ។
+    value: ហានិភ័យដែលប្រព័ន្ធនេះអាចបង្កឡើង និងរបៀបដែលហានិភ័យទាំងនោះកំពុងត្រូវបានដោះស្រាយ។
   - locale: vi
-    value: Những rủi ro mà hệ thống AI này có thể gây ra và cách chúng đang được xử lý.
+    value: Những rủi ro mà hệ thống này có thể gây ra và cách chúng đang được xử lý.
   - locale: zh-Hans
-    value: 本AI系统可能带来的风险，以及应对这些风险的方式。
+    value: 本系统可能带来的风险，以及应对这些风险的方式。
   - locale: zh-Hant
-    value: 這個AI系統可能帶來的風險，以及目前的因應方式。
+    value: 這個系統可能帶來的風險，以及目前的因應方式。
   - locale: nl
-    value: De risico's die dit AI-systeem kan veroorzaken en wat eraan wordt gedaan.
+    value: De risico's die dit systeem kan veroorzaken en wat eraan wordt gedaan.
   - locale: de
-    value: Die Risiken, die von diesem KI-System ausgehen könnten, und wie ihnen begegnet wird.
+    value: Die Risiken, die von diesem System ausgehen könnten, und wie ihnen begegnet wird.
 prompt:
   - locale: en
     value: What are the risks and how are they mitigated?

@@ -31,7 +31,7 @@ export const READ_LIMIT_PER_MINUTE = 300
  */
 export const ICON_LIMIT_PER_MINUTE = 1200
 
-/** Elements endpoint caps `?limit=` at 200; 137 elements fit in one page. */
+/** Elements endpoint caps `?limit=` at 200; 139 elements fit in one page. */
 export const MAX_PAGE_SIZE = 200
 
 export interface LocalizedValue {

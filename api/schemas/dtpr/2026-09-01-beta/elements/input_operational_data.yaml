@@ -27,64 +27,66 @@ description:
   - locale: en
     value: >-
       Schedules, routes, budgets, occupancy counts, public records, or other administrative data —
-      not about any one person. The AI takes in data describing how a place or service runs.
+      not about any one person. The system takes in data describing how a place or service runs.
       Examples: school occupancy by hour, trash-collection routes, a transit timetable, a department
       budget.
   - locale: fr
     value: >-
       Horaires, itinéraires, budgets, comptages d'occupation, registres publics ou autres données
-      administratives — qui ne concernent aucune personne en particulier. L'IA reçoit des données
-      décrivant le fonctionnement d'un lieu ou d'un service. Exemples : occupation d'une école par
-      heure, tournées de collecte des ordures, horaires de transports, budget d'un service.
+      administratives — qui ne concernent aucune personne en particulier. Le système reçoit des
+      données décrivant le fonctionnement d'un lieu ou d'un service. Exemples : occupation d'une
+      école par heure, tournées de collecte des ordures, horaires de transports, budget d'un
+      service.
   - locale: es
     value: >-
       Horarios, rutas, presupuestos, conteos de ocupación, registros públicos u otros datos
-      administrativos — que no tratan de ninguna persona en particular. La IA recibe datos que
+      administrativos — que no tratan de ninguna persona en particular. El sistema recibe datos que
       describen cómo funciona un lugar o un servicio. Ejemplos: ocupación de una escuela por hora,
       rutas de recolección de basura, un horario de transporte público, el presupuesto de un
       departamento.
   - locale: pt
     value: >-
       Horários, rotas, orçamentos, contagens de ocupação, registros públicos ou outros dados
-      administrativos — que não tratam de nenhuma pessoa em particular. A IA recebe dados que
+      administrativos — que não tratam de nenhuma pessoa em particular. O sistema recebe dados que
       descrevem como um lugar ou serviço funciona. Exemplos: ocupação de uma escola por hora, rotas
       de coleta de lixo, uma tabela de horários do transporte público, o orçamento de um
       departamento.
   - locale: fil
     value: >-
       Mga iskedyul, ruta, badyet, bilang ng taong nasa isang lugar, pampublikong rekord, o iba pang
-      data na administratibo — hindi tungkol sa sinumang partikular na tao. Tumatanggap ang AI ng
-      data na naglalarawan kung paano tumatakbo ang isang lugar o serbisyo. Mga halimbawa: dami ng
-      tao sa paaralan kada oras, mga ruta ng paghahakot ng basura, timetable ng pampublikong
+      data na administratibo — hindi tungkol sa sinumang partikular na tao. Tumatanggap ang sistema
+      ng data na naglalarawan kung paano tumatakbo ang isang lugar o serbisyo. Mga halimbawa: dami
+      ng tao sa paaralan kada oras, mga ruta ng paghahakot ng basura, timetable ng pampublikong
       sasakyan, badyet ng isang departamento.
   - locale: km
     value: >-
       កាលវិភាគ, ផ្លូវធ្វើដំណើរ, ថវិកា, ចំនួនអ្នកប្រើទីកន្លែង, កំណត់ត្រាសាធារណៈ,
-      ឬទិន្នន័យរដ្ឋបាលផ្សេងទៀត — មិនមែនអំពីបុគ្គលណាម្នាក់ទេ។ AI
-      ទទួលយកទិន្នន័យដែលពណ៌នាពីរបៀបដែលទីកន្លែង ឬសេវាមួយដំណើរការ។ ឧទាហរណ៍៖
+      ឬទិន្នន័យរដ្ឋបាលផ្សេងទៀត — មិនមែនអំពីបុគ្គលណាម្នាក់ទេ។
+      ប្រព័ន្ធទទួលយកទិន្នន័យដែលពណ៌នាពីរបៀបដែលទីកន្លែង ឬសេវាមួយដំណើរការ។ ឧទាហរណ៍៖
       ចំនួនមនុស្សក្នុងសាលារៀនតាមម៉ោង, ផ្លូវប្រមូលសំរាម, តារាងពេលវេលាដឹកជញ្ជូនសាធារណៈ,
       ថវិការបស់នាយកដ្ឋាន។
   - locale: vi
     value: >-
       Lịch trình, tuyến đường, ngân sách, số người có mặt, hồ sơ công, hoặc dữ liệu hành chính khác
-      — không nói về riêng một người nào. AI tiếp nhận dữ liệu mô tả cách một nơi hoặc một dịch vụ
-      vận hành. Ví dụ: số người có mặt tại trường theo giờ, tuyến thu gom rác, bảng giờ xe công
-      cộng, ngân sách của một sở ngành.
+      — không nói về riêng một người nào. Hệ thống tiếp nhận dữ liệu mô tả cách một nơi hoặc một
+      dịch vụ vận hành. Ví dụ: số người có mặt tại trường theo giờ, tuyến thu gom rác, bảng giờ xe
+      công cộng, ngân sách của một sở ngành.
   - locale: zh-Hans
     value: >-
-      日程安排、路线、预算、占用人数统计、公共记录或其他行政管理数据——不针对任何特定个人。AI接收描述某一场所或服务如何运转的数据。示例：学校各时段的使用人数、垃圾收运路线、公共交通时刻表、部门预算。
+      日程安排、路线、预算、占用人数统计、公共记录或其他行政管理数据——不针对任何特定个人。系统接收描述某一场所或服务如何运转的数据。示例：学校各时段的使用人数、垃圾收运路线、公共交通时刻表、部门预算。
   - locale: zh-Hant
-    value: 時程表、路線、預算、使用人數統計、公共紀錄或其他行政資料，不涉及任何特定個人。AI接收描述場所或服務如何運作的資料。例如：學校各時段的使用人數、垃圾收運路線、大眾運輸時刻表、部門預算。
+    value: 時程表、路線、預算、使用人數統計、公共紀錄或其他行政資料，不涉及任何特定個人。系統接收描述場所或服務如何運作的資料。例如：學校各時段的使用人數、垃圾收運路線、大眾運輸時刻表、部門預算。
   - locale: nl
     value: >-
       Roosters, routes, budgetten, bezettingscijfers, openbare registers of andere administratieve
-      gegevens, die niet over één persoon gaan. De AI krijgt gegevens binnen die beschrijven hoe een
-      plek of dienst draait. Voorbeelden: de bezetting van een school per uur, routes voor het
-      ophalen van afval, een dienstregeling van het openbaar vervoer, het budget van een afdeling.
+      gegevens, die niet over één persoon gaan. Het systeem krijgt gegevens binnen die beschrijven
+      hoe een plek of dienst draait. Voorbeelden: de bezetting van een school per uur, routes voor
+      het ophalen van afval, een dienstregeling van het openbaar vervoer, het budget van een
+      afdeling.
   - locale: de
     value: >-
       Zeitpläne, Routen, Budgets, Belegungszahlen, öffentliche Register oder andere Verwaltungsdaten
-      – nicht über eine einzelne Person. Die KI nimmt Daten auf, die beschreiben, wie ein Ort oder
-      eine Dienstleistung funktioniert. Beispiele: Schulbelegung nach Stunden, Routen der
+      – nicht über eine einzelne Person. Das System nimmt Daten auf, die beschreiben, wie ein Ort
+      oder eine Dienstleistung funktioniert. Beispiele: Schulbelegung nach Stunden, Routen der
       Müllabfuhr, ein Nahverkehrsfahrplan, das Budget einer Abteilung.
 symbol_id: operational_data

@@ -27,62 +27,63 @@ description:
   - locale: en
     value: >-
       An eligibility, classification, ranking, or yes/no that another system already made about a
-      person. The AI takes in this prior decision and uses it as input. Examples: a credit score
+      person. The system takes in this prior decision and uses it as input. Examples: a credit score
       from another model, an access-allow flag from upstream, a triage class assigned earlier in the
       pipeline.
   - locale: fr
     value: >-
       Une éligibilité, classification, hiérarchisation, ou un oui/non qu'un autre système a déjà
-      décidé sur une personne. L'IA reçoit cette décision antérieure et l'utilise en entrée.
+      décidé sur une personne. Le système reçoit cette décision antérieure et l'utilise en entrée.
       Exemples : un score de crédit issu d'un autre modèle, un drapeau d'accès autorisé venant
       d'amont, une classe de triage attribuée plus tôt dans le pipeline.
   - locale: es
     value: >-
       Una elegibilidad, clasificación, ranking o un sí/no que otro sistema ya determinó sobre una
-      persona. La IA recibe esta decisión previa y la usa como dato de entrada. Ejemplos: un puntaje
-      de crédito de otro modelo, una señal de acceso permitido proveniente de un sistema anterior,
-      una categoría de triaje asignada antes en el proceso.
+      persona. El sistema recibe esta decisión previa y la usa como dato de entrada. Ejemplos: un
+      puntaje de crédito de otro modelo, una señal de acceso permitido proveniente de un sistema
+      anterior, una categoría de triaje asignada antes en el proceso.
   - locale: pt
     value: >-
       Uma elegibilidade, classificação, ranking ou um sim/não que outro sistema já definiu sobre uma
-      pessoa. A IA recebe essa decisão anterior e a usa como entrada. Exemplos: uma pontuação de
-      crédito vinda de outro modelo, um sinal de acesso liberado vindo de uma etapa anterior, uma
+      pessoa. O sistema recebe essa decisão anterior e a usa como entrada. Exemplos: uma pontuação
+      de crédito vinda de outro modelo, um sinal de acesso liberado vindo de uma etapa anterior, uma
       classe de triagem atribuída mais cedo no fluxo.
   - locale: fil
     value: >-
       Isang pasya kung kuwalipikado, pag-uuri, pagraranggo, o oo/hindi na ginawa na ng ibang sistema
-      tungkol sa isang tao. Tinatanggap ng AI ang naunang desisyong ito at ginagamit bilang input.
-      Mga halimbawa: credit score mula sa ibang modelo, marka mula sa naunang sistema na pinapayagan
-      ang pagpasok, klase ng triage na itinalaga sa mas naunang bahagi ng proseso.
+      tungkol sa isang tao. Tinatanggap ng sistema ang naunang desisyong ito at ginagamit bilang
+      input. Mga halimbawa: credit score mula sa ibang modelo, marka mula sa naunang sistema na
+      pinapayagan ang pagpasok, klase ng triage na itinalaga sa mas naunang bahagi ng proseso.
   - locale: km
     value: >-
       ភាពមានសិទ្ធិទទួលបាន, ការចាត់ថ្នាក់, ចំណាត់ថ្នាក់, ឬចម្លើយបាទ/ចាស ឬទេ
-      ដែលប្រព័ន្ធផ្សេងបានសម្រេចរួចហើយអំពីបុគ្គលម្នាក់។ AI ទទួលយកការសម្រេចចិត្តពីមុននេះ
+      ដែលប្រព័ន្ធផ្សេងបានសម្រេចរួចហើយអំពីបុគ្គលម្នាក់។ ប្រព័ន្ធទទួលយកការសម្រេចចិត្តពីមុននេះ
       ហើយប្រើវាជាទិន្នន័យបញ្ចូល។ ឧទាហរណ៍៖ ពិន្ទុឥណទានពីម៉ូដែលផ្សេង,
       សញ្ញាអនុញ្ញាតឱ្យចូលពីប្រព័ន្ធមុន, ថ្នាក់អាទិភាពដែលបានកំណត់មុននេះក្នុងខ្សែដំណើរការ។
   - locale: vi
     value: >-
       Một kết quả xét điều kiện, phân loại, xếp hạng, hoặc câu trả lời có/không mà một hệ thống khác
-      đã đưa ra về một người. AI tiếp nhận quyết định có từ trước này và dùng nó làm đầu vào. Ví dụ:
-      điểm tín dụng từ một mô hình khác, tín hiệu cho phép ra vào từ khâu trước, mức ưu tiên đã được
-      gán ở bước trước trong quy trình.
+      đã đưa ra về một người. Hệ thống tiếp nhận quyết định có từ trước này và dùng nó làm đầu vào.
+      Ví dụ: điểm tín dụng từ một mô hình khác, tín hiệu cho phép ra vào từ khâu trước, mức ưu tiên
+      đã được gán ở bước trước trong quy trình.
   - locale: zh-Hans
-    value: 另一个系统已针对某人作出的资格认定、分类、排名或“是/否”判定。AI接收这一先前的决定并将其作为输入。示例：来自另一个模型的信用评分、上游传来的准许通行标记、流程中较早环节给出的分诊级别。
+    value: 另一个系统已针对某人作出的资格认定、分类、排名或“是/否”判定。系统接收这一先前的决定并将其作为输入。示例：来自另一个模型的信用评分、上游传来的准许通行标记、流程中较早环节给出的分诊级别。
   - locale: zh-Hant
-    value: 另一個系統已經對某人做出的資格判定、分類、排名或是或否的判定。AI接收這項先前的決定並作為輸入。例如：來自另一個模型的信用評分、上游傳來的允許進入標記、流程前段指派的分流等級。
+    value: 另一個系統已經對某人做出的資格判定、分類、排名或是或否的判定。系統接收這項先前的決定並作為輸入。例如：來自另一個模型的信用評分、上游傳來的允許進入標記、流程前段指派的分流等級。
   - locale: nl
     value: >-
       Een beslissing die een ander systeem al over een persoon heeft genomen: of iemand ergens recht
-      op heeft, een classificatie, een rangschikking of een ja of nee. De AI krijgt deze eerdere
-      beslissing binnen en gebruikt die als invoer. Voorbeelden: een kredietscore van een ander
-      model, een signaal van eerder in de keten dat iemand toegang mag krijgen, een triageklasse die
-      eerder in het proces is toegekend.
+      op heeft, een classificatie, een rangschikking of een ja of nee. Het systeem krijgt deze
+      eerdere beslissing binnen en gebruikt die als invoer. Voorbeelden: een kredietscore van een
+      ander model, een signaal van eerder in de keten dat iemand toegang mag krijgen, een
+      triageklasse die eerder in het proces is toegekend.
   - locale: de
     value: >-
       Eine Anspruchsprüfung, Einstufung, Rangfolge oder Ja-Nein-Entscheidung, die ein anderes System
-      bereits über eine Person getroffen hat. Die KI nimmt diese frühere Entscheidung auf und nutzt
-      sie als Eingabe. Beispiele: ein Bonitätswert aus einem anderen Modell, eine Zugangsfreigabe
-      aus einem vorgelagerten System, eine Triage-Stufe, die früher im Ablauf vergeben wurde.
+      bereits über eine Person getroffen hat. Das System nimmt diese frühere Entscheidung auf und
+      nutzt sie als Eingabe. Beispiele: ein Bonitätswert aus einem anderen Modell, eine
+      Zugangsfreigabe aus einem vorgelagerten System, eine Triage-Stufe, die früher im Ablauf
+      vergeben wurde.
 sources:
   - type: regulation
     title: EU AI Act Article 3(1) — output classes (predictions, content, recommendations, decisions)

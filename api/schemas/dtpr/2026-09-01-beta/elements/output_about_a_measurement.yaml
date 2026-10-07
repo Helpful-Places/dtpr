@@ -26,58 +26,58 @@ title:
 description:
   - locale: en
     value: >-
-      The AI produces numeric measurements over time — sensor outputs, derived quality scores,
+      The system produces numeric measurements over time — sensor outputs, derived quality scores,
       forecasted values. Examples: an hourly air-quality score for a plaza, a predicted ridership
       curve for tomorrow, an aggregated noise-level reading published to a public dashboard.
   - locale: fr
     value: >-
-      L'IA produit des mesures numériques au fil du temps : sorties de capteurs, indices de qualité
-      dérivés, valeurs prévues. Exemples : un indice de qualité de l'air horaire pour une place, une
-      courbe d'affluence prévue pour demain, une lecture de niveau sonore agrégée publiée sur un
-      tableau de bord public.
+      Le système produit des mesures numériques au fil du temps : sorties de capteurs, indices de
+      qualité dérivés, valeurs prévues. Exemples : un indice de qualité de l'air horaire pour une
+      place, une courbe d'affluence prévue pour demain, une lecture de niveau sonore agrégée publiée
+      sur un tableau de bord public.
   - locale: es
     value: >-
-      La IA produce mediciones numéricas a lo largo del tiempo — resultados de sensores, puntajes de
-      calidad derivados, valores pronosticados. Ejemplos: un puntaje de calidad del aire por hora
-      para una plaza, una curva de pasajeros prevista para mañana, una lectura agregada del nivel de
-      ruido publicada en un panel público.
+      El sistema produce mediciones numéricas a lo largo del tiempo — resultados de sensores,
+      puntajes de calidad derivados, valores pronosticados. Ejemplos: un puntaje de calidad del aire
+      por hora para una plaza, una curva de pasajeros prevista para mañana, una lectura agregada del
+      nivel de ruido publicada en un panel público.
   - locale: pt
     value: >-
-      A IA produz medições numéricas ao longo do tempo — saídas de sensores, índices de qualidade
-      derivados, valores previstos. Exemplos: um índice horário de qualidade do ar de uma praça, uma
-      curva prevista de número de passageiros para amanhã, uma leitura agregada de nível de ruído
-      publicada em um painel público.
+      O sistema produz medições numéricas ao longo do tempo — saídas de sensores, índices de
+      qualidade derivados, valores previstos. Exemplos: um índice horário de qualidade do ar de uma
+      praça, uma curva prevista de número de passageiros para amanhã, uma leitura agregada de nível
+      de ruído publicada em um painel público.
   - locale: fil
     value: >-
-      Lumilikha ang AI ng mga sukat na numero sa paglipas ng panahon — mga output ng sensor,
+      Lumilikha ang sistema ng mga sukat na numero sa paglipas ng panahon — mga output ng sensor,
       hinangong iskor ng kalidad, mga hinuhulaang halaga. Mga halimbawa: iskor ng kalidad ng hangin
       kada oras para sa isang plaza, hinuhulaang kurba ng dami ng pasahero para bukas,
       pinagsama-samang sukat ng lakas ng ingay na inilalathala sa isang pampublikong dashboard.
   - locale: km
     value: >-
-      AI បង្កើតទិន្នន័យវាស់ជាលេខតាមពេលវេលា — លទ្ធផលពីឧបករណ៍ចាប់សញ្ញា, ពិន្ទុគុណភាពដែលគណនាបាន,
+      ប្រព័ន្ធបង្កើតទិន្នន័យវាស់ជាលេខតាមពេលវេលា — លទ្ធផលពីឧបករណ៍ចាប់សញ្ញា, ពិន្ទុគុណភាពដែលគណនាបាន,
       តម្លៃដែលព្យាករណ៍។ ឧទាហរណ៍៖ ពិន្ទុគុណភាពខ្យល់ប្រចាំម៉ោងសម្រាប់ទីលានមួយ,
       ខ្សែកោងព្យាករណ៍ចំនួនអ្នកដំណើរសម្រាប់ថ្ងៃស្អែក,
       តម្លៃកម្រិតសំឡេងរំខានដែលបូកសរុបរួមហើយផ្សាយលើផ្ទាំងបង្ហាញទិន្នន័យសាធារណៈ។
   - locale: vi
     value: >-
-      AI tạo ra các số đo theo thời gian — số liệu từ cảm biến, điểm chất lượng được tính ra, giá
-      trị dự báo. Ví dụ: điểm chất lượng không khí theo giờ của một quảng trường, đường cong lượng
-      hành khách dự đoán cho ngày mai, số đo mức tiếng ồn tổng hợp được đăng trên bảng thông tin
-      công khai.
+      Hệ thống tạo ra các số đo theo thời gian — số liệu từ cảm biến, điểm chất lượng được tính ra,
+      giá trị dự báo. Ví dụ: điểm chất lượng không khí theo giờ của một quảng trường, đường cong
+      lượng hành khách dự đoán cho ngày mai, số đo mức tiếng ồn tổng hợp được đăng trên bảng thông
+      tin công khai.
   - locale: zh-Hans
-    value: AI产生随时间变化的数值测量结果——传感器输出、推算出的质量评分、预测值。示例：某广场每小时的空气质量评分、明天的客流预测曲线、发布在公共数据看板上的噪声水平汇总读数。
+    value: 系统产生随时间变化的数值测量结果——传感器输出、推算出的质量评分、预测值。示例：某广场每小时的空气质量评分、明天的客流预测曲线、发布在公共数据看板上的噪声水平汇总读数。
   - locale: zh-Hant
-    value: AI產生隨時間變化的數值測量結果：感測器輸出、推算出的品質分數、預測值。例如：廣場每小時的空氣品質分數、明天的預測搭乘人次曲線、發布在公開儀表板上的彙總噪音量讀數。
+    value: 系統產生隨時間變化的數值測量結果：感測器輸出、推算出的品質分數、預測值。例如：廣場每小時的空氣品質分數、明天的預測搭乘人次曲線、發布在公開儀表板上的彙總噪音量讀數。
   - locale: nl
     value: >-
-      De AI levert meetwaarden in de loop van de tijd op: uitvoer van sensoren, afgeleide
+      Het systeem levert meetwaarden in de loop van de tijd op: uitvoer van sensoren, afgeleide
       kwaliteitsscores, voorspelde waarden. Voorbeelden: een luchtkwaliteitsscore per uur voor een
       plein, een voorspelde curve van reizigersaantallen voor morgen, een samengevoegde
       geluidsmeting die op een openbaar dashboard wordt gepubliceerd.
   - locale: de
     value: >-
-      Die KI erzeugt Zahlenwerte im Zeitverlauf – Sensorwerte, abgeleitete Qualitätswerte,
+      Das System erzeugt Zahlenwerte im Zeitverlauf – Sensorwerte, abgeleitete Qualitätswerte,
       prognostizierte Werte. Beispiele: ein stündlicher Luftqualitätswert für einen Platz, eine
       vorhergesagte Kurve der Fahrgastzahlen für morgen, ein zusammengefasster Lärmpegelwert, der
       auf einem öffentlichen Dashboard veröffentlicht wird.

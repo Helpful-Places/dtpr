@@ -26,55 +26,57 @@ title:
 description:
   - locale: en
     value: >-
-      Taps, choices, paths walked, dwell time, purchases, or queries. The AI takes in records of
+      Taps, choices, paths walked, dwell time, purchases, or queries. The system takes in records of
       what people did. Examples: tapped destinations on a wayfinding kiosk, items added to a cart, a
       search query typed into a public terminal.
   - locale: fr
     value: >-
-      Touchers d'écran, choix, déplacements, temps de présence, achats ou requêtes. L'IA reçoit des
-      registres de ce que les personnes ont fait. Exemples : destinations touchées sur une borne de
-      signalisation, articles ajoutés à un panier, une requête tapée sur un terminal public.
+      Touchers d'écran, choix, déplacements, temps de présence, achats ou requêtes. Le système
+      reçoit des registres de ce que les personnes ont fait. Exemples : destinations touchées sur
+      une borne de signalisation, articles ajoutés à un panier, une requête tapée sur un terminal
+      public.
   - locale: es
     value: >-
       Toques en pantalla, elecciones, recorridos a pie, tiempo de permanencia, compras o consultas.
-      La IA recibe registros de lo que hicieron las personas. Ejemplos: destinos seleccionados en un
-      quiosco de orientación, artículos agregados a un carrito, una búsqueda escrita en una terminal
-      pública.
+      El sistema recibe registros de lo que hicieron las personas. Ejemplos: destinos seleccionados
+      en un quiosco de orientación, artículos agregados a un carrito, una búsqueda escrita en una
+      terminal pública.
   - locale: pt
     value: >-
-      Toques, escolhas, trajetos percorridos, tempo de permanência, compras ou consultas. A IA
+      Toques, escolhas, trajetos percorridos, tempo de permanência, compras ou consultas. O sistema
       recebe registros do que as pessoas fizeram. Exemplos: destinos tocados em um totem de
       orientação, itens adicionados a um carrinho, uma busca digitada em um terminal público.
   - locale: fil
     value: >-
       Mga pag-tap, pagpili, dinaanang landas, tagal ng pananatili, pagbili, o paghahanap.
-      Tumatanggap ang AI ng mga rekord ng ginawa ng mga tao. Mga halimbawa: mga destinasyong na-tap
-      sa wayfinding kiosk, mga item na idinagdag sa cart, hinanap na itinipa sa isang pampublikong
-      terminal.
+      Tumatanggap ang sistema ng mga rekord ng ginawa ng mga tao. Mga halimbawa: mga destinasyong
+      na-tap sa wayfinding kiosk, mga item na idinagdag sa cart, hinanap na itinipa sa isang
+      pampublikong terminal.
   - locale: km
     value: >-
-      ការចុចអេក្រង់, ជម្រើស, ផ្លូវដែលបានដើរ, រយៈពេលឈប់នៅ, ការទិញ, ឬសំណួរស្វែងរក។ AI
-      ទទួលយកកំណត់ត្រាអំពីអ្វីដែលមនុស្សបានធ្វើ។ ឧទាហរណ៍៖ គោលដៅដែលបានចុចលើបញ្ជរស្វ័យសេវាបង្ហាញផ្លូវ,
-      ទំនិញដែលបានដាក់ចូលកន្ត្រក, សំណួរស្វែងរកដែលបានវាយលើកុំព្យូទ័រសាធារណៈ។
+      ការចុចអេក្រង់, ជម្រើស, ផ្លូវដែលបានដើរ, រយៈពេលឈប់នៅ, ការទិញ, ឬសំណួរស្វែងរក។
+      ប្រព័ន្ធទទួលយកកំណត់ត្រាអំពីអ្វីដែលមនុស្សបានធ្វើ។ ឧទាហរណ៍៖
+      គោលដៅដែលបានចុចលើបញ្ជរស្វ័យសេវាបង្ហាញផ្លូវ, ទំនិញដែលបានដាក់ចូលកន្ត្រក,
+      សំណួរស្វែងរកដែលបានវាយលើកុំព្យូទ័រសាធារណៈ។
   - locale: vi
     value: >-
-      Các lượt chạm, lựa chọn, lối đi, thời gian dừng lại, lần mua hàng hoặc câu truy vấn. AI tiếp
-      nhận các bản ghi về những gì mọi người đã làm. Ví dụ: các điểm đến được chạm chọn trên ki-ốt
-      chỉ đường, các món hàng được thêm vào giỏ, một câu tìm kiếm được gõ vào máy công cộng.
+      Các lượt chạm, lựa chọn, lối đi, thời gian dừng lại, lần mua hàng hoặc câu truy vấn. Hệ thống
+      tiếp nhận các bản ghi về những gì mọi người đã làm. Ví dụ: các điểm đến được chạm chọn trên
+      ki-ốt chỉ đường, các món hàng được thêm vào giỏ, một câu tìm kiếm được gõ vào máy công cộng.
   - locale: zh-Hans
-    value: 点击、选择、行走路径、停留时间、购买或查询。AI接收关于人们做了什么的记录。示例：在导览自助终端上点选的目的地、加入购物车的商品、在公共终端上输入的搜索词。
+    value: 点击、选择、行走路径、停留时间、购买或查询。系统接收关于人们做了什么的记录。示例：在导览自助终端上点选的目的地、加入购物车的商品、在公共终端上输入的搜索词。
   - locale: zh-Hant
-    value: 點按、選擇、行走路徑、停留時間、購買或查詢。AI接收人們行為的紀錄。例如：在路線指引自助服務機上點選的目的地、加入購物車的商品、在公用終端機輸入的搜尋字詞。
+    value: 點按、選擇、行走路徑、停留時間、購買或查詢。系統接收人們行為的紀錄。例如：在路線指引自助服務機上點選的目的地、加入購物車的商品、在公用終端機輸入的搜尋字詞。
   - locale: nl
     value: >-
       Aanrakingen van het scherm, keuzes, gelopen routes, verblijftijd, aankopen of zoekopdrachten.
-      De AI krijgt gegevens binnen over wat mensen hebben gedaan. Voorbeelden: bestemmingen die op
-      een informatiezuil met routes zijn aangetikt, artikelen die in een winkelmandje zijn gelegd,
-      een zoekopdracht die op een openbare computer is ingetypt.
+      Het systeem krijgt gegevens binnen over wat mensen hebben gedaan. Voorbeelden: bestemmingen
+      die op een informatiezuil met routes zijn aangetikt, artikelen die in een winkelmandje zijn
+      gelegd, een zoekopdracht die op een openbare computer is ingetypt.
   - locale: de
     value: >-
       Tippeingaben, Auswahlentscheidungen, zurückgelegte Wege, Verweildauer, Käufe oder
-      Suchanfragen. Die KI nimmt Aufzeichnungen darüber auf, was Menschen getan haben. Beispiele: an
-      einem Orientierungsterminal angetippte Ziele, in einen Warenkorb gelegte Artikel, eine an
-      einem öffentlichen Terminal eingegebene Suchanfrage.
+      Suchanfragen. Das System nimmt Aufzeichnungen darüber auf, was Menschen getan haben.
+      Beispiele: an einem Orientierungsterminal angetippte Ziele, in einen Warenkorb gelegte
+      Artikel, eine an einem öffentlichen Terminal eingegebene Suchanfrage.
 symbol_id: about_behaviour

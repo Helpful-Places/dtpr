@@ -26,14 +26,14 @@ title:
 description:
   - locale: en
     value: >-
-      The risk that the AI system causes financial losses to individuals or organizational damage
+      The risk that this system causes financial losses to individuals or organizational damage
       through erroneous pricing, denied services, fraud, or market manipulation. This includes risks
       from automated credit decisions, dynamic-pricing inequities, AI-enabled scams, and
       supply-chain disruption from misuse. Mitigations may include affordability guards, fairness
       audits of pricing models, fraud-detection layers, and clear redress procedures.
   - locale: fr
     value: >-
-      Le risque que le système d'IA cause des pertes financières à des personnes ou des dommages
+      Le risque que ce système cause des pertes financières à des personnes ou des dommages
       organisationnels par une tarification erronée, des refus de services, des fraudes ou une
       manipulation du marché. Cela inclut les risques liés aux décisions de crédit automatisées, aux
       inégalités de tarification dynamique, aux escroqueries activées par l'IA et aux perturbations
@@ -42,7 +42,7 @@ description:
       tarification, des couches de détection de la fraude et des procédures claires de recours.
   - locale: es
     value: >-
-      El riesgo de que el sistema de IA cause pérdidas financieras a las personas o daños a las
+      El riesgo de que este sistema cause pérdidas financieras a las personas o daños a las
       organizaciones por precios erróneos, servicios negados, fraude o manipulación del mercado.
       Esto incluye riesgos derivados de decisiones de crédito automatizadas, desigualdades en los
       precios dinámicos, estafas facilitadas por IA y alteraciones de la cadena de suministro por
@@ -51,16 +51,16 @@ description:
       claros de reparación.
   - locale: pt
     value: >-
-      O risco de que o sistema de IA cause perdas financeiras a indivíduos ou prejuízos a
-      organizações por meio de preços errados, serviços negados, fraude ou manipulação de mercado.
-      Isso inclui riscos decorrentes de decisões de crédito automatizadas, desigualdades na
-      precificação dinâmica, golpes viabilizados por IA e interrupções na cadeia de suprimentos
-      causadas por uso indevido. As medidas de mitigação podem incluir salvaguardas de
-      acessibilidade financeira, auditorias de equidade dos modelos de precificação, camadas de
-      detecção de fraude e procedimentos claros de reparação.
+      O risco de que este sistema cause perdas financeiras a indivíduos ou prejuízos a organizações
+      por meio de preços errados, serviços negados, fraude ou manipulação de mercado. Isso inclui
+      riscos decorrentes de decisões de crédito automatizadas, desigualdades na precificação
+      dinâmica, golpes viabilizados por IA e interrupções na cadeia de suprimentos causadas por uso
+      indevido. As medidas de mitigação podem incluir salvaguardas de acessibilidade financeira,
+      auditorias de equidade dos modelos de precificação, camadas de detecção de fraude e
+      procedimentos claros de reparação.
   - locale: fil
     value: >-
-      Ang panganib na magdulot ang sistemang AI ng pagkalugi sa pera ng mga indibidwal o ng pinsala
+      Ang panganib na magdulot ang sistemang ito ng pagkalugi sa pera ng mga indibidwal o ng pinsala
       sa organisasyon dahil sa maling pagpepresyo, pagkakait ng serbisyo, panloloko, o manipulasyon
       ng merkado. Kasama rito ang mga panganib mula sa awtomatikong desisyon sa pautang, di-pantay
       na pabago-bagong presyo, mga scam na gumagamit ng AI, at pagkagambala sa supply chain dahil sa
@@ -69,7 +69,7 @@ description:
       mga sistemang tumutuklas ng panloloko, at malilinaw na proseso para sa reklamo at remedyo.
   - locale: km
     value: >-
-      ហានិភ័យដែលប្រព័ន្ធ AI បង្កការខាតបង់ហិរញ្ញវត្ថុដល់បុគ្គល ឬការខូចខាតដល់អង្គភាព
+      ហានិភ័យដែលប្រព័ន្ធនេះបង្កការខាតបង់ហិរញ្ញវត្ថុដល់បុគ្គល ឬការខូចខាតដល់អង្គភាព
       តាមរយៈការកំណត់តម្លៃខុស, ការបដិសេធសេវា, ការក្លែងបន្លំ, ឬការរៀបចំបំភ្លៃទីផ្សារ។
       នេះរួមមានហានិភ័យពីការសម្រេចចិត្តផ្តល់ឥណទានដោយស្វ័យប្រវត្តិ, វិសមភាពនៃតម្លៃប្រែប្រួល,
       ការបោកប្រាស់ដោយប្រើ AI, និងការរអាក់រអួលខ្សែសង្វាក់ផ្គត់ផ្គង់ដោយសារការប្រើប្រាស់ខុស។
@@ -77,7 +77,7 @@ description:
       ស្រទាប់រកឃើញការក្លែងបន្លំ, និងនីតិវិធីច្បាស់លាស់សម្រាប់ដោះស្រាយសំណង។
   - locale: vi
     value: >-
-      Rủi ro hệ thống AI gây thiệt hại tài chính cho cá nhân hoặc gây tổn thất cho tổ chức qua việc
+      Rủi ro hệ thống này gây thiệt hại tài chính cho cá nhân hoặc gây tổn thất cho tổ chức qua việc
       định giá sai, từ chối dịch vụ, gian lận hoặc thao túng thị trường. Điều này bao gồm rủi ro từ
       các quyết định tín dụng tự động, bất công trong việc định giá linh hoạt, lừa đảo có AI tiếp
       tay, và gián đoạn chuỗi cung ứng do sử dụng sai mục đích. Biện pháp giảm thiểu có thể gồm cơ
@@ -85,13 +85,13 @@ description:
       gian lận, và thủ tục khắc phục rõ ràng.
   - locale: zh-Hans
     value: >-
-      AI系统因错误定价、拒绝提供服务、欺诈或操纵市场，给个人造成经济损失或给组织造成损害的风险。这包括自动化信贷决定、动态定价不公、利用AI实施的诈骗，以及滥用导致供应链中断所带来的风险。缓解措施可包括可负担性保障、定价模型的公平性审计、多层欺诈检测，以及明确的救济程序。
+      本系统因错误定价、拒绝提供服务、欺诈或操纵市场，给个人造成经济损失或给组织造成损害的风险。这包括自动化信贷决定、动态定价不公、利用AI实施的诈骗，以及滥用导致供应链中断所带来的风险。缓解措施可包括可负担性保障、定价模型的公平性审计、多层欺诈检测，以及明确的救济程序。
   - locale: zh-Hant
     value: >-
-      AI系統因錯誤定價、拒絕提供服務、詐欺或操縱市場，造成個人財務損失或組織受損的風險。包括自動化信用決定、動態定價不公、利用AI進行的詐騙，以及濫用導致供應鏈中斷等風險。因應措施可包括可負擔性防護機制、定價模型的公平性稽核、多層詐欺偵測，以及明確的救濟程序。
+      這個系統因錯誤定價、拒絕提供服務、詐欺或操縱市場，造成個人財務損失或組織受損的風險。包括自動化信用決定、動態定價不公、利用AI進行的詐騙，以及濫用導致供應鏈中斷等風險。因應措施可包括可負擔性防護機制、定價模型的公平性稽核、多層詐欺偵測，以及明確的救濟程序。
   - locale: nl
     value: >-
-      Het risico dat het AI-systeem mensen geld kost of organisaties schade toebrengt door verkeerde
+      Het risico dat dit systeem mensen geld kost of organisaties schade toebrengt door verkeerde
       prijzen, geweigerde diensten, fraude of marktmanipulatie. Hieronder vallen risico's door
       geautomatiseerde kredietbeslissingen, oneerlijke dynamische prijzen, oplichting met behulp van
       AI en verstoring van toeleveringsketens door misbruik. Mogelijke maatregelen zijn waarborgen
@@ -99,7 +99,7 @@ description:
       duidelijke procedures om schade te herstellen.
   - locale: de
     value: >-
-      Das Risiko, dass das KI-System Einzelpersonen finanzielle Verluste oder Organisationen Schaden
+      Das Risiko, dass dieses System Einzelpersonen finanzielle Verluste oder Organisationen Schaden
       zufügt – durch fehlerhafte Preise, verweigerte Dienstleistungen, Betrug oder
       Marktmanipulation. Dazu gehören Risiken durch automatisierte Kreditentscheidungen,
       Ungerechtigkeiten bei dynamischen Preisen, KI-gestützte Betrugsmaschen und Störungen von

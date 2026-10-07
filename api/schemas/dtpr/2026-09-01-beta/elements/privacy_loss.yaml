@@ -1,0 +1,117 @@
+id: privacy_loss
+category_id: risks_mitigation
+title:
+  - locale: en
+    value: Loss of privacy
+  - locale: fr
+    value: Atteinte à la vie privée
+  - locale: es
+    value: Pérdida de privacidad
+  - locale: pt
+    value: Perda de privacidade
+  - locale: fil
+    value: Pagkawala ng privacy
+  - locale: km
+    value: ការបាត់បង់ឯកជនភាព
+  - locale: vi
+    value: Mất quyền riêng tư
+  - locale: zh-Hans
+    value: 隐私丧失
+  - locale: zh-Hant
+    value: 喪失隱私
+  - locale: nl
+    value: Verlies van privacy
+  - locale: de
+    value: Verlust der Privatsphäre
+description:
+  - locale: en
+    value: >-
+      The risk that this system captures, infers, or reveals more about people than they expect or
+      agreed to. This includes risks of tracking people's movements over time, re-identifying data
+      that was meant to be anonymous, linking records across systems to build profiles, and reusing
+      data for purposes beyond the one stated. Mitigations may include collecting only what is
+      needed, processing on the device, anonymizing at the point of capture, short retention
+      periods, and privacy impact assessments before deployment.
+  - locale: fr
+    value: >-
+      Le risque que ce système capte, infère ou révèle sur les personnes plus que ce à quoi elles
+      s'attendent ou ont consenti. Cela inclut les risques de suivi des déplacements des personnes
+      dans le temps, de réidentification de données censées être anonymes, de recoupement
+      d'enregistrements entre systèmes pour établir des profils et de réutilisation des données à
+      des fins autres que celle annoncée. Les mesures d'atténuation peuvent inclure la collecte des
+      seules données nécessaires, le traitement sur l'appareil, l'anonymisation dès la capture, de
+      courtes durées de conservation et des évaluations d'impact sur la vie privée avant le
+      déploiement.
+  - locale: es
+    value: >-
+      El riesgo de que este sistema capte, infiera o revele sobre las personas más de lo que ellas
+      esperan o aceptaron. Esto incluye riesgos de rastreo de los movimientos de las personas a lo
+      largo del tiempo, reidentificación de datos que debían ser anónimos, vinculación de registros
+      entre sistemas para crear perfiles y reutilización de los datos para propósitos distintos del
+      declarado. Las medidas de mitigación pueden incluir recopilar solo lo necesario, procesar los
+      datos en el dispositivo, anonimizarlos en el momento de la captura, periodos de conservación
+      cortos y evaluaciones de impacto en la privacidad antes de la implementación.
+  - locale: pt
+    value: >-
+      O risco de que este sistema capte, infira ou revele mais sobre as pessoas do que elas esperam
+      ou do que aceitaram. Isso inclui riscos de rastreamento dos deslocamentos das pessoas ao longo
+      do tempo, de reidentificação de dados que deveriam ser anônimos, de cruzamento de registros
+      entre sistemas para montar perfis e de reutilização de dados para finalidades além da
+      declarada. As medidas de mitigação podem incluir coletar apenas o necessário, processar os
+      dados no próprio dispositivo, anonimizar no momento da captação, períodos curtos de retenção e
+      avaliações de impacto sobre a privacidade antes da implantação.
+  - locale: fil
+    value: >-
+      Ang panganib na makuha, mahinuha, o mailantad ng sistemang ito ang mas maraming impormasyon
+      tungkol sa mga tao kaysa sa inaasahan o sinang-ayunan nila. Kasama rito ang mga panganib ng
+      pagsubaybay sa galaw ng mga tao sa paglipas ng panahon, muling pagtukoy sa mga tao mula sa
+      data na dapat sana ay walang pagkakakilanlan, pag-uugnay ng mga rekord mula sa iba't ibang
+      sistema para makabuo ng mga profile, at muling paggamit ng data para sa mga layuning lampas sa
+      ipinahayag. Maaaring kabilang sa mga hakbang para mabawasan ang panganib ang pangongolekta
+      lang ng kailangan, pagproseso sa mismong device, pag-aalis ng pagkakakilanlan sa mismong
+      sandali ng pagkuha, maiikling panahon ng pagpapanatili, at pagtatasa ng epekto sa privacy bago
+      ang pagpapatupad.
+  - locale: km
+    value: >-
+      ហានិភ័យដែលប្រព័ន្ធនេះចាប់យក, សន្និដ្ឋាន, ឬបង្ហាញព័ត៌មានអំពីមនុស្សច្រើនជាងអ្វីដែលពួកគេរំពឹងទុក
+      ឬបានយល់ព្រម។ នេះរួមមានហានិភ័យនៃការតាមដានចលនារបស់មនុស្សតាមពេលវេលា,
+      ការកំណត់អត្តសញ្ញាណឡើងវិញពីទិន្នន័យដែលគួរតែជាអនាមិក,
+      ការភ្ជាប់កំណត់ត្រាពីប្រព័ន្ធផ្សេងៗដើម្បីបង្កើតប្រវត្តិរូបរបស់បុគ្គល,
+      និងការយកទិន្នន័យទៅប្រើឡើងវិញសម្រាប់គោលបំណងផ្សេងពីគោលបំណងដែលបានប្រកាស។
+      វិធានការកាត់បន្ថយអាចរួមមាន ការប្រមូលតែអ្វីដែលចាំបាច់, ការដំណើរការទិន្នន័យនៅលើឧបករណ៍ផ្ទាល់,
+      ការធ្វើឱ្យទិន្នន័យជាអនាមិកនៅពេលចាប់យក, រយៈពេលរក្សាទុកខ្លី,
+      និងការវាយតម្លៃផលប៉ះពាល់លើឯកជនភាពមុនពេលដាក់ឱ្យប្រើប្រាស់។
+  - locale: vi
+    value: >-
+      Rủi ro hệ thống này ghi lại, suy đoán hoặc tiết lộ về con người nhiều hơn mức họ nghĩ hoặc đã
+      đồng ý. Điều này bao gồm rủi ro theo dõi việc đi lại của con người theo thời gian, nhận diện
+      lại dữ liệu lẽ ra phải ẩn danh, liên kết các bản ghi giữa các hệ thống để lập hồ sơ về từng
+      người, và dùng lại dữ liệu cho những mục đích ngoài mục đích đã nêu. Biện pháp giảm thiểu có
+      thể gồm chỉ thu thập những gì cần thiết, xử lý ngay trên thiết bị, ẩn danh hóa ngay tại thời
+      điểm ghi nhận, thời hạn lưu giữ ngắn, và đánh giá tác động đến quyền riêng tư trước khi triển
+      khai.
+  - locale: zh-Hans
+    value: >-
+      本系统采集、推断或披露的个人信息超出人们的预期或同意范围的风险。这包括长期跟踪人们的行踪、对本应匿名的数据重新识别身份、关联不同系统中的记录以建立个人画像，以及将数据用于所声明目的之外的其他用途等风险。缓解措施可包括只收集必要的数据、在设备端处理、在采集时即进行匿名化、缩短保留期限，以及在部署前进行隐私影响评估。
+  - locale: zh-Hant
+    value: >-
+      這個系統擷取、推斷或揭露的個人資訊，超出人們預期或同意範圍的風險。包括長期追蹤人們的行蹤、重新識別原本應為匿名的資料、串連不同系統的紀錄以建立個人檔案，以及將資料用於所述目的以外的用途等風險。因應措施可包括只收集必要的資料、在裝置上處理、在擷取當下即匿名化、縮短保存期限，以及在部署前進行隱私影響評估。
+  - locale: nl
+    value: >-
+      Het risico dat dit systeem meer over mensen vastlegt, afleidt of onthult dan ze verwachten of
+      waarmee ze hebben ingestemd. Hieronder vallen risico's zoals het volgen van de verplaatsingen
+      van mensen over langere tijd, het opnieuw herleiden tot personen van gegevens die anoniem
+      moesten zijn, het koppelen van gegevens uit verschillende systemen om profielen op te bouwen,
+      en het hergebruiken van gegevens voor andere doelen dan het genoemde doel. Mogelijke
+      maatregelen zijn alleen verzamelen wat nodig is, verwerking op het apparaat zelf, anonimiseren
+      op het moment van vastleggen, korte bewaartermijnen en een privacytoets vóór de inzet.
+  - locale: de
+    value: >-
+      Das Risiko, dass dieses System mehr über Menschen erfasst, ableitet oder offenlegt, als sie
+      erwarten oder als sie zugestimmt haben. Dazu gehören Risiken durch das Nachverfolgen der
+      Bewegungen von Menschen über längere Zeit, die Re-Identifizierung von Daten, die anonym
+      bleiben sollten, das Verknüpfen von Datensätzen aus mehreren Systemen zu Profilen und die
+      Weiterverwendung von Daten für andere als den angegebenen Zweck. Mögliche Gegenmaßnahmen sind
+      die Beschränkung auf die nötigen Daten, die Verarbeitung auf dem Gerät, Anonymisierung schon
+      bei der Erfassung, kurze Speicherfristen und Datenschutz-Folgenabschätzungen vor dem Einsatz.
+symbol_id: risks_privacy

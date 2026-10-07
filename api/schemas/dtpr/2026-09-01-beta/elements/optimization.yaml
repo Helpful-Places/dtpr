@@ -26,68 +26,68 @@ title:
 description:
   - locale: en
     value: >-
-      AI systems that search for the best assignment, route, schedule, or allocation under
+      Techniques that search for the best assignment, route, schedule, or allocation under
       constraints. Includes vehicle routing, transit signal timing, energy and HVAC scheduling,
       staff rostering, and resource allocation. Works by exploring possibilities to maximize or
       minimize a stated objective such as cost, time, or emissions.
   - locale: fr
     value: >-
-      Systèmes d'IA qui recherchent la meilleure affectation, le meilleur itinéraire, le meilleur
+      Techniques qui recherchent la meilleure affectation, le meilleur itinéraire, le meilleur
       horaire ou la meilleure répartition sous contraintes. Inclut le routage des véhicules, la
       synchronisation des feux, la planification énergétique et CVC, la planification du personnel
       et l'allocation de ressources. Fonctionne en explorant des possibilités pour maximiser ou
       minimiser un objectif comme le coût, le temps ou les émissions.
   - locale: es
     value: >-
-      Sistemas de IA que buscan la mejor asignación, ruta, horario o distribución dentro de ciertas
+      Técnicas que buscan la mejor asignación, ruta, horario o distribución dentro de ciertas
       restricciones. Incluye rutas de vehículos, sincronización de semáforos para el transporte
       público, programación de energía y climatización, turnos de personal y asignación de recursos.
       Funciona explorando posibilidades para maximizar o minimizar un objetivo declarado, como el
       costo, el tiempo o las emisiones.
   - locale: pt
     value: >-
-      Sistemas de IA que buscam a melhor atribuição, rota, escala ou alocação dentro de restrições.
+      Técnicas que buscam a melhor atribuição, rota, escala ou alocação dentro de restrições.
       Incluem roteirização de veículos, temporização de semáforos para o transporte público,
       programação de energia e climatização, escalas de pessoal e alocação de recursos. Funcionam
       explorando possibilidades para maximizar ou minimizar um objetivo declarado, como custo, tempo
       ou emissões.
   - locale: fil
     value: >-
-      Mga sistemang AI na naghahanap ng pinakamainam na pagtatalaga, ruta, iskedyul, o paglalaan sa
-      loob ng mga itinakdang limitasyon. Kasama ang pagruruta ng mga sasakyan, timing ng mga
+      Mga pamamaraang naghahanap ng pinakamainam na pagtatalaga, ruta, iskedyul, o paglalaan sa loob
+      ng mga itinakdang limitasyon. Kasama ang pagruruta ng mga sasakyan, timing ng mga
       ilaw-trapiko, pag-iiskedyul ng enerhiya at HVAC, pag-iiskedyul ng mga tauhan, at paglalaan ng
       mga rekurso. Gumagana ito sa pagsubok ng iba't ibang posibilidad para makuha ang pinakamataas
       o pinakamababang halaga ng isang itinakdang sukatan gaya ng gastos, oras, o emission.
   - locale: km
     value: >-
-      ប្រព័ន្ធ AI ដែលស្វែងរកការចាត់តាំង, ផ្លូវធ្វើដំណើរ, កាលវិភាគ,
+      បច្ចេកទេសដែលស្វែងរកការចាត់តាំង, ផ្លូវធ្វើដំណើរ, កាលវិភាគ,
       ឬការបែងចែកដែលល្អបំផុតក្រោមលក្ខខណ្ឌកំណត់។ រួមមានការរៀបផ្លូវយានយន្ត,
       ការកំណត់ពេលភ្លើងសញ្ញាសម្រាប់ដឹកជញ្ជូនសាធារណៈ, ការរៀបកាលវិភាគថាមពលនិង HVAC, ការរៀបវេនបុគ្គលិក,
       និងការបែងចែកធនធាន។ វាដំណើរការដោយស្វែងរកលទ្ធភាពផ្សេងៗ ដើម្បីធ្វើឱ្យគោលដៅដែលបានកំណត់
       ដូចជាថ្លៃដើម, ពេលវេលា, ឬការបញ្ចេញឧស្ម័ន ឡើងដល់អតិបរមា ឬចុះដល់អប្បបរមា។
   - locale: vi
     value: >-
-      Các hệ thống AI tìm cách phân công, tuyến đường, lịch trình hoặc cách phân bổ tốt nhất trong
+      Các kỹ thuật tìm cách phân công, tuyến đường, lịch trình hoặc cách phân bổ tốt nhất trong
       những ràng buộc cho trước. Bao gồm định tuyến xe, điều chỉnh thời gian đèn tín hiệu giao
       thông, xếp lịch năng lượng và hệ thống sưởi và điều hòa (HVAC), xếp ca nhân viên và phân bổ
       nguồn lực. Hoạt động bằng cách dò qua các khả năng để tăng tối đa hoặc giảm tối thiểu một mục
       tiêu đã nêu, như chi phí, thời gian hoặc lượng khí thải.
   - locale: zh-Hans
     value: >-
-      在约束条件下寻找最佳指派、路线、排程或分配方案的AI系统。包括车辆路径规划、交通信号配时、能源和暖通空调调度、人员排班和资源分配。其工作方式是探索各种可能，使成本、时间或排放等既定目标最大化或最小化。
+      在约束条件下寻找最佳指派、路线、排程或分配方案的技术。包括车辆路径规划、交通信号配时、能源和暖通空调调度、人员排班和资源分配。其工作方式是探索各种可能，使成本、时间或排放等既定目标最大化或最小化。
   - locale: zh-Hant
     value: >-
-      在限制條件下尋找最佳指派、路線、時程或分配方式的AI系統。包括車輛路線規劃、大眾運輸號誌時制、能源與空調排程、人員排班及資源分配。其運作方式是探索各種可能性，使成本、時間或排放量等既定目標達到最大或最小。
+      在限制條件下尋找最佳指派、路線、時程或分配方式的技術。包括車輛路線規劃、大眾運輸號誌時制、能源與空調排程、人員排班及資源分配。其運作方式是探索各種可能性，使成本、時間或排放量等既定目標達到最大或最小。
   - locale: nl
     value: >-
-      AI-systemen die zoeken naar de beste toewijzing, route, planning of verdeling binnen bepaalde
+      Technieken die zoeken naar de beste toewijzing, route, planning of verdeling binnen bepaalde
       grenzen. Hieronder vallen routeplanning voor voertuigen, de afstelling van verkeerslichten
       voor het openbaar vervoer, planning van energie en klimaatinstallaties, personeelsroosters en
       de verdeling van middelen. Ze werken door mogelijkheden te verkennen om een vastgesteld doel,
       zoals kosten, tijd of uitstoot, zo hoog of zo laag mogelijk te maken.
   - locale: de
     value: >-
-      KI-Systeme, die unter vorgegebenen Bedingungen nach der besten Zuordnung, Route, Zeitplanung
+      Verfahren, die unter vorgegebenen Bedingungen nach der besten Zuordnung, Route, Zeitplanung
       oder Verteilung suchen. Dazu gehören Tourenplanung für Fahrzeuge, Ampelschaltungen für den
       Nahverkehr, Zeitpläne für Energie, Heizung und Lüftung, Dienstplanung und
       Ressourcenverteilung. Sie funktionieren, indem sie Möglichkeiten durchspielen, um ein

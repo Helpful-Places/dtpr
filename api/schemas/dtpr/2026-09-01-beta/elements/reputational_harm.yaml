@@ -26,7 +26,7 @@ title:
 description:
   - locale: en
     value: >-
-      The risk that the AI system damages the reputation of individuals, groups, or organizations
+      The risk that this system damages the reputation of individuals, groups, or organizations
       through misidentification, false categorization, or stigmatizing labels. This includes risks
       of inaccurate face recognition, defamatory generated content, and unfair public scoring that
       follow people across contexts. Mitigations may include accuracy thresholds before
@@ -34,7 +34,7 @@ description:
       procedures, and clear rights to correction.
   - locale: fr
     value: >-
-      Le risque que le système d'IA porte atteinte à la réputation de personnes, de groupes ou
+      Le risque que ce système porte atteinte à la réputation de personnes, de groupes ou
       d'organisations par une identification erronée, une catégorisation fausse ou des étiquettes
       stigmatisantes. Cela inclut les risques de reconnaissance faciale inexacte, de contenu
       diffamatoire généré et de notation publique injuste qui suit les personnes dans différents
@@ -43,34 +43,35 @@ description:
       procédures de retrait et des droits clairs de rectification.
   - locale: es
     value: >-
-      El riesgo de que el sistema de IA dañe la reputación de personas, grupos u organizaciones
-      mediante identificaciones erróneas, categorizaciones falsas o etiquetas estigmatizantes. Esto
-      incluye riesgos de reconocimiento facial inexacto, contenido generado difamatorio y puntajes
-      públicos injustos que siguen a las personas de un contexto a otro. Las medidas de mitigación
-      pueden incluir umbrales de precisión antes de aplicar etiquetas visibles al público, revisión
-      humana de las identificaciones de alto impacto, procedimientos de retiro de contenido y
-      derechos claros de corrección.
+      El riesgo de que este sistema dañe la reputación de personas, grupos u organizaciones mediante
+      identificaciones erróneas, categorizaciones falsas o etiquetas estigmatizantes. Esto incluye
+      riesgos de reconocimiento facial inexacto, contenido generado difamatorio y puntajes públicos
+      injustos que siguen a las personas de un contexto a otro. Las medidas de mitigación pueden
+      incluir umbrales de precisión antes de aplicar etiquetas visibles al público, revisión humana
+      de las identificaciones de alto impacto, procedimientos de retiro de contenido y derechos
+      claros de corrección.
   - locale: pt
     value: >-
-      O risco de que o sistema de IA prejudique a reputação de indivíduos, grupos ou organizações
-      por meio de identificação incorreta, categorização falsa ou rótulos estigmatizantes. Isso
-      inclui riscos de reconhecimento facial impreciso, de conteúdo gerado difamatório e de
-      pontuações públicas injustas que acompanham as pessoas em diferentes contextos. As medidas de
-      mitigação podem incluir limites mínimos de precisão antes da aplicação de rótulos visíveis ao
-      público, revisão humana de identificações de alto impacto, procedimentos de remoção e direitos
-      claros de correção.
+      O risco de que este sistema prejudique a reputação de indivíduos, grupos ou organizações por
+      meio de identificação incorreta, categorização falsa ou rótulos estigmatizantes. Isso inclui
+      riscos de reconhecimento facial impreciso, de conteúdo gerado difamatório e de pontuações
+      públicas injustas que acompanham as pessoas em diferentes contextos. As medidas de mitigação
+      podem incluir limites mínimos de precisão antes da aplicação de rótulos visíveis ao público,
+      revisão humana de identificações de alto impacto, procedimentos de remoção e direitos claros
+      de correção.
   - locale: fil
     value: >-
-      Ang panganib na masira ng sistemang AI ang reputasyon ng mga indibidwal, grupo, o organisasyon
-      dahil sa maling pagkilala, maling pag-uuri, o mga tatak na nagdudulot ng stigma. Kasama rito
-      ang mga panganib ng di-tumpak na pagkilala ng mukha, mapanirang-puring nilikhang nilalaman, at
-      di-patas na pampublikong pag-iskor na sumusunod sa tao saan man sila pumunta. Maaaring
-      kabilang sa mga hakbang para mabawasan ang panganib ang mga takdang antas ng katumpakan bago
-      maglagay ng tatak na makikita ng publiko, pagsusuri ng tao sa mga pagkilalang malaki ang
-      epekto, mga proseso ng pagpapaalis ng nilalaman, at malilinaw na karapatan sa pagtatama.
+      Ang panganib na masira ng sistemang ito ang reputasyon ng mga indibidwal, grupo, o
+      organisasyon dahil sa maling pagkilala, maling pag-uuri, o mga tatak na nagdudulot ng stigma.
+      Kasama rito ang mga panganib ng di-tumpak na pagkilala ng mukha, mapanirang-puring nilikhang
+      nilalaman, at di-patas na pampublikong pag-iskor na sumusunod sa tao saan man sila pumunta.
+      Maaaring kabilang sa mga hakbang para mabawasan ang panganib ang mga takdang antas ng
+      katumpakan bago maglagay ng tatak na makikita ng publiko, pagsusuri ng tao sa mga pagkilalang
+      malaki ang epekto, mga proseso ng pagpapaalis ng nilalaman, at malilinaw na karapatan sa
+      pagtatama.
   - locale: km
     value: >-
-      ហានិភ័យដែលប្រព័ន្ធ AI ធ្វើឱ្យខូចកេរ្តិ៍ឈ្មោះរបស់បុគ្គល, ក្រុម, ឬអង្គភាព
+      ហានិភ័យដែលប្រព័ន្ធនេះធ្វើឱ្យខូចកេរ្តិ៍ឈ្មោះរបស់បុគ្គល, ក្រុម, ឬអង្គភាព
       តាមរយៈការកំណត់អត្តសញ្ញាណខុស, ការចាត់ប្រភេទមិនពិត, ឬស្លាកដែលនាំឱ្យមានការមាក់ងាយ។
       នេះរួមមានហានិភ័យនៃការសម្គាល់មុខមិនត្រឹមត្រូវ, ខ្លឹមសារបរិហារកេរ្តិ៍ដែលបង្កើតឡើង,
       និងការដាក់ពិន្ទុជាសាធារណៈដោយអយុត្តិធម៌ ដែលតាមមនុស្សទៅគ្រប់បរិបទ។ វិធានការកាត់បន្ថយអាចរួមមាន
@@ -79,7 +80,7 @@ description:
       និងសិទ្ធិច្បាស់លាស់ក្នុងការកែតម្រូវ។
   - locale: vi
     value: >-
-      Rủi ro hệ thống AI làm tổn hại danh tiếng của cá nhân, nhóm hoặc tổ chức qua việc nhận diện
+      Rủi ro hệ thống này làm tổn hại danh tiếng của cá nhân, nhóm hoặc tổ chức qua việc nhận diện
       nhầm, phân loại sai hoặc gán nhãn gây kỳ thị. Điều này bao gồm rủi ro từ việc nhận diện khuôn
       mặt không chính xác, nội dung phỉ báng do AI tạo ra, và việc chấm điểm công khai thiếu công
       bằng đeo bám con người qua nhiều hoàn cảnh. Biện pháp giảm thiểu có thể gồm ngưỡng chính xác
@@ -87,14 +88,14 @@ description:
       lớn, thủ tục gỡ bỏ, và quyền được sửa sai rõ ràng.
   - locale: zh-Hans
     value: >-
-      AI系统因错误识别身份、错误归类或污名化标签，损害个人、群体或组织名誉的风险。这包括不准确的人脸识别、带有诽谤性的生成内容，以及跟随当事人进入不同场合的不公正公开评分等风险。缓解措施可包括在使用对外公开的标签前设定准确率门槛、对影响重大的身份识别进行人工复核、下架处理程序，以及明确的更正权。
+      本系统因错误识别身份、错误归类或污名化标签，损害个人、群体或组织名誉的风险。这包括不准确的人脸识别、带有诽谤性的生成内容，以及跟随当事人进入不同场合的不公正公开评分等风险。缓解措施可包括在使用对外公开的标签前设定准确率门槛、对影响重大的身份识别进行人工复核、下架处理程序，以及明确的更正权。
   - locale: zh-Hant
     value: >-
-      AI系統因誤認身分、錯誤分類或貼上汙名化標籤，損害個人、群體或組織名譽的風險。包括不準確的臉部辨識、具誹謗性的生成內容，以及在不同情境中如影隨形的不公平公開評分等風險。因應措施可包括在套用對外公開的標籤前設定準確度門檻、對影響重大的身分識別進行人工審查、下架程序，以及明確的更正權利。
+      這個系統因誤認身分、錯誤分類或貼上汙名化標籤，損害個人、群體或組織名譽的風險。包括不準確的臉部辨識、具誹謗性的生成內容，以及在不同情境中如影隨形的不公平公開評分等風險。因應措施可包括在套用對外公開的標籤前設定準確度門檻、對影響重大的身分識別進行人工審查、下架程序，以及明確的更正權利。
   - locale: nl
     value: >-
-      Het risico dat het AI-systeem de reputatie van personen, groepen of organisaties schaadt door
-      een verkeerde identificatie, een onjuiste indeling of stigmatiserende labels. Hieronder vallen
+      Het risico dat dit systeem de reputatie van personen, groepen of organisaties schaadt door een
+      verkeerde identificatie, een onjuiste indeling of stigmatiserende labels. Hieronder vallen
       risico's door onnauwkeurige gezichtsherkenning, lasterlijke gegenereerde content en oneerlijke
       openbare scores die mensen overal blijven achtervolgen. Mogelijke maatregelen zijn drempels
       voor nauwkeurigheid voordat labels openbaar worden gebruikt, menselijke beoordeling van
@@ -102,7 +103,7 @@ description:
       rechten op correctie.
   - locale: de
     value: >-
-      Das Risiko, dass das KI-System den Ruf von Einzelpersonen, Gruppen oder Organisationen
+      Das Risiko, dass dieses System den Ruf von Einzelpersonen, Gruppen oder Organisationen
       schädigt – durch falsche Identifizierung, falsche Einordnung oder stigmatisierende
       Zuschreibungen. Dazu gehören Risiken durch ungenaue Gesichtserkennung, verleumderische
       generierte Inhalte und unfaire öffentliche Bewertungen, die Menschen von einem Zusammenhang in
