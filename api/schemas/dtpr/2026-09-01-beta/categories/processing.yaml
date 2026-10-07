@@ -18,6 +18,10 @@ name:
     value: 算法或模型
   - locale: zh-Hant
     value: 演算法或模型
+  - locale: nl
+    value: Algoritme of model
+  - locale: de
+    value: Algorithmus oder Modell
 description:
   - locale: en
     value: >-
@@ -51,6 +55,14 @@ description:
     value: 由什么来处理输入——将输入转化为输出所使用的算法族、模型类别或技术。
   - locale: zh-Hant
     value: 處理輸入資料的方式：用來將輸入轉換為輸出的演算法類別、模型類型或技術。
+  - locale: nl
+    value: >-
+      Wat de invoer verwerkt: het soort algoritme, het type model of de techniek waarmee invoer
+      wordt omgezet in uitvoer.
+  - locale: de
+    value: >-
+      Was die Eingabe verarbeitet – die Algorithmenfamilie, die Modellklasse oder das Verfahren, mit
+      dem aus Eingaben Ergebnisse werden.
 prompt:
   - locale: en
     value: What algorithm or model processes the data?
@@ -70,6 +82,10 @@ prompt:
     value: 由什么算法或模型处理数据？
   - locale: zh-Hant
     value: 資料由什麼演算法或模型處理？
+  - locale: nl
+    value: Welk algoritme of model verwerkt de gegevens?
+  - locale: de
+    value: Welcher Algorithmus oder welches Modell verarbeitet die Daten?
 required: false
 order: 9
 datachain_type: dtpr
@@ -95,4 +111,8 @@ element_variables:
         value: 描述
       - locale: zh-Hant
         value: 說明
+      - locale: nl
+        value: Beschrijving
+      - locale: de
+        value: Beschreibung
     required: false

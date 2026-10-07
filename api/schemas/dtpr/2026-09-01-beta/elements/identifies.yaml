@@ -19,6 +19,10 @@ title:
     value: 识别
   - locale: zh-Hant
     value: 識別
+  - locale: nl
+    value: Identificeert
+  - locale: de
+    value: Identifiziert
 description:
   - locale: en
     value: >-
@@ -71,4 +75,17 @@ description:
   - locale: zh-Hant
     value: >-
       識別：將臉孔、聲音、指紋、車牌或帳號與已知紀錄比對，辨認出某人是誰或某物是什麼。它把「有人在這裡」變成「這個人在這裡」。例如：登機門的臉部比對、收費門架的車牌查詢。與「感測」不同，後者只偵測而不指明身分。
+  - locale: nl
+    value: >-
+      Identificeert – herkent wie of wat iets is door een gezicht, stem, vingerafdruk, kenteken of
+      account te vergelijken met bekende gegevens. Van "er is hier iemand" maakt het "deze persoon
+      is hier". Voorbeelden: een gezichtsvergelijking bij een boardinggate, het opzoeken van een
+      kenteken bij een tolportaal. Anders dan Neemt waar, dat detecteert zonder een naam te noemen.
+  - locale: de
+    value: >-
+      Identifiziert – erkennt, wer oder was etwas ist, indem ein Gesicht, eine Stimme, ein
+      Fingerabdruck, ein Kennzeichen oder ein Konto mit bekannten Einträgen abgeglichen wird. So
+      wird aus „jemand ist hier“ ein „diese Person ist hier“. Beispiele: ein Gesichtsabgleich am
+      Flugsteig, eine Kennzeichenabfrage an einer Mautbrücke. Im Unterschied zu „Nimmt wahr“, das
+      erkennt, ohne zu benennen.
 symbol_id: biometric

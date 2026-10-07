@@ -19,6 +19,10 @@ title:
     value: 责任方可获取
   - locale: zh-Hant
     value: 負責組織可取得
+  - locale: nl
+    value: Beschikbaar voor de verantwoordelijke organisatie
+  - locale: de
+    value: Für die verantwortliche Organisation zugänglich
 description:
   - locale: en
     value: Data is available to the accountable organization
@@ -38,4 +42,8 @@ description:
     value: 责任方可以获取数据。
   - locale: zh-Hant
     value: 負責組織可取得資料。
+  - locale: nl
+    value: Gegevens zijn beschikbaar voor de verantwoordelijke organisatie
+  - locale: de
+    value: Die Daten sind für die verantwortliche Organisation zugänglich
 symbol_id: available

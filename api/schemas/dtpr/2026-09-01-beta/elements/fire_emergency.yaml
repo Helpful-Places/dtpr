@@ -19,6 +19,10 @@ title:
     value: 消防与应急
   - locale: zh-Hant
     value: 消防與緊急應變
+  - locale: nl
+    value: Brandweer en hulpdiensten
+  - locale: de
+    value: Feuerwehr und Rettungsdienst
 description:
   - locale: en
     value: Supports services that ensure public safety and health related to emergencies.
@@ -44,4 +48,8 @@ description:
     value: 支持在紧急情况下保障公共安全和健康的服务。
   - locale: zh-Hant
     value: 協助在緊急情況下維護公共安全與健康的服務。
+  - locale: nl
+    value: Ondersteunt diensten die bij noodsituaties zorgen voor de openbare veiligheid en gezondheid.
+  - locale: de
+    value: Unterstützt Dienste, die in Notfällen für öffentliche Sicherheit und Gesundheit sorgen.
 symbol_id: fire_emergency

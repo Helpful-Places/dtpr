@@ -19,6 +19,10 @@ title:
     value: 目的限制权
   - locale: zh-Hant
     value: 限定使用目的的權利
+  - locale: nl
+    value: Recht op doelbinding
+  - locale: de
+    value: Recht auf Zweckbindung
 description:
   - locale: en
     value: >-
@@ -77,4 +81,20 @@ description:
   - locale: zh-Hant
     value: >-
       您有權要求您的資料只用於收集時所聲明的特定目的。組織必須在開始收集前聲明並記錄這些目的，且不得在您不知情或未經您同意的情況下，日後將您的資料用於新的、無關的目的。這是從源頭限制可允許的用途；要求停止已在進行中的處理，則是另一項權利。
+  - locale: nl
+    value: >-
+      Het recht dat je gegevens alleen worden gebruikt voor de specifieke doelen die zijn genoemd
+      toen ze werden verzameld. De organisatie moet die doelen bekendmaken en vastleggen voordat het
+      verzamelen begint, en mag je gegevens later niet zonder jouw medeweten of toestemming
+      gebruiken voor nieuwe doelen die er niets mee te maken hebben. Dit begrenst vooraf welk
+      gebruik ooit is toegestaan; het recht om een verwerking te stoppen die al loopt, is een apart
+      recht.
+  - locale: de
+    value: >-
+      Das Recht, dass Ihre Daten nur für die konkreten Zwecke verwendet werden, die bei der Erhebung
+      genannt wurden. Die Organisation muss diese Zwecke vor Beginn der Erhebung festlegen und
+      dokumentieren und darf Ihre Daten später nicht ohne Ihr Wissen oder Ihre Einwilligung für
+      neue, damit nicht zusammenhängende Zwecke verwenden. Dies ist eine vorab gesetzte Grenze
+      dafür, welche Nutzung überhaupt erlaubt ist; das Recht, eine bereits laufende Verarbeitung zu
+      stoppen, ist ein eigenes Recht.
 symbol_id: bullseye

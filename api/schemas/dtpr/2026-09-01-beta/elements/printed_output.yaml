@@ -19,6 +19,10 @@ title:
     value: 打印的票据或信函
   - locale: zh-Hant
     value: 列印的票券或信件
+  - locale: nl
+    value: Een geprint kaartje of een brief
+  - locale: de
+    value: Gedrucktes Ticket oder Schreiben
 description:
   - locale: en
     value: >-
@@ -59,4 +63,14 @@ description:
     value: 输出以纸质形式送达——停车罚单、排队号码、登机牌、邮寄的决定通知书。系统的工作成果通过实体文件到达您手中，有时是在系统运行数天之后。
   - locale: zh-Hant
     value: 輸出結果以紙本送達：違規停車罰單、號碼牌、登機證、郵寄的決定通知書。系統的工作成果透過實體文件送到您手上，有時是在系統執行數天之後。
+  - locale: nl
+    value: >-
+      De uitvoer komt op papier: een parkeerbon, een volgnummer, een instapkaart, een brief met een
+      beslissing in de bus. Het werk van het systeem bereikt je via een fysiek document, soms dagen
+      nadat het systeem draaide.
+  - locale: de
+    value: >-
+      Das Ergebnis kommt auf Papier – ein Strafzettel, eine Wartenummer, eine Bordkarte, ein
+      Bescheid per Post. Die Arbeit des Systems erreicht Sie über ein physisches Dokument, manchmal
+      Tage nachdem es gelaufen ist.
 symbol_id: receipt

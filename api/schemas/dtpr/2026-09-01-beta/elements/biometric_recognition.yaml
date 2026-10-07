@@ -19,6 +19,10 @@ title:
     value: 生物特征识别
   - locale: zh-Hant
     value: 生物特徵辨識
+  - locale: nl
+    value: Biometrische herkenning
+  - locale: de
+    value: Biometrische Erkennung
 description:
   - locale: en
     value: >-
@@ -71,4 +75,18 @@ description:
       根据生物信号——面部、指纹、声音、虹膜或步态——识别或核验特定个人的AI系统。它有别于一般的计算机视觉，因为其输出与具名的个人相关联。许多司法管辖区限制或禁止在公众可进入的场所使用生物特征识别。
   - locale: zh-Hant
     value: 根據生物訊號（臉孔、指紋、聲音、虹膜或步態）識別或驗證特定個人的AI系統。與一般電腦視覺不同，因為輸出結果會連結到具名的個人。許多司法管轄區限制或禁止在公眾可進入的空間使用生物特徵辨識。
+  - locale: nl
+    value: >-
+      AI-systemen die een bepaalde persoon identificeren of diens identiteit controleren aan de hand
+      van lichaamskenmerken: gezicht, vingerafdruk, stem, iris of manier van lopen. Anders dan
+      algemene beeldherkenning, omdat de uitvoer is gekoppeld aan een persoon met naam. In veel
+      rechtsgebieden is biometrische herkenning in openbaar toegankelijke ruimtes beperkt of
+      verboden.
+  - locale: de
+    value: >-
+      KI-Systeme, die eine bestimmte Person anhand biologischer Merkmale identifizieren oder ihre
+      Identität überprüfen – Gesicht, Fingerabdruck, Stimme, Iris oder Gang. Anders als allgemeines
+      maschinelles Sehen, weil das Ergebnis an eine namentlich bekannte Person geknüpft ist. In
+      vielen Rechtsräumen ist biometrische Erkennung in öffentlich zugänglichen Räumen eingeschränkt
+      oder verboten.
 symbol_id: personal

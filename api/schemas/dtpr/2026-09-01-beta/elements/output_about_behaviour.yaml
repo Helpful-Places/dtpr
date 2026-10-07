@@ -19,6 +19,10 @@ title:
     value: 行为数据
   - locale: zh-Hant
     value: 行為資料
+  - locale: nl
+    value: Gegevens over gedrag
+  - locale: de
+    value: Verhaltensdaten
 description:
   - locale: en
     value: >-
@@ -65,4 +69,16 @@ description:
     value: AI产生关于人们做了什么的记录——行走路径、所选项目、停留时间、交互模式。示例：列出到访最多的目的地的周报、触摸屏交互的会话日志、推断出的某人在场馆内的行走路线。
   - locale: zh-Hant
     value: AI產生人們行為的紀錄：行走路徑、選取的項目、停留時間、互動模式。例如：最常造訪目的地的每週報告、觸控螢幕互動的工作階段紀錄、推斷出某人在場館內行走的路線。
+  - locale: nl
+    value: >-
+      De AI levert gegevens op over wat mensen hebben gedaan: gelopen routes, gekozen items,
+      verblijftijden, patronen in het gebruik. Voorbeelden: een weekrapport van de meest bezochte
+      bestemmingen, een sessielogboek van aanrakingen op een touchscreen, een afgeleide route die
+      iemand door een locatie heeft gelopen.
+  - locale: de
+    value: >-
+      Die KI erzeugt Aufzeichnungen darüber, was Menschen getan haben – zurückgelegte Wege,
+      ausgewählte Elemente, Verweildauern, Interaktionsmuster. Beispiele: ein Wochenbericht über die
+      meistbesuchten Ziele, ein Sitzungsprotokoll der Eingaben am Touchscreen, eine abgeleitete
+      Route, die jemand durch einen Veranstaltungsort genommen hat.
 symbol_id: about_behaviour

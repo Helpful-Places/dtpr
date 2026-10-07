@@ -19,6 +19,10 @@ title:
     value: 责任方不可获取
   - locale: zh-Hant
     value: 負責組織無法取得
+  - locale: nl
+    value: Niet beschikbaar voor de verantwoordelijke organisatie
+  - locale: de
+    value: Nicht für die verantwortliche Organisation zugänglich
 description:
   - locale: en
     value: Data is not available to the accountable organization
@@ -38,4 +42,8 @@ description:
     value: 责任方无法获取数据。
   - locale: zh-Hant
     value: 負責組織無法取得資料。
+  - locale: nl
+    value: Gegevens zijn niet beschikbaar voor de verantwoordelijke organisatie
+  - locale: de
+    value: Die Daten sind für die verantwortliche Organisation nicht zugänglich
 symbol_id: not_available

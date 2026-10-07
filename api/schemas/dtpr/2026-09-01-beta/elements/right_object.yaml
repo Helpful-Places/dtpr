@@ -19,6 +19,10 @@ title:
     value: 停止处理权
   - locale: zh-Hant
     value: 要求停止處理的權利
+  - locale: nl
+    value: Recht om verwerking te stoppen
+  - locale: de
+    value: Recht auf Stopp der Verarbeitung
 description:
   - locale: en
     value: >-
@@ -76,4 +80,19 @@ description:
   - locale: zh-Hant
     value: >-
       您有權要求組織停止使用您的個人資料，即使資料本身並未刪除。這與被遺忘權（會刪除資料）及限定使用目的的權利（限制原先聲明的目的）不同。這是由使用者主動提出、立即停止的機制：您的資料可能仍留存在檔案中，但不得再對其進行任何處理。
+  - locale: nl
+    value: >-
+      Het recht om een organisatie te vragen te stoppen met het gebruiken van je persoonsgegevens,
+      ook als de gegevens zelf niet worden verwijderd. Dit staat los van het recht op vergetelheid
+      (waarbij de gegevens worden verwijderd) en van het recht op doelbinding (dat het gebruik
+      beperkt tot de oorspronkelijk genoemde doelen). Het is de mogelijkheid om zelf te zeggen: stop
+      nu. Je gegevens mogen bewaard blijven, maar er mag verder niets meer mee worden gedaan.
+  - locale: de
+    value: >-
+      Das Recht, von einer Organisation zu verlangen, dass sie Ihre personenbezogenen Daten nicht
+      weiter verwendet, auch wenn die Daten selbst nicht gelöscht werden. Es unterscheidet sich vom
+      Recht auf Vergessenwerden (bei dem die Daten gelöscht werden) und vom Recht auf Zweckbindung
+      (das die Nutzung auf die ursprünglich genannten Zwecke begrenzt). Es ist die Möglichkeit, die
+      Verarbeitung auf eigenen Wunsch sofort stoppen zu lassen – Ihre Daten bleiben möglicherweise
+      gespeichert, dürfen aber nicht weiter verarbeitet werden.
 symbol_id: hand_raised

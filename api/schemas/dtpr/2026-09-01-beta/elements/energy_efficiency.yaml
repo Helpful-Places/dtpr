@@ -19,6 +19,10 @@ title:
     value: 节能
   - locale: zh-Hant
     value: 能源效率
+  - locale: nl
+    value: Energiebesparing
+  - locale: de
+    value: Energieeffizienz
 description:
   - locale: en
     value: Reduces energy use and/or helps conserve energy.
@@ -38,4 +42,8 @@ description:
     value: 减少能源消耗和/或帮助节约能源。
   - locale: zh-Hant
     value: 減少能源使用及（或）協助節約能源。
+  - locale: nl
+    value: Vermindert het energieverbruik en/of helpt energie te besparen.
+  - locale: de
+    value: Senkt den Energieverbrauch und/oder hilft, Energie zu sparen.
 symbol_id: energy_efficiency

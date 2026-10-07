@@ -19,6 +19,10 @@ title:
     value: 交通出行
   - locale: zh-Hant
     value: 交通移動
+  - locale: nl
+    value: Mobiliteit
+  - locale: de
+    value: Mobilität
 description:
   - locale: en
     value: Supports how people and materials move around.
@@ -38,4 +42,8 @@ description:
     value: 支持人员出行和物资流动。
   - locale: zh-Hant
     value: 協助人員與物料的移動。
+  - locale: nl
+    value: Ondersteunt hoe mensen en materialen zich verplaatsen.
+  - locale: de
+    value: Unterstützt die Fortbewegung von Menschen und den Transport von Materialien.
 symbol_id: mobility

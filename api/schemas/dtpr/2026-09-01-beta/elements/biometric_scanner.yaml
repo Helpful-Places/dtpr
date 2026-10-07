@@ -19,6 +19,10 @@ title:
     value: 生物特征扫描仪
   - locale: zh-Hant
     value: 生物特徵掃描器
+  - locale: nl
+    value: Biometrische scanner
+  - locale: de
+    value: Biometrischer Scanner
 description:
   - locale: en
     value: >-
@@ -64,4 +68,16 @@ description:
     value: 采集身体特征用于身份识别——在门禁、自助终端或闸机处采集指纹、掌纹、虹膜或面部扫描。这里指采集设备本身；将扫描结果与已存模板进行比对属于生物特征识别，列在“算法或模型”之下。
   - locale: zh-Hant
     value: 擷取身體特徵以供識別，例如在閘門、自助服務機或驗票閘門掃描指紋、手掌、虹膜或臉孔。此處指擷取裝置本身；將掃描結果與已儲存的特徵範本比對，屬於生物特徵辨識，列在「演算法或模型」之下。
+  - locale: nl
+    value: >-
+      Legt een lichaamskenmerk vast om iemand te identificeren: een vingerafdruk, handpalm, iris of
+      gezichtsscan bij een poort, zuil of toegangspoortje. Dit is alleen het apparaat dat vastlegt;
+      het vergelijken van de scan met opgeslagen templates is biometrische herkenning, en die staat
+      onder Algoritme of model.
+  - locale: de
+    value: >-
+      Erfasst ein körperliches Merkmal zur Identifizierung – Fingerabdruck, Handfläche, Iris oder
+      einen Gesichtsscan an einem Tor, Terminal oder Drehkreuz. Gemeint ist das Erfassungsgerät
+      selbst; der Abgleich des Scans mit gespeicherten Templates ist biometrische Erkennung und
+      steht unter „Algorithmus oder Modell“.
 symbol_id: fingerprint_scan

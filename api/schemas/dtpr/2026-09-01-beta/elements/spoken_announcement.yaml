@@ -19,6 +19,10 @@ title:
     value: 语音播报
   - locale: zh-Hant
     value: 語音廣播
+  - locale: nl
+    value: Een gesproken mededeling
+  - locale: de
+    value: Durchsage
 description:
   - locale: en
     value: >-
@@ -59,4 +63,14 @@ description:
     value: 输出在现场公开播放——广播通知、路口或站台的合成语音、有声警报。它能传达给在场的每个人，包括从未看过屏幕的人。
   - locale: zh-Hant
     value: 輸出結果在現場以聲音播出：廣播系統的廣播、路口或月台的合成語音、聲響警報。在場的每個人都會聽到，包括沒有看螢幕的人。
+  - locale: nl
+    value: >-
+      De uitvoer wordt op de plek zelf hardop afgespeeld: een mededeling via de omroepinstallatie,
+      een computerstem bij een oversteekplaats of perron, een hoorbaar alarm. Bereikt iedereen die
+      aanwezig is, ook mensen die nooit naar een scherm hebben gekeken.
+  - locale: de
+    value: >-
+      Das Ergebnis wird vor Ort laut abgespielt – eine Lautsprecherdurchsage, eine synthetische
+      Stimme an einem Überweg oder Bahnsteig, ein akustischer Alarm. Erreicht alle Anwesenden, auch
+      Menschen, die nie auf einen Bildschirm geschaut haben.
 symbol_id: loudspeaker

@@ -19,6 +19,10 @@ title:
     value: 商业
   - locale: zh-Hant
     value: 商業
+  - locale: nl
+    value: Handel
+  - locale: de
+    value: Handel
 description:
   - locale: en
     value: Enables the buying and selling of goods and services.
@@ -38,4 +42,8 @@ description:
     value: 促成商品和服务的买卖。
   - locale: zh-Hant
     value: 促成商品與服務的買賣。
+  - locale: nl
+    value: Maakt het kopen en verkopen van goederen en diensten mogelijk.
+  - locale: de
+    value: Ermöglicht den Kauf und Verkauf von Waren und Dienstleistungen.
 symbol_id: commerce

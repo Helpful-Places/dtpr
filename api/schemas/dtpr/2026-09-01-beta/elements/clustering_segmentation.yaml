@@ -19,6 +19,10 @@ title:
     value: 聚类与细分
   - locale: zh-Hant
     value: 分群與區隔
+  - locale: nl
+    value: Clustering en segmentatie
+  - locale: de
+    value: Clustering und Segmentierung
 description:
   - locale: en
     value: >-
@@ -74,4 +78,18 @@ description:
   - locale: zh-Hant
     value: >-
       不使用預先定義的標籤，而依相似程度將人、地點或事件分成群組的AI系統。用於區隔受眾、移動模式、用電型態或服務需求區域。輸出結果是群組歸屬，下游系統可能將其視為類別，但這些群組是推斷出來的，並非由人訂定。
+  - locale: nl
+    value: >-
+      AI-systemen die mensen, plekken of gebeurtenissen in clusters indelen op basis van gelijkenis,
+      zonder vooraf bepaalde labels. Worden gebruikt om doelgroepen, verplaatsingspatronen,
+      profielen van energieverbruik of gebieden met vraag naar diensten in te delen. De uitvoer is
+      een indeling in clusters die systemen verderop in de keten als categorieën kunnen behandelen,
+      ook al zijn clusters afgeleid en niet door mensen opgesteld.
+  - locale: de
+    value: >-
+      KI-Systeme, die Personen, Orte oder Ereignisse nach Ähnlichkeit in Cluster gruppieren, ohne
+      vorgegebene Kategorien zu verwenden. Sie werden eingesetzt, um Zielgruppen, Mobilitätsmuster,
+      Energieverbrauchsprofile oder Zonen mit unterschiedlichem Bedarf an Dienstleistungen
+      voneinander abzugrenzen. Die Ergebnisse sind Cluster-Zuordnungen, die nachgelagerte Systeme
+      wie Kategorien behandeln können – obwohl Cluster abgeleitet und nicht bewusst festgelegt sind.
 symbol_id: social

@@ -19,6 +19,10 @@ title:
     value: 感知
   - locale: zh-Hant
     value: 感測
+  - locale: nl
+    value: Neemt waar
+  - locale: de
+    value: Nimmt wahr
 description:
   - locale: en
     value: >-
@@ -76,4 +80,18 @@ description:
   - locale: zh-Hant
     value: >-
       感測：將攝影機、麥克風或感測器的原始訊號，轉換成系統其他部分可以使用的資訊，例如偵測結果、逐字稿、讀數。包括持續監測以留意特定事件。例如：偵測攝影機畫面中的車輛、將一句話轉成文字、察覺月台很擁擠。與「識別」不同，後者會指明所感知的人或物是誰或是什麼。
+  - locale: nl
+    value: >-
+      Neemt waar – zet ruwe signalen van camera's, microfoons of sensoren om in iets wat de rest van
+      het systeem kan gebruiken: detecties, uitgeschreven spraak, meetwaarden. Ook continue
+      monitoring die op gebeurtenissen let, hoort hierbij. Voorbeelden: een voertuig detecteren in
+      een camerabeeld, een gesproken zin uitschrijven, opmerken dat het druk is op een perron.
+      Anders dan Identificeert, dat een naam geeft aan wie of wat het waarneemt.
+  - locale: de
+    value: >-
+      Nimmt wahr – macht aus Rohsignalen von Kameras, Mikrofonen oder Sensoren etwas, das der Rest
+      des Systems nutzen kann: erkannte Objekte, Transkripte, Messwerte. Dazu gehört auch die
+      fortlaufende Überwachung, die auf Ereignisse achtet. Beispiele: ein Fahrzeug in einem
+      Kamerabild erkennen, einen gesprochenen Satz transkribieren, bemerken, dass ein Bahnsteig
+      überfüllt ist. Im Unterschied zu „Identifiziert“, das benennt, wen oder was es wahrnimmt.
 symbol_id: mode_perceptive

@@ -19,6 +19,10 @@ title:
     value: 生物特征数据
   - locale: zh-Hant
     value: 生物特徵資料
+  - locale: nl
+    value: Biometrische gegevens
+  - locale: de
+    value: Biometrische Daten
 description:
   - locale: en
     value: >-
@@ -65,4 +69,17 @@ description:
     value: AI产生的输出含有来自人体的生物信号——人脸模板、声纹向量、步态向量、手势序列。示例：存储在下游的已登记人脸模板、供日后比对的声纹向量、导出到另一个系统的步态特征。
   - locale: zh-Hant
     value: AI產生含有人體生物訊號的輸出結果：臉部特徵範本、聲音嵌入向量、步態向量、手勢序列。例如：儲存在下游的已註冊臉部特徵範本、供日後比對的聲音嵌入向量、匯出到另一個系統的步態特徵。
+  - locale: nl
+    value: >-
+      De AI levert uitvoer op met lichaamskenmerken van een persoon: gezichtstemplates,
+      stemprofielen, loopprofielen, reeksen gebaren. Voorbeelden: een geregistreerde
+      gezichtstemplate die verderop in de keten wordt opgeslagen, een stemprofiel om later mee te
+      vergelijken, een loopprofiel dat naar een ander systeem wordt geëxporteerd.
+  - locale: de
+    value: >-
+      Die KI erzeugt Ergebnisse, die biologische Merkmale vom Körper einer Person enthalten –
+      Gesichts-Templates, Stimm-Embeddings, Gangvektoren, Gestenabfolgen. Beispiele: ein
+      registriertes Gesichts-Template, das in einem nachgelagerten System gespeichert wird, ein
+      Stimm-Embedding für einen späteren Abgleich, eine Gangsignatur, die an ein anderes System
+      exportiert wird.
 symbol_id: biometric

@@ -19,6 +19,10 @@ title:
     value: 可转售
   - locale: zh-Hant
     value: 可轉售
+  - locale: nl
+    value: Beschikbaar voor doorverkoop
+  - locale: de
+    value: Weiterverkauf möglich
 description:
   - locale: en
     value: The data collected may be resold to other 3rd parties
@@ -38,4 +42,8 @@ description:
     value: 收集的数据可能被转售给其他第三方。
   - locale: zh-Hant
     value: 收集的資料可能轉售給其他第三方。
+  - locale: nl
+    value: De verzamelde gegevens kunnen worden doorverkocht aan andere derden
+  - locale: de
+    value: Die erhobenen Daten können an weitere Dritte weiterverkauft werden
 symbol_id: resale_cycle

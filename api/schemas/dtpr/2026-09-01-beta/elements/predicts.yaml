@@ -19,6 +19,10 @@ title:
     value: 预测
   - locale: zh-Hant
     value: 預測
+  - locale: nl
+    value: Voorspelt
+  - locale: de
+    value: Sagt voraus
 description:
   - locale: en
     value: >-
@@ -72,4 +76,17 @@ description:
   - locale: zh-Hant
     value: >-
       預測：估計可能發生的情況，例如預報、風險評分、機率。它說明可能會發生什麼；至於如何因應，仍由其他人或其他系統決定。例如：排隊長度預測、信用風險評分、下一小時的擁擠程度預測。與「決定」不同，後者會使結果生效。
+  - locale: nl
+    value: >-
+      Voorspelt – schat in wat waarschijnlijk is: een prognose, een risicoscore, een kans. Het zegt
+      wat er kan gebeuren; iemand of iets anders beslist nog wat ermee wordt gedaan. Voorbeelden:
+      een prognose van de lengte van een wachtrij, een kredietrisicoscore, een voorspelling van de
+      drukte in het komende uur. Anders dan Beslist, dat een uitkomst laat ingaan.
+  - locale: de
+    value: >-
+      Sagt voraus – schätzt ein, was wahrscheinlich ist: eine Prognose, ein Risikowert, eine
+      Wahrscheinlichkeit. Es sagt, was geschehen könnte; was daraufhin zu tun ist, entscheidet
+      weiterhin jemand oder etwas anderes. Beispiele: eine Prognose der Warteschlangenlänge, ein
+      Kreditrisikowert, eine Vorhersage des Gedränges in der nächsten Stunde. Im Unterschied zu
+      „Entscheidet“, das ein Ergebnis wirksam werden lässt.
 symbol_id: mode_analytical

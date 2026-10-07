@@ -19,6 +19,10 @@ title:
     value: 语音与音频
   - locale: zh-Hant
     value: 語音與音訊
+  - locale: nl
+    value: Spraak en geluid
+  - locale: de
+    value: Sprache und Audio
 description:
   - locale: en
     value: >-
@@ -69,4 +73,17 @@ description:
   - locale: zh-Hant
     value: >-
       在口語與其他格式之間轉換，或對非語音聲音進行分類的AI系統。包括語音轉文字（逐字稿）、文字轉語音（合成語音）、關鍵詞偵測及聲音事件偵測。以聲音作為身分（辨認說話者是誰）則屬於「生物特徵辨識」。
+  - locale: nl
+    value: >-
+      AI-systemen die gesproken woorden omzetten naar andere vormen en omgekeerd, of die andere
+      geluiden dan spraak indelen. Hieronder vallen spraak naar tekst (transcriptie), tekst naar
+      spraak (computerstem), het herkennen van trefwoorden en het detecteren van bepaalde geluiden.
+      Stem als identiteit (herkennen wie er spreekt) hoort bij Biometrische herkenning.
+  - locale: de
+    value: >-
+      KI-Systeme, die gesprochene Worte in andere Formate umwandeln und umgekehrt oder Geräusche
+      einordnen, die keine Sprache sind. Dazu gehören Sprache-zu-Text (Transkription),
+      Text-zu-Sprache (synthetische Stimme), das Erkennen von Schlüsselwörtern und das Erkennen von
+      Geräuschereignissen. Die Stimme als Identitätsmerkmal (erkennen, wer spricht) gehört zu
+      „Biometrische Erkennung“.
 symbol_id: waveform

@@ -18,6 +18,10 @@ name:
     value: 系统做什么
   - locale: zh-Hant
     value: 系統做什麼
+  - locale: nl
+    value: Wat het doet
+  - locale: de
+    value: Was es tut
 description:
   - locale: en
     value: >-
@@ -59,6 +63,16 @@ description:
     value: 用日常动词说明本系统的行为——它感知、预测、决定、生成、操控。把这些动词说出来，更容易想清楚系统会触及什么、可能出什么问题。
   - locale: zh-Hant
     value: 用日常動詞說明這個系統的行為：它感測、預測、決定、創作、驅動。把動詞說出來，更容易思考系統會影響什麼，以及哪裡可能出錯。
+  - locale: nl
+    value: >-
+      De handelingen van dit systeem, uitgedrukt in alledaagse werkwoorden: het neemt waar,
+      voorspelt, beslist, maakt, beweegt. Door de werkwoorden te benoemen, kun je makkelijker
+      beredeneren waar het systeem aan raakt en wat er mis kan gaan.
+  - locale: de
+    value: >-
+      Was dieses System tut, in Alltagsverben ausgedrückt – es nimmt wahr, sagt voraus, entscheidet,
+      erstellt, bewegt. Wer die Verben benennt, kann leichter einschätzen, worauf das System
+      einwirkt und was schiefgehen könnte.
 prompt:
   - locale: en
     value: What is this system doing?
@@ -78,6 +92,10 @@ prompt:
     value: 本系统在做什么？
   - locale: zh-Hant
     value: 這個系統在做什麼？
+  - locale: nl
+    value: Wat doet dit systeem?
+  - locale: de
+    value: Was tut dieses System?
 authoring_guidance:
   - locale: en
     value: >-
@@ -125,6 +143,18 @@ authoring_guidance:
       选择读者能看懂的动词，通常一到三个为宜。如需标示自主程度，请在最下游的动词上设置“人工参与”，作为系统层面的信号；只有当其他动词所处环节确实不同时，才为它们单独设置；如果反而会造成困惑，则可省略。
   - locale: zh-Hant
     value: 選擇讀者看得懂的動詞，通常一到三個就夠。若要標示自主程度，請在最下游的動詞上設定「人為參與」，作為系統層級的訊號；只有在其他動詞所處階段確實不同時，才另行設定；若會造成混淆，則省略不設。
+  - locale: nl
+    value: >-
+      Kies de werkwoorden die een lezer herkent; één tot drie is meestal genoeg. Wil je autonomie
+      aangeven, stel dan Menselijke betrokkenheid in op het werkwoord dat het verst in de keten zit,
+      als signaal voor het hele systeem. Stel het alleen op andere werkwoorden in als hun stap echt
+      anders is, en laat het weg als het verwarrend zou zijn.
+  - locale: de
+    value: >-
+      Wählen Sie die Verben, die Lesende wiedererkennen würden; meist sind ein bis drei richtig. Um
+      Autonomie zu kennzeichnen, setzen Sie „Menschliche Beteiligung“ beim letzten Verb der Kette
+      als Signal für das Gesamtsystem; bei anderen Verben nur, wenn sich deren Stufe wirklich
+      unterscheidet; lassen Sie die Angabe weg, wenn sie verwirren würde.
 required: false
 order: 4
 datachain_type: dtpr
@@ -157,6 +187,10 @@ element_context:
       value: 人工参与
     - locale: zh-Hant
       value: 人為參與
+    - locale: nl
+      value: Menselijke betrokkenheid
+    - locale: de
+      value: Menschliche Beteiligung
   description:
     - locale: en
       value: >-
@@ -198,6 +232,16 @@ element_context:
       value: 由谁完成最后一环——从系统整体上简要提示有多少环节无需人工即可运行，显示在它所标示的动词上。这是对部署情况的概括性描述，并非技术审计。
     - locale: zh-Hant
       value: 由誰完成最後一步：以簡明的系統層級訊號，表示有多少環節不需人力即可運作，並顯示在它所標示的動詞上。這是對部署情形的概括描述，不是技術稽核。
+    - locale: nl
+      value: >-
+        Wie de cirkel rondmaakt: een snel signaal op systeemniveau van hoeveel er zonder mens
+        gebeurt, getoond bij het werkwoord dat het kleurt. Een algemene typering van de inzet, geen
+        technische audit.
+    - locale: de
+      value: >-
+        Wer den Vorgang abschließt – ein schnelles Signal auf Systemebene dafür, wie viel ohne einen
+        Menschen abläuft, angezeigt an dem Verb, das es einfärbt. Eine allgemeine Einordnung des
+        Einsatzes, keine technische Prüfung.
   required: false
   values:
     - id: human_decides
@@ -220,6 +264,10 @@ element_context:
           value: 由人决定
         - locale: zh-Hant
           value: 由人決定
+        - locale: nl
+          value: Een mens beslist
+        - locale: de
+          value: Ein Mensch entscheidet
       description:
         - locale: en
           value: >-
@@ -259,6 +307,16 @@ element_context:
           value: 本系统只提供建议或信息；在任何结果生效之前，由人作出决定。示例：分诊工具为临床医生排列病例的先后顺序，由医生选择先看哪一例。
         - locale: zh-Hant
           value: 這個系統提供建議或資訊；任何結果生效前，都由人做出決定。例如：分流工具為臨床人員排列個案順序，由臨床人員選擇先看哪一位。
+        - locale: nl
+          value: >-
+            Dit systeem doet een voorstel of geeft informatie; een mens neemt de beslissing voordat
+            er iets gebeurt. Voorbeeld: een triagehulpmiddel zet gevallen op volgorde voor een arts,
+            die kiest wie eerst aan de beurt is.
+        - locale: de
+          value: >-
+            Dieses System schlägt vor oder informiert; ein Mensch trifft die Entscheidung, bevor
+            etwas wirksam wird. Beispiel: Ein Triage-Werkzeug bringt Fälle in eine Rangfolge, und
+            das medizinische Fachpersonal wählt aus, welche es zuerst behandelt.
       color: "#2A9D8F"
     - id: human_oversees
       name:
@@ -280,6 +338,10 @@ element_context:
           value: 由人监督或执行
         - locale: zh-Hant
           value: 由人監督或執行
+        - locale: nl
+          value: Een mens houdt toezicht of voert het uit
+        - locale: de
+          value: Ein Mensch beaufsichtigt oder führt aus
       description:
         - locale: en
           value: >-
@@ -322,6 +384,16 @@ element_context:
           value: 本系统自行得出结果；由人监督、可随时介入，或由人亲自执行结果。示例：优化工具规划当天的收运路线，由司机按路线行驶。
         - locale: zh-Hant
           value: 這個系統自行算出結果；由人監督、可介入，或由人親自執行結果。例如：最佳化工具規劃當天的收運路線，再由司機照著行駛。
+        - locale: nl
+          value: >-
+            Dit systeem bepaalt zelf de uitkomst; mensen houden toezicht, kunnen ingrijpen of voeren
+            de uitkomst zelf uit. Voorbeeld: een optimalisatieprogramma plant de ophaalroutes van de
+            dag en chauffeurs rijden ze.
+        - locale: de
+          value: >-
+            Dieses System ermittelt das Ergebnis selbstständig; Menschen beaufsichtigen es, können
+            eingreifen oder setzen das Ergebnis selbst um. Beispiel: Ein Optimierungsprogramm plant
+            die Sammeltouren des Tages, und das Fahrpersonal fährt sie ab.
       color: "#6A1B7A"
     - id: autonomous
       name:
@@ -343,6 +415,10 @@ element_context:
           value: 自行运行
         - locale: zh-Hant
           value: 自行運作
+        - locale: nl
+          value: Werkt zelfstandig
+        - locale: de
+          value: Läuft selbstständig
       description:
         - locale: en
           value: >-
@@ -378,6 +454,16 @@ element_context:
           value: 本系统作出决定并直接生效，无需人逐一审核每个结果。示例：道路通行费随车流变化自动调价并自动扣费。
         - locale: zh-Hant
           value: 這個系統自行決定並使結果生效，不需有人逐一審查。例如：道路通行費隨車流變化自動調整費率並扣款。
+        - locale: nl
+          value: >-
+            Dit systeem beslist en de beslissing gaat in zonder dat een mens elke uitkomst
+            beoordeelt. Voorbeeld: tol waarvan het tarief automatisch verandert en wordt
+            afgeschreven als de verkeersdrukte verandert.
+        - locale: de
+          value: >-
+            Dieses System entscheidet und wird wirksam, ohne dass ein Mensch jedes Ergebnis prüft.
+            Beispiel: eine Straßenmaut, die Preise automatisch anpasst und abbucht, wenn sich der
+            Verkehr ändert.
       color: "#E76F51"
 element_variables:
   - id: additional_description
@@ -400,4 +486,8 @@ element_variables:
         value: 描述
       - locale: zh-Hant
         value: 說明
+      - locale: nl
+        value: Beschrijving
+      - locale: de
+        value: Beschreibung
     required: false

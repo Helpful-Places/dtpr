@@ -19,6 +19,10 @@ title:
     value: 车辆检测
   - locale: zh-Hant
     value: 車輛偵測
+  - locale: nl
+    value: Voertuigdetectie
+  - locale: de
+    value: Fahrzeugerfassung
 description:
   - locale: en
     value: >-
@@ -64,4 +68,15 @@ description:
     value: 感知道路上或某一空间内的车辆——雷达、激光雷达（LiDAR）、埋设在路面下的感应线圈、压电条或安装在龙门架上的检测器。用于统计车流量、测量车速和检测拥堵。车牌摄像头归入“摄像头”。
   - locale: zh-Hant
     value: 感測道路上或空間內的車輛：雷達、光達（LiDAR）、埋設在路面下的感應線圈、壓電感測條或裝設在門架上的偵測器。用於計算車流量、測量車速及偵測壅塞。車牌攝影機屬於「攝影機」。
+  - locale: nl
+    value: >-
+      Neemt voertuigen waar op een weg of in een ruimte: radar, lidar, detectielussen in het wegdek,
+      piëzo-elektrische strips of detectoren op een portaal. Wordt gebruikt om verkeer te tellen,
+      snelheid te meten en files te detecteren. Kentekencamera's vallen onder Camera.
+  - locale: de
+    value: >-
+      Erfasst Fahrzeuge auf einer Straße oder Fläche – Radar, LiDAR, Induktionsschleifen in der
+      Fahrbahn, piezoelektrische Streifen oder an Schilderbrücken montierte Detektoren. Wird
+      eingesetzt, um den Verkehr zu zählen, Geschwindigkeiten zu messen und Staus zu erkennen.
+      Kennzeichenkameras gehören zu „Kamera“.
 symbol_id: vehicle

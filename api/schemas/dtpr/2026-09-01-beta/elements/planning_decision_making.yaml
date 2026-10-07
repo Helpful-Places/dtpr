@@ -19,6 +19,10 @@ title:
     value: 规划与决策
   - locale: zh-Hant
     value: 規劃與決策
+  - locale: nl
+    value: Planning en besluitvorming
+  - locale: de
+    value: Planung und Entscheidungsfindung
 description:
   - locale: en
     value: >-
@@ -64,4 +68,16 @@ description:
     value: 支持人口或系统层面的预测和政策影响分析——例如城市规划、基础设施规划，或衡量某项政策决定的影响。有别于“风险评估与优先排序”，后者是对个人评分。
   - locale: zh-Hant
     value: 協助在人口或系統層級進行預測與政策影響分析，例如都市規劃、基礎設施規劃，或衡量某項政策決定的影響。與「風險評估與分流」不同，後者是對個人評分。
+  - locale: nl
+    value: >-
+      Ondersteunt prognoses en analyses van de gevolgen van beleid op het niveau van de bevolking of
+      het systeem, bijvoorbeeld stadsplanning, planning van infrastructuur of het meten van het
+      effect van een beleidsbeslissing. Anders dan Risicobeoordeling en triage, dat individuele
+      mensen een score geeft.
+  - locale: de
+    value: >-
+      Unterstützt Prognosen und die Analyse der Folgen politischer Maßnahmen auf Ebene der
+      Bevölkerung oder des Gesamtsystems – zum Beispiel Stadtplanung, Infrastrukturplanung oder die
+      Messung der Wirkung einer politischen Entscheidung. Im Unterschied zu „Risikobewertung und
+      Triage“, das Einzelpersonen bewertet.
 symbol_id: planning_decision_making

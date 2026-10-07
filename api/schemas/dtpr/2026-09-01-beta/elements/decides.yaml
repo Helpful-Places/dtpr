@@ -19,6 +19,10 @@ title:
     value: 决定
   - locale: zh-Hant
     value: 決定
+  - locale: nl
+    value: Beslist
+  - locale: de
+    value: Entscheidet
 description:
   - locale: en
     value: >-
@@ -69,4 +73,18 @@ description:
   - locale: zh-Hant
     value: >-
       決定：判定會實際生效的結果，例如核准或拒絕、定價、分配、標記以待處理。例如：依車流訂定的動態道路通行費、申請案的核准或駁回、派遣任務的指派。若是由人根據系統的建議做最後決定，則屬於「建議」。
+  - locale: nl
+    value: >-
+      Beslist – bepaalt een uitkomst die ingaat: goedkeuren of afwijzen, een prijs bepalen,
+      toewijzen, markeren voor actie. Voorbeelden: een dynamisch toltarief op basis van de
+      verkeersdrukte, een aanvraag die wordt goedgekeurd of afgewezen, de toewijzing van een melding
+      aan een hulpverlener. Als een mens op basis van de voorstellen de uiteindelijke beslissing
+      neemt, is dat Beveelt aan.
+  - locale: de
+    value: >-
+      Entscheidet – legt ein Ergebnis fest, das wirksam wird: genehmigen oder ablehnen, Preise
+      festsetzen, zuteilen, zur Bearbeitung markieren. Beispiele: eine dynamische Straßenmaut, die
+      sich nach dem Verkehr richtet, ein bewilligter oder abgelehnter Antrag, die Zuweisung eines
+      Einsatzes. Trifft ein Mensch auf Grundlage der Vorschläge die endgültige Entscheidung, ist das
+      stattdessen „Empfiehlt“.
 symbol_id: dm_accept-or-deny

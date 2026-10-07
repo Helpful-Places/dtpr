@@ -19,6 +19,10 @@ title:
     value: 异常检测
   - locale: zh-Hant
     value: 異常偵測
+  - locale: nl
+    value: Detectie van afwijkingen
+  - locale: de
+    value: Anomalieerkennung
 description:
   - locale: en
     value: >-
@@ -71,4 +75,18 @@ description:
     value: 能标记异常事件、模式或数值的AI系统，这些异常偏离了系统学习到的正常行为基线。用于设备故障预测、欺诈筛查、入侵检测、漏水监测和人流异常预警。其输出通常是按阈值判定的评分，而非直接的决定。
   - locale: zh-Hant
     value: 標示出偏離已學習的正常行為基準的異常事件、模式或數值的AI系統。用於預測設備故障、篩檢詐欺、偵測入侵、監測漏水，以及人流異常警示。輸出結果通常是設有門檻的分數，而非直接的決定。
+  - locale: nl
+    value: >-
+      AI-systemen die ongewone gebeurtenissen, patronen of waarden signaleren die afwijken van een
+      aangeleerd beeld van normaal gedrag. Worden gebruikt om storingen aan apparatuur te
+      voorspellen, fraude op te sporen, indringers te detecteren, waterlekken te bewaken en te
+      waarschuwen bij ongewone drukte. De uitvoer bestaat meestal uit scores met een drempelwaarde,
+      niet uit directe beslissingen.
+  - locale: de
+    value: >-
+      KI-Systeme, die ungewöhnliche Ereignisse, Muster oder Werte melden, die von einem erlernten
+      Normalzustand abweichen. Sie werden eingesetzt, um Geräteausfälle vorherzusagen, Betrug
+      aufzuspüren, Eindringversuche zu erkennen, Wasserlecks zu überwachen und vor ungewöhnlichen
+      Bewegungen von Menschenmengen zu warnen. Die Ergebnisse sind in der Regel Punktwerte mit
+      Schwellenwert, keine direkten Entscheidungen.
 symbol_id: dm_anomaly-detection

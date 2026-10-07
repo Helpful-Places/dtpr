@@ -19,6 +19,10 @@ title:
     value: 已有记录
   - locale: zh-Hant
     value: 既有紀錄
+  - locale: nl
+    value: Bestaande registraties
+  - locale: de
+    value: Vorhandene Datenbestände
 description:
   - locale: en
     value: >-
@@ -59,4 +63,16 @@ description:
     value: 组织已经持有的数据——客户账户、案卷、登记册、交易记录、过往申请。没有从现实世界采集新的数据；系统利用的是以前记录下来的内容，而当初记录的目的有时并不相同。
   - locale: zh-Hant
     value: 組織已經持有的資料：客戶帳戶、個案檔案、登記冊、交易紀錄、過去的申請案。系統並未從外界擷取新資料，而是取用先前留下的紀錄，這些紀錄當初的用途有時並不相同。
+  - locale: nl
+    value: >-
+      Gegevens die de organisatie al heeft: klantaccounts, dossiers, registers,
+      transactiegeschiedenissen, eerdere aanvragen. Er wordt niets nieuws uit de buitenwereld
+      vastgelegd; het systeem gebruikt wat eerder is geregistreerd, soms voor een ander doel dan
+      toen.
+  - locale: de
+    value: >-
+      Daten, die die Organisation bereits besitzt – Kundenkonten, Fallakten, Register,
+      Transaktionsverläufe, frühere Anträge. Es wird nichts Neues aus der Welt erfasst; das System
+      greift auf früher Aufgezeichnetes zurück, das manchmal ursprünglich einem anderen Zweck
+      diente.
 symbol_id: tabular

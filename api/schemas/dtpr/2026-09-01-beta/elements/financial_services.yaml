@@ -19,6 +19,10 @@ title:
     value: 金融服务
   - locale: zh-Hant
     value: 金融服務
+  - locale: nl
+    value: Financiële diensten
+  - locale: de
+    value: Finanzdienstleistungen
 description:
   - locale: en
     value: >-
@@ -56,6 +60,16 @@ description:
     value: 支持贷款、保险、欺诈检测或其他涉及个人的金融决定——例如信用评分、保险核保、交易欺诈标记。
   - locale: zh-Hant
     value: 協助放款、保險、詐欺偵測或其他與個人有關的金融決定，例如信用評分、保險核保、可疑交易標記。
+  - locale: nl
+    value: >-
+      Ondersteunt kredietverlening, verzekeringen, fraudedetectie of andere financiële beslissingen
+      over mensen, bijvoorbeeld kredietscores, de beoordeling van verzekeringsaanvragen of het
+      markeren van verdachte transacties.
+  - locale: de
+    value: >-
+      Unterstützt Kreditvergabe, Versicherung, Betrugserkennung oder andere finanzielle
+      Entscheidungen über Personen – zum Beispiel Bonitätsbewertung, Risikoprüfung bei
+      Versicherungen, Markierung verdächtiger Transaktionen.
 sources:
   - type: regulation
     title: EU AI Act Annex III §5(b)+(c) — Credit-scoring and life/health insurance risk assessment & pricing

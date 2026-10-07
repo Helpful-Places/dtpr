@@ -19,6 +19,10 @@ title:
     value: 餐饮
   - locale: zh-Hant
     value: 餐飲
+  - locale: nl
+    value: Eten en drinken
+  - locale: de
+    value: Gastronomie
 description:
   - locale: en
     value: For providing food or meal services.
@@ -38,4 +42,8 @@ description:
     value: 用于提供食品或餐饮服务。
   - locale: zh-Hant
     value: 用於提供食物或餐點服務。
+  - locale: nl
+    value: Voor het aanbieden van eten of maaltijden.
+  - locale: de
+    value: Dient der Versorgung mit Speisen oder Mahlzeiten.
 symbol_id: dining

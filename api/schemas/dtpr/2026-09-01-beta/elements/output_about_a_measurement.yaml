@@ -19,6 +19,10 @@ title:
     value: 测量数据
   - locale: zh-Hant
     value: 測量資料
+  - locale: nl
+    value: Gegevens over een meting
+  - locale: de
+    value: Messdaten
 description:
   - locale: en
     value: >-
@@ -65,4 +69,16 @@ description:
     value: AI产生随时间变化的数值测量结果——传感器输出、推算出的质量评分、预测值。示例：某广场每小时的空气质量评分、明天的客流预测曲线、发布在公共数据看板上的噪声水平汇总读数。
   - locale: zh-Hant
     value: AI產生隨時間變化的數值測量結果：感測器輸出、推算出的品質分數、預測值。例如：廣場每小時的空氣品質分數、明天的預測搭乘人次曲線、發布在公開儀表板上的彙總噪音量讀數。
+  - locale: nl
+    value: >-
+      De AI levert meetwaarden in de loop van de tijd op: uitvoer van sensoren, afgeleide
+      kwaliteitsscores, voorspelde waarden. Voorbeelden: een luchtkwaliteitsscore per uur voor een
+      plein, een voorspelde curve van reizigersaantallen voor morgen, een samengevoegde
+      geluidsmeting die op een openbaar dashboard wordt gepubliceerd.
+  - locale: de
+    value: >-
+      Die KI erzeugt Zahlenwerte im Zeitverlauf – Sensorwerte, abgeleitete Qualitätswerte,
+      prognostizierte Werte. Beispiele: ein stündlicher Luftqualitätswert für einen Platz, eine
+      vorhergesagte Kurve der Fahrgastzahlen für morgen, ein zusammengefasster Lärmpegelwert, der
+      auf einem öffentlichen Dashboard veröffentlicht wird.
 symbol_id: values_time

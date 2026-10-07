@@ -19,6 +19,10 @@ title:
     value: 回答
   - locale: zh-Hant
     value: 回答
+  - locale: nl
+    value: Antwoordt
+  - locale: de
+    value: Antwortet
 description:
   - locale: en
     value: >-
@@ -74,4 +78,17 @@ description:
   - locale: zh-Hant
     value: >-
       回答：在對話中回應人們的問題，例如聊天機器人、語音助理、自動電話專線。它會當下與您一來一往地對話。例如：大眾運輸聊天機器人說明誤點原因、服務專線轉接您的需求。與「創作」不同，後者產生的內容在事後可獨立存在。
+  - locale: nl
+    value: >-
+      Antwoordt – reageert in een gesprek op vragen van mensen: een chatbot, een spraakassistent,
+      een geautomatiseerde telefoonlijn. Het voert op dat moment een gesprek met jou. Voorbeelden:
+      een chatbot van het openbaar vervoer die een vertraging uitlegt, een servicelijn die je
+      verzoek doorstuurt. Anders dan Maakt, dat content oplevert die daarna op zichzelf staat.
+  - locale: de
+    value: >-
+      Antwortet – beantwortet Fragen von Menschen im Gespräch: ein Chatbot, ein Sprachassistent,
+      eine automatisierte Telefon-Hotline. Es führt einen Dialog, der sich in diesem Moment an Sie
+      richtet. Beispiele: ein Nahverkehrs-Chatbot, der eine Verspätung erklärt, eine
+      Service-Hotline, die Ihr Anliegen weiterleitet. Im Unterschied zu „Erstellt“, das Inhalte
+      erzeugt, die danach für sich stehen.
 symbol_id: chatbot

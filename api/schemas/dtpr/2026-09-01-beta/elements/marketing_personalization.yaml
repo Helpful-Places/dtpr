@@ -19,6 +19,10 @@ title:
     value: 营销与个性化
   - locale: zh-Hant
     value: 行銷與個人化
+  - locale: nl
+    value: Marketing en personalisatie
+  - locale: de
+    value: Marketing und Personalisierung
 description:
   - locale: en
     value: >-
@@ -59,6 +63,16 @@ description:
     value: 为营销目的定向投放广告、提供个性化推荐或进行受众画像——例如店内会员优惠、个性化标牌、基于行为的广告定向。
   - locale: zh-Hant
     value: 為行銷目的投放廣告、提供個人化推薦或分析受眾輪廓，例如店內會員優惠、個人化看板、行為式廣告投放。
+  - locale: nl
+    value: >-
+      Richt reclame op doelgroepen, stemt aanbevelingen af op de persoon of maakt profielen van
+      doelgroepen voor marketing, bijvoorbeeld klantenkaartaanbiedingen in de winkel,
+      gepersonaliseerde schermen en borden, advertenties op basis van gedrag.
+  - locale: de
+    value: >-
+      Richtet Werbung gezielt aus, personalisiert Empfehlungen oder erstellt Zielgruppenprofile für
+      das Marketing – zum Beispiel Treueangebote im Geschäft, personalisierte Anzeigen auf
+      Bildschirmen, verhaltensbasierte Werbung.
 sources:
   - type: regulation
     title: GDPR Article 22 — Automated individual decision-making, including profiling

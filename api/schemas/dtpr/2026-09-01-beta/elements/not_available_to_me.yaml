@@ -19,6 +19,10 @@ title:
     value: 本人不可获取
   - locale: zh-Hant
     value: 我無法取得
+  - locale: nl
+    value: Niet beschikbaar voor mij
+  - locale: de
+    value: Nicht für mich zugänglich
 description:
   - locale: en
     value: >-
@@ -52,4 +56,12 @@ description:
     value: 本人和其他个人均无法获取。您作为个人没有途径访问这些数据。
   - locale: zh-Hant
     value: 我或其他人都無法取得。您個人沒有任何方式可以存取這些資料。
+  - locale: nl
+    value: >-
+      Niet beschikbaar voor mij of voor anderen. Je kunt deze gegevens zelf op geen enkele manier
+      inzien.
+  - locale: de
+    value: >-
+      Weder für mich noch für andere Personen zugänglich. Als Einzelperson haben Sie keine
+      Möglichkeit, auf diese Daten zuzugreifen.
 symbol_id: not_available

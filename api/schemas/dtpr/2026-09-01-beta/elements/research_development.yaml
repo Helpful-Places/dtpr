@@ -19,6 +19,10 @@ title:
     value: 研究与开发
   - locale: zh-Hant
     value: 研究與發展
+  - locale: nl
+    value: Onderzoek en ontwikkeling
+  - locale: de
+    value: Forschung und Entwicklung
 description:
   - locale: en
     value: >-
@@ -59,4 +63,14 @@ description:
     value: 支持已部署的研究工具——作为研究项目的一部分，对某一场所、人群或环境进行研究的系统。有别于正式投入使用、向公众提供服务的AI。
   - locale: zh-Hant
     value: 協助已部署的研究工具運作，也就是在研究計畫中用來研究某個地點、族群或環境的系統。與向大眾提供服務的正式上線AI不同。
+  - locale: nl
+    value: >-
+      Ondersteunt een ingezet onderzoeksinstrument: een systeem dat een plek, bevolkingsgroep of
+      omgeving bestudeert als onderdeel van een onderzoeksprogramma. Anders dan AI die in de
+      praktijk een dienst aan het publiek levert.
+  - locale: de
+    value: >-
+      Unterstützt ein im Einsatz befindliches Forschungsinstrument – ein System, das im Rahmen eines
+      Forschungsprogramms einen Ort, eine Bevölkerungsgruppe oder eine Umgebung untersucht. Im
+      Unterschied zu KI im Regelbetrieb, die eine Dienstleistung für die Öffentlichkeit erbringt.
 symbol_id: research_development

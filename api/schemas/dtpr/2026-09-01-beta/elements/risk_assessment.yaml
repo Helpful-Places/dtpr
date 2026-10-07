@@ -19,6 +19,10 @@ title:
     value: 风险评估与优先排序
   - locale: zh-Hant
     value: 風險評估與分流
+  - locale: nl
+    value: Risicobeoordeling en triage
+  - locale: de
+    value: Risikobewertung und Triage
 description:
   - locale: en
     value: >-
@@ -65,6 +69,18 @@ description:
     value: 对个人或个案进行评分或排定优先顺序，以便进一步关注或采取行动——例如再犯风险评分、医院分诊、儿童福利风险标记。有别于“规划与决策”，后者是在人口或系统层面进行预测。
   - locale: zh-Hant
     value: 對個人或個案評分或排定優先順序，以決定後續的關注或行動，例如再犯風險評分、醫院分流、兒童福利風險標記。與「規劃與決策」不同，後者是在人口或系統層級進行預測。
+  - locale: nl
+    value: >-
+      Geeft personen of gevallen een score of prioriteit voor verdere aandacht of actie,
+      bijvoorbeeld scores voor de kans op herhaling van strafbare feiten, triage in het ziekenhuis
+      of risicosignalen bij jeugdbescherming. Anders dan Planning en besluitvorming, dat prognoses
+      maakt op het niveau van de bevolking of het systeem.
+  - locale: de
+    value: >-
+      Bewertet oder priorisiert Einzelpersonen oder Fälle für eine genauere Prüfung oder weitere
+      Maßnahmen – zum Beispiel Rückfallprognosen, Triage im Krankenhaus, Risikohinweise im
+      Kinderschutz. Im Unterschied zu „Planung und Entscheidungsfindung“, das Prognosen auf Ebene
+      der Bevölkerung oder des Gesamtsystems erstellt.
 sources:
   - type: regulation
     title: EU AI Act Annex III §6 and §8 — Law-enforcement profiling and individual risk assessment in the administration of justice

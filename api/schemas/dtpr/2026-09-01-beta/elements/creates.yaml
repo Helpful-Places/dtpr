@@ -19,6 +19,10 @@ title:
     value: 生成
   - locale: zh-Hant
     value: 創作
+  - locale: nl
+    value: Maakt
+  - locale: de
+    value: Erstellt
 description:
   - locale: en
     value: >-
@@ -74,4 +78,18 @@ description:
   - locale: zh-Hant
     value: >-
       創作：產生這個系統執行前並不存在的新文字、影像、音訊、影片或程式碼。輸出結果是系統撰寫的內容，而不是關於既有資料的標籤或分數。例如：依提示草擬一段文字、依描述生成圖片、製作音訊、補全程式碼。與「回答」不同，後者是在對話中回應您。
+  - locale: nl
+    value: >-
+      Maakt – levert nieuwe tekst, beelden, audio, video of code op die niet bestond voordat dit
+      systeem draaide. De uitvoer is content die het systeem zelf heeft gemaakt, geen label of score
+      over bestaande gegevens. Voorbeelden: een alinea schrijven op basis van een opdracht, een
+      afbeelding genereren uit een beschrijving, audio componeren, code aanvullen. Anders dan
+      Antwoordt, dat in een gesprek op jou reageert.
+  - locale: de
+    value: >-
+      Erstellt – erzeugt neue Texte, Bilder, Audio, Videos oder Code, die es nicht gab, bevor dieses
+      System lief. Das Ergebnis ist ein vom System verfasster Inhalt, keine Kategorie und kein
+      Punktwert zu vorhandenen Daten. Beispiele: einen Absatz aus einer Anweisung entwerfen, ein
+      Bild aus einer Beschreibung generieren, Audio komponieren, Code vervollständigen. Im
+      Unterschied zu „Antwortet“, das Ihnen im Gespräch antwortet.
 symbol_id: mode_generative

@@ -19,6 +19,10 @@ title:
     value: 医疗保健
   - locale: zh-Hant
     value: 醫療照護
+  - locale: nl
+    value: Gezondheidszorg
+  - locale: de
+    value: Gesundheitsversorgung
 description:
   - locale: en
     value: >-
@@ -59,6 +63,16 @@ description:
     value: 支持面向个人的临床诊疗——例如辅助诊断、治疗建议、患者分诊或健康咨询聊天机器人。有别于“环境健康”，后者监测的是物理环境。
   - locale: zh-Hant
     value: 協助對個人的臨床照護，例如輔助診斷、治療建議、病患分流或健康聊天機器人。與「環境衛生」不同，後者監測的是實體環境。
+  - locale: nl
+    value: >-
+      Ondersteunt de medische zorg voor individuele mensen, bijvoorbeeld hulp bij diagnoses,
+      behandeladviezen, triage van patiënten of chatbots over gezondheid. Anders dan Gezonde
+      leefomgeving, dat de fysieke omgeving monitort.
+  - locale: de
+    value: >-
+      Unterstützt die medizinische Behandlung einzelner Personen – zum Beispiel Diagnosehilfen,
+      Behandlungsempfehlungen, medizinische Triage oder Gesundheits-Chatbots. Im Unterschied zu
+      „Umwelt und Gesundheit“, das die physische Umwelt überwacht.
 sources:
   - type: policy_document
     title: Ethics and Governance of Artificial Intelligence for Health

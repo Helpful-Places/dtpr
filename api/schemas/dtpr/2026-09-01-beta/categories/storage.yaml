@@ -18,6 +18,10 @@ name:
     value: 数据存储
   - locale: zh-Hant
     value: 資料儲存
+  - locale: nl
+    value: Opslag van gegevens
+  - locale: de
+    value: Datenspeicherung
 description:
   - locale: en
     value: Where the data produced by this AI system is kept.
@@ -37,6 +41,10 @@ description:
     value: 本AI系统产生的数据存放在哪里。
   - locale: zh-Hant
     value: 這個AI系統產生的資料保存在哪裡。
+  - locale: nl
+    value: Waar de gegevens die dit AI-systeem oplevert worden bewaard.
+  - locale: de
+    value: Wo die Daten, die dieses KI-System erzeugt, aufbewahrt werden.
 prompt:
   - locale: en
     value: Where is the data stored?
@@ -56,6 +64,10 @@ prompt:
     value: 数据存储在哪里？
   - locale: zh-Hant
     value: 資料儲存在哪裡？
+  - locale: nl
+    value: Waar worden de gegevens opgeslagen?
+  - locale: de
+    value: Wo werden die Daten gespeichert?
 required: false
 order: 14
 datachain_type: dtpr
@@ -81,6 +93,10 @@ element_variables:
         value: 描述
       - locale: zh-Hant
         value: 說明
+      - locale: nl
+        value: Beschrijving
+      - locale: de
+        value: Beschreibung
     required: false
   - id: duration
     label:
@@ -102,4 +118,8 @@ element_variables:
         value: 期限
       - locale: zh-Hant
         value: 期間
+      - locale: nl
+        value: Duur
+      - locale: de
+        value: Dauer
     required: true

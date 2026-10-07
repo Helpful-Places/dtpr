@@ -18,6 +18,10 @@ name:
     value: 数据保留
   - locale: zh-Hant
     value: 資料保留
+  - locale: nl
+    value: Bewaartermijn
+  - locale: de
+    value: Speicherdauer
 description:
   - locale: en
     value: How long the data produced by this AI system is kept.
@@ -37,6 +41,10 @@ description:
     value: 本AI系统产生的数据保留多久。
   - locale: zh-Hant
     value: 這個AI系統產生的資料會保存多久。
+  - locale: nl
+    value: Hoe lang de gegevens die dit AI-systeem oplevert worden bewaard.
+  - locale: de
+    value: Wie lange die Daten, die dieses KI-System erzeugt, aufbewahrt werden.
 prompt:
   - locale: en
     value: How long is the data kept?
@@ -56,6 +64,10 @@ prompt:
     value: 数据保留多久？
   - locale: zh-Hant
     value: 資料會保存多久？
+  - locale: nl
+    value: Hoe lang worden de gegevens bewaard?
+  - locale: de
+    value: Wie lange werden die Daten aufbewahrt?
 required: false
 order: 13
 datachain_type: dtpr
@@ -81,6 +93,10 @@ element_variables:
         value: 描述
       - locale: zh-Hant
         value: 說明
+      - locale: nl
+        value: Beschrijving
+      - locale: de
+        value: Beschreibung
     required: false
   - id: duration
     label:
@@ -102,4 +118,8 @@ element_variables:
         value: 期限
       - locale: zh-Hant
         value: 期間
+      - locale: nl
+        value: Duur
+      - locale: de
+        value: Dauer
     required: true

@@ -19,6 +19,10 @@ title:
     value: 社交
   - locale: zh-Hant
     value: 社交
+  - locale: nl
+    value: Sociaal contact
+  - locale: de
+    value: Soziale Kontakte
 description:
   - locale: en
     value: For interacting with another person or a group.
@@ -38,4 +42,8 @@ description:
     value: 用于与他人或群体互动。
   - locale: zh-Hant
     value: 用於與他人或群體互動。
+  - locale: nl
+    value: Voor contact met een andere persoon of een groep.
+  - locale: de
+    value: Dient dem Austausch mit einer anderen Person oder einer Gruppe.
 symbol_id: social

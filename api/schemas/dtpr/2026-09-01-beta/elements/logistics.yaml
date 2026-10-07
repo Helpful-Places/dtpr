@@ -19,6 +19,10 @@ title:
     value: 物流
   - locale: zh-Hant
     value: 物流
+  - locale: nl
+    value: Logistiek
+  - locale: de
+    value: Logistik
 description:
   - locale: en
     value: Supports the movements of goods or materials.
@@ -38,4 +42,8 @@ description:
     value: 支持货物或物资的运输流转。
   - locale: zh-Hant
     value: 協助貨物或物料的運送。
+  - locale: nl
+    value: Ondersteunt het vervoer van goederen of materialen.
+  - locale: de
+    value: Unterstützt den Transport von Gütern oder Materialien.
 symbol_id: logistics

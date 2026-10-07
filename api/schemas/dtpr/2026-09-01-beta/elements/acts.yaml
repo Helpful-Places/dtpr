@@ -19,6 +19,10 @@ title:
     value: 执行
   - locale: zh-Hant
     value: 行動
+  - locale: nl
+    value: Handelt
+  - locale: de
+    value: Handelt
 description:
   - locale: en
     value: >-
@@ -75,4 +79,18 @@ description:
   - locale: zh-Hant
     value: >-
       行動：將目標拆解成步驟，並在軟體中執行，例如呼叫工具、預約、申報、向上呈報，或代人執行多步驟的工作流程。輸出結果是已採取的行動，而不是回傳的內容。例如：預約會議、申報稅務、將案件向上呈報。若行動會移動實體物品，則屬於「驅動」。
+  - locale: nl
+    value: >-
+      Handelt – zet een doel om in stappen en voert die uit in software: hulpprogramma's aanroepen,
+      boeken, indienen, doorzetten, werkstromen met meerdere stappen namens iemand uitvoeren. De
+      uitvoer is een uitgevoerde actie, geen content die wordt teruggegeven. Voorbeelden: een
+      afspraak inplannen, een aangifte indienen, een melding doorzetten. Als de actie iets fysieks
+      in beweging brengt, is dat Beweegt.
+  - locale: de
+    value: >-
+      Handelt – zerlegt ein Ziel in Schritte und führt sie in Software aus: ruft Werkzeuge auf,
+      bucht, reicht ein, eskaliert, führt mehrstufige Abläufe im Auftrag einer Person aus. Das
+      Ergebnis ist eine ausgeführte Handlung, kein zurückgegebener Inhalt. Beispiele: einen Termin
+      buchen, eine Steuererklärung einreichen, ein Ticket eskalieren. Bewegt die Handlung etwas
+      Physisches, ist das „Bewegt“.
 symbol_id: mode_agentic

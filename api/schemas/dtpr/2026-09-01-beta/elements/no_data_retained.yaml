@@ -19,6 +19,10 @@ title:
     value: 不保留数据
   - locale: zh-Hant
     value: 不保留資料
+  - locale: nl
+    value: Geen gegevens bewaard
+  - locale: de
+    value: Keine Daten gespeichert
 description:
   - locale: en
     value: No data is kept or stored
@@ -38,4 +42,8 @@ description:
     value: 不保留、不存储任何数据。
   - locale: zh-Hant
     value: 不保存或儲存任何資料。
+  - locale: nl
+    value: Er worden geen gegevens bewaard of opgeslagen
+  - locale: de
+    value: Es werden keine Daten aufbewahrt oder gespeichert
 symbol_id: no_data_retained

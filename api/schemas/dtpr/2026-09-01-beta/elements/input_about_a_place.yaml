@@ -19,6 +19,10 @@ title:
     value: 场所数据
   - locale: zh-Hant
     value: 地點資料
+  - locale: nl
+    value: Gegevens over een plek
+  - locale: de
+    value: Ortsbezogene Daten
 description:
   - locale: en
     value: >-
@@ -59,4 +63,14 @@ description:
     value: 位置、路线、周边环境或平面图。AI接收描述某物所在位置的数据。示例：手机的GPS坐标、人行道上的人流计数、建筑走廊的地图。
   - locale: zh-Hant
     value: 位置、路線、周遭環境或樓層平面圖。AI接收描述某物所在位置的資料。例如：手機的GPS座標、人行道的人流計數、建築物走廊的地圖。
+  - locale: nl
+    value: >-
+      Locaties, routes, omgevingen of plattegronden. De AI krijgt gegevens binnen die beschrijven
+      waar iets is. Voorbeelden: gps-coördinaten van een telefoon, tellingen van voetgangers op een
+      stoep, een kaart van de gangen in een gebouw.
+  - locale: de
+    value: >-
+      Standorte, Routen, Umgebungen oder Grundrisse. Die KI nimmt Daten auf, die beschreiben, wo
+      sich etwas befindet. Beispiele: GPS-Koordinaten eines Mobiltelefons, Zählungen des Fußverkehrs
+      auf einem Gehweg, ein Plan der Flure eines Gebäudes.
 symbol_id: spatial

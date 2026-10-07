@@ -19,6 +19,10 @@ title:
     value: 场所数据
   - locale: zh-Hant
     value: 地點資料
+  - locale: nl
+    value: Gegevens over een plek
+  - locale: de
+    value: Ortsbezogene Daten
 description:
   - locale: en
     value: >-
@@ -59,4 +63,14 @@ description:
     value: AI产生位置、路线、区域或平面图方面的输出。示例：自助终端上显示的导览路线、人流密度热力图、发布给下游系统的地理围栏边界。
   - locale: zh-Hant
     value: AI產生位置、路線、區域或樓層平面圖等輸出結果。例如：自助服務機上顯示的指引路線、人流密度熱區圖、發布給下游系統的地理圍欄範圍。
+  - locale: nl
+    value: >-
+      De AI levert uitvoer op over een locatie, route, gebied of plattegrond. Voorbeelden: een route
+      die op een informatiezuil wordt getoond, een heatmap van voetgangersdrukte, een virtuele
+      gebiedsgrens (geofence) die naar systemen verderop in de keten wordt gestuurd.
+  - locale: de
+    value: >-
+      Die KI erzeugt Ergebnisse zu Standorten, Routen, Gebieten oder Grundrissen. Beispiele: eine an
+      einem Terminal angezeigte Wegbeschreibung, eine Heatmap der Fußverkehrsdichte, eine
+      Geofence-Grenze, die an nachgelagerte Systeme weitergegeben wird.
 symbol_id: spatial

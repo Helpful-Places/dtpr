@@ -19,6 +19,10 @@ title:
     value: 推荐与排序
   - locale: zh-Hant
     value: 推薦與排序
+  - locale: nl
+    value: Aanbeveling en rangschikking
+  - locale: de
+    value: Empfehlung und Rangfolge
 description:
   - locale: en
     value: >-
@@ -69,4 +73,17 @@ description:
     value: 根据偏好、行为或与他人的相似性，为个人推荐或排列服务、信息条目、新闻、导览选项等项目的AI系统。包括协同过滤、基于内容的推荐系统和学习排序。让每个人从同一份底层目录中看到个性化的内容。
   - locale: zh-Hant
     value: 依據偏好、行為或與他人的相似程度，為個人建議或排序項目（服務、刊登資訊、新聞、路線指引選項）的AI系統。包括協同過濾、內容式推薦系統及學習式排序。它讓每個人從同一份目錄中看到個人化的內容。
+  - locale: nl
+    value: >-
+      AI-systemen die items voor een persoon voorstellen of ordenen (diensten, aanbiedingen, nieuws,
+      routeopties) op basis van voorkeuren, gedrag of gelijkenis met andere mensen. Hieronder vallen
+      collaboratief filteren, aanbevelingssystemen op basis van content en aangeleerde
+      rangschikking. Bepalen per persoon wat die te zien krijgt uit hetzelfde onderliggende aanbod.
+  - locale: de
+    value: >-
+      KI-Systeme, die einer Person Dinge vorschlagen oder für sie sortieren – Dienstleistungen,
+      Angebote, Nachrichten, Wegoptionen – auf Grundlage von Vorlieben, Verhalten oder Ähnlichkeit
+      zu anderen Personen. Dazu gehören kollaboratives Filtern, inhaltsbasierte Empfehlungssysteme
+      und gelernte Rangfolgen. Sie personalisieren, was jede Person aus demselben zugrunde liegenden
+      Katalog zu sehen bekommt.
 symbol_id: processing_recommendation-systems

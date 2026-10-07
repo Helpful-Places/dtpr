@@ -19,6 +19,10 @@ title:
     value: 供应商可获取
   - locale: zh-Hant
     value: 供應商可取得
+  - locale: nl
+    value: Beschikbaar voor de leverancier
+  - locale: de
+    value: Für den Anbieter zugänglich
 description:
   - locale: en
     value: Data is available to the data collection or technology provider
@@ -40,4 +44,8 @@ description:
     value: 数据收集方或技术提供方可以获取数据。
   - locale: zh-Hant
     value: 資料收集或技術的供應商可取得資料。
+  - locale: nl
+    value: Gegevens zijn beschikbaar voor de partij die de gegevens verzamelt of de technologie levert
+  - locale: de
+    value: Die Daten sind für den Anbieter der Datenerhebung oder der Technologie zugänglich
 symbol_id: available

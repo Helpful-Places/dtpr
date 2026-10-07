@@ -18,6 +18,10 @@ name:
     value: 数据收集技术
   - locale: zh-Hant
     value: 資料收集技術
+  - locale: nl
+    value: Verzameltechnologie
+  - locale: de
+    value: Erfassungstechnik
 description:
   - locale: en
     value: >-
@@ -58,6 +62,16 @@ description:
     value: 采集本系统输入数据的设备和渠道——摄像头、传感器、麦克风、表单，或来自其他系统的数据源。这是收集数据的工具，有别于处理数据的算法。
   - locale: zh-Hant
     value: 擷取這個系統輸入資料的裝置與管道：攝影機、感測器、麥克風、表單，或來自其他系統的資料來源。指收集資料的工具，有別於處理資料的演算法。
+  - locale: nl
+    value: >-
+      De apparaten en kanalen die de invoergegevens van dit systeem vastleggen: camera's, sensoren,
+      microfoons, formulieren of gegevens uit andere systemen. Het instrument dat de gegevens
+      verzamelt, niet het algoritme dat ze verwerkt.
+  - locale: de
+    value: >-
+      Die Geräte und Kanäle, die die Eingabedaten dieses Systems erfassen – Kameras, Sensoren,
+      Mikrofone, Formulare oder Datenströme aus anderen Systemen. Das Instrument, das die Daten
+      erhebt, im Unterschied zum Algorithmus, der sie verarbeitet.
 prompt:
   - locale: en
     value: What captures the data this system uses?
@@ -77,6 +91,10 @@ prompt:
     value: 本系统使用的数据由什么采集？
   - locale: zh-Hant
     value: 這個系統使用的資料由什麼擷取？
+  - locale: nl
+    value: Waarmee worden de gegevens vastgelegd die dit systeem gebruikt?
+  - locale: de
+    value: Womit werden die Daten erfasst, die dieses System nutzt?
 required: false
 order: 7
 datachain_type: dtpr
@@ -102,4 +120,8 @@ element_variables:
         value: 描述
       - locale: zh-Hant
         value: 說明
+      - locale: nl
+        value: Beschrijving
+      - locale: de
+        value: Beschreibung
     required: false

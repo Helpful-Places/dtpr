@@ -19,6 +19,10 @@ title:
     value: 生成内容
   - locale: zh-Hant
     value: 生成內容
+  - locale: nl
+    value: Gegenereerde content
+  - locale: de
+    value: Generierte Inhalte
 description:
   - locale: en
     value: >-
@@ -66,6 +70,19 @@ description:
   - locale: zh-Hant
     value: >-
       由另一個AI製作的文字、影像、音訊或影片。AI接收這些合成內容並進一步處理。例如：將大型語言模型（LLM）撰寫的摘要送入翻譯工具、將生成的照片交給內容審核模型、將文字轉語音的片段送往音訊系統。
+  - locale: nl
+    value: >-
+      Tekst, beelden, audio of video die een andere AI heeft gemaakt. De AI krijgt deze kunstmatig
+      gemaakte content binnen en verwerkt die verder. Voorbeelden: een door een taalmodel (LLM)
+      geschreven samenvatting die naar een vertaalprogramma gaat, een gegenereerde foto die naar een
+      moderatiemodel gaat, een fragment met computerstem dat naar een geluidssysteem wordt gestuurd.
+  - locale: de
+    value: >-
+      Texte, Bilder, Audio oder Videos, die eine andere KI erstellt hat. Die KI nimmt diese
+      synthetischen Inhalte auf und verarbeitet sie weiter. Beispiele: eine von einem Sprachmodell
+      (LLM) geschriebene Zusammenfassung, die an ein Übersetzungssystem geht, ein generiertes Foto,
+      das an ein Moderationsmodell übergeben wird, ein Sprachsynthese-Clip, der an eine Audioanlage
+      geleitet wird.
 sources:
   - type: regulation
     title: EU AI Act Article 3(1) — output class "content"

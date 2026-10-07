@@ -19,6 +19,10 @@ title:
     value: 机构
   - locale: zh-Hant
     value: 機構
+  - locale: nl
+    value: Instelling
+  - locale: de
+    value: Institution
 description:
   - locale: en
     value: The entity that is responsible and accountable for this data collection activity
@@ -38,4 +42,8 @@ description:
     value: 对这项数据收集活动负责并承担责任的实体。
   - locale: zh-Hant
     value: 對這項資料收集活動負責並承擔責任的實體。
+  - locale: nl
+    value: De partij die verantwoordelijk en aanspreekbaar is voor deze gegevensverzameling
+  - locale: de
+    value: Die Stelle, die für diese Datenerhebung verantwortlich und rechenschaftspflichtig ist
 symbol_id: institution

@@ -19,6 +19,10 @@ title:
     value: 环境传感器
   - locale: zh-Hant
     value: 環境感測器
+  - locale: nl
+    value: Omgevingssensor
+  - locale: de
+    value: Umweltsensor
 description:
   - locale: en
     value: >-
@@ -59,4 +63,14 @@ description:
     value: 测量周围环境状况——空气质量、温度、湿度、噪声水平、水位或天气。这类传感器读取的是环境而不是人，不过噪声和空气读数仍可能反映人的活动。
   - locale: zh-Hant
     value: 測量周遭環境的狀況：空氣品質、溫度、濕度、噪音量、水位或天氣。這類感測器讀取的是環境，不是人，但噪音與空氣讀數仍可能反映人的活動。
+  - locale: nl
+    value: >-
+      Meet omstandigheden in de omgeving: luchtkwaliteit, temperatuur, luchtvochtigheid,
+      geluidsniveau, waterstand of het weer. Deze sensoren meten de omgeving, niet mensen, al kunnen
+      geluids- en luchtmetingen wel iets zeggen over wat mensen doen.
+  - locale: de
+    value: >-
+      Misst Bedingungen in der Umgebung – Luftqualität, Temperatur, Luftfeuchtigkeit, Lärmpegel,
+      Wasserstand oder Wetter. Diese Sensoren erfassen die Umgebung, nicht Personen; Lärm- und
+      Luftmesswerte können aber dennoch menschliche Aktivität widerspiegeln.
 symbol_id: thermometer

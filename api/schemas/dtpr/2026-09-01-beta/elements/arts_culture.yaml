@@ -19,6 +19,10 @@ title:
     value: 艺术与文化
   - locale: zh-Hant
     value: 藝術與文化
+  - locale: nl
+    value: Kunst en cultuur
+  - locale: de
+    value: Kunst und Kultur
 description:
   - locale: en
     value: Enables artistic and/or cultural expression.
@@ -38,4 +42,8 @@ description:
     value: 促进艺术和/或文化表达。
   - locale: zh-Hant
     value: 促成藝術及（或）文化表達。
+  - locale: nl
+    value: Maakt artistieke en/of culturele expressie mogelijk.
+  - locale: de
+    value: Ermöglicht künstlerischen und/oder kulturellen Ausdruck.
 symbol_id: arts_culture

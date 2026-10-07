@@ -19,6 +19,10 @@ title:
     value: 数据更正权
   - locale: zh-Hant
     value: 更正資料的權利
+  - locale: nl
+    value: Recht op correctie van je gegevens
+  - locale: de
+    value: Recht auf Berichtigung Ihrer Daten
 description:
   - locale: en
     value: >-
@@ -70,4 +74,18 @@ description:
   - locale: zh-Hant
     value: >-
       您有權要求更正或補充AI系統所持有、關於您的不正確或不完整資料。這與查閱資料的權利（閱覽資料的權利）及被遺忘權（刪除資料的權利）不同。原始資料更正後，先前依據錯誤資料所做的下游決定也應重新檢視。
+  - locale: nl
+    value: >-
+      Het recht om onjuiste of onvolledige gegevens die een AI-systeem over jou heeft, te laten
+      corrigeren of aanvullen. Dit staat los van het recht op inzage in je gegevens (het recht om ze
+      te lezen) en het recht op vergetelheid (het recht om ze te laten verwijderen). Als de
+      oorspronkelijke gegevens zijn gecorrigeerd, moeten latere beslissingen die op de foute
+      gegevens zijn gebaseerd opnieuw worden bekeken.
+  - locale: de
+    value: >-
+      Das Recht, unrichtige oder unvollständige Daten, die ein KI-System über Sie gespeichert hat,
+      berichtigen oder vervollständigen zu lassen. Es unterscheidet sich vom Recht auf Auskunft über
+      Ihre Daten (dem Recht, sie einzusehen) und vom Recht auf Vergessenwerden (dem Recht, sie
+      löschen zu lassen). Werden die ursprünglichen Daten berichtigt, sollten Entscheidungen, die
+      auf den fehlerhaften Daten beruhen, erneut geprüft werden.
 symbol_id: pencil_edit

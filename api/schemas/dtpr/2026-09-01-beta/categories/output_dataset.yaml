@@ -18,6 +18,10 @@ name:
     value: 输出数据
   - locale: zh-Hant
     value: 輸出資料
+  - locale: nl
+    value: Uitvoergegevens
+  - locale: de
+    value: Ausgabedaten
 description:
   - locale: en
     value: >-
@@ -51,6 +55,14 @@ description:
     value: 这一已部署的系统在运行时产生的输出数据——决定、内容和行动。
   - locale: zh-Hant
     value: 這個已部署的系統在運作時產生的輸出資料：決定、內容與行動。
+  - locale: nl
+    value: >-
+      De uitvoergegevens die dit ingezette systeem oplevert terwijl het werkt: beslissingen, content
+      en acties.
+  - locale: de
+    value: >-
+      Die Ausgabedaten, die dieses eingesetzte System im Betrieb erzeugt – Entscheidungen, Inhalte
+      und Handlungen.
 prompt:
   - locale: en
     value: What does this AI system produce?
@@ -70,6 +82,10 @@ prompt:
     value: 本AI系统产生什么？
   - locale: zh-Hant
     value: 這個AI系統產生什麼？
+  - locale: nl
+    value: Wat levert dit AI-systeem op?
+  - locale: de
+    value: Was erzeugt dieses KI-System?
 required: false
 order: 10
 datachain_type: dtpr
@@ -95,6 +111,10 @@ element_context:
       value: 个人信息
     - locale: zh-Hant
       value: 個人資訊
+    - locale: nl
+      value: Persoonsgegevens
+    - locale: de
+      value: Personenbezug
   description:
     - locale: en
       value: >-
@@ -133,6 +153,15 @@ element_context:
       value: 本系统产生数据时，数据的可识别程度。要素名称说明输出是关于什么的；这一颜色说明输出能在多大程度上直接识别个人。
     - locale: zh-Hant
       value: 這個系統產生資料時，資料可識別個人的程度。元素名稱說明輸出結果的內容；這個顏色則表示它識別個人的直接程度。
+    - locale: nl
+      value: >-
+        Hoe herleidbaar de gegevens zijn wanneer dit systeem ze oplevert. De naam van het element
+        zegt waar de uitvoer over gaat; deze kleur zegt hoe direct die naar een persoon wijst.
+    - locale: de
+      value: >-
+        Wie stark die Daten auf eine Person schließen lassen, wenn dieses System sie erzeugt. Der
+        Name des Elements sagt, worum es bei dem Ergebnis geht; diese Farbe sagt, wie direkt es eine
+        Person identifiziert.
   values:
     - id: de_identified
       name:
@@ -154,6 +183,10 @@ element_context:
           value: 匿名化数据
         - locale: zh-Hant
           value: 匿名化資料
+        - locale: nl
+          value: Geanonimiseerde gegevens
+        - locale: de
+          value: Anonymisierte Daten
       description:
         - locale: en
           value: >-
@@ -193,6 +226,17 @@ element_context:
           value: 关于人的输出，但与具体个人的关联已被切断。已去除标识符，或经过模糊、汇总、加噪处理，使结果无法合理地对应到个人。
         - locale: zh-Hant
           value: 與人有關、但已切斷身分連結的輸出結果。已去除識別資訊、模糊化、彙總或加入雜訊，使結果無法合理地連回特定個人。
+        - locale: nl
+          value: >-
+            Uitvoer over mensen waarbij de koppeling met wie het is, is verbroken. Identificerende
+            kenmerken zijn verwijderd, of de uitvoer is vervaagd, samengevoegd of met ruis bewerkt,
+            zodat de uitkomst redelijkerwijs niet meer aan één persoon te koppelen is.
+        - locale: de
+          value: >-
+            Ergebnisse über Personen, bei denen die Verbindung zur Person getrennt wurde. Kennungen
+            wurden entfernt, die Daten unkenntlich gemacht, zusammengefasst oder verrauscht, sodass
+            das Ergebnis nach vernünftigem Ermessen keiner einzelnen Person mehr zugeordnet werden
+            kann.
       color: "#4A90D9"
     - id: pseudonymous
       name:
@@ -214,6 +258,10 @@ element_context:
           value: 假名化数据
         - locale: zh-Hant
           value: 假名化資料
+        - locale: nl
+          value: Gepseudonimiseerde gegevens
+        - locale: de
+          value: Pseudonymisierte Daten
       description:
         - locale: en
           value: >-
@@ -254,6 +302,16 @@ element_context:
           value: 输出带有一个令牌（哈希值、编号、模板）标记，本系统可借此在不同事件中将结果关联到同一个人，而不透露姓名。借助额外信息，仍有可能重新识别身份。
         - locale: zh-Hant
           value: 輸出結果標有一個代碼（雜湊值、ID、特徵範本），讓這個系統能在不同事件中將結果連結到同一個人，而不透露姓名。若有額外資訊，仍可能重新識別身分。
+        - locale: nl
+          value: >-
+            De uitvoer krijgt een code (hash, ID, template) waarmee dit systeem de uitkomst op
+            verschillende momenten aan dezelfde persoon kan koppelen zonder een naam prijs te geven.
+            Met extra informatie is de persoon wel te achterhalen.
+        - locale: de
+          value: >-
+            Das Ergebnis ist mit einem Token (Hash, ID, Template) versehen, mit dem dieses System
+            das Ergebnis über mehrere Ereignisse hinweg derselben Person zuordnen kann, ohne einen
+            Namen preiszugeben. Mit zusätzlichen Informationen ist eine Re-Identifizierung möglich.
       color: "#9575CD"
     - id: identifiable
       name:
@@ -275,6 +333,10 @@ element_context:
           value: 可识别数据
         - locale: zh-Hant
           value: 可識別資料
+        - locale: nl
+          value: Herleidbare gegevens
+        - locale: de
+          value: Identifizierende Daten
       description:
         - locale: en
           value: >-
@@ -313,6 +375,16 @@ element_context:
           value: 输出直接指明某个人（姓名、地址、账户、可辨认的面部或声音、车牌），或带有本系统在同一步骤中解析为法定身份的令牌。
         - locale: zh-Hant
           value: 輸出結果直接指明某個人（姓名、地址、帳號、可辨認的臉孔或聲音、車牌），或帶有這個系統在同一步驟中對應到法定身分的代碼。
+        - locale: nl
+          value: >-
+            De uitvoer noemt een persoon direct (naam, adres, account, herkenbaar gezicht of
+            herkenbare stem, kenteken) of bevat een code die dit systeem in dezelfde stap omzet naar
+            de wettelijke identiteit.
+        - locale: de
+          value: >-
+            Das Ergebnis benennt eine Person direkt (Name, Adresse, Konto, erkennbares Gesicht oder
+            erkennbare Stimme, Kennzeichen) oder trägt ein Token, das dieses System im selben
+            Schritt der rechtlichen Identität zuordnet.
       color: "#FFD700"
 element_variables:
   - id: additional_description
@@ -335,4 +407,8 @@ element_variables:
         value: 描述
       - locale: zh-Hant
         value: 說明
+      - locale: nl
+        value: Beschrijving
+      - locale: de
+        value: Beschreibung
     required: true

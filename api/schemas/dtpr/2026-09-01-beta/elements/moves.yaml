@@ -19,6 +19,10 @@ title:
     value: 操控
   - locale: zh-Hant
     value: 驅動
+  - locale: nl
+    value: Beweegt
+  - locale: de
+    value: Bewegt
 description:
   - locale: en
     value: >-
@@ -64,4 +68,16 @@ description:
     value: 操控——作用于物理世界。系统驱动电机、阀门、信号装置或其他执行器，改变您周围的事物。示例：操纵机器人行进、切换交通信号灯相位、打开闸门、调节建筑通风、放行停车道闸。
   - locale: zh-Hant
     value: 驅動：對實體世界採取行動。系統驅動馬達、閥門、號誌或其他致動器，改變您周遭的事物。例如：操控機器人、變換交通號誌時相、開啟閘門、調整建築物的通風、升起停車場柵欄。
+  - locale: nl
+    value: >-
+      Beweegt – grijpt in op de fysieke wereld. Het systeem stuurt motoren, kleppen, seinen of
+      andere onderdelen aan en verandert iets in je omgeving. Voorbeelden: een robot besturen, een
+      verkeerslicht laten verspringen, een poort openen, de ventilatie van een gebouw bijstellen,
+      een slagboom van een parkeerterrein openen.
+  - locale: de
+    value: >-
+      Bewegt – wirkt auf die physische Welt ein. Das System steuert Motoren, Ventile, Signale oder
+      andere Aktoren und verändert etwas in Ihrer Umgebung. Beispiele: einen Roboter lenken, eine
+      Ampelphase umschalten, ein Tor öffnen, die Lüftung eines Gebäudes anpassen, eine Parkschranke
+      öffnen.
 symbol_id: mode_physical

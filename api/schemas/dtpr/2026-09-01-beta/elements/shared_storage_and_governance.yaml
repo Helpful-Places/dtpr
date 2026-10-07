@@ -19,6 +19,10 @@ title:
     value: 共享存储与治理
   - locale: zh-Hant
     value: 共用儲存與治理
+  - locale: nl
+    value: Gedeelde opslag en gedeeld beheer
+  - locale: de
+    value: Gemeinsame Speicherung und Steuerung
 description:
   - locale: en
     value: >-
@@ -63,4 +67,15 @@ description:
     value: 在共享数据存储模式下，数据存储由多方共用；由于基础设施是共享的，就可以通过内置于数据结构本身的策略，对数据的保留、访问和销毁实施治理。
   - locale: zh-Hant
     value: 在共用資料儲存模式中，資料儲存庫由多方共用；由於基礎設施是共用的，便可透過內建於資料結構本身的政策，對資料的保留、存取與銷毀落實治理。
+  - locale: nl
+    value: >-
+      Bij een model met gedeelde gegevensopslag delen meerdere partijen de opslag, en omdat de
+      infrastructuur gedeeld is, kunnen regels voor het bewaren van, de toegang tot en het
+      vernietigen van de gegevens worden afgedwongen met beleid dat in de structuur van de gegevens
+      zelf is ingebouwd.
+  - locale: de
+    value: >-
+      Bei einem gemeinsamen Datenspeicher teilen sich mehrere Parteien den Speicher, und weil die
+      Infrastruktur geteilt wird, lassen sich Vorgaben für Aufbewahrung, Zugriff und Löschung der
+      Daten durch Regeln durchsetzen, die in die Struktur der Daten selbst eingebaut sind.
 symbol_id: stored

@@ -19,6 +19,10 @@ title:
     value: 存在与移动传感器
   - locale: zh-Hant
     value: 存在與動作感測器
+  - locale: nl
+    value: Aanwezigheids- en bewegingssensor
+  - locale: de
+    value: Präsenz- und Bewegungsmelder
 description:
   - locale: en
     value: >-
@@ -59,4 +63,14 @@ description:
     value: 在不采集图像的情况下，检测是否有人或物在场或在移动——被动红外、超声波、压力垫、门口计数器、座位占用传感器。它只告诉系统某个空间有人，而不说明是谁。
   - locale: zh-Hant
     value: 在不擷取影像的情況下，偵測是否有人或物體存在或移動：被動式紅外線、超音波、壓力墊、門口計數器、座位感測器。它告訴系統某個空間有人使用，而不是使用者是誰。
+  - locale: nl
+    value: >-
+      Detecteert dat er iemand of iets is, of beweegt, zonder een beeld vast te leggen: passief
+      infrarood, ultrasoon, drukmatten, deurtellers, sensoren voor stoelbezetting. Vertelt het
+      systeem dat een ruimte bezet is, niet door wie.
+  - locale: de
+    value: >-
+      Erkennt, dass jemand oder etwas da ist oder sich bewegt, ohne ein Bild aufzunehmen –
+      Passiv-Infrarot, Ultraschall, Druckmatten, Türzähler, Sitzbelegungssensoren. Meldet dem
+      System, dass ein Raum belegt ist, nicht von wem.
 symbol_id: motion_detector

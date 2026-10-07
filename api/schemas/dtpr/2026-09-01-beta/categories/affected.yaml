@@ -18,6 +18,10 @@ name:
     value: 受影响的人
   - locale: zh-Hant
     value: 受影響的人
+  - locale: nl
+    value: Betrokken mensen
+  - locale: de
+    value: Betroffene Personen
 description:
   - locale: en
     value: >-
@@ -51,6 +55,15 @@ description:
     value: 本系统的使用对象，或生活受其决定影响的人——包括从未选择与它打交道的人。
   - locale: zh-Hant
     value: 這個系統所針對的人，或生活受其決定影響的人，包括從未選擇與它互動的人。
+  - locale: nl
+    value: >-
+      De mensen op wie dit systeem wordt toegepast, of van wie het leven door de beslissingen ervan
+      wordt beïnvloed – ook mensen die er nooit voor hebben gekozen om ermee te maken te krijgen.
+  - locale: de
+    value: >-
+      Die Personen, auf die dieses System angewendet wird oder auf deren Leben sich seine
+      Entscheidungen auswirken – auch jene, die sich nie dafür entschieden haben, mit ihm zu tun zu
+      haben.
 prompt:
   - locale: en
     value: Who is this system used on?
@@ -70,6 +83,10 @@ prompt:
     value: 本系统用在谁身上？
   - locale: zh-Hant
     value: 這個系統用在誰身上？
+  - locale: nl
+    value: Op wie wordt dit systeem toegepast?
+  - locale: de
+    value: Auf wen wird dieses System angewendet?
 required: true
 order: 3
 datachain_type: dtpr
@@ -95,6 +112,10 @@ element_context:
       value: 关系
     - locale: zh-Hant
       value: 關係
+    - locale: nl
+      value: Relatie
+    - locale: de
+      value: Art der Betroffenheit
   description:
     - locale: en
       value: How this system touches this person or group.
@@ -114,6 +135,10 @@ element_context:
       value: 本系统以何种方式涉及此人或此群体。
     - locale: zh-Hant
       value: 這個系統如何影響此人或此群體。
+    - locale: nl
+      value: Hoe dit systeem deze persoon of groep raakt.
+    - locale: de
+      value: Wie dieses System diese Person oder Gruppe betrifft.
   values:
     - id: subject
       name:
@@ -135,6 +160,10 @@ element_context:
           value: 决定对象
         - locale: zh-Hant
           value: 被決定的對象
+        - locale: nl
+          value: Over hen beslist
+        - locale: de
+          value: Von Entscheidung betroffen
       description:
         - locale: en
           value: The system produces an output about this person that affects them directly — a score, a match, an eligibility call.
@@ -164,6 +193,14 @@ element_context:
           value: 系统针对此人产生直接影响其本人的输出——评分、匹配结果或资格判定。
         - locale: zh-Hant
           value: 系統針對此人產生直接影響其本人的輸出結果，例如評分、比對結果或資格判定。
+        - locale: nl
+          value: >-
+            Het systeem levert uitvoer over deze persoon op die directe gevolgen voor die persoon
+            heeft: een score, een match, een oordeel over waar iemand recht op heeft.
+        - locale: de
+          value: >-
+            Das System erzeugt ein Ergebnis über diese Person, das sie unmittelbar betrifft – einen
+            Punktwert, einen Treffer, eine Entscheidung über einen Anspruch.
       color: null
     - id: bystander
       name:
@@ -185,6 +222,10 @@ element_context:
           value: 被附带采集
         - locale: zh-Hant
           value: 無意間被收錄
+        - locale: nl
+          value: Toevallig vastgelegd
+        - locale: de
+          value: Beiläufig erfasst
       description:
         - locale: en
           value: Swept into the system’s data even though it isn’t making a decision about them — a face in the background of a camera aimed elsewhere.
@@ -215,6 +256,14 @@ element_context:
           value: 系统并未针对其作出决定，但其信息被卷入系统数据——例如对准别处的摄像头背景中出现的一张脸。
         - locale: zh-Hant
           value: 雖然系統並未針對他們做決定，卻仍被納入系統的資料，例如對準別處的攝影機背景中出現的臉孔。
+        - locale: nl
+          value: >-
+            Komen in de gegevens van het systeem terecht, ook al neemt het systeem geen beslissing
+            over hen – een gezicht op de achtergrond van een camera die ergens anders op gericht is.
+        - locale: de
+          value: >-
+            Die Person gerät in die Daten des Systems, obwohl es keine Entscheidung über sie trifft
+            – ein Gesicht im Hintergrund einer Kamera, die auf etwas anderes gerichtet ist.
       color: null
     - id: community
       name:
@@ -236,6 +285,10 @@ element_context:
           value: 更广泛的社区
         - locale: zh-Hant
           value: 更廣大的社群
+        - locale: nl
+          value: Bredere gemeenschap
+        - locale: de
+          value: Gemeinschaft als Ganzes
       description:
         - locale: en
           value: A place or group affected collectively, beyond the individuals the system processes — a neighbourhood under watch, a ranked workforce.
@@ -266,6 +319,16 @@ element_context:
           value: 在系统所处理的个人之外，作为整体受到影响的地方或群体——例如受到监控的街区、被排名的员工群体。
         - locale: zh-Hant
           value: 除了系統處理的個人之外，整體受到影響的地方或群體，例如受監視的街區、被排名的全體員工。
+        - locale: nl
+          value: >-
+            Een plek of groep die als geheel wordt geraakt, en niet alleen de individuen van wie het
+            systeem gegevens verwerkt – een buurt die in de gaten wordt gehouden, een
+            personeelsbestand dat wordt gerangschikt.
+        - locale: de
+          value: >-
+            Ein Ort oder eine Gruppe, die als Ganzes betroffen ist, über die einzelnen vom System
+            verarbeiteten Personen hinaus – ein überwachtes Wohnviertel, eine in eine Rangfolge
+            gebrachte Belegschaft.
       color: null
 element_variables:
   - id: title
@@ -288,6 +351,10 @@ element_variables:
         value: 标题
       - locale: zh-Hant
         value: 標題
+      - locale: nl
+        value: Titel
+      - locale: de
+        value: Titel
     required: true
   - id: description
     label:
@@ -309,4 +376,8 @@ element_variables:
         value: 描述
       - locale: zh-Hant
         value: 說明
+      - locale: nl
+        value: Beschrijving
+      - locale: de
+        value: Beschreibung
     required: true

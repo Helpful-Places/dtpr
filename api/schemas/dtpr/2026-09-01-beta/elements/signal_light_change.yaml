@@ -19,6 +19,10 @@ title:
     value: 信号或灯光变化
   - locale: zh-Hant
     value: 號誌或燈光變化
+  - locale: nl
+    value: Een sein of licht dat verandert
+  - locale: de
+    value: Signal- oder Lichtwechsel
 description:
   - locale: en
     value: >-
@@ -61,4 +65,16 @@ description:
     value: 输出改变了环境向您传达的信息——随车流调整的交通信号灯、有人经过时变亮的路灯、变红的状态指示灯。这种变化十分细微，大多数人从未意识到是系统作出的决定。
   - locale: zh-Hant
     value: 輸出結果改變了環境向您傳達的訊息：依車流調整的交通號誌、有人經過時變亮的路燈、轉為紅色的狀態指示燈。變化十分細微，大多數人從未察覺這是系統做出的決定。
+  - locale: nl
+    value: >-
+      De uitvoer verandert wat de omgeving je vertelt: een verkeerslicht dat zich aanpast aan de
+      doorstroming, straatverlichting die feller wordt als er mensen langskomen, een statuslampje
+      dat rood wordt. Zo subtiel dat de meeste mensen nooit doorhebben dat een systeem dit heeft
+      beslist.
+  - locale: de
+    value: >-
+      Das Ergebnis verändert, was die Umgebung Ihnen mitteilt – eine Ampel, die sich dem
+      Verkehrsfluss anpasst, eine Straßenbeleuchtung, die heller wird, wenn Menschen vorbeigehen,
+      eine Statusleuchte, die auf Rot springt. So unauffällig, dass die meisten Menschen nie
+      bemerken, dass ein System das entschieden hat.
 symbol_id: traffic_signal

@@ -19,6 +19,10 @@ title:
     value: 本地备份
   - locale: zh-Hant
     value: 本地備份
+  - locale: nl
+    value: Lokale back-up
+  - locale: de
+    value: Lokale Sicherungskopie
 description:
   - locale: en
     value: Data is backed up within the jurisdiction where it was collected.
@@ -38,4 +42,8 @@ description:
     value: 数据备份在收集地所属司法管辖区之内。
   - locale: zh-Hant
     value: 資料備份在收集地所屬司法管轄區之內。
+  - locale: nl
+    value: Van de gegevens wordt een back-up gemaakt binnen het rechtsgebied waar ze zijn verzameld.
+  - locale: de
+    value: Sicherungskopien der Daten liegen innerhalb des Rechtsraums, in dem die Daten erhoben wurden.
 symbol_id: stored

@@ -19,6 +19,10 @@ title:
     value: 自动扣费或付款
   - locale: zh-Hant
     value: 自動扣款或付款
+  - locale: nl
+    value: Een automatische afschrijving of betaling
+  - locale: de
+    value: Automatische Abbuchung oder Zahlung
 description:
   - locale: en
     value: >-
@@ -64,4 +68,16 @@ description:
     value: 输出表现为无需您操作的资金变动——驶过龙门架时扣除的通行费、出站刷卡时收取的车费、开出的罚单、发放的款项。这往往是最不易察觉的接触方式：您要到事后看账单才会知道。
   - locale: zh-Hant
     value: 輸出結果是不需您動手就發生的金錢往來：通過收費門架時扣除通行費、刷卡出站時收取車資、開出罰單、發放款項。這往往是最不容易察覺的接觸方式：您事後看到帳單明細才會知道。
+  - locale: nl
+    value: >-
+      De uitvoer is een geldtransactie zonder dat jij iets doet: tol die wordt afgeschreven als je
+      onder een tolportaal door rijdt, een ritprijs die wordt afgeschreven als je uitcheckt, een
+      boete die wordt opgelegd, een uitbetaling die wordt vrijgegeven. Vaak de minst zichtbare vorm:
+      je komt er pas achteraf achter via een afschrift.
+  - locale: de
+    value: >-
+      Das Ergebnis ist Geld, das sich ohne Ihr Zutun bewegt – eine Maut, die abgebucht wird, wenn
+      Sie unter einer Mautbrücke durchfahren, ein Fahrpreis, der beim Auschecken berechnet wird, ein
+      verhängtes Bußgeld, eine freigegebene Auszahlung. Oft die am wenigsten sichtbare Begegnung:
+      Sie erfahren erst später aus einer Abrechnung davon.
 symbol_id: contactless_payment

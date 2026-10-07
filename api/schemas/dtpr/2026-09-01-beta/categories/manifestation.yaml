@@ -18,6 +18,10 @@ name:
     value: 呈现方式
   - locale: zh-Hant
     value: 呈現方式
+  - locale: nl
+    value: Verschijningsvorm
+  - locale: de
+    value: Erscheinungsform
 description:
   - locale: en
     value: >-
@@ -58,6 +62,17 @@ description:
     value: 本系统的输出进入现实世界时所采取的形式——屏幕或标牌、价格、通知、开启的闸门、语音回复。这是人们接触输出的方式，有别于输出数据本身。
   - locale: zh-Hant
     value: 這個系統的輸出結果進入現實世界時的形式：螢幕或看板、價格、通知、開啟的閘門、語音回覆。指人們接觸到輸出結果的方式，有別於輸出資料本身。
+  - locale: nl
+    value: >-
+      De vorm die de uitvoer van dit systeem aanneemt als die de buitenwereld bereikt: een scherm of
+      bord, een prijs, een melding, een poort die opengaat, een gesproken antwoord. Hoe mensen de
+      uitvoer tegenkomen, niet de uitvoergegevens zelf.
+  - locale: de
+    value: >-
+      Die Form, die das Ergebnis dieses Systems annimmt, wenn es die Welt erreicht – ein Bildschirm
+      oder eine Anzeigetafel, ein Preis, eine Benachrichtigung, ein sich öffnendes Tor, eine
+      gesprochene Antwort. Wie Menschen dem Ergebnis begegnen, im Unterschied zu den Ausgabedaten
+      selbst.
 prompt:
   - locale: en
     value: How do people encounter what this system produces?
@@ -77,6 +92,10 @@ prompt:
     value: 人们如何接触到本系统产生的结果？
   - locale: zh-Hant
     value: 人們如何接觸到這個系統產生的結果？
+  - locale: nl
+    value: Hoe komen mensen in aanraking met wat dit systeem oplevert?
+  - locale: de
+    value: Wie begegnen Menschen dem, was dieses System erzeugt?
 required: false
 order: 11
 datachain_type: dtpr
@@ -102,4 +121,8 @@ element_variables:
         value: 描述
       - locale: zh-Hant
         value: 說明
+      - locale: nl
+        value: Beschrijving
+      - locale: de
+        value: Beschreibung
     required: false

@@ -19,6 +19,10 @@ title:
     value: 分类与预测
   - locale: zh-Hant
     value: 分類與預測
+  - locale: nl
+    value: Classificatie en voorspelling
+  - locale: de
+    value: Klassifizierung und Vorhersage
 description:
   - locale: en
     value: >-
@@ -72,4 +76,18 @@ description:
   - locale: zh-Hant
     value: >-
       為輸入資料指定標籤或估算數值結果的AI系統，包括分類器（是否為垃圾郵件、風險等級）、迴歸模型（預測需求、預估等候時間）及時間序列預測（下一小時的搭乘人次、能源負載）。以已標記的歷史資料，透過統計或機器學習模型建立。
+  - locale: nl
+    value: >-
+      AI-systemen die een label aan invoer toekennen of een getal schatten. Hieronder vallen
+      classificatiemodellen (spam of geen spam, risicoklasse), regressiemodellen (voorspelde vraag,
+      verwachte wachttijd) en tijdreeksmodellen (reizigersaantallen in het komende uur,
+      energievraag). Ze zijn gebouwd met gelabelde gegevens uit het verleden en met statistische
+      modellen of machine learning.
+  - locale: de
+    value: >-
+      KI-Systeme, die einer Eingabe eine Kategorie zuordnen oder einen Zahlenwert schätzen –
+      darunter Klassifikatoren (Spam oder kein Spam, Risikostufe), Regressionsmodelle (vorhergesagte
+      Nachfrage, erwartete Wartezeit) und Zeitreihenprognosen (Fahrgastzahlen der nächsten Stunde,
+      Energielast). Sie werden mit statistischen Modellen oder maschinellem Lernen aus
+      gekennzeichneten historischen Daten erstellt.
 symbol_id: processing_time-series-forecasting

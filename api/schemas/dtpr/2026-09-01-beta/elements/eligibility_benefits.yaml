@@ -19,6 +19,10 @@ title:
     value: 资格审核与公共福利
   - locale: zh-Hant
     value: 資格審查與公共福利
+  - locale: nl
+    value: Recht op uitkeringen en voorzieningen
+  - locale: de
+    value: Anspruch auf staatliche Leistungen
 description:
   - locale: en
     value: >-
@@ -57,6 +61,16 @@ description:
     value: 判定享受政府福利和基本公共服务的资格，或决定其分配——例如福利发放、住房援助、儿童保护服务风险评分。
   - locale: zh-Hant
     value: 判定政府福利與基本公共服務的申請資格或分配方式，例如社會福利分配、住宅補助、兒童保護服務的風險評分。
+  - locale: nl
+    value: >-
+      Bepaalt wie recht heeft op uitkeringen en essentiële publieke voorzieningen van de overheid,
+      of hoe die worden verdeeld, bijvoorbeeld de toekenning van bijstand, hulp bij huisvesting of
+      risicoscores bij jeugdbescherming.
+  - locale: de
+    value: >-
+      Bestimmt den Anspruch auf staatliche Leistungen und grundlegende öffentliche Dienstleistungen
+      oder deren Verteilung – zum Beispiel Vergabe von Sozialleistungen, Wohnungshilfe,
+      Risikobewertung in der Kinder- und Jugendhilfe.
 sources:
   - type: regulation
     title: EU AI Act Annex III §5(a) — Essential public assistance benefits and services

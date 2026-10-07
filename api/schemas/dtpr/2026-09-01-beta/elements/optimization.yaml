@@ -19,6 +19,10 @@ title:
     value: 优化
   - locale: zh-Hant
     value: 最佳化
+  - locale: nl
+    value: Optimalisatie
+  - locale: de
+    value: Optimierung
 description:
   - locale: en
     value: >-
@@ -74,4 +78,18 @@ description:
   - locale: zh-Hant
     value: >-
       在限制條件下尋找最佳指派、路線、時程或分配方式的AI系統。包括車輛路線規劃、大眾運輸號誌時制、能源與空調排程、人員排班及資源分配。其運作方式是探索各種可能性，使成本、時間或排放量等既定目標達到最大或最小。
+  - locale: nl
+    value: >-
+      AI-systemen die zoeken naar de beste toewijzing, route, planning of verdeling binnen bepaalde
+      grenzen. Hieronder vallen routeplanning voor voertuigen, de afstelling van verkeerslichten
+      voor het openbaar vervoer, planning van energie en klimaatinstallaties, personeelsroosters en
+      de verdeling van middelen. Ze werken door mogelijkheden te verkennen om een vastgesteld doel,
+      zoals kosten, tijd of uitstoot, zo hoog of zo laag mogelijk te maken.
+  - locale: de
+    value: >-
+      KI-Systeme, die unter vorgegebenen Bedingungen nach der besten Zuordnung, Route, Zeitplanung
+      oder Verteilung suchen. Dazu gehören Tourenplanung für Fahrzeuge, Ampelschaltungen für den
+      Nahverkehr, Zeitpläne für Energie, Heizung und Lüftung, Dienstplanung und
+      Ressourcenverteilung. Sie funktionieren, indem sie Möglichkeiten durchspielen, um ein
+      festgelegtes Ziel wie Kosten, Zeit oder Emissionen zu maximieren oder zu minimieren.
 symbol_id: processing_optimization-algorithm
