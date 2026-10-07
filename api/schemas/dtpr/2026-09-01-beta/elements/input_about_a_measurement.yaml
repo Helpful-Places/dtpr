@@ -26,59 +26,59 @@ title:
 description:
   - locale: en
     value: >-
-      Sensor readings — air quality, temperature, sound level, energy, water flow. The AI takes in
-      numeric measurements from physical sensors, usually with no person attached. Examples: PM2.5
-      readings from an air-quality monitor, decibel levels from a sound sensor, kilowatt-hours from
-      a meter.
+      Sensor readings — air quality, temperature, sound level, energy, water flow. The system takes
+      in numeric measurements from physical sensors, usually with no person attached. Examples:
+      PM2.5 readings from an air-quality monitor, decibel levels from a sound sensor, kilowatt-hours
+      from a meter.
   - locale: fr
     value: >-
-      Relevés de capteurs : qualité de l'air, température, niveau sonore, énergie, débit d'eau. L'IA
-      reçoit des mesures numériques issues de capteurs physiques, généralement non rattachées à une
-      personne. Exemples : des relevés PM2,5 d'un moniteur de qualité de l'air, des décibels d'un
-      capteur acoustique, des kilowattheures d'un compteur.
+      Relevés de capteurs : qualité de l'air, température, niveau sonore, énergie, débit d'eau. Le
+      système reçoit des mesures numériques issues de capteurs physiques, généralement non
+      rattachées à une personne. Exemples : des relevés PM2,5 d'un moniteur de qualité de l'air, des
+      décibels d'un capteur acoustique, des kilowattheures d'un compteur.
   - locale: es
     value: >-
       Lecturas de sensores — calidad del aire, temperatura, nivel de sonido, energía, flujo de agua.
-      La IA recibe mediciones numéricas de sensores físicos, por lo general sin relación con ninguna
-      persona. Ejemplos: lecturas de PM2.5 de un monitor de calidad del aire, niveles de decibeles
-      de un sensor de sonido, kilovatios-hora de un medidor.
+      El sistema recibe mediciones numéricas de sensores físicos, por lo general sin relación con
+      ninguna persona. Ejemplos: lecturas de PM2.5 de un monitor de calidad del aire, niveles de
+      decibeles de un sensor de sonido, kilovatios-hora de un medidor.
   - locale: pt
     value: >-
-      Leituras de sensores — qualidade do ar, temperatura, nível de som, energia, vazão de água. A
-      IA recebe medições numéricas de sensores físicos, geralmente sem ligação com nenhuma pessoa.
-      Exemplos: leituras de PM2,5 de um monitor de qualidade do ar, níveis de decibéis de um sensor
-      de som, quilowatts-hora de um medidor.
+      Leituras de sensores — qualidade do ar, temperatura, nível de som, energia, vazão de água. O
+      sistema recebe medições numéricas de sensores físicos, geralmente sem ligação com nenhuma
+      pessoa. Exemplos: leituras de PM2,5 de um monitor de qualidade do ar, níveis de decibéis de um
+      sensor de som, quilowatts-hora de um medidor.
   - locale: fil
     value: >-
       Mga sukat mula sa sensor — kalidad ng hangin, temperatura, lakas ng tunog, enerhiya, daloy ng
-      tubig. Tumatanggap ang AI ng mga sukat na numero mula sa mga pisikal na sensor, na kadalasang
-      walang kaugnay na tao. Mga halimbawa: mga sukat ng PM2.5 mula sa monitor ng kalidad ng hangin,
-      antas ng decibel mula sa sound sensor, kilowatt-hour mula sa metro.
+      tubig. Tumatanggap ang sistema ng mga sukat na numero mula sa mga pisikal na sensor, na
+      kadalasang walang kaugnay na tao. Mga halimbawa: mga sukat ng PM2.5 mula sa monitor ng kalidad
+      ng hangin, antas ng decibel mula sa sound sensor, kilowatt-hour mula sa metro.
   - locale: km
     value: >-
-      ទិន្នន័យវាស់ពីឧបករណ៍ចាប់សញ្ញា — គុណភាពខ្យល់, សីតុណ្ហភាព, កម្រិតសំឡេង, ថាមពល, លំហូរទឹក។ AI
-      ទទួលយកទិន្នន័យវាស់ជាលេខពីឧបករណ៍ចាប់សញ្ញារូបវន្ត ដែលជាធម្មតាមិនភ្ជាប់នឹងបុគ្គលណាម្នាក់ទេ។
-      ឧទាហរណ៍៖ តម្លៃ PM2.5 ពីឧបករណ៍តាមដានគុណភាពខ្យល់, កម្រិតដេស៊ីបែលពីឧបករណ៍ចាប់សញ្ញាសំឡេង,
-      គីឡូវ៉ាត់ម៉ោងពីនាឡិកាស្ទង់។
+      ទិន្នន័យវាស់ពីឧបករណ៍ចាប់សញ្ញា — គុណភាពខ្យល់, សីតុណ្ហភាព, កម្រិតសំឡេង, ថាមពល, លំហូរទឹក។
+      ប្រព័ន្ធទទួលយកទិន្នន័យវាស់ជាលេខពីឧបករណ៍ចាប់សញ្ញារូបវន្ត
+      ដែលជាធម្មតាមិនភ្ជាប់នឹងបុគ្គលណាម្នាក់ទេ។ ឧទាហរណ៍៖ តម្លៃ PM2.5 ពីឧបករណ៍តាមដានគុណភាពខ្យល់,
+      កម្រិតដេស៊ីបែលពីឧបករណ៍ចាប់សញ្ញាសំឡេង, គីឡូវ៉ាត់ម៉ោងពីនាឡិកាស្ទង់។
   - locale: vi
     value: >-
       Số đo từ cảm biến — chất lượng không khí, nhiệt độ, mức âm thanh, năng lượng, lưu lượng nước.
-      AI tiếp nhận các số đo từ cảm biến vật lý, thường không gắn với người nào. Ví dụ: chỉ số PM2.5
-      từ trạm đo chất lượng không khí, mức decibel từ cảm biến âm thanh, số kilowatt giờ từ đồng hồ
-      điện.
+      Hệ thống tiếp nhận các số đo từ cảm biến vật lý, thường không gắn với người nào. Ví dụ: chỉ số
+      PM2.5 từ trạm đo chất lượng không khí, mức decibel từ cảm biến âm thanh, số kilowatt giờ từ
+      đồng hồ điện.
   - locale: zh-Hans
-    value: 传感器读数——空气质量、温度、声级、能耗、水流量。AI接收来自物理传感器的数值测量结果，通常不与任何人相关联。示例：空气质量监测仪的PM2.5读数、声音传感器的分贝值、电表的千瓦时读数。
+    value: 传感器读数——空气质量、温度、声级、能耗、水流量。系统接收来自物理传感器的数值测量结果，通常不与任何人相关联。示例：空气质量监测仪的PM2.5读数、声音传感器的分贝值、电表的千瓦时读数。
   - locale: zh-Hant
-    value: 感測器讀數：空氣品質、溫度、音量、能源、水流量。AI接收來自實體感測器的數值測量結果，通常不與任何人連結。例如：空氣品質監測器的PM2.5讀數、聲音感測器的分貝值、電表的度數（千瓦小時）。
+    value: 感測器讀數：空氣品質、溫度、音量、能源、水流量。系統接收來自實體感測器的數值測量結果，通常不與任何人連結。例如：空氣品質監測器的PM2.5讀數、聲音感測器的分貝值、電表的度數（千瓦小時）。
   - locale: nl
     value: >-
       Meetwaarden van sensoren: luchtkwaliteit, temperatuur, geluidsniveau, energie,
-      waterdoorstroming. De AI krijgt getallen binnen van fysieke sensoren, meestal zonder dat er
-      een persoon aan is gekoppeld. Voorbeelden: PM2,5-waarden van een luchtkwaliteitsmeter,
+      waterdoorstroming. Het systeem krijgt getallen binnen van fysieke sensoren, meestal zonder dat
+      er een persoon aan is gekoppeld. Voorbeelden: PM2,5-waarden van een luchtkwaliteitsmeter,
       decibelwaarden van een geluidssensor, kilowatturen van een meter.
   - locale: de
     value: >-
-      Sensormesswerte – Luftqualität, Temperatur, Schallpegel, Energie, Wasserdurchfluss. Die KI
+      Sensormesswerte – Luftqualität, Temperatur, Schallpegel, Energie, Wasserdurchfluss. Das System
       nimmt Zahlenwerte von physischen Sensoren auf, meist ohne Bezug zu einer Person. Beispiele:
       PM2,5-Werte einer Luftmessstation, Dezibelwerte eines Schallsensors, Kilowattstunden eines
       Zählers.

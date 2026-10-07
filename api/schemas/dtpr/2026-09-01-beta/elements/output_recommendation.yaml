@@ -26,63 +26,64 @@ title:
 description:
   - locale: en
     value: >-
-      The AI produces an advisory output — a suggestion, forecast, risk score, or ranking. Distinct
-      from a binding decision because it advises rather than determines. Examples: a signage system
-      suggesting an alternate route based on predicted crowding, a forecasted demand curve for
-      tomorrow, a recommended next destination on a kiosk.
+      The system produces an advisory output — a suggestion, forecast, risk score, or ranking.
+      Distinct from a binding decision because it advises rather than determines. Examples: a
+      signage system suggesting an alternate route based on predicted crowding, a forecasted demand
+      curve for tomorrow, a recommended next destination on a kiosk.
   - locale: fr
     value: >-
-      L'IA produit une sortie consultative : une suggestion, prévision, score de risque ou
+      Le système produit une sortie consultative : une suggestion, prévision, score de risque ou
       classement. Distincte d'une décision contraignante parce qu'elle conseille sans trancher.
       Exemples : un système de signalisation proposant un itinéraire alternatif d'après l'affluence
       prévue, une courbe de demande prévue pour demain, une destination suggérée sur une borne.
   - locale: es
     value: >-
-      La IA produce un resultado orientativo — una sugerencia, pronóstico, puntaje de riesgo o
+      El sistema produce un resultado orientativo — una sugerencia, pronóstico, puntaje de riesgo o
       ranking. Se distingue de una decisión vinculante porque aconseja en lugar de determinar.
       Ejemplos: un sistema de señalización que sugiere una ruta alterna según la aglomeración
       prevista, una curva de demanda pronosticada para mañana, un próximo destino recomendado en un
       quiosco.
   - locale: pt
     value: >-
-      A IA produz uma saída de caráter consultivo — uma sugestão, previsão, pontuação de risco ou
-      ranking. Diferente de uma decisão vinculante porque orienta em vez de determinar. Exemplos: um
-      sistema de sinalização que sugere uma rota alternativa com base na lotação prevista, uma curva
-      de demanda prevista para amanhã, um próximo destino recomendado em um totem.
+      O sistema produz uma saída de caráter consultivo — uma sugestão, previsão, pontuação de risco
+      ou ranking. Diferente de uma decisão vinculante porque orienta em vez de determinar. Exemplos:
+      um sistema de sinalização que sugere uma rota alternativa com base na lotação prevista, uma
+      curva de demanda prevista para amanhã, um próximo destino recomendado em um totem.
   - locale: fil
     value: >-
-      Lumilikha ang AI ng output na nagpapayo — isang mungkahi, forecast, iskor ng panganib, o
+      Lumilikha ang sistema ng output na nagpapayo — isang mungkahi, forecast, iskor ng panganib, o
       ranggo. Iba sa desisyong dapat sundin dahil nagpapayo lang ito at hindi nagtatakda. Mga
       halimbawa: sistema ng karatula na nagmumungkahi ng ibang ruta batay sa hinuhulaang siksikan,
       hinuhulaang kurba ng demand para bukas, inirerekomendang susunod na destinasyon sa kiosk.
   - locale: km
     value: >-
-      AI បង្កើតលទ្ធផលបែបផ្តល់យោបល់ — ការស្នើ, ការព្យាករណ៍, ពិន្ទុហានិភ័យ, ឬចំណាត់ថ្នាក់។
+      ប្រព័ន្ធបង្កើតលទ្ធផលបែបផ្តល់យោបល់ — ការស្នើ, ការព្យាករណ៍, ពិន្ទុហានិភ័យ, ឬចំណាត់ថ្នាក់។
       ខុសពីការសម្រេចចិត្តដែលមានកាតព្វកិច្ចអនុវត្ត ព្រោះវាផ្តល់យោបល់ មិនមែនកំណត់លទ្ធផលទេ។ ឧទាហរណ៍៖
       ប្រព័ន្ធផ្លាកសញ្ញាដែលស្នើផ្លូវជំនួសដោយផ្អែកលើការព្យាករណ៍ភាពចង្អៀតណែន,
       ខ្សែកោងតម្រូវការដែលព្យាករណ៍សម្រាប់ថ្ងៃស្អែក, គោលដៅបន្ទាប់ដែលផ្តល់អនុសាសន៍លើបញ្ជរស្វ័យសេវា។
   - locale: vi
     value: >-
-      AI tạo ra một kết quả mang tính tham khảo — một gợi ý, dự báo, điểm rủi ro hoặc bảng xếp hạng.
-      Khác với một quyết định có tính ràng buộc vì nó chỉ tư vấn chứ không định đoạt. Ví dụ: hệ
-      thống biển báo gợi ý một tuyến đường khác dựa trên dự đoán về mức đông đúc, một đường cong nhu
-      cầu được dự báo cho ngày mai, một điểm đến tiếp theo được đề xuất trên ki-ốt.
+      Hệ thống tạo ra một kết quả mang tính tham khảo — một gợi ý, dự báo, điểm rủi ro hoặc bảng xếp
+      hạng. Khác với một quyết định có tính ràng buộc vì nó chỉ tư vấn chứ không định đoạt. Ví dụ:
+      hệ thống biển báo gợi ý một tuyến đường khác dựa trên dự đoán về mức đông đúc, một đường cong
+      nhu cầu được dự báo cho ngày mai, một điểm đến tiếp theo được đề xuất trên ki-ốt.
   - locale: zh-Hans
     value: >-
-      AI产生参考性输出——建议、预报、风险评分或排名。它有别于具有约束力的决定，因为它只提供建议而不作裁定。示例：标牌系统根据预测的拥挤程度建议改走其他路线、明天的需求预测曲线、自助终端上推荐的下一个目的地。
+      系统产生参考性输出——建议、预报、风险评分或排名。它有别于具有约束力的决定，因为它只提供建议而不作裁定。示例：标牌系统根据预测的拥挤程度建议改走其他路线、明天的需求预测曲线、自助终端上推荐的下一个目的地。
   - locale: zh-Hant
     value: >-
-      AI產生參考性的輸出結果：建議、預測、風險評分或排名。它與具約束力的決定不同，因為它只提供參考，而不做出裁定。例如：標示系統依預測的擁擠程度建議替代路線、明天的預測需求曲線、自助服務機上建議的下一個目的地。
+      系統產生參考性的輸出結果：建議、預測、風險評分或排名。它與具約束力的決定不同，因為它只提供參考，而不做出裁定。例如：標示系統依預測的擁擠程度建議替代路線、明天的預測需求曲線、自助服務機上建議的下一個目的地。
   - locale: nl
     value: >-
-      De AI levert adviserende uitvoer op: een voorstel, prognose, risicoscore of rangschikking.
-      Anders dan een bindende beslissing, omdat het adviseert en niet bepaalt. Voorbeelden: een
-      bordensysteem dat een andere route voorstelt op basis van voorspelde drukte, een voorspelde
-      vraagcurve voor morgen, een aanbevolen volgende bestemming op een informatiezuil.
+      Het systeem levert adviserende uitvoer op: een voorstel, prognose, risicoscore of
+      rangschikking. Anders dan een bindende beslissing, omdat het adviseert en niet bepaalt.
+      Voorbeelden: een bordensysteem dat een andere route voorstelt op basis van voorspelde drukte,
+      een voorspelde vraagcurve voor morgen, een aanbevolen volgende bestemming op een
+      informatiezuil.
   - locale: de
     value: >-
-      Die KI erzeugt ein beratendes Ergebnis – einen Vorschlag, eine Prognose, einen Risikowert oder
-      eine Rangfolge. Anders als eine verbindliche Entscheidung berät es, statt festzulegen.
+      Das System erzeugt ein beratendes Ergebnis – einen Vorschlag, eine Prognose, einen Risikowert
+      oder eine Rangfolge. Anders als eine verbindliche Entscheidung berät es, statt festzulegen.
       Beispiele: ein Anzeigesystem, das wegen vorhergesagten Gedränges eine Ausweichroute
       vorschlägt, eine prognostizierte Nachfragekurve für morgen, ein empfohlenes nächstes Ziel an
       einem Terminal.

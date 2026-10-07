@@ -26,37 +26,36 @@ title:
 description:
   - locale: en
     value: >-
-      The right to have your personal data deleted from an AI system when the data is no longer
-      needed for its original purpose, when you withdraw consent, or when there is no legitimate
-      interest in continuing to process it. Where technically feasible, this also includes having
-      the system "unlearn" information derived from your data. This is a right of deletion; the
-      right to stop processing without deletion is a separate right.
+      The right to have your personal data deleted from a system when the data is no longer needed
+      for its original purpose, when you withdraw consent, or when there is no legitimate interest
+      in continuing to process it. Where technically feasible, this also includes having the system
+      "unlearn" information derived from your data. This is a right of deletion; the right to stop
+      processing without deletion is a separate right.
   - locale: fr
     value: >-
-      Le droit à l'effacement de vos données à caractère personnel d'un système d'IA lorsque les
-      données ne sont plus nécessaires à leur finalité initiale, lorsque vous retirez votre
-      consentement ou lorsqu'il n'y a pas d'intérêt légitime à continuer leur traitement. Lorsque
-      cela est techniquement possible, cela inclut également que le système "désapprenne" les
-      informations dérivées de vos données. Il s'agit d'un droit à l'effacement ; le droit d'arrêter
-      le traitement sans effacement est un droit distinct.
+      Le droit à l'effacement de vos données à caractère personnel d'un système lorsque les données
+      ne sont plus nécessaires à leur finalité initiale, lorsque vous retirez votre consentement ou
+      lorsqu'il n'y a pas d'intérêt légitime à continuer leur traitement. Lorsque cela est
+      techniquement possible, cela inclut également que le système "désapprenne" les informations
+      dérivées de vos données. Il s'agit d'un droit à l'effacement ; le droit d'arrêter le
+      traitement sans effacement est un droit distinct.
   - locale: es
     value: >-
-      El derecho a que sus datos personales se eliminen de un sistema de IA cuando ya no se
-      necesiten para su propósito original, cuando usted retire su consentimiento o cuando no exista
-      un interés legítimo en seguir procesándolos. Cuando sea técnicamente posible, esto también
-      incluye que el sistema “desaprenda” la información derivada de sus datos. Es un derecho de
-      eliminación; el derecho a detener el procesamiento sin eliminar los datos es un derecho
-      aparte.
+      El derecho a que sus datos personales se eliminen de un sistema cuando ya no se necesiten para
+      su propósito original, cuando usted retire su consentimiento o cuando no exista un interés
+      legítimo en seguir procesándolos. Cuando sea técnicamente posible, esto también incluye que el
+      sistema “desaprenda” la información derivada de sus datos. Es un derecho de eliminación; el
+      derecho a detener el procesamiento sin eliminar los datos es un derecho aparte.
   - locale: pt
     value: >-
-      O direito de ter seus dados pessoais excluídos de um sistema de IA quando os dados não forem
-      mais necessários para a finalidade original, quando você retirar o consentimento ou quando não
+      O direito de ter seus dados pessoais excluídos de um sistema quando os dados não forem mais
+      necessários para a finalidade original, quando você retirar o consentimento ou quando não
       houver interesse legítimo em continuar a tratá-los. Quando tecnicamente viável, isso também
       inclui fazer o sistema "desaprender" as informações derivadas dos seus dados. É um direito de
       exclusão; o direito de interromper o tratamento sem exclusão é um direito separado.
   - locale: fil
     value: >-
-      Ang karapatang mabura ang inyong personal na data mula sa isang sistemang AI kapag hindi na
+      Ang karapatang mabura ang inyong personal na data mula sa isang sistema kapag hindi na
       kailangan ang data para sa orihinal nitong layunin, kapag binawi ninyo ang pahintulot, o kapag
       wala nang lehitimong interes para ituloy ang pagproseso nito. Kung posible sa teknikal na
       paraan, kasama rin dito ang pag-"unlearn" o paglimot ng sistema sa impormasyong hinango mula
@@ -64,27 +63,27 @@ description:
       pagproseso nang walang pagbura.
   - locale: km
     value: >-
-      សិទ្ធិឱ្យគេលុបទិន្នន័យផ្ទាល់ខ្លួនរបស់អ្នកចេញពីប្រព័ន្ធ AI
+      សិទ្ធិឱ្យគេលុបទិន្នន័យផ្ទាល់ខ្លួនរបស់អ្នកចេញពីប្រព័ន្ធ
       នៅពេលទិន្នន័យនោះលែងចាំបាច់សម្រាប់គោលបំណងដើម, នៅពេលអ្នកដកការយល់ព្រម,
       ឬនៅពេលគ្មានផលប្រយោជន៍ស្របច្បាប់ក្នុងការបន្តដំណើរការវា។ ប្រសិនបើអាចធ្វើបានតាមបច្ចេកទេស
       នេះក៏រួមទាំងការឱ្យប្រព័ន្ធ «បំភ្លេច» ព័ត៌មានដែលវាបានរៀនពីទិន្នន័យរបស់អ្នកផងដែរ។
       នេះជាសិទ្ធិលុបទិន្នន័យ ចំណែកសិទ្ធិបញ្ឈប់ការដំណើរការដោយមិនលុប គឺជាសិទ្ធិដាច់ដោយឡែក។
   - locale: vi
     value: >-
-      Quyền yêu cầu xóa dữ liệu cá nhân của bạn khỏi một hệ thống AI khi dữ liệu không còn cần cho
-      mục đích ban đầu, khi bạn rút lại sự đồng ý, hoặc khi không còn lợi ích chính đáng nào để tiếp
-      tục xử lý. Khi khả thi về mặt kỹ thuật, quyền này cũng bao gồm việc yêu cầu hệ thống “quên”
-      những thông tin được rút ra từ dữ liệu của bạn. Đây là quyền xóa dữ liệu; quyền yêu cầu ngừng
-      xử lý mà không xóa là một quyền riêng.
+      Quyền yêu cầu xóa dữ liệu cá nhân của bạn khỏi một hệ thống khi dữ liệu không còn cần cho mục
+      đích ban đầu, khi bạn rút lại sự đồng ý, hoặc khi không còn lợi ích chính đáng nào để tiếp tục
+      xử lý. Khi khả thi về mặt kỹ thuật, quyền này cũng bao gồm việc yêu cầu hệ thống “quên” những
+      thông tin được rút ra từ dữ liệu của bạn. Đây là quyền xóa dữ liệu; quyền yêu cầu ngừng xử lý
+      mà không xóa là một quyền riêng.
   - locale: zh-Hans
     value: >-
-      当数据不再为其最初目的所需、当您撤回同意，或当继续处理已无正当利益时，有权要求从AI系统中删除您的个人数据。在技术可行的情况下，这还包括让系统“忘掉”从您的数据中得出的信息。这是一项删除的权利；不删除数据而要求停止处理的权利，是另一项单独的权利。
+      当数据不再为其最初目的所需、当您撤回同意，或当继续处理已无正当利益时，有权要求从系统中删除您的个人数据。在技术可行的情况下，这还包括让系统“忘掉”从您的数据中得出的信息。这是一项删除的权利；不删除数据而要求停止处理的权利，是另一项单独的权利。
   - locale: zh-Hant
     value: >-
-      當資料已不再為原始目的所需、您撤回同意，或繼續處理已無正當利益時，您有權要求將您的個人資料從AI系統中刪除。在技術可行的情況下，這也包括讓系統「遺忘」由您的資料衍生出的資訊。這是刪除的權利；要求停止處理但不刪除，則是另一項權利。
+      當資料已不再為原始目的所需、您撤回同意，或繼續處理已無正當利益時，您有權要求將您的個人資料從系統中刪除。在技術可行的情況下，這也包括讓系統「遺忘」由您的資料衍生出的資訊。這是刪除的權利；要求停止處理但不刪除，則是另一項權利。
   - locale: nl
     value: >-
-      Het recht om je persoonsgegevens uit een AI-systeem te laten verwijderen als de gegevens niet
+      Het recht om je persoonsgegevens uit een systeem te laten verwijderen als de gegevens niet
       meer nodig zijn voor het oorspronkelijke doel, als je je toestemming intrekt of als er geen
       gerechtvaardigd belang is om ze te blijven verwerken. Waar dat technisch haalbaar is, hoort
       hier ook bij dat het systeem informatie die uit jouw gegevens is afgeleid "afleert". Dit is
@@ -92,10 +91,10 @@ description:
       apart recht.
   - locale: de
     value: >-
-      Das Recht, Ihre personenbezogenen Daten aus einem KI-System löschen zu lassen, wenn die Daten
-      für ihren ursprünglichen Zweck nicht mehr benötigt werden, wenn Sie Ihre Einwilligung
-      widerrufen oder wenn kein berechtigtes Interesse an der weiteren Verarbeitung besteht. Soweit
-      technisch machbar, gehört dazu auch, dass das System aus Ihren Daten abgeleitete Informationen
-      wieder „verlernt“. Dies ist ein Recht auf Löschung; das Recht, die Verarbeitung ohne Löschung
-      zu stoppen, ist ein eigenes Recht.
+      Das Recht, Ihre personenbezogenen Daten aus einem System löschen zu lassen, wenn die Daten für
+      ihren ursprünglichen Zweck nicht mehr benötigt werden, wenn Sie Ihre Einwilligung widerrufen
+      oder wenn kein berechtigtes Interesse an der weiteren Verarbeitung besteht. Soweit technisch
+      machbar, gehört dazu auch, dass das System aus Ihren Daten abgeleitete Informationen wieder
+      „verlernt“. Dies ist ein Recht auf Löschung; das Recht, die Verarbeitung ohne Löschung zu
+      stoppen, ist ein eigenes Recht.
 symbol_id: trash_bin

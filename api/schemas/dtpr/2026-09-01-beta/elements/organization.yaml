@@ -25,25 +25,25 @@ title:
     value: Organisation
 description:
   - locale: en
-    value: The entity that is responsible and accountable for this data collection activity
+    value: The entity that is responsible and accountable for this system
   - locale: fr
-    value: L'entité qui est responsable et redevable de cette activité de collecte de données
+    value: L'entité qui est responsable et redevable de ce système
   - locale: es
-    value: La entidad responsable de esta actividad de recopilación de datos y que rinde cuentas por ella
+    value: La entidad responsable de este sistema y que rinde cuentas por él
   - locale: pt
-    value: A entidade responsável por esta atividade de coleta de dados e que responde por ela
+    value: A entidade responsável por este sistema e que responde por ele
   - locale: fil
-    value: Ang entidad na responsable at may pananagutan sa gawaing ito ng pangongolekta ng data
+    value: Ang entidad na responsable at may pananagutan sa sistemang ito
   - locale: km
-    value: អង្គភាពដែលទទួលបន្ទុក និងទទួលខុសត្រូវចំពោះសកម្មភាពប្រមូលទិន្នន័យនេះ។
+    value: អង្គភាពដែលទទួលបន្ទុក និងទទួលខុសត្រូវចំពោះប្រព័ន្ធនេះ។
   - locale: vi
-    value: Đơn vị có trách nhiệm và phải chịu trách nhiệm giải trình về hoạt động thu thập dữ liệu này
+    value: Đơn vị có trách nhiệm và phải chịu trách nhiệm giải trình về hệ thống này
   - locale: zh-Hans
-    value: 对这项数据收集活动负责并承担责任的实体。
+    value: 对本系统负责并承担责任的实体。
   - locale: zh-Hant
-    value: 對這項資料收集活動負責並承擔責任的實體。
+    value: 對這個系統負責並承擔責任的實體。
   - locale: nl
-    value: De partij die verantwoordelijk en aanspreekbaar is voor deze gegevensverzameling
+    value: De partij die verantwoordelijk en aanspreekbaar is voor dit systeem
   - locale: de
-    value: Die Stelle, die für diese Datenerhebung verantwortlich und rechenschaftspflichtig ist
+    value: Die Stelle, die für dieses System verantwortlich und rechenschaftspflichtig ist
 symbol_id: building

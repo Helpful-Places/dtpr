@@ -26,65 +26,63 @@ title:
 description:
   - locale: en
     value: >-
-      AI systems that flag unusual events, patterns, or values that depart from a learned baseline
+      Techniques that flag unusual events, patterns, or values that depart from a learned baseline
       of normal behavior. Used for equipment-failure prediction, fraud screening, intrusion
       detection, water-leak monitoring, and unusual crowd-flow alerts. Outputs are typically
       thresholded scores rather than direct decisions.
   - locale: fr
     value: >-
-      Systèmes d'IA qui signalent des événements, motifs ou valeurs inhabituels s'écartant d'une
-      référence apprise du comportement normal. Utilisés pour la prédiction de pannes d'équipement,
+      Techniques qui signalent des événements, motifs ou valeurs inhabituels s'écartant d'une
+      référence apprise du comportement normal. Utilisées pour la prédiction de pannes d'équipement,
       la détection de fraude, la détection d'intrusion, la surveillance des fuites d'eau et les
       alertes de flux de foule inhabituels. Les sorties sont en général des scores seuillés plutôt
       que des décisions directes.
   - locale: es
     value: >-
-      Sistemas de IA que señalan eventos, patrones o valores inusuales que se apartan de una
-      referencia aprendida del comportamiento normal. Se usan para predecir fallas de equipos,
-      detectar fraudes e intrusiones, vigilar fugas de agua y alertar sobre flujos inusuales de
-      multitudes. Sus resultados suelen ser puntajes comparados con un umbral, más que decisiones
-      directas.
+      Técnicas que señalan eventos, patrones o valores inusuales que se apartan de una referencia
+      aprendida del comportamiento normal. Se usan para predecir fallas de equipos, detectar fraudes
+      e intrusiones, vigilar fugas de agua y alertar sobre flujos inusuales de multitudes. Sus
+      resultados suelen ser puntajes comparados con un umbral, más que decisiones directas.
   - locale: pt
     value: >-
-      Sistemas de IA que sinalizam eventos, padrões ou valores incomuns que se afastam de uma
-      referência aprendida de comportamento normal. Usados para prever falhas de equipamentos,
-      identificar fraudes, detectar invasões, monitorar vazamentos de água e alertar sobre fluxos
-      incomuns de multidões. As saídas costumam ser pontuações comparadas a um limite, e não
-      decisões diretas.
+      Técnicas que sinalizam eventos, padrões ou valores incomuns que se afastam de uma referência
+      aprendida de comportamento normal. Usadas para prever falhas de equipamentos, identificar
+      fraudes, detectar invasões, monitorar vazamentos de água e alertar sobre fluxos incomuns de
+      multidões. As saídas costumam ser pontuações comparadas a um limite, e não decisões diretas.
   - locale: fil
     value: >-
-      Mga sistemang AI na nagbababala tungkol sa mga di-pangkaraniwang pangyayari, pattern, o halaga
-      na lumilihis sa natutuhan nitong batayan ng normal na takbo. Ginagamit sa paghula ng pagkasira
-      ng kagamitan, pagsala ng panloloko, pagtuklas ng panghihimasok, pagbabantay sa tagas ng tubig,
-      at mga babala sa di-pangkaraniwang daloy ng maraming tao. Kadalasang mga iskor na may takdang
+      Mga pamamaraang nagbababala tungkol sa mga di-pangkaraniwang pangyayari, pattern, o halaga na
+      lumilihis sa natutuhan nitong batayan ng normal na takbo. Ginagamit sa paghula ng pagkasira ng
+      kagamitan, pagsala ng panloloko, pagtuklas ng panghihimasok, pagbabantay sa tagas ng tubig, at
+      mga babala sa di-pangkaraniwang daloy ng maraming tao. Kadalasang mga iskor na may takdang
       hangganan ang output sa halip na mga direktang desisyon.
   - locale: km
     value: >-
-      ប្រព័ន្ធ AI ដែលចង្អុលបង្ហាញព្រឹត្តិការណ៍, លំនាំ, ឬតម្លៃមិនធម្មតា
+      បច្ចេកទេសដែលចង្អុលបង្ហាញព្រឹត្តិការណ៍, លំនាំ, ឬតម្លៃមិនធម្មតា
       ដែលខុសពីកម្រិតមូលដ្ឋាននៃឥរិយាបថធម្មតាដែលវាបានរៀន។ ប្រើសម្រាប់ព្យាករណ៍ការខូចឧបករណ៍,
       រកមើលការក្លែងបន្លំ, រកឃើញការជ្រៀតចូល, តាមដានការលេចធ្លាយទឹក,
       និងជូនដំណឹងអំពីលំហូរហ្វូងមនុស្សមិនធម្មតា។ ជាធម្មតា លទ្ធផលគឺជាពិន្ទុដែលប្រៀបធៀបនឹងកម្រិតកំណត់
       មិនមែនជាការសម្រេចចិត្តដោយផ្ទាល់ទេ។
   - locale: vi
     value: >-
-      Các hệ thống AI đánh dấu những sự kiện, khuôn mẫu hoặc giá trị bất thường, lệch khỏi mức nền
-      về hành vi bình thường mà hệ thống đã học. Được dùng để dự đoán hỏng hóc thiết bị, sàng lọc
-      gian lận, phát hiện xâm nhập, theo dõi rò rỉ nước và cảnh báo dòng người bất thường. Kết quả
-      đầu ra thường là điểm số so với một ngưỡng chứ không phải quyết định trực tiếp.
+      Các kỹ thuật đánh dấu những sự kiện, khuôn mẫu hoặc giá trị bất thường, lệch khỏi mức nền về
+      hành vi bình thường mà hệ thống đã học. Được dùng để dự đoán hỏng hóc thiết bị, sàng lọc gian
+      lận, phát hiện xâm nhập, theo dõi rò rỉ nước và cảnh báo dòng người bất thường. Kết quả đầu ra
+      thường là điểm số so với một ngưỡng chứ không phải quyết định trực tiếp.
   - locale: zh-Hans
-    value: 能标记异常事件、模式或数值的AI系统，这些异常偏离了系统学习到的正常行为基线。用于设备故障预测、欺诈筛查、入侵检测、漏水监测和人流异常预警。其输出通常是按阈值判定的评分，而非直接的决定。
+    value: 能标记异常事件、模式或数值的技术，这些异常偏离了系统学习到的正常行为基线。用于设备故障预测、欺诈筛查、入侵检测、漏水监测和人流异常预警。其输出通常是按阈值判定的评分，而非直接的决定。
   - locale: zh-Hant
-    value: 標示出偏離已學習的正常行為基準的異常事件、模式或數值的AI系統。用於預測設備故障、篩檢詐欺、偵測入侵、監測漏水，以及人流異常警示。輸出結果通常是設有門檻的分數，而非直接的決定。
+    value: 標示出偏離已學習的正常行為基準的異常事件、模式或數值的技術。用於預測設備故障、篩檢詐欺、偵測入侵、監測漏水，以及人流異常警示。輸出結果通常是設有門檻的分數，而非直接的決定。
   - locale: nl
     value: >-
-      AI-systemen die ongewone gebeurtenissen, patronen of waarden signaleren die afwijken van een
+      Technieken die ongewone gebeurtenissen, patronen of waarden signaleren die afwijken van een
       aangeleerd beeld van normaal gedrag. Worden gebruikt om storingen aan apparatuur te
       voorspellen, fraude op te sporen, indringers te detecteren, waterlekken te bewaken en te
       waarschuwen bij ongewone drukte. De uitvoer bestaat meestal uit scores met een drempelwaarde,
       niet uit directe beslissingen.
   - locale: de
     value: >-
-      KI-Systeme, die ungewöhnliche Ereignisse, Muster oder Werte melden, die von einem erlernten
+      Verfahren, die ungewöhnliche Ereignisse, Muster oder Werte melden, die von einem erlernten
       Normalzustand abweichen. Sie werden eingesetzt, um Geräteausfälle vorherzusagen, Betrug
       aufzuspüren, Eindringversuche zu erkennen, Wasserlecks zu überwachen und vor ungewöhnlichen
       Bewegungen von Menschenmengen zu warnen. Die Ergebnisse sind in der Regel Punktwerte mit

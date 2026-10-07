@@ -24,27 +24,27 @@ name:
     value: Datenspeicherung
 description:
   - locale: en
-    value: Where the data produced by this AI system is kept.
+    value: Where the data this system collects or produces is kept.
   - locale: fr
-    value: Où sont conservées les données produites par ce système d’IA.
+    value: Où sont conservées les données que ce système collecte ou produit.
   - locale: es
-    value: Dónde se guardan los datos que produce este sistema de IA.
+    value: Dónde se guardan los datos que recopila o produce este sistema.
   - locale: pt
-    value: Onde os dados produzidos por este sistema de IA são mantidos.
+    value: Onde os dados que este sistema coleta ou produz são mantidos.
   - locale: fil
-    value: Kung saan iniimbak ang data na nililikha ng sistemang AI na ito.
+    value: Kung saan iniimbak ang data na kinokolekta o nililikha ng sistemang ito.
   - locale: km
-    value: ទីកន្លែងដែលទិន្នន័យបង្កើតដោយប្រព័ន្ធ AI នេះត្រូវបានរក្សាទុក។
+    value: ទីកន្លែងដែលទិន្នន័យដែលប្រព័ន្ធនេះប្រមូល ឬបង្កើតត្រូវបានរក្សាទុក។
   - locale: vi
-    value: Dữ liệu do hệ thống AI này tạo ra được giữ ở đâu.
+    value: Dữ liệu mà hệ thống này thu thập hoặc tạo ra được giữ ở đâu.
   - locale: zh-Hans
-    value: 本AI系统产生的数据存放在哪里。
+    value: 本系统收集或产生的数据存放在哪里。
   - locale: zh-Hant
-    value: 這個AI系統產生的資料保存在哪裡。
+    value: 這個系統收集或產生的資料保存在哪裡。
   - locale: nl
-    value: Waar de gegevens die dit AI-systeem oplevert worden bewaard.
+    value: Waar de gegevens die dit systeem verzamelt of oplevert worden bewaard.
   - locale: de
-    value: Wo die Daten, die dieses KI-System erzeugt, aufbewahrt werden.
+    value: Wo die Daten, die dieses System erhebt oder erzeugt, aufbewahrt werden.
 prompt:
   - locale: en
     value: Where is the data stored?

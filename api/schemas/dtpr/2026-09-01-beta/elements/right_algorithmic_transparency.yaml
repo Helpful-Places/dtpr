@@ -26,62 +26,62 @@ title:
 description:
   - locale: en
     value: >-
-      The right to be informed in plain language about how an AI system works in general — the logic
+      The right to be informed in plain language about how a system works in general — the logic
       involved, the significance of the processing, and the likely consequences for the people it
       affects. This is the right to understand the system itself; the right to an explanation of a
       specific decision made about you is a separate right.
   - locale: fr
     value: >-
-      Le droit d'être informé, dans un langage clair, du fonctionnement général d'un système d'IA —
-      la logique mise en œuvre, l'importance du traitement et les conséquences probables pour les
+      Le droit d'être informé, dans un langage clair, du fonctionnement général d'un système — la
+      logique mise en œuvre, l'importance du traitement et les conséquences probables pour les
       personnes concernées. Il s'agit du droit de comprendre le système lui-même ; le droit à une
       explication d'une décision particulière prise à votre sujet constitue un droit distinct.
   - locale: es
     value: >-
-      El derecho a que le informen, en lenguaje sencillo, cómo funciona en general un sistema de IA
-      — la lógica que aplica, la importancia del procesamiento y las consecuencias probables para
-      las personas a las que afecta. Es el derecho a entender el sistema en sí; el derecho a una
+      El derecho a que le informen, en lenguaje sencillo, cómo funciona en general un sistema — la
+      lógica que aplica, la importancia del procesamiento y las consecuencias probables para las
+      personas a las que afecta. Es el derecho a entender el sistema en sí; el derecho a una
       explicación de una decisión específica tomada sobre usted es un derecho aparte.
   - locale: pt
     value: >-
-      O direito de receber informações, em linguagem simples, sobre como um sistema de IA funciona
-      de modo geral — a lógica envolvida, a importância do tratamento e as consequências prováveis
-      para as pessoas afetadas. É o direito de entender o sistema em si; o direito à explicação de
-      uma decisão específica tomada sobre você é um direito separado.
+      O direito de receber informações, em linguagem simples, sobre como um sistema funciona de modo
+      geral — a lógica envolvida, a importância do tratamento e as consequências prováveis para as
+      pessoas afetadas. É o direito de entender o sistema em si; o direito à explicação de uma
+      decisão específica tomada sobre você é um direito separado.
   - locale: fil
     value: >-
       Ang karapatang maipaalam sa inyo sa simpleng pananalita kung paano gumagana sa pangkalahatan
-      ang isang sistemang AI — ang lohikang ginagamit, ang kahalagahan ng pagproseso, at ang
-      malamang na kahihinatnan para sa mga taong apektado nito. Ito ang karapatang maunawaan ang
-      sistema mismo; hiwalay na karapatan ang karapatan sa paliwanag ng isang partikular na
-      desisyong ginawa tungkol sa inyo.
+      ang isang sistema — ang lohikang ginagamit, ang kahalagahan ng pagproseso, at ang malamang na
+      kahihinatnan para sa mga taong apektado nito. Ito ang karapatang maunawaan ang sistema mismo;
+      hiwalay na karapatan ang karapatan sa paliwanag ng isang partikular na desisyong ginawa
+      tungkol sa inyo.
   - locale: km
     value: >-
-      សិទ្ធិទទួលបានព័ត៌មានជាភាសាសាមញ្ញអំពីរបៀបដែលប្រព័ន្ធ AI ដំណើរការជាទូទៅ —
-      តក្កវិជ្ជាដែលពាក់ព័ន្ធ, សារៈសំខាន់នៃការដំណើរការទិន្នន័យ,
-      និងផលវិបាកដែលទំនងជាកើតមានចំពោះមនុស្សដែលរងផលប៉ះពាល់។ នេះជាសិទ្ធិយល់ដឹងអំពីប្រព័ន្ធផ្ទាល់
+      សិទ្ធិទទួលបានព័ត៌មានជាភាសាសាមញ្ញអំពីរបៀបដែលប្រព័ន្ធដំណើរការជាទូទៅ — តក្កវិជ្ជាដែលពាក់ព័ន្ធ,
+      សារៈសំខាន់នៃការដំណើរការទិន្នន័យ, និងផលវិបាកដែលទំនងជាកើតមានចំពោះមនុស្សដែលរងផលប៉ះពាល់។
+      នេះជាសិទ្ធិយល់ដឹងអំពីប្រព័ន្ធផ្ទាល់
       ចំណែកសិទ្ធិទទួលបានការពន្យល់អំពីការសម្រេចចិត្តជាក់លាក់ណាមួយដែលបានធ្វើឡើងអំពីអ្នក
       គឺជាសិទ្ធិដាច់ដោយឡែក។
   - locale: vi
     value: >-
-      Quyền được thông báo bằng ngôn ngữ dễ hiểu về cách một hệ thống AI hoạt động nói chung — logic
+      Quyền được thông báo bằng ngôn ngữ dễ hiểu về cách một hệ thống hoạt động nói chung — logic
       được áp dụng, tầm quan trọng của việc xử lý, và những hệ quả có thể xảy ra đối với những người
       bị ảnh hưởng. Đây là quyền được hiểu về chính hệ thống; quyền được giải thích về một quyết
       định cụ thể liên quan đến bạn là một quyền riêng.
   - locale: zh-Hans
     value: >-
-      有权以通俗易懂的语言获知AI系统总体上如何运作——所涉及的逻辑、处理的重要性，以及对受影响者可能产生的后果。这是了解系统本身的权利；就针对您作出的某项具体决定获得解释的权利，是另一项单独的权利。
+      有权以通俗易懂的语言获知系统总体上如何运作——所涉及的逻辑、处理的重要性，以及对受影响者可能产生的后果。这是了解系统本身的权利；就针对您作出的某项具体决定获得解释的权利，是另一项单独的权利。
   - locale: zh-Hant
-    value: 您有權以淺顯易懂的語言獲知AI系統大致如何運作：其中的邏輯、這項處理的重要性，以及對受影響者可能產生的後果。這是了解系統本身的權利；要求說明針對您所做的特定決定，則是另一項權利。
+    value: 您有權以淺顯易懂的語言獲知系統大致如何運作：其中的邏輯、這項處理的重要性，以及對受影響者可能產生的後果。這是了解系統本身的權利；要求說明針對您所做的特定決定，則是另一項權利。
   - locale: nl
     value: >-
-      Het recht om in begrijpelijke taal te horen hoe een AI-systeem in het algemeen werkt: de
-      logica erachter, het belang van de verwerking en de waarschijnlijke gevolgen voor de mensen
-      die het raakt. Dit is het recht om het systeem zelf te begrijpen; het recht op uitleg over een
+      Het recht om in begrijpelijke taal te horen hoe een systeem in het algemeen werkt: de logica
+      erachter, het belang van de verwerking en de waarschijnlijke gevolgen voor de mensen die het
+      raakt. Dit is het recht om het systeem zelf te begrijpen; het recht op uitleg over een
       specifieke beslissing over jou is een apart recht.
   - locale: de
     value: >-
-      Das Recht, in verständlicher Sprache darüber informiert zu werden, wie ein KI-System
+      Das Recht, in verständlicher Sprache darüber informiert zu werden, wie ein System
       grundsätzlich funktioniert – die zugrunde liegende Logik, die Tragweite der Verarbeitung und
       die wahrscheinlichen Folgen für die betroffenen Personen. Dies ist das Recht, das System
       selbst zu verstehen; das Recht auf Erläuterung einer bestimmten Entscheidung über Sie ist ein

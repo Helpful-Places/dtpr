@@ -26,43 +26,42 @@ title:
 description:
   - locale: en
     value: >-
-      Data is stored on behalf of the organization or the data collector in an off-site data centre,
-      such as Amazon Web Services, Google Cloud and Microsoft Azure
+      Data is stored on behalf of the accountable organization in an off-site data centre, such as
+      Amazon Web Services, Google Cloud and Microsoft Azure
   - locale: fr
     value: >-
-      Les données sont stockées au nom de l'organisation ou du collecteur de données dans un centre
-      de données hors site.
+      Les données sont stockées au nom de l'organisation responsable dans un centre de données hors
+      site, comme Amazon Web Services, Google Cloud et Microsoft Azure.
   - locale: es
     value: >-
-      Los datos se almacenan, en nombre de la organización o de quien recopila los datos, en un
-      centro de datos externo, como Amazon Web Services, Google Cloud y Microsoft Azure
+      Los datos se almacenan, en nombre de la organización responsable, en un centro de datos
+      externo, como Amazon Web Services, Google Cloud y Microsoft Azure
   - locale: pt
     value: >-
-      Os dados são armazenados, em nome da organização ou de quem coleta os dados, em um data center
-      externo, como Amazon Web Services, Google Cloud e Microsoft Azure
+      Os dados são armazenados, em nome da organização responsável, em um data center externo, como
+      Amazon Web Services, Google Cloud e Microsoft Azure
   - locale: fil
     value: >-
-      Iniimbak ang data para sa organisasyon o sa nangongolekta ng data sa isang data center na nasa
-      ibang lugar, gaya ng Amazon Web Services, Google Cloud at Microsoft Azure
+      Iniimbak ang data para sa organisasyong may pananagutan sa isang data center na nasa ibang
+      lugar, gaya ng Amazon Web Services, Google Cloud at Microsoft Azure
   - locale: km
     value: >-
-      ទិន្នន័យត្រូវបានផ្ទុកជំនួសអង្គភាព ឬអ្នកប្រមូលទិន្នន័យ នៅមជ្ឈមណ្ឌលទិន្នន័យខាងក្រៅ ដូចជា Amazon
-      Web Services, Google Cloud និង Microsoft Azure។
+      ទិន្នន័យត្រូវបានផ្ទុកជំនួសអង្គភាពដែលទទួលខុសត្រូវ នៅមជ្ឈមណ្ឌលទិន្នន័យខាងក្រៅ ដូចជា Amazon Web
+      Services, Google Cloud និង Microsoft Azure។
   - locale: vi
     value: >-
-      Dữ liệu được lưu trữ thay mặt cho tổ chức hoặc bên thu thập dữ liệu tại một trung tâm dữ liệu
-      bên ngoài, chẳng hạn như Amazon Web Services, Google Cloud và Microsoft Azure
+      Dữ liệu được lưu trữ thay mặt cho tổ chức chịu trách nhiệm tại một trung tâm dữ liệu bên
+      ngoài, chẳng hạn như Amazon Web Services, Google Cloud và Microsoft Azure
   - locale: zh-Hans
-    value: 数据由异地数据中心代该组织或数据收集方存储，例如Amazon Web Services、Google Cloud和Microsoft Azure。
+    value: 数据由异地数据中心代责任方存储，例如Amazon Web Services、Google Cloud和Microsoft Azure。
   - locale: zh-Hant
-    value: 資料由異地的資料中心代組織或資料收集者儲存，例如Amazon Web Services、Google Cloud及Microsoft Azure。
+    value: 資料由異地的資料中心代負責組織儲存，例如Amazon Web Services、Google Cloud及Microsoft Azure。
   - locale: nl
     value: >-
-      Gegevens worden namens de organisatie of de partij die de gegevens verzamelt opgeslagen in een
-      extern datacenter, zoals Amazon Web Services, Google Cloud en Microsoft Azure
+      Gegevens worden namens de verantwoordelijke organisatie opgeslagen in een extern datacenter,
+      zoals Amazon Web Services, Google Cloud en Microsoft Azure
   - locale: de
     value: >-
-      Die Daten werden im Auftrag der Organisation oder der datenerhebenden Stelle in einem externen
-      Rechenzentrum gespeichert, zum Beispiel bei Amazon Web Services, Google Cloud oder Microsoft
-      Azure
+      Die Daten werden im Auftrag der verantwortlichen Organisation in einem externen Rechenzentrum
+      gespeichert, zum Beispiel bei Amazon Web Services, Google Cloud oder Microsoft Azure
 symbol_id: stored

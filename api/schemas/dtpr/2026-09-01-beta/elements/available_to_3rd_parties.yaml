@@ -26,40 +26,42 @@ title:
 description:
   - locale: en
     value: >-
-      Data is available to 3rd parties not involved in the data activity. This does not always mean
-      that data is being resold.
+      Data is available to 3rd parties not involved in operating this system. This does not always
+      mean that data is being resold.
   - locale: fr
-    value: Les données sont disponibles pour des tiers non impliqués dans l'activité de données
+    value: >-
+      Les données sont disponibles pour des tiers non impliqués dans l'exploitation de ce système.
+      Cela ne signifie pas toujours que les données sont revendues.
   - locale: es
     value: >-
-      Los datos están disponibles para terceros que no participan en la actividad de datos. Esto no
-      siempre significa que los datos se revendan.
+      Los datos están disponibles para terceros que no participan en la operación de este sistema.
+      Esto no siempre significa que los datos se revendan.
   - locale: pt
     value: >-
-      Os dados estão disponíveis para terceiros não envolvidos na atividade de dados. Isso nem
+      Os dados estão disponíveis para terceiros não envolvidos na operação deste sistema. Isso nem
       sempre significa que os dados estão sendo revendidos.
   - locale: fil
     value: >-
-      Maa-access ang data ng mga ikatlong partidong hindi kasali sa gawaing may kinalaman sa data.
+      Maa-access ang data ng mga ikatlong partidong hindi kasali sa pagpapatakbo ng sistemang ito.
       Hindi ito laging nangangahulugang ibinebentang muli ang data.
   - locale: km
     value: >-
-      ភាគីទីបី ដែលមិនពាក់ព័ន្ធនឹងសកម្មភាពទិន្នន័យនេះអាចចូលប្រើទិន្នន័យបាន។
+      ភាគីទីបី ដែលមិនពាក់ព័ន្ធនឹងការដំណើរការប្រព័ន្ធនេះអាចចូលប្រើទិន្នន័យបាន។
       នេះមិនតែងតែមានន័យថាទិន្នន័យកំពុងត្រូវបានលក់បន្តទេ។
   - locale: vi
     value: >-
-      Các bên thứ ba không tham gia vào hoạt động dữ liệu có thể truy cập dữ liệu. Điều này không
-      phải lúc nào cũng có nghĩa là dữ liệu đang được bán lại.
+      Các bên thứ ba không tham gia vào việc vận hành hệ thống này có thể truy cập dữ liệu. Điều này
+      không phải lúc nào cũng có nghĩa là dữ liệu đang được bán lại.
   - locale: zh-Hans
-    value: 未参与该数据活动的第三方可以获取数据。这并不一定意味着数据被转售。
+    value: 未参与本系统运营的第三方可以获取数据。这并不一定意味着数据被转售。
   - locale: zh-Hant
-    value: 未參與資料活動的第三方可取得資料。這不一定表示資料遭到轉售。
+    value: 未參與營運這個系統的第三方可取得資料。這不一定表示資料遭到轉售。
   - locale: nl
     value: >-
-      Gegevens zijn beschikbaar voor derden die niet betrokken zijn bij de gegevensverwerking. Dat
-      betekent niet altijd dat gegevens worden doorverkocht.
+      Gegevens zijn beschikbaar voor derden die niet betrokken zijn bij het beheren van dit systeem.
+      Dat betekent niet altijd dat gegevens worden doorverkocht.
   - locale: de
     value: >-
-      Die Daten sind für Dritte zugänglich, die am Umgang mit den Daten nicht beteiligt sind. Das
+      Die Daten sind für Dritte zugänglich, die am Betrieb dieses Systems nicht beteiligt sind. Das
       bedeutet nicht immer, dass die Daten weiterverkauft werden.
 symbol_id: available_to_3rd_parties

@@ -26,34 +26,34 @@ title:
 description:
   - locale: en
     value: >-
-      AI systems that infer emotional state, mood, or sentiment from text, speech, facial
+      Techniques that infer emotional state, mood, or sentiment from text, speech, facial
       expressions, or physiological signals. Used to gauge crowd sentiment, evaluate service
       experience, or screen for distress. The accuracy and cultural fairness of affect inference is
       contested, and some jurisdictions restrict its use in workplaces and public services.
   - locale: fr
     value: >-
-      Systèmes d'IA qui infèrent un état émotionnel, une humeur ou un sentiment à partir de texte,
-      de parole, d'expressions faciales ou de signaux physiologiques. Utilisés pour évaluer le
+      Techniques qui infèrent un état émotionnel, une humeur ou un sentiment à partir de texte, de
+      parole, d'expressions faciales ou de signaux physiologiques. Utilisées pour évaluer le
       ressenti d'une foule, mesurer l'expérience d'un service ou détecter une détresse. La précision
       et l'équité culturelle de l'inférence d'affect sont contestées, et certaines juridictions
       limitent son usage en milieu professionnel et dans les services publics.
   - locale: es
     value: >-
-      Sistemas de IA que infieren el estado emocional, el ánimo o el sentimiento a partir de texto,
-      voz, expresiones faciales o señales fisiológicas. Se usan para medir el sentir de una
-      multitud, evaluar la experiencia de un servicio o detectar señales de angustia. La precisión y
-      la equidad cultural de la inferencia de emociones están en disputa, y algunas jurisdicciones
+      Técnicas que infieren el estado emocional, el ánimo o el sentimiento a partir de texto, voz,
+      expresiones faciales o señales fisiológicas. Se usan para medir el sentir de una multitud,
+      evaluar la experiencia de un servicio o detectar señales de angustia. La precisión y la
+      equidad cultural de la inferencia de emociones están en disputa, y algunas jurisdicciones
       restringen su uso en lugares de trabajo y servicios públicos.
   - locale: pt
     value: >-
-      Sistemas de IA que inferem estado emocional, humor ou sentimento a partir de texto, fala,
-      expressões faciais ou sinais fisiológicos. Usados para medir o sentimento de uma multidão,
-      avaliar a experiência com um serviço ou identificar sinais de sofrimento. A precisão e a
-      imparcialidade cultural da inferência de afeto são contestadas, e algumas jurisdições
-      restringem seu uso em locais de trabalho e serviços públicos.
+      Técnicas que inferem estado emocional, humor ou sentimento a partir de texto, fala, expressões
+      faciais ou sinais fisiológicos. Usadas para medir o sentimento de uma multidão, avaliar a
+      experiência com um serviço ou identificar sinais de sofrimento. A precisão e a imparcialidade
+      cultural da inferência de afeto são contestadas, e algumas jurisdições restringem seu uso em
+      locais de trabalho e serviços públicos.
   - locale: fil
     value: >-
-      Mga sistemang AI na naghihinuha ng emosyonal na kalagayan, timpla ng loob, o saloobin mula sa
+      Mga pamamaraang naghihinuha ng emosyonal na kalagayan, timpla ng loob, o saloobin mula sa
       teksto, pananalita, ekspresyon ng mukha, o mga senyales ng katawan. Ginagamit para sukatin ang
       saloobin ng maraming tao, tasahin ang karanasan sa serbisyo, o alamin kung may taong
       nababagabag. Pinagtatalunan kung gaano katumpak ang paghihinuha ng damdamin at kung patas ito
@@ -61,34 +61,34 @@ description:
       trabaho at pampublikong serbisyo.
   - locale: km
     value: >-
-      ប្រព័ន្ធ AI ដែលសន្និដ្ឋានអំពីស្ថានភាពអារម្មណ៍, អារម្មណ៍នៅពេលនោះ, ឬមនោសញ្ចេតនា ពីអត្ថបទ, សំដី,
+      បច្ចេកទេសដែលសន្និដ្ឋានអំពីស្ថានភាពអារម្មណ៍, អារម្មណ៍នៅពេលនោះ, ឬមនោសញ្ចេតនា ពីអត្ថបទ, សំដី,
       ទឹកមុខ, ឬសញ្ញាសរីរវិទ្យា។ ប្រើដើម្បីវាស់អារម្មណ៍របស់ហ្វូងមនុស្ស, វាយតម្លៃបទពិសោធន៍នៃសេវា,
       ឬរកមើលភាពតានតឹងផ្លូវចិត្ត។ ភាពត្រឹមត្រូវ
       និងភាពយុត្តិធម៌ផ្នែកវប្បធម៌នៃការសន្និដ្ឋានអារម្មណ៍នៅមានការជជែកវែកញែក
       ហើយយុត្តាធិការខ្លះដាក់កម្រិតលើការប្រើវានៅកន្លែងធ្វើការ និងក្នុងសេវាសាធារណៈ។
   - locale: vi
     value: >-
-      Các hệ thống AI suy đoán trạng thái cảm xúc, tâm trạng hoặc thái độ từ văn bản, lời nói, nét
-      mặt hoặc tín hiệu sinh lý. Được dùng để đo tâm trạng đám đông, đánh giá trải nghiệm dịch vụ
-      hoặc sàng lọc dấu hiệu khủng hoảng tinh thần. Độ chính xác và tính công bằng về văn hóa của
-      việc suy đoán cảm xúc còn gây tranh cãi, và một số khu vực pháp lý hạn chế việc dùng nó tại
-      nơi làm việc và trong dịch vụ công.
+      Các kỹ thuật suy đoán trạng thái cảm xúc, tâm trạng hoặc thái độ từ văn bản, lời nói, nét mặt
+      hoặc tín hiệu sinh lý. Được dùng để đo tâm trạng đám đông, đánh giá trải nghiệm dịch vụ hoặc
+      sàng lọc dấu hiệu khủng hoảng tinh thần. Độ chính xác và tính công bằng về văn hóa của việc
+      suy đoán cảm xúc còn gây tranh cãi, và một số khu vực pháp lý hạn chế việc dùng nó tại nơi làm
+      việc và trong dịch vụ công.
   - locale: zh-Hans
     value: >-
-      根据文字、语音、面部表情或生理信号推断情绪状态、心情或态度倾向的AI系统。用于了解人群情绪、评估服务体验或筛查心理困扰。情感推断的准确性和文化公平性存在争议，一些司法管辖区限制在工作场所和公共服务中使用。
+      根据文字、语音、面部表情或生理信号推断情绪状态、心情或态度倾向的技术。用于了解人群情绪、评估服务体验或筛查心理困扰。情感推断的准确性和文化公平性存在争议，一些司法管辖区限制在工作场所和公共服务中使用。
   - locale: zh-Hant
     value: >-
-      從文字、語音、臉部表情或生理訊號推斷情緒狀態、心情或感受的AI系統。用於掌握群眾情緒、評估服務體驗，或篩檢是否有人處於情緒困擾。情感推斷的準確度與文化公平性仍有爭議，部分司法管轄區限制在職場與公共服務中使用。
+      從文字、語音、臉部表情或生理訊號推斷情緒狀態、心情或感受的技術。用於掌握群眾情緒、評估服務體驗，或篩檢是否有人處於情緒困擾。情感推斷的準確度與文化公平性仍有爭議，部分司法管轄區限制在職場與公共服務中使用。
   - locale: nl
     value: >-
-      AI-systemen die iemands emotionele toestand, stemming of sentiment afleiden uit tekst, spraak,
+      Technieken die iemands emotionele toestand, stemming of sentiment afleiden uit tekst, spraak,
       gezichtsuitdrukkingen of lichaamssignalen. Worden gebruikt om de stemming in een menigte te
       peilen, de ervaring met een dienst te beoordelen of signalen van nood op te sporen. Of deze
       techniek nauwkeurig is en eerlijk uitpakt voor verschillende culturen, is omstreden, en in
       sommige rechtsgebieden is het gebruik ervan op het werk en bij publieke diensten beperkt.
   - locale: de
     value: >-
-      KI-Systeme, die aus Text, Sprache, Gesichtsausdrücken oder körperlichen Signalen auf
+      Verfahren, die aus Text, Sprache, Gesichtsausdrücken oder körperlichen Signalen auf
       Gefühlszustand, Stimmung oder Haltung schließen. Sie werden eingesetzt, um die Stimmung in
       Menschenmengen einzuschätzen, Serviceerlebnisse zu bewerten oder Anzeichen von Notlagen zu
       erkennen. Wie genau und kulturell fair solche Rückschlüsse sind, ist umstritten, und in

@@ -26,67 +26,67 @@ title:
 description:
   - locale: en
     value: >-
-      AI systems that assign a label to an input or estimate a numeric outcome — including
+      Techniques that assign a label to an input or estimate a numeric outcome — including
       classifiers (spam vs. not spam, risk tier), regressors (predicted demand, expected wait), and
       time-series forecasters (next-hour ridership, energy load). Built from labeled historical data
       using statistical or machine-learning models.
   - locale: fr
     value: >-
-      Systèmes d'IA qui attribuent une étiquette à une entrée ou estiment un résultat numérique :
+      Techniques qui attribuent une étiquette à une entrée ou estiment un résultat numérique :
       classifieurs (spam ou non, niveau de risque), modèles de régression (demande prévue, temps
       d'attente attendu) et prévisions de séries temporelles (fréquentation à la prochaine heure,
-      charge énergétique). Construits à partir de données historiques étiquetées par des modèles
+      charge énergétique). Construites à partir de données historiques étiquetées par des modèles
       statistiques ou d'apprentissage automatique.
   - locale: es
     value: >-
-      Sistemas de IA que asignan una etiqueta a una entrada o estiman un resultado numérico —
-      incluidos clasificadores (spam o no spam, nivel de riesgo), modelos de regresión (demanda
-      prevista, espera estimada) y modelos de pronóstico de series de tiempo (pasajeros en la
-      próxima hora, carga de energía). Se construyen a partir de datos históricos etiquetados, con
-      modelos estadísticos o de aprendizaje automático.
+      Técnicas que asignan una etiqueta a una entrada o estiman un resultado numérico — incluidos
+      clasificadores (spam o no spam, nivel de riesgo), modelos de regresión (demanda prevista,
+      espera estimada) y modelos de pronóstico de series de tiempo (pasajeros en la próxima hora,
+      carga de energía). Se construyen a partir de datos históricos etiquetados, con modelos
+      estadísticos o de aprendizaje automático.
   - locale: pt
     value: >-
-      Sistemas de IA que atribuem um rótulo a uma entrada ou estimam um resultado numérico —
-      incluindo classificadores (spam ou não spam, faixa de risco), regressores (demanda prevista,
-      espera estimada) e modelos de previsão de séries temporais (número de passageiros na próxima
-      hora, carga de energia). São construídos a partir de dados históricos rotulados, com modelos
+      Técnicas que atribuem um rótulo a uma entrada ou estimam um resultado numérico — incluindo
+      classificadores (spam ou não spam, faixa de risco), regressores (demanda prevista, espera
+      estimada) e modelos de previsão de séries temporais (número de passageiros na próxima hora,
+      carga de energia). São construídas a partir de dados históricos rotulados, com modelos
       estatísticos ou de aprendizado de máquina.
   - locale: fil
     value: >-
-      Mga sistemang AI na nagbibigay ng tatak sa isang input o tumataya ng resultang numero — kasama
-      ang mga classifier (spam o hindi spam, antas ng panganib), regressor (hinuhulaang demand,
+      Mga pamamaraang nagbibigay ng tatak sa isang input o tumataya ng resultang numero — kasama ang
+      mga classifier (spam o hindi spam, antas ng panganib), regressor (hinuhulaang demand,
       inaasahang tagal ng paghihintay), at time-series forecaster (dami ng pasahero sa susunod na
       oras, karga ng enerhiya). Binuo mula sa may-tatak na nakaraang data gamit ang mga modelong
       estadistikal o machine learning.
   - locale: km
     value: >-
-      ប្រព័ន្ធ AI ដែលដាក់ស្លាកឱ្យទិន្នន័យបញ្ចូល ឬប៉ាន់ស្មានលទ្ធផលជាលេខ — រួមមានម៉ូដែលចាត់ថ្នាក់
+      បច្ចេកទេសដែលដាក់ស្លាកឱ្យទិន្នន័យបញ្ចូល ឬប៉ាន់ស្មានលទ្ធផលជាលេខ — រួមមានម៉ូដែលចាត់ថ្នាក់
       (សារឥតបានការ ឬមិនមែន, កម្រិតហានិភ័យ), ម៉ូដែលប៉ាន់ស្មានតម្លៃ (តម្រូវការដែលព្យាករណ៍,
       រយៈពេលរង់ចាំដែលរំពឹង), និងម៉ូដែលព្យាករណ៍តាមពេលវេលា (ចំនួនអ្នកដំណើរម៉ោងបន្ទាប់, បន្ទុកថាមពល)។
       បង្កើតឡើងពីទិន្នន័យអតីតកាលដែលបានដាក់ស្លាក ដោយប្រើម៉ូដែលស្ថិតិ ឬម៉ូដែលរៀនដោយម៉ាស៊ីន។
   - locale: vi
     value: >-
-      Các hệ thống AI gán nhãn cho một đầu vào hoặc ước tính một kết quả bằng số — gồm bộ phân loại
+      Các kỹ thuật gán nhãn cho một đầu vào hoặc ước tính một kết quả bằng số — gồm bộ phân loại
       (thư rác hay không, mức rủi ro), mô hình hồi quy (nhu cầu dự đoán, thời gian chờ dự kiến) và
       mô hình dự báo chuỗi thời gian (lượng hành khách trong giờ tới, tải điện). Được xây dựng từ dữ
       liệu lịch sử đã gán nhãn, bằng mô hình thống kê hoặc học máy.
   - locale: zh-Hans
     value: >-
-      为输入贴上标签或估算数值结果的AI系统——包括分类器（是否为垃圾邮件、风险等级）、回归模型（预测需求、预计等候时间）和时间序列预测模型（下一小时客流、能源负荷）。利用统计模型或机器学习模型，由带标签的历史数据构建而成。
+      为输入贴上标签或估算数值结果的技术——包括分类器（是否为垃圾邮件、风险等级）、回归模型（预测需求、预计等候时间）和时间序列预测模型（下一小时客流、能源负荷）。利用统计模型或机器学习模型，由带标签的历史数据构建而成。
   - locale: zh-Hant
     value: >-
-      為輸入資料指定標籤或估算數值結果的AI系統，包括分類器（是否為垃圾郵件、風險等級）、迴歸模型（預測需求、預估等候時間）及時間序列預測（下一小時的搭乘人次、能源負載）。以已標記的歷史資料，透過統計或機器學習模型建立。
+      為輸入資料指定標籤或估算數值結果的技術，包括分類器（是否為垃圾郵件、風險等級）、迴歸模型（預測需求、預估等候時間）及時間序列預測（下一小時的搭乘人次、能源負載）。以已標記的歷史資料，透過統計或機器學習模型建立。
   - locale: nl
     value: >-
-      AI-systemen die een label aan invoer toekennen of een getal schatten. Hieronder vallen
+      Technieken die een label aan invoer toekennen of een getal schatten. Hieronder vallen
       classificatiemodellen (spam of geen spam, risicoklasse), regressiemodellen (voorspelde vraag,
       verwachte wachttijd) en tijdreeksmodellen (reizigersaantallen in het komende uur,
       energievraag). Ze zijn gebouwd met gelabelde gegevens uit het verleden en met statistische
       modellen of machine learning.
   - locale: de
     value: >-
-      KI-Systeme, die einer Eingabe eine Kategorie zuordnen oder einen Zahlenwert schätzen –
-      darunter Klassifikatoren (Spam oder kein Spam, Risikostufe), Regressionsmodelle (vorhergesagte
+      Verfahren, die einer Eingabe eine Kategorie zuordnen oder einen Zahlenwert schätzen – darunter
+      Klassifikatoren (Spam oder kein Spam, Risikostufe), Regressionsmodelle (vorhergesagte
       Nachfrage, erwartete Wartezeit) und Zeitreihenprognosen (Fahrgastzahlen der nächsten Stunde,
       Energielast). Sie werden mit statistischen Modellen oder maschinellem Lernen aus
       gekennzeichneten historischen Daten erstellt.

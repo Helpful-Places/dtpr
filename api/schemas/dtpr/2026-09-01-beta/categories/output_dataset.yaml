@@ -65,27 +65,27 @@ description:
       und Handlungen.
 prompt:
   - locale: en
-    value: What does this AI system produce?
+    value: What does this system produce?
   - locale: fr
-    value: Que produit ce système d’IA ?
+    value: Que produit ce système ?
   - locale: es
-    value: ¿Qué produce este sistema de IA?
+    value: ¿Qué produce este sistema?
   - locale: pt
-    value: O que este sistema de IA produz?
+    value: O que este sistema produz?
   - locale: fil
-    value: Ano ang nililikha ng sistemang AI na ito?
+    value: Ano ang nililikha ng sistemang ito?
   - locale: km
-    value: តើប្រព័ន្ធ AI នេះបង្កើតអ្វីខ្លះ?
+    value: តើប្រព័ន្ធនេះបង្កើតអ្វីខ្លះ?
   - locale: vi
-    value: Hệ thống AI này tạo ra gì?
+    value: Hệ thống này tạo ra gì?
   - locale: zh-Hans
-    value: 本AI系统产生什么？
+    value: 本系统产生什么？
   - locale: zh-Hant
-    value: 這個AI系統產生什麼？
+    value: 這個系統產生什麼？
   - locale: nl
-    value: Wat levert dit AI-systeem op?
+    value: Wat levert dit systeem op?
   - locale: de
-    value: Was erzeugt dieses KI-System?
+    value: Was erzeugt dieses System?
 required: false
 order: 10
 datachain_type: dtpr

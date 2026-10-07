@@ -327,10 +327,10 @@ async function generate(): Promise<void> {
  */
 function updateEstimate(): void {
   const settings = readSettings()
-  // 137 elements: 104 with light+dark only, 33 with context variants.
+  // 139 elements: 106 with light+dark only, 33 with context variants.
   const approxIcons = settings.defaultContextOnly
-    ? 137 * (settings.lightThemeOnly ? 1 : 2)
-    : settings.lightThemeOnly ? 234 : 468
+    ? 139 * (settings.lightThemeOnly ? 1 : 2)
+    : settings.lightThemeOnly ? 236 : 472
   const pipelineSeconds = (approxIcons / CONCURRENCY) * ASSUMED_ICON_SECONDS
   const overflow = Math.max(0, approxIcons - ICON_BUDGET_PER_MINUTE)
   const seconds = pipelineSeconds + (overflow / ICON_BUDGET_PER_MINUTE) * 60

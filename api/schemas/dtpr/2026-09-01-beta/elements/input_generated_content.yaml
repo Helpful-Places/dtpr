@@ -26,59 +26,60 @@ title:
 description:
   - locale: en
     value: >-
-      Text, images, audio, or video that another AI made. The AI takes in this synthetic content and
-      processes it further. Examples: an LLM-written summary fed into a translator, a generated
-      photo passed to a moderation model, a text-to-speech clip routed to an audio system.
+      Text, images, audio, or video that an AI system made. The system takes in this synthetic
+      content and processes it further. Examples: an LLM-written summary fed into a translator, a
+      generated photo passed to a moderation model, a text-to-speech clip routed to an audio system.
   - locale: fr
     value: >-
-      Texte, images, audio ou vidéo créés par une autre IA. L'IA reçoit ce contenu synthétique et le
-      traite encore. Exemples : un résumé écrit par un LLM transmis à un traducteur, une photo
-      générée passée à un modèle de modération, un extrait synthèse vocale acheminé vers un système
-      audio.
+      Texte, images, audio ou vidéo créés par un système d'IA. Le système reçoit ce contenu
+      synthétique et le traite encore. Exemples : un résumé écrit par un LLM transmis à un
+      traducteur, une photo générée passée à un modèle de modération, un extrait synthèse vocale
+      acheminé vers un système audio.
   - locale: es
     value: >-
-      Texto, imágenes, audio o video creados por otra IA. La IA recibe este contenido sintético y lo
-      sigue procesando. Ejemplos: un resumen escrito por un modelo de lenguaje (LLM) que se envía a
-      un traductor, una foto generada que pasa a un modelo de moderación, un clip de texto a voz
-      dirigido a un sistema de audio.
+      Texto, imágenes, audio o video creados por un sistema de IA. El sistema recibe este contenido
+      sintético y lo sigue procesando. Ejemplos: un resumen escrito por un modelo de lenguaje (LLM)
+      que se envía a un traductor, una foto generada que pasa a un modelo de moderación, un clip de
+      texto a voz dirigido a un sistema de audio.
   - locale: pt
     value: >-
-      Texto, imagens, áudio ou vídeo que outra IA criou. A IA recebe esse conteúdo sintético e
-      continua a processá-lo. Exemplos: um resumo escrito por um LLM enviado a um tradutor, uma foto
-      gerada encaminhada a um modelo de moderação, um trecho de texto convertido em fala direcionado
-      a um sistema de áudio.
+      Texto, imagens, áudio ou vídeo que um sistema de IA criou. O sistema recebe esse conteúdo
+      sintético e continua a processá-lo. Exemplos: um resumo escrito por um LLM enviado a um
+      tradutor, uma foto gerada encaminhada a um modelo de moderação, um trecho de texto convertido
+      em fala direcionado a um sistema de áudio.
   - locale: fil
     value: >-
-      Teksto, larawan, audio, o video na ginawa ng ibang AI. Tinatanggap ng AI ang sintetikong
-      nilalamang ito at pinoproseso pa. Mga halimbawa: buod na isinulat ng LLM na ipinasok sa
-      tagasalin, nilikhang larawan na ipinasa sa modelo ng moderation, text-to-speech clip na
-      ipinadala sa isang audio system.
+      Teksto, larawan, audio, o video na ginawa ng isang sistemang AI. Tinatanggap ng sistema ang
+      sintetikong nilalamang ito at pinoproseso pa. Mga halimbawa: buod na isinulat ng LLM na
+      ipinasok sa tagasalin, nilikhang larawan na ipinasa sa modelo ng moderation, text-to-speech
+      clip na ipinadala sa isang audio system.
   - locale: km
     value: >-
-      អត្ថបទ, រូបភាព, សំឡេង, ឬវីដេអូដែល AI ផ្សេងបានបង្កើត។ AI ទទួលយកខ្លឹមសារសិប្បនិម្មិតនេះ
+      អត្ថបទ, រូបភាព, សំឡេង, ឬវីដេអូដែលប្រព័ន្ធ AI បានបង្កើត។ ប្រព័ន្ធទទួលយកខ្លឹមសារសិប្បនិម្មិតនេះ
       ហើយដំណើរការវាបន្ថែមទៀត។ ឧទាហរណ៍៖ សេចក្តីសង្ខេបសរសេរដោយ LLM ដែលបញ្ជូនទៅកម្មវិធីបកប្រែ,
       រូបថតដែលបង្កើតឡើងហើយបញ្ជូនទៅម៉ូដែលត្រួតពិនិត្យខ្លឹមសារ,
       ឃ្លីបសំឡេងបំប្លែងពីអត្ថបទដែលបញ្ជូនទៅប្រព័ន្ធសំឡេង។
   - locale: vi
     value: >-
-      Văn bản, hình ảnh, âm thanh hoặc video do một AI khác tạo ra. AI tiếp nhận nội dung tổng hợp
-      này và xử lý tiếp. Ví dụ: một bản tóm tắt do mô hình ngôn ngữ lớn (LLM) viết được đưa vào công
-      cụ dịch, một bức ảnh được tạo ra rồi chuyển cho mô hình kiểm duyệt, một đoạn giọng đọc tổng
-      hợp từ văn bản được chuyển đến hệ thống âm thanh.
+      Văn bản, hình ảnh, âm thanh hoặc video do một hệ thống AI tạo ra. Hệ thống tiếp nhận nội dung
+      tổng hợp này và xử lý tiếp. Ví dụ: một bản tóm tắt do mô hình ngôn ngữ lớn (LLM) viết được đưa
+      vào công cụ dịch, một bức ảnh được tạo ra rồi chuyển cho mô hình kiểm duyệt, một đoạn giọng
+      đọc tổng hợp từ văn bản được chuyển đến hệ thống âm thanh.
   - locale: zh-Hans
-    value: 由另一个AI制作的文本、图像、音频或视频。AI接收这些合成内容并作进一步处理。示例：由大语言模型撰写后送入翻译工具的摘要、交给审核模型的生成图片、传送到音响系统的语音合成片段。
+    value: 由AI系统制作的文本、图像、音频或视频。系统接收这些合成内容并作进一步处理。示例：由大语言模型撰写后送入翻译工具的摘要、交给审核模型的生成图片、传送到音响系统的语音合成片段。
   - locale: zh-Hant
     value: >-
-      由另一個AI製作的文字、影像、音訊或影片。AI接收這些合成內容並進一步處理。例如：將大型語言模型（LLM）撰寫的摘要送入翻譯工具、將生成的照片交給內容審核模型、將文字轉語音的片段送往音訊系統。
+      由AI系統製作的文字、影像、音訊或影片。系統接收這些合成內容並進一步處理。例如：將大型語言模型（LLM）撰寫的摘要送入翻譯工具、將生成的照片交給內容審核模型、將文字轉語音的片段送往音訊系統。
   - locale: nl
     value: >-
-      Tekst, beelden, audio of video die een andere AI heeft gemaakt. De AI krijgt deze kunstmatig
-      gemaakte content binnen en verwerkt die verder. Voorbeelden: een door een taalmodel (LLM)
-      geschreven samenvatting die naar een vertaalprogramma gaat, een gegenereerde foto die naar een
-      moderatiemodel gaat, een fragment met computerstem dat naar een geluidssysteem wordt gestuurd.
+      Tekst, beelden, audio of video die een AI-systeem heeft gemaakt. Het systeem krijgt deze
+      kunstmatig gemaakte content binnen en verwerkt die verder. Voorbeelden: een door een taalmodel
+      (LLM) geschreven samenvatting die naar een vertaalprogramma gaat, een gegenereerde foto die
+      naar een moderatiemodel gaat, een fragment met computerstem dat naar een geluidssysteem wordt
+      gestuurd.
   - locale: de
     value: >-
-      Texte, Bilder, Audio oder Videos, die eine andere KI erstellt hat. Die KI nimmt diese
+      Texte, Bilder, Audio oder Videos, die ein KI-System erstellt hat. Das System nimmt diese
       synthetischen Inhalte auf und verarbeitet sie weiter. Beispiele: eine von einem Sprachmodell
       (LLM) geschriebene Zusammenfassung, die an ein Übersetzungssystem geht, ein generiertes Foto,
       das an ein Moderationsmodell übergeben wird, ein Sprachsynthese-Clip, der an eine Audioanlage

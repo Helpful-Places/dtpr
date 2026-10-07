@@ -2,100 +2,109 @@ id: right_to_notice
 category_id: rights
 title:
   - locale: en
-    value: Right to Be Informed of AI Use
+    value: Right to Be Informed
   - locale: fr
-    value: Droit d'être informé de l'utilisation de l'IA
+    value: Droit d'être informé
   - locale: es
-    value: Derecho a saber que se usa IA
+    value: Derecho a saber
   - locale: pt
-    value: Direito à informação sobre o uso de IA
+    value: Direito à informação
   - locale: fil
-    value: Karapatang malaman ang paggamit ng AI
+    value: Karapatang malaman
   - locale: km
-    value: សិទ្ធិទទួលដំណឹងអំពីការប្រើប្រាស់ AI
+    value: សិទ្ធិទទួលដំណឹង
   - locale: vi
-    value: Quyền được biết về việc sử dụng AI
+    value: Quyền được biết
   - locale: zh-Hans
-    value: AI使用知情权
+    value: 知情权
   - locale: zh-Hant
-    value: 獲知AI使用情形的權利
+    value: 獲得告知的權利
   - locale: nl
-    value: Recht op informatie over AI-gebruik
+    value: Recht op informatie
   - locale: de
-    value: Recht auf Information über KI-Einsatz
+    value: Recht auf Information
 description:
   - locale: en
     value: >-
-      The right to know that an AI system is in operation before any decision affecting you is made.
-      This includes being told when you are interacting with an automated system rather than a
-      person, when content is AI-generated, and when biometric or emotion-recognition technology is
-      in use. This is the precondition for every other right in this category — you cannot exercise
-      rights you do not know apply to you.
+      The right to know that a system is in operation before it collects data about you or any
+      decision affecting you is made. This includes being told when data about you is being
+      collected, when you are interacting with an automated system rather than a person, when
+      content is AI-generated, and when biometric or emotion-recognition technology is in use. This
+      is the precondition for every other right in this category — you cannot exercise rights you do
+      not know apply to you.
   - locale: fr
     value: >-
-      Le droit de savoir qu'un système d'IA est en fonctionnement avant qu'une décision vous
-      concernant ne soit prise. Cela comprend le fait d'être informé lorsque vous interagissez avec
-      un système automatisé plutôt qu'avec une personne, lorsque du contenu est généré par IA et
+      Le droit de savoir qu'un système est en fonctionnement avant qu'il ne collecte des données à
+      votre sujet ou qu'une décision vous concernant ne soit prise. Cela comprend le fait d'être
+      informé lorsque des données à votre sujet sont collectées, lorsque vous interagissez avec un
+      système automatisé plutôt qu'avec une personne, lorsque du contenu est généré par IA et
       lorsqu'une technologie biométrique ou de reconnaissance des émotions est utilisée. Il s'agit
       de la condition préalable à tous les autres droits de cette catégorie : vous ne pouvez pas
       exercer des droits dont vous ignorez l'existence.
   - locale: es
     value: >-
-      El derecho a saber que un sistema de IA está en funcionamiento antes de que se tome cualquier
-      decisión que le afecte. Esto incluye que le avisen cuando interactúa con un sistema
-      automatizado y no con una persona, cuando un contenido fue generado por IA y cuando se usa
-      tecnología biométrica o de reconocimiento de emociones. Es la condición previa de todos los
-      demás derechos de esta categoría — usted no puede ejercer derechos que no sabe que le
-      corresponden.
+      El derecho a saber que un sistema está en funcionamiento antes de que recopile datos sobre
+      usted o de que se tome cualquier decisión que le afecte. Esto incluye que le avisen cuando se
+      recopilan datos sobre usted, cuando interactúa con un sistema automatizado y no con una
+      persona, cuando un contenido fue generado por IA y cuando se usa tecnología biométrica o de
+      reconocimiento de emociones. Es la condición previa de todos los demás derechos de esta
+      categoría — usted no puede ejercer derechos que no sabe que le corresponden.
   - locale: pt
     value: >-
-      O direito de saber que um sistema de IA está em operação antes que qualquer decisão que afete
-      você seja tomada. Isso inclui receber o aviso de que você está interagindo com um sistema
-      automatizado e não com uma pessoa, de que um conteúdo foi gerado por IA e de que há tecnologia
-      biométrica ou de reconhecimento de emoções em uso. É a condição prévia para todos os outros
-      direitos desta categoria — você não pode exercer direitos que não sabe que se aplicam a você.
+      O direito de saber que um sistema está em operação antes que ele colete dados sobre você ou
+      que qualquer decisão que afete você seja tomada. Isso inclui receber o aviso de que dados
+      sobre você estão sendo coletados, de que você está interagindo com um sistema automatizado e
+      não com uma pessoa, de que um conteúdo foi gerado por IA e de que há tecnologia biométrica ou
+      de reconhecimento de emoções em uso. É a condição prévia para todos os outros direitos desta
+      categoria — você não pode exercer direitos que não sabe que se aplicam a você.
   - locale: fil
     value: >-
-      Ang karapatang malaman na may gumaganang sistemang AI bago gumawa ng anumang desisyong
-      nakaaapekto sa inyo. Kasama rito ang masabihan kayo kapag awtomatikong sistema at hindi tao
-      ang kausap ninyo, kapag nilikha ng AI ang nilalaman, at kapag may ginagamit na teknolohiyang
-      biometric o kumikilala ng emosyon. Ito ang paunang kondisyon ng lahat ng iba pang karapatan sa
-      kategoryang ito — hindi ninyo magagamit ang mga karapatang hindi ninyo alam na para sa inyo.
+      Ang karapatang malaman na may gumaganang sistema bago ito mangolekta ng data tungkol sa inyo o
+      bago gumawa ng anumang desisyong nakaaapekto sa inyo. Kasama rito ang masabihan kayo kapag
+      kinokolekta ang data tungkol sa inyo, kapag awtomatikong sistema at hindi tao ang kausap
+      ninyo, kapag nilikha ng AI ang nilalaman, at kapag may ginagamit na teknolohiyang biometric o
+      kumikilala ng emosyon. Ito ang paunang kondisyon ng lahat ng iba pang karapatan sa kategoryang
+      ito — hindi ninyo magagamit ang mga karapatang hindi ninyo alam na para sa inyo.
   - locale: km
     value: >-
-      សិទ្ធិដឹងថាមានប្រព័ន្ធ AI កំពុងដំណើរការ មុនពេលមានការសម្រេចចិត្តណាមួយដែលប៉ះពាល់ដល់អ្នក។
-      នេះរួមទាំងការប្រាប់អ្នកនៅពេលអ្នកកំពុងប្រាស្រ័យទាក់ទងជាមួយប្រព័ន្ធស្វ័យប្រវត្តិ ជាជាងមនុស្ស,
+      សិទ្ធិដឹងថាមានប្រព័ន្ធកំពុងដំណើរការ មុនពេលវាប្រមូលទិន្នន័យអំពីអ្នក
+      ឬមុនពេលមានការសម្រេចចិត្តណាមួយដែលប៉ះពាល់ដល់អ្នក។
+      នេះរួមទាំងការប្រាប់អ្នកនៅពេលទិន្នន័យអំពីអ្នកកំពុងត្រូវបានប្រមូល,
+      នៅពេលអ្នកកំពុងប្រាស្រ័យទាក់ទងជាមួយប្រព័ន្ធស្វ័យប្រវត្តិ ជាជាងមនុស្ស,
       នៅពេលខ្លឹមសារត្រូវបានបង្កើតដោយ AI, និងនៅពេលបច្ចេកវិទ្យាជីវមាត្រ
       ឬបច្ចេកវិទ្យាសម្គាល់អារម្មណ៍កំពុងត្រូវបានប្រើ។
       នេះជាលក្ខខណ្ឌចាំបាច់ជាមុនសម្រាប់សិទ្ធិផ្សេងទៀតទាំងអស់ក្នុងប្រភេទនេះ —
       អ្នកមិនអាចប្រើសិទ្ធិដែលអ្នកមិនដឹងថាអ្នកមាននោះទេ។
   - locale: vi
     value: >-
-      Quyền được biết rằng một hệ thống AI đang hoạt động trước khi bất kỳ quyết định nào ảnh hưởng
-      đến bạn được đưa ra. Quyền này bao gồm việc được cho biết khi bạn đang tương tác với một hệ
-      thống tự động chứ không phải một con người, khi nội dung là do AI tạo ra, và khi công nghệ
-      sinh trắc học hoặc nhận diện cảm xúc đang được sử dụng. Đây là điều kiện tiên quyết cho mọi
-      quyền khác trong mục này — bạn không thể thực hiện những quyền mà bạn không biết là mình có.
+      Quyền được biết rằng một hệ thống đang hoạt động trước khi nó thu thập dữ liệu về bạn hoặc
+      trước khi bất kỳ quyết định nào ảnh hưởng đến bạn được đưa ra. Quyền này bao gồm việc được cho
+      biết khi dữ liệu về bạn đang được thu thập, khi bạn đang tương tác với một hệ thống tự động
+      chứ không phải một con người, khi nội dung là do AI tạo ra, và khi công nghệ sinh trắc học
+      hoặc nhận diện cảm xúc đang được sử dụng. Đây là điều kiện tiên quyết cho mọi quyền khác trong
+      mục này — bạn không thể thực hiện những quyền mà bạn không biết là mình có.
   - locale: zh-Hans
     value: >-
-      有权在任何影响您的决定作出之前，知道有AI系统正在运行。这包括在以下情况下得到告知：与您交互的是自动化系统而不是人、内容由AI生成、正在使用生物特征识别或情绪识别技术。这是行使本类别中其他各项权利的前提——您无法行使自己不知道适用于自己的权利。
+      有权在系统收集关于您的数据之前，或在任何影响您的决定作出之前，知道有系统正在运行。这包括在以下情况下得到告知：正在收集关于您的数据、与您交互的是自动化系统而不是人、内容由AI生成、正在使用生物特征识别或情绪识别技术。这是行使本类别中其他各项权利的前提——您无法行使自己不知道适用于自己的权利。
   - locale: zh-Hant
     value: >-
-      在任何影響您的決定做出之前，您有權知道有AI系統正在運作。這包括在下列情況下獲得告知：您互動的對象是自動化系統而非真人、內容由AI生成，以及現場正在使用生物特徵或情緒辨識技術。這是本類別中其他所有權利的前提：您無法行使自己不知道適用於您的權利。
+      在系統收集關於您的資料之前，或在任何影響您的決定做出之前，您有權知道有系統正在運作。這包括在下列情況下獲得告知：正在收集關於您的資料、您互動的對象是自動化系統而非真人、內容由AI生成，以及現場正在使用生物特徵或情緒辨識技術。這是本類別中其他所有權利的前提：您無法行使自己不知道適用於您的權利。
   - locale: nl
     value: >-
-      Het recht om te weten dat er een AI-systeem in werking is voordat er een beslissing wordt
-      genomen die jou raakt. Dat betekent ook dat je te horen krijgt wanneer je met een
-      geautomatiseerd systeem te maken hebt en niet met een mens, wanneer content door AI is
-      gegenereerd en wanneer biometrische technologie of technologie voor emotieherkenning wordt
-      gebruikt. Dit is de voorwaarde voor elk ander recht in deze categorie: je kunt geen rechten
-      uitoefenen waarvan je niet weet dat je ze hebt.
+      Het recht om te weten dat er een systeem in werking is voordat het gegevens over jou verzamelt
+      of er een beslissing wordt genomen die jou raakt. Dat betekent ook dat je te horen krijgt
+      wanneer er gegevens over jou worden verzameld, wanneer je met een geautomatiseerd systeem te
+      maken hebt en niet met een mens, wanneer content door AI is gegenereerd en wanneer
+      biometrische technologie of technologie voor emotieherkenning wordt gebruikt. Dit is de
+      voorwaarde voor elk ander recht in deze categorie: je kunt geen rechten uitoefenen waarvan je
+      niet weet dat je ze hebt.
   - locale: de
     value: >-
-      Das Recht zu erfahren, dass ein KI-System im Einsatz ist, bevor eine Entscheidung getroffen
-      wird, die Sie betrifft. Dazu gehört, dass Ihnen mitgeteilt wird, wenn Sie mit einem
-      automatisierten System statt mit einem Menschen zu tun haben, wenn Inhalte KI-generiert sind
-      und wenn biometrische Technik oder Technik zur Emotionserkennung eingesetzt wird. Dies ist die
-      Voraussetzung für jedes andere Recht in dieser Kategorie – Sie können keine Rechte ausüben,
-      von denen Sie nicht wissen, dass sie für Sie gelten.
+      Das Recht zu erfahren, dass ein System im Einsatz ist, bevor es Daten über Sie erhebt oder
+      eine Entscheidung getroffen wird, die Sie betrifft. Dazu gehört, dass Ihnen mitgeteilt wird,
+      wenn Daten über Sie erhoben werden, wenn Sie mit einem automatisierten System statt mit einem
+      Menschen zu tun haben, wenn Inhalte KI-generiert sind und wenn biometrische Technik oder
+      Technik zur Emotionserkennung eingesetzt wird. Dies ist die Voraussetzung für jedes andere
+      Recht in dieser Kategorie – Sie können keine Rechte ausüben, von denen Sie nicht wissen, dass
+      sie für Sie gelten.
 symbol_id: notice_bell

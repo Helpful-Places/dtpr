@@ -21,7 +21,7 @@ serves composed icons as ready-made SVG strings that
 
 ## What it produces
 
-For `dtpr@2026-09-01-beta`: **137 elements across 14 categories, 468
+For `dtpr@2026-09-01-beta`: **139 elements across 14 categories, 472
 icons**.
 
 ```
@@ -113,7 +113,7 @@ This is the one thing that will bite you if you change the fetch logic.
 The API meters icons and JSON separately (`api/src/app.ts`):
 `RL_ICONS` allows **1200 requests per minute** on the icon routes,
 `RL_READ` **300 per minute** on everything else. A full build is
-**468 icon requests** plus a handful of metadata reads, so the whole
+**472 icon requests** plus a handful of metadata reads, so the whole
 library now fits inside one icon window and downloads in a single
 pass. The plugin:
 
@@ -129,12 +129,12 @@ pass. The plugin:
 
 The limiters are now a backstop, not the thing that sets build time —
 they only engage if a ceiling moves down or a build grows well past
-468 icons. `test/api.test.ts` reads the ceilings back out of
+472 icons. `test/api.test.ts` reads the ceilings back out of
 `api/wrangler.jsonc` and fails if the constants in `src/api.ts` drift
 from them, since nothing at runtime would tell the plugin they moved.
 
 The **Default context only** and **Light theme only** options cut a
-build to 137–274 requests when you just need a quick refresh.
+build to 139–278 requests when you just need a quick refresh.
 
 ## Layout
 
@@ -170,8 +170,8 @@ pnpm --filter ./figma-plugin typecheck
 ## Verification status
 
 The pure modules and the network layer are tested and were exercised
-against the live API: 14 categories, 137 elements over 1 page, 468 icon
-tasks, 0 unparseable variant tokens, 137 collision-free component
+against the live API: 14 categories, 139 elements over 1 page, 472 icon
+tasks, 0 unparseable variant tokens, 139 collision-free component
 names, and sample icons — including context+dark variants — returning
 the expected `<path>` + `<g>` structure.
 
