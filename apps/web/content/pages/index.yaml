@@ -11,6 +11,7 @@ sections:
     horizontal: true
     imageAlt: "Diagram of a place in four layers: digital layer, buildings, transportation and public realm"
     animatedLayers: true
+    steward: true
     hasButton: true
     buttonText: Get started with DTPR
     buttonLink: /get-started

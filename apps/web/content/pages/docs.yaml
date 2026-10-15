@@ -7,19 +7,21 @@ sections:
     subHeading: Guides for organizations deploying DTPR, a reference for developers building on it, and the words both share.
     horizontal: false
   - type: Ways In
-    heading: Choose your docs
     cards:
       - type: card
+        icon: signpost
         heading: Deployer docs
         subHeading: For organizations that use DTPR to describe a technology they run, on signs, online and in community workshops, without writing code.
         link: /docs/deployers
         linkText: Deployer docs
       - type: card
+        icon: code-xml
         heading: Developer docs
-        subHeading: For developers building on DTPR, with the REST API and MCP server references.
+        subHeading: For developers building on DTPR, with the REST API and MCP server references and the agent skills.
         link: /docs/developers
         linkText: Developer docs
       - type: card
+        icon: book-open
         heading: Concepts
         subHeading: Plain definitions of the terms DTPR uses, such as element, context and datachain. Both sets of docs rely on them.
         link: /docs/concepts

@@ -1,5 +1,18 @@
 export default defineAppConfig({
   ui: {
+    // Docs images are photographs and diagrams, not banners: keep them to a
+    // readable height and centre them in the column.
+    prose: {
+      img: {
+        slots: {
+          base: 'mx-auto max-h-[36rem] rounded-md border border-rule'
+        },
+        // Nuxt UI stretches unsized images to the column; let them keep their ratio.
+        variants: {
+          width: { false: 'max-w-full w-auto' }
+        }
+      }
+    },
     button: {
       slots: {
         base: 'rounded-sm font-bold'

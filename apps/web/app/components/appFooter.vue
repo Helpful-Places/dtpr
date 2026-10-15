@@ -14,6 +14,8 @@
                 { label: 'Concepts', to: '/docs/concepts' },
                 { label: 'REST API', to: '/docs/developers/rest-api/overview' },
                 { label: 'MCP server', to: '/docs/developers/mcp-server' },
+                { label: 'Agent skills', to: '/docs/developers/agent-skills' },
+                { label: 'Changelog', to: '/docs/developers/changelog' },
                 { label: 'GitHub', to: 'https://github.com/Helpful-Places/dtpr', external: true }
             ]
         },
@@ -23,6 +25,7 @@
                 { label: 'Slack', to: 'https://join.slack.com/t/dtprworkspace/shared_invite/zt-48k9n9apd-j0ucFCsJcKPnpkUZKR~SsQ', external: true },
                 { label: 'hello@dtpr.io', to: 'mailto:hello@dtpr.io' },
                 { label: 'Helpful Places', to: 'https://www.helpfulplaces.com', external: true },
+                { label: 'Attribution', to: '/docs/attribution' },
                 { label: 'Privacy Policy', to: '/privacy' }
             ]
         }

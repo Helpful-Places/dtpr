@@ -27,11 +27,11 @@ engage:
     - heading: Organizing your community
       body: Advocates and organizers use DTPR to put their community's needs at the center of how technology is developed and overseen.
       linkText: How feedback works
-      link: /get-started#feedback-channel
+      link: /get-started#methodology
       involveText: Join the Slack
       involveLink: https://join.slack.com/t/dtprworkspace/shared_invite/zt-48k9n9apd-j0ucFCsJcKPnpkUZKR~SsQ
     - heading: Building with DTPR
-      body: Developers and designers build DTPR into products and tools with the taxonomy, the REST API and the MCP server.
+      body: Developers and designers build DTPR into products and tools with the taxonomy, the REST API, the MCP server and the agent skills.
       linkText: How the taxonomy works
       link: /get-started#taxonomy
       involveText: Propose a change on GitHub

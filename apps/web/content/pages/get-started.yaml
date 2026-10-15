@@ -1,5 +1,5 @@
 title: Get Started
-description: What DTPR is and how it works, in one page. A taxonomy of questions, a visual language and a feedback channel, with two real systems as examples.
+description: What DTPR is and how it works, in one page. A taxonomy of questions, a methodology built with the public and a visual language, with two real systems as examples.
 sections:
   - type: Hero
     eyebrow: Get started
@@ -13,26 +13,27 @@ sections:
     secondaryButtonLink: /docs
   - type: Ways In
     heading: How DTPR works
-    subHeading: DTPR combines a taxonomy of technology concepts, a visual language for describing a technology, and a way for the public to say what they think of it.
+    subHeading: DTPR is three things. A taxonomy of questions that apply to any technology, a methodology for finding and asking those questions with the public, and a visual language for the answers.
     cards:
       - type: card
+        icon: list-tree
         heading: A taxonomy
         subHeading: A shared set of questions about any technology, each with a list of possible answers.
       - type: card
+        icon: users
+        heading: A methodology
+        subHeading: Co-design with residents produced the questions, and every deployment keeps asking them, in workshops and a short survey.
+      - type: card
+        icon: shapes
         heading: A visual language
         subHeading: An icon and a plain description for every answer, with guidance on how to arrange them.
-      - type: card
-        heading: A feedback channel
-        subHeading: A short survey that lets people tell the organization responsible how they feel about it.
   - type: Datachain Rows
     anchor: taxonomy
     heading: A taxonomy is a set of questions
     body: |
       When scientists describe an animal, they don't start from scratch. They ask whether it has fur. If it does, it's a mammal, and probably warm-blooded. They ask how many legs it has. If it has six, it's probably an insect, with a hard outer shell. Questions like these tell them what they're looking at.
 
-      DTPR works the same way. We read the academic literature, ran public workshops and talked with residents to learn what they ask about the technology in their lives, and which answers they felt were missing or hidden. Then we sorted those questions into categories.
-
-      The result is one taxonomy of 14 categories. Each category is a question, and the same questions apply to any technology. Three are always answered: what the system is for, who is accountable for it, and who it is used on. The rest are answered when they apply.
+      DTPR works the same way. It asks one set of questions about any technology, sorted into 14 categories. Three are always answered: what the system is for, who is accountable for it, and who it is used on. The rest are answered when they apply.
 
       Each question comes with a list of possible answers, called **elements**. Describing a technology means choosing the elements that fit it, and the finished description is a **datachain**. Here are two very different systems, a street sensor in Long Beach and facial recognition software in New York, answering the three questions every datachain answers.
     datachains:
@@ -49,26 +50,13 @@ sections:
     buttonLink: /taxonomy
     secondaryButtonText: Read the concepts
     secondaryButtonLink: /docs/concepts
-  - type: Icon Anatomy
-    anchor: visual-language
-    heading: A visual language
-    body: |
-      Visual languages are good at getting complex information across. Think of nutrition labels. Nutritional science is hard to follow, and if every item in a grocery store came with a ten-page report, nobody would get their shopping done. A nutrition label puts the most important facts in a simple layout that is the same on every package.
-
-      DTPR does the same for technology. Every element in the taxonomy has an open-source icon and a plain-language description, and DTPR comes with guidance on how to arrange the icons. Each icon is built the same way: a symbol for the element, inside a shape set by its category, and for some categories a colour that adds context, such as how identifiable the data is.
-    elementId: input_about_behaviour
-    hasButton: true
-    buttonText: See every icon in the taxonomy
-    buttonLink: /taxonomy/all
-    secondaryButtonText: Shapes, in Concepts
-    secondaryButtonLink: /docs/concepts#shape
   - type: Question List
-    anchor: feedback-channel
-    heading: A feedback channel
+    anchor: methodology
+    heading: A methodology built with the public
     body: |
-      Accountability goes both ways. People need a way to respond to a technology, and a sense that what they say can change how it's used. This has come up in nearly every piece of community research DTPR has done.
+      The questions didn't come from a committee. We read the academic literature, ran public workshops and talked with residents about the technology in their lives: what they wanted to know about it, and which answers felt missing or hidden. The questions they kept asking became the taxonomy's categories.
 
-      So DTPR includes a short survey that can be attached to any DTPR notice. People rate the technology from 1 to 5 on questions about trust, clarity and usefulness. The questions were written for websites and other digital channels, but deployers have also used them in interviews and community workshops.
+      That research never stopped. Deployers run [community workshops](/docs/deployers/community-workshops) to test whether DTPR makes sense for the places people live in, and any DTPR notice can carry a short survey. People rate the technology from 1 to 5 on trust, clarity and usefulness, and the organization responsible hears what they say. Accountability goes both ways.
     items:
       - How does this technology make you feel?
       - Is this information helpful?
@@ -79,7 +67,22 @@ sections:
     hasButton: true
     buttonText: Run the survey
     buttonLink: /docs/deployers/feedback-survey
-  - type: Ways In
+    secondaryButtonText: Workshop guide
+    secondaryButtonLink: /docs/deployers/community-workshops
+  - type: Icon Anatomy
+    anchor: visual-language
+    heading: A visual language
+    body: |
+      Visual languages are good at getting complex information across. Think of nutrition labels. Nutritional science is hard to follow, and if every item in a grocery store came with a ten-page report, nobody would get their shopping done. A nutrition label puts the most important facts in a simple layout that is the same on every package.
+
+      DTPR does the same for technology. Every element in the taxonomy has an open-source icon and a plain-language description, and DTPR comes with guidance on how to arrange the icons. Each icon is built the same way: a symbol for the element, inside a shape set by its category, and for some categories a colour that adds context, such as how identifiable the data is.
+    elementId: input_biometric
+    hasButton: true
+    buttonText: See every icon in the taxonomy
+    buttonLink: /taxonomy/all
+    secondaryButtonText: Shapes, in Concepts
+    secondaryButtonLink: /docs/concepts#shape
+  - type: Example List
     anchor: ways-to-deploy
     heading: Ways to deploy
     subHeading: Deployers put DTPR where people meet the technology it describes.
@@ -89,30 +92,44 @@ sections:
         subHeading: Describe your technology on a web portal, as Long Beach and Michigan Central do, or inside the product itself.
         link: /docs/deployers/digital-channel
         linkText: Digital channel guide
+        image: /images/deploy/portal-long-beach.webp
+        imageAlt: A page on Long Beach's Digital Rights Platform describing the city's security cameras, with three DTPR icons and a survey question
+        caption: Long Beach's Digital Rights Platform
+        captionLink: https://long-beach.dtpr.guide
       - type: card
         heading: Public signage
         subHeading: Signs that tell people what a technology in a place is for, who is responsible, what it collects and how to respond.
         link: /docs/deployers/public-signage
         linkText: Signage guide
+        image: /images/deploy/sign-dc.webp
+        imageAlt: A District Department of Transportation sign about a bike and pedestrian safety pilot, with DTPR icons and a QR code
+        caption: A DDOT pilot sign in Washington, DC
+        captionLink: https://dc.dtpr.guide/
       - type: card
         heading: Community workshops
         subHeading: Co-design sessions where residents test whether DTPR makes sense for the places they live in.
         link: /docs/deployers/community-workshops
         linkText: Workshop guide
+        image: /images/deploy/workshop-session.webp
+        imageAlt: Residents and facilitators around a table at a DTPR co-design workshop
+        caption: A DTPR co-design workshop
   - type: Ways In
     heading: Where next
     cards:
       - type: card
+        icon: signpost
         heading: Deployer docs
         subHeading: For organizations describing a technology they run, on signs, online or in workshops.
         link: /docs/deployers
         linkText: Deployer docs
       - type: card
+        icon: code-xml
         heading: Developer docs
-        subHeading: For anyone building on the DTPR REST API or the MCP server.
+        subHeading: For anyone building on the DTPR REST API, the MCP server or the agent skills.
         link: /docs/developers
         linkText: Developer docs
       - type: card
+        icon: book-open
         heading: Concepts
         subHeading: The words DTPR uses, from element to datachain, defined in one place.
         link: /docs/concepts

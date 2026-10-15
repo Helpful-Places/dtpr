@@ -18,6 +18,7 @@
     import DatachainRows from './guide/DatachainRows.vue';
     import IconAnatomy from './guide/IconAnatomy.vue';
     import QuestionList from './guide/QuestionList.vue';
+    import ExampleList from './guide/ExampleList.vue';
 
 
     const componentMap: Record<string, Component> = {
@@ -36,7 +37,8 @@
         'Contact': Contact,
         'Datachain Rows': DatachainRows,
         'Icon Anatomy': IconAnatomy,
-        'Question List': QuestionList
+        'Question List': QuestionList,
+        'Example List': ExampleList
         }
 
     type SectionType = keyof typeof componentMap

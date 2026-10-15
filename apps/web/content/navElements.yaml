@@ -1,5 +1,9 @@
 dtprLogo: /images/dtpr_logo.png
 hpLogo: /images/hp_logo.svg
+docs:
+  label: Docs
+  addText: Guides and API reference
+  url: /docs
 links:
   - label: Who We Are
     addText: Origins and Mission

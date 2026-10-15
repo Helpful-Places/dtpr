@@ -32,7 +32,7 @@ DTPR is a translation layer: a taxonomy of technology concepts, a visual languag
 
 ## Operating Context
 
-- Site sections: Home, Who We Are, Get Started (the guide), Get Involved, DTPR in the World, The Taxonomy, Docs, Privacy. Docs is not in the top nav; the guide and the footer lead to it.
+- Site sections: Home, Who We Are, Get Started (the guide), Get Involved, DTPR in the World, The Taxonomy, Docs, Privacy. Docs has its own button at the top right of every page, in place of a nav tile; the guide and the footer also lead to it.
 - Get Started is one guide page: what DTPR is and how it works (a taxonomy of questions, a visual language, a feedback channel), shown with two real systems, then ways to deploy and where to go next. It is a Studio page like the other marketing pages.
 - Docs are split by audience under `/docs`: deployer docs (digital channel, public signage, community workshops, feedback survey) and developer docs (REST API, MCP server), each with its own sidebar. Concepts, at `/docs/concepts`, is shared by both and is also where the taxonomy explorer takes its definitions from. `/docs` itself is a chooser between the three.
 - Marketing pages are assembled from typed sections in `content/pages/*.yaml` (Hero, Two Columns, Centered Content, Marquee, Vision Section, cards) and edited by non-developers through Nuxt Studio, which commits to `main`.
@@ -49,7 +49,7 @@ DTPR is a translation layer: a taxonomy of technology concepts, a visual languag
 
 ## Brand Commitments
 
-Existing assets: DTPR logo (`public/images/dtpr_logo.png`), Helpful Places logo (`public/images/hp_logo.svg`), DTPR favicon set, and the DTPR icon system.
+Existing assets: DTPR logo (`public/images/dtpr_logo.png`), Helpful Places logo (`public/images/hp_logo.svg`, shown under the home hero's buttons and in the footer), DTPR favicon set, and the DTPR icon system.
 
 The DTPR brand book (`https://dtpr-brand-identity.oilsinwater.workers.dev`) is binding for color, type, logo use and layout. Where the book contradicts itself, follow its web prototype (`/guidelines/prototype/`). Confirmed decisions:
 

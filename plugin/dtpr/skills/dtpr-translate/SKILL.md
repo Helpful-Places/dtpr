@@ -218,7 +218,7 @@ Close by naming any sibling skill the user should hand off to for follow-on work
 | Phase 3 | `Task` | Dispatch a researcher on a corpus miss (optional; degrade gracefully if unavailable). |
 | Phase 3 | `Write` | Write a new corpus entry when the translation session surfaces a non-obvious glossary insight worth compounding (optional). |
 
-Tool parameter shapes are documented on the MCP itself — see `https://dtpr.ai/mcp/tools/` for each tool's schema. This skill names tools in workflow order; for exact argument shapes, trust the live tool description.
+Tool parameter shapes are documented on the MCP itself — see `https://dtpr.io/docs/developers/mcp-server/tools/` for each tool's schema. This skill names tools in workflow order; for exact argument shapes, trust the live tool description.
 
 ## Non-goals
 

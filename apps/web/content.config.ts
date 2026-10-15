@@ -18,7 +18,8 @@ export const elementTypes = [
   'Contact',
   'Datachain Rows',
   'Icon Anatomy',
-  'Question List'
+  'Question List',
+  'Example List'
 ] as const
  
 export type ElementType = (typeof elementTypes)[number]
@@ -30,7 +31,7 @@ const contentCard=z.object({
   link:z.string().optional(),
   icon: property(z.string().optional()).editor({
     label:"Icon",
-    description:"For Audiences sections, one of: users, landmark, pencil-ruler"
+    description:"For Ways In and Audiences sections, one of: users, landmark, pencil-ruler, signpost, code-xml, book-open, list-tree, shapes"
   }),
   linkText: property(z.string().optional()).editor({
     label:"Link Text",
@@ -38,9 +39,17 @@ const contentCard=z.object({
   }),
   image: property(z.string().optional()).editor({
     input: 'media',
-    description:"For Media Cards sections, the picture at the top of the card"
+    description:"For Media Cards sections, the picture at the top of the card. For Example List sections, the example shown for this option"
   }),
   imageAlt: z.string().optional(),
+  caption: property(z.string().optional()).editor({
+    label:"Example Caption",
+    description:"For Example List sections, the line under the example, e.g. 'Long Beach's Digital Rights Platform'"
+  }),
+  captionLink: property(z.string().optional()).editor({
+    label:"Example Link",
+    description:"For Example List sections, where the caption links to, such as the deployment's site"
+  }),
   imageFit: property(z.string().optional()).editor({
     label:"Image Fit",
     description:"For Media Cards sections: 'cover' fills the frame (photos), 'contain' fits the whole image on white (logos)"
@@ -114,16 +123,20 @@ export const pageElements=z.object({
 }),
   cards: property(z.array(contentCard).optional()).editor({
     label:"Cards",
-    description: "For Two Columns, Centered Content, Ways In or Audiences sections, you can add element cards here"
+    description: "For Two Columns, Centered Content, Ways In, Audiences or Example List sections, you can add element cards here"
   }),
   hasButton: z.boolean().default(false),
   buttonText: z.string().optional(),
   buttonLink: z.string().optional(),
   secondaryButtonText: property(z.string().optional()).editor({
     label:"Second Button Text",
-    description:"For Hero sections, an optional second button shown beside the first"
+    description:"For Hero, Datachain Rows, Icon Anatomy and Question List sections, an optional second button shown beside the first"
   }),
   secondaryButtonLink: z.string().optional(),
+  steward: property(z.boolean().optional()).editor({
+    label:"Steward line",
+    description:"For Hero sections, shows 'An open standard stewarded by Helpful Places' under the buttons"
+  }),
   animatedLayers: property(z.boolean().optional()).editor({
     label:"Animated City Layers",
     description:"For Hero sections, shows the animated city layers in place of an image. Image Alt describes it to screen readers"
@@ -270,6 +283,14 @@ export default defineContentConfig({
       schema: z.object({
         dtprLogo: property(z.string()).editor({ input: 'media' }),
         hpLogo: property(z.string()).editor({input:'media'}),
+        docs: property(z.object({
+          label: z.string(),
+          addText: z.string().optional(),
+          url: z.string()
+        }).optional()).editor({
+          label: "Docs button",
+          description: "The button at the top right of every page that leads to the docs"
+        }),
         links: z.array(z.object({
           label:z.string(),
           addText:z.string(),

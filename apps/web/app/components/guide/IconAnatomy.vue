@@ -62,20 +62,17 @@
         <figure v-if="data" class="mt-6 rounded-md bg-white shadow-sm ring ring-rule">
             <ol class="grid divide-y divide-rule md:grid-cols-[1fr_1fr_2fr] md:divide-x md:divide-y-0">
                 <li class="px-5 py-5 sm:px-6">
-                    <p class="font-code text-xs text-dimmed">1</p>
-                    <img :src="`${dtprSchemaUrl(data.version)}/symbols/${data.element.symbol_id}.svg`" alt="" width="64" height="64" class="mt-3 size-16">
+                    <img :src="`${dtprSchemaUrl(data.version)}/symbols/${data.element.symbol_id}.svg`" alt="" width="64" height="64" class="size-16">
                     <h3 class="mt-3 font-sans text-base font-semibold">Symbol</h3>
                     <p class="mt-1 text-sm text-pretty text-muted">The drawing that stands for the element, here {{ dtprText(data.element.title) }}.</p>
                 </li>
                 <li class="px-5 py-5 sm:px-6">
-                    <p class="font-code text-xs text-dimmed">2</p>
-                    <img :src="dtprShapeUrl(data.element.shape)" alt="" width="64" height="64" class="mt-3 size-16">
+                    <img :src="dtprShapeUrl(data.element.shape)" alt="" width="64" height="64" class="size-16">
                     <h3 class="mt-3 font-sans text-base font-semibold">Shape</h3>
                     <p class="mt-1 text-sm text-pretty text-muted">Set by the category, {{ dtprText(data.category.name) }}. Every element in it shares the outline.</p>
                 </li>
                 <li class="px-5 py-5 sm:px-6">
-                    <p class="font-code text-xs text-dimmed">3</p>
-                    <ul class="mt-3 flex flex-wrap gap-x-5 gap-y-3">
+                    <ul class="flex flex-wrap gap-x-5 gap-y-3">
                         <li v-for="variant in variants" :key="variant.id" class="w-24">
                             <img :src="variant.src" alt="" width="64" height="64" class="size-16">
                             <p class="mt-1 text-xs leading-snug text-muted">{{ variant.name }}</p>

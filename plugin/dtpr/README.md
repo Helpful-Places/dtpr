@@ -111,5 +111,5 @@ See [CHANGELOG.md](CHANGELOG.md) for release notes. 0.3.0 extracts symbol drafti
 
 - DTPR standard: <https://dtpr.io>
 - API + MCP: <https://api.dtpr.io> (health: <https://api.dtpr.io/healthz>)
-- MCP tool reference: <https://dtpr.ai/mcp/tools>
+- MCP tool reference: <https://dtpr.io/docs/developers/mcp-server/tools/overview>
 - Source: <https://github.com/Helpful-Places/dtpr>

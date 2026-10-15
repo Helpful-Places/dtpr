@@ -28,6 +28,8 @@
     const tree = computed(() => treeKey.value && treeKey.value in trees ? trees[treeKey.value] : null)
     const isConcepts = computed(() => page.value?.path === '/docs/concepts')
     const label = computed(() => tree.value?.title ?? 'Docs')
+    // A tree's landing page is titled by the tree already, so its eyebrow is just Docs.
+    const eyebrow = computed(() => !tree.value || page.value?.path === tree.value.path ? 'Docs' : label.value)
 
     function findNode(items: ContentNavigationItem[], path: string): ContentNavigationItem | undefined {
         for (const item of items) {
@@ -41,26 +43,25 @@
         if (!tree.value) {
             return [
                 { title: 'Concepts', path: '/docs/concepts' },
-                { title: trees.deployers.title, path: trees.deployers.path },
-                { title: trees.developers.title, path: trees.developers.path },
+                { title: 'Attribution', path: '/docs/attribution' },
+                { title: 'Cite DTPR', path: '/docs/cite' },
             ]
         }
         return findNode(navigationTree.value ?? [], tree.value.path)?.children ?? []
     })
 
-    // Under the tree: the other tree, and Concepts, which both share.
+    // Under the tree: the other tree, and Concepts, which both share. Under
+    // the shared pages, both trees.
     const elsewhere = computed(() => {
-        if (!treeKey.value || !tree.value) return []
+        if (!tree.value) {
+            return [
+                { label: trees.deployers.title, to: trees.deployers.path },
+                { label: trees.developers.title, to: trees.developers.path },
+            ]
+        }
         const other = treeKey.value === 'deployers' ? trees.developers : trees.deployers
         return [{ label: 'Concepts', to: '/docs/concepts' }, { label: other.title, to: other.path }]
     })
-
-    // Most reference pages start at a callout; give those the title as a heading.
-    const hasHeading = computed(() => {
-        const nodes = (page.value?.body as { value?: unknown[] } | undefined)?.value ?? []
-        return nodes.some(node => Array.isArray(node) && node[0] === 'h1')
-    })
-
 
     function flattenNavigation(items: ContentNavigationItem[]): ContentNavigationItem[] {
         return items.flatMap((item) => {
@@ -107,7 +108,9 @@
 </script>
 
 <template>
-    <UContainer class="py-6 sm:py-10">
+    <!-- The same hero as every other page; it holds the page's only h1. -->
+    <Hero v-if="page" :eyebrow="eyebrow" :heading="page.title" :sub-heading="page.description" />
+    <UContainer class="pb-8 sm:pb-10">
         <UPage class="rounded-md bg-white px-4 shadow-sm ring ring-rule sm:px-8 lg:px-10">
             <template #left>
                 <UPageAside>
@@ -146,7 +149,6 @@
                 <div v-if="isConcepts" class="flex justify-end">
                     <DeveloperToggle />
                 </div>
-                <ProseH1 v-if="page && !hasHeading">{{ page.title }}</ProseH1>
                 <ContentRenderer :value="page"></ContentRenderer>
                 <UContentSurround v-if="tree" :surround="surround" />
             </UPageBody>

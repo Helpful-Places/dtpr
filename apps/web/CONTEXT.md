@@ -13,6 +13,10 @@ _Avoid_: User, customer, client
 **Developer**:
 Someone building on DTPR through the REST API or the MCP server.
 
+**Agent skill**:
+One of the seven `SKILL.md` files in `plugin/dtpr/skills` that let an AI coding assistant describe a system as a datachain, audit or extend the taxonomy, or grade content for comprehension. The Claude plugin is one way to install them; the MCP server also serves them as prompts.
+_Avoid_: Claude skill
+
 **Guide**:
 The Get Started page: one page that explains what DTPR is and how it works. Distinct from the **Docs**.
 _Avoid_: Getting started docs

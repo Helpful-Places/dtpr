@@ -3,8 +3,6 @@ title: Concepts
 description: Plain-language definitions of the terms the DTPR taxonomy, its icons and its datachains use, with examples from the current schema.
 ---
 
-# Concepts
-
 DTPR describes a technology by answering a fixed set of questions about it, using answers drawn from a shared list. This page defines the words used for the parts of that system. Each term has a short explanation, an example from the current schema, and a note on where it appears in the API.
 
 The examples come from schema version `dtpr@2026-09-01-beta`. You can see all of it in the [taxonomy explorer](/taxonomy).
@@ -197,7 +195,7 @@ An icon is a [symbol](#symbol) placed inside its [shape](#shape). It is what app
 The Recommends element, in the What it does category, has a plain icon, a dark one, and a pair for each Human involvement value. Choosing "A person decides" gives the teal version.
 
 ::dev
-In the API, an element lists its variants in `icon_variants`, for example `default`, `dark`, `human_decides` and `human_decides.dark`. Each variant is served as an SVG at `GET /schemas/{version}/elements/{element_id}/icon.{variant}.svg`. See the [icon routes](/docs/developers/rest-api/icons) reference page.
+In the API, an element lists its variants in `icon_variants`, for example `default`, `dark`, `human_decides` and `human_decides.dark`. Each variant is served as an SVG at `GET /schemas/{version}/elements/{element_id}/icon.{variant}.svg`. See the [icon routes](/docs/developers/rest-api/icons) reference page. The full composition model, shapes, symbols and variants, is in the [Icons](/docs/developers/icons) section of the developer docs.
 ::
 
 ## Datachains

@@ -165,7 +165,7 @@ Close by asking the user whether they want to proceed to the `schema:new` step, 
 | Phase 2 | `Task` | Dispatch a researcher on a corpus miss (optional; degrade gracefully if unavailable). |
 | Phase 2 | `Write` | Write a new corpus entry when the miss produced a non-obvious insight worth compounding. |
 
-Tool parameter shapes are documented on the MCP itself — see `https://dtpr.ai/mcp/tools/` for each tool's schema. This skill names tools in workflow order; for exact argument shapes, trust the live tool description.
+Tool parameter shapes are documented on the MCP itself — see `https://dtpr.io/docs/developers/mcp-server/tools/` for each tool's schema. This skill names tools in workflow order; for exact argument shapes, trust the live tool description.
 
 ## Non-goals
 

@@ -10,6 +10,8 @@
         hasButton?: boolean,
         buttonText?: string,
         buttonLink?: string,
+        secondaryButtonText?: string,
+        secondaryButtonLink?: string,
     }>()
 </script>
 
@@ -37,13 +39,22 @@
             </ol>
         </div>
 
-        <div v-if="props.hasButton && props.buttonText && props.buttonLink" class="mt-6">
+        <div v-if="props.hasButton" class="mt-6 flex flex-wrap gap-3">
             <UButton
+                v-if="props.buttonText && props.buttonLink"
                 size="xl"
                 class="min-h-11"
                 trailing-icon="i-lucide-arrow-right"
                 :label="props.buttonText"
                 :to="props.buttonLink"
+            />
+            <UButton
+                v-if="props.secondaryButtonText && props.secondaryButtonLink"
+                variant="outline"
+                size="xl"
+                class="min-h-11"
+                :label="props.secondaryButtonText"
+                :to="props.secondaryButtonLink"
             />
         </div>
     </UContainer>

@@ -6,6 +6,10 @@
     const inSection = (url: string) => route.path === url || route.path.startsWith(`${url}/`)
     const menuOpen = ref(false)
 
+    // The Docs button is the one link that stays put on every page, expanded
+    // or compact. The fallback keeps it when a Studio dump predates the field.
+    const docs = computed(() => nav.value?.docs ?? { label: 'Docs', addText: 'Guides and API reference', url: '/docs' })
+
     // The tile row and its fold-on-scroll are the home page's treatment; every
     // other page starts and stays in the compact bar.
     const isHome = computed(() => route.path === '/')
@@ -112,13 +116,12 @@
 
                     <div class="flex items-center gap-3">
                         <NuxtLink
-                            class="flex items-center py-2 transition-opacity duration-300 motion-reduce:transition-none"
-                            :class="compact ? 'pointer-events-none opacity-0 lg:hidden' : ''"
-                            :inert="compact"
+                            :to="docs.url"
+                            class="inline-flex min-h-11 items-center rounded-sm border border-rule bg-white px-3 font-sans text-xs font-semibold uppercase tracking-wider text-primary transition-colors hover:border-secondary hover:text-secondary lg:min-h-9"
+                            :class="inSection(docs.url) && 'border-primary/60 bg-primary/10'"
                             prefetch-on="interaction"
-                            href="https://www.helpfulplaces.com"
                         >
-                            <img alt="Helpful Places" :src="nav.hpLogo" width="115" height="30"/>
+                            {{ docs.label }}
                         </NuxtLink>
 
                         <button
@@ -175,6 +178,14 @@
                     prefetch-on="interaction">
                         <p class="font-sans text-xs font-semibold uppercase tracking-wider text-primary">{{link.label}}</p>
                         <p class="font-sans text-xs text-default">{{link.addText}}</p>
+                    </NuxtLink>
+                    <NuxtLink
+                        :to="docs.url"
+                        class="flex min-h-11 flex-col justify-center rounded-md border border-rule bg-white px-4 py-2.5 transition-colors hover:border-primary/40"
+                        :class="inSection(docs.url) && 'border-primary/60'"
+                        prefetch-on="interaction">
+                        <p class="font-sans text-xs font-semibold uppercase tracking-wider text-primary">{{docs.label}}</p>
+                        <p v-if="docs.addText" class="font-sans text-xs text-default">{{docs.addText}}</p>
                     </NuxtLink>
                 </nav>
             </div>

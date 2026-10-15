@@ -15,7 +15,7 @@
 <template>
     <UContainer v-if="copy" as="section" class="section-pad">
         <SectionHeader :heading="copy.heading" :sub-heading="copy.subHeading"/>
-        <div class="mt-6 grid items-start gap-6 lg:grid-cols-2">
+        <div class="mt-6 grid gap-6 lg:grid-cols-2">
             <!-- The four ways in come first; the workshop photo sits beside them. -->
             <ol class="divide-y divide-rule rounded-md bg-white shadow-sm ring ring-rule">
                 <li
@@ -48,9 +48,11 @@
                 </li>
             </ol>
 
-            <div class="overflow-hidden rounded-md bg-white shadow-sm ring ring-rule">
-                <img :src="copy.image" :alt="copy.imageAlt ?? ''" class="aspect-[16/10] w-full object-cover" loading="lazy"/>
-                <div class="p-5 sm:p-6">
+            <!-- Beside the rows from 1024px, the photo card takes their height: the
+                 picture fills whatever is left above its caption. -->
+            <div class="flex flex-col overflow-hidden rounded-md bg-white shadow-sm ring ring-rule">
+                <img :src="copy.image" :alt="copy.imageAlt ?? ''" class="aspect-[16/10] w-full object-cover lg:aspect-auto lg:min-h-0 lg:flex-1" loading="lazy"/>
+                <div class="shrink-0 p-5 sm:p-6">
                     <h3 class="font-sans text-xl font-semibold text-balance">{{ copy.captionHeading }}</h3>
                     <p class="mt-2 text-pretty text-muted">{{ copy.captionBody }}</p>
                 </div>

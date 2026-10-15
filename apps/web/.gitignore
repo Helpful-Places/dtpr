@@ -1,5 +1,8 @@
 # Nuxt dev/build outputs
 .output
+# Skill and Figma plugin downloads, packaged by scripts/ at build time
+public/skills
+public/figma-plugin
 .data
 .nuxt
 .nitro

@@ -3,7 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "NODE_OPTIONS=--max-old-space-size=6144 nuxt build",
+    "build": "pnpm build:assets && NODE_OPTIONS=--max-old-space-size=6144 nuxt build",
+    "build:assets": "pnpm --filter @dtpr/figma-plugin build && tsx scripts/build-skills.ts && tsx scripts/build-figma-plugin.ts",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
@@ -31,6 +32,7 @@
   },
   "devDependencies": {
     "@iconify-json/lucide": "^1.2.139",
+    "tsx": "^4.19.0",
     "wrangler": "^4.147.0"
   }
 }
