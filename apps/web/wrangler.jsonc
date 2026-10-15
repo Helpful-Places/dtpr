@@ -1,0 +1,37 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "dtpr-website",
+  "account_id": "f978769622a3e15ad770688a80811aa8",
+  "main": "./.output/server/index.mjs",
+  "compatibility_date": "2026-09-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "routes": [
+    { "pattern": "dev.dtpr.io", "custom_domain": true }
+  ],
+  "preview_urls":true,
+  
+  "assets": {
+    "directory": "./.output/public",
+    "binding": "ASSETS"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "dtpr-web-content",
+      "database_id": "2a479576-88c6-40d3-b21a-f6909e4fd9c2"
+    }
+  ],
+  // Previews (`wrangler preview`, run by Workers Builds on non-production
+  // branches) don't inherit production bindings. They get their own D1 so a
+  // preview's content dump never overwrites the one dev.dtpr.io reads.
+  "previews": {
+    "d1_databases": [
+      {
+        "binding": "DB",
+        "database_name": "dtpr-web-content-preview",
+        "database_id": "bf0b4f66-5eb3-4860-bdbc-4da504d9ea97"
+      }
+    ]
+  },
+  "observability": { "enabled": true }
+}

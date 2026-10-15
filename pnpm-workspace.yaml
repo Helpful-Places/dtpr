@@ -1,6 +1,6 @@
 packages:
   - 'app'
-  - 'web'
+  - 'apps/*'
   - 'api'
   - 'docs-site'
   - 'figma-plugin'

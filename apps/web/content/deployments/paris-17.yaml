@@ -1,0 +1,12 @@
+name: Mairie du 17e arrondissement
+city: Paris
+country: France
+flag: 🇫🇷
+url: "https://mairie17.paris.fr/pages/open-batignolles-un-quartier-intelligent-en-evolution-26383#informations-sur-le-capteur-comptage-des-flux-upciti"
+logoPath: /images/clients/paris.png
+featured: false
+hidden: false
+pressReleaseUrl: "https://cdn.paris.fr/paris/2025/07/24/20250701cpgb-openbatignolles-pO8o.pdf"
+deviceCount: 4
+latitude: 48.8867
+longitude: 2.3117

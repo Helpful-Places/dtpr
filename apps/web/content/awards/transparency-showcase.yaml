@@ -1,0 +1,12 @@
+title: Ontario IPC Transparency Showcase
+organization: Information and Privacy Commissioner of Ontario
+year: 2024
+description: >-
+  The Town of Innisfil's DTPR deployment has been recognized in the Information
+  and Privacy Commissioner of Ontario's 2024 Transparency Showcase for its
+  innovative approach to integrating technology in public spaces.
+url: "https://transparencyshowcase.ipc.on.ca/en/town-of-innisfil/"
+imagePath: /images/awards/transparency.png
+featured: false
+deployments:
+  - innisfil

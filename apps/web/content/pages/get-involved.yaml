@@ -1,0 +1,53 @@
+title: Get Involved
+description: Join the DTPR community on Slack, GitHub or email and help shape an open standard for accountable, legible technology.
+sections:
+  - type: Hero
+    eyebrow: Get involved
+    heading: We’re building a movement. Come join us.
+    subHeading: We are public servants, technologists, designers, policy makers, community advocates, parents, and students. We believe it’s possible for technology to be accountable and legible to the people it serves. If that sounds like you, we’d love to hear from you.
+    orientation: horizontal
+    image: ""
+  - type: Ways In
+    heading: Ways in
+    cards:
+      - type: card
+        heading: Subscribe to the Newsletter
+        subHeading: Stay up to date with workshops, updates, and changes from the DTPR community by subscribing to our newsletter.
+        link: https://join.slack.com/t/dtprworkspace/shared_invite/zt-48k9n9apd-j0ucFCsJcKPnpkUZKR~SsQ
+        linkText: Subscribe
+      - type: card
+        heading: Propose a change
+        subHeading: Propose changes or additions to the standard as it grows. Taxonomy entries, icons and guidance are all developed in the open under CC BY 4.0.
+        link: https://github.com/Helpful-Places/dtpr
+        linkText: Open on GitHub
+      - type: card
+        heading: Bring DTPR to your city
+        subHeading: Deploying in a public space, or evaluating whether to? Start with the Get Started guide, then talk to us about your inventory and timeline.
+        link: /get-started
+        linkText: Read Get Started
+  - type: Audiences
+    heading: How you can contribute
+    cards:
+      - type: card
+        heading: Residents and advocates
+        icon: users
+        subHeading: Tell us what you need to know about the technology around you, and what still feels hidden.
+      - type: card
+        heading: Public servants
+        icon: landmark
+        subHeading: Bring an inventory, a procurement question, or a signage pilot. Most of the standard came from work like yours.
+      - type: card
+        heading: Technologists and designers
+        icon: pencil-ruler
+        subHeading: Extend the taxonomy, build tooling against it, or adapt the icon set for a new context.
+  - type: Newsletter
+    heading: Stay updated
+    subHeading: Taxonomy updates, case studies and open calls to contribute, a few times a year.
+    buttonText: Subscribe
+    image: /images/get-involved.png
+    imageAlt: Workshop cards asking whether traffic cameras signify an issue or a solution
+  - type: Contact
+    heading: Contact Us
+    subHeading: Send us a message if you have a question, or want to talk about an idea for collaboration.
+    buttonText: Email the team
+    buttonLink: mailto:hello@dtpr.io

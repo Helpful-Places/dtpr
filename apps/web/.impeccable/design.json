@@ -1,0 +1,492 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-07T00:00:00Z",
+  "title": "Design System: DTPR",
+  "extensions": {
+    "colorMeta": {
+      "navy": {
+        "role": "primary",
+        "displayName": "Navy",
+        "canonical": "#1B2B80",
+        "tonalRamp": [
+          "#02001D",
+          "#07094D",
+          "#0E1C60",
+          "#1B2B80",
+          "#3D529A",
+          "#8294C5",
+          "#C6D1EB",
+          "#F0F5FF"
+        ]
+      },
+      "navy-tint": {
+        "role": "primary",
+        "displayName": "Navy Tint",
+        "canonical": "#F0F5FF",
+        "tonalRamp": [
+          "#02001D",
+          "#07094D",
+          "#0E1C60",
+          "#1B2B80",
+          "#3D529A",
+          "#8294C5",
+          "#C6D1EB",
+          "#F0F5FF"
+        ]
+      },
+      "medium-blue": {
+        "role": "secondary",
+        "displayName": "Medium Blue",
+        "canonical": "#2563D0",
+        "tonalRamp": [
+          "#00000F",
+          "#001445",
+          "#113E86",
+          "#2563D0",
+          "#6194ED",
+          "#89B5FF",
+          "#CBE9FF",
+          "#DCF7FF"
+        ]
+      },
+      "cool-paper": {
+        "role": "tertiary",
+        "displayName": "Cool Paper",
+        "canonical": "#E8EAF5",
+        "tonalRamp": [
+          "#010101",
+          "#1E1E20",
+          "#3D3D3F",
+          "#737479",
+          "#94959B",
+          "#CFD0DA",
+          "#E8EAF5",
+          "#F2F4FF"
+        ]
+      },
+      "chartreuse": {
+        "role": "tertiary",
+        "displayName": "Chartreuse",
+        "canonical": "#9ACD00",
+        "tonalRamp": [
+          "#1F2A00",
+          "#3D5200",
+          "#5E7F00",
+          "#84B400",
+          "#9ACD00",
+          "#B5DB1A",
+          "#D3EA7A",
+          "#F0F8D2"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#F4F2EC",
+        "tonalRamp": [
+          "#26251F",
+          "#4A4840",
+          "#6F6C61",
+          "#959183",
+          "#B9B5A8",
+          "#E2E0D8",
+          "#F4F2EC",
+          "#F8F8F2"
+        ]
+      },
+      "paper-raised": {
+        "role": "neutral",
+        "displayName": "Paper Raised",
+        "canonical": "#F8F8F2"
+      },
+      "sheet": {
+        "role": "neutral",
+        "displayName": "Sheet",
+        "canonical": "#FFFFFF"
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#0F172A",
+        "tonalRamp": [
+          "#0A0E1A",
+          "#0F172A",
+          "#1E293B",
+          "#334155",
+          "#475569",
+          "#64748B",
+          "#CBD5E1",
+          "#F1F5F9"
+        ]
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Ink Muted",
+        "canonical": "#475569"
+      },
+      "ink-dimmed": {
+        "role": "neutral",
+        "displayName": "Ink Dimmed",
+        "canonical": "#64748B"
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "canonical": "#CBD5E1"
+      },
+      "paper-edge": {
+        "role": "neutral",
+        "displayName": "Paper Edge",
+        "canonical": "#E2E0D8"
+      },
+      "midnight": {
+        "role": "neutral",
+        "displayName": "Midnight",
+        "canonical": "#070D24",
+        "tonalRamp": [
+          "#03061A",
+          "#070D24",
+          "#111A3D",
+          "#1E2A57",
+          "#3A4878",
+          "#6B779F",
+          "#A9B1CB",
+          "#E3E6F0"
+        ]
+      },
+      "positive": {
+        "role": "status",
+        "displayName": "Positive",
+        "canonical": "#15803D",
+        "tonalRamp": [
+          "#000200",
+          "#003203",
+          "#004B26",
+          "#15803D",
+          "#60A871",
+          "#8AC596",
+          "#CCF4D3",
+          "#DDFFE3"
+        ]
+      },
+      "info": {
+        "role": "status",
+        "displayName": "Info",
+        "canonical": "#1E40AF",
+        "tonalRamp": [
+          "#02001D",
+          "#020851",
+          "#122C8A",
+          "#1E40AF",
+          "#4B6FCA",
+          "#98B3F1",
+          "#D7E8FF",
+          "#E7F5FF"
+        ]
+      },
+      "caution": {
+        "role": "status",
+        "displayName": "Caution",
+        "canonical": "#C2410C",
+        "tonalRamp": [
+          "#060000",
+          "#280200",
+          "#702000",
+          "#993006",
+          "#C2410C",
+          "#F6987A",
+          "#FFD6C0",
+          "#FFE5D2"
+        ]
+      },
+      "caution-text": {
+        "role": "status",
+        "displayName": "Caution Text",
+        "canonical": "#993006"
+      },
+      "error": {
+        "role": "status",
+        "displayName": "Error",
+        "canonical": "#B91C1C",
+        "tonalRamp": [
+          "#090000",
+          "#3E0000",
+          "#7A0003",
+          "#B91C1C",
+          "#CD443F",
+          "#F7958A",
+          "#FFD5CC",
+          "#FFE5DD"
+        ]
+      },
+      "sketch-ink": {
+        "role": "illustration",
+        "displayName": "Sketch Ink",
+        "canonical": "#2B2B28"
+      },
+      "sketch-teal": {
+        "role": "illustration",
+        "displayName": "Sketch Teal",
+        "canonical": "#007B7A"
+      },
+      "sketch-gold": {
+        "role": "illustration",
+        "displayName": "Sketch Gold",
+        "canonical": "#FFD700"
+      },
+      "sketch-coral": {
+        "role": "illustration",
+        "displayName": "Sketch Coral",
+        "canonical": "#E76F51"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The hero headline. Italic serif, once per page; 2.25rem on phones, 3rem from 640px."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings under a section label; 1.875rem on phones."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card and track headings."
+      },
+      "entry": {
+        "displayName": "Entry",
+        "purpose": "Taxonomy element names and category prompts inside the explorer. Upright serif."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "The muted sentence under a headline, max 48rem."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text; prose panels cap at 42rem."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase navy section labels, nav tiles, list headers, footer column headings."
+      },
+      "code": {
+        "displayName": "Code",
+        "purpose": "Element ids, schema versions, step numbers, developer panels."
+      },
+      "annotation": {
+        "displayName": "Annotation",
+        "purpose": "Handwritten text inside vision mocks only."
+      }
+    },
+    "shadows": [
+      {
+        "name": "sheet",
+        "value": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+        "purpose": "Every card, panel, map frame and the docs page; always paired with a 1px rule outline."
+      },
+      {
+        "name": "lifted",
+        "value": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+        "purpose": "Linked cards on hover, with a 2px rise and a navy ring."
+      },
+      {
+        "name": "selection-marker",
+        "value": "inset 3px 0 0 #1B2B80",
+        "purpose": "The current element row in the taxonomy explorer."
+      },
+      {
+        "name": "pen-offset",
+        "value": "2px 3px 0 rgb(0 0 0 / 0.05)",
+        "purpose": "Hard offset under vision mocks so they read as paper cut-outs."
+      }
+    ],
+    "motion": [
+      {
+        "name": "header-fold",
+        "value": "300ms ease-out",
+        "purpose": "On the home page, the tile row folding into the compact sticky bar past 24px of scroll."
+      },
+      {
+        "name": "card-lift",
+        "value": "200ms",
+        "purpose": "Linked cards rising 2px on hover; disclosure chevrons."
+      },
+      {
+        "name": "layer-spread",
+        "value": "150ms linear",
+        "purpose": "Hero city plan layers following scroll progress."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "none",
+        "purpose": "Every transition above is disabled under prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Section and hero actions. Navy at rest, medium blue on hover.",
+      "html": "<button class=\"ds-btn-primary\">Explore the taxonomy <svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg></button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 12px; border: none; border-radius: 4px; background: var(--color-primary-700); color: #fff; font-family: var(--font-sans); font-size: 1rem; font-weight: 700; cursor: pointer; transition: background-color 150ms; } .ds-btn-primary:hover, .ds-btn-primary:active { background: var(--color-secondary-500); } .ds-btn-primary:focus-visible { outline: 2px solid var(--color-primary-700); outline-offset: 2px; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary actions inside cards and beside a primary hero action.",
+      "html": "<button class=\"ds-btn-outline\">Join the Slack <svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg></button>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 12px; border: none; border-radius: 4px; background: #fff; color: var(--color-primary-700); box-shadow: inset 0 0 0 1px var(--color-rule); font-family: var(--font-sans); font-size: 0.875rem; font-weight: 700; cursor: pointer; transition: background-color 150ms, color 150ms, box-shadow 150ms; } .ds-btn-outline:hover, .ds-btn-outline:active { background: var(--color-primary-50); color: var(--color-secondary-500); box-shadow: inset 0 0 0 1px var(--color-secondary-500); } .ds-btn-outline:focus-visible { outline: 2px solid var(--color-primary-700); outline-offset: 2px; }"
+    },
+    {
+      "name": "Nav Tile",
+      "kind": "nav",
+      "refersTo": "nav-tile",
+      "description": "The expanded header on the home page: one white tile per site section, label over descriptor.",
+      "html": "<nav class=\"ds-nav-tiles\" aria-label=\"Main\"><a class=\"ds-nav-tile ds-nav-tile-active\" href=\"#\"><span class=\"ds-nav-tile-label\">Get Started</span><span class=\"ds-nav-tile-text\">Documentation and tools</span></a><a class=\"ds-nav-tile\" href=\"#\"><span class=\"ds-nav-tile-label\">The Taxonomy</span><span class=\"ds-nav-tile-text\">Browse every element</span></a></nav>",
+      "css": ".ds-nav-tiles { display: flex; gap: 16px; } .ds-nav-tile { display: flex; flex-direction: column; justify-content: center; min-height: 44px; padding: 10px 20px; border: 1px solid var(--color-rule); border-radius: 6px; background: #fff; text-decoration: none; font-family: var(--font-sans); font-size: 0.75rem; transition: border-color 150ms; } .ds-nav-tile:hover { border-color: color-mix(in srgb, var(--color-primary-700) 40%, transparent); } .ds-nav-tile-active { border-color: color-mix(in srgb, var(--color-primary-700) 60%, transparent); } .ds-nav-tile:focus-visible { outline: 2px solid var(--color-primary-700); outline-offset: 2px; } .ds-nav-tile-label { font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-primary-700); } .ds-nav-tile-text { color: var(--ui-text); }"
+    },
+    {
+      "name": "Compact Nav Bar",
+      "kind": "nav",
+      "refersTo": "nav-link-compact",
+      "description": "The sticky header on every page but the top of the home page: a floating white sheet with inline small-caps links.",
+      "html": "<nav class=\"ds-nav-bar\" aria-label=\"Main\"><a class=\"ds-nav-link ds-nav-link-active\" href=\"#\">Get Started</a><a class=\"ds-nav-link\" href=\"#\">Get Involved</a><a class=\"ds-nav-link\" href=\"#\">The Taxonomy</a></nav>",
+      "css": ".ds-nav-bar { display: inline-flex; gap: 4px; padding: 8px 16px; border: 1px solid var(--color-rule); border-radius: 6px; background: rgb(255 255 255 / 0.95); backdrop-filter: blur(12px); box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); } .ds-nav-link { padding: 8px 12px; border-radius: 4px; font-family: var(--font-sans); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none; color: var(--ui-text-muted); transition: background-color 150ms, color 150ms; } .ds-nav-link:hover { background: color-mix(in srgb, var(--color-secondary-500) 10%, transparent); color: var(--color-secondary-500); } .ds-nav-link-active { background: color-mix(in srgb, var(--color-primary-700) 10%, transparent); color: var(--color-primary-700); } .ds-nav-link:focus-visible { outline: 2px solid var(--color-primary-700); outline-offset: 2px; }"
+    },
+    {
+      "name": "Sheet Card",
+      "kind": "card",
+      "refersTo": "sheet-card",
+      "description": "A white sheet on the paper. Rises on hover only when it links somewhere.",
+      "html": "<a class=\"ds-sheet-card\" href=\"#\"><span class=\"ds-sheet-card-step\">01</span><h3 class=\"ds-sheet-card-title\">Government and community leaders</h3><p class=\"ds-sheet-card-body\">Decide whether and how to use DTPR when deploying technology in public places.</p></a>",
+      "css": ".ds-sheet-card { display: block; max-width: 24rem; padding: 24px; border-radius: 6px; background: #fff; box-shadow: 0 0 0 1px var(--color-rule), 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); text-decoration: none; font-family: var(--font-sans); color: var(--ui-text); transition: transform 200ms, box-shadow 200ms; } .ds-sheet-card:hover { transform: translateY(-2px); box-shadow: 0 0 0 1px var(--color-primary-700), 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); } .ds-sheet-card:focus-visible { outline: 2px solid var(--color-primary-700); outline-offset: 2px; } .ds-sheet-card-step { font-family: var(--font-code), monospace; font-size: 0.75rem; font-weight: 600; color: var(--ui-text-dimmed); } .ds-sheet-card-title { margin: 4px 0 0; font-size: 1.25rem; font-weight: 600; line-height: 1.4; } .ds-sheet-card-body { margin: 8px 0 0; color: var(--ui-text-muted); } @media (prefers-reduced-motion: reduce) { .ds-sheet-card { transition: none; } .ds-sheet-card:hover { transform: none; } }"
+    },
+    {
+      "name": "Context Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Pill toggles for context values in the taxonomy; a colour dot marks values that recolour the icon.",
+      "html": "<div class=\"ds-chips\"><button class=\"ds-chip ds-chip-selected\" aria-pressed=\"true\">Plain</button><button class=\"ds-chip\" aria-pressed=\"false\"><span class=\"ds-chip-dot\" style=\"background:#FFD700\"></span>Identifiable</button><button class=\"ds-chip\" aria-pressed=\"false\"><span class=\"ds-chip-dot\" style=\"background:#2A9D8F\"></span>De-identified</button></div>",
+      "css": ".ds-chips { display: flex; flex-wrap: wrap; gap: 6px; } .ds-chip { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 4px 12px; border: 1px solid var(--ui-border); border-radius: 9999px; background: #fff; color: var(--ui-text); font-family: var(--font-sans); font-size: 0.875rem; cursor: pointer; } .ds-chip:hover { border-color: color-mix(in srgb, var(--color-primary-700) 50%, transparent); } .ds-chip-selected { border-color: var(--color-primary-700); background: var(--ui-bg-accented); color: var(--color-primary-700); } .ds-chip:focus-visible { outline: 2px solid var(--color-primary-700); outline-offset: 2px; } .ds-chip-dot { width: 10px; height: 10px; border-radius: 9999px; }"
+    },
+    {
+      "name": "Section Header",
+      "kind": "custom",
+      "description": "Opens every feature section: 2px rule, small-caps label, headline, muted lede.",
+      "html": "<header class=\"ds-section-header\"><p class=\"ds-section-label\">In the world</p><h2 class=\"ds-section-heading\">Fifteen communities on three continents</h2><p class=\"ds-section-lede\">Pick a deployment to see where DTPR is posted and who runs it.</p></header>",
+      "css": ".ds-section-header { padding-top: 24px; border-top: 2px solid var(--color-rule); font-family: var(--font-sans); color: var(--ui-text); } .ds-section-label { margin: 0; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-primary-700); } .ds-section-heading { margin: 12px 0 0; max-width: 56rem; font-size: 2.25rem; font-weight: 600; line-height: 1.11; text-wrap: balance; } .ds-section-lede { margin: 16px 0 0; max-width: 48rem; font-size: 1.125rem; color: var(--ui-text-muted); text-wrap: pretty; }"
+    },
+    {
+      "name": "Explorer Row",
+      "kind": "custom",
+      "description": "An element in the taxonomy list. The current row turns white with an inset navy marker.",
+      "html": "<div class=\"ds-rows\"><a class=\"ds-row ds-row-current\" href=\"#\" aria-current=\"page\"><svg class=\"ds-row-icon\" viewBox=\"0 0 36 36\" aria-hidden=\"true\"><path d=\"M18 2l14 8v16l-14 8-14-8V10z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><circle cx=\"18\" cy=\"18\" r=\"5\" fill=\"currentColor\"/></svg><span class=\"ds-row-text\"><span class=\"ds-row-title\">Camera</span><span class=\"ds-row-id\">tech_camera</span></span></a><a class=\"ds-row\" href=\"#\"><svg class=\"ds-row-icon\" viewBox=\"0 0 36 36\" aria-hidden=\"true\"><path d=\"M18 2l14 8v16l-14 8-14-8V10z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M12 18h12M18 12v12\" stroke=\"currentColor\" stroke-width=\"2\"/></svg><span class=\"ds-row-text\"><span class=\"ds-row-title\">Microphone</span><span class=\"ds-row-id\">tech_microphone</span></span></a></div>",
+      "css": ".ds-rows { width: 20rem; border: 1px solid var(--color-rule); border-radius: 6px; overflow: hidden; background: var(--ui-bg-elevated); } .ds-row { display: flex; align-items: center; gap: 12px; padding: 8px 12px; border-bottom: 1px solid var(--ui-border); text-decoration: none; font-family: var(--font-sans); color: var(--ui-text); } .ds-row:last-child { border-bottom: none; } .ds-row:hover { background: #fff; } .ds-row-current { background: #fff; box-shadow: inset 3px 0 0 var(--color-primary-700); } .ds-row:focus-visible { outline: 2px solid var(--color-primary-700); outline-offset: -2px; } .ds-row-icon { width: 36px; height: 36px; flex: none; color: var(--color-primary-700); } .ds-row-text { display: flex; flex-direction: column; min-width: 0; } .ds-row-title { font-size: 0.875rem; font-weight: 500; } .ds-row-id { font-family: var(--font-code), monospace; font-size: 0.75rem; color: var(--ui-text-muted); }"
+    },
+    {
+      "name": "Footer",
+      "kind": "custom",
+      "refersTo": "footer",
+      "description": "Midnight band under a 2px navy rule.",
+      "html": "<footer class=\"ds-footer\"><h2 class=\"ds-footer-heading\">Community</h2><a class=\"ds-footer-link\" href=\"#\">Slack <svg viewBox=\"0 0 12 12\" width=\"12\" height=\"12\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3.5 8.5l5-5M4.5 3.5h4v4\"/></svg></a><a class=\"ds-footer-link\" href=\"#\">GitHub</a><p class=\"ds-footer-note\">DTPR is stewarded by Helpful Places and licensed under CC BY 4.0.</p></footer>",
+      "css": ".ds-footer { padding: 32px; border-top: 2px solid var(--color-primary-700); background: var(--color-midnight); font-family: var(--font-sans); font-size: 0.875rem; } .ds-footer-heading { margin: 0 0 16px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-secondary-300); } .ds-footer-link { display: flex; align-items: center; gap: 6px; min-height: 32px; color: rgb(255 255 255 / 0.7); text-decoration: none; transition: color 150ms; } .ds-footer-link:hover { color: #fff; } .ds-footer-link:focus-visible { outline: 2px solid #fff; outline-offset: 2px; } .ds-footer-note { margin: 24px 0 0; padding-top: 24px; border-top: 1px solid rgb(255 255 255 / 0.1); font-size: 0.75rem; color: rgb(255 255 255 / 0.7); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Field Guide",
+    "overview": "The site is a reference book for reading technology in the city. Like a good field guide, it is organised into entries you can look up, each with an identifier, an icon and a plain description, and it is laid out to be consulted outdoors by someone who is not an expert. The page is warm paper marked with a dot grid; content sits on white sheets with a hairline outline; identifiers are set in monospace and section labels in small capitals. The one flourish is an italic serif headline at the top of a page, the way a guide's title page is set differently from its entries.\n\nThe mood is civic, trustworthy, calm and clear. Density is moderate on the marketing pages and tight inside the taxonomy explorer, where three panes behave like an index, a list and an entry. Hand-drawn material is rare: the exploded city plan in the home hero, and the sketched vision mocks, which no page places at present. Those are the guide's plates, drawn in pen, and the mocks are labelled as illustrations.\n\nThis system rejects three looks. It is not SaaS marketing gloss: no gradients, glass cards, glowing accents or hero metrics. It is not smart-city futurism: no dark dashboards, neon data lines or surveillance-tech styling. It is not government-portal drab: no grey boxes, dense link lists or bureaucratic form styling.",
+    "keyCharacteristics": [
+      "Warm paper with a 24px dot grid as the substrate; white sheets with slate hairlines for anything that is read at length.",
+      "Navy does the work. Medium blue is the hover and the \"digital\" tone. Chartreuse is held back for live data.",
+      "Public Sans everywhere, one italic serif headline per page, monospace for identifiers.",
+      "Small radii (4px controls, 6px sheets); full pills only for chips and tags.",
+      "Three levels of depth: paper, sheet, lifted.",
+      "Light theme only. Colour mode switching is disabled.",
+      "Motion is brief, state-driven, and turned off under reduced motion."
+    ],
+    "rules": [
+      {
+        "name": "The Live Data Rule",
+        "body": "Chartreuse marks live data and nothing else. Never text, borders, hover states or decoration.",
+        "section": "colors"
+      },
+      {
+        "name": "The Hover Is Blue Rule",
+        "body": "Navy is the resting state; medium blue is the response. An interactive navy element answers a pointer by turning medium blue, not by darkening.",
+        "section": "colors"
+      },
+      {
+        "name": "The Sketch Stays In The Sketch Rule",
+        "body": "Teal, gold, coral and sketch ink never leave the vision mocks.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Serif Line Rule",
+        "body": "Italic serif appears once per page, in the hero. Upright serif is allowed only for entry names in the taxonomy.",
+        "section": "typography"
+      },
+      {
+        "name": "The Identifier Rule",
+        "body": "If a string could be pasted into the API, it is set in Source Code Pro.",
+        "section": "typography"
+      },
+      {
+        "name": "The Twelve Pixel Floor Rule",
+        "body": "No text below 0.75rem, including inside mocks.",
+        "section": "typography"
+      },
+      {
+        "name": "The Outline First Rule",
+        "body": "A shadow never stands alone. Every raised surface also carries a 1px rule outline, so the edge holds on low-contrast displays.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Lift Means Link Rule",
+        "body": "Only surfaces that go somewhere rise on hover. Static cards stay at sheet level.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do put running prose and navigation on a white sheet with a 1px rule outline and the sheet shadow. Only headings and short ledes sit on the dot grid.",
+      "Do use navy (#1B2B80) for primary actions and medium blue (#2563D0) for their hover.",
+      "Do keep targets at 44px or taller, and give every focusable element a solid navy outline.",
+      "Do set ids, schema versions and anything copyable in Source Code Pro.",
+      "Do open a feature section with the section header: rule, label, headline, lede.",
+      "Do honour reduced motion on every transition, and keep motion to 200ms or 300ms on state changes.",
+      "Do caption vision mocks as illustrations of fictional services."
+    ],
+    "donts": [
+      "Don't use chartreuse for text, borders, hover states or decoration.",
+      "Don't set more than one italic serif line on a page.",
+      "Don't use Kalam, dashed borders, irregular radii or the sketch palette outside the vision mocks.",
+      "Don't use gradients, glass cards, glows or hero metrics.",
+      "Don't build dark dashboards, neon data lines or surveillance-tech visuals.",
+      "Don't fall back to grey boxes, dense link lists or bureaucratic form styling.",
+      "Don't lift a card on hover unless it links somewhere.",
+      "Don't set caution orange (#C2410C) as text; use the darker caution text step.",
+      "Don't add a dark theme. The tokens are light only.",
+      "Don't credit Superbloom, or present any steward other than Helpful Places."
+    ]
+  }
+}

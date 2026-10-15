@@ -1,0 +1,11 @@
+name: City of West Palm Beach
+city: West Palm Beach
+country: USA
+flag: 🇺🇸
+url: "https://wpb.dtpr.guide"
+logoPath: /svgs/dtpr.svg
+featured: false
+hidden: false
+pressReleaseUrl: "https://www.wpb.org/News-Folder/News-2024/9.18.24-WPB-Launches-DTPR-Pilot"
+latitude: 26.7153
+longitude: -80.0534

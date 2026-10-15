@@ -1,0 +1,20 @@
+title: DTPR
+description: |-
+  Not everyone speaks in technical details.
+
+  DTPR (Digital Trust for Places and Routines) is an open standard that explains how technology uses data, in plain language and visual system that's designed for everyone.
+sections:
+  - type: Hero
+    eyebrow: Not everyone speaks in technical details
+    heading: DTPR is a translation layer that makes technology’s impact easier to understand.
+    subHeading: DTPR (Digital Trust for Places and Routines) is an open standard that explains how technology uses data, in plain language and a visual system that’s designed for everyone.
+    horizontal: true
+    imageAlt: "Diagram of a place in four layers: digital layer, buildings, transportation and public realm"
+    animatedLayers: true
+    hasButton: true
+    buttonText: Get started with DTPR
+    buttonLink: /get-started
+    secondaryButtonText: Explore the taxonomy
+    secondaryButtonLink: /taxonomy
+  - type: Community Tracks
+  - type: Deployments Explorer

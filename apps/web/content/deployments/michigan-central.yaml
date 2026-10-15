@@ -1,0 +1,12 @@
+name: Michigan Central
+city: Detroit
+country: USA
+flag: 🇺🇸
+url: "https://pilots.michigancentral.com"
+logoPath: /images/clients/mc.png
+featured: true
+hidden: false
+deviceCount: 19
+latitude: 42.3287
+longitude: -83.0779
+pressReleaseUrl: "https://michigancentral.com/michigan-central-launches-new-data-transparency-program/"

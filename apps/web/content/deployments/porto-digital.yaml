@@ -1,0 +1,12 @@
+name: Porto Digital
+city: Porto
+country: Portugal
+flag: 🇵🇹
+url: "https://porto.dtpr.guide"
+logoPath: /images/clients/porto.png
+featured: false
+hidden: false
+deviceCount: 5
+latitude: 41.1579
+longitude: -8.6291
+projectWebsiteUrl: "https://transparenciadigital.porto.digital/digital_transparency/"

@@ -1,0 +1,11 @@
+name: City Of Boston
+city: Boston
+country: USA
+flag: 🇺🇸
+logoPath: /images/clients/boston.png
+featured: false
+hidden: false
+projectWebsiteUrl: "https://www.boston.gov/departments/new-urban-mechanics/digital-trust-places-and-routines"
+deviceCount: 12
+latitude: 42.3601
+longitude: -71.0589

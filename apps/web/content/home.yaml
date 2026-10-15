@@ -1,0 +1,40 @@
+footprint:
+  heading: DTPR in the World
+  subHeading: Communities and municipal stewards around the world are deploying DTPR to put residents’ agency and understanding first.
+  buttonText: See DTPR in the world
+  buttonLink: /dtpr-in-the-world
+engage:
+  heading: Where to start
+  image: /images/workshop_notes.webp
+  imageAlt: Handwritten cards from a DTPR co-design workshop with questions about drones and wi-fi in public spaces
+  captionHeading: Co-created since 2019
+  captionBody: Over 100 residents, designers, privacy experts and city practitioners have contributed to DTPR. The standard grew from the most asked questions people have about the technology around them.
+  buttonText: Read the Get Started guide
+  buttonLink: /get-started
+  tracks:
+    - heading: Curious about DTPR
+      body: You've come across DTPR on a sign, a city website or in the news, and want to know what it is and what the icons mean.
+      linkText: What DTPR is
+      link: /get-started
+      involveText: Tell us what you'd want to know
+      involveLink: mailto:hello@dtpr.io
+    - heading: Running technology in public
+      body: Cities, agencies and the people who manage public places use DTPR to explain the technology they run, on signs, online and in workshops.
+      linkText: Ways to deploy
+      link: /get-started#ways-to-deploy
+      involveText: Talk to us about a deployment
+      involveLink: mailto:hello@dtpr.io
+    - heading: Organizing your community
+      body: Advocates and organizers use DTPR to put their community's needs at the center of how technology is developed and overseen.
+      linkText: How feedback works
+      link: /get-started#feedback-channel
+      involveText: Join the Slack
+      involveLink: https://join.slack.com/t/dtprworkspace/shared_invite/zt-48k9n9apd-j0ucFCsJcKPnpkUZKR~SsQ
+    - heading: Building with DTPR
+      body: Developers and designers build DTPR into products and tools with the taxonomy, the REST API and the MCP server.
+      linkText: How the taxonomy works
+      link: /get-started#taxonomy
+      involveText: Propose a change on GitHub
+      involveLink: https://github.com/Helpful-Places/dtpr
+  allText: All the ways to get involved
+  allLink: /get-involved

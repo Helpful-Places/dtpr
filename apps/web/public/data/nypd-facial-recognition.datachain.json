@@ -1,0 +1,365 @@
+{
+  "id": "nypd-facial-recognition",
+  "schema_version": "dtpr@2026-09-01-beta",
+  "created_at": "2026-10-14T00:00:00Z",
+  "title": [
+    {
+      "locale": "en",
+      "value": "AI-Assisted Facial Recognition for Criminal Investigations"
+    }
+  ],
+  "description": [
+    {
+      "locale": "en",
+      "value": "The New York Police Department uses facial recognition software to compare images of unknown individuals obtained during investigations against a repository of lawfully held arrest and parole photos. The system generates a ranked list of possible matches for review by trained investigators. It does not make final identifications on its own."
+    }
+  ],
+  "elements": [
+    {
+      "element_id": "safety_security",
+      "priority": 1,
+      "variables": [
+        {
+          "id": "additional_description",
+          "value": [
+            {
+              "locale": "en",
+              "value": "Used to investigate criminal activity and to identify deceased and missing persons, enhancing law enforcement's ability to resolve cases."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_id": "enforcement",
+      "priority": 2,
+      "variables": [
+        {
+          "id": "additional_description",
+          "value": [
+            {
+              "locale": "en",
+              "value": "Helps identify unknown subjects depicted in images obtained during law enforcement investigations."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_id": "institution",
+      "priority": 1,
+      "context_type_id": "deployer",
+      "variables": [
+        {
+          "id": "title",
+          "value": [
+            {
+              "locale": "en",
+              "value": "New York Police Department (NYPD)"
+            }
+          ]
+        },
+        {
+          "id": "description",
+          "value": [
+            {
+              "locale": "en",
+              "value": "The NYPD deploys and operates this facial recognition system through its Facial Identification Section, using it to support criminal investigations, identify deceased persons, and locate missing persons."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_id": "organization",
+      "priority": 2,
+      "context_type_id": "vendor",
+      "variables": [
+        {
+          "id": "title",
+          "value": [
+            {
+              "locale": "en",
+              "value": "DataWorks Plus"
+            }
+          ]
+        },
+        {
+          "id": "description",
+          "value": [
+            {
+              "locale": "en",
+              "value": "The commercial vendor that develops and maintains the facial recognition software under a procurement and professional services arrangement. Training data is proprietary to the vendor."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_id": "people",
+      "priority": 1,
+      "context_type_id": "subject",
+      "variables": [
+        {
+          "id": "title",
+          "value": [
+            {
+              "locale": "en",
+              "value": "People whose faces are searched"
+            }
+          ]
+        },
+        {
+          "id": "description",
+          "value": [
+            {
+              "locale": "en",
+              "value": "Unknown individuals whose faces appear in still images obtained during NYPD investigations, and people whose photos are held in NYPD arrest or parole records. People in those records may have their images searched without their direct knowledge."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_id": "recommends",
+      "priority": 1,
+      "context_type_id": "human_decides",
+      "variables": [
+        {
+          "id": "additional_description",
+          "value": [
+            {
+              "locale": "en",
+              "value": "Compares a probe image against a photo repository and returns a ranked pool of possible match candidates. Trained Facial Identification Section investigators make the final identification, not the software."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_id": "senses",
+      "priority": 2,
+      "context_type_id": "human_decides",
+      "variables": [
+        {
+          "id": "additional_description",
+          "value": [
+            {
+              "locale": "en",
+              "value": "Detects and extracts facial features from a still probe image so it can be compared with the repository."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_id": "civil_liberties_harm",
+      "priority": 1,
+      "variables": [
+        {
+          "id": "risk",
+          "value": [
+            {
+              "locale": "en",
+              "value": "Facial recognition in law enforcement can infringe on rights to privacy, freedom of movement and due process. Documented accuracy differences across demographic groups may cause misidentification, particularly affecting communities of color."
+            }
+          ]
+        },
+        {
+          "id": "mitigation",
+          "value": [
+            {
+              "locale": "en",
+              "value": "The register states that the tool is used together with human analysis and further investigation, and that investigators in the Facial Identification Section review all candidate matches before any action is taken. The system informs; it does not decide."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_id": "reputational_harm",
+      "priority": 2,
+      "variables": [
+        {
+          "id": "risk",
+          "value": [
+            {
+              "locale": "en",
+              "value": "A false match can wrongly associate an innocent person with a criminal investigation, with lasting damage to their reputation."
+            }
+          ]
+        },
+        {
+          "id": "mitigation",
+          "value": [
+            {
+              "locale": "en",
+              "value": "Trained Facial Identification Section investigators review every candidate match and investigate further before any identification is used. The register entry discloses no error-rate thresholds or redress procedures."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_id": "right_to_notice",
+      "priority": 1,
+      "variables": [
+        {
+          "id": "rights",
+          "value": [
+            {
+              "locale": "en",
+              "value": "New York City's algorithmic accountability laws require the NYPD to disclose this tool in the Algorithmic Tools Compliance Report. People whose images are searched are generally not notified at the time of a search. The register entry names no contact or complaints channel."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_id": "right_algorithmic_transparency",
+      "priority": 2,
+      "variables": [
+        {
+          "id": "rights",
+          "value": [
+            {
+              "locale": "en",
+              "value": "The register entry, published on NYC Open Data, describes the tool's general logic (comparing a probe image against a photo repository) and its level of autonomy (it informs, and people review the results). The vendor's training data is proprietary, which limits how much can be disclosed."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_id": "existing_records",
+      "priority": 1,
+      "variables": [
+        {
+          "id": "additional_description",
+          "value": [
+            {
+              "locale": "en",
+              "value": "Still images obtained during NYPD investigations, and the arrest and parole photos the NYPD lawfully holds."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_id": "input_biometric",
+      "priority": 1,
+      "context_type_id": "identifiable",
+      "variables": [
+        {
+          "id": "additional_description",
+          "value": [
+            {
+              "locale": "en",
+              "value": "A still image of the face of an unknown individual, obtained during an investigation and submitted as a probe image."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_id": "input_sensitive_personal",
+      "priority": 2,
+      "context_type_id": "identifiable",
+      "variables": [
+        {
+          "id": "additional_description",
+          "value": [
+            {
+              "locale": "en",
+              "value": "A controlled repository of lawfully obtained arrest and parole photographs, linked to known individuals in NYPD records, against which the probe image is compared."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_id": "biometric_recognition",
+      "priority": 1,
+      "variables": [
+        {
+          "id": "additional_description",
+          "value": [
+            {
+              "locale": "en",
+              "value": "Facial recognition algorithms match the probe image against the repository and rank candidate matches. Training data is proprietary to DataWorks Plus."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_id": "output_recommendation",
+      "priority": 1,
+      "context_type_id": "identifiable",
+      "variables": [
+        {
+          "id": "additional_description",
+          "value": [
+            {
+              "locale": "en",
+              "value": "A ranked pool of possible match candidates for trained investigators to review. The output is advisory: investigators must analyse it further before any identification is acted upon."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_id": "person_acting_on_it",
+      "priority": 1,
+      "variables": [
+        {
+          "id": "additional_description",
+          "value": [
+            {
+              "locale": "en",
+              "value": "Investigators in the NYPD's Facial Identification Section review the candidate matches and investigate further before acting on any identification."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_id": "not_available_to_me",
+      "priority": 1,
+      "variables": [
+        {
+          "id": "additional_description",
+          "value": [
+            {
+              "locale": "en",
+              "value": "Members of the public cannot access the candidate matches, probe images or photo repository."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_id": "available_to_the_accountable_organization",
+      "priority": 2,
+      "variables": [
+        {
+          "id": "additional_description",
+          "value": [
+            {
+              "locale": "en",
+              "value": "Candidate matches and probe images are available to trained NYPD Facial Identification Section investigators for ongoing investigations."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "type": "ai_register",
+      "url": "https://data.cityofnewyork.us/City-Government/Algorithmic-Tools-Compliance-Report/jaw4-yuem",
+      "title": "NYC Algorithmic Tools Compliance Report (2025): Facial Recognition Technology, NYPD",
+      "citation": "City of New York, Algorithmic Tools Compliance Report, reported 2025. Via the NYC AI Register (nyc.clarable.ai)."
+    }
+  ]
+}

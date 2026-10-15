@@ -1,0 +1,12 @@
+name: Sydney Olympic Park Authority
+city: Sydney
+country: Australia
+flag: 🇦🇺
+url: "https://dtpr.sydneyolympicpark.nsw.gov.au"
+logoPath: /images/clients/sydney.png
+featured: true
+hidden: false
+projectWebsiteUrl: "https://www.nsw.gov.au/business-and-economy/smart-places/tools-and-resources/dtpr-deployment-guide"
+deviceCount: 11
+latitude: -33.8468
+longitude: 151.0694
