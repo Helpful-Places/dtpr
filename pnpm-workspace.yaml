@@ -34,6 +34,12 @@ allowBuilds:
 # their package's own symlinks first.
 publicHoistPattern:
   - '@intlify/*'
+  # @slidev/cli loads Vue SFCs through local-pkg, which imports
+  # @vue/compiler-sfc from its own location in the virtual store. With three
+  # compiler-sfc versions in the lockfile pnpm hoists none of them, so every
+  # talks/* deck fails with "Cannot find package '@vue/compiler-sfc'" on a
+  # lockfile-true install. Hoist it publicly so local-pkg can resolve it.
+  - '@vue/compiler-sfc'
 overrides:
   # Pin TypeScript to the version main's lockfile resolves. Adding the
   # talks/* workspace (slidev) widened some peer ranges enough for pnpm to
@@ -54,3 +60,9 @@ overrides:
   # vue-i18n 10.
   'vue-i18n@11': 11.4.10
   '@intlify/shared@11': 11.4.10
+  # @comark/markdown-it (pulled in by @slidev/cli 52.16) peer-requires
+  # markdown-it ^14 but the lockfile satisfied it with slidev's own
+  # markdown-it 15, which dropped the `./lib/token.mjs` export it imports.
+  # Every talks/* deck then dies at startup with ERR_PACKAGE_PATH_NOT_EXPORTED.
+  # Give comark its own markdown-it 14; slidev keeps 15.
+  '@comark/markdown-it>markdown-it': 14.3.0
