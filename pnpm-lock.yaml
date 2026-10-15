@@ -9,6 +9,7 @@ overrides:
   vue: 3.5.42
   vue-i18n@11: 11.4.10
   '@intlify/shared@11': 11.4.10
+  '@comark/markdown-it>markdown-it': 14.3.0
 
 importers:
 
@@ -297,6 +298,50 @@ importers:
         version: 52.16.0(@nuxt/kit@3.21.8(magicast@0.5.4))(@vue/compiler-sfc@3.5.42)(esbuild@0.28.1)(rolldown@1.2.6)(rollup@4.62.2)(typescript@5.9.3)(vite@8.2.2(@types/node@22.20.0)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.48.0)(tsx@4.23.0)(yaml@2.9.0))
 
   talks/webinar-aug-2026:
+    dependencies:
+      '@dtpr/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      '@slidev/cli':
+        specifier: ^52.15.2
+        version: 52.16.0(@modelcontextprotocol/sdk@1.30.0(zod@4.4.3))(@nuxt/kit@3.21.8(magicast@0.5.4))(@types/markdown-it@14.1.2)(@types/node@22.20.0)(@vue/compiler-sfc@3.5.42)(crossws@0.4.9(srvx@0.12.8))(esbuild@0.28.1)(lightningcss@1.33.0)(magicast@0.5.4)(markdown-it@15.0.1)(postcss@8.5.26)(rolldown@1.2.6)(rollup@4.62.2)(terser@5.48.0)(tsx@4.23.0)
+      '@slidev/theme-default':
+        specifier: '*'
+        version: 0.25.0
+      '@slidev/theme-seriph':
+        specifier: '*'
+        version: 0.25.0
+      vue:
+        specifier: 3.5.42
+        version: 3.5.42(typescript@5.9.3)
+    devDependencies:
+      '@slidev/types':
+        specifier: ^52.15.2
+        version: 52.16.0(@nuxt/kit@3.21.8(magicast@0.5.4))(@vue/compiler-sfc@3.5.42)(esbuild@0.28.1)(rolldown@1.2.6)(rollup@4.62.2)(typescript@5.9.3)(vite@8.2.2(@types/node@22.20.0)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.48.0)(tsx@4.23.0)(yaml@2.9.0))
+
+  talks/webinar-oct-2026:
+    dependencies:
+      '@dtpr/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      '@slidev/cli':
+        specifier: ^52.15.2
+        version: 52.16.0(@modelcontextprotocol/sdk@1.30.0(zod@4.4.3))(@nuxt/kit@3.21.8(magicast@0.5.4))(@types/markdown-it@14.1.2)(@types/node@22.20.0)(@vue/compiler-sfc@3.5.42)(crossws@0.4.9(srvx@0.12.8))(esbuild@0.28.1)(lightningcss@1.33.0)(magicast@0.5.4)(markdown-it@15.0.1)(postcss@8.5.26)(rolldown@1.2.6)(rollup@4.62.2)(terser@5.48.0)(tsx@4.23.0)
+      '@slidev/theme-default':
+        specifier: '*'
+        version: 0.25.0
+      '@slidev/theme-seriph':
+        specifier: '*'
+        version: 0.25.0
+      vue:
+        specifier: 3.5.42
+        version: 3.5.42(typescript@5.9.3)
+    devDependencies:
+      '@slidev/types':
+        specifier: ^52.15.2
+        version: 52.16.0(@nuxt/kit@3.21.8(magicast@0.5.4))(@vue/compiler-sfc@3.5.42)(esbuild@0.28.1)(rolldown@1.2.6)(rollup@4.62.2)(typescript@5.9.3)(vite@8.2.2(@types/node@22.20.0)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.48.0)(tsx@4.23.0)(yaml@2.9.0))
+
+  talks/metagov-oct-2026:
     dependencies:
       '@dtpr/ui':
         specifier: workspace:*
@@ -13985,11 +14030,11 @@ snapshots:
 
   '@colordx/core@5.5.0': {}
 
-  '@comark/markdown-it@0.3.4(@types/markdown-it@14.1.2)(markdown-it@15.0.1)':
+  '@comark/markdown-it@0.3.4(@types/markdown-it@14.1.2)(markdown-it@14.3.0)':
     dependencies:
       '@types/markdown-it': 14.1.2
       js-yaml: 4.3.0
-      markdown-it: 15.0.1
+      markdown-it: 14.3.0
 
   '@comark/vue@0.4.0(katex@0.16.47)(shiki@4.3.1)(vue@3.5.42(typescript@5.9.3))':
     dependencies:
@@ -20389,7 +20434,7 @@ snapshots:
     dependencies:
       '@antfu/ni': 30.2.0
       '@antfu/utils': 9.3.0
-      '@comark/markdown-it': 0.3.4(@types/markdown-it@14.1.2)(markdown-it@15.0.1)
+      '@comark/markdown-it': 0.3.4(@types/markdown-it@14.1.2)(markdown-it@14.3.0)
       '@iconify-json/carbon': 1.2.24
       '@iconify-json/ph': 1.2.2
       '@iconify-json/svg-spinners': 1.2.4

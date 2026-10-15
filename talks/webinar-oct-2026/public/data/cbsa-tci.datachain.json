@@ -1,0 +1,109 @@
+{
+  "id": "cbsa-traveller-compliance-indicator",
+  "schema_version": "ai@2026-05-06-beta",
+  "created_at": "2026-08-19T00:00:00Z",
+  "title": [
+    { "locale": "en", "value": "Traveller Compliance Indicator" }
+  ],
+  "description": [
+    { "locale": "en", "value": "Canada Border Services Agency's compliance-prediction tool. A decision-tree model reads travel-pattern features from a traveller's current and past passages and shows border services officers an indicator when a traveller is highly likely to meet customs obligations. Officers always make the final decision to release or refer." }
+  ],
+  "elements": [
+    {
+      "element_id": "border_immigration",
+      "variables": [
+        { "id": "additional_description", "value": [{ "locale": "en", "value": "Supports border processing at ports of entry — helping officers focus their attention and reducing unnecessary secondary inspections for travellers who are likely compliant." }] }
+      ]
+    },
+    {
+      "element_id": "institution",
+      "context_type_id": "deployer",
+      "variables": [
+        { "id": "title", "value": [{ "locale": "en", "value": "Canada Border Services Agency" }] },
+        { "id": "description", "value": [{ "locale": "en", "value": "Accountable agency. The indicator was designed and built in-house by CBSA's data-science team and runs inside the officer platform used at ports of entry; first deployments at ferry and land border crossings from 2026." }] }
+      ]
+    },
+    {
+      "element_id": "analytical_mode",
+      "context_type_id": "human_decides",
+      "variables": [
+        { "id": "additional_description", "value": [{ "locale": "en", "value": "Predicts how likely a traveller is to meet customs obligations and may display an indicator to the border services officer. The officer always makes the final decision to release or refer — the indicator is one input among many, and enforcement systems override it." }] }
+      ]
+    },
+    {
+      "element_id": "classification_prediction",
+      "variables": [
+        { "id": "additional_description", "value": [{ "locale": "en", "value": "A decision-tree model chosen for explainability over predictive power. Trained on five years of de-identified passage and enforcement records; accuracy is tracked across sociodemographic groups and monitored in near real time." }] }
+      ]
+    },
+    {
+      "element_id": "input_sensitive_personal",
+      "context_type_id": "identifiable",
+      "variables": [
+        { "id": "additional_description", "value": [{ "locale": "en", "value": "Information about the traveller being processed — travel document details, licence plate, travelling party, and referral and enforcement history from CBSA systems. Immigration and enforcement records carry legal and social weight; before scoring, names, dates of birth and document numbers are stripped and travellers are grouped into four-year age bands." }] }
+      ]
+    },
+    {
+      "element_id": "output_recommendation",
+      "context_type_id": "identifiable",
+      "variables": [
+        { "id": "additional_description", "value": [{ "locale": "en", "value": "A compliance indicator shown to the officer — or nothing when likelihood is unknown. Kept only for system analysis and never reused to score the same traveller's later passages." }] }
+      ]
+    },
+    {
+      "element_id": "not_available_to_me",
+      "variables": [
+        { "id": "additional_description", "value": [{ "locale": "en", "value": "The indicator is not shown to travellers; it appears only on the officer's screen. The tool is not public-facing." }] }
+      ]
+    },
+    {
+      "element_id": "available_to_the_accountable_organization",
+      "variables": [
+        { "id": "additional_description", "value": [{ "locale": "en", "value": "Available to border services officers inside CBSA's internal systems, alongside the other information they already use." }] }
+      ]
+    },
+    {
+      "element_id": "civil_liberties_harm",
+      "variables": [
+        { "id": "mitigation", "value": [{ "locale": "en", "value": "Risk: patterns learned from five years of past referrals and enforcement records could steer officer attention unfairly — echoing historical bias at the border. Mitigation: random referrals are mixed into the training data, model accuracy is tracked across sociodemographic groups on near-real-time dashboards, privacy and GBA Plus assessments were completed, and an officer decides every outcome." }] }
+      ]
+    },
+    {
+      "element_id": "right_to_notice",
+      "variables": [
+        { "id": "rights", "value": [{ "locale": "en", "value": "CBSA must post plain-language notice that an automated system is in use across its service channels; this assessment is published on Canada's Open Government portal." }] }
+      ]
+    },
+    {
+      "element_id": "right_algorithmic_transparency",
+      "variables": [
+        { "id": "rights", "value": [{ "locale": "en", "value": "A plain-language description of how the indicator works is published in the Algorithmic Impact Assessment on open.canada.ca. The decision tree was deliberately chosen so its logic can be understood and explained." }] }
+      ]
+    },
+    {
+      "element_id": "right_to_human_review",
+      "variables": [
+        { "id": "rights", "value": [{ "locale": "en", "value": "The decision to release or refer a traveller is always made by a border services officer, never by the system." }] }
+      ]
+    },
+    {
+      "element_id": "right_individual_decision_explanation",
+      "variables": [
+        { "id": "rights", "value": [{ "locale": "en", "value": "For decisions that deny a service or trigger regulatory action, CBSA must explain in plain language the system's role in the decision and the main factors behind it; the system can produce reasons for its recommendations." }] }
+      ]
+    },
+    {
+      "element_id": "right_access",
+      "variables": [
+        { "id": "rights", "value": [{ "locale": "en", "value": "Travellers can request the personal information CBSA holds about them under the Privacy Act, including the passage records the indicator draws on." }] }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "type": "ai_register",
+      "title": "Algorithmic Impact Assessment — Traveller Compliance Indicator (v0.10.0)",
+      "citation": "Canada Border Services Agency, Travellers Branch. Published under the Directive on Automated Decision-Making on Canada's Open Government portal. Impact level 2 (raw score 45, mitigation score 32)."
+    }
+  ]
+}
