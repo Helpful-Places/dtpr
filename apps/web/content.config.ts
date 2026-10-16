@@ -286,10 +286,16 @@ export default defineContentConfig({
         docs: property(z.object({
           label: z.string(),
           addText: z.string().optional(),
-          url: z.string()
+          url: z.string(),
+          sections: z.array(z.object({
+            label: z.string(),
+            addText: z.string().optional(),
+            url: z.string(),
+            icon: z.string().optional()
+          })).optional()
         }).optional()).editor({
           label: "Docs button",
-          description: "The button at the top right of every page that leads to the docs"
+          description: "The button at the top right of every page that leads to the docs. Sections fill its dropdown; an icon is a Lucide name such as signpost."
         }),
         links: z.array(z.object({
           label:z.string(),
