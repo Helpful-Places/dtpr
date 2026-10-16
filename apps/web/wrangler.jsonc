@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "dtpr-website",
+  "name": "dtpr-web",
   "account_id": "f978769622a3e15ad770688a80811aa8",
   "main": "./.output/server/index.mjs",
   "compatibility_date": "2026-09-01",
