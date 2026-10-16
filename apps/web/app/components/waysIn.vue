@@ -11,13 +11,17 @@
     const external = (link?: string) => !!link && /^https?:/.test(link)
     // Links that leave the site, mail included, take the outward arrow.
     const leaves = (link?: string) => !!link && /^(https?|mailto):/.test(link)
+
+    // A headerless set, such as the docs chooser, follows straight on from the
+    // hero above it, so it draws no rule and takes no top padding.
+    const headed = computed(() => !!(props.heading || props.subHeading))
 </script>
 
 <template>
-    <UContainer as="section" class="section-pad">
-        <SectionHeader :heading="props.heading" :sub-heading="props.subHeading"/>
+    <UContainer as="section" :class="headed ? 'section-pad' : 'pb-(--section-pad)'">
+        <SectionHeader v-if="headed" :heading="props.heading" :sub-heading="props.subHeading"/>
 
-        <ul class="mt-6 grid gap-6 md:grid-cols-3">
+        <ul class="grid gap-6 md:grid-cols-3" :class="headed && 'mt-6'">
             <li
                 v-for="card in props.cards"
                 :key="card.heading"

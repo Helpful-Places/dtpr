@@ -10,6 +10,18 @@
     // or compact. The fallback keeps it when a Studio dump predates the field.
     const docs = computed(() => nav.value?.docs ?? { label: 'Docs', addText: 'Guides and API reference', url: '/docs' })
 
+    // The chevron beside it opens straight onto one set of docs. The button
+    // itself still leads to the chooser.
+    const docsMenu = computed(() => [
+        (docs.value.sections ?? []).map(section => ({
+            label: section.label,
+            description: section.addText,
+            icon: section.icon && `i-lucide-${section.icon}`,
+            to: section.url,
+        })),
+        [{ label: 'All docs', icon: 'i-lucide-library', to: docs.value.url }],
+    ])
+
     // The tile row and its fold-on-scroll are the home page's treatment; every
     // other page starts and stays in the compact bar.
     const isHome = computed(() => route.path === '/')
@@ -115,14 +127,36 @@
                     </nav>
 
                     <div class="flex items-center gap-3">
-                        <NuxtLink
-                            :to="docs.url"
-                            class="inline-flex min-h-11 items-center rounded-sm border border-rule bg-white px-3 font-sans text-xs font-semibold uppercase tracking-wider text-primary transition-colors hover:border-secondary hover:text-secondary lg:min-h-9"
-                            :class="inSection(docs.url) && 'border-primary/60 bg-primary/10'"
-                            prefetch-on="interaction"
+                        <!-- Wherever the Menu button shows, Docs moves into the menu. -->
+                        <div
+                            class="rounded-sm border transition-colors"
+                            :class="[
+                                compact ? 'hidden lg:flex' : 'hidden md:flex',
+                                inSection(docs.url) ? 'border-primary/60 bg-primary/10' : 'border-rule bg-white',
+                            ]"
                         >
-                            {{ docs.label }}
-                        </NuxtLink>
+                            <NuxtLink
+                                :to="docs.url"
+                                class="inline-flex min-h-11 items-center px-3 font-sans text-xs font-semibold uppercase tracking-wider text-primary transition-colors hover:text-secondary lg:min-h-9"
+                                prefetch-on="interaction"
+                            >
+                                {{ docs.label }}
+                            </NuxtLink>
+                            <UDropdownMenu
+                                v-if="docs.sections?.length"
+                                :items="docsMenu"
+                                :content="{ align: 'end', sideOffset: 8 }"
+                                :ui="{ content: 'w-72', itemDescription: 'text-xs' }"
+                            >
+                                <button
+                                    type="button"
+                                    :aria-label="`${docs.label} sections`"
+                                    class="inline-flex min-h-11 min-w-9 items-center justify-center border-l border-inherit text-primary transition-colors hover:text-secondary data-[state=open]:text-secondary lg:min-h-9 lg:min-w-8"
+                                >
+                                    <UIcon name="i-lucide-chevron-down" class="size-4 transition-transform in-data-[state=open]:rotate-180"/>
+                                </button>
+                            </UDropdownMenu>
+                        </div>
 
                         <button
                             type="button"
@@ -164,11 +198,13 @@
                     </nav>
                 </div>
 
+                <!-- The header is pinned, so a menu taller than the screen scrolls
+                     on its own; the page under it cannot bring the end into view. -->
                 <nav
                     v-show="menuOpen"
                     id="site-nav"
                     aria-label="Main"
-                    class="flex flex-col gap-2 pb-2 pt-3 lg:hidden"
+                    class="flex max-h-[calc(100dvh-6rem)] flex-col gap-2 overflow-y-auto overscroll-contain pb-2 pt-3 lg:hidden"
                 >
                     <NuxtLink v-for="link in nav.links"
                     :key="link.url"
@@ -187,6 +223,18 @@
                         <p class="font-sans text-xs font-semibold uppercase tracking-wider text-primary">{{docs.label}}</p>
                         <p v-if="docs.addText" class="font-sans text-xs text-default">{{docs.addText}}</p>
                     </NuxtLink>
+                    <ul v-if="docs.sections?.length" class="-mt-1 ml-4 flex flex-col border-l border-rule">
+                        <li v-for="section in docs.sections" :key="section.url">
+                            <NuxtLink
+                                :to="section.url"
+                                class="flex min-h-11 items-center gap-2.5 px-4 font-sans text-sm text-default transition-colors hover:text-secondary"
+                                :class="inSection(section.url) && 'font-semibold text-primary'"
+                                prefetch-on="interaction">
+                                <UIcon v-if="section.icon" :name="`i-lucide-${section.icon}`" class="size-4 shrink-0 text-primary"/>
+                                {{ section.label }}
+                            </NuxtLink>
+                        </li>
+                    </ul>
                 </nav>
             </div>
         </UContainer>
