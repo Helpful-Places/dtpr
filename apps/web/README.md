@@ -22,8 +22,10 @@ pnpm deploy:web    # wrangler deploy — build first
 
 ## Deployment
 
-Worker `dtpr-website` on the `helpfulplaces` Cloudflare account
-(`f978769622a3e15ad770688a80811aa8`), on the custom domain `dev.dtpr.io`.
+Worker `dtpr-web` on the `helpfulplaces` Cloudflare account
+(`f978769622a3e15ad770688a80811aa8`), on the custom domain `dev.dtpr.io`. The
+`dtpr-website` Worker that served the site from the old repo is retired; a
+deploy under that name would move `dev.dtpr.io` back to it.
 Cloudflare Workers Builds deploys it: the Worker's Git connection points at
 `helpful-places/dtpr` with root directory `apps/web`. `main` deploys to
 production and other branches get preview versions; `nuxt.config.ts` reads
