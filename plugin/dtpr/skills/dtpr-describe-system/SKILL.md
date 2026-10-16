@@ -48,7 +48,7 @@ At session start, record which optional host tools are available. The tools this
 - `Task` — dispatch a researcher sub-agent on a corpus miss.
 - `Write` — write a new corpus entry to `plugin/dtpr/research/`.
 
-Do **not** introspect environment variables or host identifiers — that is not portable across Claude Code, Claude Cowork, and Claude.ai. Instead, attempt a safe no-op-ish call for each tool you plan to use (e.g., `Read` on a known existing plugin file, `WebFetch` on `https://dtpr.ai/` if a URL artifact was provided, a minimal `Task` dispatch only if the workflow will need it, a throwaway `Write` only if the workflow will reach a corpus-write step) and catch any error. Any failure mode — permission denied, tool not registered, sandbox restriction, auth wall — collapses to "unavailable". Record the availability list in your working notes and surface it in the final narrative so the user sees what was assumed.
+Do **not** introspect environment variables or host identifiers — that is not portable across Claude Code, Claude Cowork, and Claude.ai. Instead, attempt a safe no-op-ish call for each tool you plan to use (e.g., `Read` on a known existing plugin file, `WebFetch` on `https://dtpr.io/` if a URL artifact was provided, a minimal `Task` dispatch only if the workflow will need it, a throwaway `Write` only if the workflow will reach a corpus-write step) and catch any error. Any failure mode — permission denied, tool not registered, sandbox restriction, auth wall — collapses to "unavailable". Record the availability list in your working notes and surface it in the final narrative so the user sees what was assumed.
 
 This is a prompt-time probe, not a hard-coded list. Probe only the tools this session will actually use; don't burn probes on tools you won't reach.
 
@@ -231,9 +231,9 @@ Return two artifacts:
 1. **The validated datachain JSON** — the exact object that passed `validate_datachain` (default flow) or `validate_resolved` (opt-in flow), including the version string and the `authoring_provenance` block. The per-element `rationale`, `confidence`, and `source_references` quotes carry forward to the renderer — `<DtprElementDetail>` surfaces them in an "AI proposal context" expandable section. Strip nothing in the name of brevity; the structured shape is what makes the disclosure auditable.
 2. **A short narrative** — one paragraph per category explaining why the chosen elements fit the system. Reference element titles (from `list_elements`) so the user can audit the choices without re-reading the schema. Begin the narrative with a brief **assumptions** paragraph that surfaces the Phase 0 inventory: which artifacts were loaded and in which band, which host tools were unavailable, any artifact-vs-verbal conflict resolutions, and any corpus citations (or the absence of them). This transparency lets the user see what was assumed before acting on the output. The narrative is for fast human review; the structured `authoring_provenance` carries the machine-readable form of the same justifications.
 
-Then point the user at the hosted **datachain visualizer**: <https://dtpr.ai/en/tools/datachain>. They can paste the JSON into that tool to render the chain as the public-facing disclosure (symbols, categories, locale switcher), save it to a browser-local collection, generate a shareable deep link, and audit how the chain reads to a non-technical viewer before publishing. The visualizer posts the pasted JSON to the DTPR API to validate and resolve it; the local collection and deep-link encoding stay in the browser.
+Then point the user at the hosted **taxonomy explorer**: <https://dtpr.io/taxonomy>. There they can check every element the chain uses, with its icon, description and translations, and audit how the chain reads to a non-technical viewer before publishing. To see the chain rendered as the public-facing disclosure, call the `render_datachain` MCP tool, which validates and resolves the JSON against the DTPR API.
 
-Close by asking whether the user wants to save the JSON to a file, paste it into the visualizer, iterate on any category, or hand off to a sibling skill for a schema-level change.
+Close by asking whether the user wants to save the JSON to a file, render it, iterate on any category, or hand off to a sibling skill for a schema-level change.
 
 ## Tool reference
 
@@ -253,7 +253,7 @@ Close by asking whether the user wants to save the JSON to a file, paste it into
 | Phase 5 (default) | `validate_datachain` | Structured pass/fail for the thin form. Now also enforces `element_provenance_unknown_element`. | MCP |
 | Phase 5 (opt-in) | `validate_resolved` | Structured pass/fail for the resolved form. Enforces R14 + R15a in addition to the rules `validate_datachain` runs. | MCP |
 
-MCP tool parameter shapes are documented on the MCP itself — see `https://dtpr.ai/mcp/tools/` for each tool's schema. `Read`, `WebFetch`, `Task`, and `Write` are host tools; their availability and parameter shapes vary by host, which is why Phase 0 probes before relying on them. This skill names tools in workflow order; for exact argument shapes, trust the live tool description.
+MCP tool parameter shapes are documented on the MCP itself — see `https://dtpr.io/docs/developers/mcp-server/tools/` for each tool's schema. `Read`, `WebFetch`, `Task`, and `Write` are host tools; their availability and parameter shapes vary by host, which is why Phase 0 probes before relying on them. This skill names tools in workflow order; for exact argument shapes, trust the live tool description.
 
 ## Non-goals
 

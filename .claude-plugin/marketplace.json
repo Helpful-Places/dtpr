@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "dtpr",
-      "description": "Describe AI systems as DTPR datachains and brainstorm the DTPR schema itself. Ships two skills that wrap the remote DTPR MCP at api.dtpr.io/mcp.",
+      "description": "Describe AI systems as DTPR datachains and brainstorm the DTPR schema itself. Ships seven agent skills that wrap the remote DTPR MCP at api.dtpr.io/mcp.",
       "source": "./plugin/dtpr",
       "category": "productivity",
       "homepage": "https://dtpr.io"

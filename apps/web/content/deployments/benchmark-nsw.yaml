@@ -1,0 +1,12 @@
+name: Benchmark NSW
+city: Sydney
+mapLabel: NSW
+country: Australia
+flag: 🇦🇺
+url: "https://benchmark-nsw.mit.edu/about#dtpr"
+logoPath: /images/clients/benchmark-nsw.png
+featured: false
+hidden: false
+projectWebsiteUrl: "https://civicdatadesignlab.mit.edu/Benchmark-NSW"
+latitude: -33.9173
+longitude: 151.2313

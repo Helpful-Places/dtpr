@@ -1,0 +1,13 @@
+name: Angers Loire Métropole
+city: Angers
+country: France
+flag: 🇫🇷
+url: "https://angers.dtpr.guide/"
+logoPath: /images/clients/angers.png
+featured: false
+hidden: false
+pressReleaseUrl: "https://presse.angers.fr/communique/angers-loire-metropole-experimente-un-dispositif-dinformation-des-citoyens-sur-la-ville-intelligente"
+projectWebsiteUrl: "https://www.angersloiremetropole.fr/un-territoire-en-mouvement/territoire-intelligent/transparence-numerique-dans-le-domaine-public/index.html"
+deviceCount: 11
+latitude: 47.4784
+longitude: -0.5632

@@ -1,0 +1,53 @@
+title: Who We Are
+description: DTPR is an open standard stewarded by Helpful Places that makes technology legible to the people it affects. It began in 2019 with sensors, cities and residents.
+sections:
+  - type: Hero
+    eyebrow: Who we are
+    heading: DTPR is an open standard stewarded by Helpful Places and an emerging ecosystem of supporters, adopters and contributors.
+    subHeading: |-
+      People can’t be expected to trust technology that they don’t understand, and they can’t begin to understand what they can’t see. Actually useful technology transparency, or *legibility*, is a critical starting point.
+
+      **Our mission is to make the invisible, visible.**
+  - type: Split Content
+    heading: Who is technology transparency really designed for?
+    subHeading: |-
+      Most of it is designed for the people who build or choose it.
+      DTPR is designed for the people it affects.
+    body: |-
+      **AI model cards and algorithm impact assessments** are designed for those who make, design and deploy AI.
+
+      **AI registers are a start**, but they arrive as long PDFs, dense spreadsheets and ad hoc web pages.
+
+      What if transparency had a blueprint: a standard structure anyone could read?
+
+      We have spoken with hundreds of residents in cities around the world. They tell us they need more information before they can trust how technology is used.
+
+      Rather than dense technical specifications or abstract terms of service, DTPR translates these layers into simple language and visual iconography.
+    image: /images/workshop-traffic-cameras.webp
+    imageAlt: "Workshop cards on a table, including one that asks who benefits from the technology used in this situation, and who doesn’t"
+    caption: "At DTPR workshops, residents ask the questions: who benefits from this technology, and who doesn’t?"
+  - type: Media Cards
+    heading: Our Story
+    cards:
+      - type: card
+        heading: DTPR started with sensors, cities and residents.
+        image: /images/workshop-question-cards.webp
+        imageAlt: People gathered around a table covered in handwritten question cards during an early DTPR workshop
+        imageFit: cover
+        subHeading: |-
+          DTPR began in 2019 as an open, co-designed response to Sidewalk Labs’ proposed smart-city project in Toronto, and the questions it raised about surveillance and data collection in public spaces.
+
+          Over 100 residents, designers, privacy experts and city practitioners co-created a shared visual language for technology in the built environment, built on a few simple questions: what is this technology, why is it here, what data is involved, and who is accountable? The original draft and all the co-design materials remain public and free.
+
+          First named Digital Transparency in the Public Realm, the standard was renamed Digital Trust for Places and Routines under Helpful Places. AI is the next chapter of the same practice: applying years of hands-on public-transparency work to a new class of systems.
+      - type: card
+        heading: Growing with NSF support
+        image: /images/makeshift-logo.webp
+        imageAlt: "Makeshift: Accountable tech by design"
+        imageFit: contain
+        subHeading: |-
+          With a Phase I award from the U.S. National Science Foundation’s Pathways to Enable Open-Source Ecosystems (POSE) program, Helpful Places and Superbloom are laying the groundwork for DTPR to scale as an open-source ecosystem.
+
+          The work rests on three pillars: ecosystem research into how DTPR is used and what limits adoption, community development through workshops and convenings, and shared governance so DTPR stays community-led, open and adaptable.
+        link: https://makeshift2026.dtpr.io/
+        linkText: Read about Makeshift

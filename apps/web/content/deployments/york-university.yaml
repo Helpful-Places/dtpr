@@ -1,0 +1,11 @@
+name: York University
+city: Toronto
+country: Canada
+flag: 🇨🇦
+url: "https://york-university.dtpr.guide"
+logoPath: /svgs/dtpr.svg
+featured: false
+hidden: true
+deviceCount: 2
+latitude: 43.7735
+longitude: -79.5019

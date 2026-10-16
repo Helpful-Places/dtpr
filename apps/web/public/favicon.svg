@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 806 806">
+  <style>
+    .mark { fill: #1B2B80; stroke: #1B2B80; }
+    .ring { fill: #fff; }
+    @media (prefers-color-scheme: dark) {
+      .mark { fill: #fff; stroke: #fff; }
+      .ring { fill: #1B2B80; }
+    }
+  </style>
+  <path class="mark" stroke-width="48" stroke-linejoin="round" d="M403 27.6 731.9 217.6V588.4L403 778.4 74.1 588.4V217.6Z"/>
+  <circle class="ring" cx="403" cy="403" r="225.5"/>
+  <rect class="mark" stroke="none" stroke-width="0" x="303" y="303" width="200" height="200" rx="22"/>
+</svg>

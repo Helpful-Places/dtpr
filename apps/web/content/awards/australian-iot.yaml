@@ -1,0 +1,12 @@
+title: Australian IoT Awards Finalist
+organization: IoT Hub
+year: 2024
+description: >-
+  Sydney Olympic Park's DTPR pilot was a finalist in the Trusted IoT category.
+  Check out IoTHub's article on the DTPR and how the SOPA pilot embeds
+  transparency, trust, and accessibility in IoT systems.
+url: "https://www.iothub.com.au/news/meet-the-trusted-iot-service-finalists-in-the-2024-australian-iot-awards-607317"
+imagePath: /images/awards/iotAwards.png
+featured: false
+deployments:
+  - sopa

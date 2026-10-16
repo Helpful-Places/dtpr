@@ -1,0 +1,28 @@
+title: Documentation
+description: DTPR's documentation, for deployers who describe a technology they run and for developers building on the API, plus the concepts both share.
+sections:
+  - type: Hero
+    eyebrow: Docs
+    heading: How to use DTPR
+    subHeading: Guides for organizations deploying DTPR, a reference for developers building on it, and the words both share.
+    horizontal: false
+  - type: Ways In
+    cards:
+      - type: card
+        icon: signpost
+        heading: Deployer docs
+        subHeading: For organizations that use DTPR to describe a technology they run, on signs, online and in community workshops, without writing code.
+        link: /docs/deployers
+        linkText: Deployer docs
+      - type: card
+        icon: code-xml
+        heading: Developer docs
+        subHeading: For developers building on DTPR, with the REST API and MCP server references and the agent skills.
+        link: /docs/developers
+        linkText: Developer docs
+      - type: card
+        icon: book-open
+        heading: Concepts
+        subHeading: Plain definitions of the terms DTPR uses, such as element, context and datachain. Both sets of docs rely on them.
+        link: /docs/concepts
+        linkText: Concepts

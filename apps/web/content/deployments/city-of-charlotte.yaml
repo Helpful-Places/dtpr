@@ -1,0 +1,12 @@
+name: City of Charlotte
+city: Charlotte
+country: USA
+flag: 🇺🇸
+url: "https://clt.dtpr.guide"
+logoPath: /images/clients/charlotte.png
+featured: false
+hidden: false
+pressReleaseUrl: "https://www.charlottenc.gov/CS-Prep/City-News/Technology-Transparency-Pilot-Program"
+deviceCount: 6
+latitude: 35.2271
+longitude: -80.8431

@@ -1,0 +1,38 @@
+{
+  "name": "dtpr-web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "pnpm build:assets && NODE_OPTIONS=--max-old-space-size=6144 nuxt build",
+    "build:assets": "pnpm --filter @dtpr/figma-plugin build && tsx scripts/build-skills.ts && tsx scripts/build-figma-plugin.ts",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "@nuxt/content": "3.16.0",
+    "@nuxt/fonts": "0.14.0",
+    "@nuxt/icon": "^2.5.0",
+    "@nuxt/ui": "4.11.0",
+    "@nuxtjs/i18n": "10.6.0",
+    "@nuxtjs/mdc": "0.23.1",
+    "@nuxtjs/robots": "6.2.4",
+    "@tailwindcss/typography": "^0.5.20",
+    "better-sqlite3": "^13.0.3",
+    "fflate": "^0.8.3",
+    "maplibre-gl": "^6.12.0",
+    "markdown-it": "^15.0.1",
+    "nuxt": "4.5.2",
+    "nuxt-studio": "1.7.0",
+    "tailwindcss": "^4.3.3",
+    "vue": "^3.5.41",
+    "vue-router": "5.2.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@iconify-json/lucide": "^1.2.139",
+    "tsx": "^4.19.0",
+    "wrangler": "^4.147.0"
+  }
+}

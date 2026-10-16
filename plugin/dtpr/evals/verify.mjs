@@ -70,7 +70,7 @@ const INDEX_RELPATH = 'plugin/dtpr/research/INDEX.md'
 const PLUGIN_MANIFEST_PATH = join(PLUGIN_ROOT, '.claude-plugin', 'plugin.json')
 const MCP_CONFIG_PATH = join(PLUGIN_ROOT, '.mcp.json')
 const CHANGELOG_PATH = join(PLUGIN_ROOT, 'CHANGELOG.md')
-const INSTALL_DOC_PATH = join(REPO_ROOT, 'dtpr-ai', 'content', 'en', '7.plugin', '1.install.md')
+const INSTALL_DOC_PATH = join(REPO_ROOT, 'apps', 'web', 'content', 'docs', 'developers', '5.agent-skills', '1.install.md')
 
 // Claude Desktop's skill-upload UI rejects descriptions longer than this.
 // Surfacing the cap here means a regression fails the offline conformance

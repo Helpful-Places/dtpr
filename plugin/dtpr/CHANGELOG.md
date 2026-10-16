@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.3.3 — 2026-10-16
+
+**Docs move to dtpr.io.** The hosted reference for the skills now lives in the website's developer docs at `dtpr.io/docs/developers/agent-skills`, replacing the retired dtpr.ai microsite. No skill behaviour changes.
+
+### Changed
+
+- **All seven `SKILL.md` files and `README.md`** — MCP tool reference links point at `https://dtpr.io/docs/developers/mcp-server/tools/…` instead of `dtpr.ai/mcp/tools/…`. `dtpr-describe-system` now sends users to the taxonomy explorer at `dtpr.io/taxonomy` and the `render_datachain` tool in place of the retired dtpr.ai datachain visualizer; its Phase 0 `WebFetch` probe targets `https://dtpr.io/`.
+- **`evals/verify.mjs`** — the install-doc version check reads `apps/web/content/docs/developers/5.agent-skills/1.install.md`.
+- **`.skill` bundles** — packaged by `apps/web/scripts/build-skills.ts` during the website build and served from `dtpr.io/skills/<version>/`.
+- **`.claude-plugin/plugin.json`** — version bumped to 0.3.3.
+- **`.mcp.json`** — `User-Agent` header synced to `dtpr-claude-plugin/0.3.3`.
+
 ## 0.3.2 — 2026-05-18
 
 **Per-element authoring provenance on the thin DatachainInstance.** `dtpr-describe-system` now always captures `authoring_provenance.element_provenance[<element_id>]` — per-pick `rationale`, qualitative `confidence` (`high` / `medium` / `low`), `source_references` (verbatim quotes lifted from the loaded artifacts, with optional locator), and `variable_rationale` — and emits it on the thin `DatachainInstance` it produces. Verbatim quotes from a PDF or URL now land in the JSON itself, not just the prose narrative, so reviewers and the resolved-form renderer can audit each element pick against the source it was drawn from.

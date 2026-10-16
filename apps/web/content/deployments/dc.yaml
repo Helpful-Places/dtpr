@@ -1,0 +1,11 @@
+name: District of Columbia DOT
+city: Washington, D.C.
+country: USA
+flag: 🇺🇸
+url: "https://dc.dtpr.guide/"
+logoPath: /images/clients/dc.png
+featured: false
+hidden: false
+deviceCount: 9
+latitude: 38.9072
+longitude: -77.0369

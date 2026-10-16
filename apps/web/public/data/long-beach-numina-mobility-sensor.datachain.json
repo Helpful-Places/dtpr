@@ -1,0 +1,307 @@
+{
+  "id": "long-beach-numina-mobility-sensor",
+  "schema_version": "dtpr@2026-09-01-beta",
+  "created_at": "2026-10-14T00:00:00Z",
+  "title": [
+    {
+      "locale": "en",
+      "value": "Mobility Sensor, Willmore, Long Beach"
+    }
+  ],
+  "description": [
+    {
+      "locale": "en",
+      "value": "The Numina sensor detects how pedestrians, bicyclists and different types of vehicles move in streets, noting their volumes and paths traveled without storing any personally identifiable information. This data will support the Willmore neighborhood to identify opportunities to promote pedestrian and cyclist safety."
+    }
+  ],
+  "elements": [
+    {
+      "element_id": "planning_decision_making",
+      "priority": 1,
+      "variables": [
+        {
+          "id": "additional_description",
+          "value": [
+            {
+              "locale": "en",
+              "value": "Supports the Willmore neighborhood in identifying opportunities to promote pedestrian and cyclist safety."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_id": "mobility",
+      "priority": 2
+    },
+    {
+      "element_id": "accessibility",
+      "priority": 3
+    },
+    {
+      "element_id": "institution",
+      "priority": 1,
+      "context_type_id": "deployer",
+      "variables": [
+        {
+          "id": "title",
+          "value": [
+            {
+              "locale": "en",
+              "value": "Long Beach Co-Lab"
+            }
+          ]
+        },
+        {
+          "id": "description",
+          "value": [
+            {
+              "locale": "en",
+              "value": "Long Beach Co-Lab is part of the City of Long Beach's Smart City Initiative, which advances solutions to civic challenges by engaging the community, staff and the private sector to explore and implement emerging technology."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_id": "organization",
+      "priority": 2,
+      "context_type_id": "vendor",
+      "variables": [
+        {
+          "id": "title",
+          "value": [
+            {
+              "locale": "en",
+              "value": "Numina"
+            }
+          ]
+        },
+        {
+          "id": "description",
+          "value": [
+            {
+              "locale": "en",
+              "value": "Numina measures all kinds of street-level activity. Anonymously and in aggregate, Numina delivers the volume counts, paths and traffic behaviors of travelers and objects in roadways. Numina's privacy policy is at numina.co/privacy."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_id": "people",
+      "priority": 1,
+      "context_type_id": "bystander",
+      "variables": [
+        {
+          "id": "title",
+          "value": [
+            {
+              "locale": "en",
+              "value": "People traveling through the street"
+            }
+          ]
+        },
+        {
+          "id": "description",
+          "value": [
+            {
+              "locale": "en",
+              "value": "Pedestrians, bicyclists and people in vehicles moving through the streets the sensor watches. The sensor notes their volumes and paths without storing any personally identifiable information."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_id": "senses",
+      "priority": 1,
+      "variables": [
+        {
+          "id": "additional_description",
+          "value": [
+            {
+              "locale": "en",
+              "value": "Detects people in images and counts how pedestrians, bicyclists and vehicles move, without identifying individuals."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_id": "camera",
+      "priority": 1,
+      "variables": [
+        {
+          "id": "additional_description",
+          "value": [
+            {
+              "locale": "en",
+              "value": "Captures still images that are de-identified on the device before they are used or stored, for example by blurring faces."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_id": "network_connection",
+      "priority": 2,
+      "variables": [
+        {
+          "id": "additional_description",
+          "value": [
+            {
+              "locale": "en",
+              "value": "Sends data over a cellular network."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_id": "input_about_behaviour",
+      "priority": 1,
+      "context_type_id": "de_identified",
+      "variables": [
+        {
+          "id": "additional_description",
+          "value": [
+            {
+              "locale": "en",
+              "value": "De-identified images of the street showing how pedestrians, bicyclists and vehicles move."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_id": "computer_vision",
+      "priority": 1,
+      "variables": [
+        {
+          "id": "additional_description",
+          "value": [
+            {
+              "locale": "en",
+              "value": "Detects people and vehicles in images and where they are, without identifying individuals."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_id": "privacy_transformation",
+      "priority": 2,
+      "variables": [
+        {
+          "id": "additional_description",
+          "value": [
+            {
+              "locale": "en",
+              "value": "Removes identifying details from images and aggregates the results into counts."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_id": "output_about_behaviour",
+      "priority": 1,
+      "context_type_id": "de_identified",
+      "variables": [
+        {
+          "id": "additional_description",
+          "value": [
+            {
+              "locale": "en",
+              "value": "Volume counts, paths and traffic behaviors of travelers and objects in the roadway, delivered anonymously and in aggregate."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_id": "available_to_the_accountable_organization",
+      "priority": 1
+    },
+    {
+      "element_id": "available_to_vendor",
+      "priority": 2
+    },
+    {
+      "element_id": "available_to_3rd_parties",
+      "priority": 3
+    },
+    {
+      "element_id": "data_retained",
+      "priority": 1,
+      "variables": [
+        {
+          "id": "duration",
+          "value": [
+            {
+              "locale": "en",
+              "value": "up to 30 days"
+            }
+          ]
+        },
+        {
+          "id": "additional_description",
+          "value": [
+            {
+              "locale": "en",
+              "value": "Some de-identified images are retained for up to 30 days."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_id": "data_retained",
+      "priority": 2,
+      "variables": [
+        {
+          "id": "duration",
+          "value": [
+            {
+              "locale": "en",
+              "value": "indefinitely"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_id": "security_breach",
+      "priority": 1,
+      "variables": [
+        {
+          "id": "risk",
+          "value": [
+            {
+              "locale": "en",
+              "value": "Data held by the system could be accessed by someone who should not have it."
+            }
+          ]
+        },
+        {
+          "id": "mitigation",
+          "value": [
+            {
+              "locale": "en",
+              "value": "Data is encrypted at rest and in transit, using Transport Layer Security, and the project has been reviewed internally."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "type": "other",
+      "url": "https://long-beach.dtpr.guide/devices/3f3865ac-5f5a-42ad-9947-70153718197a",
+      "title": "City of Long Beach Digital Rights Platform: Mobility Sensor",
+      "citation": "City of Long Beach, Digital Rights Platform, device page for the Numina mobility sensor in Willmore."
+    }
+  ]
+}

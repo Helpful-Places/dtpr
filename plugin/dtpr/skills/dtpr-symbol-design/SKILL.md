@@ -242,7 +242,7 @@ When finalizing a chosen variant, replace the **Variants** section with a single
 | Phase 3 | `Write` | Write the three variant SVGs and `index.html` under the preview root. |
 | Phase 3 | `Bash` | Resolve the absolute path of the preview directory (e.g., `pwd`, `mktemp -d`) for the `file://` URL. |
 
-Tool parameter shapes are documented on the MCP itself — see `https://dtpr.ai/mcp/tools/` for each tool's schema. This skill names tools in workflow order; for exact argument shapes, trust the live tool description.
+Tool parameter shapes are documented on the MCP itself — see `https://dtpr.io/docs/developers/mcp-server/tools/` for each tool's schema. This skill names tools in workflow order; for exact argument shapes, trust the live tool description.
 
 ## Whole-version preview (optional)
 

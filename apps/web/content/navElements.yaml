@@ -1,0 +1,22 @@
+dtprLogo: /images/dtpr_logo.png
+hpLogo: /images/hp_logo.svg
+docs:
+  label: Docs
+  addText: Guides and API reference
+  url: /docs
+links:
+  - label: Who We Are
+    addText: Origins and Mission
+    url: /who-we-are
+  - label: Get Started
+    addText: What DTPR Is and How It Works
+    url: /get-started
+  - label: Get Involved
+    addText: Join the Community
+    url: /get-involved
+  - label: DTPR in the World
+    addText: DTPR Impact and Use Cases
+    url: /dtpr-in-the-world
+  - label: The Taxonomy
+    addText: See the Standard in Action
+    url: /taxonomy

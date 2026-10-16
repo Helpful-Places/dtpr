@@ -197,7 +197,7 @@ Close by naming any sibling skill the user should hand off to for follow-on work
 | Phase 2 | `Write` | Write a new corpus entry when the drafting session surfaces a non-obvious insight worth compounding (optional). |
 | Phase 4 | `get_icon_url` | Optional — resolve the rendered URL for an existing symbol being reused, to confirm the silhouette still fits the disclosure claim. Skip if unnecessary. |
 
-Tool parameter shapes are documented on the MCP itself — see `https://dtpr.ai/mcp/tools/` for each tool's schema. This skill names tools in workflow order; for exact argument shapes, trust the live tool description.
+Tool parameter shapes are documented on the MCP itself — see `https://dtpr.io/docs/developers/mcp-server/tools/` for each tool's schema. This skill names tools in workflow order; for exact argument shapes, trust the live tool description.
 
 ## Non-goals
 

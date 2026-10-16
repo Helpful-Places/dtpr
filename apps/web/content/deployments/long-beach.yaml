@@ -1,0 +1,12 @@
+name: City of Long Beach
+city: Long Beach
+country: USA
+flag: 🇺🇸
+url: "https://long-beach.dtpr.guide"
+logoPath: /images/clients/long-beach.png
+featured: false
+hidden: false
+projectWebsiteUrl: "https://longbeach.gov/smartcity/projects/digital-rights-platform/"
+deviceCount: 27
+latitude: 33.7701
+longitude: -118.1937

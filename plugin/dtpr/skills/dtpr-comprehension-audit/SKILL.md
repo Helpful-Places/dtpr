@@ -104,7 +104,7 @@ Close by asking whether the user wants a re-grade after edits, a sibling skill h
 | Phase 3 | `Task` | Dispatch a researcher on a corpus miss (optional; degrade gracefully if unavailable). |
 | Phase 3 | `Write` | Write a new corpus entry when the finding is worth compounding (optional). |
 
-Tool parameter shapes are documented on the MCP itself — see `https://dtpr.ai/mcp/tools/` for each tool's schema. This skill names tools in workflow order; for exact argument shapes, trust the live tool description.
+Tool parameter shapes are documented on the MCP itself — see `https://dtpr.io/docs/developers/mcp-server/tools/` for each tool's schema. This skill names tools in workflow order; for exact argument shapes, trust the live tool description.
 
 ## Non-goals
 

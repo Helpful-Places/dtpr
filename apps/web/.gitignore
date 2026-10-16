@@ -1,0 +1,33 @@
+# Nuxt dev/build outputs
+.output
+# Skill and Figma plugin downloads, packaged by scripts/ at build time
+public/skills
+public/figma-plugin
+.data
+.nuxt
+.nitro
+.cache
+dist
+
+# Node dependencies
+node_modules
+
+# Logs
+logs
+*.log
+
+# Misc
+.DS_Store
+.fleet
+.idea
+
+# Local env files
+.env
+.env.*
+!.env.example
+
+secrets.json
+.wrangler
+
+# Impeccable per-session hook cache
+.impeccable/hook.cache.json

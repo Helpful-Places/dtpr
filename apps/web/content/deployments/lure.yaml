@@ -1,0 +1,11 @@
+name: Ville de Lure
+city: Lure
+country: France
+flag: 🇫🇷
+url: "https://www.lure.fr/votre-mairie/territoire-intelligent/"
+logoPath: /images/clients/lure.png
+featured: false
+hidden: false
+deviceCount: 5
+latitude: 47.6833
+longitude: 6.5

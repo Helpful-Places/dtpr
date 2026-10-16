@@ -1,0 +1,12 @@
+name: Town of Innisfil
+city: Innisfil
+country: Canada
+flag: 🇨🇦
+url: "https://innisfil.dtpr.guide/"
+logoPath: /images/clients/innisfil.png
+featured: false
+hidden: false
+pressReleaseUrl: "https://innisfil.ca/en/news/town-of-innisfil-wants-your-feedback-on-new-innovative-technology.aspx"
+deviceCount: 1
+latitude: 44.3083
+longitude: -79.5831
