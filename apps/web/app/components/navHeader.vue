@@ -198,11 +198,13 @@
                     </nav>
                 </div>
 
+                <!-- The header is pinned, so a menu taller than the screen scrolls
+                     on its own; the page under it cannot bring the end into view. -->
                 <nav
                     v-show="menuOpen"
                     id="site-nav"
                     aria-label="Main"
-                    class="flex flex-col gap-2 pb-2 pt-3 lg:hidden"
+                    class="flex max-h-[calc(100dvh-6rem)] flex-col gap-2 overflow-y-auto overscroll-contain pb-2 pt-3 lg:hidden"
                 >
                     <NuxtLink v-for="link in nav.links"
                     :key="link.url"
