@@ -12,7 +12,7 @@
         </p>
 
         <p>
-          Do you want to test, pilot or implement DTPR? Access the resources in our <NuxtLink class="underline" to="https://github.com/Helpful-Places">GitHub Repostory</NuxtLink>, consult our <NuxtLink class="underline" to="https://helpful-places.gitbook.io/a-guide-to-dtpr">Guide to the DTPR Standard</NuxtLink>, and join the <NuxtLink class="underline" to="https://dtprworkspace.slack.com/join/shared_invite/zt-rjy2fvch-4JpFFwIgpasqJH7lTAl~dA#/shared-invite/email">DTPR Slack Channel</NuxtLink>
+          Do you want to test, pilot or implement DTPR? Access the resources in our <NuxtLink class="underline" to="https://github.com/Helpful-Places">GitHub Repostory</NuxtLink> and consult our <NuxtLink class="underline" to="https://helpful-places.gitbook.io/a-guide-to-dtpr">Guide to the DTPR Standard</NuxtLink>.
         </p>
 
         <p>
@@ -20,7 +20,6 @@
         </p>
 
         <!-- <ul>
-          <li><a href="https://join.slack.com/t/dtprworkspace/shared_invite/zt-rjy2fvch-4JpFFwIgpasqJH7lTAl~dA" class="u-line border-dtpr-red-lighter">Join the DTPR Slack</a></li>
           <li><a href="https://github.com/Helpful-Places/dtpr" class="u-line border-dtpr-red-lighter">Contribute to the open-source resources</a></li>
           <li>Email us at <a href="mailto:dtpr@helpfulplaces.com" class="u-line border-dtpr-red-lighter">dtpr@helpfulplaces.com</a></li>
         </ul> -->

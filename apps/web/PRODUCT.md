@@ -24,7 +24,7 @@ A successful visit ends in one or more of (confirmed):
 
 - the visitor understands what DTPR is and why it matters;
 - the visitor starts using the standard (docs, taxonomy, API, MCP server);
-- the visitor joins the community (Slack, GitHub, email).
+- the visitor joins the community (newsletter, GitHub, email).
 
 ## Positioning
 
@@ -36,7 +36,7 @@ DTPR is a translation layer: a taxonomy of technology concepts, a visual languag
 - Get Started is one guide page: what DTPR is and how it works (a taxonomy of questions, a visual language, a feedback channel), shown with two real systems, then ways to deploy and where to go next. It is a Studio page like the other marketing pages.
 - Docs are split by audience under `/docs`: deployer docs (digital channel, public signage, community workshops, feedback survey) and developer docs (REST API, MCP server), each with its own sidebar. Concepts, at `/docs/concepts`, is shared by both and is also where the taxonomy explorer takes its definitions from. `/docs` itself is a chooser between the three.
 - Marketing pages are assembled from typed sections in `content/pages/*.yaml` (Hero, Two Columns, Centered Content, Marquee, Vision Section, cards) and edited by non-developers through Nuxt Studio, which commits to `main`.
-- Community channels: Slack workspace, GitHub (`Helpful-Places/dtpr`), `hello@dtpr.io`.
+- Community channels: newsletter, GitHub (`Helpful-Places/dtpr`), `hello@dtpr.io`.
 
 ## Capabilities and Constraints
 

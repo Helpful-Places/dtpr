@@ -102,7 +102,7 @@ export const pageElements=z.object({
   body: property(z.string().optional()).editor({
     label:"Body",
     input:'textarea',
-    description:"For Split Content sections, the text beside the image. Supports bold and blank-line paragraph breaks"
+    description:"For Split Content sections, the text beside the image. Supports bold and blank-line paragraph breaks. For Newsletter sections, the text above the email field"
   }),
   caption: property(z.string().optional()).editor({
     label:"Image Caption",
@@ -344,7 +344,7 @@ export default defineContentConfig({
             link: z.string(),
             involveText: property(z.string().optional()).editor({
               label: "Get Involved Link Text",
-              description: "How this persona can take part: Slack, GitHub, email or the Get Involved page"
+              description: "How this persona can take part: the newsletter, GitHub, email or the Get Involved page"
             }),
             involveLink: z.string().optional(),
           })),

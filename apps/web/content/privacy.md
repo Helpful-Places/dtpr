@@ -2,7 +2,7 @@
 
 Our commitment to protecting your privacy and personal information
 
-Last Updated: October 26, 2025
+Last Updated: October 19, 2026
 
 This Privacy Notice describes how DTPR protects the privacy of visitors to our website at dtpr.io (the "Website").
 
@@ -13,6 +13,10 @@ Transparency is core to who we are as an organization, and we have done our best
 ### **To respond to your requests, questions and feedback**
 
 When you contact us through our contact form, we collect your email address and the content of your message. We use this information to respond to your inquiry and communicate with you about your questions or feedback.
+
+### **To send you the newsletter**
+
+When you subscribe to the newsletter, we collect your email address. We use it only to send the newsletter, and every issue includes a link to unsubscribe.
 
 ### **A note about tracking and analytics**
 
@@ -29,6 +33,7 @@ We do not sell your personal information. We only share it with service provider
 DTPR uses third-party tools and services to help us manage our activities, including:
 
 * [**Plausible.io**](https://plausible.io/): for privacy-friendly website analytics
+* [**Mailcoach**](https://www.mailcoach.app/): to manage the newsletter list and send the newsletter
 
 We ensure that these service providers only use your personal information to deliver their services to us and for no other purpose. A complete list of third-party service providers is available upon request.
 

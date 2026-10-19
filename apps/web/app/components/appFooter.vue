@@ -22,7 +22,7 @@
         {
             heading: 'Community',
             links: [
-                { label: 'Slack', to: 'https://join.slack.com/t/dtprworkspace/shared_invite/zt-48k9n9apd-j0ucFCsJcKPnpkUZKR~SsQ', external: true },
+                { label: 'Newsletter', to: '/get-involved#newsletter' },
                 { label: 'hello@dtpr.io', to: 'mailto:hello@dtpr.io' },
                 { label: 'Helpful Places', to: 'https://www.helpfulplaces.com', external: true },
                 { label: 'Attribution', to: '/docs/attribution' },

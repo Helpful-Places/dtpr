@@ -51,38 +51,6 @@ body {
   display: inline-block;
 }
 
-#CommunityInviter {
-  text-align: left !important;
-  img,
-  div {
-    display: none;
-  }
-  input {
-    font-family: "Red Hat Text", sans-serif !important;
-    font-size: 16px;
-    border-radius: 8px;
-    padding: 8px 20px !important;
-    line-height: 36px;
-    border: 2px solid rgba(0, 0, 0, 0.2);
-    width: 260px !important;
-  }
-  button {
-    font-family: "Red Hat Text", sans-serif !important;
-    margin: 0 0 0 10px !important;
-    line-height: 24px;
-    padding: 16px 20px !important;
-    background-color: #002684 !important;
-    border: 0 none !important;
-    color: #fff;
-    font-weight: 500;
-    font-size: 16px;
-    border-radius: 8px;
-    padding: 10px 20px;
-    display: inline-block !important;
-    width: auto !important;
-  }
-}
-
 .menu-overlay-scrim {
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 1200;
