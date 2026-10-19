@@ -5,8 +5,17 @@
   "main": "./.output/server/index.mjs",
   "compatibility_date": "2026-09-01",
   "compatibility_flags": ["nodejs_compat"],
+  // dtpr.io is the site. The others are hosts it replaced or aliases, and
+  // server/middleware/legacy-redirects.ts sends them on to dtpr.io. Workers
+  // Builds deploys these as the Worker's complete set of custom domains, taking
+  // over any DNS record or other Worker already on the hostname.
   "routes": [
-    { "pattern": "dev.dtpr.io", "custom_domain": true }
+    { "pattern": "dtpr.io", "custom_domain": true },
+    { "pattern": "www.dtpr.io", "custom_domain": true },
+    { "pattern": "dev.dtpr.io", "custom_domain": true },
+    { "pattern": "docs.dtpr.io", "custom_domain": true },
+    { "pattern": "dtpr.ai", "custom_domain": true },
+    { "pattern": "www.dtpr.ai", "custom_domain": true }
   ],
   "preview_urls":true,
   
@@ -23,7 +32,7 @@
   ],
   // Previews (`wrangler preview`, run by Workers Builds on non-production
   // branches) don't inherit production bindings. They get their own D1 so a
-  // preview's content dump never overwrites the one dev.dtpr.io reads.
+  // preview's content dump never overwrites the one dtpr.io reads.
   "previews": {
     "d1_databases": [
       {

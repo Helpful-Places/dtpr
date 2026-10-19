@@ -4,7 +4,6 @@ import { defineConfig } from 'vitest/config'
 // respondent identity) — not the Nuxt runtime — so we skip tsconfig
 // discovery (the app/ tsconfig extends `.nuxt/tsconfig.json`, which only
 // exists after `nuxt prepare`) and run against a minimal esbuild config.
-// Mirrors dtpr-ai/vitest.config.ts.
 export default defineConfig({
   test: {
     environment: 'jsdom',

@@ -33,7 +33,7 @@
  *      `should_trigger` entry on the named sibling skill.
  *   7. Plugin version is coherent across `plugin.json`, the `.mcp.json`
  *      `User-Agent`, the CHANGELOG heading, and the install-doc download
- *      URL on dtpr.ai.
+ *      URL on dtpr.io.
  *   8. When git history is available, any PR that touches `skills/`,
  *      `.mcp.json`, or `references/` must also bump the plugin version
  *      relative to origin/main. Catches the "shipped a skill change
@@ -259,7 +259,7 @@ function verifyPluginVersionCoherence() {
       )
     }
   } catch (e) {
-    // Install doc lives in dtpr-ai, which may not be present in every
+    // Install doc lives in apps/web, which may not be present in every
     // checkout (e.g. a shallow plugin-only clone). Warn rather than
     // fail in that case.
     warn(`${INSTALL_DOC_PATH}: cannot read install doc; skipping version-URL check (${e.message}).`)

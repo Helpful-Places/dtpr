@@ -43,7 +43,7 @@ jobs:
           fi
           gh pr create --base main --head content \
             --title "Content edits from Nuxt Studio" \
-            --body "Edits published from Nuxt Studio. Cloudflare deploys this branch as the \`content\` Preview of \`dtpr-web\`; review the changes there, then merge to publish them to dev.dtpr.io. Later Studio edits are added to this PR until it merges."
+            --body "Edits published from Nuxt Studio. Cloudflare deploys this branch as the \`content\` Preview of \`dtpr-web\`; review the changes there, then merge to publish them to dtpr.io. Later Studio edits are added to this PR until it merges."
 
   sync:
     name: Bring content up to date with main

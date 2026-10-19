@@ -24,7 +24,7 @@
 
 /* Dark-mode tokens. Two triggers:
    - `html.dark` matches the class @nuxt/color-mode applies (Nuxt UI's
-     `classSuffix: ""`), so Docus/dtpr-ai flips with the host theme.
+     `classSuffix: ""`), so a Nuxt UI host flips with its theme.
    - `prefers-color-scheme: dark`, gated on `html:not(.light)`, covers
      standalone SSR consumers (MCP iframe) where no class is set.
    Override either by setting tokens on a wrapper element. */
