@@ -12,8 +12,10 @@ permissions:
   contents: write
   pull-requests: write
 
+# One group per branch: a pending run in a shared group can be replaced by a run
+# for the other branch, which would skip its job.
 concurrency:
-  group: web-content-pr
+  group: web-content-pr-${{ github.ref_name }}
   cancel-in-progress: false
 
 jobs:
@@ -59,12 +61,22 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898729+github-actions[bot]@users.noreply.github.com"
-          git checkout -B content origin/content
-          if git merge-base --is-ancestor origin/main HEAD; then
-            echo "content already contains main."
-            exit 0
-          fi
-          # A conflict fails here: an edit in Studio and a change on main touched
-          # the same lines. Resolve it by hand on the content branch.
-          git merge --no-edit origin/main
-          git push origin content
+          # Studio can push to content between the fetch and the push, which
+          # rejects the push. Refetch and merge again rather than overwrite it.
+          for attempt in 1 2 3; do
+            git fetch origin main content
+            git checkout -B content origin/content
+            if git merge-base --is-ancestor origin/main HEAD; then
+              echo "content already contains main."
+              exit 0
+            fi
+            # A conflict fails here: an edit in Studio and a change on main
+            # touched the same lines. Resolve it by hand on the content branch.
+            git merge --no-edit origin/main
+            if git push origin content; then
+              exit 0
+            fi
+            echo "Push rejected (attempt $attempt); retrying."
+            sleep 5
+          done
+          exit 1
