@@ -6,14 +6,14 @@ on:
       - 'plugin/**'
       - '.claude-plugin/**'
       - 'api/src/mcp/tools.ts'
-      - 'dtpr-ai/content/en/7.plugin/1.install.md'
+      - 'apps/web/content/docs/developers/5.agent-skills/1.install.md'
       - '.github/workflows/plugin-test.yaml'
   pull_request:
     paths:
       - 'plugin/**'
       - '.claude-plugin/**'
       - 'api/src/mcp/tools.ts'
-      - 'dtpr-ai/content/en/7.plugin/1.install.md'
+      - 'apps/web/content/docs/developers/5.agent-skills/1.install.md'
       - '.github/workflows/plugin-test.yaml'
 
 jobs:

@@ -1,7 +1,7 @@
 # dtpr-web
 
-The DTPR website refresh, served at <https://dev.dtpr.io> while it matures into
-a replacement for [`app/`](../../app). Moved here from
+The DTPR website, served at <https://dtpr.io>. It replaced [`app/`](../../app)
+on dtpr.io and absorbed the docs from dtpr.ai and docs.dtpr.io. Moved here from
 [Helpful-Places/DTPR-Website-Refresh](https://github.com/Helpful-Places/DTPR-Website-Refresh)
 at commit `5a574fb`; that repo is retired and this directory is the source of truth.
 
@@ -23,9 +23,16 @@ pnpm deploy:web    # wrangler deploy — build first
 ## Deployment
 
 Worker `dtpr-web` on the `helpfulplaces` Cloudflare account
-(`f978769622a3e15ad770688a80811aa8`), on the custom domain `dev.dtpr.io`. The
-`dtpr-website` Worker that served the site from the old repo is retired; a
-deploy under that name would move `dev.dtpr.io` back to it.
+(`f978769622a3e15ad770688a80811aa8`), on the custom domain `dtpr.io`. It also
+answers on `www.dtpr.io`, `dev.dtpr.io`, `docs.dtpr.io`, `dtpr.ai` and
+`www.dtpr.ai`, which `server/middleware/legacy-redirects.ts` redirects to their
+pages on dtpr.io (the table is `server/utils/legacyRedirects.ts`; `pnpm test`
+checks it). The old site's `/api/dtpr/*` and `/dtpr-icons/*` URLs go to their
+frozen copies on api.dtpr.io. `wrangler.jsonc` lists every hostname, and a
+deploy replaces the Worker's custom domains with exactly that list, so add new
+ones there rather than in the dashboard. The `dtpr-website` Worker that served
+the site from the old repo is retired; a deploy under that name would move
+`dev.dtpr.io` back to it.
 Cloudflare Workers Builds deploys it: the Worker's Git connection points at
 `helpful-places/dtpr` with root directory `apps/web`. `main` deploys to
 production and other branches get [Previews](https://developers.cloudflare.com/workers/previews/)
@@ -43,7 +50,7 @@ Editors never commit to `main`. `nuxt.config.ts` points Studio at
 `helpful-places/dtpr` with `rootDir: apps/web` and `branch: content`, and
 builds Studio only into the `content` branch's Preview, so the editor lives at
 `https://content-dtpr-web.helpful-places.workers.dev/_studio` and shows the
-content it commits on top of. Production (dev.dtpr.io) and other Previews are
+content it commits on top of. Production (dtpr.io) and other Previews are
 read-only, and redirect `/_studio` to the `content` Preview.
 
 1. An editor publishes in Studio, which commits to `content`.
@@ -83,7 +90,7 @@ location. Impeccable reads the marks to find where an edit belongs.
 
 ## Dependencies
 
-Nuxt and its modules are pinned to exact versions (the ones `dev.dtpr.io` ran
+Nuxt and its modules are pinned to exact versions (the ones the site ran
 from the old repo). Caret ranges let pnpm pull a newer Nuxt and Vite, which
 moves the shared Vite peer for every other workspace package. `@nuxt/icon` is
 declared at `^2.5.0` because pnpm's hidden hoisted store otherwise hands

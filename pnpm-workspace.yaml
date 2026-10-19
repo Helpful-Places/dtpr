@@ -2,9 +2,7 @@ packages:
   - 'app'
   - 'apps/*'
   - 'api'
-  - 'docs-site'
   - 'figma-plugin'
-  - 'dtpr-ai'
   - 'packages/*'
   - 'prototypes/canvas'
   - 'talks/*'
@@ -28,7 +26,7 @@ allowBuilds:
 # to @nuxt/kit's own location (no base override). Under pnpm's isolated
 # node_modules those packages live only in the virtual store, so `nuxt
 # dev`/`build` fails with "Cannot resolve module @intlify/shared" for
-# every app using the i18n module (canvas, dtpr-ai). Publicly hoisting
+# every app using the i18n module (prototypes/canvas). Publicly hoisting
 # @intlify/* into the top-level node_modules makes them resolvable from
 # @nuxt/kit. Real consumers still resolve their own pinned version via
 # their package's own symlinks first.
@@ -52,7 +50,7 @@ overrides:
   # copy and every SSR page 500'd with "Cannot read properties of null
   # (reading 'ce')". Only reproduces on the workerd build, not node-server.
   vue: 3.5.42
-  # One vue-i18n 11 for the whole repo. dtpr-ai and prototypes/canvas resolved
+  # One vue-i18n 11 for the whole repo. dtpr-ai (since removed) and canvas resolved
   # 11.4.6 while web resolved 11.4.10, and publicHoistPattern hoists a single
   # @intlify/shared (11.4.6). @intlify/core-base@11.4.10 then imported
   # `toDevtoolsGroupId` from the hoisted 11.4.6 copy, which lacks it, and

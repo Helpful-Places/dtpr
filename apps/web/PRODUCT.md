@@ -41,7 +41,7 @@ DTPR is a translation layer: a taxonomy of technology concepts, a visual languag
 ## Capabilities and Constraints
 
 - Nuxt 4 with Nuxt Content, Nuxt UI, Tailwind CSS v4, deployed to Cloudflare Workers with D1-backed content.
-- Currently a work in progress at `dev.dtpr.io` and not indexable; it is intended to take over `dtpr.io`.
+- Served at `dtpr.io`, which it took over from the old `app/`; dtpr.ai and docs.dtpr.io redirect into it.
 - `@nuxtjs/i18n` is installed; no localized content exists yet.
 - Vision components render live DTPR datachains from `public/data/*.datachain.json`.
 - Terminology: DTPR, datachain, taxonomy, element, category, Helpful Places (steward).

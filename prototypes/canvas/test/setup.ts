@@ -2,7 +2,7 @@
 // jsdom would install; without the `--localstorage-file` flag it has no
 // Storage methods. Replace `window.localStorage` with an in-memory
 // Storage shim before each test so respondent-identity tests get
-// standard Storage semantics. Mirrors dtpr-ai/test/setup.ts.
+// standard Storage semantics.
 import { afterEach, beforeEach } from 'vitest'
 
 class MemoryStorage implements Storage {

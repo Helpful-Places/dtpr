@@ -1,7 +1,7 @@
 // The canvas app: a DTPR AI register with a click-to-react feedback
-// layer. Mirrors the Cloudflare deployment shape of `dtpr-ai` and
-// `docs-site` — a `cloudflare-module` Nitro preset under `$production`,
-// deployed via Cloudflare Workers Builds (no CI job).
+// layer. Same Cloudflare deployment shape as `apps/web`: a
+// `cloudflare-module` Nitro preset under `$production`, deployed via
+// Cloudflare Workers Builds (no CI job).
 export default defineNuxtConfig({
   modules: ['@nuxt/ui', '@nuxtjs/i18n'],
 

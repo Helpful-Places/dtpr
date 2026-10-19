@@ -52,12 +52,12 @@ export default defineNuxtConfig({
     serverBundle: { collections: ['lucide'] },
   },
 
-  // Work in progress on dev.dtpr.io. When this site takes over dtpr.io,
-  // set url to 'https://dtpr.io' and indexable to true.
+  // Only the production build is indexable; Previews of other branches on
+  // workers.dev stay out of search results.
   site: {
-    url: 'https://dev.dtpr.io',
+    url: 'https://dtpr.io',
     name: 'DTPR',
-    indexable: false,
+    indexable: process.env.WORKERS_CI_BRANCH === 'main',
   },
 
   robots: {
