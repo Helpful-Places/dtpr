@@ -16,10 +16,16 @@ const LOC_ATTR = 'data-astro-source-loc'
 
 const normalize = (text: string) => text.replace(/\s+/g, ' ').trim()
 
-// When the same text is in several files, the header and footer take it from
-// the nav file, and the page from the file that matches its path.
-function pick(hits: SourceLine[], el: Element, path: string): SourceLine {
-  if (!el.closest('main')) return hits.find(hit => hit.file === 'content/navElements.yaml') ?? hits[0]!
+// When the same text is in several files, the page takes it from the file
+// that matches its path. Outside the page only the header's labels come from
+// content (the nav file); the footer mixes nav labels with labels hardcoded in
+// appFooter.vue that can share their text, so it gets no hint, and its nav
+// labels are edited from the header.
+function pick(hits: SourceLine[], el: Element, path: string): SourceLine | undefined {
+  if (!el.closest('main')) {
+    if (el.closest('footer')) return undefined
+    return hits.find(hit => hit.file === 'content/navElements.yaml')
+  }
   const segments = path.split('/').filter(Boolean)
   const score = (hit: SourceLine) => segments.filter(s => hit.file.replace(/\d+\./g, '').includes(s)).length
   return [...hits].sort((a, b) => score(b) - score(a))[0]!
@@ -51,8 +57,10 @@ export default defineNuxtPlugin(() => {
       const text = normalize(el.textContent ?? '')
       const hits = index[text]
       // Only the innermost element that holds the text gets the hint.
-      if (hits && ![...el.children].some(child => normalize(child.textContent ?? '') === text)) {
-        const hit = pick(hits, el, route.path)
+      const hit = hits && ![...el.children].some(child => normalize(child.textContent ?? '') === text)
+        ? pick(hits, el, route.path)
+        : undefined
+      if (hit) {
         // Only write changes, so a settled page makes no mutations to react to.
         if (el.getAttribute(FILE_ATTR) !== hit.file) el.setAttribute(FILE_ATTR, hit.file)
         if (el.getAttribute(LOC_ATTR) !== `${hit.line}:1`) el.setAttribute(LOC_ATTR, `${hit.line}:1`)
