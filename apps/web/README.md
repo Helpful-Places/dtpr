@@ -28,8 +28,9 @@ Worker `dtpr-web` on the `helpfulplaces` Cloudflare account
 deploy under that name would move `dev.dtpr.io` back to it.
 Cloudflare Workers Builds deploys it: the Worker's Git connection points at
 `helpful-places/dtpr` with root directory `apps/web`. `main` deploys to
-production and other branches get preview versions; `nuxt.config.ts` reads
-`WORKERS_CI_BRANCH` to leave Nuxt Studio out of preview builds.
+production and other branches get [Previews](https://developers.cloudflare.com/workers/previews/)
+at `<branch>-dtpr-web.<subdomain>.workers.dev`; `nuxt.config.ts` reads
+`WORKERS_CI_BRANCH` to build Nuxt Studio into the `content` Preview only.
 
 `@nuxt/content` stores parsed content in D1 bound as `DB`, seeded from
 `dump.<collection>.sql` in the deployed assets on first request (hence
@@ -38,11 +39,36 @@ production and other branches get preview versions; `nuxt.config.ts` reads
 
 ## Nuxt Studio
 
-`nuxt.config.ts` points Studio at `helpful-places/dtpr` with `rootDir: apps/web`,
-so content edits commit to this monorepo's `main`. The editor needs the secrets
-listed in `.env.example`: set them locally in `.env`, and in production with
-`npx wrangler secret put <NAME>`. `STUDIO_GITHUB_TOKEN` must be a fine-grained
-PAT with Contents read/write on `helpful-places/dtpr`.
+Editors never commit to `main`. `nuxt.config.ts` points Studio at
+`helpful-places/dtpr` with `rootDir: apps/web` and `branch: content`, and
+builds Studio only into the `content` branch's Preview, so the editor lives at
+`https://content-dtpr-web.<subdomain>.workers.dev/_studio` and shows the content
+it commits on top of. Production (dev.dtpr.io) and other Previews are read-only.
+
+1. An editor publishes in Studio, which commits to `content`.
+2. Workers Builds rebuilds the `content` Preview with the edit.
+3. [`web-content-pr.yaml`](../../.github/workflows/web-content-pr.yaml) opens a
+   PR from `content` into `main` if none is open; later edits join that PR.
+4. A maintainer reviews the PR and the Preview, then merges, and `main` deploys
+   to production. On every push to `main` the same workflow merges `main` back
+   into `content`; if that conflicts, resolve it by hand on `content`.
+
+`main`'s branch protection requires a reviewed PR, but admins can bypass it.
+Studio commits as the bot PAT's owner (Google sign-in) or as the signed-in
+GitHub user, so keep that PAT's owner off the admin bypass, or turn on "Do not
+allow bypassing the above settings", if `main` should be unreachable from Studio.
+
+The editor needs the secrets listed in `.env.example`: set them locally in
+`.env`, and on the `content` Preview, not on production or the Base
+configuration. Previews don't inherit production's secrets, and secrets can't be
+read back, so set each one from `apps/web` (wrangler isn't installed at the root):
+`pnpm exec wrangler preview secret put <NAME> --name content --profile helpfulplaces`,
+or all at once with `preview secret bulk <file>`.
+`STUDIO_GITHUB_TOKEN` must be a fine-grained PAT with Contents read/write on
+`helpful-places/dtpr`. The GitHub and Google OAuth apps redirect to the host
+Studio runs on, so their callback URLs are
+`https://content-dtpr-web.<subdomain>.workers.dev/__nuxt_studio/auth/github` and
+`.../__nuxt_studio/auth/google`.
 
 ## Dependencies
 

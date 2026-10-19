@@ -1,12 +1,16 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-// Workers Builds sets WORKERS_CI_BRANCH. Studio commits to main, so it only
-// runs on the main build; branch previews are read-only.
-const isPreviewBuild = !!process.env.WORKERS_CI_BRANCH && process.env.WORKERS_CI_BRANCH !== 'main'
+// Nuxt Studio commits editors' changes to this branch, never to main. Workers
+// Builds sets WORKERS_CI_BRANCH, and Studio is only built into the branch's
+// own Preview, so editors always see the content they're committing on top of.
+// .github/workflows/web-content-pr.yaml opens the PR from it into main.
+// `nuxt dev` keeps Studio too, where it writes to the local files instead.
+const STUDIO_BRANCH = 'content'
+const withStudio = process.env.WORKERS_CI_BRANCH === STUDIO_BRANCH || process.env.NODE_ENV === 'development'
 
 export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
-    ...(isPreviewBuild ? [] : ['nuxt-studio']),
+    ...(withStudio ? ['nuxt-studio'] : []),
     '@nuxt/ui',
     '@nuxt/fonts',
     '@nuxtjs/robots'
@@ -80,7 +84,7 @@ export default defineNuxtConfig({
       provider:'github',
       owner:'helpful-places',
       repo:'dtpr',
-      branch:'main',
+      branch: STUDIO_BRANCH,
       rootDir:'apps/web'
     }
   },

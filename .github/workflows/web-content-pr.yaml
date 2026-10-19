@@ -1,0 +1,82 @@
+name: Web content PR
+
+# Nuxt Studio commits editors' changes to the `content` branch (see
+# apps/web/nuxt.config.ts), which Workers Builds deploys as the `content`
+# Preview. This keeps one PR open from content into main, and after main moves
+# (including when that PR merges) brings content back up to date with it.
+on:
+  push:
+    branches: [content, main]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+# One group per branch: a pending run in a shared group can be replaced by a run
+# for the other branch, which would skip its job.
+concurrency:
+  group: web-content-pr-${{ github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  open-pr:
+    name: Open the content PR
+    if: github.ref_name == 'content'
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Open a PR into main unless one is open or there's nothing to merge
+        run: |
+          open=$(gh pr list --head content --base main --state open --json number --jq 'length')
+          if [ "$open" != 0 ]; then
+            echo "A content PR is already open."
+            exit 0
+          fi
+          # Files rather than commits: after content merges main back in it is
+          # ahead by commits but has no changes of its own.
+          changed=$(gh api "repos/$GH_REPO/compare/main...content" --jq '.files | length')
+          if [ "$changed" = 0 ]; then
+            echo "content has no changes against main."
+            exit 0
+          fi
+          gh pr create --base main --head content \
+            --title "Content edits from Nuxt Studio" \
+            --body "Edits published from Nuxt Studio. Cloudflare deploys this branch as the \`content\` Preview of \`dtpr-web\`; review the changes there, then merge to publish them to dev.dtpr.io. Later Studio edits are added to this PR until it merges."
+
+  sync:
+    name: Bring content up to date with main
+    if: github.ref_name == 'main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Merge main into content
+        run: |
+          if ! git ls-remote --exit-code --heads origin content > /dev/null; then
+            echo "No content branch yet."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898729+github-actions[bot]@users.noreply.github.com"
+          # Studio can push to content between the fetch and the push, which
+          # rejects the push. Refetch and merge again rather than overwrite it.
+          for attempt in 1 2 3; do
+            git fetch origin main content
+            git checkout -B content origin/content
+            if git merge-base --is-ancestor origin/main HEAD; then
+              echo "content already contains main."
+              exit 0
+            fi
+            # A conflict fails here: an edit in Studio and a change on main
+            # touched the same lines. Resolve it by hand on the content branch.
+            git merge --no-edit origin/main
+            if git push origin content; then
+              exit 0
+            fi
+            echo "Push rejected (attempt $attempt); retrying."
+            sleep 5
+          done
+          exit 1
