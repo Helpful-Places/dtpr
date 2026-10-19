@@ -59,7 +59,7 @@ The headline is strong and the three "How might DTPR…" mocks are the right ide
 **[P0] The content has no way forward**
 - What: the page has 8 links, all in the header and footer. The three audience cards have no `link` in `content/pages/index.yaml:23-31`, though `twoColumns.vue:43` already supports one. No hero call to action and no closing section.
 - Why it matters: two of the three success outcomes (start using, join the community) cannot be reached from the content.
-- Fix: add links to the three cards, add a hero action pair, end the page with Slack, GitHub and email.
+- Fix: add links to the three cards, add a hero action pair, end the page with the newsletter, GitHub and email.
 - Suggested command: /impeccable clarify
 
 **[P1] Layout breaks on phones and tablets**

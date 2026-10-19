@@ -71,6 +71,16 @@ Studio runs on, so their callback URLs are
 `https://content-dtpr-web.helpful-places.workers.dev/__nuxt_studio/auth/github` and
 `.../__nuxt_studio/auth/google`.
 
+## Impeccable live editing
+
+[Impeccable](https://github.com/pbakaus/impeccable)'s live mode edits copy in
+the browser during `nuxt dev` and writes it back to source.
+`.impeccable/live/config.json` holds its settings, and its session files are
+gitignored. Most copy comes from `content/`, so in dev
+`server/dev/contentSources.ts` maps each string to its content file and line,
+and `app/plugins/impeccable-dev.client.ts` marks the page's elements with that
+location. Impeccable reads the marks to find where an edit belongs.
+
 ## Dependencies
 
 Nuxt and its modules are pinned to exact versions (the ones `dev.dtpr.io` ran

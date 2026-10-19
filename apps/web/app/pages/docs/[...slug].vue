@@ -108,6 +108,7 @@
 </script>
 
 <template>
+    <DocsBetaNotice />
     <!-- The same hero as every other page; it holds the page's only h1. -->
     <Hero v-if="page" :eyebrow="eyebrow" :heading="page.title" :sub-heading="page.description" />
     <UContainer class="pb-8 sm:pb-10">

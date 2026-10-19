@@ -355,7 +355,7 @@
       "kind": "button",
       "refersTo": "button-outline",
       "description": "Secondary actions inside cards and beside a primary hero action.",
-      "html": "<button class=\"ds-btn-outline\">Join the Slack <svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg></button>",
+      "html": "<button class=\"ds-btn-outline\">Subscribe to the newsletter <svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg></button>",
       "css": ".ds-btn-outline { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 12px; border: none; border-radius: 4px; background: #fff; color: var(--color-primary-700); box-shadow: inset 0 0 0 1px var(--color-rule); font-family: var(--font-sans); font-size: 0.875rem; font-weight: 700; cursor: pointer; transition: background-color 150ms, color 150ms, box-shadow 150ms; } .ds-btn-outline:hover, .ds-btn-outline:active { background: var(--color-primary-50); color: var(--color-secondary-500); box-shadow: inset 0 0 0 1px var(--color-secondary-500); } .ds-btn-outline:focus-visible { outline: 2px solid var(--color-primary-700); outline-offset: 2px; }"
     },
     {
@@ -409,7 +409,7 @@
       "kind": "custom",
       "refersTo": "footer",
       "description": "Midnight band under a 2px navy rule.",
-      "html": "<footer class=\"ds-footer\"><h2 class=\"ds-footer-heading\">Community</h2><a class=\"ds-footer-link\" href=\"#\">Slack <svg viewBox=\"0 0 12 12\" width=\"12\" height=\"12\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3.5 8.5l5-5M4.5 3.5h4v4\"/></svg></a><a class=\"ds-footer-link\" href=\"#\">GitHub</a><p class=\"ds-footer-note\">DTPR is stewarded by Helpful Places and licensed under CC BY 4.0.</p></footer>",
+      "html": "<footer class=\"ds-footer\"><h2 class=\"ds-footer-heading\">Community</h2><a class=\"ds-footer-link\" href=\"#\">Newsletter <svg viewBox=\"0 0 12 12\" width=\"12\" height=\"12\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3.5 8.5l5-5M4.5 3.5h4v4\"/></svg></a><a class=\"ds-footer-link\" href=\"#\">GitHub</a><p class=\"ds-footer-note\">DTPR is stewarded by Helpful Places and licensed under CC BY 4.0.</p></footer>",
       "css": ".ds-footer { padding: 32px; border-top: 2px solid var(--color-primary-700); background: var(--color-midnight); font-family: var(--font-sans); font-size: 0.875rem; } .ds-footer-heading { margin: 0 0 16px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-secondary-300); } .ds-footer-link { display: flex; align-items: center; gap: 6px; min-height: 32px; color: rgb(255 255 255 / 0.7); text-decoration: none; transition: color 150ms; } .ds-footer-link:hover { color: #fff; } .ds-footer-link:focus-visible { outline: 2px solid #fff; outline-offset: 2px; } .ds-footer-note { margin: 24px 0 0; padding-top: 24px; border-top: 1px solid rgb(255 255 255 / 0.1); font-size: 0.75rem; color: rgb(255 255 255 / 0.7); }"
     }
   ],

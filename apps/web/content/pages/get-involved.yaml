@@ -1,30 +1,37 @@
 title: Get Involved
-description: Join the DTPR community on Slack, GitHub or email and help shape an open standard for accountable, legible technology.
+description: Join the DTPR community through the newsletter, GitHub or email and help shape an open standard for accountable, legible technology.
 sections:
   - type: Hero
     eyebrow: Get involved
     heading: We’re building a movement. Come join us.
-    subHeading: We are public servants, technologists, designers, policy makers, community advocates, parents, and students. We believe it’s possible for technology to be accountable and legible to the people it serves. If that sounds like you, we’d love to hear from you.
+    subHeading: We are public servants, technologists, designers, policymakers, community advocates, parents, and students. We believe it’s possible for technology to be accountable and legible to the people it serves. If that sounds like you, we’d love to hear from you.
     orientation: horizontal
     image: ""
+  - type: Newsletter
+    anchor: newsletter
+    heading: Get the newsletter
+    subHeading: A few emails a year about how the standard is changing and where it is being used.
+    body: Each issue covers new and revised taxonomy elements, case studies from places using DTPR, and open calls to contribute, such as workshops and feedback rounds.
+    buttonText: Subscribe
+    image: /images/get-involved.png
+    imageAlt: Workshop cards asking whether traffic cameras signify an issue or a solution
   - type: Ways In
-    heading: Ways in
     cards:
       - type: card
-        heading: Subscribe to the Newsletter
-        subHeading: Stay up to date with workshops, updates, and changes from the DTPR community by subscribing to our newsletter.
-        link: https://join.slack.com/t/dtprworkspace/shared_invite/zt-48k9n9apd-j0ucFCsJcKPnpkUZKR~SsQ
-        linkText: Subscribe
+        heading: Contact us
+        subHeading: Ask a question, or tell us about an idea you would like to work on together.
+        link: mailto:hello@dtpr.io
+        linkText: Email hello@dtpr.io
       - type: card
         heading: Propose a change
-        subHeading: Propose changes or additions to the standard as it grows. Taxonomy entries, icons and guidance are all developed in the open under CC BY 4.0.
+        subHeading: Suggest a new taxonomy element, a new icon or a fix to the guidance. All of it is developed in the open under CC BY 4.0.
         link: https://github.com/Helpful-Places/dtpr
-        linkText: Open on GitHub
+        linkText: Contribute on GitHub
       - type: card
         heading: Bring DTPR to your city
-        subHeading: Deploying in a public space, or evaluating whether to? Start with the Get Started guide, then talk to us about your inventory and timeline.
+        subHeading: Planning technology for a public space, or deciding whether to? Read the Get Started guide, then tell us what you are deploying and when.
         link: /get-started
-        linkText: Read Get Started
+        linkText: Read the Get Started guide
   - type: Audiences
     heading: How you can contribute
     cards:
@@ -35,19 +42,8 @@ sections:
       - type: card
         heading: Public servants
         icon: landmark
-        subHeading: Bring an inventory, a procurement question, or a signage pilot. Most of the standard came from work like yours.
+        subHeading: Bring us a list of the technology you run, a procurement question, or a signage pilot. Most of the standard came from work like yours.
       - type: card
         heading: Technologists and designers
         icon: pencil-ruler
         subHeading: Extend the taxonomy, build tooling against it, or adapt the icon set for a new context.
-  - type: Newsletter
-    heading: Stay updated
-    subHeading: Taxonomy updates, case studies and open calls to contribute, a few times a year.
-    buttonText: Subscribe
-    image: /images/get-involved.png
-    imageAlt: Workshop cards asking whether traffic cameras signify an issue or a solution
-  - type: Contact
-    heading: Contact Us
-    subHeading: Send us a message if you have a question, or want to talk about an idea for collaboration.
-    buttonText: Email the team
-    buttonLink: mailto:hello@dtpr.io

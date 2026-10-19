@@ -15,5 +15,6 @@ usePageSeo(page)
 </script>
 
 <template>
+  <DocsBetaNotice />
   <PageAssembler v-if="page" :sections="page.sections" />
 </template>

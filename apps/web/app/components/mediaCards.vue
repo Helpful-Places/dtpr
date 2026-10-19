@@ -13,6 +13,8 @@
             image?: string,
             imageAlt?: string,
             imageFit?: string,
+            secondImage?: string,
+            secondImageAlt?: string,
             link?: string,
             linkText?: string
         }[]
@@ -33,8 +35,14 @@
                 class="flex flex-col overflow-hidden rounded-md bg-white shadow-sm ring ring-rule"
             >
                 <!-- Every card's picture sits in the same 280px frame, so cards in a
-                     row line up. A logo is contained on white; a photo fills the frame. -->
-                <div v-if="card.image" class="h-70 shrink-0 border-b border-rule" :class="card.imageFit === 'contain' ? 'bg-white p-6' : ''">
+                     row line up. A logo is contained on white; a photo fills the frame.
+                     A second logo, such as a funder's, shares the frame beside the first. -->
+                <div v-if="card.image && card.imageFit === 'contain' && card.secondImage" class="flex h-70 shrink-0 items-center gap-6 border-b border-rule bg-white p-6">
+                    <img :src="card.image" :alt="card.imageAlt ?? ''" loading="lazy" class="h-full min-w-0 flex-[3] object-contain"/>
+                    <span class="h-3/5 w-px shrink-0 bg-rule" aria-hidden="true"></span>
+                    <img :src="card.secondImage" :alt="card.secondImageAlt ?? ''" loading="lazy" class="h-3/5 min-w-0 flex-[2] object-contain"/>
+                </div>
+                <div v-else-if="card.image" class="h-70 shrink-0 border-b border-rule" :class="card.imageFit === 'contain' ? 'bg-white p-6' : ''">
                     <img
                         :src="card.image"
                         :alt="card.imageAlt ?? ''"

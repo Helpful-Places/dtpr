@@ -4,18 +4,29 @@
     const props = defineProps<{
         heading: string,
         subHeading?: string,
+        body?: string,
         buttonText?: string,
         image?: string,
         imageAlt?: string
     }>()
 
     const email = ref('')
-    const attempted = ref(false)
+    const status = ref<'idle' | 'submitting' | 'success' | 'invalid' | 'error'>('idle')
+    const sentTo = ref('')
 
-    // No mailing list is connected yet, so nothing is sent or stored. The
-    // form says so rather than confirming a subscription that did not happen.
-    function subscribe() {
-        attempted.value = true
+    // The list sends a confirmation email, so success asks the reader to
+    // confirm rather than saying they are already subscribed. A 400 means the
+    // address was refused; anything else means the list did not answer.
+    async function subscribe() {
+        status.value = 'submitting'
+        try {
+            await $fetch('/api/subscribe', { method: 'POST', body: { email: email.value } })
+            sentTo.value = email.value.trim()
+            status.value = 'success'
+        }
+        catch (error: any) {
+            status.value = error?.statusCode === 400 ? 'invalid' : 'error'
+        }
     }
 </script>
 
@@ -23,8 +34,11 @@
     <UContainer as="section" class="section-pad">
         <SectionHeader :heading="props.heading" :sub-heading="props.subHeading"/>
 
-        <div class="mt-6 grid gap-6" :class="props.image ? 'lg:grid-cols-[minmax(0,1fr)_22rem]' : ''">
-            <form class="flex flex-col justify-center rounded-md bg-white p-5 shadow-sm ring ring-rule sm:p-6" @submit.prevent="subscribe">
+        <!-- Same three columns as a Ways In set, so the form lines up with
+             the two cards below it and the image with the third. -->
+        <div class="mt-6 grid gap-6" :class="props.image && 'md:grid-cols-3'">
+            <form class="flex flex-col justify-center rounded-md bg-white p-5 shadow-sm ring ring-rule sm:p-6" :class="props.image && 'md:col-span-2'" @submit.prevent="subscribe">
+                <p v-if="props.body" class="mb-5 max-w-xl text-pretty whitespace-pre-line text-muted">{{ props.body }}</p>
                 <label for="newsletter-email" class="block text-sm font-semibold">Email address</label>
                 <div class="mt-2 flex max-w-xl flex-col gap-3 sm:flex-row">
                     <UInput
@@ -38,27 +52,39 @@
                         size="xl"
                         class="min-w-0 flex-1"
                         :ui="{ base: 'min-h-11 bg-white ring-rule' }"
-                        @update:model-value="attempted = false"
+                        :disabled="status === 'submitting'"
+                        @update:model-value="status !== 'submitting' && (status = 'idle')"
                     />
-                    <UButton type="submit" size="xl" class="min-h-11 shrink-0 justify-center" :label="props.buttonText ?? 'Subscribe'"/>
+                    <UButton
+                        type="submit"
+                        size="xl"
+                        class="min-h-11 shrink-0 justify-center"
+                        :loading="status === 'submitting'"
+                        :disabled="status === 'success'"
+                        :label="status === 'success' ? 'Email sent' : (props.buttonText ?? 'Subscribe')"
+                    />
                 </div>
-                <p class="mt-3 text-sm text-pretty" :class="attempted ? 'text-warning' : 'text-muted'" role="status">
-                    <template v-if="attempted">
-                        Sign-up is not open yet, so your address was not saved. Write to
+                <p class="mt-3 max-w-xl text-sm text-pretty" :class="status === 'error' || status === 'invalid' ? 'text-error' : status === 'success' ? 'font-semibold' : 'text-muted'" role="status">
+                    <template v-if="status === 'success'">Almost done. Open the email we sent to {{ sentTo }} and confirm your subscription.</template>
+                    <template v-else-if="status === 'invalid'">That email address was not accepted. Check it for typos and try again.</template>
+                    <template v-else-if="status === 'error'">
+                        The newsletter service did not respond, so you are not subscribed yet. Try again in a moment, or email
                         <a href="mailto:hello@dtpr.io" class="font-semibold underline underline-offset-2">hello@dtpr.io</a>
-                        and we will add you when it is.
+                        and we will add you.
                     </template>
-                    <template v-else>We only use your address to send the newsletter.</template>
+                    <template v-else>We will email you a link to confirm. We only use your address to send the newsletter, and every issue has a link to unsubscribe.</template>
                 </p>
             </form>
 
-            <img
-                v-if="props.image"
-                :src="props.image"
-                :alt="props.imageAlt ?? ''"
-                class="aspect-[3/2] w-full max-w-sm rounded-md bg-white object-cover shadow-sm ring ring-rule lg:max-w-none"
-                loading="lazy"
-            />
+            <!-- From md up the form sets the row's height and the photo crops to it. -->
+            <div v-if="props.image" class="relative">
+                <img
+                    :src="props.image"
+                    :alt="props.imageAlt ?? ''"
+                    class="aspect-[3/2] w-full max-w-sm rounded-md bg-white object-cover shadow-sm ring ring-rule md:absolute md:inset-0 md:aspect-auto md:h-full md:max-w-none"
+                    loading="lazy"
+                />
+            </div>
         </div>
     </UContainer>
 </template>

@@ -45,6 +45,8 @@ sections:
         image: /images/makeshift-logo.webp
         imageAlt: "Makeshift: Accountable tech by design"
         imageFit: contain
+        secondImage: /images/awards/nsf-award.png
+        secondImageAlt: U.S. National Science Foundation
         subHeading: |-
           With a Phase I award from the U.S. National Science Foundation’s Pathways to Enable Open-Source Ecosystems (POSE) program, Helpful Places and Superbloom are laying the groundwork for DTPR to scale as an open-source ecosystem.
 
