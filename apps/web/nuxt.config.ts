@@ -105,6 +105,14 @@ export default defineNuxtConfig({
     },
   },
 
+  // Maps the copy in content/ to its files for Impeccable's live editor.
+  // See app/plugins/impeccable-dev.client.ts.
+  $development: {
+    serverHandlers: [
+      { route: '/__content-sources', handler: '~~/server/dev/contentSources.ts' },
+    ],
+  },
+
   $production: {
     nitro: {
       preset: 'cloudflare-module',
