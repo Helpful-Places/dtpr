@@ -42,6 +42,12 @@ const contentCard=z.object({
     description:"For Media Cards sections, the picture at the top of the card. For Example List sections, the example shown for this option"
   }),
   imageAlt: z.string().optional(),
+  secondImage: property(z.string().optional()).editor({
+    input: 'media',
+    label:"Second Logo",
+    description:"For Media Cards sections with Image Fit 'contain', a second logo shown beside the first, such as a funder's"
+  }),
+  secondImageAlt: z.string().optional(),
   caption: property(z.string().optional()).editor({
     label:"Example Caption",
     description:"For Example List sections, the line under the example, e.g. 'Long Beach's Digital Rights Platform'"
