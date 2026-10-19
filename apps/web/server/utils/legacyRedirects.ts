@@ -37,7 +37,11 @@ const DOCS_HOST = 'docs.dtpr.io'
 
 export function resolveLegacyRedirect(req: LegacyRequest): LegacyRedirect | null {
   const host = req.host.toLowerCase().replace(/:\d+$/, '')
-  const path = req.path.length > 1 ? req.path.replace(/\/+$/, '') : req.path
+  // Collapse runs of slashes (and backslashes, which browsers read as
+  // slashes) so a stripped prefix can't leave a protocol-relative location
+  // like //example.com.
+  const clean = req.path.replace(/[\\/]+/g, '/')
+  const path = clean.length > 1 ? clean.replace(/\/$/, '') : clean
   const alias = ALIAS_HOSTS.has(host) && host !== 'dtpr.io'
 
   let target: Target | null
@@ -45,14 +49,14 @@ export function resolveLegacyRedirect(req: LegacyRequest): LegacyRedirect | null
   else if (host === DOCS_HOST) target = fromDocsSite(path) ?? { path: '/docs' }
   // dtpr.io and anything else this Worker answers on (Previews, localhost)
   // gets the old app's paths. www and dev move to dtpr.io whatever the path.
-  else target = fromOldApp(path) ?? (alias ? { path: req.path } : null)
+  else target = fromOldApp(path) ?? (alias ? { path: clean } : null)
 
   if (!target) return null
   if ('url' in target) return { location: target.url + req.search, status: 308, cors: true }
 
   // Old query strings mean nothing to the new pages, except on www and dev
   // where the path is unchanged.
-  const keepSearch = alias && target.path === req.path
+  const keepSearch = alias && target.path === clean
   const query = target.query ? new URLSearchParams(target.query).toString() : ''
   const search = keepSearch ? req.search : query ? `?${query}` : ''
   const offsite = alias || DTPR_AI_HOSTS.has(host) || host === DOCS_HOST
@@ -233,7 +237,7 @@ const DOCS_SITE_IMAGES = new Set([
 function fromDocsSite(path: string): Target | null {
   if (DOCS_SITE_PAGES[path]) return { path: DOCS_SITE_PAGES[path] }
   if (/^\/api\/v1(\/|$)/.test(path)) return { path: '/docs/developers/changelog#v1-frozen' }
-  const image = path.match(/^\/images\/guide\/([^/]+)\.png$/)
+  const image = path.match(/^\/images\/guide\/([^/]+)\.(png|jpe?g)$/)
   if (image && DOCS_SITE_IMAGES.has(image[1]!)) return { path: `/images/docs/${image[1]}.webp` }
   return null
 }

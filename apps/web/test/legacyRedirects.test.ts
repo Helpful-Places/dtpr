@@ -111,6 +111,7 @@ test('docs.dtpr.io', () => {
   assert.equal(to('https://docs.dtpr.io/api/v1/elements'), 'https://dtpr.io/docs/developers/changelog#v1-frozen')
   assert.equal(to('https://docs.dtpr.io/concepts/variables'), 'https://dtpr.io/docs/concepts#variable')
   assert.equal(to('https://docs.dtpr.io/images/guide/signage-porto.png'), 'https://dtpr.io/images/docs/signage-porto.webp')
+  assert.equal(to('https://docs.dtpr.io/images/guide/dtpr-logo-shapes.jpeg'), 'https://dtpr.io/images/docs/dtpr-logo-shapes.webp')
 })
 
 test('unknown legacy paths land on the docs instead of a 404', () => {
@@ -118,4 +119,11 @@ test('unknown legacy paths land on the docs instead of a 404', () => {
   assert.equal(to('https://docs.dtpr.io/whatever'), 'https://dtpr.io/docs')
   assert.equal(to('https://docs.dtpr.io/images/guide/gone.png'), 'https://dtpr.io/docs')
   assert.equal(to('https://DTPR.AI:443/en/cite'), 'https://dtpr.io/docs/cite')
+})
+
+test('never redirects off-site through a protocol-relative path', () => {
+  assert.equal(go('https://dtpr.io/fr//attacker.example')?.location, '/attacker.example')
+  assert.equal(go('https://dtpr.io/fr/%5Cattacker.example')?.location, '/%5Cattacker.example')
+  assert.equal(resolveLegacyRedirect({ host: 'dtpr.io', path: '/fr/\\attacker.example', search: '', method: 'GET', accept: '', skillsVersion: '0.3.3' })?.location, '/attacker.example')
+  assert.equal(to('https://www.dtpr.io//attacker.example'), 'https://dtpr.io/attacker.example')
 })
