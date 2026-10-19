@@ -80,11 +80,11 @@
                     </ul>
                     <h3 class="mt-3 font-sans text-base font-semibold">Icon</h3>
                     <p class="mt-1 text-sm text-pretty text-muted">
-                        The symbol inside its shape.<template v-if="contextName"> A datachain picks a {{ contextName }} value, and the colour shows which.</template>
+                        The symbol inside its shape.<template v-if="contextName"> A datachain picks a {{ contextName }} value, and the color shows which.</template>
                     </p>
                 </li>
             </ol>
-            <figcaption class="sr-only">How the {{ dtprText(data.element.title) }} icon is built from a symbol, a shape and a context colour</figcaption>
+            <figcaption class="sr-only">How the {{ dtprText(data.element.title) }} icon is built from a symbol, a shape and a context color</figcaption>
         </figure>
 
         <div v-if="props.hasButton" class="mt-6 flex flex-wrap gap-3">

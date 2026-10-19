@@ -91,7 +91,7 @@
             </div>
 
             <footer class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-t border-rule px-5 py-3 text-xs text-muted sm:px-6">
-                <p class="text-pretty">Examples written by the DTPR team from public records. They are not published by the organisations named.</p>
+                <p class="text-pretty">Examples written by the DTPR team from public records. They are not published by the organizations named.</p>
                 <p class="font-code">{{ systems[0]!.taxonomy.value!.version }}</p>
             </footer>
         </article>
