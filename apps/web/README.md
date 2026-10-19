@@ -29,7 +29,7 @@ deploy under that name would move `dev.dtpr.io` back to it.
 Cloudflare Workers Builds deploys it: the Worker's Git connection points at
 `helpful-places/dtpr` with root directory `apps/web`. `main` deploys to
 production and other branches get [Previews](https://developers.cloudflare.com/workers/previews/)
-at `<branch>-dtpr-web.<subdomain>.workers.dev`; `nuxt.config.ts` reads
+at `<branch>-dtpr-web.helpful-places.workers.dev`; `nuxt.config.ts` reads
 `WORKERS_CI_BRANCH` to build Nuxt Studio into the `content` Preview only.
 
 `@nuxt/content` stores parsed content in D1 bound as `DB`, seeded from
@@ -42,8 +42,9 @@ at `<branch>-dtpr-web.<subdomain>.workers.dev`; `nuxt.config.ts` reads
 Editors never commit to `main`. `nuxt.config.ts` points Studio at
 `helpful-places/dtpr` with `rootDir: apps/web` and `branch: content`, and
 builds Studio only into the `content` branch's Preview, so the editor lives at
-`https://content-dtpr-web.<subdomain>.workers.dev/_studio` and shows the content
-it commits on top of. Production (dev.dtpr.io) and other Previews are read-only.
+`https://content-dtpr-web.helpful-places.workers.dev/_studio` and shows the
+content it commits on top of. Production (dev.dtpr.io) and other Previews are
+read-only, and redirect `/_studio` to the `content` Preview.
 
 1. An editor publishes in Studio, which commits to `content`.
 2. Workers Builds rebuilds the `content` Preview with the edit.
@@ -67,7 +68,7 @@ or all at once with `preview secret bulk <file>`.
 `STUDIO_GITHUB_TOKEN` must be a fine-grained PAT with Contents read/write on
 `helpful-places/dtpr`. The GitHub and Google OAuth apps redirect to the host
 Studio runs on, so their callback URLs are
-`https://content-dtpr-web.<subdomain>.workers.dev/__nuxt_studio/auth/github` and
+`https://content-dtpr-web.helpful-places.workers.dev/__nuxt_studio/auth/github` and
 `.../__nuxt_studio/auth/google`.
 
 ## Dependencies

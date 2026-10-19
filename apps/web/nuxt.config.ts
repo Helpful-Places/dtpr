@@ -92,6 +92,12 @@ export default defineNuxtConfig({
 
 
 
+  // Builds without Studio send editors to the Preview that has it, so they can
+  // start from the main domain.
+  routeRules: withStudio
+    ? {}
+    : { '/_studio': { redirect: `https://${STUDIO_BRANCH}-dtpr-web.helpful-places.workers.dev/_studio` } },
+
   devtools: { enabled: true },
   
   content: {
