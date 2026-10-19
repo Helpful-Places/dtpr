@@ -15,7 +15,6 @@
     const docsMenu = computed(() => [
         (docs.value.sections ?? []).map(section => ({
             label: section.label,
-            description: section.addText,
             icon: section.icon && `i-lucide-${section.icon}`,
             to: section.url,
         })),
@@ -146,7 +145,7 @@
                                 v-if="docs.sections?.length"
                                 :items="docsMenu"
                                 :content="{ align: 'end', sideOffset: 8 }"
-                                :ui="{ content: 'w-72', itemDescription: 'text-xs' }"
+                                :ui="{ content: 'w-56' }"
                             >
                                 <button
                                     type="button"
