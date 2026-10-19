@@ -4,7 +4,7 @@ sections:
   - type: Hero
     eyebrow: Get started
     heading: What is DTPR, and how does it work?
-    subHeading: DTPR (Digital Trust for Places and Routines) is an open standard for describing how a technology works, in plain language and icons. Instead of dense technical specifications or terms of service, it answers the questions our community research found people need answered before they can trust how a technology is used.
+    subHeading: DTPR (Digital Trust for Places and Routines) is an open standard for describing how a technology works visually, and in plain language. Instead of dense technical specifications or terms of service, it helps answer the questions people have before they can trust how a technology is used.
     horizontal: false
     hasButton: true
     buttonText: Explore the taxonomy
@@ -13,7 +13,7 @@ sections:
     secondaryButtonLink: /docs
   - type: Ways In
     heading: How DTPR works
-    subHeading: DTPR has three parts that work together. Each one has its own section below.
+    subHeading: DTPR is a taxonomy that answers a set of questions describing a technology, a methodology for finding and asking those questions, and a visual language for displaying the answers.
     cards:
       - type: card
         icon: list-tree
@@ -22,11 +22,11 @@ sections:
       - type: card
         icon: users
         heading: A methodology
-        subHeading: Co-design with residents produced the questions, and every deployment keeps asking them, in workshops and a short survey.
+        subHeading: Methods and resources for building a shared understanding of any technology, built for audiences from internal teams to the public.
       - type: card
         icon: shapes
         heading: A visual language
-        subHeading: An icon and a plain description for every answer, with guidance on how to arrange them.
+        subHeading: Consistent icons and descriptions across languages and mediums contributed to shared vocabulary about technology.
   - type: Datachain Rows
     anchor: taxonomy
     heading: A taxonomy is a set of questions
