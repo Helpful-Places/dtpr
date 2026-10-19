@@ -35,12 +35,10 @@ sections:
 
       DTPR works the same way. It asks one set of questions about any technology, sorted into 14 categories. Three are always answered: what the system is for, who is accountable for it, and who it is used on. The rest are answered when they apply.
 
-      Each question comes with a list of possible answers, called **elements**. Describing a technology means choosing the elements that fit it, and the finished description is a **datachain**. Here are two very different systems, a street sensor in Long Beach and facial recognition software in New York, answering the three questions every datachain answers.
+      Each question comes with a list of possible answers, called **elements**. Describing a technology means choosing the elements that fit it, and the finished description is a **datachain**. Here is one system, a street sensor in the fictional city of Port Alder, answering the three questions every datachain answers, followed by the rest of the questions DTPR can ask.
     datachains:
-      - src: /data/long-beach-numina-mobility-sensor.datachain.json
-        label: Long Beach
-      - src: /data/nypd-facial-recognition.datachain.json
-        label: New York City
+      - src: /data/port-alder-mobility-sensor.datachain.json
+        label: An example
     categories:
       - purpose
       - accountable
@@ -56,7 +54,7 @@ sections:
     body: |
       The questions didn't come from a committee. We read the academic literature, ran public workshops and talked with residents about the technology in their lives: what they wanted to know about it, and which answers felt missing or hidden. The questions they kept asking became the taxonomy's categories.
 
-      That research never stopped. Organizations that use DTPR run community workshops to test whether it makes sense for the places people live in, and any DTPR notice can carry the short survey shown here. People answer six questions from 1 to 5, on trust, clarity and usefulness, and the organization responsible hears what they say. Accountability goes both ways.
+      That process of co-design continues. Organizations that use DTPR run community workshops to test whether it makes sense for the places people live in. The open-source project is a living thing, improving and growing as technologies and new community needs become apparent.
     items:
       - How does this technology make you feel?
       - Is this information helpful?
@@ -73,19 +71,21 @@ sections:
     anchor: visual-language
     heading: A visual language
     body: |
-      Visual languages are good at getting complex information across. Think of nutrition labels. Nutritional science is hard to follow, and if every item in a grocery store came with a ten-page report, nobody would get their shopping done. A nutrition label puts the most important facts in a simple layout that is the same on every package.
+      Visual languages are good at communicating complex information. Think of nutrition labels. Nutritional science can be complex. If every item in a grocery store came with a ten-page report, shopping would be a lot more burdensome. A nutrition label communicates the important facts in a simple, consistent layout, making information easy to find and understand.
 
-      DTPR does the same for technology. Every element in the taxonomy has an open-source icon and a plain-language description, and DTPR comes with guidance on how to arrange the icons. Each icon is built the same way: a symbol for the element, inside a shape set by its category, and for some categories a color that adds context, such as how identifiable the data is.
-    elementId: input_biometric
+      DTPR does the same for technology. The taxonomy structures information in a simple, consistent layout. One or more elements can be used to answer each question. Put together, these elements and categories form the datachain, creating a narrative of the technology.
     hasButton: true
     buttonText: See every icon in the taxonomy
     buttonLink: /taxonomy/all
-    secondaryButtonText: How shapes work
-    secondaryButtonLink: /docs/concepts#shape
+    image: /images/docs/signage-sydney-crowd.webp
+    imageAlt: A teal sign headed "Keeping You Safer During Big Events" with three DTPR hexagons in a honeycomb, a QR code, a black Safety & Security icon and a blue Mood Characterisation icon
+    caption: A DTPR sign at Sydney Olympic Park
+    secondaryButtonText: How icons are built
+    secondaryButtonLink: /docs/concepts#icons
   - type: Example List
     anchor: ways-to-deploy
     heading: Ways to deploy
-    subHeading: "Organizations put DTPR where people meet the technology it describes: online, on signs and in workshops."
+    subHeading: "Organizations put DTPR where people meet technology it describes: online, on signs and in workshops."
     cards:
       - type: card
         heading: Digital channel

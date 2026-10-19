@@ -112,7 +112,7 @@ export const pageElements=z.object({
   }),
   caption: property(z.string().optional()).editor({
     label:"Image Caption",
-    description:"For Split Content sections, a line under the image"
+    description:"For Split Content and Icon Anatomy sections, a line under the image"
   }),
   headingRight: property(z.string().optional()).editor({
     label:"Right Heading",
@@ -177,15 +177,15 @@ export const pageElements=z.object({
     label: z.string(),
   })).optional()).editor({
     label:"Datachains",
-    description:"For Datachain Rows sections, the two systems shown side by side"
+    description:"For Datachain Rows sections, the system shown. Only the first is used"
   }),
   categories: property(z.array(z.string()).optional()).editor({
     label:"Category Ids",
-    description:"For Datachain Rows sections, the categories to show, by API id, e.g. purpose, accountable, affected"
+    description:"For Datachain Rows sections, the questions answered with one element each, by category API id, e.g. purpose, accountable, affected. Every other question is listed below them, unanswered"
   }),
   elementId: property(z.string().optional()).editor({
     label:"Element Id",
-    description:"For Icon Anatomy sections, the element whose icon is taken apart, by API id, e.g. input_about_behaviour"
+    description:"For Icon Anatomy sections, the element whose icon is taken apart below the text, by API id, e.g. input_biometric. Leave empty for no figure"
   }),
   schemaVersion: property(z.string().optional()).editor({
     label:"Schema Version",

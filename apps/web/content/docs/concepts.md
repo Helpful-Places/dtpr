@@ -159,6 +159,11 @@ A system with more than one flow can repeat the subchain. A datachain lists each
 
 ## Icons
 
+Every icon is built from the same parts: a symbol for the element, the shape its category sets, and, for some categories, a color for the context a datachain chooses. Here is the Biometric data element taken apart.
+
+::icon-anatomy{element-id="input_biometric"}
+::
+
 ### Symbol
 
 A symbol is the pictogram that identifies an [element](#element). It is the drawing in the middle of the [icon](#icon), without any outline.

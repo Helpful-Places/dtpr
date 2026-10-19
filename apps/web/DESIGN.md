@@ -245,7 +245,7 @@ Used only inside the vision mocks, which depict fictional services and are capti
 - **Headline** (600, 1.875rem to 2.25rem, left, balanced): every section heading, on every page.
 - **Title** (600, 1.25rem): the heading of any card or sheet.
 - **Row Title** (600, 1rem): the heading of a ruled row inside a sheet.
-- **Entry** (Source Serif 4, 600, upright, 1.125rem to 1.875rem): names of taxonomy elements and category prompts inside the explorer.
+- **Entry** (Source Serif 4, 600, upright, 1.125rem to 1.875rem): names of taxonomy elements and category prompts inside the explorer, and the category questions on the Get Started guide. Unanswered questions listed in a group drop to 400 at 1rem.
 - **Lede** (400, 1.125rem, 24px lines, ink muted, max 48rem, pretty wrap): the sentence under a headline or the paragraph under a hero.
 - **Body** (400, 1rem, line-height 1.5): running text. Prose panels cap at 42rem. Dense UI text is 0.875rem.
 - **Label** (600, 0.75rem, 0.05em tracking, uppercase, navy): section labels, nav tiles, list headers, footer column headings.
@@ -254,7 +254,7 @@ Used only inside the vision mocks, which depict fictional services and are capti
 ### Named Rules
 **The Grid Line Rule.** Text set directly on the dot paper (the hero and every section header) uses lines one grid unit (24px) or two (48px) tall, starting on a row of dots, so the rows fall between lines of small text. Ledes are single height; the display line and headlines are double. Gaps between them are 0 or whole units. Text inside sheets is exempt: the dots are not visible there.
 
-**The One Serif Line Rule.** Italic serif appears once per page, in the hero. Upright serif is allowed only for entry names in the taxonomy.
+**The One Serif Line Rule.** Italic serif appears once per page, in the hero. Upright serif is allowed only for Entry type: taxonomy entry names and category questions.
 
 **The Identifier Rule.** If a string could be pasted into the API, it is set in Source Code Pro.
 
@@ -344,7 +344,7 @@ The home page's persona section, second on the page. A framed workshop photograp
 
 ### Guide Sections
 Three section types carry the Get Started guide, each opening with the standard section header and a prose panel of markdown body text.
-- **Datachain Rows:** one white sheet of ruled rows, one per chosen category. Each row puts the category's question from the API on the left and two systems' answers beside it (icon, name, a muted note with the element and context, and the text the datachain filled in). Column labels sit in a header strip from 768px and above each answer below it. A footer strip says who wrote the examples and shows the schema version in Code type.
+- **Datachain Rows:** one white sheet for one datachain. A header strip names the system: a Label, then its title in navy at Title size, so the system reads as the subject. One ruled row per chosen category puts the category's question in Entry type on the left and the datachain's first answer beside it (icon, name, and a muted note with the element and context). A paper-raised band below, headed by a Label, lists every other question in the taxonomy in Entry type at 400, each beside its category's shape outline (three columns from 1024px, two from 640px). A footer strip says who wrote the example (from public records when the datachain cites sources, fictional when it does not) and shows the schema version in Code type.
 - **Icon Anatomy:** one white sheet split into three steps (1fr 1fr 2fr from 768px, stacked below): the element's symbol, the shape its category sets, and the finished icon in each coloured context value, each labelled with the value's name from the API.
 - **Question List:** a prose panel beside a white sheet of numbered rows (side by side from 1024px), for a short list such as the feedback survey's questions. Up to two buttons below, as Icon Anatomy.
 - **Example List:** a white sheet of hairline-ruled rows beside one framed example (1:1 from 1024px), for "Ways to deploy". Each row is an option: title, muted sentence and an outline button. Pointing at a row, or tabbing to its button, gives it the navy-tint fill and 3px inset navy marker of a selected list row and crossfades the example over 200ms (no fade under reduced motion). The example sits on paper raised inside a 4:3 frame, never cropped, with a caption strip below that links to the deployment. Below 1024px every row carries its own example, so nothing depends on hover.
