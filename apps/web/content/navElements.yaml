@@ -6,15 +6,12 @@ docs:
   url: /docs
   sections:
     - label: Deployer docs
-      addText: Describe a technology you run
       url: /docs/deployers
       icon: signpost
     - label: Developer docs
-      addText: REST API, MCP server and agent skills
       url: /docs/developers
       icon: code-xml
     - label: Concepts
-      addText: The terms both sets of docs share
       url: /docs/concepts
       icon: book-open
 links:

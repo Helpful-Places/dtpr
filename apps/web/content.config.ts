@@ -295,7 +295,6 @@ export default defineContentConfig({
           url: z.string(),
           sections: z.array(z.object({
             label: z.string(),
-            addText: z.string().optional(),
             url: z.string(),
             icon: z.string().optional()
           })).optional()
