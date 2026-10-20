@@ -10,7 +10,7 @@ This skill is the symbol-tier working partner in the DTPR authoring studio. Scop
 The skill is invoked two ways:
 
 1. **Standalone.** A user wants icon work without the rest of the element draft — e.g., "redesign the symbol for `cloud_storage`", "show me three options for an icon representing model card disclosure".
-2. **Chained from `dtpr-element-design`.** Phase 4 of that skill hands off here; the symbol_id, target category, and concept come pre-populated.
+2. **Chained from `dtpr-element-design`.** Phase 4 of that skill hands off here; the symbol_id, target category, concept, and target schema version come pre-populated.
 
 In both modes, the skill produces **three distinct variants per round** rather than a single guess. Three is the right number — enough to compare silhouette strategies (object-centric vs. action-centric vs. frame-centric, stroke vs. filled) without overwhelming review. The user picks one, asks for refinements, or asks for another round of three with different strategies.
 
@@ -39,11 +39,12 @@ The HTML preview written to disk is a local file consumed only by the user's bro
 
 ### Phase 0 — Pin the concept and target category
 
-Capture three things:
+Capture four things:
 
 - **Concept.** One sentence: what disclosure claim does the symbol carry? (e.g., "an automated system that can deny a loan", "data shared with third parties", "the system uses a camera".) Keep this front of mind — every variant must read as this concept at sign scale, not just a related shape.
 - **Target category.** Which datachain-type category does the element belong to? The category dictates the silhouette family the new icon should echo. Use `list_categories` for the active version when the user does not know.
 - **Symbol id.** snake_case, category prefix by convention where one applies (e.g., `dm_*` for decision-making, `processing_*`, `risks_*`, `rights_*`). On a redesign, the user supplies the existing id.
+- **Target schema version.** The `api/schemas/<type>/<version>/` directory the symbol will be saved into, e.g. `dtpr/2026-09-01-beta`. It has to be a `-beta` draft, because released versions are frozen. Chained from `dtpr-element-design`, use the version its `schema:new` handoff names. If the user has no draft yet, emit the `pnpm --filter ./api schema:new <type> <YYYY-MM-DD>-beta` handoff, and read siblings from the newest version under `api/schemas/<type>/` in the meantime. Ask rather than guess: the save path in Phase 5 depends on it.
 
 Also capture, if offered: a candidate element id, neighboring element titles the new icon will sit next to in the UI, any prior-art cue from a regulation, framework, or product the user already has in mind.
 

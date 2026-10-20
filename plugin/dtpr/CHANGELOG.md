@@ -6,8 +6,8 @@
 
 ### Changed
 
-- **`dtpr-symbol-design`** — reads sibling symbols from, and gives the save path into, `api/schemas/<type>/<version>/symbols/<symbol_id>.svg` instead of `app/public/dtpr-icons/symbols/`.
-- **`dtpr-element-design`, `README.md`** — same path in the hand-off to `dtpr-symbol-design`.
+- **`dtpr-symbol-design`** — reads sibling symbols from, and gives the save path into, `api/schemas/<type>/<version>/symbols/<symbol_id>.svg` instead of `app/public/dtpr-icons/symbols/`. Phase 0 now pins the target `-beta` version, with a `schema:new` handoff when there is no draft yet.
+- **`dtpr-element-design`, `README.md`** — same path; the hand-off to `dtpr-symbol-design` names the target version.
 - **`.claude-plugin/plugin.json`** — version bumped to 0.3.4.
 - **`.mcp.json`** — `User-Agent` header synced to `dtpr-claude-plugin/0.3.4`.
 

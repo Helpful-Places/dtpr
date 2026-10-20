@@ -2,7 +2,7 @@
 
 Standalone DTPR API (REST + MCP) served from Cloudflare Workers at `api.dtpr.io`.
 
-This workspace is fully self-contained — it does not import from `../app` or `../apps/web`. The old `dtpr.io/api/dtpr/v0|v1` URLs redirect to the frozen copies this Worker serves at `/api/v0` and `/api/v1`.
+This workspace is fully self-contained — it does not import from `../apps/web`. The old `dtpr.io/api/dtpr/v0|v1` URLs redirect to the frozen copies this Worker serves at `/api/v0` and `/api/v1`.
 
 ## Quickstart
 
