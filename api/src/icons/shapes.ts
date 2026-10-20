@@ -6,7 +6,7 @@ export type { ShapeType }
  * Parameterized SVG path data for the 4 icon shape primitives.
  *
  * Each entry holds the `d` attribute lifted verbatim from
- * `app/public/dtpr-icons/shapes/*.svg`. The `circle` and
+ * the legacy app's `public/dtpr-icons/shapes/*.svg` (since removed). The `circle` and
  * `rounded-square` source SVGs use `<rect ... rx="…">`; we represent
  * those as equivalent path data so the compositor can inject fill and
  * stroke via a single `<path>` element regardless of shape.

@@ -1,7 +1,0 @@
----
-category: purpose
-description: Pour la fourniture de services de restauration ou de repas. 
-icon: /dtpr-icons/dining.svg
-id: dining
-name: Restauration
----

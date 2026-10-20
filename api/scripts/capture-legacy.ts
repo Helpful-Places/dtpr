@@ -2,6 +2,10 @@
  * One-shot capture of the legacy DTPR API (v0 + v1) from the live Nuxt
  * service, before that service is switched off.
  *
+ * That window has closed: Render is suspended and dtpr.io/api/dtpr/*
+ * now redirects to the frozen copies this capture produced. Kept for
+ * provenance; do not re-run it.
+ *
  * The capture window closes permanently when Render goes away, so this
  * script is deliberately paranoid:
  *

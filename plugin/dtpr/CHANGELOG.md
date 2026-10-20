@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.3.4 — 2026-10-20
+
+**Symbols are saved into the schema version.** The legacy `app/` site, and with it `app/public/dtpr-icons/symbols/`, is removed. Symbols live with the schema release they belong to.
+
+### Changed
+
+- **`dtpr-symbol-design`** — reads sibling symbols from, and gives the save path into, `api/schemas/<type>/<version>/symbols/<symbol_id>.svg` instead of `app/public/dtpr-icons/symbols/`.
+- **`dtpr-element-design`, `README.md`** — same path in the hand-off to `dtpr-symbol-design`.
+- **`.claude-plugin/plugin.json`** — version bumped to 0.3.4.
+- **`.mcp.json`** — `User-Agent` header synced to `dtpr-claude-plugin/0.3.4`.
+
 ## 0.3.3 — 2026-10-16
 
 **Docs move to dtpr.io.** The hosted reference for the skills now lives in the website's developer docs at `dtpr.io/docs/developers/agent-skills`, replacing the retired dtpr.ai microsite. No skill behaviour changes.

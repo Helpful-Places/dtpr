@@ -72,8 +72,8 @@ const SVG_CLOSE_RE = /<\/svg>[ \t\n\r]*$/
  * document, returning the inner fragment. Leading and trailing
  * whitespace are tolerated.
  *
- * All 95 source symbols in `app/public/dtpr-icons/symbols/*.svg`
- * follow the same shape — a single `<svg viewBox="0 0 36 36" ...>`
+ * Every symbol in `api/schemas/<type>/<version>/symbols/*.svg`
+ * follows the same shape — a single `<svg viewBox="0 0 36 36" ...>`
  * wrapper around one or more `<path>` (occasionally `<g>`) elements.
  * A regex for the opening/closing tags is sufficient; we deliberately
  * avoid pulling in an HTML/XML parser dependency for what is a

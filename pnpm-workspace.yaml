@@ -1,5 +1,4 @@
 packages:
-  - 'app'
   - 'apps/*'
   - 'api'
   - 'figma-plugin'
@@ -54,8 +53,7 @@ overrides:
   # 11.4.6 while web resolved 11.4.10, and publicHoistPattern hoists a single
   # @intlify/shared (11.4.6). @intlify/core-base@11.4.10 then imported
   # `toDevtoolsGroupId` from the hoisted 11.4.6 copy, which lacks it, and
-  # `nuxt build` for dtpr-ai failed. Keep the two in step; app stays on
-  # vue-i18n 10.
+  # `nuxt build` for dtpr-ai failed. Keep the two in step.
   'vue-i18n@11': 11.4.10
   '@intlify/shared@11': 11.4.10
   # @comark/markdown-it (pulled in by @slidev/cli 52.16) peer-requires

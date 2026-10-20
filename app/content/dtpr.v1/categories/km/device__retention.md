@@ -1,8 +1,0 @@
----
-id: device__retention
-name: ការរក្សាទុក
-description: តើទិន្នន័យត្រូវបានរក្សាទុករយៈពេលប៉ុន្មាន?
-datachain_type: device
-updated_at: 2025-08-29T00:00:00Z
----
-

@@ -67,7 +67,7 @@ The seven skills are peers — no runtime router. Users (and the description rou
 | `dtpr-translate` | Locale | Filling in non-English locale rows on an element, category, or pasted English fragment, against the active manifest's locale allow-list. |
 | `dtpr-comprehension-audit` | Comprehension | Grading any DTPR content (an element, a category, a datachain-instance, or pasted markdown) against the public-comprehension rubric. |
 
-Each schema-tier skill (`dtpr-datachain-structure`, `dtpr-category-audit`, `dtpr-element-design`) emits the `pnpm --filter ./api schema:new <type> <YYYY-MM-DD>-beta` command line as a handoff — the skill does not invoke it. Human edits YAML in the resulting beta directory, validates with `schema:validate`, opens a PR. `dtpr-element-design` hands off the SVG step to `dtpr-symbol-design`, which writes a local HTML preview but never into `app/public/dtpr-icons/symbols/` — the user saves the chosen variant themselves.
+Each schema-tier skill (`dtpr-datachain-structure`, `dtpr-category-audit`, `dtpr-element-design`) emits the `pnpm --filter ./api schema:new <type> <YYYY-MM-DD>-beta` command line as a handoff — the skill does not invoke it. Human edits YAML in the resulting beta directory, validates with `schema:validate`, opens a PR. `dtpr-element-design` hands off the SVG step to `dtpr-symbol-design`, which writes a local HTML preview but never into `api/schemas/<type>/<version>/symbols/` — the user saves the chosen variant themselves.
 
 ## References
 
