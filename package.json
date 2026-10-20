@@ -1,11 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "dev:app": "pnpm --filter ./app dev",
     "dev:web": "pnpm --filter ./apps/web dev",
     "dev:canvas": "pnpm --filter ./prototypes/canvas dev",
     "dev:api": "pnpm --filter ./api dev",
-    "build:app": "pnpm --filter ./app build",
     "build:web": "pnpm --filter ./apps/web build",
     "build:canvas": "pnpm --filter ./prototypes/canvas build",
     "build:api": "pnpm --filter ./api build",

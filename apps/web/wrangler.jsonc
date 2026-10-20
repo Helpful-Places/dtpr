@@ -7,8 +7,10 @@
   "compatibility_flags": ["nodejs_compat"],
   // dtpr.io is the site. The others are hosts it replaced or aliases, and
   // server/middleware/legacy-redirects.ts sends them on to dtpr.io. Workers
-  // Builds deploys these as the Worker's complete set of custom domains, taking
-  // over any DNS record or other Worker already on the hostname.
+  // Builds deploys these as the Worker's complete set of custom domains: one
+  // missing here is detached on the next deploy. A deploy moves a hostname off
+  // another Worker, but fails if it has an ordinary DNS record (A, CNAME, ...);
+  // delete that record first, then deploy.
   "routes": [
     { "pattern": "dtpr.io", "custom_domain": true },
     { "pattern": "www.dtpr.io", "custom_domain": true },

@@ -1,7 +1,7 @@
 # dtpr-web
 
-The DTPR website, served at <https://dtpr.io>. It replaced [`app/`](../../app)
-on dtpr.io and absorbed the docs from dtpr.ai and docs.dtpr.io. Moved here from
+The DTPR website, served at <https://dtpr.io>. It replaced the old Nuxt `app/`
+(since removed) on dtpr.io and absorbed the docs from dtpr.ai and docs.dtpr.io. Moved here from
 [Helpful-Places/DTPR-Website-Refresh](https://github.com/Helpful-Places/DTPR-Website-Refresh)
 at commit `5a574fb`; that repo is retired and this directory is the source of truth.
 
@@ -30,7 +30,10 @@ pages on dtpr.io (the table is `server/utils/legacyRedirects.ts`; `pnpm test`
 checks it). The old site's `/api/dtpr/*` and `/dtpr-icons/*` URLs go to their
 frozen copies on api.dtpr.io. `wrangler.jsonc` lists every hostname, and a
 deploy replaces the Worker's custom domains with exactly that list, so add new
-ones there rather than in the dashboard. The `dtpr-website` Worker that served
+ones there rather than in the dashboard. A new hostname that already has an
+ordinary DNS record (A, CNAME, ...) fails the deploy with code 100117: delete
+the record, then run `wrangler triggers deploy` from `apps/web` to attach the
+domains without a rebuild. The `dtpr-website` Worker that served
 the site from the old repo is retired; a deploy under that name would move
 `dev.dtpr.io` back to it.
 Cloudflare Workers Builds deploys it: the Worker's Git connection points at
@@ -94,4 +97,4 @@ Nuxt and its modules are pinned to exact versions (the ones the site ran
 from the old repo). Caret ranges let pnpm pull a newer Nuxt and Vite, which
 moves the shared Vite peer for every other workspace package. `@nuxt/icon` is
 declared at `^2.5.0` because pnpm's hidden hoisted store otherwise hands
-`@nuxt/ui` the 1.x copy that `app/` depends on.
+`@nuxt/ui` a 1.x copy (the removed `app/` depended on one).

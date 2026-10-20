@@ -8,13 +8,13 @@ import {
 // Raw SVG sources imported via Vite's `?raw` suffix. The workers
 // vitest pool uses Vite under the hood, so these imports resolve at
 // bundle time (not at runtime inside workerd — there's no
-// filesystem). Symbols are pulled from the legacy app directory
-// because the ported release symbols don't exist yet (that's Unit 2).
+// filesystem). The symbols are copies of the legacy app's originals,
+// kept as fixtures so the goldens stay pinned to those exact bytes.
 // See `types.d.ts` for the `?raw` module declaration.
-import acceptDenySymbolRaw from '../../../../app/public/dtpr-icons/symbols/dm_accept-or-deny.svg?raw'
-import rawDataSymbolRaw from '../../../../app/public/dtpr-icons/symbols/raw_data.svg?raw'
-import availableForResaleSymbolRaw from '../../../../app/public/dtpr-icons/symbols/available_for_resale.svg?raw'
-import rightsAccessSymbolRaw from '../../../../app/public/dtpr-icons/symbols/rights_access.svg?raw'
+import acceptDenySymbolRaw from '../../fixtures/icons/symbols/dm_accept-or-deny.svg?raw'
+import rawDataSymbolRaw from '../../fixtures/icons/symbols/raw_data.svg?raw'
+import availableForResaleSymbolRaw from '../../fixtures/icons/symbols/available_for_resale.svg?raw'
+import rightsAccessSymbolRaw from '../../fixtures/icons/symbols/rights_access.svg?raw'
 
 import acceptDenyGolden from '../../fixtures/icons/golden/accept_deny__hexagon__default.svg?raw'
 import rawDataGolden from '../../fixtures/icons/golden/raw_data__circle__default.svg?raw'

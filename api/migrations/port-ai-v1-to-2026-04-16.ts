@@ -4,6 +4,8 @@
  * per-locale) → `api/schemas/ai/2026-04-16-beta/` (YAML per entity with
  * embedded locales).
  *
+ * Kept for provenance. `app/` has since been removed, so it no longer runs.
+ *
  * Field transformations (per plan Key Technical Decisions and R25/R26):
  *  - element `name` → `title` (trimmed)
  *  - element plural `category_ids` → singular `category_id`, first `ai__*` entry
