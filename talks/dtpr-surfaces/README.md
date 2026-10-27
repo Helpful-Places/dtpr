@@ -34,8 +34,15 @@ Notes:
 
 ## Re-exporting
 
-Start the source deck (`pnpm dev:talk:metagov`, or `slidev --port 3141` in `talks/webinar-oct-2026`)
-and then:
+Start the source deck on a known port from its directory (`talks/webinar-oct-2026` or
+`talks/metagov-oct-2026`):
+
+```sh
+./node_modules/.bin/slidev --port 3141
+```
+
+Then screenshot a slide by number. `?clicks=N` captures a click state. This example is webinar
+slide 23 with the footer expanded:
 
 ```sh
 "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu \
@@ -43,4 +50,4 @@ and then:
   --virtual-time-budget=15000 --screenshot="$PWD/out.png" "http://localhost:3141/23?clicks=1"
 ```
 
-Then crop 2px off the top and bottom to get exactly 3840×2160 and drop the letterbox hairline.
+Crop 2px off the top and bottom to get exactly 3840×2160 and drop the letterbox hairline.
