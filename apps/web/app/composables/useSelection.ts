@@ -32,9 +32,16 @@ export function useSelection() {
   // Downloads are named for the datachain.
   const fileStem = computed(() => (dtprText(draft.chain.value?.title, locale.value) || 'datachain').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'datachain')
 
+  // The package is built from the taxonomy on screen, so it has to be the one the selection was started on.
+  const offVersion = computed(() => !!draft.chain.value && draft.chain.value.schema_version !== version.value)
+
   async function downloadPackage() {
     const chain = draft.chain.value
     if (!chain || !chain.elements.length) return
+    if (offVersion.value) {
+      toast.add({ title: `Switch to ${chain.schema_version} to download`, description: 'Your selection was started on that schema version.', color: 'warning' })
+      return
+    }
     building.value = true
     try {
       const zip = await dtprBuildPackage({ taxonomy: taxonomy.value!, chain, locale: locale.value })
@@ -61,5 +68,5 @@ export function useSelection() {
     return copy(`${window.location.origin}/taxonomy${v}#data=${dtprEncodeShare(chain)}`, 'Share link')
   }
 
-  return { open, building, count, countIn, toggle, fileStem, downloadPackage, downloadJson, shareLink }
+  return { open, building, count, countIn, offVersion, toggle, fileStem, downloadPackage, downloadJson, shareLink }
 }

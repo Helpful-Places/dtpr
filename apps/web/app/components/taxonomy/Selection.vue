@@ -5,7 +5,7 @@
 // wanted; otherwise the download is the elements and their icons.
 const { taxonomy, t, icon, to, locale, version, categoryById, elementById } = useTaxonomyContext()
 const draft = useDatachainDraft()
-const { open, building, downloadPackage, downloadJson, shareLink } = useSelection()
+const { open, building, offVersion, downloadPackage, downloadJson, shareLink } = useSelection()
 const copy = useCopy()
 const toast = useToast()
 const route = useRoute()
@@ -41,25 +41,29 @@ const otherVersion = computed(() => !!elements.value.length && !!chainVersion.va
 const listedVersion = computed(() => taxonomy.value!.versions.some((v) => v.id === chainVersion.value))
 const switchVersion = () => router.replace({ query: { ...route.query, v: chainVersion.value }, hash: '' })
 
-/** Replace the selection with a datachain and show it on its schema version. */
+/** Replace the selection with a datachain and show it on its schema version. Returns whether that navigated. */
 function openChain(input: unknown) {
   draft.load(input)
-  if (listedVersion.value && chainVersion.value !== version.value) switchVersion()
   open.value = true
+  if (!listedVersion.value || chainVersion.value === version.value) return false
+  switchVersion()
+  return true
 }
 
 // A share link carries a datachain in the URL fragment. With nothing to lose it
 // opens straight away; otherwise it waits to be chosen over the selection.
 const shared = ref<unknown>(null)
 function openShared() {
+  let switched = false
   try {
-    openChain(shared.value)
+    switched = openChain(shared.value)
   }
   catch (error: any) {
     toast.add({ title: 'The shared datachain could not be opened', description: error.message, color: 'error' })
   }
   shared.value = null
-  router.replace({ query: route.query, hash: '' })
+  // A version switch already drops the fragment; a second replace would cancel it.
+  if (!switched) router.replace({ query: route.query, hash: '' })
 }
 onMounted(() => {
   if (!window.location.hash.startsWith('#data=')) return
@@ -184,7 +188,7 @@ const moreItems = computed(() => [
 
     <template #footer>
       <div class="flex w-full flex-wrap items-center gap-2">
-        <UButton size="sm" icon="i-lucide-package" label="Download" :disabled="!elements.length" :loading="building" @click="downloadPackage" />
+        <UButton size="sm" icon="i-lucide-package" label="Download" :disabled="!elements.length || offVersion" :loading="building" @click="downloadPackage" />
         <UButton size="sm" color="neutral" variant="outline" icon="i-lucide-link" label="Share" :disabled="!elements.length" @click="shareLink" />
         <UDropdownMenu :items="moreItems" :content="{ align: 'end' }">
           <UButton size="sm" color="neutral" variant="ghost" icon="i-lucide-ellipsis" square aria-label="More" class="ml-auto" />

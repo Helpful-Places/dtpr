@@ -90,7 +90,7 @@ const downloadItems = computed(() => {
   if (!n) return whole
   return [
     [
-      { label: `${n} picked, with icons (ZIP)`, icon: 'i-lucide-package', onSelect: selection.downloadPackage },
+      { label: `${n} picked, with icons (ZIP)`, icon: 'i-lucide-package', disabled: selection.offVersion.value, onSelect: selection.downloadPackage },
       { label: `${n} picked (datachain JSON)`, icon: 'i-lucide-braces', onSelect: selection.downloadJson },
     ],
     whole,
