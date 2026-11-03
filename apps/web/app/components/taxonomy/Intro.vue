@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // A sentence of orientation for a view. It can be put away once it is no longer
 // needed, which leaves a button to bring it back. Remembered per view.
-const props = defineProps<{ view: 'explore' | 'build' }>()
+const props = defineProps<{ view: 'explore' }>()
 const route = useRoute()
 
 const STORAGE_KEY = 'dtpr.taxonomy-intro'
@@ -28,14 +28,9 @@ function set(value: boolean) {
     />
     <!-- On a phone, a category or element replaces the pane, so the sentence steps aside. -->
     <p v-else class="max-w-2xl text-sm text-pretty text-muted" :class="view === 'explore' && route.params.kind && 'hidden md:block'">
-      <template v-if="view === 'build'">
-        Describe a system by answering each question with elements from the taxonomy.
-        Your work is saved in this browser only.
-      </template>
-      <template v-else>
-        Each category is a question people ask about a technology, and its elements are the answers.
-        Choose a category, then an element, to see its icon and what it means.
-      </template>
+      Each category is a question people ask about a technology, and its elements are the answers.
+      Choose a category, then an element, to see its icon and what it means.
+      Press + to pick elements, then download them together as a datachain.
       New to the terms? Read the
       <NuxtLink to="/docs/concepts" class="text-primary underline underline-offset-2">concepts</NuxtLink>.
       <button type="button" class="cursor-pointer text-primary underline underline-offset-2" @click="set(true)">Hide this</button>

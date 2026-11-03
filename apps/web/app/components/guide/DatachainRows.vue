@@ -48,11 +48,10 @@
 
     // The share link is built in the browser: its gzip header carries a
     // timestamp, so a server-rendered one would never match on hydration.
-    const builder = useFeature('builder')
-    const builderLink = ref<RouteLocationRaw>('/taxonomy/builder')
+    const exploreLink = ref<RouteLocationRaw>('/taxonomy')
     onMounted(() => {
         const chain = system?.chain.value
-        if (chain) builderLink.value = { path: '/taxonomy/builder', query: { v: chain.schema_version }, hash: `#data=${dtprEncodeShare(chain)}` }
+        if (chain) exploreLink.value = { path: '/taxonomy', query: { v: chain.schema_version }, hash: `#data=${dtprEncodeShare(chain)}` }
     })
 </script>
 
@@ -110,7 +109,7 @@
             </footer>
         </article>
 
-        <div v-if="props.hasButton || builder" class="mt-6 flex flex-wrap gap-3">
+        <div class="mt-6 flex flex-wrap gap-3">
             <UButton
                 v-if="props.hasButton && props.buttonText && props.buttonLink"
                 size="xl"
@@ -128,12 +127,11 @@
                 :to="props.secondaryButtonLink"
             />
             <UButton
-                v-if="builder"
                 variant="outline"
                 size="xl"
                 class="min-h-11"
-                label="Open an example in the builder"
-                :to="builderLink"
+                label="Open this example in the taxonomy"
+                :to="exploreLink"
             />
         </div>
     </UContainer>

@@ -12,7 +12,6 @@ export default defineEventHandler(async (event) => {
   // Taxonomy pages come from the DTPR API. If it is unreachable the sitemap
   // still lists the section's fixed pages.
   const taxonomy = ['/taxonomy', '/taxonomy/all', '/taxonomy/translations']
-  if (useRuntimeConfig(event).public.features.builder) taxonomy.push('/taxonomy/builder')
   try {
     const { categories, elements } = await getDtprTaxonomy(event)
     taxonomy.push(...categories.map(c => `/taxonomy/categories/${c.id}`), ...elements.map(e => `/taxonomy/elements/${e.id}`))

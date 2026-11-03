@@ -142,11 +142,6 @@ export interface DtprDatachain {
   [key: string]: unknown
 }
 
-export interface DtprIssue {
-  message: string
-  categoryId?: string
-  elementId?: string
-}
 
 /** The text for `locale`, falling back to English, then to whatever exists. */
 export function dtprText(values: DtprLocalized[] | undefined, locale = DTPR_SOURCE_LOCALE): string {
@@ -209,48 +204,3 @@ export function dtprVariableValues(element: DtprDatachainElement, locale: string
   return out
 }
 
-/**
- * Checks a datachain against the taxonomy it was built on. This mirrors the
- * API's rules closely enough for instant feedback; the API's validate endpoint
- * remains the authority.
- */
-export function dtprCheckDatachain(taxonomy: Pick<DtprTaxonomy, 'categories' | 'elements'>, chain: DtprDatachain, locale: string): DtprIssue[] {
-  const issues: DtprIssue[] = []
-  const elements = new Map(taxonomy.elements.map((e) => [e.id, e]))
-  const categories = new Map(taxonomy.categories.map((c) => [c.id, c]))
-  const used = new Set(chain.elements.map((e) => elements.get(e.element_id)?.category_id))
-
-  if (!dtprText(chain.title, locale).trim()) issues.push({ message: 'Give the datachain a name' })
-
-  for (const category of taxonomy.categories) {
-    if (category.required && !used.has(category.id)) {
-      issues.push({ categoryId: category.id, message: `${dtprText(category.name, locale)} needs at least one element` })
-    }
-  }
-
-  for (const placed of chain.elements) {
-    const element = elements.get(placed.element_id)
-    if (!element) {
-      issues.push({ elementId: placed.element_id, message: `"${placed.element_id}" is not in this schema version` })
-      continue
-    }
-    const category = categories.get(element.category_id)!
-    const where = `${dtprText(category.name, locale)}, ${dtprFill(dtprText(element.title, locale), dtprVariableValues(placed, locale))}`
-    const context = category.element_context
-    if (context) {
-      const known = context.values.some((v) => v.id === placed.context_type_id)
-      if (placed.context_type_id && !known) {
-        issues.push({ categoryId: category.id, elementId: element.id, message: `${where}: unknown ${dtprText(context.name, locale).toLowerCase()}` })
-      }
-      else if (!placed.context_type_id && context.required !== false) {
-        issues.push({ categoryId: category.id, elementId: element.id, message: `${where}: choose ${dtprText(context.name, locale).toLowerCase()}` })
-      }
-    }
-    for (const variable of element.variables) {
-      if (variable.required && !dtprVariableValues(placed, locale)[variable.id]) {
-        issues.push({ categoryId: category.id, elementId: element.id, message: `${where}: fill in ${dtprText(variable.label, locale).toLowerCase()}` })
-      }
-    }
-  }
-  return issues
-}

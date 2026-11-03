@@ -1,8 +1,10 @@
 <script setup lang="ts">
-// Print or download the whole taxonomy, from either Explore view. Printing
-// always prints the list: from the panes, the list is loaded out of sight in a
-// frame, which says when its icons are in, and printed from there.
+// Print or download the taxonomy, from either Explore view. With a selection,
+// the download menu offers the picked elements first. Printing always prints
+// the list: from the panes, the list is loaded out of sight in a frame, which
+// says when its icons are in, and printed from there.
 const { taxonomy, version, locale, to, elementsByCategory } = useTaxonomyContext()
+const selection = useSelection()
 const route = useRoute()
 const router = useRouter()
 const toast = useToast()
@@ -79,10 +81,21 @@ async function download(withIcons: boolean) {
   }
 }
 
-const downloadItems = [
-  { label: 'Data (JSON)', icon: 'i-lucide-braces', onSelect: () => download(false) },
-  { label: 'Data and icons (ZIP)', icon: 'i-lucide-folder-archive', onSelect: () => download(true) },
-]
+const downloadItems = computed(() => {
+  const n = selection.count.value
+  const whole = [
+    { label: n ? 'Whole taxonomy (JSON)' : 'Data (JSON)', icon: 'i-lucide-braces', onSelect: () => download(false) },
+    { label: n ? 'Whole taxonomy and icons (ZIP)' : 'Data and icons (ZIP)', icon: 'i-lucide-folder-archive', onSelect: () => download(true) },
+  ]
+  if (!n) return whole
+  return [
+    [
+      { label: `${n} picked, with icons (ZIP)`, icon: 'i-lucide-package', onSelect: selection.downloadPackage },
+      { label: `${n} picked (datachain JSON)`, icon: 'i-lucide-braces', onSelect: selection.downloadJson },
+    ],
+    whole,
+  ]
+})
 </script>
 
 <template>
@@ -91,7 +104,7 @@ const downloadItems = [
     <UDropdownMenu :items="downloadItems">
       <UButton
         size="sm" color="neutral" variant="outline" icon="i-lucide-download" label="Download" trailing-icon="i-lucide-chevron-down"
-        :loading="downloading"
+        :loading="downloading || selection.building.value"
       />
     </UDropdownMenu>
   </div>

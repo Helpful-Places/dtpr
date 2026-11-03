@@ -33,16 +33,6 @@ export default defineNuxtConfig({
     colorMode: false,
   },
 
-  // Built but not launched. Switch one on for an environment with its variable,
-  // such as NUXT_PUBLIC_FEATURES_BUILDER=true. See useFeature.
-  runtimeConfig: {
-    public: {
-      features: {
-        builder: false,
-      },
-    },
-  },
-
   // Icons ship with the site instead of coming from a CDN at render time: the
   // ones the source names are inlined into the app, and Lucide (installed as
   // @iconify-json/lucide) is bundled into the server for any it builds by name.

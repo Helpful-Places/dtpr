@@ -1,5 +1,6 @@
 <script setup lang="ts">
-// The context value and variables for one element placed on the datachain.
+// The context value and variables for one element in the selection. All of it
+// is optional: an element can be downloaded with nothing filled in.
 const props = defineProps<{ placed: DtprDatachainElement, element: DtprElement, category: DtprCategory }>()
 const { t, locale } = useTaxonomyContext()
 const draft = useDatachainDraft()
@@ -12,9 +13,7 @@ const isLong = (variable: DtprVariable) => variable.id.includes('description') |
 <template>
   <div class="space-y-4">
     <fieldset v-if="context">
-      <legend class="mb-1.5 text-xs text-muted">
-        {{ t(context.name) }}<template v-if="context.required !== false"><span class="text-warning" aria-hidden="true"> *</span><span class="sr-only"> (required)</span></template>
-      </legend>
+      <legend class="mb-1.5 text-xs text-muted">{{ t(context.name) }}</legend>
       <div class="flex flex-wrap gap-1.5">
         <button
           v-for="v in context.values" :key="v.id" type="button"
@@ -30,9 +29,7 @@ const isLong = (variable: DtprVariable) => variable.id.includes('description') |
     </fieldset>
 
     <label v-for="v in element.variables" :key="v.id" class="block">
-      <span class="mb-1 block text-xs text-muted">
-        {{ t(v.label) }}<template v-if="v.required"><span class="text-warning" aria-hidden="true"> *</span><span class="sr-only"> (required)</span></template>
-      </span>
+      <span class="mb-1 block text-xs text-muted">{{ t(v.label) }}</span>
       <UTextarea
         v-if="isLong(v)" :model-value="dtprVariableText(placed, v.id, locale)" :rows="2" autoresize class="w-full"
         @update:model-value="(text: string) => draft.setVariable(element.id, v.id, locale, text)"
