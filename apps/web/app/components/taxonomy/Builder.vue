@@ -131,7 +131,7 @@ onUnmounted(() => {
     <div v-if="slot" class="fixed inset-0 z-30 hidden bg-black/30 md:block lg:hidden" @click="setQuery({ slot: undefined })" />
     <aside
       ref="paletteEl" tabindex="-1"
-      class="overflow-y-auto border-rule bg-elevated outline-none lg:static lg:z-auto lg:block lg:h-[78vh] lg:w-auto lg:rounded-md lg:border lg:shadow-sm"
+      class="overflow-y-auto border-rule bg-elevated outline-none lg:sticky lg:top-(--ui-header-height) lg:z-auto lg:block lg:h-[78vh] lg:w-auto lg:self-start lg:rounded-md lg:border lg:shadow-sm"
       :class="slot ? 'fixed inset-0 z-40 block md:right-auto md:w-96 md:border-r md:shadow-2xl' : 'hidden'"
       :role="paletteModal ? 'dialog' : undefined" :aria-modal="paletteModal ? 'true' : undefined" :aria-label="slotCategory ? `Add to ${t(slotCategory.name)}` : 'Elements'"
     >
@@ -222,7 +222,8 @@ onUnmounted(() => {
       </div>
     </div>
 
-    <aside class="space-y-4">
+    <!-- Sticky from md, below the site header, so the details follow a long datachain. -->
+    <aside class="space-y-4 md:sticky md:top-(--ui-header-height) md:max-h-[calc(100vh-var(--ui-header-height)-1rem)] md:self-start md:overflow-y-auto">
       <!-- Details: a column from md up, a bottom sheet below -->
       <div v-if="selectedPlaced" class="fixed inset-0 z-30 bg-black/30 md:hidden" @click="setQuery({ sel: undefined })" />
       <div
