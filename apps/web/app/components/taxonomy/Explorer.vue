@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // The taxonomy as three cards. On a category they read categories, the category,
 // its elements; picking an element slides the list left and the element opens on
-// the right. Each element row has a toggle that adds it to the selection.
+// the right. Each element row has a toggle that adds it to the datachain.
 //   lg and up: all three side by side.
 //   md to lg:  the entry and the list, with categories in a dropdown.
 //   below md:  one pane at a time, drilling down, with a back bar.
@@ -9,12 +9,12 @@
 const props = defineProps<{ kind?: 'categories' | 'elements', id?: string }>()
 const { taxonomy, t, icon, to, categoryById, elementById, elementsByCategory } = useTaxonomyContext()
 const draft = useDatachainDraft()
-const selection = useSelection()
+const panel = useDatachainPanel()
 const router = useRouter()
 
-// Read out by screen readers when a row's toggle changes the selection.
+// Read out by screen readers when a row's toggle changes the datachain.
 const announcement = ref('')
-const pick = (e: DtprElement) => { announcement.value = selection.toggle(e) }
+const add = (e: DtprElement) => { announcement.value = panel.toggle(e) }
 
 const element = computed(() => (props.kind === 'elements' ? elementById.value.get(props.id ?? '') : undefined))
 const category = computed(() =>
@@ -100,7 +100,7 @@ watch(() => !!element.value, async () => {
           <span class="min-w-0 flex-1">
             <span class="block font-medium text-highlighted">{{ t(c.name) }}</span>
             <span class="block text-sm text-muted lg:hidden">{{ t(c.prompt) }}</span>
-            <span class="block text-xs text-muted">{{ elementsByCategory.get(c.id)?.length ?? 0 }} {{ elementsByCategory.get(c.id)?.length === 1 ? 'element' : 'elements' }}<span v-if="c.required" class="text-warning"> · required</span><span v-if="selection.countIn(c.id)" class="text-primary"> · {{ selection.countIn(c.id) }} picked</span></span>
+            <span class="block text-xs text-muted">{{ elementsByCategory.get(c.id)?.length ?? 0 }} {{ elementsByCategory.get(c.id)?.length === 1 ? 'element' : 'elements' }}<span v-if="c.required" class="text-warning"> · required</span><span v-if="panel.countIn(c.id)" class="text-primary"> · {{ panel.countIn(c.id) }} in datachain</span></span>
           </span>
           <span class="self-center text-muted lg:hidden" aria-hidden="true">›</span>
         </NuxtLink>
@@ -140,7 +140,7 @@ watch(() => !!element.value, async () => {
         <p class="sr-only" role="status">{{ q.trim() ? `${list.length} in ${t(category.name)}, ${elsewhere.length} in other categories` : '' }}</p>
         <p class="sr-only" role="status">{{ announcement }}</p>
         <p v-if="q.trim() && !list.length" class="border-b border-default px-4 py-3 text-sm text-muted md:px-3">No matches in {{ t(category.name) }}.</p>
-        <!-- The row opens the element; the toggle at its end picks it. -->
+        <!-- The row opens the element; the toggle at its end adds it to the datachain. -->
         <div
           v-for="e in list" :key="e.id" class="flex items-stretch border-b border-default"
           :class="element?.id === e.id && 'bg-white shadow-[inset_3px_0_0_var(--ui-primary)]'"
@@ -161,8 +161,8 @@ watch(() => !!element.value, async () => {
             type="button"
             class="flex w-11 shrink-0 items-center justify-center text-muted hover:bg-white hover:text-primary"
             :class="draft.has(e.id) && 'text-primary'" :aria-pressed="draft.has(e.id)"
-            :aria-label="`${draft.has(e.id) ? 'Remove' : 'Add'} ${dtprFill(t(e.title))}${draft.has(e.id) ? ' from' : ' to'} your selection`"
-            @click="pick(e)"
+            :aria-label="`${draft.has(e.id) ? 'Remove' : 'Add'} ${dtprFill(t(e.title))}${draft.has(e.id) ? ' from' : ' to'} your datachain`"
+            @click="add(e)"
           >
             <UIcon :name="draft.has(e.id) ? 'i-lucide-check' : 'i-lucide-plus'" class="size-4" />
           </button>

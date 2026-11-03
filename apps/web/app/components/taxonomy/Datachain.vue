@@ -1,11 +1,10 @@
 <script setup lang="ts">
-// Your selection: the elements picked in Explore, held as a datachain. A drawer
-// over the panes, so picking and reviewing happen in one view. Nothing here is
-// required. A name, a context value and the variables can be filled in if
+// Your datachain: the elements added in Explore. A drawer over the panes, so
+// adding and reviewing happen in one view. Nothing here is required. A name, a context value and the variables can be filled in if
 // wanted; otherwise the download is the elements and their icons.
 const { taxonomy, t, icon, to, locale, version, categoryById, elementById } = useTaxonomyContext()
 const draft = useDatachainDraft()
-const { open, building, offVersion, downloadPackage, downloadJson, shareLink } = useSelection()
+const { open, building, offVersion, downloadPackage, downloadJson, shareLink } = useDatachainPanel()
 const copy = useCopy()
 const toast = useToast()
 const route = useRoute()
@@ -35,13 +34,13 @@ const hasFields = (element: DtprElement) => !!categoryById.value.get(element.cat
 const expanded = ref(new Set<string>())
 const toggleExpanded = (id: string) => { expanded.value.has(id) ? expanded.value.delete(id) : expanded.value.add(id) }
 
-// The selection stays on the schema version it was started on.
+// The datachain stays on the schema version it was started on.
 const chainVersion = computed(() => draft.chain.value?.schema_version)
 const otherVersion = computed(() => !!elements.value.length && !!chainVersion.value && chainVersion.value !== version.value)
 const listedVersion = computed(() => taxonomy.value!.versions.some((v) => v.id === chainVersion.value))
 const switchVersion = () => router.replace({ query: { ...route.query, v: chainVersion.value }, hash: '' })
 
-/** Replace the selection with a datachain and show it on its schema version. Returns whether that navigated. */
+/** Replace the datachain with another and show it on its schema version. Returns whether that navigated. */
 function openChain(input: unknown) {
   draft.load(input)
   open.value = true
@@ -51,7 +50,7 @@ function openChain(input: unknown) {
 }
 
 // A share link carries a datachain in the URL fragment. With nothing to lose it
-// opens straight away; otherwise it waits to be chosen over the selection.
+// opens straight away; otherwise it waits to be chosen over the current one.
 const shared = ref<unknown>(null)
 function openShared() {
   let switched = false
@@ -118,32 +117,32 @@ const moreItems = computed(() => [
     ...examples.map((e) => ({ label: `Example: ${e.label}`, icon: 'i-lucide-file-text', onSelect: () => loadExample(e.src) })),
     { label: 'Open a datachain…', icon: 'i-lucide-folder-open', onSelect: () => { pasteOpen.value = true } },
   ],
-  [{ label: 'Clear the selection', icon: 'i-lucide-trash-2', color: 'error' as const, disabled: !draft.chain.value, onSelect: () => draft.clear() }],
+  [{ label: 'Clear the datachain', icon: 'i-lucide-trash-2', color: 'error' as const, disabled: !draft.chain.value, onSelect: () => draft.clear() }],
 ])
 </script>
 
 <template>
   <USlideover
-    v-model:open="open" title="Your selection"
-    description="The elements you have picked, as a datachain. Download them with their icons, or share the link."
+    v-model:open="open" title="Your datachain"
+    description="The elements you have added. Download them with their icons, or share the link."
     :ui="{ content: 'max-w-md' }"
   >
     <template #body>
       <div class="space-y-4">
         <UAlert
           v-if="shared" color="info" variant="subtle" title="This link carries a datachain"
-          description="Opening it replaces your selection."
+          description="Opening it replaces your datachain."
           :actions="[{ label: 'Open it', onClick: openShared }, { label: 'Keep mine', color: 'neutral', variant: 'outline', onClick: () => { shared = null } }]"
         />
         <UAlert
           v-if="otherVersion" color="warning" variant="subtle"
-          :title="`This selection is on ${chainVersion}`"
-          :description="listedVersion ? `You are looking at ${version}. Elements are picked on one schema version at a time.` : `The DTPR API no longer lists that version. It is shown against ${version}; elements that no longer exist are marked.`"
+          :title="`This datachain is on ${chainVersion}`"
+          :description="listedVersion ? `You are looking at ${version}. A datachain uses one schema version.` : `The DTPR API no longer lists that version. It is shown against ${version}; elements that no longer exist are marked.`"
           :actions="listedVersion ? [{ label: `Switch to ${chainVersion}`, onClick: switchVersion }, { label: `Start over on ${version}`, color: 'neutral', variant: 'outline', onClick: () => draft.clear() }] : []"
         />
 
         <p v-if="!elements.length" class="text-sm text-muted">
-          Nothing picked yet. Press <UIcon name="i-lucide-plus" class="inline size-4 align-text-bottom" aria-label="plus" /> on an element to add it here.
+          Nothing added yet. Press <UIcon name="i-lucide-plus" class="inline size-4 align-text-bottom" aria-label="plus" /> on an element to add it to your datachain.
         </p>
         <template v-else>
           <UInput v-model="title" placeholder="Name this datachain" aria-label="Datachain name" class="w-full" />
@@ -166,7 +165,7 @@ const moreItems = computed(() => [
                 />
                 <UButton size="xs" color="neutral" variant="ghost" square icon="i-lucide-x" :aria-label="`Remove ${placedTitle(p)}`" @click="draft.remove(p.element_id)" />
               </div>
-              <TaxonomySelectionFields
+              <TaxonomyDatachainFields
                 v-if="expanded.has(p.element_id)" class="border-t border-default p-3"
                 :placed="p" :element="elementById.get(p.element_id)!" :category="group.category"
               />
@@ -208,7 +207,7 @@ const moreItems = computed(() => [
     </template>
   </UModal>
 
-  <UModal v-model:open="pasteOpen" title="Open a datachain" description="Paste datachain JSON or choose a file. It replaces your selection.">
+  <UModal v-model:open="pasteOpen" title="Open a datachain" description="Paste datachain JSON or choose a file. It replaces your datachain.">
     <template #body>
       <UTextarea v-model="pasted" :rows="10" class="w-full font-code" placeholder="{ &quot;schema_version&quot;: &quot;dtpr@…&quot;, &quot;elements&quot;: [ … ] }" aria-label="Datachain JSON" />
       <input type="file" accept="application/json,.json" class="mt-3 block text-sm" aria-label="Datachain file" @change="onFile">

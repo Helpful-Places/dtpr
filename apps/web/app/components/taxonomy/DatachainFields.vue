@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// The context value and variables for one element in the selection. All of it
+// The context value and variables for one element in the datachain. All of it
 // is optional: an element can be downloaded with nothing filled in.
 const props = defineProps<{ placed: DtprDatachainElement, element: DtprElement, category: DtprCategory }>()
 const { t, locale } = useTaxonomyContext()

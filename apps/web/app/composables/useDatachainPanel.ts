@@ -1,10 +1,10 @@
-// The selection: the elements picked in Explore, kept as a datachain draft.
-// The drawer's open state, the pick toggle, and the ways out (package, JSON,
-// share link) live here so the panes, the element entry and the Download
-// menu all act on the same thing.
-export function useSelection() {
-  const open = useState('selection-open', () => false)
-  const building = useState('selection-building', () => false)
+// The datachain panel: the elements added in Explore, kept as a datachain
+// draft. The drawer's open state, the add/remove toggle, and the ways out
+// (package, JSON, share link) live here so the panes, the element entry and
+// the Download menu all act on the same thing.
+export function useDatachainPanel() {
+  const open = useState('datachain-panel-open', () => false)
+  const building = useState('datachain-building', () => false)
   const { taxonomy, t, locale, version, elementById } = useTaxonomyContext()
   const draft = useDatachainDraft()
   const toast = useToast()
@@ -18,12 +18,12 @@ export function useSelection() {
     const name = dtprFill(t(element.title))
     if (draft.has(element.id)) {
       draft.remove(element.id)
-      return `${name} removed from your selection.`
+      return `${name} removed from your datachain.`
     }
-    if (draft.add(element.id, version.value)) return `${name} added to your selection.`
+    if (draft.add(element.id, version.value)) return `${name} added to your datachain.`
     toast.add({
-      title: 'Your selection is on a different schema version',
-      description: `It was started on ${draft.chain.value?.schema_version}. Open the selection to switch to that version or start over.`,
+      title: 'Your datachain is on a different schema version',
+      description: `It was started on ${draft.chain.value?.schema_version}. Open the datachain to switch to that version or start over.`,
       color: 'warning',
     })
     return ''
@@ -32,14 +32,14 @@ export function useSelection() {
   // Downloads are named for the datachain.
   const fileStem = computed(() => (dtprText(draft.chain.value?.title, locale.value) || 'datachain').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'datachain')
 
-  // The package is built from the taxonomy on screen, so it has to be the one the selection was started on.
+  // The package is built from the taxonomy on screen, so it has to be the one the datachain was started on.
   const offVersion = computed(() => !!draft.chain.value && draft.chain.value.schema_version !== version.value)
 
   async function downloadPackage() {
     const chain = draft.chain.value
     if (!chain || !chain.elements.length) return
     if (offVersion.value) {
-      toast.add({ title: `Switch to ${chain.schema_version} to download`, description: 'Your selection was started on that schema version.', color: 'warning' })
+      toast.add({ title: `Switch to ${chain.schema_version} to download`, description: 'Your datachain was started on that schema version.', color: 'warning' })
       return
     }
     building.value = true

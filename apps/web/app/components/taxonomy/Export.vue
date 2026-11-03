@@ -1,10 +1,10 @@
 <script setup lang="ts">
-// Print or download the taxonomy, from either Explore view. With a selection,
-// the download menu offers the picked elements first. Printing always prints
+// Print or download the taxonomy, from either Explore view. With a datachain
+// under way, the download menu offers it first. Printing always prints
 // the list: from the panes, the list is loaded out of sight in a frame, which
 // says when its icons are in, and printed from there.
 const { taxonomy, version, locale, to, elementsByCategory } = useTaxonomyContext()
-const selection = useSelection()
+const panel = useDatachainPanel()
 const route = useRoute()
 const router = useRouter()
 const toast = useToast()
@@ -82,7 +82,7 @@ async function download(withIcons: boolean) {
 }
 
 const downloadItems = computed(() => {
-  const n = selection.count.value
+  const n = panel.count.value
   const whole = [
     { label: n ? 'Whole taxonomy (JSON)' : 'Data (JSON)', icon: 'i-lucide-braces', onSelect: () => download(false) },
     { label: n ? 'Whole taxonomy and icons (ZIP)' : 'Data and icons (ZIP)', icon: 'i-lucide-folder-archive', onSelect: () => download(true) },
@@ -90,8 +90,8 @@ const downloadItems = computed(() => {
   if (!n) return whole
   return [
     [
-      { label: `${n} picked, with icons (ZIP)`, icon: 'i-lucide-package', disabled: selection.offVersion.value, onSelect: selection.downloadPackage },
-      { label: `${n} picked (datachain JSON)`, icon: 'i-lucide-braces', onSelect: selection.downloadJson },
+      { label: `Datachain, ${n} ${n === 1 ? 'element' : 'elements'} with icons (ZIP)`, icon: 'i-lucide-package', disabled: panel.offVersion.value, onSelect: panel.downloadPackage },
+      { label: 'Datachain (JSON)', icon: 'i-lucide-braces', onSelect: panel.downloadJson },
     ],
     whole,
   ]
@@ -104,7 +104,7 @@ const downloadItems = computed(() => {
     <UDropdownMenu :items="downloadItems">
       <UButton
         size="sm" color="neutral" variant="outline" icon="i-lucide-download" label="Download" trailing-icon="i-lucide-chevron-down"
-        :loading="downloading || selection.building.value"
+        :loading="downloading || panel.building.value"
       />
     </UDropdownMenu>
   </div>

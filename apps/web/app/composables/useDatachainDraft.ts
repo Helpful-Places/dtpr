@@ -1,6 +1,6 @@
-// The selection made in Explore, as a datachain. It lives in this browser only:
+// The datachain put together in Explore. It lives in this browser only:
 // in memory across pages, and in localStorage across visits. The draft is kept
-// in the API's own datachain shape, so fields the selection does not edit
+// in the API's own datachain shape, so fields the panel does not edit
 // (sources, actions, subchain instances) survive an import and export untouched.
 const STORAGE_KEY = 'dtpr.datachain-draft.v1'
 

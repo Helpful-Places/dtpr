@@ -79,7 +79,7 @@ function readme({ taxonomy, chain, locale }: PackageInput): string {
   return `${name}
 ${'='.repeat(name.length)}
 
-A DTPR datachain package, made from a selection at dtpr.io/taxonomy.
+A DTPR datachain package, made at dtpr.io/taxonomy.
 
 Schema version: ${chain.schema_version}
 Language:       ${locale}

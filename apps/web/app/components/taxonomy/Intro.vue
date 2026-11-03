@@ -30,7 +30,7 @@ function set(value: boolean) {
     <p v-else class="max-w-2xl text-sm text-pretty text-muted" :class="view === 'explore' && route.params.kind && 'hidden md:block'">
       Each category is a question people ask about a technology, and its elements are the answers.
       Choose a category, then an element, to see its icon and what it means.
-      Press + to pick elements, then download them together as a datachain.
+      Press + to add elements to a datachain, then download it with its icons.
       New to the terms? Read the
       <NuxtLink to="/docs/concepts" class="text-primary underline underline-offset-2">concepts</NuxtLink>.
       <button type="button" class="cursor-pointer text-primary underline underline-offset-2" @click="set(true)">Hide this</button>

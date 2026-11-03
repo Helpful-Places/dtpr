@@ -4,7 +4,7 @@
 const props = defineProps<{ element: DtprElement, category: DtprCategory }>()
 const { t, icon, version, locale } = useTaxonomyContext()
 const draft = useDatachainDraft()
-const selection = useSelection()
+const panel = useDatachainPanel()
 const toast = useToast()
 
 // Which icon variant is on show: a coloured context value, on a light or dark background.
@@ -48,7 +48,7 @@ const formatItems = [
 // Read out by screen readers; the button's own label changes silently.
 const draftStatus = ref('')
 watch(() => props.element.id, () => { draftStatus.value = '' })
-const pick = () => { draftStatus.value = selection.toggle(props.element) }
+const add = () => { draftStatus.value = panel.toggle(props.element) }
 
 const developerRows = computed(() => [
   { label: 'REST', value: `GET ${dtprSchemaUrl(version.value)}/elements/${props.element.id}${locale.value === DTPR_SOURCE_LOCALE ? '' : `?locales=${locale.value}`}` },
@@ -89,9 +89,9 @@ const developerRows = computed(() => [
         <UButton
           size="sm" color="neutral" variant="outline" class="mt-4 print:hidden"
           :icon="draft.has(element.id) ? 'i-lucide-check' : 'i-lucide-plus'"
-          :label="draft.has(element.id) ? 'In your selection' : 'Add to selection'"
+          :label="draft.has(element.id) ? 'In your datachain' : 'Add to datachain'"
           :aria-pressed="draft.has(element.id)"
-          @click="pick"
+          @click="add"
         />
         <p class="sr-only" role="status">{{ draftStatus }}</p>
       </div>
