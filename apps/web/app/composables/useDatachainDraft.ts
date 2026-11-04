@@ -68,14 +68,14 @@ export function useDatachainDraft() {
     return true
   }
 
-  /** Swap two elements' places in the order. Priority follows the order. */
-  const swap = (elementId: string, otherId: string) => {
+  /** Put these elements in this order, in the places they already hold. Priority follows the order. */
+  const reorder = (elementIds: string[]) => {
     if (!chain.value) return
     const list = chain.value.elements
-    const a = list.findIndex((e) => e.element_id === elementId)
-    const b = list.findIndex((e) => e.element_id === otherId)
-    if (a < 0 || b < 0 || a === b) return
-    ;[list[a], list[b]] = [list[b]!, list[a]!]
+    const byId = new Map(list.map((e) => [e.element_id, e]))
+    const slots = list.flatMap((e, i) => (elementIds.includes(e.element_id) ? [i] : []))
+    if (slots.length !== elementIds.length || !elementIds.every((id) => byId.has(id))) return
+    slots.forEach((slot, i) => { list[slot] = byId.get(elementIds[i]!)! })
     touch()
   }
 
@@ -133,5 +133,5 @@ export function useDatachainDraft() {
     save()
   }
 
-  return { chain, elements, savedHash, has, placed, add, swap, remove, setContext, setVariable, setTitle, load, clear, save }
+  return { chain, elements, savedHash, has, placed, add, reorder, remove, setContext, setVariable, setTitle, load, clear, save }
 }

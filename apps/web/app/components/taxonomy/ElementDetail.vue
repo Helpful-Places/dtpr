@@ -64,7 +64,7 @@ const developerRows = computed(() => [
     <h2 class="font-serif text-3xl font-semibold text-highlighted">{{ title }}</h2>
     <DeveloperId :id="element.id" class="mt-1 block" />
     <div class="mt-4 flex flex-col gap-5 sm:flex-row sm:items-start">
-      <!-- The icon, the background it is drawn for, and its download, which takes the variant on show. -->
+      <!-- The icon, the background it is drawn for, its download, which takes the variant on show, and adding it to the datachain. -->
       <div class="w-40 shrink-0">
         <div class="flex size-40 items-center justify-center rounded-md border border-default transition-colors" :class="dark ? 'bg-inverted' : 'bg-white'">
           <img :src="iconSrc" :alt="`${title} icon`" class="size-32" width="128" height="128">
@@ -83,17 +83,17 @@ const developerRows = computed(() => [
             <UButton size="sm" icon="i-lucide-chevron-down" square aria-label="Other formats" class="border-l border-white/30" />
           </UDropdownMenu>
         </UFieldGroup>
-      </div>
-      <div class="min-w-0 flex-1">
-        <p class="text-default">{{ dtprFill(t(element.description)) }}</p>
         <UButton
-          size="sm" color="neutral" variant="outline" class="mt-4 print:hidden"
+          size="sm" color="neutral" variant="outline" class="mt-2 w-full justify-center print:hidden"
           :icon="draft.has(element.id) ? 'i-lucide-check' : 'i-lucide-plus'"
           :label="draft.has(element.id) ? 'In your datachain' : 'Add to datachain'"
           :aria-pressed="draft.has(element.id)"
           @click="add"
         />
         <p class="sr-only" role="status">{{ draftStatus }}</p>
+      </div>
+      <div class="min-w-0 flex-1">
+        <p class="text-default">{{ dtprFill(t(element.description)) }}</p>
       </div>
     </div>
 

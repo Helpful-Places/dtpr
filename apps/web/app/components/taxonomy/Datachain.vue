@@ -30,21 +30,68 @@ const placedNote = (placed: DtprDatachainElement) => {
 }
 const hasFields = (element: DtprElement) => !!categoryById.value.get(element.category_id)?.element_context || element.variables.length > 0
 
-// Elements can be moved up and down within their category. The order is the
-// datachain's priority, which is what the package and the summary follow.
+// Elements are dragged into a new order within their category, or moved with
+// the arrow keys on their handle. The order is the datachain's priority, which
+// is what the package and the summary follow.
 const moved = ref('')
-async function move(group: { placed: DtprDatachainElement[] }, placed: DtprDatachainElement, by: -1 | 1) {
+function order(ids: string[], from: number, to: number) {
+  const next = [...ids]
+  next.splice(to, 0, ...next.splice(from, 1))
+  draft.reorder(next)
+}
+const ids = (group: { placed: DtprDatachainElement[] }) => group.placed.map((p) => p.element_id)
+
+async function nudge(group: { placed: DtprDatachainElement[] }, placed: DtprDatachainElement, by: -1 | 1) {
   const at = group.placed.indexOf(placed)
-  const other = group.placed[at + by]
-  if (!other) return
-  draft.swap(placed.element_id, other.element_id)
+  if (!group.placed[at + by]) return
+  order(ids(group), at, at + by)
   moved.value = `${placedTitle(placed)} moved ${by < 0 ? 'up' : 'down'}, now ${at + by + 1} of ${group.placed.length}.`
-  // Moving the card moves its DOM node, which drops focus. Put it back on the
-  // same arrow, or the other one once the card has reached an end.
+  // Moving the card moves its DOM node, which drops focus. Put it back on the handle.
   await nextTick()
-  const arrow = (dir: 'up' | 'down') => document.querySelector<HTMLButtonElement>(`[data-move="${placed.element_id}:${dir}"]`)
-  const same = arrow(by < 0 ? 'up' : 'down')
-  ;(same && !same.disabled ? same : arrow(by < 0 ? 'down' : 'up'))?.focus()
+  document.querySelector<HTMLButtonElement>(`[data-handle="${placed.element_id}"]`)?.focus()
+}
+
+// A drag measures its category's cards when it starts, slides the others aside
+// as the card passes their middles, and settles the order on release.
+interface Drag { category: string, ids: string[], from: number, to: number, startY: number, dy: number, tops: number[], heights: number[], shift: number }
+const drag = ref<Drag | null>(null)
+
+function startDrag(event: PointerEvent, group: { category: DtprCategory, placed: DtprDatachainElement[] }, placed: DtprDatachainElement) {
+  if (event.button !== 0) return
+  event.preventDefault()
+  const rects = group.placed.map((p) => document.querySelector(`[data-card="${p.element_id}"]`)!.getBoundingClientRect())
+  const from = group.placed.indexOf(placed)
+  const gap = rects.length > 1 ? rects[1]!.top - rects[0]!.bottom : 0
+  ;(event.currentTarget as HTMLElement).setPointerCapture(event.pointerId)
+  drag.value = {
+    category: group.category.id, ids: ids(group), from, to: from, startY: event.clientY, dy: 0,
+    tops: rects.map((r) => r.top), heights: rects.map((r) => r.height), shift: rects[from]!.height + gap,
+  }
+}
+function moveDrag(event: PointerEvent) {
+  const d = drag.value
+  if (!d) return
+  // The card stays within its category.
+  const last = d.tops.length - 1
+  d.dy = Math.min(Math.max(event.clientY - d.startY, d.tops[0]! - d.tops[d.from]!), d.tops[last]! + d.heights[last]! - d.tops[d.from]! - d.heights[d.from]!)
+  const middle = d.tops[d.from]! + d.heights[d.from]! / 2 + d.dy
+  d.to = d.tops.filter((top, i) => i !== d.from && top + d.heights[i]! / 2 < middle).length
+}
+function endDrag() {
+  const d = drag.value
+  drag.value = null
+  if (!d || d.to === d.from) return
+  order(d.ids, d.from, d.to)
+  const placed = draft.placed(d.ids[d.from]!)
+  if (placed) moved.value = `${placedTitle(placed)} moved to ${d.to + 1} of ${d.ids.length}.`
+}
+function dragOffset(category: string, index: number) {
+  const d = drag.value
+  if (!d || d.category !== category) return undefined
+  if (index === d.from) return `translateY(${d.dy}px)`
+  if (d.from < index && index <= d.to) return `translateY(-${d.shift}px)`
+  if (d.to <= index && index < d.from) return `translateY(${d.shift}px)`
+  return undefined
 }
 
 // Which elements show their context and variables.
@@ -159,6 +206,7 @@ const moreItems = computed(() => [
         />
 
         <p class="sr-only" role="status">{{ moved }}</p>
+        <p id="datachain-reorder-hint" class="sr-only">Drag to reorder within the category, or press the up and down arrow keys.</p>
         <p v-if="!elements.length" class="text-sm text-muted">
           Nothing added yet. Press <UIcon name="i-lucide-plus" class="inline size-4 align-text-bottom" aria-label="plus" /> on an element to add it to your datachain.
         </p>
@@ -167,23 +215,25 @@ const moreItems = computed(() => [
 
           <section v-for="group in groups" :key="group.category.id">
             <h3 class="font-code text-xs uppercase tracking-wide text-muted">{{ t(group.category.name) }}</h3>
-            <div v-for="p in group.placed" :key="p.element_id" class="mt-2 rounded-md border border-default bg-white">
+            <div
+              v-for="(p, i) in group.placed" :key="p.element_id" :data-card="p.element_id"
+              class="mt-2 rounded-md border border-default bg-white"
+              :class="drag?.ids[drag.from] === p.element_id ? 'relative z-10 shadow-lg' : drag?.category === group.category.id && 'transition-transform'"
+              :style="{ transform: dragOffset(group.category.id, i) }"
+            >
               <div class="flex items-center gap-2 p-2">
+                <UButton
+                  v-if="group.placed.length > 1"
+                  size="xs" color="neutral" variant="ghost" square icon="i-lucide-grip-vertical" class="-mx-1 cursor-grab touch-none active:cursor-grabbing"
+                  :aria-label="`Reorder ${placedTitle(p)}`" aria-describedby="datachain-reorder-hint" :data-handle="p.element_id"
+                  @pointerdown="startDrag($event, group, p)" @pointermove="moveDrag" @pointerup="endDrag" @pointercancel="drag = null"
+                  @keydown.up.prevent="nudge(group, p, -1)" @keydown.down.prevent="nudge(group, p, 1)"
+                />
                 <img :src="icon(elementById.get(p.element_id)!, p.context_type_id)" alt="" class="size-10 shrink-0">
                 <NuxtLink :to="to(`/taxonomy/elements/${p.element_id}`)" class="min-w-0 flex-1 leading-tight hover:text-primary" @click="open = false">
                   <span class="block text-sm font-medium">{{ placedTitle(p) }}</span>
                   <span v-if="placedNote(p)" class="block text-xs text-muted">{{ placedNote(p) }}</span>
                 </NuxtLink>
-                <span v-if="group.placed.length > 1" class="flex flex-col">
-                  <UButton
-                    size="xs" color="neutral" variant="ghost" square icon="i-lucide-chevron-up" class="h-4 min-h-0"
-                    :disabled="group.placed.indexOf(p) === 0" :aria-label="`Move ${placedTitle(p)} up`" :data-move="`${p.element_id}:up`" @click="move(group, p, -1)"
-                  />
-                  <UButton
-                    size="xs" color="neutral" variant="ghost" square icon="i-lucide-chevron-down" class="h-4 min-h-0"
-                    :disabled="group.placed.indexOf(p) === group.placed.length - 1" :aria-label="`Move ${placedTitle(p)} down`" :data-move="`${p.element_id}:down`" @click="move(group, p, 1)"
-                  />
-                </span>
                 <UButton
                   v-if="hasFields(elementById.get(p.element_id)!)"
                   size="xs" color="neutral" variant="ghost" square
