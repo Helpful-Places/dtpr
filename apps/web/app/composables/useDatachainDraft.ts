@@ -68,14 +68,14 @@ export function useDatachainDraft() {
     return true
   }
 
-  /** Put these elements in this order, in the places they already hold. Priority follows the order. */
-  const reorder = (elementIds: string[]) => {
+  /** Put these placed elements in this order, in the places they already hold. Priority follows the order. */
+  const reorder = (placements: DtprDatachainElement[]) => {
     if (!chain.value) return
     const list = chain.value.elements
-    const byId = new Map(list.map((e) => [e.element_id, e]))
-    const slots = list.flatMap((e, i) => (elementIds.includes(e.element_id) ? [i] : []))
-    if (slots.length !== elementIds.length || !elementIds.every((id) => byId.has(id))) return
-    slots.forEach((slot, i) => { list[slot] = byId.get(elementIds[i]!)! })
+    const moving = new Set(placements.map((p) => toRaw(p)))
+    const slots = list.flatMap((e, i) => (moving.has(toRaw(e)) ? [i] : []))
+    if (slots.length !== placements.length || moving.size !== placements.length) return
+    slots.forEach((slot, i) => { list[slot] = placements[i]! })
     touch()
   }
 

@@ -32,39 +32,47 @@ const hasFields = (element: DtprElement) => !!categoryById.value.get(element.cat
 
 // Elements are dragged into a new order within their category, or moved with
 // the arrow keys on their handle. The order is the datachain's priority, which
-// is what the package and the summary follow.
+// is what the package and the summary follow. A datachain can place the same
+// element twice, so cards are told apart by placement, not by element id.
 const moved = ref('')
-function order(ids: string[], from: number, to: number) {
-  const next = [...ids]
+const keys = new WeakMap<DtprDatachainElement, number>()
+let lastKey = 0
+const cardKey = (placed: DtprDatachainElement) => {
+  const raw = toRaw(placed)
+  if (!keys.has(raw)) keys.set(raw, ++lastKey)
+  return keys.get(raw)!
+}
+const cards = (category: string) => [...document.querySelectorAll<HTMLElement>(`[data-group="${category}"] > [data-card]`)]
+function order(placed: DtprDatachainElement[], from: number, to: number) {
+  const next = [...placed]
   next.splice(to, 0, ...next.splice(from, 1))
   draft.reorder(next)
 }
-const ids = (group: { placed: DtprDatachainElement[] }) => group.placed.map((p) => p.element_id)
 
-async function nudge(group: { placed: DtprDatachainElement[] }, placed: DtprDatachainElement, by: -1 | 1) {
+async function nudge(group: { category: DtprCategory, placed: DtprDatachainElement[] }, placed: DtprDatachainElement, by: -1 | 1) {
   const at = group.placed.indexOf(placed)
   if (!group.placed[at + by]) return
-  order(ids(group), at, at + by)
+  order(group.placed, at, at + by)
   moved.value = `${placedTitle(placed)} moved ${by < 0 ? 'up' : 'down'}, now ${at + by + 1} of ${group.placed.length}.`
   // Moving the card moves its DOM node, which drops focus. Put it back on the handle.
   await nextTick()
-  document.querySelector<HTMLButtonElement>(`[data-handle="${placed.element_id}"]`)?.focus()
+  cards(group.category.id)[at + by]?.querySelector<HTMLButtonElement>('[data-handle]')?.focus()
 }
 
 // A drag measures its category's cards when it starts, slides the others aside
-// as the card passes their middles, and settles the order on release.
-interface Drag { category: string, ids: string[], from: number, to: number, startY: number, dy: number, tops: number[], heights: number[], shift: number }
+// as the card's leading edge passes their middles, and settles the order on release.
+interface Drag { category: string, placed: DtprDatachainElement[], from: number, to: number, startY: number, dy: number, tops: number[], heights: number[], shift: number }
 const drag = ref<Drag | null>(null)
 
 function startDrag(event: PointerEvent, group: { category: DtprCategory, placed: DtprDatachainElement[] }, placed: DtprDatachainElement) {
   if (event.button !== 0) return
   event.preventDefault()
-  const rects = group.placed.map((p) => document.querySelector(`[data-card="${p.element_id}"]`)!.getBoundingClientRect())
+  const rects = cards(group.category.id).map((card) => card.getBoundingClientRect())
   const from = group.placed.indexOf(placed)
   const gap = rects.length > 1 ? rects[1]!.top - rects[0]!.bottom : 0
   ;(event.currentTarget as HTMLElement).setPointerCapture(event.pointerId)
   drag.value = {
-    category: group.category.id, ids: ids(group), from, to: from, startY: event.clientY, dy: 0,
+    category: group.category.id, placed: [...group.placed], from, to: from, startY: event.clientY, dy: 0,
     tops: rects.map((r) => r.top), heights: rects.map((r) => r.height), shift: rects[from]!.height + gap,
   }
 }
@@ -74,16 +82,18 @@ function moveDrag(event: PointerEvent) {
   // The card stays within its category.
   const last = d.tops.length - 1
   d.dy = Math.min(Math.max(event.clientY - d.startY, d.tops[0]! - d.tops[d.from]!), d.tops[last]! + d.heights[last]! - d.tops[d.from]! - d.heights[d.from]!)
-  const middle = d.tops[d.from]! + d.heights[d.from]! / 2 + d.dy
-  d.to = d.tops.filter((top, i) => i !== d.from && top + d.heights[i]! / 2 < middle).length
+  // Moving down, the card's bottom edge passes the cards below; moving up, its top edge passes the cards above.
+  const top = d.tops[d.from]! + d.dy
+  const bottom = top + d.heights[d.from]!
+  const middles = d.tops.map((t, i) => t + d.heights[i]! / 2)
+  d.to = d.from + middles.filter((m, i) => i > d.from && m < bottom).length - middles.filter((m, i) => i < d.from && m > top).length
 }
 function endDrag() {
   const d = drag.value
   drag.value = null
   if (!d || d.to === d.from) return
-  order(d.ids, d.from, d.to)
-  const placed = draft.placed(d.ids[d.from]!)
-  if (placed) moved.value = `${placedTitle(placed)} moved to ${d.to + 1} of ${d.ids.length}.`
+  order(d.placed, d.from, d.to)
+  moved.value = `${placedTitle(d.placed[d.from]!)} moved to ${d.to + 1} of ${d.placed.length}.`
 }
 function dragOffset(category: string, index: number) {
   const d = drag.value
@@ -213,19 +223,19 @@ const moreItems = computed(() => [
         <template v-else>
           <UInput v-model="title" placeholder="Name this datachain" aria-label="Datachain name" class="w-full" />
 
-          <section v-for="group in groups" :key="group.category.id">
+          <section v-for="group in groups" :key="group.category.id" :data-group="group.category.id">
             <h3 class="font-code text-xs uppercase tracking-wide text-muted">{{ t(group.category.name) }}</h3>
             <div
-              v-for="(p, i) in group.placed" :key="p.element_id" :data-card="p.element_id"
+              v-for="(p, i) in group.placed" :key="cardKey(p)" data-card
               class="mt-2 rounded-md border border-default bg-white"
-              :class="drag?.ids[drag.from] === p.element_id ? 'relative z-10 shadow-lg' : drag?.category === group.category.id && 'transition-transform'"
+              :class="drag?.category === group.category.id && i === drag.from ? 'relative z-10 shadow-lg' : drag?.category === group.category.id && 'transition-transform'"
               :style="{ transform: dragOffset(group.category.id, i) }"
             >
               <div class="flex items-center gap-2 p-2">
                 <UButton
                   v-if="group.placed.length > 1"
                   size="xs" color="neutral" variant="ghost" square icon="i-lucide-grip-vertical" class="-mx-1 cursor-grab touch-none active:cursor-grabbing"
-                  :aria-label="`Reorder ${placedTitle(p)}`" aria-describedby="datachain-reorder-hint" :data-handle="p.element_id"
+                  :aria-label="`Reorder ${placedTitle(p)}`" aria-describedby="datachain-reorder-hint" data-handle
                   @pointerdown="startDrag($event, group, p)" @pointermove="moveDrag" @pointerup="endDrag" @pointercancel="drag = null"
                   @keydown.up.prevent="nudge(group, p, -1)" @keydown.down.prevent="nudge(group, p, 1)"
                 />
