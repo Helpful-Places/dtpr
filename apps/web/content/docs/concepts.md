@@ -7,9 +7,7 @@ DTPR describes a technology by answering a fixed set of questions about it, usin
 
 The examples come from schema version `dtpr@2026-09-01-beta`. You can see all of it in the [taxonomy explorer](/taxonomy).
 
-::feature{name="builder"}
-Try the terms out in the [datachain builder](/taxonomy/builder).
-::
+In the explorer you can add elements to a datachain and download it with its icons.
 
 ## The taxonomy
 
@@ -241,9 +239,7 @@ A small datachain for a resume screening tool might choose Employment & Work as 
 
 Each entry names an element by `element_id`. The category is not repeated, because every element belongs to exactly one. This example covers the three required categories and one optional one.
 
-::feature{name="builder"}
-You can compose a datachain in the [builder](/taxonomy/builder).
-::
+You can put one together in the [taxonomy explorer](/taxonomy): add elements to your datachain, then download it.
 
 To check a datachain against a schema version, use `POST /schemas/{version}/validate`, described on the [validate](/docs/developers/rest-api/validate) reference page.
 

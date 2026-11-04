@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // The taxonomy as three cards. On a category they read categories, the category,
 // its elements; picking an element slides the list left and the element opens on
-// the right, which is the builder's grid, so switching view keeps the frame.
+// the right. Each element row has a toggle that adds it to the datachain.
 //   lg and up: all three side by side.
 //   md to lg:  the entry and the list, with categories in a dropdown.
 //   below md:  one pane at a time, drilling down, with a back bar.
@@ -9,8 +9,12 @@
 const props = defineProps<{ kind?: 'categories' | 'elements', id?: string }>()
 const { taxonomy, t, icon, to, categoryById, elementById, elementsByCategory } = useTaxonomyContext()
 const draft = useDatachainDraft()
-const builder = useFeature('builder')
+const panel = useDatachainPanel()
 const router = useRouter()
+
+// Read out by screen readers when a row's toggle changes the datachain.
+const announcement = ref('')
+const add = (e: DtprElement) => { announcement.value = panel.toggle(e) }
 
 const element = computed(() => (props.kind === 'elements' ? elementById.value.get(props.id ?? '') : undefined))
 const category = computed(() =>
@@ -96,7 +100,7 @@ watch(() => !!element.value, async () => {
           <span class="min-w-0 flex-1">
             <span class="block font-medium text-highlighted">{{ t(c.name) }}</span>
             <span class="block text-sm text-muted lg:hidden">{{ t(c.prompt) }}</span>
-            <span class="block text-xs text-muted">{{ elementsByCategory.get(c.id)?.length ?? 0 }} {{ elementsByCategory.get(c.id)?.length === 1 ? 'element' : 'elements' }}<span v-if="c.required" class="text-warning"> · required</span></span>
+            <span class="block text-xs text-muted">{{ elementsByCategory.get(c.id)?.length ?? 0 }} {{ elementsByCategory.get(c.id)?.length === 1 ? 'element' : 'elements' }}<span v-if="c.required" class="text-warning"> · required</span><span v-if="panel.countIn(c.id)" class="text-primary"> · {{ panel.countIn(c.id) }} in datachain</span></span>
           </span>
           <span class="self-center text-muted lg:hidden" aria-hidden="true">›</span>
         </NuxtLink>
@@ -134,21 +138,35 @@ watch(() => !!element.value, async () => {
         </div>
 
         <p class="sr-only" role="status">{{ q.trim() ? `${list.length} in ${t(category.name)}, ${elsewhere.length} in other categories` : '' }}</p>
+        <p class="sr-only" role="status">{{ announcement }}</p>
         <p v-if="q.trim() && !list.length" class="border-b border-default px-4 py-3 text-sm text-muted md:px-3">No matches in {{ t(category.name) }}.</p>
-        <NuxtLink
-          v-for="e in list" :key="e.id" :to="to(`/taxonomy/elements/${e.id}`)"
-          class="flex w-full items-center gap-3 border-b border-default px-4 py-2.5 hover:bg-white md:px-3 md:py-2"
+        <!-- The row opens the element; the toggle at its end adds it to the datachain. -->
+        <div
+          v-for="e in list" :key="e.id" class="flex items-stretch border-b border-default"
           :class="element?.id === e.id && 'bg-white shadow-[inset_3px_0_0_var(--ui-primary)]'"
-          :aria-current="element?.id === e.id ? 'page' : undefined"
         >
-          <img :src="icon(e)" alt="" class="size-11 shrink-0 md:size-9" width="44" height="44" loading="lazy">
-          <span class="min-w-0 flex-1">
-            <span class="block text-sm font-medium text-highlighted md:truncate">{{ dtprFill(t(e.title)) }}</span>
-            <span class="line-clamp-2 text-xs text-muted md:hidden">{{ dtprFill(t(e.description)) }}</span>
-          </span>
-          <UIcon v-if="builder && draft.has(e.id)" name="i-lucide-check" class="shrink-0 text-primary" aria-label="In your datachain" />
-          <span class="text-muted md:hidden" aria-hidden="true">›</span>
-        </NuxtLink>
+          <NuxtLink
+            :to="to(`/taxonomy/elements/${e.id}`)"
+            class="flex min-w-0 flex-1 items-center gap-3 py-2.5 pl-4 pr-2 hover:bg-white md:py-2 md:pl-3"
+            :aria-current="element?.id === e.id ? 'page' : undefined"
+          >
+            <img :src="icon(e)" alt="" class="size-11 shrink-0 md:size-9" width="44" height="44" loading="lazy">
+            <span class="min-w-0 flex-1">
+              <span class="block text-sm font-medium text-highlighted md:truncate">{{ dtprFill(t(e.title)) }}</span>
+              <span class="line-clamp-2 text-xs text-muted md:hidden">{{ dtprFill(t(e.description)) }}</span>
+            </span>
+            <span class="text-muted md:hidden" aria-hidden="true">›</span>
+          </NuxtLink>
+          <button
+            type="button"
+            class="flex w-11 shrink-0 items-center justify-center text-muted hover:bg-white hover:text-primary"
+            :class="draft.has(e.id) && 'text-primary'" :aria-pressed="draft.has(e.id)"
+            :aria-label="`${draft.has(e.id) ? 'Remove' : 'Add'} ${dtprFill(t(e.title))}${draft.has(e.id) ? ' from' : ' to'} your datachain`"
+            @click="add(e)"
+          >
+            <UIcon :name="draft.has(e.id) ? 'i-lucide-check' : 'i-lucide-plus'" class="size-4" />
+          </button>
+        </div>
 
         <template v-if="elsewhere.length">
           <p class="border-b border-default bg-default px-4 py-2 font-code text-xs text-muted md:px-3">{{ elsewhere.length }} in other categories</p>

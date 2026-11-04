@@ -7,7 +7,6 @@ const escapeHtml = (text: string) =>
 interface PackageInput {
   taxonomy: DtprTaxonomy
   chain: DtprDatachain
-  resolved: unknown
   locale: string
 }
 
@@ -80,7 +79,7 @@ function readme({ taxonomy, chain, locale }: PackageInput): string {
   return `${name}
 ${'='.repeat(name.length)}
 
-A DTPR datachain package, made with the builder at dtpr.io/taxonomy/builder.
+A DTPR datachain package, made at dtpr.io/taxonomy.
 
 Schema version: ${chain.schema_version}
 Language:       ${locale}
@@ -89,9 +88,9 @@ Created:        ${new Date().toISOString().slice(0, 10)}
 Contents
 --------
 datachain.json            The datachain. This is the file to keep and edit.
-datachain.resolved.json   The datachain bundled with the categories and elements
-                          it refers to, so it can be displayed without another
-                          request to the DTPR API.
+taxonomy.json             The categories and elements the datachain uses, as
+                          the DTPR API describes them, so it can be displayed
+                          without another request.
 icons/                    One icon per element, as SVG and as 512px PNG.
                           Files ending in .dark are for dark backgrounds.
 summary.html              A one-page summary. Open it in a browser and print it.
@@ -120,7 +119,7 @@ The descriptions you wrote yourself in this datachain are yours.
 }
 
 export async function dtprBuildPackage(input: PackageInput): Promise<Blob> {
-  const { taxonomy, chain } = input
+  const { taxonomy, chain, locale } = input
   const elements = new Map(taxonomy.elements.map((e) => [e.id, e]))
   const items = chain.elements
     .filter((p) => elements.has(p.element_id))
@@ -129,10 +128,19 @@ export async function dtprBuildPackage(input: PackageInput): Promise<Blob> {
   const files = await dtprIconFiles(chain.schema_version, items)
   const svgs = new Map(items.map(({ element }) => [element.id, files[`icons/${element.id}.svg`] as string]))
 
+  // The part of the taxonomy the datachain uses, in the shape of the whole-taxonomy download.
+  const used = new Set(items.map(({ element }) => element.category_id))
+  const subset = {
+    schema_version: taxonomy.version,
+    locale,
+    categories: taxonomy.categories.filter((c) => used.has(c.id)),
+    elements: items.map(({ element }) => element),
+  }
+
   return dtprZip({
     ...files,
     'datachain.json': JSON.stringify(chain, null, 2),
-    'datachain.resolved.json': JSON.stringify(input.resolved, null, 2),
+    'taxonomy.json': JSON.stringify(subset, null, 2),
     'summary.html': summaryHtml(input, svgs),
     'README.txt': readme(input),
   })
