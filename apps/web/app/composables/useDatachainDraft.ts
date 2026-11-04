@@ -68,6 +68,17 @@ export function useDatachainDraft() {
     return true
   }
 
+  /** Swap two elements' places in the order. Priority follows the order. */
+  const swap = (elementId: string, otherId: string) => {
+    if (!chain.value) return
+    const list = chain.value.elements
+    const a = list.findIndex((e) => e.element_id === elementId)
+    const b = list.findIndex((e) => e.element_id === otherId)
+    if (a < 0 || b < 0 || a === b) return
+    ;[list[a], list[b]] = [list[b]!, list[a]!]
+    touch()
+  }
+
   const remove = (elementId: string) => {
     if (!chain.value) return
     chain.value.elements = chain.value.elements.filter((e) => e.element_id !== elementId)
@@ -122,5 +133,5 @@ export function useDatachainDraft() {
     save()
   }
 
-  return { chain, elements, savedHash, has, placed, add, remove, setContext, setVariable, setTitle, load, clear, save }
+  return { chain, elements, savedHash, has, placed, add, swap, remove, setContext, setVariable, setTitle, load, clear, save }
 }

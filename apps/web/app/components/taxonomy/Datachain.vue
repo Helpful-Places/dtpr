@@ -30,6 +30,23 @@ const placedNote = (placed: DtprDatachainElement) => {
 }
 const hasFields = (element: DtprElement) => !!categoryById.value.get(element.category_id)?.element_context || element.variables.length > 0
 
+// Elements can be moved up and down within their category. The order is the
+// datachain's priority, which is what the package and the summary follow.
+const moved = ref('')
+async function move(group: { placed: DtprDatachainElement[] }, placed: DtprDatachainElement, by: -1 | 1) {
+  const at = group.placed.indexOf(placed)
+  const other = group.placed[at + by]
+  if (!other) return
+  draft.swap(placed.element_id, other.element_id)
+  moved.value = `${placedTitle(placed)} moved ${by < 0 ? 'up' : 'down'}, now ${at + by + 1} of ${group.placed.length}.`
+  // Moving the card moves its DOM node, which drops focus. Put it back on the
+  // same arrow, or the other one once the card has reached an end.
+  await nextTick()
+  const arrow = (dir: 'up' | 'down') => document.querySelector<HTMLButtonElement>(`[data-move="${placed.element_id}:${dir}"]`)
+  const same = arrow(by < 0 ? 'up' : 'down')
+  ;(same && !same.disabled ? same : arrow(by < 0 ? 'down' : 'up'))?.focus()
+}
+
 // Which elements show their context and variables.
 const expanded = ref(new Set<string>())
 const toggleExpanded = (id: string) => { expanded.value.has(id) ? expanded.value.delete(id) : expanded.value.add(id) }
@@ -141,6 +158,7 @@ const moreItems = computed(() => [
           :actions="listedVersion ? [{ label: `Switch to ${chainVersion}`, onClick: switchVersion }, { label: `Start over on ${version}`, color: 'neutral', variant: 'outline', onClick: () => draft.clear() }] : []"
         />
 
+        <p class="sr-only" role="status">{{ moved }}</p>
         <p v-if="!elements.length" class="text-sm text-muted">
           Nothing added yet. Press <UIcon name="i-lucide-plus" class="inline size-4 align-text-bottom" aria-label="plus" /> on an element to add it to your datachain.
         </p>
@@ -156,6 +174,16 @@ const moreItems = computed(() => [
                   <span class="block text-sm font-medium">{{ placedTitle(p) }}</span>
                   <span v-if="placedNote(p)" class="block text-xs text-muted">{{ placedNote(p) }}</span>
                 </NuxtLink>
+                <span v-if="group.placed.length > 1" class="flex flex-col">
+                  <UButton
+                    size="xs" color="neutral" variant="ghost" square icon="i-lucide-chevron-up" class="h-4 min-h-0"
+                    :disabled="group.placed.indexOf(p) === 0" :aria-label="`Move ${placedTitle(p)} up`" :data-move="`${p.element_id}:up`" @click="move(group, p, -1)"
+                  />
+                  <UButton
+                    size="xs" color="neutral" variant="ghost" square icon="i-lucide-chevron-down" class="h-4 min-h-0"
+                    :disabled="group.placed.indexOf(p) === group.placed.length - 1" :aria-label="`Move ${placedTitle(p)} down`" :data-move="`${p.element_id}:down`" @click="move(group, p, 1)"
+                  />
+                </span>
                 <UButton
                   v-if="hasFields(elementById.get(p.element_id)!)"
                   size="xs" color="neutral" variant="ghost" square
