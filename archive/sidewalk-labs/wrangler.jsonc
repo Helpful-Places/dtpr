@@ -12,6 +12,9 @@
     { "pattern": "prototype.dtpr.io", "custom_domain": true },
     { "pattern": "chatbot.dtpr.io", "custom_domain": true }
   ],
+  // Keeps dtpr-archive.helpful-places.workers.dev up: it serves the landing
+  // page listing all three.
+  "workers_dev": true,
   "assets": {
     // Built by scripts/build.sh.
     "directory": "./dist",

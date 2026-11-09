@@ -1,7 +1,8 @@
 # Sidewalk Labs prototypes
 
 Three prototypes from when DTPR was a Sidewalk Labs project, served by one
-Cloudflare Worker (`dtpr-archive`).
+Cloudflare Worker (`dtpr-archive`). A landing page listing all three is at
+https://dtpr-archive.helpful-places.workers.dev.
 
 | Prototype | URL | What it is |
 | --- | --- | --- |
