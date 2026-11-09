@@ -21,7 +21,7 @@ serves composed icons as ready-made SVG strings that
 
 ## What it produces
 
-For `dtpr@2026-09-01-beta`: **139 elements across 14 categories, 472
+For `dtpr@2026-09-01-beta`: **147 elements across 14 categories, 494
 icons**.
 
 ```

@@ -1,0 +1,81 @@
+id: laboratory_instrument
+category_id: collection
+title:
+  - locale: en
+    value: Laboratory Instrument
+  - locale: fr
+    value: Instrument de laboratoire
+  - locale: es
+    value: Instrumento de laboratorio
+  - locale: pt
+    value: Instrumento de laboratório
+  - locale: fil
+    value: Instrumento sa laboratoryo
+  - locale: km
+    value: ឧបករណ៍មន្ទីរពិសោធន៍
+  - locale: vi
+    value: Thiết bị phòng thí nghiệm
+  - locale: zh-Hans
+    value: 实验室仪器
+  - locale: zh-Hant
+    value: 實驗室儀器
+  - locale: nl
+    value: Laboratoriuminstrument
+  - locale: de
+    value: Laborgerät
+description:
+  - locale: en
+    value: >-
+      Measures samples brought to a laboratory — a DNA sequencer, a chemical analyzer, or a
+      spectrometer. It reads the biological or chemical material it is given, not the surroundings
+      or people directly, though a sample taken from a person can still reveal who they are.
+  - locale: fr
+    value: >-
+      Mesure des échantillons apportés en laboratoire — séquenceur d'ADN, analyseur chimique ou
+      spectromètre. Il lit la matière biologique ou chimique qu'on lui fournit, pas l'environnement
+      ni les personnes directement, même si un échantillon prélevé sur une personne peut révéler son
+      identité.
+  - locale: es
+    value: >-
+      Mide muestras llevadas a un laboratorio — un secuenciador de ADN, un analizador químico o un
+      espectrómetro. Lee el material biológico o químico que se le entrega, no el entorno ni a las
+      personas directamente, aunque una muestra tomada de una persona puede revelar quién es.
+  - locale: pt
+    value: >-
+      Mede amostras levadas a um laboratório — um sequenciador de DNA, um analisador químico ou um
+      espectrômetro. Lê o material biológico ou químico que recebe, não o ambiente nem as pessoas
+      diretamente, embora uma amostra coletada de uma pessoa ainda possa revelar quem ela é.
+  - locale: fil
+    value: >-
+      Sumusukat sa mga sample na dinala sa laboratoryo — DNA sequencer, chemical analyzer, o
+      spectrometer. Ang biyolohikal o kemikal na materyal na ibinigay dito ang binabasa nito, hindi
+      ang paligid o ang mga tao nang direkta, bagaman maaari pa ring ibunyag ng sample na kinuha sa
+      isang tao kung sino siya.
+  - locale: km
+    value: >-
+      វាស់សំណាកដែលបាននាំយកមកមន្ទីរពិសោធន៍ — ម៉ាស៊ីនអាន DNA, ម៉ាស៊ីនវិភាគគីមី, ឬស្ប៉ិចត្រូម៉ែត្រ។
+      វាអានវត្ថុធាតុជីវសាស្ត្រ ឬគីមីដែលគេផ្ដល់ឱ្យ មិនមែនបរិស្ថាន ឬមនុស្សដោយផ្ទាល់ទេ
+      ទោះបីសំណាកដែលយកពីមនុស្សម្នាក់នៅតែអាចបង្ហាញថាគាត់ជានរណាក៏ដោយ។
+  - locale: vi
+    value: >-
+      Đo các mẫu được đưa đến phòng thí nghiệm — máy giải trình tự ADN, máy phân tích hóa học hoặc
+      máy quang phổ. Thiết bị đọc vật liệu sinh học hoặc hóa học được đưa vào, chứ không trực tiếp
+      đo môi trường xung quanh hay con người, dù mẫu lấy từ một người vẫn có thể cho biết người đó
+      là ai.
+  - locale: zh-Hans
+    value: 测量送到实验室的样本——例如DNA测序仪、化学分析仪或光谱仪。它读取的是交给它的生物或化学材料，而不是直接读取周围环境或人，不过从某人身上采集的样本仍可能暴露其身份。
+  - locale: zh-Hant
+    value: 測量送到實驗室的樣本，例如DNA定序儀、化學分析儀或光譜儀。它讀取的是交給它的生物或化學物質，而非直接讀取周遭環境或人，但從某人身上採集的樣本仍可能透露其身分。
+  - locale: nl
+    value: >-
+      Meet monsters die naar een laboratorium zijn gebracht, zoals een DNA-sequencer, een chemische
+      analyser of een spectrometer. Het leest het biologische of chemische materiaal dat het krijgt,
+      niet de omgeving of mensen zelf, al kan een monster van een persoon nog steeds verraden wie
+      dat is.
+  - locale: de
+    value: >-
+      Misst Proben, die in ein Labor gebracht werden – etwa ein DNA-Sequenzierer, ein chemisches
+      Analysegerät oder ein Spektrometer. Es liest das biologische oder chemische Material, das ihm
+      übergeben wird, nicht direkt die Umgebung oder Personen; eine Probe, die von einer Person
+      stammt, kann aber dennoch verraten, wer sie ist.
+symbol_id: research_development

@@ -1,0 +1,83 @@
+id: rule_based_logic
+category_id: processing
+title:
+  - locale: en
+    value: Rule-Based Logic
+  - locale: fr
+    value: Logique à base de règles
+  - locale: es
+    value: Lógica basada en reglas
+  - locale: pt
+    value: Lógica baseada em regras
+  - locale: fil
+    value: Lohikang batay sa patakaran
+  - locale: km
+    value: តក្កវិជ្ជាផ្អែកលើច្បាប់
+  - locale: vi
+    value: Logic dựa trên quy tắc
+  - locale: zh-Hans
+    value: 基于规则的逻辑
+  - locale: zh-Hant
+    value: 規則式邏輯
+  - locale: nl
+    value: Regelgebaseerde logica
+  - locale: de
+    value: Regelbasierte Logik
+description:
+  - locale: en
+    value: >-
+      Techniques that apply fixed rules written by people — a formula, a points table, a schedule,
+      or eligibility criteria — to produce a result or score. Nothing is learned from data: the same
+      input always gives the same output, and the rules can be read and audited.
+  - locale: fr
+    value: >-
+      Techniques qui appliquent des règles fixes rédigées par des personnes — une formule, un barème
+      de points, un calendrier ou des critères d'admissibilité — pour produire un résultat ou un
+      score. Rien n'est appris à partir de données : une même entrée donne toujours le même
+      résultat, et les règles peuvent être lues et vérifiées.
+  - locale: es
+    value: >-
+      Técnicas que aplican reglas fijas escritas por personas — una fórmula, una tabla de puntos, un
+      calendario o criterios de elegibilidad — para producir un resultado o una puntuación. No se
+      aprende nada de los datos: la misma entrada siempre da el mismo resultado, y las reglas se
+      pueden leer y auditar.
+  - locale: pt
+    value: >-
+      Técnicas que aplicam regras fixas escritas por pessoas — uma fórmula, uma tabela de pontos, um
+      calendário ou critérios de elegibilidade — para produzir um resultado ou uma pontuação. Nada é
+      aprendido a partir de dados: a mesma entrada sempre gera o mesmo resultado, e as regras podem
+      ser lidas e auditadas.
+  - locale: fil
+    value: >-
+      Mga pamamaraang naglalapat ng mga nakapirming patakarang isinulat ng mga tao — isang pormula,
+      talaan ng puntos, iskedyul, o pamantayan sa pagiging kwalipikado — upang makabuo ng resulta o
+      iskor. Walang natututunan mula sa data: laging pareho ang resulta sa parehong input, at
+      maaaring basahin at suriin ang mga patakaran.
+  - locale: km
+    value: >-
+      បច្ចេកទេសដែលអនុវត្តច្បាប់ថេរដែលមនុស្សបានសរសេរ — រូបមន្ត, តារាងពិន្ទុ, កាលវិភាគ,
+      ឬលក្ខខណ្ឌសិទ្ធិទទួលបាន — ដើម្បីបង្កើតលទ្ធផល ឬពិន្ទុ។ គ្មានអ្វីត្រូវបានរៀនពីទិន្នន័យទេ៖
+      ទិន្នន័យបញ្ចូលដូចគ្នាតែងតែផ្ដល់លទ្ធផលដូចគ្នា ហើយច្បាប់ទាំងនោះអាចអាន និងត្រួតពិនិត្យបាន។
+  - locale: vi
+    value: >-
+      Các kỹ thuật áp dụng những quy tắc cố định do con người viết ra — một công thức, một bảng tính
+      điểm, một lịch trình hoặc các tiêu chí đủ điều kiện — để đưa ra một kết quả hoặc một điểm số.
+      Không có gì được học từ dữ liệu: cùng một đầu vào luôn cho cùng một kết quả, và các quy tắc có
+      thể được đọc và kiểm tra.
+  - locale: zh-Hans
+    value: 应用人工制定的固定规则——公式、计分表、时间表或资格标准——来得出结果或分数的技术。不从数据中学习：相同的输入总是得到相同的结果，规则也可以被阅读和审核。
+  - locale: zh-Hant
+    value: 套用由人訂定的固定規則（例如公式、計分表、時程表或資格條件）來產生結果或分數的技術。不從資料中學習：相同的輸入一定得到相同的結果，規則也可供閱讀與稽核。
+  - locale: nl
+    value: >-
+      Technieken die vaste, door mensen opgestelde regels toepassen, zoals een formule, een
+      puntentabel, een schema of toelatingsvoorwaarden, om tot een uitkomst of score te komen. Er
+      wordt niets uit gegevens geleerd: dezelfde invoer geeft altijd dezelfde uitkomst, en de regels
+      zijn te lezen en te controleren.
+  - locale: de
+    value: >-
+      Verfahren, die feste, von Menschen festgelegte Regeln anwenden – eine Formel, eine
+      Punktetabelle, einen Zeitplan oder Anspruchsvoraussetzungen –, um ein Ergebnis oder eine
+      Punktzahl zu ermitteln. Aus Daten wird nichts gelernt: Dieselbe Eingabe ergibt immer dasselbe
+      Ergebnis, und die Regeln lassen sich nachlesen und prüfen.
+symbol_id: flowchart

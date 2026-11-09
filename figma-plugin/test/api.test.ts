@@ -86,7 +86,7 @@ describe('rate-limit constants track api/wrangler.jsonc', () => {
     expect(ICON_LIMIT_PER_MINUTE).toBe(limitFor('RL_ICONS'))
   })
 
-  it('leaves the icon ceiling above a full 472-icon build', () => {
-    expect(ICON_LIMIT_PER_MINUTE).toBeGreaterThan(472)
+  it('leaves the icon ceiling above a full 494-icon build', () => {
+    expect(ICON_LIMIT_PER_MINUTE).toBeGreaterThan(494)
   })
 })

@@ -1,0 +1,89 @@
+id: public_health_monitoring
+category_id: purpose
+title:
+  - locale: en
+    value: Public Health Monitoring
+  - locale: fr
+    value: Veille sanitaire
+  - locale: es
+    value: Monitoreo de la salud pública
+  - locale: pt
+    value: Monitoramento da saúde pública
+  - locale: fil
+    value: Pagbabantay sa kalusugan ng publiko
+  - locale: km
+    value: ការតាមដានសុខភាពសាធារណៈ
+  - locale: vi
+    value: Theo dõi sức khỏe cộng đồng
+  - locale: zh-Hans
+    value: 公共卫生监测
+  - locale: zh-Hant
+    value: 公共衛生監測
+  - locale: nl
+    value: Monitoring van de volksgezondheid
+  - locale: de
+    value: Gesundheitsmonitoring der Bevölkerung
+description:
+  - locale: en
+    value: >-
+      Monitors disease and health conditions across a population — detecting outbreaks, tracking
+      pathogens and their variants, following case trends — to guide the public health response.
+      Distinct from Healthcare, which supports clinical care for individuals, and from Environmental
+      Health, which monitors the physical environment.
+  - locale: fr
+    value: >-
+      Suit les maladies et l'état de santé d'une population — détection des foyers épidémiques,
+      suivi des agents pathogènes et de leurs variants, évolution du nombre de cas — afin d'orienter
+      la réponse de santé publique. À distinguer de Soins de santé, qui soutient les soins cliniques
+      aux personnes, et de Santé environnementale, qui surveille l'environnement physique.
+  - locale: es
+    value: >-
+      Monitorea enfermedades y condiciones de salud en una población — detectar brotes, rastrear
+      patógenos y sus variantes, seguir la evolución de los casos — para orientar la respuesta de
+      salud pública. Se distingue de Atención médica, que apoya la atención clínica de las personas,
+      y de Salud ambiental, que monitorea el entorno físico.
+  - locale: pt
+    value: >-
+      Monitora doenças e condições de saúde em uma população — detectando surtos, rastreando
+      patógenos e suas variantes, acompanhando a evolução dos casos — para orientar a resposta de
+      saúde pública. Diferente de Assistência à saúde, que apoia o cuidado clínico de indivíduos, e
+      de Saúde ambiental, que monitora o ambiente físico.
+  - locale: fil
+    value: >-
+      Nagbabantay sa mga sakit at kalagayang pangkalusugan sa buong populasyon — pagtuklas ng mga
+      outbreak, pagsubaybay sa mga pathogen at sa mga variant nito, pagsubaybay sa takbo ng mga kaso
+      — upang gabayan ang pagtugon ng pampublikong kalusugan. Iba sa Pangangalagang pangkalusugan,
+      na sumusuporta sa klinikal na pangangalaga sa mga indibidwal, at sa Kalusugang
+      pangkapaligiran, na nagbabantay sa pisikal na kapaligiran.
+  - locale: km
+    value: >-
+      តាមដានជំងឺ និងស្ថានភាពសុខភាពទូទាំងប្រជាជន — ការរកឃើញការផ្ទុះជំងឺ, ការតាមដានមេរោគ
+      និងវ៉ារ្យ៉ង់របស់វា, ការតាមដាននិន្នាការករណីជំងឺ — ដើម្បីណែនាំការឆ្លើយតបផ្នែកសុខភាពសាធារណៈ។
+      ខុសពី «ការថែទាំសុខភាព» ដែលគាំទ្រការព្យាបាលថែទាំសម្រាប់បុគ្គល និងពី «សុខភាពបរិស្ថាន»
+      ដែលតាមដានបរិស្ថានរូបវន្ត។
+  - locale: vi
+    value: >-
+      Theo dõi bệnh tật và tình trạng sức khỏe trong cộng đồng dân cư — phát hiện ổ dịch, theo dõi
+      mầm bệnh và các biến thể của chúng, nắm bắt xu hướng số ca bệnh — để định hướng công tác ứng
+      phó y tế công cộng. Khác với Chăm sóc sức khỏe, vốn hỗ trợ việc khám chữa bệnh cho từng người,
+      và với Sức khỏe môi trường, vốn theo dõi môi trường vật lý.
+  - locale: zh-Hans
+    value: >-
+      监测人群中的疾病和健康状况——发现疫情暴发、追踪病原体及其变异株、跟踪病例趋势——以指导公共卫生应对。有别于“医疗保健”，后者支持面向个人的临床诊疗；也有别于“环境健康”，后者监测的是物理环境。
+  - locale: zh-Hant
+    value: >-
+      監測人口中的疾病與健康狀況，例如偵測疫情爆發、追蹤病原體及其變異株、掌握病例趨勢，以引導公共衛生應變。與「醫療照護」不同，後者協助對個人的臨床照護；也與「環境衛生」不同，後者監測的是實體環境。
+  - locale: nl
+    value: >-
+      Volgt ziekten en de gezondheid van een bevolking: uitbraken opsporen, ziekteverwekkers en hun
+      varianten volgen, het verloop van het aantal gevallen bijhouden, om de aanpak van de
+      volksgezondheid te sturen. Anders dan Gezondheidszorg, dat de medische zorg voor individuele
+      mensen ondersteunt, en Gezonde leefomgeving, dat de fysieke omgeving monitort.
+  - locale: de
+    value: >-
+      Beobachtet Krankheiten und den Gesundheitszustand einer Bevölkerung – Ausbrüche erkennen,
+      Krankheitserreger und ihre Varianten verfolgen, die Entwicklung der Fallzahlen im Blick
+      behalten –, um die Maßnahmen des öffentlichen Gesundheitsdienstes zu steuern. Im Unterschied
+      zu „Gesundheitsversorgung“, die die medizinische Behandlung einzelner Personen unterstützt,
+      und zu „Umwelt und Gesundheit“, das die physische Umwelt überwacht.
+symbol_id: public_health_monitoring

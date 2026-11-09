@@ -15,7 +15,7 @@ In the explorer you can add elements to a datachain and download it with its ico
 
 The taxonomy is the full set of [categories](#category) and [elements](#element) published in one [schema version](#schema-version). There is one taxonomy, and it describes both physical devices and AI systems. A traffic camera, a public wifi network and a benefits eligibility model are all described with the same categories.
 
-The current taxonomy has 14 categories and 139 elements.
+The current taxonomy has 14 categories and 147 elements.
 
 ::dev
 In the API, you read the taxonomy through two lists: `GET /schemas/{version}/categories` and `GET /schemas/{version}/elements`. See the [categories](/docs/developers/rest-api/categories) and [elements](/docs/developers/rest-api/elements-list) reference pages.

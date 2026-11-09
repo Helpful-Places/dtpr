@@ -28,51 +28,59 @@ description:
     value: >-
       Supports clinical care for individuals — for example, diagnosis assistance, treatment
       recommendations, patient triage, or health chatbots. Distinct from Environmental Health, which
-      monitors the physical environment.
+      monitors the physical environment, and from Public Health Monitoring, which follows disease
+      across a population.
   - locale: fr
     value: >-
       Soutient les soins cliniques aux personnes — par exemple, aide au diagnostic, recommandations
       de traitement, triage des patients ou chatbots de santé. À distinguer de Santé
-      environnementale, qui surveille l'environnement physique.
+      environnementale, qui surveille l'environnement physique, et de Veille sanitaire, qui suit les
+      maladies à l'échelle d'une population.
   - locale: es
     value: >-
       Apoya la atención clínica de las personas — por ejemplo, ayuda para el diagnóstico,
       recomendaciones de tratamiento, triaje de pacientes o chatbots de salud. Se distingue de Salud
-      ambiental, que monitorea el entorno físico.
+      ambiental, que monitorea el entorno físico, y de Monitoreo de la salud pública, que da
+      seguimiento a las enfermedades en una población.
   - locale: pt
     value: >-
       Apoia o cuidado clínico de indivíduos — por exemplo, apoio ao diagnóstico, recomendações de
       tratamento, triagem de pacientes ou chatbots de saúde. Diferente de Saúde ambiental, que
-      monitora o ambiente físico.
+      monitora o ambiente físico, e de Monitoramento da saúde pública, que acompanha doenças em uma
+      população.
   - locale: fil
     value: >-
       Sumusuporta sa klinikal na pangangalaga sa mga indibidwal — halimbawa, tulong sa diyagnosis,
       mga rekomendasyon sa paggamot, triage ng mga pasyente, o mga chatbot na pangkalusugan. Iba sa
-      Kalusugang pangkapaligiran, na nagbabantay sa pisikal na kapaligiran.
+      Kalusugang pangkapaligiran, na nagbabantay sa pisikal na kapaligiran, at sa Pagbabantay sa
+      kalusugan ng publiko, na sumusubaybay sa mga sakit sa buong populasyon.
   - locale: km
     value: >-
       គាំទ្រការព្យាបាលថែទាំសម្រាប់បុគ្គល — ឧទាហរណ៍ ជំនួយក្នុងការធ្វើរោគវិនិច្ឆ័យ,
       អនុសាសន៍អំពីការព្យាបាល, ការចាត់អាទិភាពអ្នកជំងឺ, ឬឆាតបតសុខភាព។ ខុសពី «សុខភាពបរិស្ថាន»
-      ដែលតាមដានបរិស្ថានរូបវន្ត។
+      ដែលតាមដានបរិស្ថានរូបវន្ត និងពី «ការតាមដានសុខភាពសាធារណៈ» ដែលតាមដានជំងឺទូទាំងប្រជាជន។
   - locale: vi
     value: >-
       Hỗ trợ việc khám chữa bệnh cho từng người — ví dụ: hỗ trợ chẩn đoán, đề xuất điều trị, phân
       loại ưu tiên bệnh nhân, hoặc chatbot về sức khỏe. Khác với Sức khỏe môi trường, vốn theo dõi
-      môi trường vật lý.
+      môi trường vật lý, và với Theo dõi sức khỏe cộng đồng, vốn theo dõi bệnh tật trong cộng đồng
+      dân cư.
   - locale: zh-Hans
-    value: 支持面向个人的临床诊疗——例如辅助诊断、治疗建议、患者分诊或健康咨询聊天机器人。有别于“环境健康”，后者监测的是物理环境。
+    value: 支持面向个人的临床诊疗——例如辅助诊断、治疗建议、患者分诊或健康咨询聊天机器人。有别于“环境健康”，后者监测的是物理环境；也有别于“公共卫生监测”，后者跟踪人群中的疾病。
   - locale: zh-Hant
-    value: 協助對個人的臨床照護，例如輔助診斷、治療建議、病患分流或健康聊天機器人。與「環境衛生」不同，後者監測的是實體環境。
+    value: 協助對個人的臨床照護，例如輔助診斷、治療建議、病患分流或健康聊天機器人。與「環境衛生」不同，後者監測的是實體環境；也與「公共衛生監測」不同，後者追蹤人口中的疾病。
   - locale: nl
     value: >-
       Ondersteunt de medische zorg voor individuele mensen, bijvoorbeeld hulp bij diagnoses,
       behandeladviezen, triage van patiënten of chatbots over gezondheid. Anders dan Gezonde
-      leefomgeving, dat de fysieke omgeving monitort.
+      leefomgeving, dat de fysieke omgeving monitort, en Monitoring van de volksgezondheid, dat
+      ziekten in een bevolking volgt.
   - locale: de
     value: >-
       Unterstützt die medizinische Behandlung einzelner Personen – zum Beispiel Diagnosehilfen,
       Behandlungsempfehlungen, medizinische Triage oder Gesundheits-Chatbots. Im Unterschied zu
-      „Umwelt und Gesundheit“, das die physische Umwelt überwacht.
+      „Umwelt und Gesundheit“, das die physische Umwelt überwacht, und zu „Gesundheitsmonitoring der
+      Bevölkerung“, das Krankheiten in der Bevölkerung verfolgt.
 sources:
   - type: policy_document
     title: Ethics and Governance of Artificial Intelligence for Health

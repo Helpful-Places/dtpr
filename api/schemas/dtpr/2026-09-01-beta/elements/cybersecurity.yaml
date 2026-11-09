@@ -1,0 +1,81 @@
+id: cybersecurity
+category_id: purpose
+title:
+  - locale: en
+    value: Cybersecurity
+  - locale: fr
+    value: Cybersécurité
+  - locale: es
+    value: Ciberseguridad
+  - locale: pt
+    value: Cibersegurança
+  - locale: fil
+    value: Cybersecurity
+  - locale: km
+    value: សន្តិសុខសាយប័រ
+  - locale: vi
+    value: An ninh mạng
+  - locale: zh-Hans
+    value: 网络安全
+  - locale: zh-Hant
+    value: 資訊安全
+  - locale: nl
+    value: Cyberbeveiliging
+  - locale: de
+    value: Cybersicherheit
+description:
+  - locale: en
+    value: >-
+      Protects computer systems, networks, and digital data from intrusion, misuse, or attack — for
+      example, detecting threats in network logs or prioritizing security investigations. Distinct
+      from Safety & Security, which reduces risk in physical environments.
+  - locale: fr
+    value: >-
+      Protège les systèmes informatiques, les réseaux et les données numériques contre les
+      intrusions, les usages abusifs ou les attaques — par exemple, détecter des menaces dans les
+      journaux réseau ou hiérarchiser les enquêtes de sécurité. À distinguer de Sûreté et sécurité,
+      qui réduit les risques dans les environnements physiques.
+  - locale: es
+    value: >-
+      Protege sistemas informáticos, redes y datos digitales contra intrusiones, usos indebidos o
+      ataques — por ejemplo, detectar amenazas en los registros de red o priorizar investigaciones
+      de seguridad. Se distingue de Seguridad y protección, que reduce riesgos en entornos físicos.
+  - locale: pt
+    value: >-
+      Protege sistemas de computador, redes e dados digitais contra invasões, uso indevido ou
+      ataques — por exemplo, detectando ameaças em registros de rede ou priorizando investigações de
+      segurança. Diferente de Segurança e proteção, que reduz riscos em ambientes físicos.
+  - locale: fil
+    value: >-
+      Pinoprotektahan ang mga computer system, network, at digital na data laban sa panghihimasok,
+      maling paggamit, o pag-atake — halimbawa, pagtuklas ng mga banta sa mga log ng network o
+      pagbibigay-priyoridad sa mga imbestigasyong pangseguridad. Iba sa Kaligtasan at seguridad, na
+      nagbabawas ng panganib sa mga pisikal na kapaligiran.
+  - locale: km
+    value: >-
+      ការពារប្រព័ន្ធកុំព្យូទ័រ, បណ្ដាញ, និងទិន្នន័យឌីជីថល ពីការជ្រៀតចូល, ការប្រើប្រាស់ខុស,
+      ឬការវាយប្រហារ — ឧទាហរណ៍ ការរកឃើញការគំរាមកំហែងក្នុងកំណត់ហេតុបណ្ដាញ
+      ឬការចាត់អាទិភាពការស៊ើបអង្កេតផ្នែកសន្តិសុខ។ ខុសពី «សុវត្ថិភាព និងសន្តិសុខ»
+      ដែលកាត់បន្ថយហានិភ័យក្នុងបរិស្ថានរូបវន្ត។
+  - locale: vi
+    value: >-
+      Bảo vệ hệ thống máy tính, mạng và dữ liệu số khỏi xâm nhập, lạm dụng hoặc tấn công — ví dụ:
+      phát hiện mối đe dọa trong nhật ký mạng hoặc xác định thứ tự ưu tiên cho các cuộc điều tra bảo
+      mật. Khác với An toàn và an ninh, vốn giảm rủi ro trong môi trường vật lý.
+  - locale: zh-Hans
+    value: 保护计算机系统、网络和数字数据免遭入侵、滥用或攻击——例如在网络日志中发现威胁，或确定安全调查的优先次序。有别于“安全与安保”，后者降低的是物理环境中的风险。
+  - locale: zh-Hant
+    value: 保護電腦系統、網路與數位資料，防範入侵、濫用或攻擊，例如從網路日誌中偵測威脅，或排定資安調查的優先順序。與「安全與保全」不同，後者降低的是實體環境中的風險。
+  - locale: nl
+    value: >-
+      Beschermt computersystemen, netwerken en digitale gegevens tegen inbraak, misbruik of
+      aanvallen, bijvoorbeeld door dreigingen in netwerklogboeken op te sporen of
+      beveiligingsonderzoeken voorrang te geven. Anders dan Veiligheid en beveiliging, dat risico's
+      in fysieke omgevingen verkleint.
+  - locale: de
+    value: >-
+      Schützt Computersysteme, Netzwerke und digitale Daten vor Eindringen, Missbrauch oder
+      Angriffen – zum Beispiel, indem Bedrohungen in Netzwerkprotokollen erkannt oder
+      Sicherheitsuntersuchungen priorisiert werden. Im Unterschied zu „Schutz und Sicherheit“, das
+      Risiken in physischen Umgebungen verringert.
+symbol_id: cybersecurity
