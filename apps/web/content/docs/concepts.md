@@ -101,7 +101,7 @@ In the API, a category's `required` is `true` or `false`.
 
 An element is one possible answer within a [category](#category). It has a title, a description and an [icon](#icon). Describing a system means choosing the elements that apply to it.
 
-For example, the Collection Technology category has 13 elements, including Camera, Microphone and Environmental Sensor. The Camera element's description says it captures still images or video of a place, and that it may be mounted on a pole, a vehicle or a drone, or built into a device.
+For example, the Collection Technology category has 14 elements, including Camera, Microphone and Environmental Sensor. The Camera element's description says it captures still images or video of a place, and that it may be mounted on a pole, a vehicle or a drone, or built into a device.
 
 ::dev
 In the API, an element has an `id` (`camera`), a `category_id` (`collection`), a `title`, a `description`, a `symbol_id`, a `shape`, its `variables`, and `icon_variants`. See the [element detail](/docs/developers/rest-api/element-detail) reference page.

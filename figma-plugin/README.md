@@ -113,7 +113,7 @@ This is the one thing that will bite you if you change the fetch logic.
 The API meters icons and JSON separately (`api/src/app.ts`):
 `RL_ICONS` allows **1200 requests per minute** on the icon routes,
 `RL_READ` **300 per minute** on everything else. A full build is
-**472 icon requests** plus a handful of metadata reads, so the whole
+**494 icon requests** plus a handful of metadata reads, so the whole
 library now fits inside one icon window and downloads in a single
 pass. The plugin:
 
@@ -129,12 +129,12 @@ pass. The plugin:
 
 The limiters are now a backstop, not the thing that sets build time —
 they only engage if a ceiling moves down or a build grows well past
-472 icons. `test/api.test.ts` reads the ceilings back out of
+494 icons. `test/api.test.ts` reads the ceilings back out of
 `api/wrangler.jsonc` and fails if the constants in `src/api.ts` drift
 from them, since nothing at runtime would tell the plugin they moved.
 
 The **Default context only** and **Light theme only** options cut a
-build to 139–278 requests when you just need a quick refresh.
+build to 147–294 requests when you just need a quick refresh.
 
 ## Layout
 
