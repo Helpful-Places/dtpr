@@ -15,7 +15,7 @@ In the explorer you can add elements to a datachain and download it with its ico
 
 The taxonomy is the full set of [categories](#category) and [elements](#element) published in one [schema version](#schema-version). There is one taxonomy, and it describes both physical devices and AI systems. A traffic camera, a public wifi network and a benefits eligibility model are all described with the same categories.
 
-The current taxonomy has 14 categories and 139 elements.
+The current taxonomy has 14 categories and 147 elements.
 
 ::dev
 In the API, you read the taxonomy through two lists: `GET /schemas/{version}/categories` and `GET /schemas/{version}/elements`. See the [categories](/docs/developers/rest-api/categories) and [elements](/docs/developers/rest-api/elements-list) reference pages.
@@ -101,7 +101,7 @@ In the API, a category's `required` is `true` or `false`.
 
 An element is one possible answer within a [category](#category). It has a title, a description and an [icon](#icon). Describing a system means choosing the elements that apply to it.
 
-For example, the Collection Technology category has 13 elements, including Camera, Microphone and Environmental Sensor. The Camera element's description says it captures still images or video of a place, and that it may be mounted on a pole, a vehicle or a drone, or built into a device.
+For example, the Collection Technology category has 14 elements, including Camera, Microphone and Environmental Sensor. The Camera element's description says it captures still images or video of a place, and that it may be mounted on a pole, a vehicle or a drone, or built into a device.
 
 ::dev
 In the API, an element has an `id` (`camera`), a `category_id` (`collection`), a `title`, a `description`, a `symbol_id`, a `shape`, its `variables`, and `icon_variants`. See the [element detail](/docs/developers/rest-api/element-detail) reference page.

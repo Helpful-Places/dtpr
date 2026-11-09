@@ -1,0 +1,102 @@
+id: input_media
+category_id: input_dataset
+title:
+  - locale: en
+    value: Media and documents
+  - locale: fr
+    value: Médias et documents
+  - locale: es
+    value: Medios y documentos
+  - locale: pt
+    value: Mídias e documentos
+  - locale: fil
+    value: Media at mga dokumento
+  - locale: km
+    value: មេឌៀ និងឯកសារ
+  - locale: vi
+    value: Nội dung đa phương tiện và tài liệu
+  - locale: zh-Hans
+    value: 媒体与文档
+  - locale: zh-Hant
+    value: 媒體與文件
+  - locale: nl
+    value: Media en documenten
+  - locale: de
+    value: Medien und Dokumente
+description:
+  - locale: en
+    value: >-
+      Photos, video, audio recordings, documents, drafts, and published posts or articles. The
+      system takes in this content to edit, caption, rank, translate, summarize, or analyze it. The
+      content may show, record, quote, or be written by identifiable people even when the system is
+      not identifying them. Examples: a video clip to caption, a photo loaded into an image editor,
+      a draft pasted into a writing assistant.
+  - locale: fr
+    value: >-
+      Photos, vidéos, enregistrements audio, documents, brouillons, publications ou articles parus.
+      Le système reçoit ce contenu pour le modifier, le sous-titrer, le classer, le traduire, le
+      résumer ou l'analyser. Ce contenu peut montrer, enregistrer ou citer des personnes
+      identifiables, ou avoir été écrit par elles, même si le système ne cherche pas à les
+      identifier. Exemples : une vidéo à sous-titrer, une photo ouverte dans un logiciel de
+      retouche, un brouillon collé dans un assistant de rédaction.
+  - locale: es
+    value: >-
+      Fotos, videos, grabaciones de audio, documentos, borradores, publicaciones en redes sociales o
+      artículos de prensa. El sistema recibe este contenido para editarlo, subtitularlo,
+      clasificarlo, traducirlo, resumirlo o analizarlo. El contenido puede mostrar, grabar o citar a
+      personas identificables, o haber sido escrito por ellas, aunque el sistema no las esté
+      identificando. Ejemplos: un video para subtitular, una foto abierta en un editor de imágenes,
+      un borrador pegado en un asistente de redacción.
+  - locale: pt
+    value: >-
+      Fotos, vídeos, gravações de áudio, documentos, rascunhos, publicações em redes sociais ou
+      artigos publicados. O sistema recebe esse conteúdo para editá-lo, legendá-lo, classificá-lo,
+      traduzi-lo, resumi-lo ou analisá-lo. O conteúdo pode mostrar, gravar ou citar pessoas
+      identificáveis, ou ter sido escrito por elas, mesmo quando o sistema não as está
+      identificando. Exemplos: um vídeo a ser legendado, uma foto aberta em um editor de imagens, um
+      rascunho colado em um assistente de escrita.
+  - locale: fil
+    value: >-
+      Mga larawan, video, recording ng audio, dokumento, draft, at mga nailathalang post o artikulo.
+      Tumatanggap ang sistema ng nilalamang ito upang i-edit, lagyan ng caption, i-ranggo, isalin,
+      ibuod, o suriin ito. Maaaring makita, marinig, mabanggit, o maging may-akda ang mga taong
+      makikilala sa nilalaman kahit hindi sila kinikilala ng sistema. Mga halimbawa: video clip na
+      lalagyan ng caption, larawang binuksan sa image editor, draft na idinikit sa isang writing
+      assistant.
+  - locale: km
+    value: >-
+      រូបថត, វីដេអូ, ការថតសំឡេង, ឯកសារ, សេចក្ដីព្រាង, និងការបង្ហោះ ឬអត្ថបទដែលបានផ្សាយ។
+      ប្រព័ន្ធទទួលយកខ្លឹមសារនេះ ដើម្បីកែសម្រួល, ដាក់អក្សររត់, ចាត់ចំណាត់ថ្នាក់, បកប្រែ, សង្ខេប,
+      ឬវិភាគ។ ខ្លឹមសារនេះអាចបង្ហាញ, ថតទុក, ដកស្រង់, ឬត្រូវបានសរសេរដោយមនុស្សដែលអាចស្គាល់អត្តសញ្ញាណបាន
+      ទោះបីប្រព័ន្ធមិនកំណត់អត្តសញ្ញាណពួកគេក៏ដោយ។ ឧទាហរណ៍៖ វីដេអូខ្លីសម្រាប់ដាក់អក្សររត់,
+      រូបថតដែលបើកក្នុងកម្មវិធីកែរូបភាព, សេចក្ដីព្រាងដែលបានបិទភ្ជាប់ក្នុងជំនួយការសរសេរ។
+  - locale: vi
+    value: >-
+      Ảnh, video, bản ghi âm, tài liệu, bản nháp, bài đăng hoặc bài báo đã xuất bản. Hệ thống tiếp
+      nhận nội dung này để chỉnh sửa, thêm phụ đề, xếp hạng, dịch, tóm tắt hoặc phân tích. Nội dung
+      có thể cho thấy, ghi lại, trích dẫn hoặc do những người có thể nhận diện được viết ra, kể cả
+      khi hệ thống không nhận diện họ. Ví dụ: một đoạn video cần thêm phụ đề, một bức ảnh mở trong
+      phần mềm chỉnh sửa ảnh, một bản nháp được dán vào trợ lý viết.
+  - locale: zh-Hans
+    value: >-
+      照片、视频、录音、文档、草稿，以及已发布的帖子或文章。系统接收这些内容，用于编辑、添加字幕、排序、翻译、总结或分析。这些内容可能拍到、录下、引用了可识别身份的人，或由这些人撰写，即使系统并不识别他们的身份。示例：需要添加字幕的视频片段、在图片编辑器中打开的照片、粘贴到写作助手中的草稿。
+  - locale: zh-Hant
+    value: >-
+      照片、影片、錄音、文件、草稿，以及已發布的貼文或文章。系統接收這些內容，用來編輯、加上字幕、排序、翻譯、摘要或分析。這些內容可能拍到、錄下或引用可辨識身分的人，或由他們撰寫，即使系統並未辨識他們的身分。例如：要加上字幕的影片片段、在影像編輯軟體中開啟的照片、貼進寫作助理的草稿。
+  - locale: nl
+    value: >-
+      Foto's, video, geluidsopnamen, documenten, concepten en gepubliceerde berichten of artikelen.
+      Het systeem krijgt deze inhoud binnen om die te bewerken, te ondertitelen, te rangschikken, te
+      vertalen, samen te vatten of te analyseren. In de inhoud kunnen herkenbare mensen te zien of
+      te horen zijn of worden geciteerd, of ze kunnen hem hebben geschreven, ook als het systeem
+      niet vaststelt wie ze zijn. Voorbeelden: een videoclip die ondertiteld moet worden, een foto
+      in een fotobewerkingsprogramma, een concepttekst die in een schrijfassistent is geplakt.
+  - locale: de
+    value: >-
+      Fotos, Videos, Tonaufnahmen, Dokumente, Entwürfe sowie veröffentlichte Beiträge oder Artikel.
+      Das System nimmt diese Inhalte auf, um sie zu bearbeiten, zu untertiteln, zu ordnen, zu
+      übersetzen, zusammenzufassen oder zu analysieren. Die Inhalte können erkennbare Personen
+      zeigen, aufzeichnen oder zitieren oder von ihnen verfasst sein, auch wenn das System nicht
+      feststellt, wer sie sind. Beispiele: ein Videoclip, der untertitelt werden soll, ein Foto in
+      einem Bildbearbeitungsprogramm, ein Entwurf, der in einen Schreibassistenten eingefügt wurde.
+symbol_id: camera

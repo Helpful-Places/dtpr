@@ -1,0 +1,87 @@
+id: image_generation
+category_id: processing
+title:
+  - locale: en
+    value: Image Generation
+  - locale: fr
+    value: Génération d'images
+  - locale: es
+    value: Generación de imágenes
+  - locale: pt
+    value: Geração de imagens
+  - locale: fil
+    value: Paglikha ng larawan
+  - locale: km
+    value: ការបង្កើតរូបភាព
+  - locale: vi
+    value: Tạo sinh hình ảnh
+  - locale: zh-Hans
+    value: 图像生成
+  - locale: zh-Hant
+    value: 影像生成
+  - locale: nl
+    value: Beeldgeneratie
+  - locale: de
+    value: Bildgenerierung
+description:
+  - locale: en
+    value: >-
+      Techniques that create or alter images from a prompt or a selection — generating artwork,
+      filling in or removing parts of a photo, or extending a picture beyond its frame. Distinct
+      from Computer Vision, which interprets images rather than producing them, and from Language
+      Models, which work with text.
+  - locale: fr
+    value: >-
+      Techniques qui créent ou modifient des images à partir d'une consigne ou d'une sélection :
+      produire une illustration, compléter ou effacer une partie d'une photo, ou prolonger une image
+      au-delà de son cadre. À distinguer de Vision par ordinateur, qui interprète les images sans en
+      produire, et de Modèles de langage, qui travaillent sur du texte.
+  - locale: es
+    value: >-
+      Técnicas que crean o modifican imágenes a partir de una instrucción o de una selección —
+      generar ilustraciones, rellenar o borrar partes de una foto, o extender una imagen más allá de
+      su marco. Se distingue de Visión por computadora, que interpreta imágenes en lugar de
+      producirlas, y de Modelos de lenguaje, que trabajan con texto.
+  - locale: pt
+    value: >-
+      Técnicas que criam ou alteram imagens a partir de um comando ou de uma seleção — gerar
+      ilustrações, preencher ou apagar partes de uma foto, ou estender uma imagem além do seu
+      enquadramento. Diferente de Visão computacional, que interpreta imagens em vez de produzi-las,
+      e de Modelos de linguagem, que trabalham com texto.
+  - locale: fil
+    value: >-
+      Mga pamamaraang lumilikha o nagbabago ng mga larawan batay sa isang prompt o napiling bahagi —
+      paggawa ng likhang-sining, pagpupuno o pagbura ng bahagi ng litrato, o pagpapalawak ng larawan
+      lampas sa frame nito. Iba sa Computer vision, na umuunawa sa mga larawan sa halip na lumikha
+      ng mga ito, at sa Mga modelo ng wika, na gumagana sa teksto.
+  - locale: km
+    value: >-
+      បច្ចេកទេសដែលបង្កើត ឬកែប្រែរូបភាព ដោយផ្អែកលើពាក្យបញ្ជា ឬផ្នែកដែលបានជ្រើសរើស —
+      បង្កើតស្នាដៃសិល្បៈ, បំពេញ ឬលុបផ្នែកណាមួយនៃរូបថត, ឬពង្រីករូបភាពហួសពីស៊ុមរបស់វា។ ខុសពី
+      «ចក្ខុវិស័យកុំព្យូទ័រ» ដែលបកស្រាយរូបភាព ជាជាងបង្កើតរូបភាព និងពី «ម៉ូដែលភាសា»
+      ដែលធ្វើការជាមួយអត្ថបទ។
+  - locale: vi
+    value: >-
+      Các kỹ thuật tạo ra hoặc chỉnh sửa hình ảnh dựa trên một câu lệnh hoặc một vùng được chọn —
+      tạo tranh minh họa, lấp đầy hoặc xóa một phần bức ảnh, hay mở rộng hình ảnh ra ngoài khung.
+      Khác với Thị giác máy tính, vốn diễn giải hình ảnh chứ không tạo ra chúng, và với Mô hình ngôn
+      ngữ, vốn làm việc với văn bản.
+  - locale: zh-Hans
+    value: >-
+      根据提示词或选定区域创建或修改图像的技术——生成插画、填补或移除照片中的部分内容，或将画面扩展到原有边框之外。有别于“计算机视觉”，后者解读图像而不生成图像；也有别于“语言模型”，后者处理的是文本。
+  - locale: zh-Hant
+    value: >-
+      根據提示詞或選取範圍來建立或修改影像的技術，例如生成插圖、填補或移除照片中的局部，或將畫面延伸到原本的邊框之外。與「電腦視覺」不同，後者是解讀影像而非產生影像；也與「語言模型」不同，後者處理的是文字。
+  - locale: nl
+    value: >-
+      Technieken die beelden maken of aanpassen op basis van een opdracht of een selectie:
+      illustraties maken, een deel van een foto aanvullen of weghalen, of een beeld buiten de rand
+      doortrekken. Anders dan Beeldherkenning, dat beelden interpreteert in plaats van ze te maken,
+      en Taalmodellen, die met tekst werken.
+  - locale: de
+    value: >-
+      Verfahren, die Bilder anhand einer Eingabeaufforderung oder einer Auswahl erzeugen oder
+      verändern – Illustrationen erstellen, Teile eines Fotos ergänzen oder entfernen oder ein Bild
+      über seinen Rand hinaus erweitern. Im Unterschied zu „Maschinelles Sehen“, das Bilder
+      auswertet, statt sie zu erzeugen, und zu „Sprachmodelle“, die mit Text arbeiten.
+symbol_id: generated_content

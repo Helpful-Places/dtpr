@@ -1,0 +1,101 @@
+id: statistical_modeling
+category_id: processing
+title:
+  - locale: en
+    value: Statistical Modeling
+  - locale: fr
+    value: Modélisation statistique
+  - locale: es
+    value: Modelado estadístico
+  - locale: pt
+    value: Modelagem estatística
+  - locale: fil
+    value: Estadistikal na pagmomodelo
+  - locale: km
+    value: ការធ្វើគំរូស្ថិតិ
+  - locale: vi
+    value: Mô hình hóa thống kê
+  - locale: zh-Hans
+    value: 统计建模
+  - locale: zh-Hant
+    value: 統計建模
+  - locale: nl
+    value: Statistische modellering
+  - locale: de
+    value: Statistische Modellierung
+description:
+  - locale: en
+    value: >-
+      Techniques that weigh how likely different explanations of the data are, using a model of how
+      the data arise rather than one trained on past outcomes. Includes likelihood and Bayesian
+      methods — for example, working out whose DNA is in a mixed sample, or building a family tree
+      of pathogen strains from their genomes. Distinct from Classification & Prediction, which
+      learns from labeled historical data.
+  - locale: fr
+    value: >-
+      Techniques qui évaluent la probabilité de différentes explications des données, à l'aide d'un
+      modèle de la façon dont ces données se forment plutôt que d'un modèle entraîné sur des
+      résultats passés. Inclut les méthodes de vraisemblance et bayésiennes — par exemple,
+      déterminer à qui appartient l'ADN d'un échantillon mélangé, ou établir l'arbre généalogique
+      des souches d'un agent pathogène à partir de leurs génomes. À distinguer de Classification et
+      prédiction, qui apprend à partir de données historiques étiquetées.
+  - locale: es
+    value: >-
+      Técnicas que estiman qué tan probables son distintas explicaciones de los datos, usando un
+      modelo de cómo se generan esos datos en lugar de uno entrenado con resultados pasados. Incluye
+      métodos de verosimilitud y bayesianos — por ejemplo, determinar de quién es el ADN de una
+      muestra mezclada, o reconstruir el árbol genealógico de las cepas de un patógeno a partir de
+      sus genomas. Se distingue de Clasificación y predicción, que aprende de datos históricos
+      etiquetados.
+  - locale: pt
+    value: >-
+      Técnicas que avaliam quão prováveis são diferentes explicações para os dados, usando um modelo
+      de como os dados surgem em vez de um modelo treinado com resultados passados. Incluem métodos
+      de verossimilhança e bayesianos — por exemplo, descobrir de quem é o DNA em uma amostra
+      misturada, ou montar a árvore genealógica das cepas de um patógeno a partir de seus genomas.
+      Diferente de Classificação e previsão, que aprende com dados históricos rotulados.
+  - locale: fil
+    value: >-
+      Mga pamamaraang tumitimbang kung gaano kalamang ang iba't ibang paliwanag sa data, gamit ang
+      modelo ng kung paano nabubuo ang data sa halip na modelong sinanay sa mga nakaraang resulta.
+      Kasama ang mga pamamaraang likelihood at Bayesian — halimbawa, pagtukoy kung kanino ang DNA sa
+      isang halo-halong sample, o pagbuo ng family tree ng mga strain ng isang pathogen mula sa
+      kanilang mga genome. Iba sa Pag-uuri at paghula, na natututo mula sa may-tatak na nakaraang
+      data.
+  - locale: km
+    value: >-
+      បច្ចេកទេសដែលថ្លឹងថ្លែងថា ការពន្យល់ផ្សេងៗអំពីទិន្នន័យ មានលទ្ធភាពកើតឡើងប៉ុណ្ណា
+      ដោយប្រើគំរូអំពីរបៀបដែលទិន្នន័យកើតឡើង ជាជាងម៉ូដែលដែលបានបង្ហាត់លើលទ្ធផលពីមុន។ រួមមានវិធីសាស្ត្រ
+      likelihood និង Bayesian — ឧទាហរណ៍ ការកំណត់ថា DNA ក្នុងសំណាកលាយឡំជារបស់អ្នកណា
+      ឬការបង្កើតមែកធាងពង្សាវតារនៃពូជមេរោគពីហ្សែនរបស់វា។ ខុសពី «ការចាត់ថ្នាក់ និងការព្យាករណ៍»
+      ដែលរៀនពីទិន្នន័យអតីតកាលដែលបានដាក់ស្លាក។
+  - locale: vi
+    value: >-
+      Các kỹ thuật đánh giá mức độ khả dĩ của những cách giải thích khác nhau cho dữ liệu, dựa trên
+      một mô hình về cách dữ liệu hình thành thay vì một mô hình được huấn luyện từ các kết quả
+      trong quá khứ. Bao gồm các phương pháp dựa trên hàm hợp lý và phương pháp Bayes — ví dụ: xác
+      định ADN trong một mẫu hỗn hợp là của ai, hoặc dựng cây phả hệ của các chủng mầm bệnh từ bộ
+      gen của chúng. Khác với Phân loại và dự đoán, vốn học từ dữ liệu lịch sử đã gán nhãn.
+  - locale: zh-Hans
+    value: >-
+      依据数据如何产生的模型（而不是用过往结果训练的模型），权衡对数据的不同解释各有多大可能性的技术。包括似然方法和贝叶斯方法——例如，判断混合样本中的DNA属于谁，或根据基因组构建病原体各毒株的“家族树”。有别于“分类与预测”，后者从带标签的历史数据中学习。
+  - locale: zh-Hant
+    value: >-
+      根據資料如何產生的模型（而非以過往結果訓練的模型），衡量各種資料解釋可能性高低的技術。包括概似法與貝氏方法，例如判斷混合樣本中的DNA屬於誰，或根據基因體建立病原體各菌株的「族譜」。與「分類與預測」不同，後者是從已標記的歷史資料中學習。
+  - locale: nl
+    value: >-
+      Technieken die afwegen hoe waarschijnlijk verschillende verklaringen voor de gegevens zijn,
+      met een model van hoe de gegevens ontstaan in plaats van een model dat op eerdere uitkomsten
+      is getraind. Hieronder vallen likelihood- en bayesiaanse methoden, bijvoorbeeld bepalen van
+      wie het DNA in een gemengd monster is, of een stamboom van stammen van een ziekteverwekker
+      opstellen op basis van hun genomen. Anders dan Classificatie en voorspelling, dat leert van
+      gelabelde gegevens uit het verleden.
+  - locale: de
+    value: >-
+      Verfahren, die abwägen, wie wahrscheinlich verschiedene Erklärungen für die Daten sind –
+      mithilfe eines Modells, wie die Daten entstehen, statt eines Modells, das mit früheren
+      Ergebnissen trainiert wurde. Dazu gehören Likelihood- und Bayes-Verfahren, zum Beispiel
+      festzustellen, von wem die DNA in einer Mischprobe stammt, oder aus den Genomen einen
+      Stammbaum der Stämme eines Krankheitserregers zu erstellen. Im Unterschied zu „Klassifizierung
+      und Vorhersage“, das aus gekennzeichneten historischen Daten lernt.
+symbol_id: processing_statistical-modeling

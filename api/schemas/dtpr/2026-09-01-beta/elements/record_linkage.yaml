@@ -1,0 +1,100 @@
+id: record_linkage
+category_id: processing
+title:
+  - locale: en
+    value: Record Matching & Linkage
+  - locale: fr
+    value: Rapprochement d'enregistrements
+  - locale: es
+    value: Cotejo y vinculación de registros
+  - locale: pt
+    value: Pareamento e vinculação de registros
+  - locale: fil
+    value: Pagtutugma at pag-uugnay ng rekord
+  - locale: km
+    value: ការផ្គូផ្គង និងការភ្ជាប់កំណត់ត្រា
+  - locale: vi
+    value: Đối chiếu và liên kết hồ sơ
+  - locale: zh-Hans
+    value: 记录匹配与关联
+  - locale: zh-Hant
+    value: 紀錄比對與串接
+  - locale: nl
+    value: Records koppelen en matchen
+  - locale: de
+    value: Datensatzabgleich und -verknüpfung
+description:
+  - locale: en
+    value: >-
+      Techniques that work out which records in one or more datasets refer to the same person,
+      household, or place, using rules or statistical matching on names, addresses, and other
+      fields. Used to remove duplicate case records, build a combined resident file, or attach
+      contact details. A wrong match can merge two people or miss one, and the linked file can
+      reveal more than any single source.
+  - locale: fr
+    value: >-
+      Techniques qui déterminent quels enregistrements, dans un ou plusieurs jeux de données,
+      concernent la même personne, le même ménage ou le même lieu, à l'aide de règles ou d'un
+      appariement statistique sur les noms, les adresses et d'autres champs. Servent à supprimer les
+      doublons dans des dossiers, à constituer un fichier unifié de résidents ou à ajouter des
+      coordonnées. Une erreur d'appariement peut fusionner deux personnes ou en oublier une, et le
+      fichier relié peut révéler davantage que chaque source prise isolément.
+  - locale: es
+    value: >-
+      Técnicas que determinan qué registros de uno o varios conjuntos de datos corresponden a la
+      misma persona, hogar o lugar, mediante reglas o cotejo estadístico de nombres, direcciones y
+      otros campos. Se usan para eliminar expedientes duplicados, crear un archivo combinado de
+      residentes o añadir datos de contacto. Un cotejo erróneo puede fusionar a dos personas o dejar
+      fuera a alguien, y el archivo vinculado puede revelar más que cualquier fuente por separado.
+  - locale: pt
+    value: >-
+      Técnicas que identificam quais registros, em um ou mais conjuntos de dados, se referem à mesma
+      pessoa, domicílio ou lugar, usando regras ou pareamento estatístico de nomes, endereços e
+      outros campos. Usadas para eliminar registros duplicados, montar um cadastro unificado de
+      moradores ou acrescentar dados de contato. Um pareamento errado pode juntar duas pessoas ou
+      deixar alguém de fora, e o arquivo vinculado pode revelar mais do que qualquer fonte isolada.
+  - locale: fil
+    value: >-
+      Mga pamamaraang tumutukoy kung aling mga rekord sa isa o higit pang dataset ang tungkol sa
+      iisang tao, sambahayan, o lugar, gamit ang mga patakaran o estadistikal na pagtutugma ng
+      pangalan, address, at iba pang field. Ginagamit upang alisin ang mga dobleng rekord ng kaso,
+      bumuo ng pinagsamang listahan ng mga residente, o magdagdag ng contact details. Maaaring
+      mapagsama ng maling pagtutugma ang dalawang tao o may makaligtaan, at maaaring magbunyag ang
+      pinag-ugnay na file ng higit pa kaysa sa alinmang iisang pinagmulan.
+  - locale: km
+    value: >-
+      បច្ចេកទេសដែលកំណត់ថា កំណត់ត្រាណាខ្លះក្នុងសំណុំទិន្នន័យមួយ ឬច្រើន សំដៅលើមនុស្ស គ្រួសារ
+      ឬទីកន្លែងតែមួយ ដោយប្រើច្បាប់ ឬការផ្គូផ្គងតាមស្ថិតិលើឈ្មោះ អាសយដ្ឋាន និងវាលទិន្នន័យផ្សេងទៀត។
+      ប្រើដើម្បីលុបកំណត់ត្រាករណីដែលស្ទួន, បង្កើតឯកសាររួមនៃអ្នករស់នៅ, ឬបន្ថែមព័ត៌មានទំនាក់ទំនង។
+      ការផ្គូផ្គងខុសអាចបញ្ចូលមនុស្សពីរនាក់ជាមួយគ្នា ឬរំលងនរណាម្នាក់
+      ហើយឯកសារដែលបានភ្ជាប់អាចបង្ហាញព័ត៌មានច្រើនជាងប្រភពណាមួយតែឯង។
+  - locale: vi
+    value: >-
+      Các kỹ thuật xác định những bản ghi nào trong một hoặc nhiều bộ dữ liệu cùng nói về một người,
+      một hộ gia đình hay một địa điểm, bằng quy tắc hoặc đối chiếu thống kê trên tên, địa chỉ và
+      các trường khác. Được dùng để loại bỏ hồ sơ trùng lặp, lập một danh sách cư dân hợp nhất hoặc
+      bổ sung thông tin liên lạc. Đối chiếu sai có thể gộp hai người làm một hoặc bỏ sót một người,
+      và tệp đã liên kết có thể tiết lộ nhiều hơn bất kỳ nguồn riêng lẻ nào.
+  - locale: zh-Hans
+    value: >-
+      判断一个或多个数据集中哪些记录指向同一个人、家庭或地点的技术，依据规则或对姓名、地址等字段进行统计匹配。用于删除重复的个案记录、建立合并的居民档案或补充联系方式。匹配错误可能把两个人合并为一人，或漏掉某人；关联后的档案透露的信息也可能多于任何单一来源。
+  - locale: zh-Hant
+    value: >-
+      判斷一個或多個資料集中哪些紀錄屬於同一個人、家戶或地點的技術，依據規則或對姓名、地址等欄位進行統計比對。用於刪除重複的個案紀錄、建立整合的居民檔案，或補上聯絡資訊。比對錯誤可能把兩個人合併為一人，或漏掉某人；串接後的檔案也可能揭露比任何單一來源更多的資訊。
+  - locale: nl
+    value: >-
+      Technieken die bepalen welke records in een of meer gegevensbestanden over dezelfde persoon,
+      hetzelfde huishouden of dezelfde plek gaan, met regels of statistische vergelijking van namen,
+      adressen en andere velden. Gebruikt om dubbele dossiers te verwijderen, een samengevoegd
+      bestand van bewoners te maken of contactgegevens toe te voegen. Een verkeerde match kan twee
+      mensen samenvoegen of iemand missen, en het gekoppelde bestand kan meer onthullen dan elke
+      bron afzonderlijk.
+  - locale: de
+    value: >-
+      Verfahren, die feststellen, welche Datensätze in einem oder mehreren Datenbeständen dieselbe
+      Person, denselben Haushalt oder denselben Ort betreffen – anhand von Regeln oder statistischem
+      Abgleich von Namen, Adressen und anderen Feldern. Werden genutzt, um doppelte Fallakten zu
+      bereinigen, eine zusammengeführte Einwohnerdatei aufzubauen oder Kontaktdaten zu ergänzen. Ein
+      falscher Abgleich kann zwei Personen zusammenführen oder jemanden übersehen, und die
+      verknüpfte Datei kann mehr preisgeben als jede einzelne Quelle.
+symbol_id: dm_matching
