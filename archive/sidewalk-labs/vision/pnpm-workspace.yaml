@@ -1,0 +1,7 @@
+# Standalone root: this 2020 webpack 4 build keeps its own lockfile so its old
+# dependency tree never touches the monorepo's. The repo-root
+# pnpm-workspace.yaml does not list archive/, and this file stops pnpm from
+# walking up to it.
+allowBuilds:
+  # Optional macOS-only watcher pulled in by webpack 4; nothing needs it built.
+  fsevents: false

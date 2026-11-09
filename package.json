@@ -6,6 +6,7 @@
     "dev:api": "pnpm --filter ./api dev",
     "build:web": "pnpm --filter ./apps/web build",
     "build:canvas": "pnpm --filter ./prototypes/canvas build",
+    "build:archive": "./archive/sidewalk-labs/scripts/build.sh",
     "build:api": "pnpm --filter ./api build",
     "build:figma-plugin": "pnpm --filter ./figma-plugin build",
     "deploy:api": "pnpm --filter ./api deploy",

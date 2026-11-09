@@ -1,0 +1,27 @@
+{
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  "name": "dtpr-archive",
+  "account_id": "f978769622a3e15ad770688a80811aa8",
+  "main": "./src/worker.js",
+  "compatibility_date": "2026-09-01",
+  // The complete set of custom domains: one missing here is detached on the
+  // next deploy. A hostname with an ordinary DNS record (A, CNAME, ...) fails
+  // the deploy (error 100117); delete the record first, then deploy.
+  "routes": [
+    { "pattern": "vision.dtpr.io", "custom_domain": true },
+    { "pattern": "prototype.dtpr.io", "custom_domain": true },
+    { "pattern": "chatbot.dtpr.io", "custom_domain": true }
+  ],
+  // Keeps dtpr-archive.helpful-places.workers.dev up: it serves the landing
+  // page listing all three.
+  "workers_dev": true,
+  "assets": {
+    // Built by scripts/build.sh.
+    "directory": "./dist",
+    "binding": "ASSETS",
+    // Route every request through src/worker.js so the hostname picks the
+    // prototype before asset matching.
+    "run_worker_first": true
+  },
+  "observability": { "enabled": true }
+}

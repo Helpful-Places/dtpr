@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DTPR chatbot prototype (archived)</title>
+    <style>
+      body { font: 16px/1.5 system-ui, sans-serif; max-width: 40rem; margin: 3rem auto; padding: 0 1.25rem; color: #111; }
+      h1 { font-size: 1.5rem; }
+      li { margin-bottom: 0.5rem; }
+      a { color: #0b57d0; }
+      .note { background: #fff6d6; border: 1px solid #e6cf7a; padding: 0.75rem 1rem; border-radius: 6px; }
+    </style>
+  </head>
+  <body>
+    <!-- Added in 2026 when the prototype was archived; not part of the original. -->
+    <h1>DTPR chatbot prototype</h1>
+    <p>
+      A Sidewalk Labs experiment in answering questions about a place, a system, or a
+      single component through a conversational assistant. Each page below embeds
+      Google's Dialogflow Messenger, pointed at one agent and started on a different
+      intent, with the place or component identified by its record in the DTPR
+      Airtable base of the time.
+    </p>
+    <p class="note">
+      The Dialogflow agent (<code>f92d33ee-bfa0-4c27-9a5d-852381c861c2</code>) and its
+      Airtable-backed fulfillment were shut down with the Sidewalk Labs project.
+      The pages load and the chat window opens, but it cannot answer.
+    </p>
+    <ul>
+      <li><a href="place.html">Place</a> — the library: “Library Assistant”, starting on <code>learn-about-place</code>.</li>
+      <li><a href="system.html">System</a> — the sustainability system, starting on <code>learn-about-component</code>.</li>
+      <li><a href="component.html">Component</a> — the computer-vision mirror, starting on <code>learn-about-component</code>.</li>
+    </ul>
+    <p><a href="https://dtpr.io">dtpr.io</a></p>
+  </body>
+</html>

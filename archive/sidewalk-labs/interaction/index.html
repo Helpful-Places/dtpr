@@ -22,7 +22,7 @@
     />
     <link
       rel="stylesheet"
-      href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css"
+      href="lib/mdl-1.3.0/material.indigo-pink.min.css"
     />
     <script
       type="text/javascript"
@@ -32,7 +32,7 @@
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.min.js"
     ></script>
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script defer src="lib/mdl-1.3.0/material.min.js"></script>
     <script type="text/javascript" src="lib/kjua-0.4.0.min.js"></script>
 
     <!-- <script type="text/javascript" src="dtpr_taxonomy.js"></script> -->
@@ -192,7 +192,7 @@
         height: 48px;
         margin: 0 auto 8px auto;
         line-height: 48px;
-        background: url("../dtpr_icons/container/circle.svg") no-repeat center
+        background: url("dtpr_icons/container/circle.svg") no-repeat center
           center;
         background-size: 48px 48px;
       }
@@ -239,7 +239,7 @@
         margin: 16px;
       }
       .dtpr-chain-container {
-        background: url("../dtpr_icons/chain/middle.svg") no-repeat;
+        background: url("dtpr_icons/chain/middle.svg") no-repeat;
         width: 36px;
         height: 56px;
         margin-right: 20px;
@@ -256,7 +256,7 @@
         text-overflow: ellipsis;
         font-size: 14px;
         line-height: 56px;
-        background-image: url("../dtpr_icons/chain/middle.svg");
+        background-image: url("dtpr_icons/chain/middle.svg");
         background-repeat: no-repeat;
         background-position: 16px 0;
         height: 56px;
@@ -272,11 +272,11 @@
         text-overflow: ellipsis;
       }
       .mdl-list__item:first-child {
-        background-image: url("../dtpr_icons/chain/top.svg");
+        background-image: url("dtpr_icons/chain/top.svg");
       }
       .mdl-list__item:last-child,
       .mdl-list__item:nth-last-child(2) {
-        background-image: url("../dtpr_icons/chain/bottom.svg");
+        background-image: url("dtpr_icons/chain/bottom.svg");
       }
       .mdl-list__item.no-chain {
         background: none;
@@ -476,7 +476,7 @@
     <script id="hidden-template" type="text/x-custom-template">
       <li class="mdl-list__item" id="">
         <span class="mdl-list__item-primary-content">
-        <img class="dtpr-chain-icon" src="../dtpr_icons/container/hexagon.svg" width="36" height="36" alt="" />
+        <img class="dtpr-chain-icon" src="dtpr_icons/container/hexagon.svg" width="36" height="36" alt="" />
         <div class="dtpr-list-main">Title</div>
         </span>
         <div class="dtpr-list-sub">Subtitle</div>
@@ -502,7 +502,7 @@
             li = $(template);
             li.find(".dtpr-chain-icon").attr(
               "src",
-              "../dtpr_icons/" + iconName + ".svg"
+              "dtpr_icons/" + iconName + ".svg"
             );
             li.attr("id", n.id);
             li.addClass("no-chain");
@@ -524,7 +524,7 @@
         iconSrc = page["Icon Shortname"];
         $(".dtpr-header-icon .icon").attr(
           "src",
-          "../dtpr_icons/" + iconSrc + ".svg"
+          "dtpr_icons/" + iconSrc + ".svg"
         );
         $(".intro").text(page["Headline"]);
         // $("#intro-subtitle p").text(page["TaxonomyTable"] + ": " + page["Name"]);
@@ -563,16 +563,21 @@
 
         purposeBadge = data[page["Purpose"][0]];
         purposeImage =
-          "../dtpr_icons/" + purposeBadge["Icon Shortname"] + ".svg";
-        // purposeBlackImage = "../dtpr_icons/"+purposeBadge["Icon Shortname"].replace(/\//,"/black/")+".svg";
+          "dtpr_icons/" + purposeBadge["Icon Shortname"] + ".svg";
+        // purposeBlackImage = "dtpr_icons/"+purposeBadge["Icon Shortname"].replace(/\//,"/black/")+".svg";
         privacyBadge = data[page["Technology Type"][0]];
         privacyImage =
-          "../dtpr_icons/" + privacyBadge["Icon Shortname"] + ".svg";
+          "dtpr_icons/" + privacyBadge["Icon Shortname"] + ".svg";
         accountabilityBadge = data[page["Accountability"][0]];
-        accountabilityImage = accountabilityBadge["Logo"][0]["url"];
+        // Logos were Airtable attachment URLs, which expired in November 2022,
+        // and some records (CanTrack) never had one, which threw here. Use the
+        // record's DTPR icon instead, like the purpose and technology badges.
+        accountabilityImage = accountabilityBadge["Icon Shortname"]
+          ? "dtpr_icons/" + accountabilityBadge["Icon Shortname"] + ".svg"
+          : "";
         // accountabilityImage = (accountabilityBadge["Logo"] != undefined) ? accountabilityBadge["Logo"][0]["url"] : "";
         privacyTransparentImage =
-          "../dtpr_icons/" + privacyBadge["Icon Shortname"] + ".svg";
+          "dtpr_icons/" + privacyBadge["Icon Shortname"] + ".svg";
 
         $("#sign-purpose .icon-box").css(
           "background-image",
@@ -595,12 +600,12 @@
         } else if (privacyBadge["Icon Shortname"].search(/yellow/) != -1) {
           $("#sign-privacy .sign-hex").attr(
             "src",
-            "../dtpr_icons/container/yellow/hexagon.svg"
+            "dtpr_icons/container/yellow/hexagon.svg"
           );
         } else if (privacyBadge["Icon Shortname"].search(/blue/) != -1) {
           $("#sign-privacy .sign-hex").attr(
             "src",
-            "../dtpr_icons/container/blue/hexagon.svg"
+            "dtpr_icons/container/blue/hexagon.svg"
           );
         }
 
@@ -627,8 +632,10 @@
         $("#badge_privacy").attr("data-id", privacyBadge.id);
         $("#badge_accountability").attr("data-id", accountabilityBadge.id);
 
+        // Was https://dtpr.sidewalklabs.com/dtpr_prototype/, which no longer
+        // resolves. Point the QR code at wherever this page is served.
         var dtpr_baseurl =
-          "https://dtpr.sidewalklabs.com/dtpr_prototype/?technology=";
+          window.location.origin + window.location.pathname + "?technology=";
         var params = new URLSearchParams(window.location.search);
         var techologyIndex = params.get("technology");
         var el = kjua({ text: dtpr_baseurl + techologyIndex });
@@ -692,7 +699,7 @@
           li.find(".dtpr-list-sub").html(n["tableName"]);
           li.find(".dtpr-chain-icon").attr(
             "src",
-            "../dtpr_icons/" + n["Icon Shortname"] + ".svg"
+            "dtpr_icons/" + n["Icon Shortname"] + ".svg"
           );
 
           var desc = $('<li class="dtpr-list-description"><p></p></li>');
@@ -846,7 +853,7 @@
           <div class="icon-box"><div class="icon-label">Test Label</div></div>
           <img
             class="sign-hex"
-            src="../dtpr_icons/container/black/hexagon.svg"
+            src="dtpr_icons/container/black/hexagon.svg"
           />
         </div>
         <div class="sign-logo-qrcode">
@@ -854,7 +861,7 @@
             <div class="icon-box"><div class="icon-label">Test Label</div></div>
             <img
               class="sign-hex"
-              src="../dtpr_icons/container/white/hexagon.svg"
+              src="dtpr_icons/container/white/hexagon.svg"
             />
           </div>
           <div id="sign-qrcode">
@@ -863,7 +870,7 @@
             </div>
             <img
               class="sign-hex"
-              src="../dtpr_icons/container/white/hexagon.svg"
+              src="dtpr_icons/container/white/hexagon.svg"
             />
           </div>
         </div>
@@ -871,7 +878,7 @@
           <div class="icon-box"><div class="icon-label">Test Label</div></div>
           <img
             class="sign-hex"
-            src="../dtpr_icons/container/yellow/hexagon.svg"
+            src="dtpr_icons/container/yellow/hexagon.svg"
           />
         </div>
       </div>
@@ -912,7 +919,7 @@
           <div class="mdl-layout-spacer"></div>
           <button class="hex-button dtpr-button mdl-button mdl-js-button">
             <img
-              src="../dtpr_icons/container/black/hexagon.svg"
+              src="dtpr_icons/container/black/hexagon.svg"
               width="16"
               height="16"
               alt=""
@@ -933,14 +940,14 @@
           <div class="dtpr-header-icon">
             <img
               class="icon"
-              src="../dtpr_icons/container/hexagon.svg"
+              src="dtpr_icons/container/hexagon.svg"
               width="96"
               height="96"
               alt=""
             />
             <img
               class="line"
-              src="../dtpr_icons/chain/line.svg"
+              src="dtpr_icons/chain/line.svg"
               width="36"
               alt=""
             />
